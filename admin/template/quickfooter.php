@@ -19,25 +19,25 @@
   <?php } ?>
 </script>
 
-<?php if ($jkv["adv_editor"]) { ?>
+<?php if ($setting["adv_editor"]) { ?>
   <script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
     /* ACE Editor
      ========================================= */
     var htmlelACE = ace.edit("htmleditorlight");
-    htmlelACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
+    htmlelACE.setTheme("ace/theme/<?php echo $setting["acetheme"]; ?>");
     htmlelACE.session.setUseWrapMode(true);
     htmlelACE.session.setWrapLimitRange();
     htmlelACE.setOptions({
       // session options
       mode: "ace/mode/html",
-      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      tabSize: <?php echo $setting["acetabSize"]; ?>,
       useSoftTabs: true,
-      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
       // renderer options
-      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-      showGutter: <?php echo $jkv["acegutter"]; ?>,
+      showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
+      showGutter: <?php echo $setting["acegutter"]; ?>,
     });
 
     texthtmlel = $("#envo_editor_light").val();
@@ -62,7 +62,7 @@
     });
   </script>
 <?php }
-if (!$jkv["adv_editor"]) { ?>
+if (!$setting["adv_editor"]) { ?>
   <script type="text/javascript" src="../assets/plugins/tinymce/tinymce.min.js"></script>
   <?php include_once('assets/js/tiny.editor.php');
 } ?>

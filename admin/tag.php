@@ -285,8 +285,8 @@ switch ($page1) {
 
             $tags                 = new ENVO_paginator;
             $tags->items_total    = $getTotal;
-            $tags->mid_range      = $jkv["adminpagemid"];
-            $tags->items_per_page = $jkv["adminpageitem"];
+            $tags->mid_range      = $setting["adminpagemid"];
+            $tags->items_per_page = $setting["adminpageitem"];
             $tags->envo_get_page   = $page4;
             $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
             $tags->paginate();
@@ -308,8 +308,8 @@ switch ($page1) {
 
             $tags                 = new ENVO_paginator;
             $tags->items_total    = $getTotal;
-            $tags->mid_range      = $jkv["adminpagemid"];
-            $tags->items_per_page = $jkv["adminpageitem"];
+            $tags->mid_range      = $setting["adminpagemid"];
+            $tags->items_per_page = $setting["adminpageitem"];
             $tags->envo_get_page   = $page4;
             $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
             $tags->paginate();
@@ -380,8 +380,8 @@ switch ($page1) {
         if ($getTotal != 0) {
           $tags                 = new ENVO_paginator;
           $tags->items_total    = $getTotal;
-          $tags->mid_range      = $jkv["adminpagemid"];
-          $tags->items_per_page = $jkv["adminpageitem"];
+          $tags->mid_range      = $setting["adminpagemid"];
+          $tags->items_per_page = $setting["adminpageitem"];
           $tags->envo_get_page   = $page1;
           $tags->envo_where      = 'index.php?p=tags';
           $tags->paginate();

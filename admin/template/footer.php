@@ -12,7 +12,7 @@
           <span class="hint-text">All rights reserved.</span>
         </p>
         <p class="small no-margin pull-right sm-pull-reset">
-          <?php echo sprintf($tl["hf_text"]["hftxt"], $jkv["version"]); ?>
+          <?php echo sprintf($tl["hf_text"]["hftxt"], $setting["version"]); ?>
           <span class="hint-text">&amp; Made with Love</span>
         </p>
         <div class="clearfix"></div>
@@ -115,7 +115,7 @@ if ($site_language = 'cs') {
 <!-- BEGIN JS FUNCTION -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('../assets/js/functions.js?=' . $jkv["updatetime"]);
+echo $Html->addScript('../assets/js/functions.js?=' . $setting["updatetime"]);
 // Setting variable for Jquery external script files
 echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
 ?>
@@ -192,7 +192,7 @@ if (!empty($page)) {
 
 // JS pages for Template Settings
 if ($page == 'template' && $page1 == 'settings') {
-  $jscodeFile = APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/' . ENVO_TEMPLATE . '.templatesettings.php';
+  $jscodeFile = APP_PATH . 'template/' . ENVO_TEMPLATE . '/js/' . ENVO_TEMPLATE . '.templatesettings.php';
   if (file_exists($jscodeFile)) {
     include_once($jscodeFile);
   } else {
@@ -251,7 +251,7 @@ if (isset($_SESSION["warningmsg"])) { ?>
     }, {type: 'warning'});
   </script>
 <?php }
-if ($ENVO_PROVED && !isset($jkv["cms_tpl"])) { ?>
+if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
   <script>
     // Notification
     $.notify({
@@ -272,7 +272,7 @@ if ($ENVO_PROVED && !isset($jkv["cms_tpl"])) { ?>
 <?php } ?>
 
 <!-- BEGIN TINYMCE EDITOR -->
-<?php if ($ENVO_PROVED && (!$jkv["adv_editor"])) {
+<?php if ($ENVO_PROVED && (!$setting["adv_editor"])) {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
   include_once('assets/js/tiny.editor.php');

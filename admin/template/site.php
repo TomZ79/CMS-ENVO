@@ -88,12 +88,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('envo_online', '1', ($jkv["offline"] == '1') ? TRUE : FALSE, 'envo_online1');
+                      echo $Html->addRadio('envo_online', '1', ($setting["offline"] == '1') ? TRUE : FALSE, 'envo_online1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                       echo $Html->addLabel('envo_online1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('envo_online', '0', ($jkv["offline"] == '0') ? TRUE : FALSE, 'envo_online2');
+                      echo $Html->addRadio('envo_online', '0', ($setting["offline"] == '0') ? TRUE : FALSE, 'envo_online2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                       echo $Html->addLabel('envo_online2', $tl["checkbox"]["chk1"]);
                       ?>
@@ -118,12 +118,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ($jkv["offline_page"] == 0) ? TRUE : FALSE;
+                      $selected = ($setting["offline_page"] == 0) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["selection"]["sel"], $selected);
                       if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $c) {
                         if ($c["pluginid"] == '0' && $c["pageid"] > '0') {
-                          echo $Html->addOption($c["id"], $c["name"], ($jkv["offline_page"] == $c["id"]) ? TRUE : FALSE);
+                          echo $Html->addOption($c["id"], $c["name"], ($setting["offline_page"] == $c["id"]) ? TRUE : FALSE);
                         }
                       }
                       ?>
@@ -147,12 +147,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ($jkv["notfound_page"] == 0) ? TRUE : FALSE;
+                      $selected = ($setting["notfound_page"] == 0) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["selection"]["sel"], $selected);
                       if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $nf) {
                         if ($nf["pluginid"] == '0' && $nf["pageid"] > '0') {
-                          echo $Html->addOption($nf["id"], $nf["name"], ($jkv["notfound_page"] == $nf["id"]) ? TRUE : FALSE);
+                          echo $Html->addOption($nf["id"], $nf["name"], ($setting["notfound_page"] == $nf["id"]) ? TRUE : FALSE);
                         }
                       }
                       ?>
@@ -201,7 +201,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_title', $jkv["title"], 'sitetitle', 'form-control');
+                      echo $Html->addInput('text', 'envo_title', $setting["title"], 'sitetitle', 'form-control');
                       ?>
 
                     </div>
@@ -214,7 +214,7 @@ if ($errors) { ?>
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc4"] . '</strong>');
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('envo_description', $jkv["metadesc"], '3', '', array('id' => 'metadesc', 'class' => 'form-control'));
+                    echo $Html->addTextarea('envo_description', $setting["metadesc"], '3', '', array('id' => 'metadesc', 'class' => 'form-control'));
                     ?>
 
                   </div>
@@ -226,7 +226,7 @@ if ($errors) { ?>
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc5"] . '</strong>');
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_keywords', $jkv["metakey"], 'metakey', 'form-control');
+                    echo $Html->addInput('text', 'envo_keywords', $setting["metakey"], 'metakey', 'form-control');
                     ?>
 
                   </div>
@@ -244,7 +244,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_author', $jkv["metaauthor"], 'metaauthor', 'form-control');
+                    echo $Html->addInput('text', 'envo_author', $setting["metaauthor"], 'metaauthor', 'form-control');
                     ?>
 
                   </div>
@@ -263,12 +263,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('envo_robots', '1', ($jkv["robots"] == '1') ? TRUE : FALSE, 'envo_robots1');
+                      echo $Html->addRadio('envo_robots', '1', ($setting["robots"] == '1') ? TRUE : FALSE, 'envo_robots1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                       echo $Html->addLabel('envo_robots1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('envo_robots', '0', ($jkv["robots"] == '0') ? TRUE : FALSE, 'envo_robots2');
+                      echo $Html->addRadio('envo_robots', '0', ($setting["robots"] == '0') ? TRUE : FALSE, 'envo_robots2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                       echo $Html->addLabel('envo_robots2', $tl["checkbox"]["chk1"]);
                       ?>
@@ -289,7 +289,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('envo_copy', envo_edit_safe_userpost($jkv["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
+                    echo $Html->addTextarea('envo_copy', envo_edit_safe_userpost($setting["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
                     ?>
 
                   </div>

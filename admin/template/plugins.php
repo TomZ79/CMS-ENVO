@@ -215,7 +215,7 @@ if ($page1 == "e") { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_generala', $jkv["accessgeneral"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_generala', $setting["accessgeneral"], '', 'form-control');
                     ?>
 
                   </div>
@@ -233,7 +233,7 @@ if ($page1 == "e") { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_managea', $jkv["accessmanage"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_managea', $setting["accessmanage"], '', 'form-control');
                     ?>
 
                   </div>

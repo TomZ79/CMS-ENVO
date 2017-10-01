@@ -1,6 +1,6 @@
 <?php
 
-if ($jkv["adv_editor"]) {
+if ($setting["adv_editor"]) {
 
   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
   echo $Html->addDiv('', 'htmleditorlight');

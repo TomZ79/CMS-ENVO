@@ -168,12 +168,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_search', '1', ($jkv["searchform"] == '1') ? TRUE : FALSE, 'envo_search1');
+                          echo $Html->addRadio('envo_search', '1', ($setting["searchform"] == '1') ? TRUE : FALSE, 'envo_search1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_search1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_search', '0', ($jkv["searchform"] == '0') ? TRUE : FALSE, 'envo_search2');
+                          echo $Html->addRadio('envo_search', '0', ($setting["searchform"] == '0') ? TRUE : FALSE, 'envo_search2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_search2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -195,12 +195,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_ajaxsearch', '1', ($jkv["ajaxsearch"] == '1') ? TRUE : FALSE, 'envo_ajaxsearch1');
+                          echo $Html->addRadio('envo_ajaxsearch', '1', ($setting["ajaxsearch"] == '1') ? TRUE : FALSE, 'envo_ajaxsearch1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_ajaxsearch1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_ajaxsearch', '0', ($jkv["ajaxsearch"] == '0') ? TRUE : FALSE, 'envo_ajaxsearch2');
+                          echo $Html->addRadio('envo_ajaxsearch', '0', ($setting["ajaxsearch"] == '0') ? TRUE : FALSE, 'envo_ajaxsearch2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_ajaxsearch2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -222,12 +222,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_fullsearch', '1', ($jkv["fulltextsearch"] == '1') ? TRUE : FALSE, 'envo_fullsearch1');
+                          echo $Html->addRadio('envo_fullsearch', '1', ($setting["fulltextsearch"] == '1') ? TRUE : FALSE, 'envo_fullsearch1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_fullsearch1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_fullsearch', '0', ($jkv["fulltextsearch"] == '0') ? TRUE : FALSE, 'envo_fullsearch2');
+                          echo $Html->addRadio('envo_fullsearch', '0', ($setting["fulltextsearch"] == '0') ? TRUE : FALSE, 'envo_fullsearch2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_fullsearch2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -236,7 +236,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('hidden', 'envo_fullsearchold', $jkv["fulltextsearch"], '', '');
+                        echo $Html->addInput('hidden', 'envo_fullsearchold', $setting["fulltextsearch"], '', '');
                         ?>
 
                       </div>

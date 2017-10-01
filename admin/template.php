@@ -163,7 +163,7 @@ switch ($page1) {
 
     }
 
-    if (isset($jkv["cms_tpl"])) {
+    if (isset($setting["cms_tpl"])) {
 
     }
 
@@ -172,7 +172,7 @@ switch ($page1) {
     $ROOT_DIR = $cssdir;
 
     // Check if template is installed
-    if (isset($jkv["cms_tpl"])) {
+    if (isset($setting["cms_tpl"])) {
       // Check if folder is writable
       if (!is_writable($cssdir)) {
         $ENVO_FILE_ERROR = 1;
@@ -242,7 +242,7 @@ switch ($page1) {
     $ROOT_DIR = $langdir;
 
     // Check if template is installed
-    if (isset($jkv["cms_tpl"])) {
+    if (isset($setting["cms_tpl"])) {
       // Check if folder is writable
       if (!is_writable($langdir)) {
         $ENVO_FILE_ERROR = 1;
@@ -312,7 +312,7 @@ switch ($page1) {
     $ROOT_DIR = $filedir;
 
     // Check if template is installed
-    if (isset($jkv["cms_tpl"])) {
+    if (isset($setting["cms_tpl"])) {
       // Check if folder is writable
       if (!is_writable($filedir)) {
         $ENVO_FILE_ERROR = 1;

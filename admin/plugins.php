@@ -199,8 +199,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page2;
           $pages->envo_where      = 'index.php?p=plugins&sp=hooks';
           $pages->paginate();

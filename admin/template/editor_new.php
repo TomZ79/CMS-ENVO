@@ -11,7 +11,7 @@
     <table class="table">
       <tr>
         <td>
-          <?php if ($jkv["adv_editor"]) { ?>
+          <?php if ($setting["adv_editor"]) { ?>
             <div id="cover">
               <div class="cover-header">
 

@@ -245,7 +245,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = file_get_contents('template/template_email/setting_testemail.html');
 
     // Replace the % with the actual information
-    $message = str_replace('%version%', $jkv["version"], $message);
+    $message = str_replace('%version%', $setting["version"], $message);
     $message = str_replace('%baseurllink%', BASE_URL_ADMIN, $message);
 
     $mail = new PHPMailer(TRUE); // the true param means it will throw exceptions on errors, which we need to catch
@@ -260,16 +260,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       try {
         $mail->IsSMTP(); // telling the class to use SMTP
-        $mail->Host          = $jkv["smtp_host"];
-        $mail->SMTPAuth      = ($jkv["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-        $mail->SMTPSecure    = $jkv["smtp_prefix"]; // sets the prefix to the server
-        $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-        $mail->Port          = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-        $mail->Username      = $jkv["smtp_user"]; // SMTP account username
-        $mail->Password      = $jkv["smtp_password"];        // SMTP account password
-        $mail->SetFrom($jkv["email"], $jkv["title"]);
-        $mail->AddReplyTo($jkv["email"], $jkv["title"]);
-        $mail->AddAddress($jkv["email"], $jkv["title"]);
+        $mail->Host          = $setting["smtp_host"];
+        $mail->SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+        $mail->SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
+        $mail->SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+        $mail->Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+        $mail->Username      = $setting["smtp_user"]; // SMTP account username
+        $mail->Password      = $setting["smtp_password"];        // SMTP account password
+        $mail->SetFrom($setting["email"], $setting["title"]);
+        $mail->AddReplyTo($setting["email"], $setting["title"]);
+        $mail->AddAddress($setting["email"], $setting["title"]);
         $mail->AltBody = "SMTP Mail"; // optional, comment out and test
         $mail->Subject = $tl["email_text_message"]["emailm2"];
         $mail->MsgHTML(sprintf($tl["email_text_message"]["emailm3"], 'SMTP'));
@@ -289,9 +289,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $message = str_replace('%protocol%', 'PHP Mail()', $message);
 
       try {
-        $mail->SetFrom($jkv["email"], $jkv["title"]);
-        $mail->AddReplyTo($jkv["email"], $jkv["title"]);
-        $mail->AddAddress($jkv["email"], $jkv["title"]);
+        $mail->SetFrom($setting["email"], $setting["title"]);
+        $mail->AddReplyTo($setting["email"], $setting["title"]);
+        $mail->AddAddress($setting["email"], $setting["title"]);
         // Set the subject
         $mail->Subject = $tl["email_text_message"]["emailm2"];
         //Set the message

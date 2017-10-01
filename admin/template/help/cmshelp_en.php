@@ -2943,8 +2943,8 @@ if ($page == 'rf_ual') {
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-if (file_exists(APP_PATH.'plugins/yourplugin/lang/'.$jkv["lang"].'.ini')) {
-  $tlt = parse_ini_file(APP_PATH.'plugins/yourplugin/lang/'.$jkv["lang"].'.ini', true);
+if (file_exists(APP_PATH.'plugins/yourplugin/lang/'.$setting["lang"].'.ini')) {
+  $tlt = parse_ini_file(APP_PATH.'plugins/yourplugin/lang/'.$setting["lang"].'.ini', true);
 } else {
   $tlt = parse_ini_file(APP_PATH.'plugins/yourplugin/lang/en.ini', true);
 }
@@ -3045,8 +3045,8 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-if (file_exists(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini')) {
-  $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini', true);
+if (file_exists(APP_PATH.'plugins/yourplugin../assets/lang/'.$setting["lang"].'.ini')) {
+  $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/'.$setting["lang"].'.ini', true);
 } else {
   $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/en.ini', true);
 }

@@ -86,7 +86,7 @@ if ($page1 == "e") { ?>
     <div class="row">
       <?php if (isset($site_style_files) && is_array($site_style_files)) foreach ($site_style_files as $l) {
 
-        if (isset($jkv["cms_tpl"])) {
+        if (isset($setting["cms_tpl"])) {
           $template_addon = true;
         } else {
           $template_addon = false;
@@ -132,7 +132,7 @@ if ($page1 == "e") { ?>
                 if (ENVO_TEMPLATE != $l && !$template_addon) {
 
                   // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                  echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm m-r-5');
+                  echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm m-r-5', array('data-loading-text' => $tl["button"]["btn41"]));
 
                   if (file_exists('../template/' . $l . '/help.php')) {
 
@@ -156,7 +156,7 @@ if ($page1 == "e") { ?>
                   if (file_exists('../template/' . $l . '/styleswitcher.php')) {
 
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($jkv["styleswitcher_tpl"]) ? 'success' : 'default') . ' btn-sm m-r-5');
+                    echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($setting["styleswitcher_tpl"]) ? 'success' : 'default') . ' btn-sm m-r-5');
 
                   }
 

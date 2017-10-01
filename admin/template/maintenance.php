@@ -90,7 +90,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-12"><?php echo sprintf($tl["mtn_box_content"]["mtnbc3"], $jkv["version"]); ?></div>
+                  <div class="col-md-12"><?php echo sprintf($tl["mtn_box_content"]["mtnbc3"], $setting["version"]); ?></div>
                 </div>
                 <div class="row-form">
                   <div class="col-md-12">
