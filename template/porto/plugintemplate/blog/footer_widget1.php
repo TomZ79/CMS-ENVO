@@ -2,7 +2,7 @@
 
 if (ENVO_PLUGIN_ACCESS_BLOG) {
 
-  $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $jkv["blogurl"]);
+  $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $setting["blogurl"]);
 
   if ($ENVO_BLOG_CAT) { ?>
 

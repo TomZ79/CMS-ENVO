@@ -86,7 +86,7 @@
                     ?>
                   </p>
                   <p class="no-mb">
-                    <?php echo envo_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?>
+                    <?php echo envo_cut_text($v['content'], $setting["blogshortmsg"], '....') ?>
                   </p>
                   <p class="no-mb pull-right">
                     <a href="<?php echo $v["parseurl"]; ?>">

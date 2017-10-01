@@ -22,13 +22,13 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <meta charset="utf-8">
   <!-- Document Title
   ============================================= -->
-  <title><?php echo $jkv["title"];
-    if ($jkv["title"]) { ?> &raquo; <?php }
+  <title><?php echo $setting["title"];
+    if ($setting["title"]) { ?> &raquo; <?php }
     echo $PAGE_TITLE; ?></title>
 
   <meta name="keywords" content="<?php echo trim($PAGE_KEYWORDS); ?>">
   <meta name="description" content="<?php echo trim($PAGE_DESCRIPTION); ?>">
-  <meta name="author" content="<?php echo $jkv["metaauthor"]; ?>">
+  <meta name="author" content="<?php echo $setting["metaauthor"]; ?>">
 
   <!-- Share Social Network
   ============================================= -->
@@ -75,14 +75,15 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- CSS and FONTS
   ================================================== -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" media="none" onload="if(media!='all')media='all'">
   <!-- Fontawesome icon -->
-  <link rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0">
-  <link rel="stylesheet" href="/assets/plugins/bootstrap-table-master/dist/bootstrap-table.min.css">
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0" media="none" onload="if(media!='all')media='all'">
   <!-- Simple icon -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/simple-line-icons/css/simple-line-icons.min.css?=v2.4.0">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/bootstrap/css/bootstrap.min.css?=v3.3.7">
+  <!-- Bootstrap Table -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap-table-master/dist/bootstrap-table.min.css">
   <!-- Animate -->
   <link rel="stylesheet" href="/assets/plugins/animate/animate.min.css?=v3.5.1">
   <!-- OWL Carousel -->
@@ -175,18 +176,18 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                 ?>
 
 
-                <?php if ($jkv["sitemapShow_porto_tpl"] == 1) { ?>
+                <?php if ($setting["sitemapShow_porto_tpl"] == 1) { ?>
                   <li>
-                    <a href="/<?php echo $jkv["sitemapLinks_porto_tpl"]; ?>"><?php echo $tlporto["header_text"]["ht"]; ?></a>
+                    <a href="/<?php echo $setting["sitemapLinks_porto_tpl"]; ?>"><?php echo $tlporto["header_text"]["ht"]; ?></a>
                   </li>
                 <?php }
-                if ($jkv["loginShow_porto_tpl"] == 1) {
+                if ($setting["loginShow_porto_tpl"] == 1) {
                   if (!ENVO_USERID) { ?>
                     <li>
                       <a href="/login" id="login">
                         <?php
                         // If Register Form is Active (installed) or Not Active (not installed)
-                        if ($jkv["rf_active"]) {
+                        if ($setting["rf_active"]) {
                           echo $tlporto["header_text"]["ht1"] . ' / ' . $tlporto["header_text"]["ht4"];
                         } else {
                           echo $tlporto["header_text"]["ht1"];
@@ -212,29 +213,29 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             </div>
             <ul class="header-social-icons social-icons social-icons-transparent social-icons-icon-light pull-right ml-xs mt-xs hidden-xs">
 
-              <?php if ($jkv["facebookheaderShow_porto_tpl"] == 1) { ?>
+              <?php if ($setting["facebookheaderShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-facebook">
-                  <a href="<?php echo $jkv["facebookheaderLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="<?php echo $setting["facebookheaderLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
                 </li>
               <?php }
-              if ($jkv["twitterheaderShow_porto_tpl"] == 1) { ?>
+              if ($setting["twitterheaderShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-twitter">
-                  <a href="<?php echo $jkv["twitterheaderLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="<?php echo $setting["twitterheaderLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
                 </li>
               <?php }
-              if ($jkv["googleheaderShow_porto_tpl"] == 1) { ?>
+              if ($setting["googleheaderShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-googleplus">
-                  <a href="<?php echo $jkv["googleheaderLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                  <a href="<?php echo $setting["googleheaderLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
                 </li>
               <?php }
-              if ($jkv["instagramheaderShow_porto_tpl"] == 1) { ?>
+              if ($setting["instagramheaderShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-instagram">
-                  <a href="<?php echo $jkv["instagramheaderLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="<?php echo $setting["instagramheaderLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
                 </li>
               <?php }
-              if ($jkv["emailheaderShow_porto_tpl"] == 1) { ?>
+              if ($setting["emailheaderShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-email">
-                  <a href="mailto:<?php echo envo_encode_email($jkv["emailheaderLinks_porto_tpl"]); ?>" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
+                  <a href="mailto:<?php echo envo_encode_email($setting["emailheaderLinks_porto_tpl"]); ?>" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
                 </li>
               <?php } ?>
 
@@ -242,9 +243,9 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             <p class="pull-right text-color-light">
             <span class="mr-xs">
 
-              <?php if ($jkv["phoneheaderShow_porto_tpl"] == 1) { ?>
+              <?php if ($setting["phoneheaderShow_porto_tpl"] == 1) { ?>
                 <i class="icon-call-end icons mr-xs"></i>
-                <a class="phone" href="tel:<?php echo $jkv["phoneheaderLinks_porto_tpl"]; ?>" target="_blank"><?php echo $jkv["phoneheaderLinks_porto_tpl"]; ?></a>
+                <a class="phone" href="tel:<?php echo $setting["phoneheaderLinks_porto_tpl"]; ?>" target="_blank"><?php echo $setting["phoneheaderLinks_porto_tpl"]; ?></a>
               <?php } ?>
 
             </span>
@@ -256,7 +257,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             <div class="header-column">
               <div class="header-logo">
                 <a href="<?php echo BASE_URL; ?>">
-                  <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $jkv["title"]; ?>" height="48" src="<?php echo $jkv["logo1_porto_tpl"]; ?>">
+                  <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $setting["title"]; ?>" height="48" src="<?php echo $setting["logo1_porto_tpl"]; ?>">
                 </a>
               </div>
             </div>
@@ -299,7 +300,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <?php if ($ENVO_SHOW_NAVBAR) {
 
       /* GRID SYSTEM FOR DIFFERENT PAGE - hide page title */
-      if (!$page || empty($page) || ($page == 'offline') || (!$jkv["searchform"] || !ENVO_USER_SEARCH)) {
+      if (!$page || empty($page) || ($page == 'offline') || (!$setting["searchform"] || !ENVO_USER_SEARCH)) {
         // Code for homepage and other blank page
 
       }
@@ -513,7 +514,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
         echo '<div class="row">';
 
         // Sidebar if left
-        if (!empty($ENVO_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") {
+        if (!empty($ENVO_HOOK_SIDE_GRID) && $setting["sidebar_location_tpl"] == "left") {
           include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
         }
 

@@ -2,7 +2,7 @@
 
 <?php if (!ENVO_USERID) { ?>
 
-  <?php if ($jkv["rf_active"] && !ENVO_USERID) { ?>
+  <?php if ($setting["rf_active"] && !ENVO_USERID) { ?>
     <div class="col-md-6">
       <div class="featured-boxes register">
         <div class="col-xs-12 col-sm-12">
@@ -27,7 +27,7 @@
               <?php } else if (isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] == 1) { ?>
 
                 <div class="alert alert-tertiary">
-                  <?php echo $jkv["rf_welcome"]; ?>
+                  <?php echo $setting["rf_welcome"]; ?>
                 </div>
 
               <?php } if (!isset($_SESSION["rf_msg_sent"]) || isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] != 1) { ?>
@@ -36,7 +36,7 @@
                 <?php echo $tl["lform_text"]["lformt9"]; ?>
               </h4>
               <form method="post" class="cFrom" id="registerForm" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
-                <?php if ($jkv["rf_simple"]) { ?>
+                <?php if ($setting["rf_simple"]) { ?>
                   <div class="row">
                     <div class="form-group <?php if (isset($errorsC["e3"])) echo " has-error"; ?>">
                       <div class="col-md-12">
@@ -60,7 +60,7 @@
                   </div>
                   <?php
 
-                  if (!ENVO_USERID && $jkv["hvm"] && isset($_SESSION['envo_captcha'])) {
+                  if (!ENVO_USERID && $setting["hvm"] && isset($_SESSION['envo_captcha'])) {
                     if (!isset($_SESSION["rf_msg_sent"]) || isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] != 1) {
 
                       // Create Captcha verification code
@@ -129,7 +129,7 @@
     </div>
   <?php } ?>
 
-  <div class="<?php echo (!$jkv["rf_active"]) ? 'col-md-6 col-md-offset-3' : 'col-md-6'; ?>">
+  <div class="<?php echo (!$setting["rf_active"]) ? 'col-md-6 col-md-offset-3' : 'col-md-6'; ?>">
     <div class="featured-boxes loginF">
       <div class="col-xs-12 col-sm-12">
         <div class="featured-box featured-box-primary align-left mt-xlg">

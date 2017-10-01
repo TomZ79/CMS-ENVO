@@ -7,11 +7,11 @@
 <?php } else {
   // Set link value for page editing
 	if (ENVO_ASACCESS) {
-		if ($jkv["printme"]) $printme = 1;
+		if ($setting["printme"]) $printme = 1;
 		$apedit  = BASE_URL . 'admin/index.php?p=page&amp;sp=edit&amp;id=' . $PAGE_ID;
 		$qapedit = BASE_URL . 'admin/index.php?p=page&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 	}
-	if ($jkv["printme"]) { ?>
+	if ($setting["printme"]) { ?>
 
 		<div id="printdiv">
 
@@ -80,7 +80,7 @@
             <div class="container-fluid">
               <div class="row">
 								<div class="col-sm-12">
-									<h2><?php echo $jkv["newstitle"]; ?></h2>
+									<h2><?php echo $setting["newstitle"]; ?></h2>
 									<div class="owl-carousel all-carousel owl-theme">
 
 										<!-- Show news -->
@@ -182,7 +182,7 @@
 
 		<?php }
 	}
-	if ($jkv["printme"]) { ?>
+	if ($setting["printme"]) { ?>
 
 		</div>
 

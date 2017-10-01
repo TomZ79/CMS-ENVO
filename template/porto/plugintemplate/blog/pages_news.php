@@ -4,11 +4,11 @@ $showblogarray = explode(":", $row['showblog']);
 
 if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DESC", $showblogarray)) {
 
-  $ENVO_BLOG = envo_get_blog('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+  $ENVO_BLOG = envo_get_blog('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $setting["blogurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $ENVO_BLOG = envo_get_blog('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+  $ENVO_BLOG = envo_get_blog('', 't1.id ASC', $row['showblog'], 't1.id', $setting["blogurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
