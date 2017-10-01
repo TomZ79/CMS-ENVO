@@ -37,7 +37,7 @@
 
   </aside>
 
-  <script src="<?php echo BASE_URL; ?>plugins/newsletter/js/nlform.js?=<?php echo $jkv["updatetime"]; ?>"
+  <script src="<?php echo BASE_URL; ?>plugins/newsletter/js/nlform.js?=<?php echo $setting["updatetime"]; ?>"
     type="text/javascript"></script>
 
   <script type="text/javascript">

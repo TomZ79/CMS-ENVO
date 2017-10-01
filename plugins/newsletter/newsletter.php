@@ -118,12 +118,12 @@ switch ($page1) {
 
       // Just the content
       $cssAtt       = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
-      $cssUrl       = array(BASE_URL, $jkv["title"], '', '', $tlnl['nletter']['d5'], $tlnl['nletter']['d5'], '');
+      $cssUrl       = array(BASE_URL, $setting["title"], '', '', $tlnl['nletter']['d5'], $tlnl['nletter']['d5'], '');
       $PAGE_CONTENT = str_replace($cssAtt, $cssUrl, $row['content']);
 
       // Get the CSS and Javascript into the page
-      $ENVO_HEADER_CSS        = $jkv["blog_css"];
-      $ENVO_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
+      $ENVO_HEADER_CSS        = $setting["blog_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $setting["blog_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)

@@ -252,25 +252,25 @@ switch ($page1) {
             $mail = new PHPMailer();
 
             // Send email the smpt way or else the mail way
-            if ($jkv["nlsmtp_mail"]) {
+            if ($setting["nlsmtp_mail"]) {
 
               $mail->IsSMTP(); // telling the class to use SMTP
-              $mail->Host          = $jkv["nlsmtphost"];
-              $mail->SMTPAuth      = ($jkv["nlsmtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-              $mail->SMTPSecure    = $jkv["nlsmtp_prefix"]; // sets the prefix to the server
-              $mail->SMTPKeepAlive = ($jkv["nlsmtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-              $mail->Port          = $jkv["nlsmtpport"]; // set the SMTP port for the GMAIL server
-              $mail->Username      = base64_decode($jkv["nlsmtpusername"]); // SMTP account username
-              $mail->Password      = base64_decode($jkv["nlsmtppassword"]);        // SMTP account password
-              $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
-              $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
+              $mail->Host          = $setting["nlsmtphost"];
+              $mail->SMTPAuth      = ($setting["nlsmtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+              $mail->SMTPSecure    = $setting["nlsmtp_prefix"]; // sets the prefix to the server
+              $mail->SMTPKeepAlive = ($setting["nlsmtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+              $mail->Port          = $setting["nlsmtpport"]; // set the SMTP port for the GMAIL server
+              $mail->Username      = base64_decode($setting["nlsmtpusername"]); // SMTP account username
+              $mail->Password      = base64_decode($setting["nlsmtppassword"]);        // SMTP account password
+              $mail->SetFrom($setting["nlemail"], $setting["title"]);
+              $mail->AddReplyTo($setting["nlemail"], $setting["title"]);
               $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
               $mail->Subject = $subject;
 
             } else {
 
-              $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
-              $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
+              $mail->SetFrom($setting["nlemail"], $setting["title"]);
+              $mail->AddReplyTo($setting["nlemail"], $setting["title"]);
               $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
               $mail->Subject = $subject;
 
@@ -294,7 +294,7 @@ switch ($page1) {
 
                   // Change fake vars into real ones.
                   $cssAtt    = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
-                  $cssUrl    = array(BASE_URL_ORIG, $jkv["title"], $fullversion, $unsubscribe, $row1['name'], $row1['name'], $row1['email']);
+                  $cssUrl    = array(BASE_URL_ORIG, $setting["title"], $fullversion, $unsubscribe, $row1['name'], $row1['name'], $row1['email']);
                   $nlcontent = str_replace($cssAtt, $cssUrl, $row['content']);
 
                   // Get the body into the right format
@@ -335,7 +335,7 @@ switch ($page1) {
 
                   // Change fake vars into real ones.
                   $cssAtt    = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
-                  $cssUrl    = array(BASE_URL_ORIG, $jkv["title"], $fullversion, $unsubscribe, $row2['username'], $row2['name'], $row2['email']);
+                  $cssUrl    = array(BASE_URL_ORIG, $setting["title"], $fullversion, $unsubscribe, $row2['username'], $row2['name'], $row2['email']);
                   $nlcontent = str_replace($cssAtt, $cssUrl, $row['content']);
 
                   // Get the body into the right format
@@ -654,8 +654,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page1;
           $pages->envo_where      = 'index.php?p=newsletter&amp;sp=user&amp;ssp=group';
           $pages->paginate();
@@ -741,8 +741,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page2;
           $pages->envo_where      = 'index.php?p=newsletter&amp;sp=user';
           $pages->paginate();
@@ -1077,16 +1077,16 @@ switch ($page1) {
 
           try {
             $mail->IsSMTP(); // telling the class to use SMTP
-            $mail->Host          = $jkv["nlsmtphost"];
-            $mail->SMTPAuth      = ($jkv["nlsmtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-            $mail->SMTPSecure    = $jkv["nlsmtp_prefix"]; // sets the prefix to the server
-            $mail->SMTPKeepAlive = ($jkv["nlsmtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-            $mail->Port          = $jkv["nlsmtpport"]; // set the SMTP port for the GMAIL server
-            $mail->Username      = base64_decode($jkv["nlsmtpusername"]); // SMTP account username
-            $mail->Password      = base64_decode($jkv["nlsmtppassword"]);        // SMTP account password
-            $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
-            $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
-            $mail->AddAddress($jkv["nlemail"], $jkv["title"]);
+            $mail->Host          = $setting["nlsmtphost"];
+            $mail->SMTPAuth      = ($setting["nlsmtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+            $mail->SMTPSecure    = $setting["nlsmtp_prefix"]; // sets the prefix to the server
+            $mail->SMTPKeepAlive = ($setting["nlsmtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+            $mail->Port          = $setting["nlsmtpport"]; // set the SMTP port for the GMAIL server
+            $mail->Username      = base64_decode($setting["nlsmtpusername"]); // SMTP account username
+            $mail->Password      = base64_decode($setting["nlsmtppassword"]);        // SMTP account password
+            $mail->SetFrom($setting["nlemail"], $setting["title"]);
+            $mail->AddReplyTo($setting["nlemail"], $setting["title"]);
+            $mail->AddAddress($setting["nlemail"], $setting["title"]);
             $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
             $mail->Subject = $tlnl["newsletter_message"]["nlm2"];
             $mail->MsgHTML($tlnl["newsletter_message"]["nlm3"] . 'SMTP.');
@@ -1101,9 +1101,9 @@ switch ($page1) {
         } else {
 
           try {
-            $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
-            $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
-            $mail->AddAddress($jkv["nlemail"], $jkv["title"]);
+            $mail->SetFrom($setting["nlemail"], $setting["title"]);
+            $mail->AddReplyTo($setting["nlemail"], $setting["title"]);
+            $mail->AddAddress($setting["nlemail"], $setting["title"]);
             $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
             $mail->Subject = $tlnl["newsletter_message"]["nlm2"];
             $mail->MsgHTML($tlnl["newsletter_message"]["nlm3"] . 'Mail().');
@@ -1272,8 +1272,8 @@ switch ($page1) {
           // Paginator
           $nletter                 = new ENVO_paginator;
           $nletter->items_total    = $getTotal;
-          $nletter->mid_range      = $jkv["adminpagemid"];
-          $nletter->items_per_page = $jkv["adminpageitem"];
+          $nletter->mid_range      = $setting["adminpagemid"];
+          $nletter->items_per_page = $setting["adminpageitem"];
           $nletter->envo_get_page   = $page1;
           $nletter->envo_where      = 'index.php?p=newsletter';
           $nletter->paginate();

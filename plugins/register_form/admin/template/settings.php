@@ -129,12 +129,12 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_register', '1', ($jkv["rf_active"] == '1') ? TRUE : FALSE, 'envo_register1');
+                          echo $Html->addRadio('envo_register', '1', ($setting["rf_active"] == '1') ? TRUE : FALSE, 'envo_register1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_register1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_register', '0', ($jkv["rf_active"] == '0') ? TRUE : FALSE, 'envo_register2');
+                          echo $Html->addRadio('envo_register', '0', ($setting["rf_active"] == '0') ? TRUE : FALSE, 'envo_register2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_register2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -156,12 +156,12 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_simple', '1', ($jkv["rf_simple"] == '1') ? TRUE : FALSE, 'envo_simple1');
+                          echo $Html->addRadio('envo_simple', '1', ($setting["rf_simple"] == '1') ? TRUE : FALSE, 'envo_simple1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_simple1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_simple', '0', ($jkv["rf_simple"] == '0') ? TRUE : FALSE, 'envo_simple2');
+                          echo $Html->addRadio('envo_simple', '0', ($setting["rf_simple"] == '0') ? TRUE : FALSE, 'envo_simple2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_simple2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -183,17 +183,17 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_usrapprove', '1', ($jkv["rf_confirm"] == '1') ? TRUE : FALSE, 'envo_usrapprove1');
+                          echo $Html->addRadio('envo_usrapprove', '1', ($setting["rf_confirm"] == '1') ? TRUE : FALSE, 'envo_usrapprove1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_usrapprove1', $tl["checkbox"]["chk1"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_usrapprove', '2', ($jkv["rf_confirm"] == '2') ? TRUE : FALSE, 'envo_usrapprove2');
+                          echo $Html->addRadio('envo_usrapprove', '2', ($setting["rf_confirm"] == '2') ? TRUE : FALSE, 'envo_usrapprove2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_usrapprove2', $tlrf["reg_box_content"]["regbc11"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_usrapprove', '3', ($jkv["rf_confirm"] == '3') ? TRUE : FALSE, 'envo_usrapprove3');
+                          echo $Html->addRadio('envo_usrapprove', '3', ($setting["rf_confirm"] == '3') ? TRUE : FALSE, 'envo_usrapprove3');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_usrapprove3', $tlrf["reg_box_content"]["regbc12"]);
                           ?>
@@ -267,7 +267,7 @@ if ($page2 == "e") { ?>
 
                         <?php
 
-                        if ($jkv["adv_editor"]) {
+                        if ($setting["adv_editor"]) {
 
                           // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                           echo $Html->addDiv('', 'htmleditorlight');
@@ -298,7 +298,7 @@ if ($page2 == "e") { ?>
 
                         <?php
 
-                        if ($jkv["adv_editor"]) {
+                        if ($setting["adv_editor"]) {
 
                           // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                           echo $Html->addDiv('', 'htmleditorlight1');

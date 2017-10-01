@@ -76,7 +76,7 @@ if (ENVO_USERID) {
               move_uploaded_file($tempFile, $targetFile);
 
               // Create thumbnail
-              create_thumbnail($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
+              create_thumbnail($targetPath, $targetFile, $smallPhoto, $setting["useravatwidth"], $setting["useravatheight"], 80);
 
               // SQL insert
               $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . ENVO_USERID . '" LIMIT 1');
@@ -156,8 +156,8 @@ if (ENVO_USERID) {
       }
 
       // Check if email address has been blocked
-      if ($jkv["email_block"]) {
-        $blockede = explode(',', $jkv["email_block"]);
+      if ($setting["email_block"]) {
+        $blockede = explode(',', $setting["email_block"]);
         if (in_array($defaults['email'], $blockede) || in_array(strrchr($defaults['email'], "@"), $blockede)) {
           $errors_rfs['e1'] = $tl['general_error']['generror16'] . '<br />';
         }

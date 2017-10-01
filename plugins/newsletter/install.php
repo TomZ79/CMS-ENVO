@@ -204,7 +204,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
       // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
       $get_nlsidebar = '
 	$pluginbasic_sidebar = \'plugins/newsletter/template/newslettersidebar.php\';
-	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/newsletter/newslettersidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/newsletter/newslettersidebar.php\';
 	
 	if (file_exists($pluginsite_sidebar)) {
 		include_once APP_PATH.$pluginsite_sidebar;
@@ -217,7 +217,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_nlfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/newsletter/template/footer_widget.php\';
-	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/newsletter/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/newsletter/footer_widget.php\';
 	
 	if (file_exists($pluginsite_fwidgets)) {
 		include_once APP_PATH.$pluginsite_fwidgets;

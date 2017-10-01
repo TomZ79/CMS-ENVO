@@ -1,4 +1,4 @@
-<?php if ($jkv["showloginside"]) { ?>
+<?php if ($setting["showloginside"]) { ?>
   <aside class="sidebar">
     <?php if (!ENVO_USERID) {
       if (isset($_SESSION['password_recover'])) {

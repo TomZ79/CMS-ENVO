@@ -228,7 +228,7 @@ if (!$result) {
 	// Get the agreement page details!
 	foreach ($envocategories as $sap) {
 			
-			if ($jkv[\"rf_redirect\"] == $sap[\'id\']) {
+			if ($setting[\"rf_redirect\"] == $sap[\'id\']) {
 				$register_redirect = ENVO_rewrite::envoParseurl($sap[\'pagename\'], \'\', \'\', \'\', \'\');
 			}
 		
@@ -245,9 +245,9 @@ if (!$result) {
 	$admail = new PHPMailer();
 	$adlinkmessage = $tl[\'email_text\'][\'emailm3\'].$userlink;
 	$adbody = str_ireplace(\"[\]\", \'\',$adlinkmessage);
-	$admail->SetFrom($jkv[\"email\"], $jkv[\"title\"]);
-	$admail->AddAddress($jkv[\"email\"], $jkv[\"title\"]);
-	$admail->Subject = $jkv[\"title\"].\' - \'.$tl[\'email_text\'][\'emailm4\'];
+	$admail->SetFrom($setting[\"email\"], $setting[\"title\"]);
+	$admail->AddAddress($setting[\"email\"], $setting[\"title\"]);
+	$admail->Subject = $setting[\"title\"].\' - \'.$tl[\'email_text\'][\'emailm4\'];
 	$admail->MsgHTML($adbody);
 	$admail->Send(); // Send email without any warnings
 	
@@ -268,7 +268,7 @@ if (!$result) {
       // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
       $get_rfsidebar = '
 	$pluginbasic_sidebar = \'plugins/register_form/template/rf_sidebar.php\';
-	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/rf_sidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/register_form/rf_sidebar.php\';
 	
 	if (file_exists($pluginsite_sidebar)) {
 		include_once APP_PATH.$pluginsite_sidebar;
@@ -280,7 +280,7 @@ if (!$result) {
       //
       $get_rfregform = '
 	$pluginbasic_regform = \'plugins/register_form/template/rf_registerform.php\';
-	$pluginsite_regform = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/rf_registerform.php\';
+	$pluginsite_regform = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/register_form/rf_registerform.php\';
 	
 	if (file_exists($pluginsite_regform)) {
 		include_once APP_PATH.$pluginsite_regform;
@@ -293,7 +293,7 @@ if (!$result) {
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_rffooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/register_form/template/footer_widget.php\';
-	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/register_form/footer_widget.php\';
 	
 	if (file_exists($pluginsite_fwidgets)) {
 		include_once APP_PATH.$pluginsite_fwidgets;

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
   // spam check
   $spamcheck = TRUE;
 
-  if (!ENVO_USERID && $jkv["hvm"] && isset($_SESSION['envo_captcha'])) {
+  if (!ENVO_USERID && $setting["hvm"] && isset($_SESSION['envo_captcha'])) {
 
     $human_captcha = explode(':#:', $_SESSION['envo_captcha']);
 
@@ -64,8 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
         $errors['e3'] = $tl['general_error']['generror30'] . '<br />';
       }
 
-      if (isset($defaults[$formarray[$i]]) && $jkv["username_block"]) {
-        $blockusrname = explode(',', $jkv["username_block"]);
+      if (isset($defaults[$formarray[$i]]) && $setting["username_block"]) {
+        $blockusrname = explode(',', $setting["username_block"]);
         if (in_array(strtolower($defaults[$formarray[$i]]), $blockusrname)) {
           $errors['e3'] = $tl['general_error']['generror31'] . '<br />';
         }
@@ -92,8 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       }
 
       // Check if email address has been blocked
-      if ($jkv["email_block"]) {
-        $blockede = explode(',', $jkv["email_block"]);
+      if ($setting["email_block"]) {
+        $blockede = explode(',', $setting["email_block"]);
         if (in_array($defaults[$formarray[$i]], $blockede) || in_array(strrchr($defaults[$formarray[$i]], "@"), $blockede)) {
           $errors['e4'] = $tl['general_error']['generror33'] . '<br />';
         }
@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     }
   }
 
-  if ($jkv["rf_simple"] && $spamcheck) {
+  if ($setting["rf_simple"] && $spamcheck) {
 
     if (empty($defaults['username'])) {
       $errors['e3'] = $tl['general_error']['generror28'] . '<br />';
@@ -188,8 +188,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     }
 
     // Check if email address has been blocked
-    if ($jkv["email_block"]) {
-      $blockede = explode(',', $jkv["email_block"]);
+    if ($setting["email_block"]) {
+      $blockede = explode(',', $setting["email_block"]);
       if (in_array($defaults['email'], $blockede) || in_array(strrchr($defaults['email'], "@"), $blockede)) {
         $errors['e4'] = $tl['general_error']['generror33'] . '<br />';
       }
@@ -210,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
 
     if (!isset($_SESSION['rf_thankyou_msg'])) {
 
-      if ($jkv["rf_simple"]) $password = envo_password_creator();
+      if ($setting["rf_simple"]) $password = envo_password_creator();
 
       // The new password encrypt with hash_hmac
       $passcrypt     = hash_hmac('sha256', $password, DB_PASS_HASH);
@@ -219,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       $safeusername = filter_var($username, FILTER_SANITIZE_STRING);
       $safeemail    = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-      if ($jkv["rf_confirm"] > 1) {
+      if ($setting["rf_confirm"] > 1) {
         $getuniquecode = time();
         $insert .= 'activatenr = "' . $getuniquecode . '",';
       }
@@ -234,10 +234,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
                 username = "' . smartsql($safeusername) . '",
                 name = "' . smartsql($safeusername) . '",
                 email = "' . smartsql($safeemail) . '",
-                usergroupid = "' . smartsql($jkv["rf_usergroup"]) . '",
+                usergroupid = "' . smartsql($setting["rf_usergroup"]) . '",
                 ' . $sqlupdatepass . '
                 ' . $insert . '
-                access = "' . smartsql($jkv["rf_confirm"]) . '",
+                access = "' . smartsql($setting["rf_confirm"]) . '",
                 time = NOW()');
 
       $row['id'] = $envodb->envo_last_id();
@@ -253,63 +253,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
           @copy(ENVO_FILES_DIRECTORY . '/userfiles' . "/index.html", $newuserpath . "/index.html");
         }
 
-        if ($jkv["rf_confirm"] == 2 || $jkv["rf_confirm"] == 3) {
+        if ($setting["rf_confirm"] == 2 || $setting["rf_confirm"] == 3) {
 
           $confirmlink = '<br><strong>' . $tl['login']['l11'] . ':</strong> <a href="' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '">' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '</a>';
 
-          if ($jkv["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
+          if ($setting["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
 
           $mail        = new PHPMailer(); // defaults to using php "mail()"
-          $linkmessage = $jkv["rf_welcome"] . '<br>'. $confirmlink;
+          $linkmessage = $setting["rf_welcome"] . '<br>'. $confirmlink;
           $body        = str_ireplace("[\]", '', $linkmessage);
 
           // We go for SMTP
-          if ($jkv["smtp_or_mail"]) {
+          if ($setting["smtp_or_mail"]) {
 
             $mail->IsSMTP(); // telling the class to use SMTP
-            $mail->Host          = $jkv["smtp_host"];
-            $mail->SMTPAuth      = ($jkv["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-            $mail->SMTPSecure    = $jkv["smtp_prefix"]; // sets the prefix to the server
-            $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-            $mail->Port          = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-            $mail->Username      = $jkv["smtp_user"]; // SMTP account username
-            $mail->Password      = $jkv["smtp_password"]; // SMTP account password
-            $mail->SetFrom($jkv["email"]);
+            $mail->Host          = $setting["smtp_host"];
+            $mail->SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+            $mail->SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
+            $mail->SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+            $mail->Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+            $mail->Username      = $setting["smtp_user"]; // SMTP account username
+            $mail->Password      = $setting["smtp_password"]; // SMTP account password
+            $mail->SetFrom($setting["email"]);
 
           } else {
-            $mail->SetFrom($jkv["email"], $jkv["title"]);
+            $mail->SetFrom($setting["email"], $setting["title"]);
           }
           $mail->AddAddress($safeemail, $safeusername);
-          $mail->Subject = $jkv["title"] . ' - ' . $tl['login']['l11'];
+          $mail->Subject = $setting["title"] . ' - ' . $tl['login']['l11'];
           $mail->MsgHTML($body);
           $mail->Send(); // Send email without any warnings
 
 
-          if ($jkv["rf_confirm"] == 3) {
+          if ($setting["rf_confirm"] == 3) {
 
             $admail        = new PHPMailer();
             $adlinkmessage = $tl['login']['l11'] . $safeusername;
             $adbody        = str_ireplace("[\]", '', $adlinkmessage);
 
             // We go for SMTP
-            if ($jkv["smtp_or_mail"]) {
+            if ($setting["smtp_or_mail"]) {
 
               $admail->IsSMTP(); // telling the class to use SMTP
-              $admail->Host          = $jkv["smtp_host"];
-              $admail->SMTPAuth      = ($jkv["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-              $admail->SMTPSecure    = $jkv["smtp_prefix"]; // sets the prefix to the server
-              $admail->SMTPKeepAlive = ($jkv["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-              $admail->Port          = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-              $admail->Username      = $jkv["smtp_user"]; // SMTP account username
-              $admail->Password      = $jkv["smtp_password"]; // SMTP account password
-              $admail->SetFrom($jkv["email"]);
+              $admail->Host          = $setting["smtp_host"];
+              $admail->SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+              $admail->SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
+              $admail->SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+              $admail->Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+              $admail->Username      = $setting["smtp_user"]; // SMTP account username
+              $admail->Password      = $setting["smtp_password"]; // SMTP account password
+              $admail->SetFrom($setting["email"]);
 
             } else {
-              $admail->SetFrom($jkv["email"], $jkv["title"]);
+              $admail->SetFrom($setting["email"], $setting["title"]);
             }
 
-            $admail->AddAddress($jkv["email"], $jkv["title"]);
-            $admail->Subject = $jkv["title"] . ' - ' . $tl['login']['l11'];
+            $admail->AddAddress($setting["email"], $setting["title"]);
+            $admail->Subject = $setting["title"] . ' - ' . $tl['login']['l11'];
             $admail->MsgHTML($adbody);
             $admail->Send(); // Send email without any warnings
 
@@ -317,29 +317,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
 
         } else {
 
-          if ($jkv["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
+          if ($setting["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
 
           $mail = new PHPMailer(); // defaults to using php "mail()"
-          $body = str_ireplace("[\]", '', $jkv["rf_welcome_email"] . $confirmlink);
+          $body = str_ireplace("[\]", '', $setting["rf_welcome_email"] . $confirmlink);
 
           // We go for SMTP
-          if ($jkv["smtp_or_mail"]) {
+          if ($setting["smtp_or_mail"]) {
 
             $mail->IsSMTP(); // telling the class to use SMTP
-            $mail->Host          = $jkv["smtp_host"];
-            $mail->SMTPAuth      = ($jkv["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-            $mail->SMTPSecure    = $jkv["smtp_prefix"]; // sets the prefix to the server
-            $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-            $mail->Port          = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-            $mail->Username      = $jkv["smtp_user"]; // SMTP account username
-            $mail->Password      = $jkv["smtp_password"]; // SMTP account password
-            $mail->SetFrom($jkv["email"]);
+            $mail->Host          = $setting["smtp_host"];
+            $mail->SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+            $mail->SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
+            $mail->SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+            $mail->Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+            $mail->Username      = $setting["smtp_user"]; // SMTP account username
+            $mail->Password      = $setting["smtp_password"]; // SMTP account password
+            $mail->SetFrom($setting["email"]);
 
           } else {
-            $mail->SetFrom($jkv["email"], $jkv["title"]);
+            $mail->SetFrom($setting["email"], $setting["title"]);
           }
           $mail->AddAddress($safeemail, $safeusername);
-          $mail->Subject = $jkv["title"] . ' - ' . $tl['login']['l11'];
+          $mail->Subject = $setting["title"] . ' - ' . $tl['login']['l11'];
           $mail->MsgHTML($body);
           $mail->Send(); // Send email without any warnings
 

@@ -5,7 +5,7 @@
 
   ?>
 
-  <h3><?php echo $jkv["nltitle"]; ?></h3>
+  <h3><?php echo $setting["nltitle"]; ?></h3>
   <div id="nl_msg" class="alert bg-success" style="display: none;"></div>
   <?php if ($_SESSION['envo_nl_errors']) { ?>
     <div
@@ -35,7 +35,7 @@
     </form>
   <?php } ?>
 
-  <script src="<?php echo BASE_URL; ?>plugins/newsletter/js/nlform.js?=<?php echo $jkv["updatetime"]; ?>"
+  <script src="<?php echo BASE_URL; ?>plugins/newsletter/js/nlform.js?=<?php echo $setting["updatetime"]; ?>"
     type="text/javascript"></script>
 
   <script type="text/javascript">
