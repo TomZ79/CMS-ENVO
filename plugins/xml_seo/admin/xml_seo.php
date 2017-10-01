@@ -44,6 +44,7 @@ require_once('class/xml.sitemap.generator.php');
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'create':
+    // CREATE NEW 'sitemap.xml'
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Create sitemap
@@ -72,6 +73,7 @@ switch ($page1) {
         // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYPAGES);
       }
+
       // Basic URL for News
       $result1      = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 1');
       $row1         = $result1->fetch_assoc();
@@ -322,6 +324,7 @@ switch ($page1) {
 
     break;
   case 'view':
+    // VIEW 'sitemap.xml'
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -357,15 +360,16 @@ switch ($page1) {
 
     break;
   default:
+    // XML SEO SETTING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // XML SEO settings
 
       // EN: Default Variable
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      // Get value from From
+      // EN: Get value from 'form'
+      // CZ: Získání hodnoty z 'form'
       $path    = $defaults['envo_xmlseopath'];
       $txtfile = $defaults['envo_filetxt'];
 
