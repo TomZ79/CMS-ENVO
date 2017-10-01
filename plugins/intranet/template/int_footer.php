@@ -13,7 +13,7 @@
 echo $Html->addScript('/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4');
 echo $Html->addScript('/assets/plugins/bootstrapv3/js/bootstrap.min.js');
 echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.js');
-echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-numberAnimate/jquery.animateNumbers.js');
+echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-numberAnimate/jquery.animateNumbers.min.js');
 ?>
 
 <!-- END CORE JS DEPENDECENCIES-->
@@ -21,7 +21,7 @@ echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-numberAnimate
 
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/webarch.js');
+echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/webarch.min.js');
 ?>
 
 <!-- END CORE TEMPLATE JS -->
@@ -39,9 +39,9 @@ if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 // Script only for Dashboard
-if (empty($page1)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/dashboard.js');
+if (empty($page1)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/dashboard.min.js');
 // Script only for pages which contains 'table'
-if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/datatables.js');
+if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/datatables.min.js');
 ?>
 
 <?php if ($page1 == 'house' && !empty($page2)) {
@@ -54,7 +54,7 @@ if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_
   // Fancybox
   echo $Html->addScript('/assets/plugins/fancybox/3.0/js/jquery.fancybox.min.js');
   // Photo gallery
-  echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.js');
+  echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.min.js');
 
   echo PHP_EOL;
 

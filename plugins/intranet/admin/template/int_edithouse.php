@@ -962,7 +962,7 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
 
-              <?php if ($jkv["adv_editor"]) {
+              <?php if ($setting["adv_editor"]) {
 
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'htmleditor');

@@ -1,5 +1,5 @@
 /*!
-* direction.less v0.1.0
+// direction.less v0.1.0
 */
 @media only screen and (min-width: 1824px) {
   body {
@@ -395,7 +395,7 @@
   }
   /*** Body ***/
   body {
-    background-color: #0aa699;
+    background-color: #0AA699;
     padding-top: 0;
   }
   .page-sidebar.opened {
@@ -643,7 +643,7 @@
     display: none;
   }
   .page-sidebar {
-    background-color: #0aa699 !important;
+    background-color: #0AA699 !important;
   }
   .page-sidebar .page-sidebar-wrapper > ul > li.open > a,
   .page-sidebar .page-sidebar-wrapper > ul > li > a:hover,
@@ -728,7 +728,7 @@
     height: 100%;
   }
   .inner-menu-always-open .page-sidebar .page-sidebar-wrapper {
-    background-color: #0aa699 !important;
+    background-color: #0AA699 !important;
   }
   .inner-menu-always-open .page-sidebar .slimScrollDiv {
     overflow: visible !important;
@@ -989,7 +989,7 @@
     overflow: visible;
   }
   .inner-menu-always-open .page-sidebar .page-sidebar-wrapper ul {
-    background-color: #0aa699;
+    background-color: #0AA699;
   }
   .inner-menu-always-open .page-sidebar .slimScrollDiv {
     overflow: visible !important;

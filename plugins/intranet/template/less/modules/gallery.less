@@ -1,0 +1,93 @@
+/* 24. Photo Gallery
+ ========================================================================*/
+.gallery {
+	margin: 20px auto 0 auto;
+}
+
+div[class^="gallery-item-"] {
+	overflow: hidden;
+	cursor: default;
+	background-color: #F0F0F0;
+	margin-bottom: 10px;
+	position: relative;
+	width: 220px;
+	height: 240px;
+	float: left;
+}
+
+div[class^="gallery-item-"] .img_container {
+	overflow: hidden;
+}
+
+div[class^="gallery-item-"] img {
+	object-fit: cover;
+	width: 220px;
+	height: 170px;
+	/* Image zoom hover effect */
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+div[class^="gallery-item-"]:hover img {
+	/* Image zoom hover effect */
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+div[class^="gallery-item-"][data-width="1"] {
+	width: 220px;
+}
+
+div[class^="gallery-item-"][data-height="1"] {
+	height: 260px;
+}
+
+div[class^="gallery-item-"] .overlays {
+	position: absolute;
+	bottom: 90px;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 20%;
+	background: rgba(43, 48, 59, 0.7);
+	transition: .5s ease;
+}
+
+div[class^="gallery-item-"]:hover .overlays {
+	background: rgba(43, 48, 59, 0.9);
+}
+
+div[class^="gallery-item-"] .overlays.fullwidth {
+	width: 100%;
+}
+
+div[class^="gallery-item-"] .overlays .btn {
+	padding: 3px 12px;
+	font-size: 14.5px;
+}
+
+div[class^="gallery-item-"] .overlays .btn:first-child {
+	padding: 3px 8px;
+}
+
+div[class^="gallery-item-"] .text {
+	white-space: nowrap;
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+div[class^="gallery-item-"] .shortdesc {
+	word-wrap: break-word;
+}
+
+ul.filters li a.active {
+	color: #FBB05E;
+}

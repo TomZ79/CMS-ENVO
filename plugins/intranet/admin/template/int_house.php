@@ -24,7 +24,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=newhouse', 'Nový dům', '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=newhouse', 'Nový Dům', '', 'btn btn-info button');
     ?>
 
   </div>

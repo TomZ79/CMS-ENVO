@@ -13,8 +13,8 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <meta charset="utf-8"/>
   <!-- Document Title
   ============================================= -->
-  <title><?php echo $jkv["title"];
-    if ($jkv["title"]) { ?> &raquo; <?php }
+  <title><?php echo $setting["title"];
+    if ($setting["title"]) { ?> &raquo; <?php }
     echo $PAGE_TITLE; ?></title>
 
   <!-- Mobile Specific Metas
@@ -47,7 +47,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Main StyleSheet
-  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.css');
+  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.min.css');
   ?>
 
   <!-- END CORE CSS FRAMEWORK -->

@@ -23,7 +23,7 @@ $ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-$PAGE_TITLE = $jkv["intranettitle"];
+$PAGE_TITLE = $setting["intranettitle"];
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
