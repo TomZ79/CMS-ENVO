@@ -30,7 +30,7 @@
 // # List of updated components
 // ------------------------------
 
-[updated]
+[updated] Fix typo
 
 // # List of fixed bugs
 // ------------------------------
