@@ -196,13 +196,13 @@ class ENVO_base
   public static function envoTimesince($mysqlstamp, $date, $time, $lang)
   {
 
-    global $jkv;
+    global $setting;
 
     $today    = time(); /* Current unix time  */
     $unixtime = strtotime($mysqlstamp);
     $since    = $today - $unixtime;
 
-    if ($jkv["time_ago_show"] && $since < 900000) {
+    if ($setting["time_ago_show"] && $since < 900000) {
 
       $lang = explode(",", $lang);
       // Parse custom date format similar to original question

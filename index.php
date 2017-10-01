@@ -26,10 +26,10 @@ if (ENVO_USERID && $envouser->envoSuperAdminAccess(ENVO_USERID)) {
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site_language . '.ini')) {
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl = parse_ini_file(APP_PATH . 'lang/' . $jkv["lang"] . '.ini', TRUE);
+  $tl = parse_ini_file(APP_PATH . 'lang/' . $setting["lang"] . '.ini', TRUE);
 }
 
 // If Referer Zero go to the session url
@@ -85,7 +85,7 @@ if (ENVO_USERID) {
   define('ENVO_USERGROUPID', $envouser->getVar("usergroupid"));
   $ENVO_USERNAME_LINK = strtolower($envouser->getVar("username"));
   $ENVO_USERNAME      = $envouser->getVar("username");
-  $P_USR_LOGOUT      = ENVO_rewrite::envoParseurl('logout', '', '', '', '');
+  $P_USR_LOGOUT       = ENVO_rewrite::envoParseurl('logout', '', '', '', '');
 
   // does the user have admin access
   if ($envouser->envoAdminAccess($envouser->getVar("usergroupid"))) {
@@ -123,18 +123,18 @@ include_once 'include/loginpass.php';
 define('CUR_SESSION', session_id());
 
 // Include contact post file if needed.
-if ($jkv["contactform"]) include_once 'include/contact.php';
+if ($setting["contactform"]) include_once 'include/contact.php';
 
-if ($jkv["robots"] == 0) {
+if ($setting["robots"] == 0) {
   $jk_robots = 'index, nofollow';
 } else {
   $jk_robots = 'index, follow';
 }
 
 // Define other constant
-define('ENVO_TEMPLATE', $jkv["sitestyle"]);
-define('ENVO_SEARCH', $jkv["searchform"]);
-define('ENVO_CONTACT_FORM', $jkv["contactform"]);
+define('ENVO_TEMPLATE', $setting["sitestyle"]);
+define('ENVO_SEARCH', $setting["searchform"]);
+define('ENVO_CONTACT_FORM', $setting["contactform"]);
 
 // Get all the active categories available in the db
 $envocategories = ENVO_base::envoGetallcategories();
@@ -166,8 +166,8 @@ $ipa = get_ip_address();
 // EN: Check if the ip or range is blocked, if so redirect to offline page with a message
 // CZ: Kontrola jestli je IP adresa uživatele blokována. Pokud ano, přesměruj stránku na offline stránku a zobraz zprávu
 $USR_IP_BLOCKED = FALSE;
-if ($jkv["ip_block"]) {
-  $blockedips = explode(',', $jkv["ip_block"]);
+if ($setting["ip_block"]) {
+  $blockedips = explode(',', $setting["ip_block"]);
   // Do we have a range
   if (is_array($blockedips)) foreach ($blockedips as $bip) {
     $blockedrange = explode(':', $bip);
@@ -209,7 +209,7 @@ if ($jkv["ip_block"]) {
  *  CAPTCHA - CAPTCHA
  * ===================================================== */
 // Finally get the captcha if wish so
-if ($jkv["hvm"]) {
+if ($setting["hvm"]) {
 
   if (isset($_SESSION['envo_captcha'])) {
 
@@ -234,11 +234,11 @@ if ($jkv["hvm"]) {
  * ===================================================== */
 // EN: If the site is set to offline (offline or user's IP is blocked)
 // CZ: Pokud je webová síť offline (síť je nastavena do offline režimu nebo IP uživatele je blokováno)
-if ($jkv["offline"] == 1 && !ENVO_ASACCESS || $USR_IP_BLOCKED) {
+if ($setting["offline"] == 1 && !ENVO_ASACCESS || $USR_IP_BLOCKED) {
   $ENVO_PAGE_OFFLINE = TRUE;
-  if ($jkv["offline_page"]) {
+  if ($setting["offline_page"]) {
     foreach ($envocategories as $ca) {
-      if ($ca['id'] == $jkv["offline_page"] && !empty($ca['pageid'])) {
+      if ($ca['id'] == $setting["offline_page"] && !empty($ca['pageid'])) {
         $offlinepage = $ca['pageid'];
         break;
       }
@@ -310,9 +310,9 @@ foreach ($envocategories as $ca) {
       $ENVO_CHECK_PAGE = 1;
 
       // Get the rss if active
-      if ($jkv["rss"]) {
+      if ($setting["rss"]) {
         $ENVO_RSS_DISPLAY = 1;
-        $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', '', '', '', '');
+        $P_RSS_LINK       = ENVO_rewrite::envoParseurl('rss.xml', '', '', '', '');
       }
       break;
     }
@@ -343,10 +343,10 @@ foreach ($envocategories as $ca) {
 // EN: Login to site
 // CZ: Přihlášení do webové sítě
 if ($page == 'login') {
-  $PAGE_TITLE     = $tl['global_text']['gtxt9'];
-  $template       = 'login.php';
+  $PAGE_TITLE      = $tl['global_text']['gtxt9'];
+  $template        = 'login.php';
   $ENVO_CHECK_PAGE = 1;
-  $PAGE_SHOWTITLE = 1;
+  $PAGE_SHOWTITLE  = 1;
 }
 
 // EN: Logout from site
@@ -377,33 +377,33 @@ if ($page == 'logout') {
 // CZ: Vyhledávání
 if ($page == 'search') {
   /* Redirect to base url if search isn't
-   * if (!$jkv["searchform"] || !ENVO_USER_SEARCH) { envo_redirect (BASE_URL); }
+   * if (!$setting["searchform"] || !ENVO_USER_SEARCH) { envo_redirect (BASE_URL); }
   */
 
   // Get the url session
   $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl('search');
   require_once 'search.php';
-  $PAGE_SHOWTITLE = 1;
+  $PAGE_SHOWTITLE  = 1;
   $ENVO_CHECK_PAGE = 1;
 }
 
 // EN: 'Success' page
 // CZ: 'Success' stránka
 if ($page == 'success') {
-  $PAGE_TITLE     = $tl['global_text']['gtxt3'];
-  $template       = 'success.php';
+  $PAGE_TITLE      = $tl['global_text']['gtxt3'];
+  $template        = 'success.php';
   $ENVO_CHECK_PAGE = 1;
-  $PAGE_SHOWTITLE = 1;
+  $PAGE_SHOWTITLE  = 1;
 }
 
 // EN: 'Error' page
 // CZ: 'Error' stránka
 if ($page == 'error') {
-  $PAGE_TITLE     = $tl['title_page']['tpl'];
-  $PAGE_CONTENT   = $tl['general_error']['generror10'];
-  $template       = 'standard.php';
+  $PAGE_TITLE      = $tl['title_page']['tpl'];
+  $PAGE_CONTENT    = $tl['general_error']['generror10'];
+  $template        = 'standard.php';
   $ENVO_CHECK_PAGE = 1;
-  $PAGE_SHOWTITLE = 1;
+  $PAGE_SHOWTITLE  = 1;
 }
 
 // EN: 'Rss' feautures
@@ -416,9 +416,9 @@ if ($page == 'rss.xml') {
 // EN: '404' page
 // CZ: '404' stránka
 if ($page == '404') {
-  if ($jkv["notfound_page"] != 0) {
+  if ($setting["notfound_page"] != 0) {
     foreach ($envocategories as $ca) {
-      if ($ca['id'] == $jkv["notfound_page"] && !empty($ca['pageid'])) {
+      if ($ca['id'] == $setting["notfound_page"] && !empty($ca['pageid'])) {
         $pageid = $ca['pageid'];
         break;
       }
@@ -430,16 +430,16 @@ if ($page == '404') {
     $template   = '404.php';
   }
   $ENVO_CHECK_PAGE = 1;
-  $PAGE_SHOWTITLE = 1;
+  $PAGE_SHOWTITLE  = 1;
 }
 
 // EN: 'Offline' page
 // CZ: 'Offline' stránka
 if ($page == 'offline') {
-  $PAGE_TITLE     = $tl['title_page']['tpl2'] . ' ';
-  $template       = 'offline.php';
+  $PAGE_TITLE      = $tl['title_page']['tpl2'] . ' ';
+  $template        = 'offline.php';
   $ENVO_CHECK_PAGE = 1;
-  $PAGE_SHOWTITLE = 1;
+  $PAGE_SHOWTITLE  = 1;
 }
 
 // EN: 'Forgot-password' page
@@ -472,12 +472,12 @@ if ($page == 'forgot-password') {
 
   } else {
 
-    $body = sprintf($tl['email_text']['emailm'], $row["name"], $password, $jkv["title"]);
+    $body = sprintf($tl['email_text']['emailm'], $row["name"], $password, $setting["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
-    $mail->SetFrom($jkv["email"], $jkv["title"]);
+    $mail->SetFrom($setting["email"], $setting["title"]);
     $mail->AddAddress($row["email"], $row["name"]);
-    $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text']['emailm1'];
+    $mail->Subject = $setting["title"] . ' - ' . $tl['email_text']['emailm1'];
     $mail->MsgHTML($body);
     $mail->AltBody = strip_tags($body);
 
@@ -501,10 +501,13 @@ if ($hookip) foreach ($hookip as $hip) {
   eval($hip['phpcode']);
 }
 
-// EN: If page not found
-// CZ: Pokud stránka není nalezena
+// EN: Page is not found - Error page 404
+// CZ: Stránka není nalezena - Chybová stránka 404
 if ($ENVO_CHECK_PAGE == 0) {
-  envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+  http_response_code(404);
+  /* Redirect browser to page 404 */
+  echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' . ENVO_rewrite::envoParseurl('404', '', '', '', '') . '">';
+  exit();
 }
 
 // Get the categories with usergroup rights
@@ -544,12 +547,12 @@ foreach ($ENVO_CAT_SITE as $itemf) {
 }
 
 // Get News out the database, if not already in the page
-if (ENVO_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
-  $ENVO_GET_NEWS_SORTED = envo_get_news('LIMIT ' . $jkv["shownews"], '', ENVO_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+if (ENVO_NEWS_ACTIVE && $newsloadonce && $setting["shownews"]) {
+  $ENVO_GET_NEWS_SORTED = envo_get_news('LIMIT ' . $setting["shownews"], '', ENVO_PLUGIN_VAR_NEWS, $setting["newsorder"], $setting["newsdateformat"], $setting["newstimeformat"], $tl['global_text']['gtxt4']);
 }
 
 // We have tags
-if (ENVO_TAGS) $ENVO_GET_TAG_CLOUD = ENVO_tags::envoGettagcloud(ENVO_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+if (ENVO_TAGS) $ENVO_GET_TAG_CLOUD = ENVO_tags::envoGettagcloud(ENVO_PLUGIN_VAR_TAGS, 'tagcloud', $setting["taglimit"], $setting["tagmaxfont"], $setting["tagminfont"], $tl["title_element"]["tel"]);
 
 // SEARCH, NEWS and Mobile/Web LINK
 $P_SEAERCH_LINK = ENVO_rewrite::envoParseurl('search', '', '', '', '');
@@ -568,10 +571,10 @@ if ($SHOWDATE == '1') define('SHOWDATE', 1);
 if (!ENVO_TAGS && !ENVO_USER_TAGS) $ENVO_TAGLIST = FALSE;
 
 // Get the normal or plugin template
-if (isset($jkv["sitestyle"]) && !empty(ENVO_TEMPLATE) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {
+if (isset($setting["sitestyle"]) && !empty(ENVO_TEMPLATE) && isset($setting["cms_tpl"]) && isset($template) && $template != '') {
   include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/' . $template;
   // Get the plugin template
-} elseif (isset($jkv["cms_tpl"]) && isset($plugin_template)) {
+} elseif (isset($setting["cms_tpl"]) && isset($plugin_template)) {
   // Check if plugin template files exist or not
   if (!file_exists(APP_PATH . $plugin_template)) {
     include_once APP_PATH . 'noplugintemplate.php';

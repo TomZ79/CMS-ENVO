@@ -2,7 +2,7 @@
 
 // EN: Error reporting
 // CZ: Chybové hlášení
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE & ~E_USER_NOTICE);
 
 // EN: The DB connections data
 // CZ: Data pro připojení do DB
@@ -98,18 +98,19 @@ while ($row = $result->fetch_assoc()) {
     $defvar = $row["value"];
   }
 
-  $jkv[$row['varname']] = $defvar;
+  $setting[$row['varname']] = $defvar;
 }
 
-// Get hooks and plugins
+// EN: Get hooks and plugins
+// CZ: Získání hooks a pluginů
 $envohooks   = new ENVO_hooks(1);
 $envoplugins = new ENVO_plugins(1);
 
 // Get the template config file
 if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
-// timezone from server
-date_default_timezone_set($jkv["timezoneserver"]);
+// Timezone from server
+date_default_timezone_set($setting["timezoneserver"]);
 $envodb->query('SET time_zone = "' . date("P") . '"');
 
 // Set the last activity and session into cookies
@@ -117,10 +118,10 @@ setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
 setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
 
 // Standard Language
-$site_language = $jkv["lang"];
+$site_language = $setting["lang"];
 
 // Standard Locale
-$site_locale = $jkv["locale"] . '.utf8';
+$site_locale = $setting["locale"] . '.utf8';
 
 // Set lang for TimyMCE Filemanager
 if ($site_language == 'en') {
@@ -165,7 +166,7 @@ $rowusrg    = $resultusrg->fetch_assoc();
 $envousergroup = new ENVO_usergroup($rowusrg);
 
 // Check if https is activated
-if ($jkv["sitehttps"]) {
+if ($setting["sitehttps"]) {
   define('BASE_URL', 'https://' . FULL_SITE_DOMAIN . _APP_MAIN_DIR . '/');
 } else {
   define('BASE_URL', 'http://' . FULL_SITE_DOMAIN . _APP_MAIN_DIR . '/');

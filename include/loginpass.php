@@ -79,27 +79,27 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   if (count($errors) == 0) {
 
-    $body = sprintf($tl['login']['l18'], $user_check, '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+    $body = sprintf($tl['login']['l18'], $user_check, '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $setting["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
 
     // We go for SMTP
-    if ($jkv["smtp_or_mail"]) {
+    if ($setting["smtp_or_mail"]) {
 
       $mail->IsSMTP(); // telling the class to use SMTP
-      $mail->Host          = $jkv["smtp_host"];
-      $mail->SMTPAuth      = ($jkv["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-      $mail->SMTPSecure    = $jkv["smtp_prefix"]; // sets the prefix to the server
-      $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-      $mail->Port          = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-      $mail->Username      = $jkv["smtp_user"]; // SMTP account username
-      $mail->Password      = $jkv["smtp_password"]; // SMTP account password
+      $mail->Host          = $setting["smtp_host"];
+      $mail->SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+      $mail->SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
+      $mail->SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+      $mail->Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+      $mail->Username      = $setting["smtp_user"]; // SMTP account username
+      $mail->Password      = $setting["smtp_password"]; // SMTP account password
 
     }
 
-    $mail->SetFrom($jkv["email"], $jkv["title"]);
+    $mail->SetFrom($setting["email"], $setting["title"]);
     $mail->AddAddress($femail, $user_check);
-    $mail->Subject = $jkv["title"] . ' - ' . $tl['login']['l17'];
+    $mail->Subject = $setting["title"] . ' - ' . $tl['login']['l17'];
     $mail->MsgHTML($body);
     $mail->AltBody = strip_tags($body);
 

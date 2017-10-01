@@ -31,7 +31,7 @@ if ($page3 == "e") { ?>
   </script>
 <?php } ?>
 
-<?php if (!isset($jkv["cms_tpl"])) { ?>
+<?php if (!isset($setting["cms_tpl"])) { ?>
   <div class="row">
     <div class="col-md-6 text-center error-page">
 

@@ -117,10 +117,10 @@ class ENVO_search
   function envoFieldstoSearch($fields)
   {
 
-    global $jkv;
+    global $setting;
 
     // Check if mysql full text search is enabled
-    if ($jkv["fulltextsearch"]) {
+    if ($setting["fulltextsearch"]) {
 
       $this->fields = 'MATCH(' . implode(',', $fields) . ') AGAINST("' . $this->keyword . '" IN BOOLEAN MODE)' . $this->active;
 
@@ -142,7 +142,7 @@ class ENVO_search
 
     // do the dirty work in in mysql
     global $envodb;
-    global $jkv;
+    global $setting;
 
     $this->found = array();
 
@@ -156,7 +156,7 @@ class ENVO_search
 
       // cut me $this->cut
       if (isset($this->content)) $shorty = $row[$this->content];
-      if (isset($this->cutme)) $shorty = envo_cut_text($row[$this->cutme], $jkv["shortmsg"], '...');
+      if (isset($this->cutme)) $shorty = envo_cut_text($row[$this->cutme], $setting["shortmsg"], '...');
 
       // Get the title
       if (isset($this->title)) $title = $row[$this->title];

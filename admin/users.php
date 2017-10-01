@@ -219,9 +219,9 @@ switch ($page1) {
                 // Send email to member with new password
                 $mail = new PHPMailer(); // defaults to using php "mail()"
                 $body = str_ireplace("[\]", "", $tl["email_text_message"]["emailm4"] . $password);
-                $mail->SetFrom($jkv["email"], $jkv["title"]);
+                $mail->SetFrom($setting["email"], $setting["title"]);
                 $mail->AddAddress($row['email'], $row['username']);
-                $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm5'];
+                $mail->Subject = $setting["title"] . ' - ' . $tl['email_text_message']['emailm5'];
                 $mail->MsgHTML($body);
                 $mail->Send();
 
@@ -317,8 +317,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page4;
           $pages->envo_where      = 'index.php?p=users&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
@@ -377,9 +377,9 @@ switch ($page1) {
           // Send email to member with verification code
           $mail = new PHPMailer(); // defaults to using php "mail()"
           $body = str_ireplace("[\]", "", str_replace("%s", $confirmlink, $tl["email_text_message"]["emailm7"]));
-          $mail->SetFrom($jkv["email"]);
+          $mail->SetFrom($setting["email"]);
           $mail->AddAddress($row['email'], $row['username']);
-          $mail->Subject = $jkv["title"] . ' - ' . $tl["email_text_message"]["emailm6"];
+          $mail->Subject = $setting["title"] . ' - ' . $tl["email_text_message"]["emailm6"];
           $mail->MsgHTML($body);
 
           if ($mail->Send()) {
@@ -405,9 +405,9 @@ switch ($page1) {
             // Send info that the account has been verified
             $mail = new PHPMailer(); // defaults to using php "mail()"
             $body = str_ireplace("[\]", "", str_replace("%s", $row['username'], $tl["email_text_message"]["emailm9"]));
-            $mail->SetFrom($jkv["email"]);
+            $mail->SetFrom($setting["email"]);
             $mail->AddAddress($row['email'], $row['username']);
-            $mail->Subject = $jkv["title"] . ' - ' . $tl["email_text_message"]["emailm8"];
+            $mail->Subject = $setting["title"] . ' - ' . $tl["email_text_message"]["emailm8"];
             $mail->MsgHTML($body);
             $mail->Send();
 
@@ -432,9 +432,9 @@ switch ($page1) {
           // Send email to member with new password
           $mail = new PHPMailer(); // defaults to using php "mail()"
           $body = str_ireplace("[\]", "", $tl["email_text_message"]["emailm4"] . $password);
-          $mail->SetFrom($jkv["email"]);
+          $mail->SetFrom($setting["email"]);
           $mail->AddAddress($row['email'], $row['username']);
-          $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm5'];
+          $mail->Subject = $setting["title"] . ' - ' . $tl['email_text_message']['emailm5'];
           $mail->MsgHTML($body);
 
           if ($mail->Send()) {
@@ -625,7 +625,7 @@ switch ($page1) {
                       // Move file and create thumb
                       move_uploaded_file($tempFile, $targetFile);
 
-                      create_thumbnail($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
+                      create_thumbnail($targetPath, $targetFile, $smallPhoto, $setting["useravatwidth"], $setting["useravatheight"], 80);
 
                       // SQL insert
                       $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($dbSmall) . '" WHERE id = "' . smartsql($page2) . '" LIMIT 1');
@@ -841,9 +841,9 @@ switch ($page1) {
                 // Send email to member with new password
                 $mail = new PHPMailer(); // defaults to using php "mail()"
                 $body = str_ireplace("[\]", "", $tl["email_text_message"]["emailm4"] . $password);
-                $mail->SetFrom($jkv["email"], $jkv["title"]);
+                $mail->SetFrom($setting["email"], $setting["title"]);
                 $mail->AddAddress($row['email'], $row['username']);
-                $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm5'];
+                $mail->Subject = $setting["title"] . ' - ' . $tl['email_text_message']['emailm5'];
                 $mail->MsgHTML($body);
                 $mail->Send();
 
@@ -925,8 +925,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page1;
           $pages->envo_where      = 'index.php?p=users';
           $pages->paginate();

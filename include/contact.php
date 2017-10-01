@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
   // Check for spam first if wish so
   if (!ENVO_USERID) {
 
-    if ($jkv["hvm"]) {
+    if ($setting["hvm"]) {
       $human_captcha = explode(':#:', $_SESSION['envo_captcha']);
       if (isset($defaults[$human_captcha[0]]) && ($defaults[$human_captcha[0]] == '' || $defaults[$human_captcha[0]] != $human_captcha[1])) {
         $errorsA['human'] = $tl['error']['e10'] . '<br />';
@@ -85,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
 
     } elseif ($formmandarray[$i] == 3) {
 
-      if ($jkv["email_block"]) {
-        $blockede = explode(',', $jkv["email_block"]);
+      if ($setting["email_block"]) {
+        $blockede = explode(',', $setting["email_block"]);
         if (in_array($defaults[$formarray[$i]], $blockede) || in_array(strrchr($defaults[$formarray[$i]], "@"), $blockede)) {
           $errorsA[$formarray[$i]] = $tl['error']['e21'] . ' (' . $formnamearray[$i] . ')<br />';
         }
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
     if (isset($listEmail)) {
       $replypossible = $listEmail;
     } else {
-      $replypossible = $jkv["email"];
+      $replypossible = $setting["email"];
     }
 
     if (isset($listForm)) {
@@ -156,21 +156,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
       $mail = new PHPMailer(); // defaults to using php "mail()"
 
       // We go for SMTP
-      if ($jkv["smtp_or_mail"]) {
+      if ($setting["smtp_or_mail"]) {
 
         $mail->IsSMTP(); // telling the class to use SMTP
-        $mail->Host = $jkv["smtp_host"];
-        $mail->SMTPAuth = ($jkv["smtp_auth"] ? true : false); // enable SMTP authentication
-        $mail->SMTPSecure = $jkv["smtp_prefix"]; // sets the prefix to the server
-        $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? true : false); // SMTP connection will not close after each email sent
-        $mail->Port = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-        $mail->Username = $jkv["smtp_user"]; // SMTP account username
-        $mail->Password = $jkv["smtp_password"]; // SMTP account password
+        $mail->Host = $setting["smtp_host"];
+        $mail->SMTPAuth = ($setting["smtp_auth"] ? true : false); // enable SMTP authentication
+        $mail->SMTPSecure = $setting["smtp_prefix"]; // sets the prefix to the server
+        $mail->SMTPKeepAlive = ($setting["smtp_alive"] ? true : false); // SMTP connection will not close after each email sent
+        $mail->Port = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+        $mail->Username = $setting["smtp_user"]; // SMTP account username
+        $mail->Password = $setting["smtp_password"]; // SMTP account password
 
       }
 
       $mail->SetFrom($replypossible);
-      $mail->AddAddress($jkv["email"]);
+      $mail->AddAddress($setting["email"]);
 
       // Yes it does, send it to following address
       if ($row['email']) {
@@ -181,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
         }
 
       }
-      $mail->Subject = $jkv["title"];
+      $mail->Subject = $setting["title"];
       $mail->MsgHTML($listForm);
 
       if ($mail->Send()) {

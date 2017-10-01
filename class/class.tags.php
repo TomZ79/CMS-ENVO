@@ -187,7 +187,7 @@ class ENVO_tags
 
     $shorty = '';
     global $envodb;
-    global $jkv;
+    global $setting;
 
     if ($table == "gallerycategories") {
       $result = $envodb->query('SELECT ' . $select . ' FROM ' . DB_PREFIX . $table . ' WHERE id = "' . smartsql($itemid) . '" LIMIT 1');
@@ -198,7 +198,7 @@ class ENVO_tags
     if ($envodb->affected_rows > 0) {
 
       if ($cuttext) {
-        $shorty = envo_cut_text($row[$cuttext], $jkv["shortmsg"], '...');
+        $shorty = envo_cut_text($row[$cuttext], $setting["shortmsg"], '...');
       }
 
       if ($table == "gallerycategories") {

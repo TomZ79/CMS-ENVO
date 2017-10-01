@@ -633,7 +633,7 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
   }
 
   global $envodb;
-  global $jkv;
+  global $setting;
   $envodata = array();
   $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . ENVO_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $envovar);
   while ($row = $result->fetch_assoc()) {
@@ -642,7 +642,7 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
     $PAGE_CONTENT = $row['content'];
 
     // Write content in short format with full words
-    $shortmsg = envo_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
+    $shortmsg = envo_cut_text($PAGE_CONTENT, $setting["shortmsg"], '...');
 
     // Parse url for user link
     $parseurl = ENVO_rewrite::envoParseurl($plname, 'a', $row['id'], ENVO_base::envoCleanurl($PAGE_TITLE), '');
