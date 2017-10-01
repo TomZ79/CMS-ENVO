@@ -66,8 +66,6 @@ $(function () {
 			});
 			request.done(function (data) {
 
-				console.log(data.status);
-
 				if (data.status == 'success') {
 					// IF DATA SUCCESS
 
