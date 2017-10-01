@@ -6,31 +6,42 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, $setting["accessmanage"])) envo_redirect(BASE_URL);
 
-// Form 1-2
-if (isset($_POST['action']) && $_POST['action'] == 'form1') {
-  // Form 1 - Edit robots.txt
+if (isset($_POST['action'])) {
+  // EDIT FILE 'robots.txt'
 
   // EN: Default Variable
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  // Get value from Form 1
-  $txtfile = $defaults['envo_file1'];
+  // EN: Get value from 'textarea'
+  // CZ: Získání hodnoty z 'textarea'
+  $txtfile = $defaults['envo_file'];
 
-  if (isset($_POST['save1'])) {
-    // Create backup file
+  if (isset($_POST['save'])) {
+    // EN: Create backup file
+    // CZ: Zálohování souboru
     $file    = APP_PATH . "robots.txt";
     $newfile = APP_PATH . "robots.txt.backup";
     copy($file, $newfile);
 
-    // Write to Robots.txt
-    $content = stripslashes($txtfile);
-    file_put_contents($file, $content);
+    // EN: Write to 'robots.txt'
+    // CZ: Zápis a uložení souboru 'robots.txt'
+    if (!is_dir(APP_PATH) || !is_writable(APP_PATH)) {
+      // EN: Error if directory doesn't exist or isn't writable.
+
+    } elseif (is_file($file) && !is_writable($file)) {
+      // EN: Error if the file exists and isn't writable.
+
+    } else {
+      // EN: All is success
+      $content = stripslashes($txtfile);
+      file_put_contents($file, $content);
+    }
   }
 
-  if (isset($_POST['reset1'])) {
+  if (isset($_POST['reset'])) {
 
     // EN: Redirect page
     // CZ: Přesměrování stránky

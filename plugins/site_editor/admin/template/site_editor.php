@@ -17,8 +17,6 @@
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('p', $tlsedi["siteedit_sec_desc"]["sed"]);
-            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-            echo $Html->addInput('hidden', 'action', 'form1');
             ?>
 
             <?php
@@ -36,7 +34,7 @@
 
               <?php
               // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-              echo $Html->addTextarea('envo_file1', htmlspecialchars($content), '8', '', array('id' => 'envo_file1', 'class' => 'form-control', 'placeholder' => $tlsedi["siteedit_placeholder"]["sep"], 'disabled' => 'disabled'));
+              echo $Html->addTextarea('envo_file', htmlspecialchars($content), '25', '', array('id' => 'envo_file', 'class' => 'form-control', 'style' => 'resize: none;', 'placeholder' => $tlsedi["siteedit_placeholder"]["sep"], 'readonly' => 'readonly'));
               ?>
 
             </div>
@@ -48,8 +46,8 @@
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
               echo $Html->addButton('button', '', $tl["button"]["btn12"], '', 'editfile1', 'btn btn-primary', array('style' => 'margin-right: 10px'));
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('reset1', $tl["button"]["btn11"], '', 'btn btn-primary hidden', array('style' => 'margin-right: 10px'));
-              echo $Html->addButtonSubmit('save1', $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('disabled' => 'disabled'));
+              echo $Html->addButtonSubmit('reset', $tl["button"]["btn11"], '', 'btn btn-primary hidden', array('style' => 'margin-right: 10px'));
+              echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('disabled' => 'disabled'));
               ?>
 
             </div>

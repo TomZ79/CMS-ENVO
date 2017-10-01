@@ -8,17 +8,18 @@
  * =======================================================================
  * INDEX:
  *
+ * 01. Textarea - readonly
  *
  */
 
-/** 00. XXXX
+/** 01. Textarea - readonly
  ========================================================================*/
 
 $(function () {
 
   $("#editfile1").click(function (event) {
     event.preventDefault();
-    $('#envo_file1, button[name="save1"]').removeAttr("disabled");
+    $('#envo_file1, button[name="save1"]').removeAttr("readonly");
     $('button[name="reset1"]').removeClass("hidden");
     $(this).addClass("hidden");
 
