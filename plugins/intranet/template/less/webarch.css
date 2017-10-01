@@ -13,37 +13,35 @@
  *
  * 01. Import fonts
  * 02. Layouts
- * 03.
+ * 03. Icons
+ * 04. Horizontal Menu
+ * 05. Typography
+ * 06. Misc
+ * 07. Form Elements
+ * 08. Portlets
+ * 09. Message and Notification
+ * 10. Tiles
+ * 11. Buttons
+ * 12. Tabs and Accordians
+ * 13. Sliders
+ * 14. Tables
+ * 15. Datatables
+ * 16. Charts
+ * 17. User Profile
+ * 18. Vector Map
+ * 19. Error Page
+ * 20. Timeline
+ * 21. Search Results
+ * 22. RTL
+ * 23. Print
+ * 24. Photo Gallery
+ * 25. Preloader
+ * 26. Responsive
  
-2. Icons
-3. Horizontal Menu
-4. Typography
-5. Misc
-6. Form Elements
-7. Portlets
-8. Message and Notification
-9. Tiles
-10. Buttons
-11. Tabs & Accordians
-12. Sliders
-13. Tables
-14. Datatables
-15. Charts
-16. User Profile
-17. Vector Map
-18. Error Page
-19. Timeline
-20. Search Results
-21. RTL
-22. Print
-23. Slider
 -------------------------------------------------------------------*/
 /* 01. Import fonts
  ========================================================================*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
-/*!
-* direction.less v0.1.0
-*/
 /* 02. Layouts
  ========================================================================*/
 :-moz-placeholder {
@@ -170,7 +168,7 @@ body.boxed-layout .footer-widget {
   background-color: transparent;
   background-image: none;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
 }
 .navbar .nav > li > .dropdown-menu::before {
   position: absolute;
@@ -233,7 +231,7 @@ body.boxed-layout .footer-widget {
 .header .btn-navbar {
   background-color: #1F1F1F !important;
   margin-bottom: 0;
-  padding-right: 0px;
+  padding-right: 0;
   padding-top: 10px;
   padding-bottom: 6px;
   background-image: none;
@@ -666,10 +664,10 @@ body.boxed-layout .footer-widget {
   margin-top: 1px !important;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li > a {
-  margin-left: 0px;
+  margin-left: 0;
   padding-left: 5px;
   display: block;
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 5px 0;
   padding-left: 53px !important;
   color: #E1EAF1;
@@ -689,7 +687,7 @@ body.boxed-layout .footer-widget {
   display: none;
   list-style: none;
   clear: both;
-  margin: 0 0 0 0;
+  margin: 0;
   padding-left: 0;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li ul.sub-menu li {
@@ -1026,7 +1024,7 @@ body.boxed-layout .footer-widget {
   border-radius: 3px;
 }
 .chat-window-wrapper .user-details-wrapper .status-icon {
-  margin-right: 0px;
+  margin-right: 0;
 }
 .chat-window-wrapper .user-details-wrapper.active {
   background-color: #372B32;
@@ -1430,10 +1428,10 @@ body.boxed-layout .footer-widget {
   padding: 20px 20px 0;
 }
 .inner-menu .inner-wrapper .menu-title {
-  padding-left: 0px;
+  padding-left: 0;
 }
 .inner-menu .inner-wrapper .menu-title i {
-  padding-right: 0px;
+  padding-right: 0;
 }
 .inner-menu .inner-menu-content {
   margin-top: 50px;
@@ -1733,9 +1731,8 @@ body.boxed-layout .footer-widget {
 .pull-right {
   float: right !important;
 }
-/*------------------------------------------------------------------
-[2. Icons]
-*/
+/* 03. Icons
+ ========================================================================*/
 @font-face {
   font-family: 'icomoon';
   src: url('../fonts/custom-set.eot');
@@ -1865,9 +1862,8 @@ you can use the generic selector below, but it's slower:
 .icon-custom-alert:before {
   content: "\e017";
 }
-/*------------------------------------------------------------------
-[3. Horizontal Menu]
-*/
+/* 04. Horizontal Menu
+ ========================================================================*/
 .horizontal-menu .header-seperation {
   display: none;
 }
@@ -2059,9 +2055,8 @@ you can use the generic selector below, but it's slower:
     padding-top: 123px;
   }
 }
-/*------------------------------------------------------------------
-[4. Typography]
-*/
+/* 05. Typography
+ ========================================================================*/
 .h-ribbon {
   width: 100%;
   height: 4px;
@@ -2442,9 +2437,8 @@ hr {
   color: #FFFFFF;
   border: none;
 }
-/*------------------------------------------------------------------
-[5. Misc]
-*/
+/* 06. Misc
+ ========================================================================*/
 span.iconset {
   display: block;
 }
@@ -2571,6 +2565,9 @@ span.iconset {
 .no-margin {
   margin: 0 !important;
 }
+.no-border {
+  border: none !important;
+}
 .spacing-bottom {
   margin-bottom: 30px;
 }
@@ -2599,10 +2596,16 @@ span.iconset {
   display: table;
 }
 .padding-10 {
-  padding: 10px;
+  padding: 10px !important;
 }
 .padding-20 {
-  padding: 20px;
+  padding: 20px !important;
+}
+.padding-30 {
+  padding: 30px !important;
+}
+.padding-40 {
+  padding: 40px !important;
 }
 .p-t-5 {
   padding-top: 5px;
@@ -3003,18 +3006,6 @@ span.iconset {
 .hide {
   display: none;
 }
-.margin-top-10 {
-  margin-top: 10px;
-}
-.margin-top-20 {
-  margin-top: 20px;
-}
-.margin-bottom-10 {
-  margin-bottom: 10px;
-}
-.margin-bottom-20 {
-  margin-bottom: 20px;
-}
 .inline {
   display: inline-block !important;
 }
@@ -3032,6 +3023,9 @@ span.iconset {
 }
 .b-b {
   border-bottom: 1px solid;
+}
+.b-a {
+  border-width: 1px solid;
 }
 .b-transparent {
   border-color: rgba(0, 0, 0, 0.4);
@@ -3369,9 +3363,8 @@ div.DTTT_print_info p {
   text-align: center;
   right: 0;
 }
-/*------------------------------------------------------------------
-[6. Form Elements]
-*/
+/* 07. Form Elements
+ ========================================================================*/
 label,
 input,
 button,
@@ -4623,7 +4616,7 @@ form legend,
 .transparent .input-group-btn:first-child > .btn,
 .transparent .input-group-btn:first-child > .dropdown-toggle,
 .transparent .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
-  border-right: 0px;
+  border-right: 0;
   border-left: 1px solid #E5E9EC;
 }
 .transparent .input-group .form-control:last-child,
@@ -4822,9 +4815,8 @@ form legend,
 .clockpicker-popover {
   z-index: 10;
 }
-/*------------------------------------------------------------------
-[7. Portlets]
-*/
+/* 08. Portlets
+ ========================================================================*/
 .grid {
   clear: both;
   margin-top: 0;
@@ -4969,10 +4961,6 @@ form legend,
   margin-top: 0;
   position: relative;
 }
-.grid.simple .grid-title.no-border {
-  border: 0;
-  border-bottom: 0;
-}
 .grid.simple .form-actions {
   margin-right: -26px !important;
   margin-left: -26px !important;
@@ -4993,16 +4981,9 @@ form legend,
   border: 1px solid #DDDDDD;
   color: #6F7B8A;
 }
-.grid.simple .grid-body.no-padding {
-  padding: 0;
-}
 .grid.simple .grid-body .wrap-body {
   padding: 0 26px;
   padding-top: 10px;
-}
-.grid.simple .grid-body.no-border {
-  border: 0;
-  padding-top: 1px;
 }
 .grid.simple .grid-body h4 {
   color: #282323;
@@ -5160,7 +5141,7 @@ form legend,
   padding: 0 !important;
 }
 .grid-body .slimScrollBar {
-  margin-right: 0px !important;
+  margin-right: 0 !important;
 }
 .grid-body:before {
   display: table;
@@ -5262,9 +5243,8 @@ form legend,
   content: "\E5CF";
   font-size: 16px;
 }
-/*------------------------------------------------------------------
-[8. Message and Notification]
-*/
+/* 09. Message and Notification
+ ========================================================================*/
 .alert {
   color: #CE8F22;
   background-color: #FFFCEE;
@@ -5376,7 +5356,6 @@ form legend,
 }
 .notification-messages.success:hover {
   background-color: #D9EDF1;
-  cursor: pointer;
 }
 .notification-messages.success .iconholder i {
   color: #F35958;
@@ -5386,7 +5365,6 @@ form legend,
 }
 .notification-messages.danger:hover {
   background-color: #FAE1E1;
-  cursor: pointer;
 }
 .notification-messages.danger .iconholder i {
   color: #F35958;
@@ -5396,14 +5374,13 @@ form legend,
 }
 .notification-messages.info:hover {
   background-color: #D8EBF4;
-  cursor: pointer;
 }
 .notification-messages.info .iconholder i {
   color: #F35958;
 }
 .notification-messages .message-wrapper {
   display: inline-block;
-  width: 70%;
+  width: 100%;
   height: 43px;
   float: left;
 }
@@ -5702,12 +5679,11 @@ form legend,
   position: relative;
   top: 4px;
 }
-/*------------------------------------------------------------------
-[9. Tiles]
-*/
+/* 10. Tiles
+ ========================================================================*/
 .tiles-container {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
 }
 .tiles {
   background-color: #BCBCBC;
@@ -6358,6 +6334,8 @@ h4.custom-line-height {
     font-size: 14px;
   }
 }
+/* 11. Buttons
+ ========================================================================*/
 .btn {
   display: inline-block;
   padding: 9px 12px;
@@ -6385,7 +6363,7 @@ h4.custom-line-height {
   margin-left: 3px;
 }
 .btn .caret.single {
-  margin-left: 0px;
+  margin-left: 0;
 }
 .btn:hover,
 .btn:focus,
@@ -6626,7 +6604,7 @@ h4.custom-line-height {
   font-size: 13px;
 }
 .btn-group > .dropdown-menu li {
-  padding-left: 0px;
+  padding-left: 0;
 }
 .btn-block + .btn-block {
   margin-top: 8px;
@@ -6662,7 +6640,7 @@ h4.custom-line-height {
   text-align: left;
 }
 .dropdown-menu li {
-  padding-left: 0px;
+  padding-left: 0;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
@@ -6792,9 +6770,8 @@ code:hover {
   font-size: 28px;
   vertical-align: -5px;
 }
-/*------------------------------------------------------------------
-[11. Tabs and Accordians]
-*/
+/* 12. Tabs and Accordians
+ ========================================================================*/
 .tabbable:after {
   clear: both;
 }
@@ -6847,7 +6824,7 @@ code:hover {
 .tabs-left > .nav-tabs {
   border-right: 1px solid #DDDDDD;
   float: left;
-  margin-right: 19px;
+  margin-right: 0;
 }
 .tabs-left > .nav-tabs > li > a {
   border-radius: 4px 0 0 4px;
@@ -6866,7 +6843,7 @@ code:hover {
 .tabs-right > .nav-tabs {
   border-left: 1px solid #DDDDDD;
   float: right;
-  margin-left: 19px;
+  margin-left: 0;
 }
 .tabs-right > .nav-tabs > li > a {
   border-radius: 0 4px 4px 0;
@@ -7090,9 +7067,8 @@ code:hover {
 .panel-group .panel + .panel {
   margin-top: 2px;
 }
-/*------------------------------------------------------------------
-[23. Slider]
-*/
+/* 13. Sliders
+ ========================================================================*/
 .slider {
   margin: 5px 0;
   direction: ltr;
@@ -7178,9 +7154,8 @@ code:hover {
   background-color: #0AA699 !important;
   cursor: point2;
 }
-/*------------------------------------------------------------------
-[13. Tables]
-*/
+/* 14. Tables
+ ========================================================================*/
 .table > thead > tr > th {
   border-bottom: 0;
   font-size: 12px;
@@ -7210,9 +7185,6 @@ code:hover {
   padding: 11px 12px !important;
   color: #576475;
   font-size: 13px;
-}
-.table td.no-border {
-  border: none;
 }
 .table td:first-child {
   -webkit-border-radius: 2px;
@@ -7284,6 +7256,7 @@ input[type="checkbox"] {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   border-top: 1px solid #E8EDF1;
+  vertical-align: middle;
 }
 .table-striped tbody > tr:nth-child(2n+1) > td,
 .table-striped tbody > tr:nth-child(2n+1) > th {
@@ -7329,9 +7302,8 @@ input[type="checkbox"] {
 .table-bordered td:last-child {
   border-radius: 0;
 }
-/*------------------------------------------------------------------
-[14. Datatables]
-*/
+/* 15. Datatables
+ ========================================================================*/
 .dataTables_wrapper .pagination ul {
   box-shadow: none;
   font-size: 12px;
@@ -7362,9 +7334,13 @@ input[type="checkbox"] {
   opacity: 0.65;
   background-color: #FFFFFF;
 }
+.dataTables_wrapper .pagination ul > li:first-child > a,
+.dataTables_wrapper .pagination ul > li:first-child > span {
+  margin-right: 3px;
+}
 .dataTables_wrapper .pagination ul > li:last-child > a,
 .dataTables_wrapper .pagination ul > li:last-child > span {
-  margin-left: -8px;
+  margin-left: 2px;
 }
 .dataTables_wrapper .pagination ul > li > a,
 .pagination ul > li > span {
@@ -7392,9 +7368,11 @@ input[type="checkbox"] {
 .pagination ul > .active > span {
   background-color: #E8EDF3;
 }
-/*------------------------------------------------------------------
-[15. Charts]
-*/
+.dataTables_empty {
+  line-height: 24px !important;
+}
+/* 16. Charts
+ ========================================================================*/
 .easy-pie-custom {
   position: relative;
   display: inline-block;
@@ -7472,13 +7450,12 @@ input[type="checkbox"] {
 .rickshaw_legend ul {
   margin: 15px 16px;
 }
-/*------------------------------------------------------------------
-[16. User Profile]
-*/
+/* 17. User Profile
+ ========================================================================*/
 .profile-img-wrapper {
+  display: inline-block;
   float: left;
   border-radius: 100px 100px 100px 100px;
-  display: inline-block;
   height: 35px;
   overflow: hidden;
   width: 35px;
@@ -7499,9 +7476,9 @@ input[type="checkbox"] {
   padding: 0 14px;
 }
 .user-comment-wrapper .profile-wrapper {
+  display: inline-block;
   float: left;
   border-radius: 100px 100px 100px 100px;
-  display: inline-block;
   height: 35px;
   overflow: hidden;
   width: 35px;
@@ -7622,7 +7599,6 @@ input[type="checkbox"] {
   width: 0;
 }
 .simple-chat-popup-inner {
-  background-color: #000000;
   border-radius: 4px 4px 4px 4px;
   color: #FFFFFF;
   padding: 8px;
@@ -7777,7 +7753,7 @@ input[type="checkbox"] {
   display: inline;
   float: left;
   position: relative;
-  padding-left: 0px;
+  padding-left: 0;
   padding-right: 8px;
 }
 .post .post-links li:after {
@@ -7834,9 +7810,8 @@ input[type="checkbox"] {
 .img_wrapper.loaded img {
   opacity: 1;
 }
-/*------------------------------------------------------------------
-[17. Vector Map]
-*/
+/* 18. Vector Map
+ ========================================================================*/
 .jvectormap-zoomin {
   bottom: 15px;
   top: auto;
@@ -7889,9 +7864,8 @@ input[type="checkbox"] {
   -o-animation: pace-spinner 400ms linear infinite;
   animation: pace-spinner 400ms linear infinite;
 }
-/*------------------------------------------------------------------
-[18. Error Page]
-*/
+/* 19. Error Page
+ ========================================================================*/
 #wrap {
   min-height: 100%;
   height: auto;
@@ -8012,9 +7986,8 @@ input[type="checkbox"] {
   color: #1B1E24;
   text-decoration: none;
 }
-/*------------------------------------------------------------------
-[19. Timeline]
-*/
+/* 20. Timeline
+ ========================================================================*/
 .cbp_tmtimeline {
   margin: 30px 0 0 0;
   padding: 0;
@@ -8191,9 +8164,8 @@ input[type="checkbox"] {
     margin: -55px 5px 0 0;
   }
 }
-/*------------------------------------------------------------------
-[20. Search Results]
-*/
+/* 21. Search Results
+ ========================================================================*/
 #Parks {
   margin-bottom: 30px;
 }
@@ -8448,9 +8420,8 @@ input[type="checkbox"] {
     max-width: 37%;
   }
 }
-/*------------------------------------------------------------------
-[21. RTL]
-*/
+/* 22. RTL
+ ========================================================================*/
 body.rtl {
   overflow-x: hidden;
 }
@@ -8493,6 +8464,291 @@ body.rtl .footer-widget {
   right: 0;
   left: auto;
 }
+/* 23. Print
+ ========================================================================*/
+@media print {
+  .header {
+    display: none;
+  }
+  .page-content {
+    margin: 0;
+  }
+  .page-content .content {
+    padding: 20px;
+  }
+  .btn {
+    display: none;
+  }
+  .row-fluid [class*="span"] {
+    width: 96%;
+  }
+  #main-menu {
+    display: none;
+  }
+  #sidr {
+    display: none;
+  }
+}
+/* 24. Photo Gallery
+ ========================================================================*/
+.gallery {
+  margin: 20px auto 0 auto;
+}
+div[class^="gallery-item-"] {
+  overflow: hidden;
+  cursor: default;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+  position: relative;
+  width: 220px;
+  height: 240px;
+  float: left;
+}
+div[class^="gallery-item-"] .img_container {
+  overflow: hidden;
+}
+div[class^="gallery-item-"] img {
+  object-fit: cover;
+  width: 220px;
+  height: 170px;
+  /* Image zoom hover effect */
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+div[class^="gallery-item-"]:hover img {
+  /* Image zoom hover effect */
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+div[class^="gallery-item-"][data-width="1"] {
+  width: 220px;
+}
+div[class^="gallery-item-"][data-height="1"] {
+  height: 260px;
+}
+div[class^="gallery-item-"] .overlays {
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 20%;
+  background: rgba(43, 48, 59, 0.7);
+  transition: .5s ease;
+}
+div[class^="gallery-item-"]:hover .overlays {
+  background: rgba(43, 48, 59, 0.9);
+}
+div[class^="gallery-item-"] .overlays.fullwidth {
+  width: 100%;
+}
+div[class^="gallery-item-"] .overlays .btn {
+  padding: 3px 12px;
+  font-size: 14.5px;
+}
+div[class^="gallery-item-"] .overlays .btn:first-child {
+  padding: 3px 8px;
+}
+div[class^="gallery-item-"] .text {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+div[class^="gallery-item-"] .shortdesc {
+  word-wrap: break-word;
+}
+ul.filters li a.active {
+  color: #FBB05E;
+}
+/* 25. Preloader
+ ========================================================================*/
+.pageload {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.99);
+  z-index: 99999;
+  display: table;
+}
+.pageload > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.pageload > div > div {
+  margin: 0 auto;
+}
+.page-loading {
+  overflow: hidden;
+}
+.preloader-container {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+.layout-fixed-header .preloader-container {
+  left: 12.5rem;
+}
+.layout-small-menu .preloader-container {
+  left: 3.187rem;
+}
+.preloader {
+  display: table;
+  margin: 0 auto;
+  padding-top: 1.5315rem;
+  padding-bottom: 1.5315rem;
+  -webkit-animation: 2s bulge infinite ease-out;
+  animation: 2s bulge infinite ease-out;
+}
+.preloader span {
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin: 0 2px;
+  background-color: #CFD0EC;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+.preloader span:nth-of-type(1) {
+  -webkit-animation: 1s blink infinite 0.3333s;
+  animation: 1s blink infinite 0.3333s;
+}
+.preloader span:nth-of-type(2) {
+  -webkit-animation: 1s blink infinite 0.6666s;
+  animation: 1s blink infinite 0.6666s;
+}
+.preloader span:nth-of-type(3) {
+  -webkit-animation: 1s blink infinite 0.9999s;
+  animation: 1s blink infinite 0.9999s;
+}
+@-webkit-keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes bulge {
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+@keyframes bulge {
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+@media (max-width: 767px) {
+  .preloader-container {
+    left: 0;
+  }
+}
+/*
+ *  Usage:
+ *
+     <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+ *
+ */
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #333;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
+@keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
+/* 26. Responsive
+ ========================================================================*/
 @media only screen and (min-width: 1824px) {
   body {
     height: 100%;
@@ -10065,20 +10321,20 @@ body.rtl .footer-widget {
 /*** General tablets and phones ***/
 @media (max-width: 979px) {
   body.open-menu-left .page-content {
-    -webkit-transform: translate3d(260px, 0, 0);
-    transform: translate3d(260px, 0, 0);
+    -webkit-transform: translate3d(230px, 0, 0);
+    transform: translate3d(230px, 0, 0);
   }
   body.open-menu-left .header {
-    -webkit-transform: translate3d(260px, 0, 0);
-    transform: translate3d(260px, 0, 0);
+    -webkit-transform: translate3d(230px, 0, 0);
+    transform: translate3d(230px, 0, 0);
   }
   body.open-menu-right .page-content {
-    -webkit-transform: translate3d(-260px, 0, 0);
-    transform: translate3d(-260px, 0, 0);
+    -webkit-transform: translate3d(-230px, 0, 0);
+    transform: translate3d(-230px, 0, 0);
   }
   body.open-menu-right .header {
-    -webkit-transform: translate3d(-260px, 0, 0);
-    transform: translate3d(-260px, 0, 0);
+    -webkit-transform: translate3d(-230px, 0, 0);
+    transform: translate3d(-230px, 0, 0);
   }
   body.open-menu-right .page-content .admin-bar {
     display: none;
@@ -10087,13 +10343,13 @@ body.rtl .footer-widget {
 /* Landscape view of all tablet devices */
 @media (min-width: 768px) and (max-width: 1024px) {
   body.open-menu-right .page-content {
-    -webkit-transform: translateX(-260px);
-    transform: translateX(-260px);
+    -webkit-transform: translateX(-230px);
+    transform: translateX(-230px);
     left: auto;
   }
   body.open-menu-right .header {
-    -webkit-transform: translateX(-260px);
-    transform: translateX(-260px);
+    -webkit-transform: translateX(-230px);
+    transform: translateX(-230px);
     left: auto;
   }
   body.open-menu-right .page-content .admin-bar {
@@ -10158,5 +10414,73 @@ body.rtl .footer-widget {
     opacity: 1;
     transition-delay: 0s;
     -webkit-backface-visibility: hidden;
+  }
+}
+/* Responsive Bootstrap Tabs */
+@media screen and (max-width: 479px) {
+  .nav-tabs-responsive > li {
+    display: none;
+    width: 23%;
+  }
+  .nav-tabs-responsive > li > a {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+  }
+  .nav-tabs-responsive > li > a > span {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-tabs-responsive > li.active {
+    width: 54%;
+  }
+  .nav-tabs-responsive > li.active:first-child {
+    margin-left: 23%;
+  }
+  .nav-tabs-responsive > li.active,
+  .nav-tabs-responsive > li.prev,
+  .nav-tabs-responsive > li.next {
+    display: block;
+  }
+  .nav-tabs-responsive > li.prev,
+  .nav-tabs-responsive > li.next {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  .nav-tabs-responsive > li.next > a,
+  .nav-tabs-responsive > li.prev > a {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .nav-tabs-responsive > li.next > a .text,
+  .nav-tabs-responsive > li.prev > a .text {
+    display: none;
+  }
+  .nav-tabs-responsive > li.next > a:after,
+  .nav-tabs-responsive > li.next > a:after,
+  .nav-tabs-responsive > li.prev > a:after,
+  .nav-tabs-responsive > li.prev > a:after {
+    position: relative;
+    top: 0;
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    border: none;
+    background: none !important;
+    transition: none !important;
+  }
+  .nav-tabs-responsive > li.prev > a:after {
+    content: "\f053";
+  }
+  .nav-tabs-responsive > li.next > a:after {
+    content: "\f054";
   }
 }
