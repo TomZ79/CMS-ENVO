@@ -6,22 +6,22 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __D
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // Standard Language
-$site_language = $jkv["lang"];
+$site_language = $setting["lang"];
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', TRUE);
-  $site_language = $jkv["lang"];
+  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $site_language = $setting["lang"];
 }
 
 // Set define variable
 $BASE_URL_ORIG = BASE_URL_ORIG;
 $BASE_URL_ADMIN = BASE_URL_ADMIN;
 $BASE_PATH_ORIG = BASE_PATH_ORIG;
-$ENVO_TEMPLATE = $jkv["sitestyle"];
+$ENVO_TEMPLATE = $setting["sitestyle"];
 
 // GENERATED JAVASCRIPT FILE
 //---------------------------
@@ -54,13 +54,13 @@ envoWeb.envo_template = '{$ENVO_TEMPLATE}';
 
 // ACE Editor options
 var aceEditor = {
-  acetheme: '{$jkv["acetheme"]}',
-  acewraplimit: '{$jkv["acewraplimit"]}',
-  acetabSize: '{$jkv["acetabSize"]}',
-  aceactiveline: '{$jkv["aceactiveline"]}',
-  fontSize: '{$jkv["acefontsize"]}',
-  aceinvisible: '{$jkv["aceinvisible"]}',
-  acegutter: '{$jkv["acegutter"]}'
+  acetheme: '{$setting["acetheme"]}',
+  acewraplimit: '{$setting["acewraplimit"]}',
+  acetabSize: '{$setting["acetabSize"]}',
+  aceactiveline: '{$setting["aceactiveline"]}',
+  fontSize: '{$setting["acefontsize"]}',
+  aceinvisible: '{$setting["aceinvisible"]}',
+  acegutter: '{$setting["acegutter"]}'
 };
 
 // Icon Picker options
@@ -76,7 +76,7 @@ var notification = {
 
 // Global settings
 var globalSettings = {
-  advEditor: '{$jkv["adv_editor"]}',
+  advEditor: '{$setting["adv_editor"]}',
 };
 EOT;
 

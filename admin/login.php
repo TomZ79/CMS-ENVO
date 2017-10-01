@@ -79,12 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   if (count($errors) == 0) {
 
-    $body = sprintf($tl['log_in']['login12'], $user_check, '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+    $body = sprintf($tl['log_in']['login12'], $user_check, '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $setting["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
-    $mail->SetFrom($jkv["email"], $jkv["title"]);
+    $mail->SetFrom($setting["email"], $setting["title"]);
     $mail->AddAddress($femail, $user_check);
-    $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm1'];
+    $mail->Subject = $setting["title"] . ' - ' . $tl['email_text_message']['emailm1'];
     $mail->MsgHTML($body);
     $mail->AltBody = strip_tags($body);
 

@@ -25,10 +25,10 @@ if ($page == 'mediasharing') {
 
   <script>
     var sollist = {
-      pixels: <?php echo json_encode($jkv["md_mediaSize"]); ?>,
-      size: <?php echo json_encode($jkv["md_iconSize"]); ?>,
-      theme: <?php echo json_encode($jkv["md_mediatheme"]); ?>,
-      hoverEffect: <?php echo json_encode($jkv["md_mediahover"]); ?>
+      pixels: <?php echo json_encode($setting["md_mediaSize"]); ?>,
+      size: <?php echo json_encode($setting["md_iconSize"]); ?>,
+      theme: <?php echo json_encode($setting["md_mediatheme"]); ?>,
+      hoverEffect: <?php echo json_encode($setting["md_mediahover"]); ?>
     };
   </script>
 

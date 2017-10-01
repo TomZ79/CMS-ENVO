@@ -32,7 +32,7 @@ if ($page == 'plugins') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Load 'ace.js'  - only for selected pages
-  if ($jkv["adv_editor"] && ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit'))) {
+  if ($setting["adv_editor"] && ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit'))) {
     // Plugin ACE Editor
     echo $Html->addScript('assets/plugins/ace/ace.js');
   }

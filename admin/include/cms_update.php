@@ -40,7 +40,7 @@ if (isset($_GET['check']) && $_GET['check'] == TRUE) {
    * @author  BluesatKV
    * @version 1.0.0
    * @date    09/2017
-   *          
+   *
    * @param $url
    * @return bool
    *
@@ -75,7 +75,7 @@ if (isset($_GET['check']) && $_GET['check'] == TRUE) {
 
     foreach ($versionList as $aV) {
 
-      if ($aV > $jkv["version"]) {
+      if ($aV > $setting["version"]) {
         echo '<p>Found new update: ' . $aV . '</p>';
         $found = TRUE;
 

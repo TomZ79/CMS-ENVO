@@ -35,19 +35,19 @@ if (ENVO_USERID && !ENVO_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', TRUE);
-  $site_language = $jkv["lang"];
+  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $site_language = $setting["lang"];
 }
 
 // We need the template folder, title, author and lang as template variable
-$ENVO_CONTACT_FORM = $jkv["contactform"];
+$ENVO_CONTACT_FORM = $setting["contactform"];
 define('ENVO_PAGINATE_ADMIN', 1);
 
 // Define other constant
-define('ENVO_TEMPLATE', $jkv["sitestyle"]);
+define('ENVO_TEMPLATE', $setting["sitestyle"]);
 
 // First check if the user is logged in
 if (ENVO_USERID) {
@@ -78,8 +78,8 @@ if (ENVO_USERID) {
   define('ENVO_TAGS', $envoplugins->getPHPcodeid(3, "active"));
 
   // Show links in template only the user have access
-  $ENVO_MODULES = $envouser->envoModuleAccess(ENVO_USERID, $jkv["accessgeneral"]);
-  $ENVO_MODULEM = $envouser->envoModuleAccess(ENVO_USERID, $jkv["accessmanage"]);
+  $ENVO_MODULES = $envouser->envoModuleAccess(ENVO_USERID, $setting["accessgeneral"]);
+  $ENVO_MODULEM = $envouser->envoModuleAccess(ENVO_USERID, $setting["accessmanage"]);
 
   // Get the name from the user for the welcome message
   $ENVO_WELCOME_NAME = $envouser->getVar("name");
@@ -228,7 +228,7 @@ if ($page == '404') {
   // EN: Title and Description
   // CZ: Titulek a Popis
   $SECTION_TITLE = "404";
-  $SECTION_DESC  = $jkv["title"];
+  $SECTION_DESC  = $setting["title"];
 
   // EN: Load the php template
   // CZ: Načtení php template (šablony)

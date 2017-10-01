@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Execute Optinos
   if (isset($defaults['download'])) {
 
-    $dbimpexp->addValue('download_path', '')->addValue('download', TRUE)->addValue('file_name', ENVO_base::envoCleanurl($jkv["title"]) . '-' . date("y_m_d", time()) . '.xml')->export();
+    $dbimpexp->addValue('download_path', '')->addValue('download', TRUE)->addValue('file_name', ENVO_base::envoCleanurl($setting["title"]) . '-' . date("y_m_d", time()) . '.xml')->export();
   }
 
   if (isset($defaults['import'])) {
