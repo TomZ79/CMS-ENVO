@@ -267,7 +267,157 @@ if ($errors) { ?>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
         <div class="row">
+          <div class="col-sm-6">
+            <div class="box box-success">
+              <div class="box-header with-border">
 
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlint["int_box_title"]["intbt2"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="pull-right">
+
+                      <?php
+                      // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                      echo $Html->addButtonSubmit('addRowTower', 'Přidat vysílač', 'addRowTower', 'btn btn-info btn-sm');
+                      ?>
+
+                    </div>
+                    <div class="clearfix m-b-20"></div>
+                    <div id="contentTower">
+
+                      <?php if (!empty($ENVO_TOWER_ALL) && is_array($ENVO_TOWER_ALL)) { foreach ($ENVO_TOWER_ALL as $t) { ?>
+
+                        <div class="row-form">
+                          <div class="col-md-5">
+
+                            <?php
+                            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                            echo $Html->addTag('strong', str_replace("%s", $t["id"], $tlint["int_box_content"]["intbc4"]));
+                            ?>
+
+                          </div>
+                          <div class="col-md-7">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_towername[' . $t["id"] . ']', $t["name"], '', 'form-control', array('data-id' => $t["id"]));
+                            ?>
+
+                          </div>
+                        </div>
+
+                      <?php } } else {
+
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+
+                      } ?>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlint["int_box_title"]["intbt3"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="pull-right">
+
+                      <?php
+                      // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                      echo $Html->addButtonSubmit('addRowChannel', 'Přidat kanál', 'addRowChannel', 'btn btn-info btn-sm');
+                      ?>
+
+                    </div>
+                    <div class="clearfix m-b-20"></div>
+                    <div id="contentChannel">
+
+                      <?php if (!empty($ENVO_CHANNEL_ALL) && is_array($ENVO_CHANNEL_ALL)) { foreach ($ENVO_CHANNEL_ALL as $c) { ?>
+
+                        <div class="row-form">
+                          <div class="col-md-4">
+
+                            <?php
+                            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                            echo $Html->addTag('strong', str_replace("%s", $c["id"], $tlint["int_box_content"]["intbc5"]));
+                            ?>
+
+                          </div>
+                          <div class="col-md-4">
+                            <select name="envo_tower" class="form-control selectpicker">
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              $selected = ($c["towerid"] == '0') ? TRUE : FALSE;
+
+                              echo $Html->addOption('0', 'Žádný', $selected);
+
+                              if (isset($ENVO_TOWER_ALL) && is_array($ENVO_TOWER_ALL)) foreach ($ENVO_TOWER_ALL as $t) {
+
+                                $selected = (in_array($t["id"], explode(',', $c["towerid"]))) ? TRUE : FALSE;
+                                echo $Html->addOption($t["id"], $t["name"], $selected);
+
+                              }
+                              ?>
+
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_channelname[]', $c["number"], '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+
+                      <?php } } else {
+
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+
+                      } ?>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">

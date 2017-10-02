@@ -154,6 +154,9 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
             $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
             $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotifications');
             $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotificationug');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousetower');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechannel');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechanneltower');
           }
 
           $succesfully = 1;

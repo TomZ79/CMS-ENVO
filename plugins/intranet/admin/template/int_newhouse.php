@@ -70,41 +70,6 @@ if ($errors) { ?>
         <span class="text">Fakturace</span>
       </a>
     </li>
-    <li role="presentation">
-      <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
-        <span class="text">Hlavní kontakty</span>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
-        <span class="text">Vchody - Byty</span>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#cmsPage5" role="tab" id="cmsPage5-tab" data-toggle="tab" aria-controls="cmsPage5">
-        <span class="text">Nájemníci</span>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#cmsPage6" role="tab" id="cmsPage6-tab" data-toggle="tab" aria-controls="cmsPage6">
-        <span class="text">Stav Techniky</span>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#cmsPage7" role="tab" id="cmsPage7-tab" data-toggle="tab" aria-controls="cmsPage7">
-        <span class="text">Servisy</span>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#cmsPage8" role="tab" id="cmsPage8-tab" data-toggle="tab" aria-controls="cmsPage8">
-        <span class="text">Dokumenty</span>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#cmsPage9" role="tab" id="cmsPage9-tab" data-toggle="tab" aria-controls="cmsPage9">
-        <span class="text">Fotogalerie</span>
-      </a>
-    </li>
   </ul>
 
   <div class="tab-content">
@@ -393,7 +358,7 @@ if ($errors) { ?>
                             // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
                             $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
 
-                            echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
+                            echo $Html->addOption('0', 'Všechny skupiny', $selected);
                             if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                               if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
@@ -473,7 +438,7 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -486,43 +451,129 @@ if ($errors) { ?>
             <div class="box-body">
               <div class="block">
                 <div class="block-content">
-                  <div class="row-form">
-                    <div class="col-md-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="row-form">
+                        <div class="col-md-2">
 
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'IČ');
-                      ?>
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Název');
+                          ?>
 
-                    </div>
-                    <div class="col-md-10">
-                      <div class="form-group no-margin<?php if (isset($errors["e6"]) || isset($errors["e7"])) echo " has-error"; ?>">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
 
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_houseic', (isset($_REQUEST["envo_houseic"]) ? $_REQUEST["envo_houseic"] : ''), '', 'form-control');
-                        ?>
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefname', (isset($_REQUEST["envo_housefname"]) ? $_REQUEST["envo_housefname"] : ''), '', 'form-control');
+                            ?>
 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Ulice');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefstreet', (isset($_REQUEST["envo_housefstreet"]) ? $_REQUEST["envo_housefstreet"] : ''), '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Město');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefcity', (isset($_REQUEST["envo_housefcity"]) ? $_REQUEST["envo_housefcity"] : ''), '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'PSČ');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefpsc', (isset($_REQUEST["envo_housefpsc"]) ? $_REQUEST["envo_housefpsc"] : ''), '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row-form">
-                    <div class="col-md-2">
+                    <div class="col-sm-6">
+                      <div class="row-form">
+                        <div class="col-md-2">
 
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'DIČ');
-                      ?>
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'IČ');
+                          ?>
 
-                    </div>
-                    <div class="col-md-10">
-                      <div class="form-group no-margin">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin<?php if (isset($errors["e6"]) || isset($errors["e7"])) echo " has-error"; ?>">
 
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housedic', (isset($_REQUEST["envo_housedic"]) ? $_REQUEST["envo_housedic"] : ''), '', 'form-control');
-                        ?>
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'housefic', (isset($_REQUEST["housefic"]) ? $_REQUEST["housefic"] : ''), '', 'form-control');
+                            ?>
 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'DIČ');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'housefdic', (isset($_REQUEST["housefdic"]) ? $_REQUEST["housefdic"] : ''), '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -538,55 +589,6 @@ if ($errors) { ?>
 
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Hlavních kontaků</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Vchodů a Bytů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Nájemníků</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Stavu Techniky</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Servisů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Dokumentů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage9" aria-labelledby="cmsPage9-tab">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Zadání <strong>Fotogalerie</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
         </div>
       </div>
     </div>

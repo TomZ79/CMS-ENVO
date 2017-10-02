@@ -412,7 +412,7 @@ if ($errors) { ?>
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                             $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
 
-                            echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc16"], $selected);
+                            echo $Html->addOption('0', 'Všechny skupiny', $selected);
                             if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                               $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
@@ -539,7 +539,7 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -552,43 +552,129 @@ if ($errors) { ?>
             <div class="box-body">
               <div class="block">
                 <div class="block-content">
-                  <div class="row-form">
-                    <div class="col-md-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="row-form">
+                        <div class="col-md-2">
 
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'IČ');
-                      ?>
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Název');
+                          ?>
 
-                    </div>
-                    <div class="col-md-10">
-                      <div class="form-group no-margin<?php if (isset($errors["e6"]) || isset($errors["e7"])) echo " has-error"; ?>">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
 
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_houseic', $ENVO_FORM_DATA["ic"], '', 'form-control');
-                        ?>
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefname', $ENVO_FORM_DATA["housefname"], '', 'form-control');
+                            ?>
 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Ulice');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefstreet', $ENVO_FORM_DATA["housefstreet"], '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Město');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefcity',  $ENVO_FORM_DATA["housefcity"], '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'PSČ');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefpsc', $ENVO_FORM_DATA["housefpsc"], '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row-form">
-                    <div class="col-md-2">
+                    <div class="col-sm-6">
+                      <div class="row-form">
+                        <div class="col-md-2">
 
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'DIČ');
-                      ?>
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'IČ');
+                          ?>
 
-                    </div>
-                    <div class="col-md-10">
-                      <div class="form-group no-margin">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
 
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housedic', $ENVO_FORM_DATA["dic"], '', 'form-control');
-                        ?>
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefic', $ENVO_FORM_DATA["housefic"], '', 'form-control');
+                            ?>
 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-2">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'DIČ');
+                          ?>
+
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group no-margin">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_housefdic', $ENVO_FORM_DATA["housefdic"], '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -884,7 +970,7 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -898,7 +984,7 @@ if ($errors) { ?>
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -906,7 +992,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-7">
                       <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
 
                         <?php
@@ -918,7 +1004,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -926,7 +1012,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-7">
                       <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
 
                         <?php
@@ -950,7 +1036,7 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
           <div class="box box-success">
             <div class="box-header with-border">
 

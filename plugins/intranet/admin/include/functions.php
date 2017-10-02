@@ -1,6 +1,62 @@
 <?php
 
 /**
+ * EN: Getting all the data about the TV Tower with limit
+ * CZ: Získání všech dat o televizním vysílači s limitem
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_tvtower($limit, $table)
+{
+
+  global $envodb;
+  $envodata = array();
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+  while ($row = $result->fetch_assoc()) {
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = $row;
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
+ * EN: Getting all the data about the TV Channel with limit
+ * CZ: Získání všech dat o televizním kanálu s limitem
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_tvchannel($limit, $table)
+{
+
+  global $envodb;
+  $envodata = array();
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+  while ($row = $result->fetch_assoc()) {
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = $row;
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
  * EN: Getting the data about the Houses without limit
  * CZ: Získání dat o bytových domech bez limitu
  *

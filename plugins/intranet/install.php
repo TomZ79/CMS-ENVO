@@ -215,17 +215,45 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("intranettitle", "intranet", "Intranet", "Intranet", "input", "free", "intranet"),
 ("intranetskin", "intranet", "", "", "select", "free", "intranet"),
-("intranetdateformat", "intranet", "d.m.Y", "d.m.Y", "input", "free", "blog"),
-("intranettimeformat", "intranet", NULL, NULL, "input", "free", "blog")');
+("intranetdateformat", "intranet", "d.m.Y", "d.m.Y", "input", "free", "intranet"),
+("intranettimeformat", "intranet", NULL, NULL, "input", "free", "intranet")');
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
         $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `intranet` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
-        // EN: Insert data to table 'categories' (create category)
-        // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
+        // EN: Insert data to table 'categories' (Create category)
+        // CZ: Vložení potřebných dat to tabulky 'categories' (Vytvoření kategorie)
         $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Intranet", "intranet", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+
+        // EN: Create table for plugin (Settings - TV Tower)
+        // CZ: Vytvoření tabulky pro plugin (Nastavení - TV Vysílače)
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousetower (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (Settings - TV Channel)
+        // CZ: Vytvoření tabulky pro plugin (Nastavení - TV Kanály)
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousechannel (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `towerid` varchar(255) NULL DEFAULT NULL,
+  `number` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (Settings - TV Channel on TV Tower)
+        // CZ: Vytvoření tabulky pro plugin (Nastavení - TV Kanály na TV Vysílači)
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousechanneltower (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `towerids` varchar(255) NULL DEFAULT NULL,
+  `numbers` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
         // EN: Create table for plugin (House)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům)
@@ -240,8 +268,12 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `latitude` varchar(255) NULL DEFAULT NULL,
   `longitude` varchar(255) NULL DEFAULT NULL,
   `description` varchar(255) NULL DEFAULT NULL,
-  `ic` varchar(100) NULL DEFAULT NULL,
-  `dic` varchar(100) NULL DEFAULT NULL,
+  `housefname` varchar(255) NULL DEFAULT NULL,
+  `housefstreet` varchar(255) NULL DEFAULT NULL,
+  `housefcity` varchar(255) NULL DEFAULT NULL,
+  `housefpsc` varchar(255) NULL DEFAULT NULL,
+  `housefic` varchar(100) NULL DEFAULT NULL,
+  `housefdic` varchar(100) NULL DEFAULT NULL,
   `housedesctech` varchar(255) NULL DEFAULT NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,

@@ -311,8 +311,11 @@ function saveDesc(event) {
         $('#editdesc').show();
 
         // Add data.shortdescription to Isotop item
-        var elClass = $('#' + data.data[0].id).attr('class').split(" ")[0];
-        $('#' + data.data[0].id + '.' + elClass).find('.shortdesc').text(data.data[0].shortdescription);
+        var elClass = $('#' + data.data[0].id + '.gallery-item-' + data.data[0].id);
+
+        console.log(elClass);
+
+        elClass.find('.shortdesc').text(data.data[0].shortdescription);
 
         // Apply the plugin to the container
         $('#notificationcontainer').pgNotification({
@@ -1705,6 +1708,73 @@ $(function () {
 
   /* Add new row for Services */
   $('#addRowServ').click(addRowServ);
+
+});
+
+/** 00. Intranet Settings - Add Row
+ ========================================================================*/
+
+$(function () {
+
+  var nextTowerId;
+
+  $('#addRowTower').on('click', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    var contentT = $('#contentTower');
+    var contentC = $('#contentChannel');
+
+    // Hide div if exists
+    contentT.find('div.alert').hide();
+
+    // Get max number of ID from input
+    var arr = [];
+    $('input[name="envo_towername[]"]').each(function(){
+      var $this = $(this);
+      arr.push([ $this.data('id')]);
+    });
+    var maxValue = Math.max.apply(Math,arr);
+    var minValue = Math.min.apply(Math,arr);
+    nextTowerId = maxValue + 1;
+
+    // Add value to select
+    $('#contentChannel select').append($('<option>', {value: nextTowerId, text: 'Vysílač ID ' + nextTowerId}));
+    $('#contentChannel select').trigger('change');
+
+    contentT.append($('<div class="row-form">' +
+      '<div class="col-md-5">' +
+      '<strong>Vysílač ID ' + nextTowerId + '</strong>' +
+      '</div>' +
+      '<div class="col-md-7">' +
+      '<input type="text" name="envo_towername[]" class="form-control" data-id="' + nextTowerId + '" value="Vysílač ID ' + nextTowerId + '">' +
+      '</div>' +
+      '</div>'));
+
+  });
+
+  $('#addRowChannel').on('click', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    var contentC = $('#contentChannel');
+    var nextId = contentC.find('div.row-form').length + 1;
+
+    contentC.find('div.alert').hide();
+
+    contentC.append($('<div class="row-form">' +
+      '<div class="col-md-4">' +
+      '<strong>Kanál ' + nextId + '</strong>' +
+      '</div>' +
+      '<div class="col-md-4">' +
+      '<select></select>' +
+      '</div>' +
+      '<div class="col-md-4">' +
+      '<input type="text" name="envo_channelname[]" class="form-control">' +
+      '</div>' +
+      '</div>'));
+
+  });
 
 });
 

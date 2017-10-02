@@ -27,6 +27,8 @@ $envotable5 = DB_PREFIX . 'intranethouseimg';
 $envotable6 = DB_PREFIX . 'intranethouseserv';
 $envotable7 = DB_PREFIX . 'intranethousenotifications';
 $envotable8 = DB_PREFIX . 'intranethousenotificationug';
+$envotable9 = DB_PREFIX . 'intranethousetower';
+$envotable10 = DB_PREFIX . 'intranethousechannel';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -83,13 +85,13 @@ switch ($page1) {
 
             // EN: Check if the ic not exists
             // CZ: Kontrola jestli ič neexistuje
-            if (!empty($defaults['envo_houseic']) && is_numeric($defaults['envo_houseic']) && envo_house_not_exist($defaults['envo_houseic'], $envotable)) {
+            if (!empty($defaults['envo_housefic']) && is_numeric($defaults['envo_housefic']) && envo_house_not_exist($defaults['envo_housefic'], $envotable)) {
               $errors['e6'] = $tlint['int_error']['interror5'] . '<br>';
             }
 
             // EN: Check if ic is numeric
             // CZ: Kontrola jestli ič je číslo
-            if (!empty($defaults['envo_houseic']) && !is_numeric($defaults['envo_houseic'])) {
+            if (!empty($defaults['envo_housefic']) && !is_numeric($defaults['envo_housefic'])) {
               $errors['e7'] = $tlint['int_error']['interror6'] . '<br>';
             }
 
@@ -144,8 +146,12 @@ switch ($page1) {
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
-                        ic = "' . smartsql($defaults['envo_houseic']) . '",
-                        dic = "' . smartsql($defaults['envo_housedic']) . '",
+                        housefname = "' . smartsql($defaults['envo_housefname']) . '",
+                        housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
+                        housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
+                        housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
+                        housefic = "' . smartsql($defaults['envo_housefic']) . '",
+                        housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
                         permission = "' . smartsql($permission) . '",
@@ -231,7 +237,7 @@ switch ($page1) {
 
               // EN: Check if ic is numeric
               // CZ: Kontrola jestli ič je číslo
-              if (!empty($defaults['envo_houseic']) && !is_numeric($defaults['envo_houseic'])) {
+              if (!empty($defaults['envo_housefic']) && !is_numeric($defaults['envo_housefic'])) {
                 $errors['e7'] = $tlint['int_error']['interror6'] . '<br>';
               }
 
@@ -266,8 +272,12 @@ switch ($page1) {
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
-                        ic = "' . smartsql($defaults['envo_houseic']) . '",
-                        dic = "' . smartsql($defaults['envo_housedic']) . '",
+                        housefname = "' . smartsql($defaults['envo_housefname']) . '",
+                        housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
+                        housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
+                        housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
+                        housefic = "' . smartsql($defaults['envo_housefic']) . '",
+                        housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
                         housedesctech = "' . smartsql($defaults['envo_housedesctech']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
@@ -684,12 +694,49 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                    WHEN "intranettitle" THEN "' . smartsql($defaults['envo_title']) . '"
-                    WHEN "intranetdateformat" THEN "' . smartsql($defaults['envo_date']) . '"
-                    WHEN "intranettimeformat" THEN "' . smartsql($defaults['envo_time']) . '"
-                    WHEN "intranetskin" THEN "' . smartsql($defaults['envo_skin']) . '"
-                  END
-                  WHERE varname IN ("intranettitle", "intranetdateformat", "intranettimeformat", "intranetskin")');
+                                  WHEN "intranettitle" THEN "' . smartsql($defaults['envo_title']) . '"
+                                  WHEN "intranetdateformat" THEN "' . smartsql($defaults['envo_date']) . '"
+                                  WHEN "intranettimeformat" THEN "' . smartsql($defaults['envo_time']) . '"
+                                  WHEN "intranetskin" THEN "' . smartsql($defaults['envo_skin']) . '"
+                                END
+                                WHERE varname IN ("intranettitle", "intranetdateformat", "intranettimeformat", "intranetskin")');
+
+
+        // CZ: Odstranění vysílačů z DB
+        $result1 = $envodb->query('TRUNCATE TABLE ' . $envotable9);
+
+        // CZ: Zápis vysílačů do DB
+        $countname = $defaults['envo_towername'];
+
+        for($i = 0, $j = count($countname); $i < $j ; $i++) {
+          $name = $countname[$i];
+
+          if (!empty($name)) {
+
+            $result = $envodb->query('INSERT INTO ' . $envotable9 . ' SET 
+                        name = "' . smartsql($name) . '",
+                        varname = "' . url_slug($name, array('transliterate' => TRUE)) . '"');
+          }
+
+        }
+
+        // CZ: Odstranění vysílačů z DB
+        $result2 = $envodb->query('TRUNCATE TABLE ' . $envotable10);
+
+        // CZ: Zápis vysílačů do DB
+        $countnumber = $defaults['envo_channelname'];
+
+        for($i = 0, $j = count($countnumber); $i < $j ; $i++) {
+          $number = $countnumber[$i];
+
+          if (!empty($number)) {
+
+            $result = $envodb->query('INSERT INTO ' . $envotable10 . ' SET 
+                        towerid = "",
+                        number = "' . smartsql($number) . '"');
+          }
+
+        }
 
         if (!$result) {
           // EN: Redirect page
@@ -713,6 +760,14 @@ switch ($page1) {
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
     $ENVO_SETTING_VAL = envo_get_setting_val('intranet');
+
+    // EN: Getting the data about the TV Tower
+    // CZ: Získání dat o televizním vysílači
+    $ENVO_TOWER_ALL = envo_get_tvtower('', $envotable9);
+
+    // EN: Getting the data about the TV Channel
+    // CZ: Získání dat o televizním kanálu
+    $ENVO_CHANNEL_ALL = envo_get_tvchannel('', $envotable10);
 
     // EN: Title and Description
     // CZ: Titulek a Popis
