@@ -90,7 +90,7 @@ if (isset($_FILES['file'])) {
         $exifimagewidth  = $exifData['ExifImageWidth'];
         $exifimageheight = $exifData['ExifImageLength'];
         $exiforientation = $exifData['Orientation'];
-        $exifcreatedate  = $exifData['CreateDate'];
+        $exifcreatedate  = $exifData['DateTimeOriginal'];
         // Fix Orientation Function
         function rotateExif($imagesource, $orientation)
         {

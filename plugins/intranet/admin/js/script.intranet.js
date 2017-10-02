@@ -195,7 +195,7 @@ function openDialog(event) {
     beforeSend: function () {
 
       // Show progress circle
-      $('#itemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Loading... Please wait</div></div>');
+      $('#itemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
 
     },
     success: function (data) {
@@ -234,6 +234,79 @@ function openDialog(event) {
   dialogEl = document.getElementById(thisDataDialog);
   dlg = new DialogFx(dialogEl);
   dlg.toggle(dlg);
+
+  return false;
+}
+
+/**
+ * Jquery Function - Delete Image from DB
+ * @example
+ * Attribute 'data-id' in button => ID is id of image in DB
+ * -----------------
+ * <button class="delete-img" type="button" data-id="id_of_image_in_DB"></button>
+ *
+ */
+function deleteImg(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of image
+  var imageID = $(this).attr('data-id');
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_delete_img.php",
+    type: "POST",
+    datatype: 'json',
+    data: {
+      imageID: imageID
+    },
+    success: function (data) {
+
+      if (data.status == 'delete_success') {
+        // IF DATA SUCCESS
+
+        // Removes elements from the Isotope instance and DOM
+        $('#gallery_envo').isotope('remove', $('#' + data.data[0].id))
+        // Layout remaining item elements
+          .isotope('layout');
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
+
+      } else {
+        // IF DATA ERROR
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+      }
+    },
+    complete: function () {
+
+    },
+    error: function () {
+
+    }
+  });
 
   return false;
 }
@@ -312,9 +385,6 @@ function saveDesc(event) {
 
         // Add data.shortdescription to Isotop item
         var elClass = $('#' + data.data[0].id + '.gallery-item-' + data.data[0].id);
-
-        console.log(elClass);
-
         elClass.find('.shortdesc').text(data.data[0].shortdescription);
 
         // Apply the plugin to the container
@@ -590,7 +660,7 @@ function addRowEnt() {
   var entrance = $('input[name="addRowEnt"]');
   var entranceval = entrance.val();
 
-  if (entranceval.length > 0) {
+  if (entranceval.length && $.isNumeric(entranceval)) {
     // Ajax
     $.ajax({
       type: "POST",
@@ -689,7 +759,7 @@ function addRowEnt() {
     setTimeout(function () {
       $.notify({
         // options
-        message: 'Před vložením nového řádku zadejte číslo vchodu'
+        message: 'Před vložením nového řádku zadejte číslo vchodu. <br>Zkontrolujte zda-li číslo vchodu je celé číslo (0-9).'
       }, {
         // settings
         type: 'danger',
@@ -850,7 +920,6 @@ $(function () {
       var buttonResult = filters ? $this.is(filters) : true;
       return searchResult && buttonResult;
     }
-
   });
 
   $('.filters').on('click', '.filter', function (event) {
@@ -869,13 +938,11 @@ $(function () {
     $gallery.isotope();
   }));
 
-
   // change is-checked class on buttons
   $('.filter').on('click', function () {
     $('.filters').find('.active').removeClass('active');
     $(this).addClass('active');
   });
-
 
   // debounce so filtering doesn't happen every millisecond
   function debounce(fn, threshold) {
@@ -893,7 +960,7 @@ $(function () {
     };
   }
 
-  $('a[href="#cmsPage8"]').on('shown.bs.tab', function (e) {
+  $('a[href="#cmsPage9"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
 
@@ -1071,8 +1138,6 @@ $(function () {
     form_data.append('houseID', pageID);
     form_data.append('imageCategory', imgcat);
 
-    console.log(imgcat);
-
     // Ajax
     $.ajax({
       url: "/plugins/intranet/admin/ajax/int_table_upload_img.php",
@@ -1145,7 +1210,7 @@ $(function () {
                   '</div>' +
                   '</div>' +
                   '<div class="full-width padding-10">' +
-                  '<p class="bold">Short description</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                  '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
                   '</div>' +
                   '</div>');
 
@@ -1157,7 +1222,10 @@ $(function () {
                   .isotope('prepended', $isotopeContent);
 
                 // Call dialogFX function for button
-                $('#' + data["id"] + ' .dialog-open').click(openDialog);
+                var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
+                elClass.find('.dialog-open').click(openDialog);
+                elClass.find('.delete-img').click(deleteImg);
+
 
               });
 
@@ -1212,66 +1280,7 @@ $(function () {
 
   /* Delete Image
    ========================================= */
-  $('.delete-img').on('click', (function (event) {
-    // Get ID of image
-    var imageID = $(this).attr('data-id');
-
-    // Ajax
-    $.ajax({
-      url: "/plugins/intranet/admin/ajax/int_table_delete_img.php",
-      type: "POST",
-      datatype: 'json',
-      data: {
-        imageID: imageID
-      },
-      success: function (data) {
-
-        if (data.status == 'delete_success') {
-          // IF DATA SUCCESS
-
-          // Removes elements from the Isotope instance and DOM
-          $('#gallery_envo').isotope('remove', $('#' + data.data[0].id))
-          // Layout remaining item elements
-            .isotope('layout');
-
-          // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              message: data.status_msg
-            }, {
-              // settings
-              type: 'success',
-              delay: 2000
-            });
-          }, 1000);
-
-        } else {
-          // IF DATA ERROR
-
-          // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              message: data.status_msg
-            }, {
-              // settings
-              type: 'danger',
-              delay: 5000
-            });
-          }, 1000);
-
-        }
-      },
-      complete: function () {
-
-      },
-      error: function () {
-
-      }
-    });
-
-  }));
+  $('.delete-img').click(deleteImg);
 
 });
 

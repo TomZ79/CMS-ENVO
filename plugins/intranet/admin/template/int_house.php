@@ -37,8 +37,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
         <table id="int_table" class="table table-striped table-hover">
           <thead>
           <tr>
-            <th class="col-md-1 no-sort">#</th>
-            <th class="col-md-1 no-sort">
+            <th class="no-sort" style="width:5%">#</th>
+            <th class="no-sort" style="width:5%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -50,11 +50,11 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
               </div>
             </th>
-            <th class="col-md-2">Název</th>
-            <th class="col-md-2">Ulice</th>
-            <th class="col-md-2">Město</th>
-            <th class="col-md-2 no-sort">IČ</th>
-            <th class="col-md-2 no-sort"></th>
+            <th style="width:35%">Název</th>
+            <th style="width:20%">Ulice</th>
+            <th style="width:10%">Město</th>
+            <th class="no-sort" style="width:20%">IČ</th>
+            <th class="no-sort" style="width:5%"></th>
           </tr>
           </thead>
           <tbody>
@@ -88,7 +88,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 <?php echo $h["city"];?>
               </td>
               <td>
-                <?php echo $h["ic"];?>
+                <?php echo $h["housefic"];?>
               </td>
               <td class="text-center">
 

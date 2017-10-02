@@ -264,7 +264,7 @@ function envo_get_house_image($id, $table)
 function envo_house_not_exist($ic, $table)
 {
   global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE ic = "' . smartsql($ic) . '" LIMIT 1');
+  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE housefic = "' . smartsql($ic) . '" LIMIT 1');
   if ($envodb->affected_rows === 1) {
     return TRUE;
   } else {

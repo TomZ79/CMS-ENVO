@@ -34,6 +34,8 @@ $envotable3 = DB_PREFIX . 'intranethouseimg';
 $envotable4 = DB_PREFIX . 'intranethousenotifications';
 $envotable5 = DB_PREFIX . 'intranethousenotificationug';
 $envotable6 = DB_PREFIX . 'intranethousedocu';
+$envotable7 = DB_PREFIX . 'intranethouseent';
+$envotable8 = DB_PREFIX . 'intranethouseapt';
 
 // Parse links once if needed a lot of time
 $backtoblog = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -111,6 +113,24 @@ switch ($page1) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
               $ENVO_HOUSE_CONT[] = $row;
+            }
+
+            // EN: Get the data of entrance
+            // CZ: Získání dat o vchodech
+            $result = $envodb->query('SELECT * FROM ' . $envotable7 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSE_ENT[] = $row;
+            }
+
+            // EN: Get the data of apartment
+            // CZ: Získání dat o bytech
+            $result = $envodb->query('SELECT * FROM ' . $envotable8 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSE_APT[] = $row;
             }
 
             // EN: Get the data of services

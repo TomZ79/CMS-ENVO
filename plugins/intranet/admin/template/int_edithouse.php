@@ -670,7 +670,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefdic', $ENVO_FORM_DATA["housefdic"], '', 'form-control');
+                            echo $Html->addInput('text', 'housefdic', $ENVO_FORM_DATA["housefdic"], '', 'form-control');
                             ?>
 
                           </div>
@@ -863,7 +863,8 @@ if ($errors) { ?>
             <div class="col-md-12 m-b-20">
               <div class="col-md-6">
                 <h5 style="margin: 2px;">Číslo vchodu:
-                  <strong><?php echo($e["entrance"] ? $e["entrance"] : '0'); ?></strong></h5>
+                  <strong><?php echo($e["entrance"] ? $e["entrance"] : '0'); ?></strong>
+                </h5>
               </div>
               <div class="col-md-6">
 
@@ -1164,6 +1165,7 @@ if ($errors) { ?>
                           </div>
                         </span>
                         <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                        <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"><i class="glyphicon glyphicon-file"></i></span>
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-lg-3 m-t-10">
@@ -1276,19 +1278,20 @@ if ($errors) { ?>
                     <div class="row">
                       <div class="col-xs-12 col-sm-8 col-lg-9 m-t-10">
                         <div id="upload_img" class="input-group" style="width: 100%;">
-                        <span class="input-group-btn" style="width: 1%;">
-                          <!-- File-clear button -->
-                          <button type="button" class="btn btn-default file-clear" style="display:none;">
-                            <span class="fa fa-remove"></span> Smazat
-                          </button>
-                          <!-- File-input button-->
-                          <div class="btn btn-default file-input">
-                            <span class="fa fa-folder-open"></span>
-                            <span class="file-input-title">Vybrat Soubor</span>
-                            <input type="file" name="input-file" id="fileinput_img" accept="image/*"/>
-                          </div>
-                        </span>
+                          <span class="input-group-btn" style="width: 1%;">
+                            <!-- File-clear button -->
+                            <button type="button" class="btn btn-default file-clear" style="display:none;">
+                              <span class="fa fa-remove"></span> Smazat
+                            </button>
+                            <!-- File-input button-->
+                            <div class="btn btn-default file-input">
+                              <span class="fa fa-folder-open"></span>
+                              <span class="file-input-title">Vybrat Soubor</span>
+                              <input type="file" name="input-file" id="fileinput_img" accept="image/*"/>
+                            </div>
+                          </span>
                           <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif"><i class="glyphicon glyphicon-picture"></i></span>
                         </div>
                       </div>
                       <div class="col-xs-12 col-sm-4 col-lg-3 m-t-10">
@@ -1382,7 +1385,7 @@ if ($errors) { ?>
 
                         echo '<div class="full-width padding-10">';
 
-                        echo '<p class="bold">Short description</p><p class="shortdesc">' . $img["shortdescription"] . '</p>';
+                        echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $img["shortdescription"] . '</p>';
 
                         echo '</div>';
 

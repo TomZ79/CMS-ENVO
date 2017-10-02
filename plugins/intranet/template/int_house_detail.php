@@ -142,6 +142,7 @@
                           <th>Adresa</th>
                           <th>Telefon</th>
                           <th>Email</th>
+                          <th>Výbor</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -152,6 +153,26 @@
                             <td><?php echo $hcont["address"]; ?></td>
                             <td><?php echo $hcont["phone"]; ?></td>
                             <td><?php echo $hcont["email"]; ?></td>
+                            <td>
+
+                              <?php
+                              switch ($hcont["commission"]) {
+                                case '0':
+                                  echo 'Není ve Výboru';
+                                  break;
+                                case '1':
+                                  echo 'Předseda';
+                                  break;
+                                case '2':
+                                  echo 'Člen Výboru';
+                                  break;
+                                case '3':
+                                  echo 'Pověřený vlastník';
+                                  break;
+                              }
+                              ?>
+
+                            </td>
                           </tr>
                         <?php } ?>
 
@@ -179,7 +200,125 @@
       </div>
       <div id="tabs4" class="tab-pane fade">
         <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Nájemníci</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
 
+                  <?php if (!empty($ENVO_HOUSE_ENT) && is_array($ENVO_HOUSE_ENT)) {
+                    foreach ($ENVO_HOUSE_ENT as $e) { ?>
+
+                      <div class="row">
+                        <div class="col-md-12 m-b-20">
+                          <h4 style="margin: 2px;">Číslo vchodu:
+                            <strong><?php echo($e["entrance"] ? $e["entrance"] : '0'); ?></strong>
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="box box-success">
+                            <div class="box-body no-padding">
+                              <div class="table-responsive">
+                                <table id="tableapartment_<?php echo($e["entrance"] ? $e["entrance"] : '0'); ?>" class="table table-bordered table-striped">
+                                  <thead>
+                                  <tr>
+                                    <th class="col-md-1">#</th>
+                                    <th class="col-md-1">Číslo bytu</th>
+                                    <th class="col-md-1">Patro</th>
+                                    <th class="col-md-2">Jméno</th>
+                                    <th class="col-md-2">Telefon</th>
+                                    <th class="col-md-2">Výbor</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+
+                                  <?php
+
+                                  if (isset($ENVO_HOUSE_APT) && is_array($ENVO_HOUSE_APT)) {
+                                    $foundApt = array();
+                                    foreach ($ENVO_HOUSE_APT as $a) {
+                                      if ($a["entrance"] == $e["entrance"]) {
+                                        $foundApt[] = $a;
+                                      }
+                                    }
+
+                                    if (count($foundApt) != 0) {
+
+                                      foreach ($foundApt as $foundApt) {
+
+                                        echo '<tr>';
+
+                                        echo '<td>' . $foundApt['id'] . '</td>';
+                                        echo '<td>' . $foundApt['number'] . '</td>';
+                                        echo '<td>' . $foundApt['etage'] . '</td>';
+                                        echo '<td>' . $foundApt['name'] . '</td>';
+                                        echo '<td>' . $foundApt['phone'] . '</td>';
+                                        echo '<td>';
+
+                                        switch ($foundApt["commission"]) {
+                                          case '0':
+                                            echo '<span style="color: #A7B1BE;">Není ve Výboru</span>';
+                                            break;
+                                          case '1':
+                                            echo 'Předseda';
+                                            break;
+                                          case '2':
+                                            echo 'Člen Výboru';
+                                            break;
+                                          case '3':
+                                            echo 'Pověřený vlastník';
+                                            break;
+                                        }
+
+                                        echo '</td>';
+
+                                        echo '</tr>';
+
+                                      }
+
+                                    } else {
+                                      echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                                    }
+
+                                  }
+
+                                  ?>
+
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                  } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      ?>
+
+                    </div>
+
+                  <?php } ?>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
       <div id="tabs5" class="tab-pane fade">
@@ -381,7 +520,7 @@
                               </div>
                             </div>
                             <div class="full-width padding-10">
-                              <p class="bold">Short description</p>
+                              <p class="bold">Krátký Popis</p>
                               <p class="shortdesc"><?php echo $himg["shortdescription"]; ?></p>
                             </div>
                           </div>

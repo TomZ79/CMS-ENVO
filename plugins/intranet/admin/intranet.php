@@ -125,6 +125,22 @@ switch ($page1) {
                 mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
                 // Image folder
                 mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
+                // Create '*.txt' info file
+                $data = '
+HOUSE NAME - ' . $defaults['envo_housename'] . '
+-----------------------------------------------
+House created: ' . date('Y-m-d H:i:s') . '
+Format date: Y-m-d H:i:s
+
+INFO ABOUT HOUSE
+-----------------------------------------------
+Name:     ' . $defaults['envo_housename'] . '
+Street:   ' . $defaults['envo_housestreet'] . '
+City:     ' . $defaults['envo_housecity'] . '
+IČ:       ' . $defaults['envo_housefic'] . '
+                        ';
+                $data = iconv(mb_detect_encoding($data, mb_detect_order(), true), 'UTF-8', $data);
+                file_put_contents(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/house_info.txt', $data);
 
               }
 

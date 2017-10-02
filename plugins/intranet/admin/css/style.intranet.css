@@ -114,6 +114,17 @@ table[id^="tableapartment"] tbody tr td:first-child,
   margin-left: 2px;
 }
 
+.file-filename {
+
+}
+
+.file-icon {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: #E6E6E6;
+  color: rgba(98, 98, 98, 0.6);
+}
+
 /* XX. PHOTO GALLER
 ======================================================================== */
 /* Fix for transition of button */

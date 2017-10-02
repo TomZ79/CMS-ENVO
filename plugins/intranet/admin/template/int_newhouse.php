@@ -549,7 +549,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'housefic', (isset($_REQUEST["housefic"]) ? $_REQUEST["housefic"] : ''), '', 'form-control');
+                            echo $Html->addInput('text', 'envo_housefic', (isset($_REQUEST["envo_housefic"]) ? $_REQUEST["envo_housefic"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -569,7 +569,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'housefdic', (isset($_REQUEST["housefdic"]) ? $_REQUEST["housefdic"] : ''), '', 'form-control');
+                            echo $Html->addInput('text', 'envo_housefdic', (isset($_REQUEST["envo_housefdic"]) ? $_REQUEST["envo_housefdic"] : ''), '', 'form-control');
                             ?>
 
                           </div>

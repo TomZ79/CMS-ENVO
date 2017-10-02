@@ -7260,7 +7260,7 @@ input[type="checkbox"] {
 }
 .table-striped tbody > tr:nth-child(2n+1) > td,
 .table-striped tbody > tr:nth-child(2n+1) > th {
-  background-color: #ECF0F2;
+  background-color: #F7F9FA;
   border: none;
 }
 .table-striped tbody > tr > td {
@@ -7290,7 +7290,7 @@ input[type="checkbox"] {
   border-color: #E8EDF1 !important;
 }
 .table-bordered th {
-  background-color: #ECF0F2;
+  background-color: #DCDFE0;
   border: 0 !important;
 }
 .table-bordered td {

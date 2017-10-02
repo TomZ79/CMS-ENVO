@@ -55,32 +55,32 @@ $envodata .= '
 <div class="col-sm-8 p-r-35 p-t-35 p-l-35 full-height item-description">
   <div id="notificationcontainer"></div>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#info1" style="padding: 12px 10px;">Main</a></li>
-    <li><a data-toggle="tab" href="#info2" style="padding: 12px 10px;">Thumbnail</a></li>
-    <li><a data-toggle="tab" href="#info3" style="padding: 12px 10px;">Original</a></li>
+    <li class="active"><a data-toggle="tab" href="#info1" style="padding: 12px 10px;">Hlavní Info</a></li>
+    <li><a data-toggle="tab" href="#info2" style="padding: 12px 10px;">Náhled</a></li>
+    <li><a data-toggle="tab" href="#info3" style="padding: 12px 10px;">Originál</a></li>
   </ul>
   <div class="tab-content">
     <div id="info1" class="tab-pane fade in active" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <div class="row m-b-10">
         <div class="col-sm-12">
-          <p><strong>Short Description</strong> - maxlength 70 characters</p>
+          <p><strong>Krátky Popis</strong> - maxlength 70 characters</p>
           <p><input type="text" id="shortdesc" class="form-control" value="' . $row["shortdescription"] . '" maxlength="70" readonly></p>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <p><strong>Description</strong></p>
+          <p><strong>Popis</strong></p>
           <p><textarea id="desc" style="width: 100%;height: 100px;padding: 10px;" readonly>' . $row["description"] . '</textarea></p>
           <div class="pull-right">
-            <button id="editdesc" class="btn btn-info btn-xs" type="button">Edit Description</button>
-            <button id="savedesc" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Save and Close</button>
-            <button id="closedesc" class="btn btn-info btn-xs" type="button" style="display:none;">Close</button>
+            <button id="editdesc" class="btn btn-info btn-xs" type="button">Editace popisů</button>
+            <button id="savedesc" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Uložit a Zavřít</button>
+            <button id="closedesc" class="btn btn-info btn-xs" type="button" style="display:none;">Zavřít</button>
           </div>
         </div>
       </div>
       <div class="row m-b-10">
         <div class="col-sm-12">
-          <p><strong>Category</strong></p>
+          <p><strong>Kategorie</strong></p>
         </div>
       </div>
       <div class="row m-b-10">
@@ -97,15 +97,15 @@ $envodata .= '
         </div>
         <div class="col-sm-6">
           <div class="pull-right">
-            <button id="editcat" class="btn btn-info btn-xs" type="button">Edit Category</button>
-            <button id="savecat" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Save and Close</button>
-            <button id="closecat" class="btn btn-info btn-xs" type="button" style="display:none;">Close</button>
+            <button id="editcat" class="btn btn-info btn-xs" type="button">Editace kategorie</button>
+            <button id="savecat" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Uložit a Zavřít</button>
+            <button id="closecat" class="btn btn-info btn-xs" type="button" style="display:none;">Zavřít</button>
           </div>
         </div>
       </div>
       <div class="row m-b-10">
         <div class="col-sm-12">
-          <p><strong>Date of edit description or category</strong></p>
+          <p><strong>Datum poslední editace popisů nebo kategorie</strong></p>
           <p id="timeedit">' . $row["timeedit"] . '</p>
         </div>
       </div>
