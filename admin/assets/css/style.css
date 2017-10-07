@@ -11,6 +11,12 @@
  *
  */
 
+
+/* TinyMCE modification  */
+div.mce-edit-area {
+  padding: 10px;
+}
+
 /*  */
 .header .quick-list {
   display: inline-block;
