@@ -40,7 +40,9 @@ if ($input['action'] === 'edit') {
   $row    = $result->fetch_assoc();
 
   $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseapt WHERE entrance = "' . $row['entrance'] . '"');
-  // Determine number of rows result set
+
+  // EN: Determine the number of rows in the result from DB
+  // CZ: Určení počtu řádků ve výsledku z DB
   $row_cnt = $result->num_rows;
 
   if ($row_cnt > 0) {

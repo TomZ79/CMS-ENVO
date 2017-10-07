@@ -85,7 +85,7 @@ label {
 		display: inline-block;
 		position: relative;
 		top: 0;
-		font-size: 13px;
+		font-size: @base-font-size;
 	}
 	&.done {
 		color: #0090D9 !important;
@@ -109,7 +109,7 @@ ul {
 				.name {
 					display: block;
 					color: #000;
-					font-size: 13px;
+					font-size: @base-font-size;
 				}
 				.description {
 					display: block;
@@ -208,15 +208,15 @@ blockquote {
 }
 
 .small-text {
-	font-size: 12px !important;
+	font-size: @small-font-size !important;
 }
 
 .normal-text {
-	font-size: 13px !important;
+	font-size: @base-font-size !important;
 }
 
 .large-text {
-	font-size: 15px !important;
+	font-size: @large-font-size !important;
 }
 
 .center-text {
@@ -426,7 +426,7 @@ hr {
 		width: auto;
 	}
 	&.well-small {
-		padding: 13px;
+		padding: @base-font-size;
 		width: auto;
 	}
 	&.green {

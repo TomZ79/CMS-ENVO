@@ -40,7 +40,7 @@ input[type="color"] {
 	height: 16px;
 	padding: 6px 11px !important;
 	line-height: 15px;
-	font-size: 13px;
+	font-size: @base-font-size;
 	font-weight: normal;
 	vertical-align: top;
 	background-color: @color-white;
@@ -176,7 +176,7 @@ textarea[class*="span"] {
 }
 
 .input-sm {
-	font-size: 13px !important;
+	font-size: @base-font-size !important;
 	min-height: 29px !important;
 }
 
@@ -266,7 +266,7 @@ textarea[class*="span"] {
 		position: relative;
 		padding-left: 25px;
 		margin-right: 15px;
-		font-size: 13px;
+		font-size: @base-font-size;
 		margin-bottom: 6px;
 		color: #777A80;
 		&:before {
@@ -283,7 +283,7 @@ textarea[class*="span"] {
 			border-radius: 99px;
 		}
 		&:after {
-			font-size: 13px;
+			font-size: @base-font-size;
 			content: "";
 			text-align: center;
 			display: inline-block;
@@ -424,7 +424,7 @@ textarea[class*="span"] {
 		position: relative;
 		padding-left: 25px;
 		margin-right: 15px;
-		font-size: 13px;
+		font-size: @base-font-size;
 		color: #777A80;
 		transition: border 0.2s linear 0s, color 0.2s linear 0s;
 		margin-bottom: 10px;
@@ -911,7 +911,7 @@ form legend, .form-view legend {
 			border-radius: 32px 32px 32px 32px;
 			color: @color-white;
 			display: inline;
-			font-size: 15px;
+			font-size: @large-font-size;
 			font-weight: bold;
 			line-height: 12px;
 			padding: 4px 9px;
@@ -929,7 +929,7 @@ form legend, .form-view legend {
 		.title {
 			color: #B1BCC5;
 			display: block;
-			font-size: 13px;
+			font-size: @base-font-size;
 			line-height: 15px;
 			max-width: 100%;
 			position: relative;
@@ -1011,10 +1011,10 @@ form legend, .form-view legend {
 
 .form-control {
 	border: 1px solid #E5E9EC;
-	font-size: 13px;
+	font-size: @base-font-size;
 }
 
-.form-row input, .form-row select, .form-row textarea, .form-row select2 {
+.form-row input, .form-row select, .form-row textarea, .form-row .select2 {
 	margin-bottom: 10px;
 }
 
@@ -1546,7 +1546,7 @@ form legend, .form-view legend {
 		tr {
 			.datepicker-switch {
 				color: #6F7B8A;
-				font-size: 13px;
+				font-size: @base-font-size;
 			}
 			.prev {
 				color: @color-success;

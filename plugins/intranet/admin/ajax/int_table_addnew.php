@@ -23,7 +23,9 @@ $entrance = $_POST['entrance'];
 // Check if Entrance not exist
 $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
 $row = $result->fetch_assoc();
-// Determine number of rows result set
+
+// EN: Determine the number of rows in the result from DB
+// CZ: Určení počtu řádků ve výsledku z DB
 $row_cnt = $result->num_rows;
 
 if ($row_cnt > 0) {
