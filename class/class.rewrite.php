@@ -16,11 +16,11 @@ class ENVO_rewrite
     $this->url = $url;
   }
 
-  public static function envoParseurl($var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = '')
+  public static function envoParseurl($var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = '', $tabs = '')
   {
 
     // Set v to zero
-    $v = $v1 = $v2 = $v3 = $v4 = $v5 = '';
+    $v = $v1 = $v2 = $v3 = $v4 = $v5 = $t = '';
 
     // Check if is/not apache and create url
     if (!ENVO_USE_APACHE) {
@@ -43,7 +43,11 @@ class ENVO_rewrite
         $v4 = '&amp;sssssp=' . htmlspecialchars($var5);
       }
 
-      // if not apache add some stuff to the url
+      if ($tabs) {
+        $t = '#' . htmlspecialchars($tabs);
+      }
+
+      // If not apache add some stuff to the url
       if ($var) {
         $var = 'index.php?p=' . htmlspecialchars($var);
       } else {
@@ -51,7 +55,7 @@ class ENVO_rewrite
       }
 
       // Now se the var for none apache
-      $varname = $var . $v . $v1 . $v2 . $v3 . $v4;
+      $varname = $var . $v . $v1 . $v2 . $v3 . $v4 . $t;
 
     } else {
 
@@ -70,12 +74,15 @@ class ENVO_rewrite
       if ($var5) {
         $v4 = '/' . $var5;
       }
+      if ($tabs) {
+        $t = '#' . $tabs;
+      }
 
       // if not apache add some stuff to the url
       $var = $var;
 
       // Now se the var for none apache
-      $varname = '/' . htmlspecialchars($var . $v . $v1 . $v2 . $v3 . $v4);
+      $varname = '/' . htmlspecialchars($var . $v . $v1 . $v2 . $v3 . $v4 . $t);
 
     }
 
