@@ -30,6 +30,7 @@
 // # List of updated components
 // ------------------------------
 
+[updated] Update Fancybox from 3.0 to 3.1.25
 [updated] Fix typo
 
 // # List of fixed bugs
