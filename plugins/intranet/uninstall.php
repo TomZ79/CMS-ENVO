@@ -145,18 +145,19 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
             $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
             /* Remove tables with data */
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseent');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseapt');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousecontact');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedocu');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseimg');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotifications');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotificationug');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousetower');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechannel');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechanneltower');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousetasks');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseent');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseapt');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousecontact');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedocu');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseimg');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotifications');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotificationug');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousetower');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechannel');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechanneltower');
           }
 
           $succesfully = 1;
