@@ -1,0 +1,100 @@
+/* 00. Bootstrap Tabs
+ * Responsive Bootstrap Tabs by @hayatbiralem
+ ========================================================================*/
+/* Responsive Bootstrap Tabs */
+@media screen and (max-width: 479px) {
+	.nav-tabs-responsive {
+		& > li {
+			display: none;
+			width: 23%;
+			& > a {
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				word-wrap: normal;
+				width: 100%;
+				text-align: center;
+				vertical-align: top;
+				& > span {
+					width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+			&.active {
+				width: 54%;
+				display: block;
+				&:first-child {
+					margin-left: 23%;
+				}
+			}
+			&.prev {
+				display: block;
+				-webkit-transform: scale(0.9);
+				transform: scale(0.9);
+				& > a {
+					-webkit-transition: none;
+					transition: none;
+					.text {
+						display: none;
+					}
+				}
+			}
+			&.next {
+				display: block;
+				-webkit-transform: scale(0.9);
+				transform: scale(0.9);
+				& > a {
+					-webkit-transition: none;
+					transition: none;
+					.text {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	
+	.nav-tabs-responsive {
+		& > li {
+			&.prev > a:after,
+			&.next > a:after {
+				position: relative;
+				top: -15px;
+				display: inline-block;
+				font-family: 'FontAwesome';
+				font-style: normal;
+				font-weight: 400;
+				line-height: 1;
+				border: none;
+				background: none !important;
+				transition: none !important;
+			}
+			&.prev > a:after {
+				content: "\f053";
+			}
+			&.next > a:after {
+				content: "\f054";
+			}
+		}
+	}
+}
+
+/* Singel content without Tabs & Accordian
+ * Content is same as content with Tabs & Accordians */
+.nav-tabs-fillup ~ .tab-content {
+	background: transparent;
+}
+
+.tab-content-singel {
+	overflow: hidden;
+	padding: 15px;
+	background: transparent;
+	border-top: 1px solid #DDD;
+}
+
+/* Nav Tabs global setting */
+.nav-tabs > li > a {
+	padding: 13px 14px;
+}

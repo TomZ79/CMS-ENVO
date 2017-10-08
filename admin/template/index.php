@@ -205,7 +205,7 @@
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('#', $tl["button"]["btn"], 'addButton', 'btn btn-default btodo pull-right');
+              echo $Html->addAnchor('#', $tl["button"]["btn"], 'addTodo', 'btn btn-default addtodo pull-right');
               ?>
 
             </div>

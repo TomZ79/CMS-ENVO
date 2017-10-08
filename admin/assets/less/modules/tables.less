@@ -1,0 +1,54 @@
+/* 00. Bootstrap Tables
+ ========================================================================*/
+/* Table - General settings */
+.table thead tr th,
+.table tbody tr td {
+	color: #333 !important;
+	font-size: 13px;
+}
+
+.table thead tr th {
+	background-color: #FFF !important;
+	padding: 8px !important;
+}
+
+.table tbody tr td {
+	padding: 8px !important;
+}
+
+.table.table-striped tbody tr td {
+	vertical-align: middle;
+}
+
+.table.table-striped tbody tr td:first-child {
+	padding-left: 18px !important;
+}
+
+/* Table - Expand table rows */
+table.table-expandable > tbody > tr:nth-child(odd) {
+	cursor: pointer;
+}
+
+table.table-expandable > tbody > tr div.table-expandable-arrow {
+	background: transparent url(../img/table-arrows.png) no-repeat scroll 0px -16px;
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+
+table.table-expandable > tbody > tr div.table-expandable-arrow.up {
+	background-position: 0 0;
+}
+
+/* Table striped - hover effect */
+.table.table-hover tbody tr:hover:nth-child(2n+1) td {
+	background: #DAEFFD !important;
+}
+
+/* List of category in tables */
+.table-category-list {
+	a {
+		display: block;
+		text-align: left;
+	}
+}

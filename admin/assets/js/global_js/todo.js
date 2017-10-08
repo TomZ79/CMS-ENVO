@@ -149,7 +149,7 @@ $(function () {
 
 	// The Add New ToDo button:
 	var timestamp = 0;
-	$('#addButton').click(function (e) {
+	$('#addTodo').click(function (e) {
 
 		// Only one todo per 5 seconds is allowed:
 		if ((new Date()).getTime() - timestamp < 5000) return false;
@@ -168,7 +168,7 @@ $(function () {
 		timestamp = (new Date()).getTime();
 
 		// Countdown - 5 seconds
-		$('#addButton').timedDisable(5);
+		$(this).timedDisable(5);
 
 		e.preventDefault();
 	});

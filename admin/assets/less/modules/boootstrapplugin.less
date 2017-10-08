@@ -1,0 +1,484 @@
+/* 00. Bootstrap Plugin
+ ========================================================================*/
+
+/* -----------------------------------------------------------------------
+ *  # Bootbox Dialog Plugin  - modification
+ * -----------------------------------------------------------------------*/
+.bootbox {
+	.modal-content {
+		border: none;
+		border-radius: 0;
+		.modal-header {
+			text-align: left;
+			padding: 10px 25px 10px 25px;
+		}
+		.modal-body {
+			.bootbox-body {
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+/* Bootbox Buttons - Delete */
+.bootbox-confirm-del {
+	.modal-header {
+		background-color: #F55753;
+	}
+	.modal-title {
+		color: #FFF;
+	}
+	.bootbox-body {
+		margin-top: 15px;
+	}
+}
+
+/* Bootbox Buttons - Trunc */
+.bootbox-confirm-trunc {
+	.modal-header {
+		background-color: #F8D053;
+	}
+	.modal-title {
+		color: #FFF;
+	}
+	.bootbox-body {
+		margin-top: 15px;
+	}
+}
+
+/* Bootbox Buttons - Logout */
+.bootbox-confirm-logout {
+	.modal-header {
+		background-color: #00BCD4;
+	}
+	.bootbox-body {
+		margin-top: 15px;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap Notify Plugin - modification
+ * -----------------------------------------------------------------------*/
+[data-notify="container"].alert .close {
+	top: 10px !important;
+	opacity: 1;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap TagsInput Plugin - modification
+ * -----------------------------------------------------------------------*/
+.bootstrap-tagsinput {
+	width: 100%;
+	height: 100px;
+	box-shadow: none;
+	border-radius: 0;
+	overflow: auto;
+	background: #FFF;
+	.tag {
+		margin: 0 4px 6px 0;
+		font-size: 11px;
+		padding: 1px 4px 1px 6px;
+		line-height: 20px;
+		&.ext {
+			color: #626262;
+			margin: 0 4px 6px 0;
+			font-size: 11px;
+			padding: 0 4px 0 6px;
+			line-height: 17px;
+			[data-role="remove"]:hover::after {
+				color: #000;
+			}
+		}
+		[data-role="remove"]:hover::after {
+			color: #626262;
+		}
+	}
+	input[type="text"] {
+		border: none;
+		background-color: #F9F9F9;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap FileInput Plugin - modification
+ * -----------------------------------------------------------------------*/
+/* Bootstrap FileInput - Icons */
+.kv-caption-icon {
+	margin-right: 10px;
+	margin-left: 20px;
+}
+
+/* FileInput progress bar */
+.file-thumb-progress {
+	position: inherit;
+	top: 0;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap Select2 Plugin - modification
+ * -----------------------------------------------------------------------*/
+.select2-container .select2-selection {
+	border-radius: 0 !important;
+}
+
+.select2-results {
+	.select2-results__option--highlighted {
+		background-color: #CFF5F2 !important;
+		border-radius: 0;
+		color: #626262 !important;
+	}
+	ul li[aria-selected="true"] {
+		background-color: #CFF5F2 !important;
+		border-radius: 0;
+		color: #626262 !important;
+	}
+}
+
+.has-error .select2-selection {
+	border-color: #F22823 !important;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap Pace Plugin - modification
+ * -----------------------------------------------------------------------*/
+#pace.active {
+	z-index: 2000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.95);
+}
+
+#pace.inactive {
+
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap DateTimePicker Plugin  - modification
+ * -----------------------------------------------------------------------*/
+.bootstrap-datetimepicker-widget {
+	ul > li {
+		padding: 0;
+	}
+	table td span {
+		margin: 0;
+	}
+	table td.active.today:before {
+		border-bottom-color: #337AB7 !important;
+	}
+	.datepicker {
+		padding: 16px;
+		table tr td.today {
+			background-color: #CFF5F2 !important;
+			color: #626262 !important;
+			font-weight: 600 !important;
+			&.active {
+				color: #626262 !important;
+			}
+		}
+	}
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap Sortable
+ * -----------------------------------------------------------------------*/
+/* --------- SORTABLE --------- */
+/* Label in Plugins */
+.envo_plugins_move label {
+	font-weight: 300;
+	margin-right: 10px;
+}
+
+/*  */
+.envoplugins {
+	.text {
+		margin-top: 8px;
+		font-size: 13px !important;
+	}
+	.actions {
+		margin-top: 8px;
+		font-size: 13px !important;
+	}
+	.show {
+		margin-top: 5px;
+		font-size: 13px !important;
+	}
+	.form-group {
+		margin-bottom: 5px;
+	}
+	.plugins-name {
+		text-transform: uppercase;
+	}
+	.plugins-version {
+		text-transform: uppercase;
+	}
+}
+
+ul.envo_plugins_move,
+ul.envo_cat_move,
+ul.envo_content_move,
+ul.envo_widget_move,
+ul.envo_hooks_move,
+ul#cform_sort {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+}
+
+ul.envo_plugins_move li,
+ul.envo_cat_move li,
+ul.envo_content_move li,
+ul.envo_widget_move li,
+ul.envo_hooks_move li,
+ul#cform_sort li {
+	background-color: #F9F9F9;
+	border: 1px solid #EEE;
+	list-style: none;
+	margin: 6px 0;
+	padding: 6px 9px;
+	position: relative;
+	cursor: move;
+}
+
+ul.envo_plugins_move li:hover,
+ul.envo_cat_move li:hover,
+ul.envo_content_move li:hover,
+ul.envo_widget_move li:hover,
+ul.envo_hooks_move li:hover,
+ul#cform_sort li:hover {
+	border-color: #10D5C2;
+	/* CSS3 glow effect: */
+	-moz-box-shadow: 0 0 5px #DBF0EE;
+	-webkit-box-shadow: 0 0 5px #DBF0EE;
+	box-shadow: 0 0 5px #DBF0EE;
+}
+
+.envocontent .envocontent_header {
+	border-bottom: 1px solid #EEE;
+	margin-bottom: 10px;
+	font-weight: 700;
+	font-size: 1.1em;
+	color: #0DAD9E;
+}
+
+.envocat .text,
+.envohooks .text {
+	display: inline-block;
+	color: #777;
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.envocat .actions {
+	position: absolute;
+	right: 7px;
+	top: 6px;
+}
+
+.envohooks .actions {
+	position: absolute;
+	right: 7px;
+	top: 16px;
+}
+
+/* Sidebar Widget */
+.envowidget .sidebar-widget .checkbox {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.envowidget .actions .form-control {
+	height: 28px;
+}
+
+.envowidget .actions .btn {
+	padding: 3px 35px;
+}
+
+/* */
+.ui-sortable-placeholder,
+.ui-state-highlight,
+.placeholder {
+	outline: 1px dashed #4183C4;
+}
+
+.placeholder {
+	background-color: #CFF5F2 !important
+}
+
+/* */
+.mjs-nestedSortable-error {
+	background: #FBE3E4;
+	border-color: transparent;
+}
+
+/* */
+.ui-front {
+	z-index: 100
+}
+
+/* */
+.ui-sortable-handle {
+	-ms-touch-action: none;
+	touch-action: none
+}
+
+/* */
+.ui-state-disabled {
+	cursor: default !important
+}
+
+/* */
+.ui-state-highlight {
+}
+
+/* */
+.ui-helper {
+	width: 100% !important;
+}
+
+.ui-helper-hidden {
+	display: none
+}
+
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px
+}
+
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none
+}
+
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse
+}
+
+.ui-helper-clearfix:after {
+	clear: both
+}
+
+.ui-helper-clearfix {
+	min-height: 0
+}
+
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter: Alpha(Opacity=0)
+}
+
+/* Sort links icons */
+.sort {
+	margin-left: 5px;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Bootstrap Dragable
+ * -----------------------------------------------------------------------*/
+ul.cform_drag {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+}
+
+ul.cform_drag li {
+	background-color: #F9F9F9;
+	border: 1px solid #EEE;
+	list-style: none;
+	margin: 6px 0;
+	padding: 6px 9px;
+	position: relative;
+	cursor: move;
+}
+
+ul.cform_drag li:hover {
+	border-color: #10D5C2;
+	/* CSS3 glow effect: */
+	-moz-box-shadow: 0 0 5px #DBF0EE;
+	-webkit-box-shadow: 0 0 5px #DBF0EE;
+	box-shadow: 0 0 5px #DBF0EE;
+}
+
+.big-drag {
+	height: 5.7em;
+	line-height: 2.2em;
+	width: 100%;
+}
+
+.ui-draggable-handle {
+	-ms-touch-action: none;
+	touch-action: none
+}
+
+/* Component: Callout */
+.callout {
+	border-radius: 3px;
+	margin: 0 0 20px 0;
+	padding: 15px 30px 15px 15px;
+	border-left: 5px solid #EEE;
+}
+
+.callout a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.callout a:hover {
+	color: #EEE;
+}
+
+.callout h4 {
+	margin-top: 0;
+	font-weight: 600;
+}
+
+.callout p:last-child {
+	margin-bottom: 0;
+}
+
+.callout code,
+.callout .highlight {
+	background-color: #FFF;
+}
+
+.callout.callout-danger {
+	border-color: #C23321;
+}
+
+.callout.callout-warning {
+	border-color: #C87F0A;
+}
+
+.callout.callout-info {
+	border-color: #0097BC;
+	color: #FFF !important;
+	background-color: #00BCD4 !important;
+}
+
+.callout.callout-success {
+	border-color: #00733E;
+}

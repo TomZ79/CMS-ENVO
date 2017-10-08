@@ -1,0 +1,36 @@
+/* 00. Breadcrumb styles
+ ========================================================================*/
+/* TITLE AND DESCRIPTION */
+/*** General Small Screen Desktops ***/
+/*** General tablets and phones ***/
+
+.breadcrumb li .title {
+}
+
+.breadcrumb li .desc {
+	text-transform: initial;
+}
+
+@media (min-width: 768px) {
+	.breadcrumb > li + li:before {
+		padding: 0 5px;
+		color: #515050;
+		content: " - ";
+		font-weight: bold;
+	}
+}
+
+@media (max-width: 768px) {
+	.breadcrumb {
+		text-align: center;
+	}
+	
+	.breadcrumb > li + li {
+		width: 90%;
+	}
+	
+	.breadcrumb > li + li:before {
+		padding: 0;
+		content: "";
+	}
+}

@@ -11,57 +11,56 @@
 // --------------------------------------------------
 
 //Base Grey Color
-@color-master: #51646b;
+@color-master: #51646B;
 
 // Lighter Grey colors
-@color-master-light:mix(@color-master, #fff, 21%);
-@color-master-lighter:mix(@color-master, #fff, 15%);
-@color-master-lightest:mix(@color-master, #fff, 10%);
+@color-master-light: mix(@color-master, #FFF, 21%);
+@color-master-lighter: mix(@color-master, #FFF, 15%);
+@color-master-lightest: mix(@color-master, #FFF, 10%);
 
 // Darker Grey colors
-@color-master-dark:mix(@color-master, #000, 45%);
-@color-master-darker:mix(@color-master, #000, 27%);
-@color-master-darkest:mix(@color-master, #000, 20%);
+@color-master-dark: mix(@color-master, #000, 45%);
+@color-master-darker: mix(@color-master, #000, 27%);
+@color-master-darkest: mix(@color-master, #000, 20%);
 
-
-@base-font-family: wf_segoe-ui_light,wf_segoe-ui_normal,"Helvetica Neue", Helvetica, Arial, sans-serif;
+@base-font-family: wf_segoe-ui_light, wf_segoe-ui_normal, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Menu Vars
 // --------------------------------------------------
 //Menu Animation Curve
-@menu-bezier:.05, .74, .27, .99;
-@menu-icon-size:40px;
-@color-menu :#2a2e35;
-@color-menu-dark :mix(@color-menu, #000, 77%);
-@color-menu-darker :mix(@color-menu, #000, 90%);
+@menu-bezier: .05, .74, .27, .99;
+@menu-icon-size: 40px;
+@color-menu: #2A2E35;
+@color-menu-dark: mix(@color-menu, #000, 77%);
+@color-menu-darker: mix(@color-menu, #000, 90%);
 
 //Generating Menu font color
-@menu-mix-temp : mix(@color-menu, #fff, 92%);
-@menu :hardlight(#fff, @menu-mix-temp);
+@menu-mix-temp: mix(@color-menu, #FFF, 92%);
+@menu: hardlight(#FFF, @menu-mix-temp);
 //Menu Font Color
-@color-menu-light :@menu;
-@color-menu-link-hover:#fff;
+@color-menu-light: @menu;
+@color-menu-link-hover: #FFF;
 
 // Body
 // --------------------------------------------------
 @body-background: @color-master-lightest;
 @body-color: @color-master;
-@body-font-family : @base-font-family;
-@body-font-size : 13px;
+@body-font-family: @base-font-family;
+@body-font-size: 13px;
 
 // Layout
 // --------------------------------------------------
-@layout-header-height:60px;
-@layout-mobile-header-height:48px;
-@layout-mobile-logo-scale:0.8;
-@layout-sidepanel-width-collapsed : 70px;
-@layout-sidepanel-width:280px;
-@layout-sidepanel-pin-width:250px;
+@layout-header-height: 60px;
+@layout-mobile-header-height: 48px;
+@layout-mobile-logo-scale: 0.8;
+@layout-sidepanel-width-collapsed: 70px;
+@layout-sidepanel-width: 280px;
+@layout-sidepanel-pin-width: 250px;
 @layout-right-quickview-width: 285px;
-@layout-user-profile-margin:25px;
+@layout-user-profile-margin: 25px;
 @layout-container-fixed-lg: 1700px;
 
-@layout-gutter-sm : 5px;
+@layout-gutter-sm: 5px;
 
 // Panels
 @panel-border-color: transparent;
@@ -77,17 +76,17 @@
 @form-control-border-color: fade(@color-black, 7%);
 
 //Dashboard
-@dashboard-background : @color-master-lightest;
+@dashboard-background: @color-master-lightest;
 
-@color-white: #fff;
+@color-white: #FFF;
 @color-black: #000;
 
-@color-success: #47b5ab;
-@color-complete : #69b6f3;
-@color-primary: #9c78c5;
-@color-warning: #f9dc6b;
-@color-danger: #eb7374;
-@color-info: #4d6286;
+@color-success: #47B5AB;
+@color-complete: #69B6F3;
+@color-primary: #9C78C5;
+@color-warning: #F9DC6B;
+@color-danger: #EB7374;
+@color-info: #4D6286;
 
 //Mixing Color varriable for creating both light and dark colors
 @mix-percentage-dark: 81%;
@@ -133,24 +132,22 @@
 @color-info-dark: mix(@color-info, @color-black, @mix-percentage-dark);
 @color-info-darker: mix(@color-info, @color-black, @mix-percentage-darker);
 
-
 // Components
 // --------------------------------------------------
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
 //@padding-base-vertical:     6px;
-@padding-base-horizontal:   17px;
+@padding-base-horizontal: 17px;
 
 // @padding-lg-vertical:    28px;
-@padding-lg-horizontal:  28px;
+@padding-lg-horizontal: 28px;
 
 // @padding-sm-vertical:    5px;
-@padding-sm-horizontal:  16px;
+@padding-sm-horizontal: 16px;
 
-@padding-xs-vertical:       2px;
-@padding-xs-horizontal:     9px;
+@padding-xs-vertical: 2px;
+@padding-xs-horizontal: 9px;
 
-
-@zIndex-navbar : @zIndex-9;
-@zIndex-sidebar : @zIndex-10;
-@zIndex-tooltips : @zIndex-10;
+@zIndex-navbar: @zIndex-9;
+@zIndex-sidebar: @zIndex-10;
+@zIndex-tooltips: @zIndex-10;

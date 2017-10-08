@@ -74,7 +74,7 @@ body {
 	}
 	&.no-header {
 		.page-container .page-content-wrapper .content {
-			padding-top: 0px;
+			padding-top: 0;
 		}
 		.header {
 			border-bottom-color: transparent;
@@ -325,8 +325,6 @@ body {
 			list-style: none;
 			margin: 0;
 			padding: 0;
-			margin: 0;
-			padding: 0;
 			position: relative;
 			overflow: auto;
 			-webkit-overflow-scrolling: touch;
@@ -490,7 +488,7 @@ body {
 						padding: 18px 0 10px 0;
 						& > li {
 							background: none;
-							.padding(0px, 20px, 0, 40px);
+							.padding(0, 20px, 0, 40px);
 							margin-top: 1px;
 							&:hover {
 								& > .icon-thumbnail {
@@ -499,7 +497,7 @@ body {
 							}
 							& > a {
 								display: inline-block;
-								padding: 5px 0px;
+								padding: 5px 0;
 								font-size: 13px;
 								font-family: Arial, sans-serif;
 								white-space: normal;
@@ -816,8 +814,8 @@ body {
 }
 
 .inner-content {
-	margin-top: 0px;
-	padding: 0px;
+	margin-top: 0;
+	padding: 0;
 	overflow: auto;
 	min-height: 100%;
 	.margin-left(@secondary-sidebar-width);
@@ -1118,10 +1116,10 @@ body {
 				position: relative;
 			}
 			&:only-child {
-				padding-bottom: 0px;
+				padding-bottom: 0;
 			}
 			&.overlay-footer {
-				padding-bottom: 0px;
+				padding-bottom: 0;
 			}
 		}
 		.footer {
@@ -1139,7 +1137,7 @@ body {
 }
 
 .page-title {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 /* Breadcrumbs
@@ -1147,9 +1145,9 @@ body {
 */
 .breadcrumb {
 	font-family: 'Montserrat';
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
 	box-shadow: none;
 	background-color: transparent;
 	padding: 15px 0;
@@ -1170,7 +1168,7 @@ body {
 		}
 	}
 	li {
-		.padding-left(0px);
+		.padding-left(0);
 	}
 	& > li {
 		& + li {
@@ -1775,7 +1773,7 @@ body {
 				margin-left: -12px;
 				padding: 50px 15px 12px;
 				z-index: 1;
-				box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+				box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 				
 				& > li {
 					margin: 0;

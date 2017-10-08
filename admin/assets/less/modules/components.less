@@ -1,0 +1,778 @@
+/* 00. Bootstrap Components
+ ========================================================================*/
+
+/* -----------------------------------------------------------------------
+ *  # Component: Box
+ * -----------------------------------------------------------------------*/
+.box {
+	position: relative;
+	border-radius: 0;
+	background: #FFF;
+	border-top: 3px solid #D2D6DE;
+	margin-bottom: 20px;
+	width: 100%;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.box.box-primary {
+	border-top-color: #6D5CAE;
+}
+
+.box.box-info {
+	border-top-color: #3B4752;
+}
+
+.box.box-danger {
+	border-top-color: #F55753;
+}
+
+.box.box-warning {
+	border-top-color: #F8D053;
+}
+
+.box.box-success {
+	border-top-color: #0DA899;
+}
+
+.box.box-default {
+	border-top-color: #F0F0F0;
+}
+
+.box.collapsed-box .box-body,
+.box.collapsed-box .box-footer {
+	display: none;
+}
+
+.box .nav-stacked > li {
+	border-bottom: 1px solid #F4F4F4;
+	margin: 0;
+}
+
+.box .nav-stacked > li:last-of-type {
+	border-bottom: none;
+}
+
+.box.height-control .box-body {
+	max-height: 300px;
+	overflow: auto;
+}
+
+.box .border-right {
+	border-right: 1px solid #F4F4F4;
+}
+
+.box .border-left {
+	border-left: 1px solid #F4F4F4;
+}
+
+.box.box-solid {
+	border-top: 0;
+}
+
+.box.box-solid.box-default {
+}
+
+.box.box-solid.box-default > .box-header {
+	color: #5E5E5E;
+	background: #F2F2F2;
+	background-color: #F2F2F2;
+}
+
+.box.box-solid.box-primary {
+}
+
+.box.box-solid.box-primary > .box-header {
+	color: #FFF;
+	background: #3C8DBC;
+	background-color: #3C8DBC;
+}
+
+.box.box-solid.box-info {
+}
+
+.box.box-solid.box-info > .box-header {
+	color: #FFF;
+	background: #00C0EF;
+	background-color: #00C0EF;
+}
+
+.box.box-solid.box-danger {
+}
+
+.box.box-solid.box-danger > .box-header {
+	color: #FFF;
+	background: #DD4B39;
+	background-color: #DD4B39;
+}
+
+.box.box-solid.box-warning {
+}
+
+.box.box-solid.box-warning > .box-header {
+	color: #FFF;
+	background: #F39C12;
+	background-color: #F39C12;
+}
+
+.box.box-solid.box-success {
+}
+
+.box.box-solid.box-success > .box-header {
+	color: #FFF;
+	background: #00A65A;
+	background-color: #00A65A;
+}
+
+.box .box-group > .box {
+	margin-bottom: 5px;
+}
+
+.box .knob-label {
+	text-align: center;
+	color: #333;
+	font-weight: 100;
+	font-size: 12px;
+	margin-bottom: 0.3em;
+}
+
+.box > .overlay,
+.overlay-wrapper > .overlay,
+.box > .loading-img,
+.overlay-wrapper > .loading-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.box .overlay,
+.overlay-wrapper .overlay {
+	z-index: 50;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 3px;
+}
+
+.box .overlay > .fa,
+.overlay-wrapper .overlay > .fa {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -15px;
+	margin-top: -15px;
+	color: #000;
+	font-size: 30px;
+}
+
+.box .overlay.dark,
+.overlay-wrapper .overlay.dark {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.box-header:before,
+.box-body:before,
+.box-footer:before,
+.box-header:after,
+.box-body:after,
+.box-footer:after {
+	content: " ";
+	display: table;
+}
+
+.box-header:after,
+.box-body:after,
+.box-footer:after {
+	clear: both;
+}
+
+.box-header {
+	color: #444;
+	display: block;
+	padding: 10px;
+	position: relative;
+}
+
+.box-header.with-border {
+	border-bottom: 1px solid #F4F4F4;
+}
+
+.collapsed-box .box-header.with-border {
+	border-bottom: none;
+}
+
+.box-header > .fa,
+.box-header > .glyphicon,
+.box-header > .ion,
+.box-header .box-title {
+	display: inline-block;
+	font-size: 18px;
+	margin: 0;
+	line-height: 1;
+}
+
+.box-header > .fa,
+.box-header > .glyphicon,
+.box-header > .ion {
+	margin-right: 5px;
+}
+
+.box-header > .box-tools {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+
+.box-header > .box-tools [data-toggle="tooltip"] {
+	position: relative;
+}
+
+.box-header > .box-tools.pull-right .dropdown-menu {
+	right: 0;
+	left: auto;
+}
+
+.btn-box-tool {
+	padding: 5px;
+	font-size: 12px;
+	background: transparent;
+	color: #97A0B3;
+}
+
+.open .btn-box-tool,
+.btn-box-tool:hover {
+	color: #606C84;
+}
+
+.btn-box-tool.btn:active {
+	box-shadow: none;
+}
+
+.box-body {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 10px;
+}
+
+.no-header .box-body {
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.box-body > .table {
+	margin-bottom: 0;
+}
+
+.box-body .fc {
+	margin-top: 5px;
+}
+
+.box-body .full-width-chart {
+	margin: -19px;
+}
+
+.box-body.no-padding .full-width-chart {
+	margin: -9px;
+}
+
+.box-body .box-pane {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 3px;
+}
+
+.box-body .box-pane-right {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 0;
+}
+
+.box-footer {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-top: 1px solid #F4F4F4;
+	padding: 10px;
+	background-color: #FFF;
+}
+
+.chart-legend {
+	margin: 10px 0;
+}
+
+@media (max-width: 991px) {
+	.chart-legend > li {
+		float: left;
+		margin-right: 10px;
+	}
+}
+
+.box-comments {
+	background: #F7F7F7;
+}
+
+.box-comments .box-comment {
+	padding: 8px 0;
+	border-bottom: 1px solid #EEE;
+}
+
+.box-comments .box-comment:before,
+.box-comments .box-comment:after {
+	content: " ";
+	display: table;
+}
+
+.box-comments .box-comment:after {
+	clear: both;
+}
+
+.box-comments .box-comment:last-of-type {
+	border-bottom: 0;
+}
+
+.box-comments .box-comment:first-of-type {
+	padding-top: 0;
+}
+
+.box-comments .box-comment img {
+	float: left;
+}
+
+.box-comments .comment-text {
+	margin-left: 40px;
+	color: #555;
+}
+
+.box-comments .username {
+	color: #444;
+	display: block;
+	font-weight: 600;
+}
+
+.box-comments .text-muted {
+	font-weight: 400;
+	font-size: 12px;
+}
+
+.box-input {
+	max-width: 200px;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: BOX and ROW OF FORMS IN BOX
+ * -----------------------------------------------------------------------*/
+/* Row form in box */
+.block {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+.block-content,
+.block-footer {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+.block-footer {
+	border-top: 1px solid #F2F2F2;
+	line-height: 30px;
+}
+
+.row-form {
+	float: left;
+	width: 100%;
+	padding: 5px;
+}
+
+.row-form:nth-child(even) {
+	background: #F9F9F9
+}
+
+@media only screen and (min-width: 1024px) {
+	.row-form {
+		display: flex;
+		align-items: center;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.row > [class^='col-xs-'],
+	.row > [class^='col-sm-'],
+	.row > [class^='col-md-'],
+	.row > [class^='col-lg-'] {
+		margin-bottom: 10px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	.container .row {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	.block .block-content {
+		width: 100%;
+	}
+	
+	.row-form {
+		padding-bottom: 12px;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.block .block-content {
+		width: 100%;
+	}
+	
+	.row-form {
+		padding-bottom: 12px;
+		line-height: 30px;
+	}
+}
+
+/* Forms */
+.controls {
+	padding: 10px 0px;
+}
+
+.controls .row-form {
+	float: left;
+	width: 100%;
+	line-height: 30px;
+	padding: 0px 0px 15px;
+}
+
+.controls .row-form:last-child {
+	padding-bottom: 0px;
+}
+
+.controls .row-form div[class^='col-md'] {
+	line-height: 30px;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: Spinner
+ * -----------------------------------------------------------------------*/
+#spinner {
+	width: 100px;
+	text-align: center;
+	display: inline-block;
+	margin-left: 40px;
+	visibility: hidden;
+}
+
+#spinner > div {
+	width: 10px;
+	height: 10px;
+	background-color: #3B4752;
+	
+	border-radius: 100%;
+	display: inline-block;
+	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+#spinner .bounce1 {
+	-webkit-animation-delay: -0.40s;
+	animation-delay: -0.40s;
+}
+
+#spinner .bounce2 {
+	-webkit-animation-delay: -0.30s;
+	animation-delay: -0.30s;
+}
+
+#spinner .bounce3 {
+	-webkit-animation-delay: -0.20s;
+	animation-delay: -0.20s;
+}
+
+#spinner .bounce4 {
+	-webkit-animation-delay: -0.10s;
+	animation-delay: -0.10s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0)
+	}
+	40% {
+		-webkit-transform: scale(1.0)
+	}
+}
+
+@keyframes sk-bouncedelay {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+	40% {
+		-webkit-transform: scale(1.0);
+		transform: scale(1.0);
+	}
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: BOOTSTRAP Same height for column
+ * -----------------------------------------------------------------------*/
+@media (min-width: 769px) {
+	.row-table {
+		display: table;
+	}
+	
+	.col-table {
+		float: none;
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+
+@media (max-width: 768px) {
+	.row-table {
+		display: block;
+	}
+	
+	.col-table {
+		float: none;
+		display: block;
+		vertical-align: top;
+	}
+}
+
+/* 00. BOOTSTRAP - vertical center
+========================================================================*/
+@media (min-width: 768px) {
+	.vertical-center {
+		min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+		min-height: 100vh; /* These two lines are counted as one :-)       */
+		
+		display: flex;
+		align-items: center;
+	}
+}
+
+/* 00. ERROR PAGE
+========================================================================*/
+@media (min-width: 768px) {
+	.error-page {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.error-page .headline {
+		float: none;
+		font-size: 55px;
+		font-weight: 700;
+		line-height: 55px;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: Header Quick List
+ * -----------------------------------------------------------------------*/
+.header .quick-list {
+	display: inline-block;
+}
+
+.quick-toggle {
+	top: 35px;
+	left: -26px;
+	padding: 0;
+}
+
+.quick-toggle:before {
+	border-bottom: 0 !important;
+}
+
+.quick-toggle:after {
+	border-bottom: 0 !important;
+}
+
+.quick-panel {
+	background-color: #FFF;
+	border: 1px solid #E6E6E6;
+}
+
+.quick-panel .quick-body {
+	height: auto;
+	max-height: 350px;
+	position: relative;
+	overflow: hidden;
+}
+
+.grid-dropdown {
+	width: 300px;
+	text-align: center;
+	font-size: 16px;
+	color: #252932;
+}
+
+.stacked {
+	margin: 0;
+}
+
+.stacked .pluginname {
+	background-color: #F9F9F9;
+}
+
+.stacked > [class*="col-"] {
+	padding-left: 0;
+	padding-right: 0;
+	margin: 0 !important;
+}
+
+.stacked a {
+	font-size: 13px;
+	color: #38464A;
+	width: 100%;
+	padding: 10px;
+	line-height: 30px;
+	display: block;
+	font-weight: 300;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+
+.stacked a:hover {
+	background: #626262;
+	color: #FFF;
+}
+
+.stacked a i {
+	font-size: 25px;
+	line-height: 30px;
+	height: 30px;
+	display: block;
+	color: #697a7a;
+}
+
+.stacked a:hover i {
+	color: #FFF;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: Bootstrap Pagination
+ * -----------------------------------------------------------------------*/
+.pager li, .pagination > li {
+	display: inline-block;
+	padding-left: 0;
+}
+
+.pagination > li {
+	&:first-child {
+		& > a {
+			border-radius: 0;
+		}
+		& > span {
+			border-radius: 0;
+		}
+	}
+	&:last-child {
+		& > a {
+			border-radius: 0;
+		}
+		& > span {
+			border-radius: 0;
+		}
+	}
+	&  > a,
+	&  > span {
+		color: #10CFBD;
+		border: none;
+		margin-left: 5px;
+	}
+}
+
+.pagination > .active {
+	& > a,
+	& > a:focus,
+	& > a:hover,
+	& > span,
+	& > span:focus,
+	& > span:hover {
+		background-color: #10CFBD;
+		border-color: transparent;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: Bootstrap Popover
+ * -----------------------------------------------------------------------*/
+.popover {
+	z-index: 790;
+}
+
+.cms-help i {
+	margin-left: 5px;
+}
+
+.popover.style-1 {
+	border-radius: 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h3.popover-title {
+	font-size: 20px;
+	line-height: 20px;
+	padding: 7px 20px;
+	border-radius: 0;
+}
+
+.popover.style-1 .popover-content {
+	text-align: center;
+	font-size: 13px;
+}
+
+/* -----------------------------------------------------------------------
+ *  # Component: Bootstrap dropdown menu with searching
+ * -----------------------------------------------------------------------*/
+
+.dropdown-menu.livefilter {
+	border-radius: 0 !important;
+	border-color: #ADADAD !important;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
+}
+
+.search-box {
+	padding: 4px 8px;
+}
+
+.overflow {
+	max-height: 200px;
+	overflow-y: auto;
+	width: 250px;
+}
+
+li.filter-item > a {
+	display: block;
+	font-size: 13px;
+	padding: 7px 30px 7px 20px;
+	clear: both;
+	font-weight: 400;
+	line-height: 1.42857143;
+	color: #777;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+li.filter-item > a:hover {
+	background-color: #E1E3E9;
+	color: #333;
+}
+
+.no-results {
+	padding: 3px !important;
+	margin: 0 7px !important;
+	color: #C00;
+	font-weight: 700;
+}

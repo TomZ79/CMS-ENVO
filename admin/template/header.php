@@ -55,13 +55,13 @@ echo $Html->addDoctype('html5');
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   echo $Html->addStylesheet('pages/css/pages-icons.css');
-  echo $Html->addStylesheet('pages/css/pages.css', '', array('class' => 'main-stylesheet'));
+  echo $Html->addStylesheet('pages/css/pages.min.css', '', array('class' => 'main-stylesheet'));
   ?>
 
   <!-- BEGIN General Stylesheet with custom modifications -->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('assets/css/style.css');
+  echo $Html->addStylesheet('assets/css/style.min.css');
   ?>
 
   <!--[if lte IE 9]>
