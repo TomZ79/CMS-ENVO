@@ -30,21 +30,21 @@ echo $Html->addDoctype('html5');
   // Pace preloader
   echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
   // Bootstrap
-  echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css');
+  echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Font Awesomemin
   echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   // Scrollbar
-  echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/jquery.scrollbar.css', 'screen');
+  echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.css?=v0.2.11', 'screen');
   //FileInput
-  echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css', 'screen');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css?=v4.3.7', 'screen');
   // Bootstrap Select
   echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
   // Bootstrap TagsInput
-  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css', 'screen');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.cssjquery-scrollbar', 'screen');
   // Bootstrap DateTimePicker
-  echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.42');
   // Bootstrap IconPicker
-  echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css?=v1.7.0');
   // Bootstrap GlyphIcons
   echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
   // Animate

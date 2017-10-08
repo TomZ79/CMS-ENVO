@@ -22,7 +22,7 @@ if ($page == 'newsletter') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // TinyMCE Plugin
-  echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
+  echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/newsletter/admin/js/script.newsletter.min.js');
 

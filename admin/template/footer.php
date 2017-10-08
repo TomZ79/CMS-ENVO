@@ -81,27 +81,26 @@
 
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('assets/plugins/pace/pace.min.js');
+echo $Html->addScript('assets/plugins/pace/pace.min.js?=v1.0.2');
 echo $Html->addScript('/assets/plugins/jquery/jquery-2.1.1.min.js');
 echo $Html->addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
-echo $Html->addScript('assets/plugins/modernizr.custom.js');
-echo $Html->addScript('assets/plugins/bootstrapv3/js/bootstrap.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js');
+echo $Html->addScript('assets/plugins/modernizr.custom.js?=v2.8.3');
+echo $Html->addScript('assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.7');
+echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
+echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
 echo $Html->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');
-echo $Html->addScript('assets/plugins/bootstrap-notify/bootstrap-notify.js');
-echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5');
+echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js?=v4.4.0');
+echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js?=v0.8.0');
 echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js');
+echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js?=v1.7.0');
+echo $Html->addScript('assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js?=v4.17.42');
 echo $Html->addScript('assets/plugins/jquery/jquery-easy.js');
-echo $Html->addScript('assets/plugins/jquery-unveil/jquery.unveil.min.js');
-echo $Html->addScript('assets/plugins/jquery-bez/jquery.bez.min.js');
-echo $Html->addScript('assets/plugins/jquery-ios-list/jquery.ioslist.min.js');
-echo $Html->addScript('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js');
-echo $Html->addScript('assets/plugins/jquery-actual/jquery.actual.min.js');
-echo $Html->addScript('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js');
+echo $Html->addScript('assets/plugins/jquery-unveil/1.3.0/jquery.unveil.min.js?=v1.3.0');
+echo $Html->addScript('assets/plugins/jquery-bez/1.0.11/jquery.bez.min.js?=v1.0.11');
+echo $Html->addScript('assets/plugins/imagesloaded/4.1.3/imagesloaded.pkgd.min.js?=v4.1.3');
+echo $Html->addScript('assets/plugins/jquery-actual/1.0.19/jquery.actual.min.js?=v1.0.19');
+echo $Html->addScript('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.min.js?=v0.2.11');
 ?>
 
 <!-- Validadion -->
@@ -274,7 +273,7 @@ if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
 <!-- BEGIN TINYMCE EDITOR -->
 <?php if ($ENVO_PROVED && (!$setting["adv_editor"])) {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
+  echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
   include_once('assets/js/tiny.editor.php');
 } ?>
 

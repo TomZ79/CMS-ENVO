@@ -22,7 +22,7 @@ if ($page == 'intranet') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // TinyMCE Plugin
-  echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
+  echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
   // Plugin DataTable
   echo $Html->addScript('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js');
   // Plugin Tabledit

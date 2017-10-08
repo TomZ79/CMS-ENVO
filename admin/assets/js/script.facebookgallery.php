@@ -23,7 +23,7 @@ if ($page == 'facebookgallery') {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Load FileInput Jquery Plugin  - only for selected pages
   if ($page1 == 'newfacebook') {
-    echo $Html->addScript('assets/plugins/bootstrap-fileinput/js/fileinput.js');
+    echo $Html->addScript('assets/plugins/bootstrap-fileinput/js/fileinput.js?=v4.3.7');
     echo $Html->addScript('assets/plugins/bootstrap-fileinput/js/locales/cz.js');
     echo $Html->addScript('assets/plugins/bootstrap-fileinput/themes/fa/theme.js');
   }
