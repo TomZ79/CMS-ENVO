@@ -92,3 +92,47 @@
 .dataTables_empty {
 	line-height: 24px !important;
 }
+
+/* Responsive DataTable */
+
+/*** Desktops & Laptops ***/
+@media (min-width: 980px) {
+
+}
+
+/*** General tablets and phones ***/
+@media (max-width: 979px) {
+
+}
+
+/*** Phones ***/
+@media (max-width: 480px) {
+	.dataTables_wrapper {
+		// DataTable Pagination
+		.dataTables_paginate {
+			float: none;
+			display: block;
+			text-align: center;
+		}
+		.pagination {
+			ul {
+				font-size: 16px;
+				margin-bottom: 25px;
+			}
+		}
+		// DataTable Info
+		.dataTables_info {
+			float: none;
+			display: block;
+			border: none;
+			padding: 0;
+			margin-bottom: 25px;
+			text-align: center;
+			font-size: @base-font-size;
+		}
+	}
+}
+
+@media (max-width: 320px) {
+
+}

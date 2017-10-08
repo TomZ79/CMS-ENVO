@@ -29,10 +29,15 @@ $envotable7 = DB_PREFIX . 'intranethousenotifications';
 $envotable8 = DB_PREFIX . 'intranethousenotificationug';
 $envotable9 = DB_PREFIX . 'intranethousetower';
 $envotable10 = DB_PREFIX . 'intranethousechannel';
+$envotable11 = DB_PREFIX . 'intranethousetasks';
 
 // EN: Include the functions
 // CZ: Vložené funkce
 include_once("../plugins/intranet/admin/include/functions.php");
+
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
@@ -325,6 +330,10 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // CZ: Získání všech dat pro formulář - bytový dům
           $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
 
+          // EN: Get all the data for the form - tasks
+          // CZ: Získání všech dat pro formulář - úkoly
+          $ENVO_FORM_DATA_TASK = envo_get_house_task($pageID, $envotable11, $ENVO_SETTING_VAL['intranetdateformat']);
+
           // EN: Get all the data for the form - contacts
           // CZ: Získání všech dat pro formulář - hlavní kontakty
           $ENVO_FORM_DATA_CONT = envo_get_house_entrance($pageID, $envotable3);
@@ -352,7 +361,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tlint["int_sec_title"]["intt3"];
-          $SECTION_DESC  = $tlint["int_sec_desc"]["intd3"];
+          $SECTION_DESC  = $tlint["int_sec_desc"]["intd3"] . ' <strong>' . $ENVO_FORM_DATA['name'] . '</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -772,10 +781,6 @@ IČ:       ' . $defaults['envo_housefic'] . '
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
     $ENVO_SETTING = envo_get_setting('intranet');
-
-    // EN: Import important settings for the template from the DB (only VALUE)
-    // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 
     // EN: Getting the data about the TV Tower
     // CZ: Získání dat o televizním vysílači

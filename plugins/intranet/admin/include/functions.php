@@ -18,6 +18,9 @@ function envo_get_tvtower($limit, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -46,6 +49,9 @@ function envo_get_tvchannel($limit, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -72,6 +78,9 @@ function envo_get_house_info($table)
 {
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -100,11 +109,93 @@ function envo_get_house_contact($id, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
+ * EN: Getting the data about the task of Houses without limit
+ * CZ: Získání dat o úkolech bytových domů bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.4
+ * @date    10/2017
+ *
+ * @param $id
+ * @param $table
+ * @param $dateformat
+ * @return array
+ */
+function envo_get_house_task($id, $table, $dateformat)
+{
+
+  global $envodb;
+  $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+
+  while ($row = $result->fetch_assoc()) {
+    // EN: Change number to string
+    // CZ: Změna čísla na text
+    switch ($row['priority']) {
+      case '0':
+        $priority = 'Nedůležitá';
+        break;
+      case '1':
+        $priority = 'Nízká priorita';
+        break;
+      case '2':
+        $priority = 'Střední priorita';
+        break;
+      case '3':
+        $priority = 'Vysoká priorita';
+        break;
+      case '4':
+        $priority = 'Nejvyšší priorita';
+        break;
+    }
+
+    switch ($row['status']) {
+      case '0':
+        $status = 'Žádný status';
+        break;
+      case '1':
+         $status = 'Zápis';
+        break;
+      case '2':
+        $status = 'V řešení';
+        break;
+      case '3':
+        $status = 'Vyřešeno - Uzavřeno';
+        break;
+      case '4':
+        $status = 'Stornováno';
+        break;
+    }
+
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = array(
+      'id'            => $row['id'],
+      'houseid'       => $row['houseid'],
+      'priority'      => $priority,
+      'status'        => $status,
+      'title'         => $row['title'],
+      'description'   => $row['description'],
+      'reminder'      => date($dateformat, strtotime($row['reminder'])),
+      'time'          => date($dateformat, strtotime($row['time'])),
+    );
   }
 
   if (isset($envodata)) return $envodata;
@@ -127,6 +218,9 @@ function envo_get_house_entrance($id, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -154,6 +248,9 @@ function envo_get_house_apartment($id, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -182,6 +279,9 @@ function envo_get_house_services($id, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -210,6 +310,9 @@ function envo_get_house_documents($id, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -238,6 +341,9 @@ function envo_get_house_image($id, $table)
 
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -264,8 +370,11 @@ function envo_get_house_image($id, $table)
 function envo_house_not_exist($ic, $table)
 {
   global $envodb;
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE housefic = "' . smartsql($ic) . '" LIMIT 1');
-  if ($envodb->affected_rows === 1) {
+  if ($result->affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -288,6 +397,9 @@ function envo_get_notification_info($table)
 {
   global $envodb;
   $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
@@ -320,6 +432,8 @@ function envo_plugin_usergroup_all($table, $column1, $column2 = NULL)
   if (!empty($column1)) $sqlwhere = ' WHERE ' . $column1 . ' = 1';
   if (!empty($column1) && !empty($column2)) $sqlwhere = ' WHERE ' . $column1 . ' = 1 AND ' . $column2 . ' = 1';
 
+  // EN: SQL Query
+  // CZ: SQL Dotaz
   $result = $envodb->query('
             SELECT id, name, description 
             FROM ' . DB_PREFIX . $table . '

@@ -36,6 +36,7 @@ $envotable5 = DB_PREFIX . 'intranethousenotificationug';
 $envotable6 = DB_PREFIX . 'intranethousedocu';
 $envotable7 = DB_PREFIX . 'intranethouseent';
 $envotable8 = DB_PREFIX . 'intranethouseapt';
+$envotable9 = DB_PREFIX . 'intranethousetasks';
 
 // Parse links once if needed a lot of time
 $backtoblog = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -62,6 +63,10 @@ include_once("functions.php");
 // EN: Info about notifications
 // CZ: Info o notifikacích
 $ENVO_NOTIFICATION = envo_get_notification_unread(ENVO_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -104,6 +109,63 @@ switch ($page1) {
               $ENVO_HOUSE_DETAIL[]  = $row;
               $envo_house_latitude  = $row['latitude'];
               $envo_house_longitude = $row['longitude'];
+            }
+
+            // EN: Get the data of Tasks
+            // CZ: Získání dat o Úkolech
+            $result = $envodb->query('SELECT * FROM ' . $envotable9 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Change number to string
+              // CZ: Změna čísla na text
+              switch ($row['priority']) {
+                case '0':
+                  $priority = '<span class="label">Nedůležitá</span>';
+                  break;
+                case '1':
+                  $priority = '<span class="label">Nízká priorita</span>';
+                  break;
+                case '2':
+                  $priority = '<span class="label label-warning">Střední priorita</span>';
+                  break;
+                case '3':
+                  $priority = '<span class="label label-important">Vysoká priorita</span>';
+                  break;
+                case '4':
+                  $priority = '<span class="label label-important">Nejvyšší priorita</span>';
+                  break;
+              }
+
+              switch ($row['status']) {
+                case '0':
+                  $status = 'Žádný status';
+                  break;
+                case '1':
+                  $status = 'Zápis';
+                  break;
+                case '2':
+                  $status = 'V řešení';
+                  break;
+                case '3':
+                  $status = 'Vyřešeno - Uzavřeno';
+                  break;
+                case '4':
+                  $status = 'Stornováno';
+                  break;
+              }
+
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSE_TASK[] = array(
+                'id'            => $row['id'],
+                'houseid'       => $row['houseid'],
+                'priority'      => $priority,
+                'status'        => $status,
+                'title'         => $row['title'],
+                'description'   => $row['description'],
+                'reminder'      => date($ENVO_SETTING_VAL['intranetdateformat'], strtotime($row['reminder'])),
+                'time'          => date($ENVO_SETTING_VAL['intranetdateformat'], strtotime($row['time'])),
+              );
+
             }
 
             // EN: Get the data of main contacts
@@ -276,10 +338,10 @@ switch ($page1) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
               $ENVO_NOTIFICATION_DETAIL[] = array(
-                'name'     => $row['name'],
-                'type'     => $row['type'],
-                'content'  => $row['content'],
-                'created'  => date($ENVO_SETTING_VAL['intranetdateformat'] . $ENVO_SETTING_VAL['intranettimeformat'], strtotime($row['created']))
+                'name'    => $row['name'],
+                'type'    => $row['type'],
+                'content' => $row['content'],
+                'created' => date($ENVO_SETTING_VAL['intranetdateformat'] . $ENVO_SETTING_VAL['intranettimeformat'], strtotime($row['created']))
               );
             }
 
@@ -357,6 +419,9 @@ switch ($page1) {
       // EN: If usergroup is 'Administrator'
       // CZ: Pokud je uživatelská skupiny přihlášeného uživatele 'Administrator'
 
+      /* =====================================================
+       *  HOUSE STATISTIC - STATISTIKA DOMŮ
+       * ===================================================== */
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
       $result    = $envodb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
@@ -367,10 +432,25 @@ switch ($page1) {
       // Percentage - records by usergroup / all records
       $ENVO_PERCENT = ($rowCtotal['houseCtotal'] * 100) . '%';
 
+      /* =====================================================
+       *  TASKS STATISTIC - STATISTIKA ÚKOLŮ
+       * ===================================================== */
+      // EN: Get the data of main contacts
+      // CZ: Získání dat o hlavních kontaktech
+      $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+
+      // Count of all records by usergroup
+      $ENVO_TASK_COUNTS = $ENVO_HOUSE_TASK['count_of_task'];
+      // Percentage - records by usergroup / all records
+      $ENVO_TASK_PERCENT = ($ENVO_HOUSE_TASK['count_of_task'] * 100) . '%';
+
     } else {
       // EN: For other usergroup
       // CZ: Ostatní uživatelské skupiny přihlášených uživatelů
 
+      /* =====================================================
+       *  HOUSE STATISTIC - STATISTIKA DOMŮ
+       * ===================================================== */
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
       $result    = $envodb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
@@ -384,7 +464,9 @@ switch ($page1) {
         // CZ: Získání počtu záznamů v DB podle uživatelské skupiny
         // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
         $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . ENVO_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
-        // Determine number of rows result set
+
+        // EN: Determine the number of rows in the result from DB
+        // CZ: Určení počtu řádků ve výsledku z DB
         $row_cnt = $result->num_rows;
 
         // Count of all records by usergroup
@@ -402,6 +484,23 @@ switch ($page1) {
         $ENVO_PERCENT = '0%';
 
       }
+
+      /* =====================================================
+       *  TASKS STATISTIC - STATISTIKA ÚKOLŮ
+       * ===================================================== */
+      // EN: Get the data of main contacts
+      // CZ: Získání dat o hlavních kontaktech
+      $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat']);
+
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result     = $envodb->query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable9);
+      $taskCtotal = $result->fetch_assoc();
+
+      // Count of all records by usergroup
+      $ENVO_TASK_COUNTS = $ENVO_HOUSE_TASK['count_of_task'];
+      // Percentage - records by usergroup / all records
+      $ENVO_TASK_PERCENT = ($ENVO_TASK_COUNTS / $taskCtotal['taskCtotal'] * 100) . '%';
 
     }
 

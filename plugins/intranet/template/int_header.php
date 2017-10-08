@@ -5,7 +5,6 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   $notifCount = $ENVO_NOTIFICATION[0]["count"];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="<?php echo $site_language; ?>">
 <head>
@@ -38,7 +37,13 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   // DataTables (Stylesheet only for pages which contains 'table')
   if ($page1 == 'house' && empty($page2)) echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
   //
-  if ($page1 == 'house' && !empty($page2)) echo $Html->addStylesheet('/assets/plugins/fancybox/3.0/css/jquery.fancybox.min.css');
+  if ($page1 == 'house' && !empty($page2)) {
+    // Plugin Fancybox
+    echo $Html->addStylesheet('/assets/plugins/fancybox/3.1.25/css/jquery.fancybox.min.css');
+    // Plugin DialogFX
+    echo $Html->addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
+    echo $Html->addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
+  }
   ?>
 
   <!-- END PLUGIN CSS -->
@@ -205,6 +210,9 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
                 </a>
               </li>
               <li class="divider"></li>
+              <li>
+                <a href="<?php echo BASE_URL; ?>">Zpět na web</a>
+              </li>
               <li>
                 <a href="<?php echo $P_USR_LOGOUT; ?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Odhlásit</a>
               </li>

@@ -47,7 +47,7 @@
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                   // EDIT
-                  echo $Html->addAnchor($h["parseurl"], '<i class="fa fa-eye"></i>', '', 'btn btn-info btn-mini');
+                  echo $Html->addAnchor($h["parseurl"], '<i class="fa fa-eye"></i>', '', 'btn btn-info btn-mini', array('data-toggle' => 'tooltipEnvo', 'title' => $tlint["int_frontend_icons"]["intficon"]));
                   ?>
 
                 </td>

@@ -11,110 +11,91 @@
  *
  */
 
-/** 01. Basic config for plugin's administration
+/** 01. TinyMCE Initialisation
+ * @require: TinyMCE Plugin
  ========================================================================*/
-
-/** ACE Editor
- * Initialisation of ACE Editor
- * @require: ACE Editor Plugin
- *
- * Set variable in php file as array (script.tv-tower.php)
- * @param: 'aceEditor.acetheme' from generated_js.php
- * @param: 'aceEditor.acewraplimit' from generated_js.php
- * @param: 'aceEditor.acetabSize' from generated_js.php
- * @param: 'aceEditor.aceactiveline' from generated_js.php
- * @param: 'aceEditor.aceinvisible' from generated_js.php
- * @param: 'aceEditor.acegutter' from generated_js.php
- *
- * @example: Example add other variable setting to aceEditor object in script.download.php
- *
- * <script>
- *  // Add to aceEditor settings javascript object
- *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
- * </script>
- ========================================= */
-// Set WrapLimitRange from generated_js.php
-$wrapLimitRange = {
-  min: aceEditor.acewraplimit,
-  max: aceEditor.acewraplimit
-};
-
-// Set default ACE other options
-$options = {
-  tabSize: '2',
-  activeLine: false,
-  fontSize: '12px',
-  invisible: false,
-  gutter: false
-};
-
-if (aceEditor.acetabSize > 0) {
-  $options.tabSize = aceEditor.acetabSize;
-}
-
-if (aceEditor.aceactiveline > 0) {
-  $options.activeLine = true;
-}
-
-if (aceEditor.fontSize != '') {
-  $options.fontSize = aceEditor.fontSize;
-}
-
-if (aceEditor.aceinvisible > 0) {
-  $options.invisible = true;
-}
-
-if (aceEditor.acegutter > 0) {
-  $options.gutter = true;
-}
-
-if ($('#htmleditor').length) {
-  var htmlACE = ace.edit('htmleditor');
-  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE.session.setUseWrapMode(true);
-  htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
-  htmlACE.setOptions({
-    // session options
-    mode: "ace/mode/html",
-    tabSize: $options.tabSize,
-    useSoftTabs: true,
-    highlightActiveLine: $options.activeLine,
-    // renderer options
-    fontSize: $options.fontSize,
-    showInvisibles: $options.invisible,
-    showGutter: $options.gutter
-  });
-  // This is to remove following warning message on console:
-  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-  // set editor.$blockScrolling = Infinity to disable this message
-  htmlACE.$blockScrolling = Infinity;
-
-  texthtml = $('#envo_editor').val();
-  htmlACE.session.setValue(texthtml);
-}
-
-/* Responsive Filemanager
- * @require: TinyMCE Filemanager Plugin
- ========================================= */
-function responsive_filemanager_callback(field_id) {
-
-  if (field_id == "htmleditor") {
-
-    // get the path for the ace file
-    var acefile = jQuery('#' + field_id).val();
-
-    htmlACE.insert(acefile);
-  }
-}
 
 $(function () {
 
-  /* Submit Form
-   ========================================= */
-  $('form').submit(function () {
-    if ($('#envo_editor').length) {
-      $("#envo_editor").val(htmlACE.getValue());
+  tinymce.init({
+    selector: "textarea.envoEditorLarge",
+    theme: "modern",
+    width: "100%",
+    height: 500,
+    language: envoWeb.envo_lang,
+    //UTF-8 Setting
+    entity_encoding: "raw",
+    // Custom Menubar
+    menubar: "edit insert view format table tools",
+    //
+    plugins: [
+      "advlist autolink link image lists charmap preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality emoticons paste textcolor responsivefilemanager bootstrap "
+    ],
+    bootstrapConfig: {
+      'type': 'dropdownMenu',
+      'dropdownText': 'Bootstrap Elements',
+      'bootstrapElements': {
+        'btn': true,
+        'icon': true,
+        'image': true,
+        'table': true,
+        'template': true,
+        'breadcrumb': true,
+        'pagination': true,
+        'pager': true,
+        'label': true,
+        'badge': true,
+        'alert': true,
+        'panel': true,
+        'snippet': true
+      }
+    },
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | preview | forecolor backcolor | bootstrap",
+    statusbar: false,
+    image_advtab: true,
+    relative_urls: false,
+    convert_urls: false,
+    remove_script_host: true,
+    document_base_url: "/",
+    valid_elements: "*[*]",
+    // Custom date time formats
+    insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
+    //
+    external_filemanager_path: "/assets/plugins/tinymce/plugins/filemanager/",
+    filemanager_title: "Filemanager",
+    external_plugins: {
+      "filemanager": "plugins/filemanager/plugin.min.js"
     }
+  });
+
+  tinymce.init({
+    selector: "textarea.envoEditorSmall",
+    theme: "modern",
+    width: "100%",
+    height: 300,
+    language: envoWeb.envo_lang,
+    //UTF-8 Setting
+    entity_encoding: "raw",
+    // Custom Menubar
+    menubar: "edit insert view format table tools",
+    //
+    plugins: [
+      "advlist autolink link image lists charmap preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality paste textcolor "
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignjustify | bullist numlist | forecolor backcolor",
+    statusbar: false,
+    image_advtab: true,
+    relative_urls: false,
+    convert_urls: false,
+    remove_script_host: true,
+    document_base_url: "/",
+    valid_elements: "*[*]",
+    // Custom date time formats
+    insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
   });
 
 });
@@ -155,7 +136,6 @@ var pageID = $.urlParam('id');
 
 /**
  * Jquery Function - DialogFX Open
- * Close editing description
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
@@ -229,10 +209,18 @@ function openDialog(event) {
     }
   });
 
-
   // Open DialogFX
   dialogEl = document.getElementById(thisDataDialog);
-  dlg = new DialogFx(dialogEl);
+  dlg = new DialogFx(dialogEl, {
+    onOpenDialog: function (instance) {
+      // Open DialogFX
+      console.log('OPEN');
+    },
+    onCloseDialog: function (instance) {
+      // Close DialogFX
+      console.log('CLOSE');
+    }
+  });
   dlg.toggle(dlg);
 
   return false;
@@ -891,6 +879,179 @@ function addRowServ() {
   });
 }
 
+/* Click Task Header */
+function clickTaskHeader() {
+  $header = $(this);
+  //getting text element
+  $text = $header.children('span.collapsetask');
+  //getting the next element
+  $content = $header.next().next();
+  //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+  $content.slideToggle(500, function () {
+    //execute this after slideToggle is done
+    //change text of header based on visibility of content div
+    $text.text(function () {
+      //change text based on condition
+      return $content.is(':visible') ? '-' : '+';
+    });
+  });
+}
+
+/**
+ * Jquery Function - DialogFX Open
+ * @example
+ * Attribute 'data-dialog' in button => ID of dialog 'div' block
+ * -----------------
+ * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
+ *
+ *  <div id="itemDetails" class="dialog item-details">
+ *    <div class="dialog__overlay"></div>
+ *    <div class="dialog__content">
+ *      <div class="container-fluid">
+ *        <div class="row dialog__overview">
+ *          <!-- Data over AJAX  -->
+ *        </div>
+ *      </div>
+ *      <button class="close action top-right" type="button" data-dialog-close>
+ *        <i class="pg-close fs-14"></i>
+ *      </button>
+ *    </div>
+ *  </div>
+ */
+function initializeTinyMce(selector, height) {
+  if (selector == undefined) {
+    selector = 'textarea';
+  }
+  tinymce.init({
+    selector: selector,
+    theme: "modern",
+    width: "100%",
+    height: height,
+    language: envoWeb.envo_lang,
+    //UTF-8 Setting
+    entity_encoding: "raw",
+    // Plugins
+    plugins: [
+      "advlist autolink link charmap hr insertdatetime textcolor responsivefilemanager",
+      "searchreplace visualblocks paste",
+      "table"
+    ],
+    // Default settings after init
+    paste_as_text: true,
+    // Header Menubar
+    menubar: "edit insert view format table",
+    // Header Toolbar
+    toolbar: "undo redo | bold italic | alignleft aligncenter alignjustify | bullist numlist | forecolor backcolor",
+    // Footer Statusbar
+    statusbar: false,
+    // Valid Elements
+    valid_elements: "*[*]",
+    // Custom date time formats
+    insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
+    // Responsive Filemanager
+    external_filemanager_path: "/assets/plugins/tinymce/plugins/filemanager/",
+    filemanager_title: "Filemanager",
+    external_plugins: {
+      "filemanager": "plugins/filemanager/plugin.min.js"
+    }
+  });
+}
+
+function initializeDateTimePicker(selector) {
+  /** DateTimePicker
+   * @require: DateTimePicker Plugin
+   ========================================= */
+  $(selector).datetimepicker({
+    // Language
+    locale: envoWeb.envo_lang,
+    // Date-Time format
+    format: 'DD.MM.YYYY',
+    // Icons
+    icons: $.AdminEnvo.DateTimepicker.icons(),
+    // Tooltips
+    tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
+    // Show Button
+    showTodayButton: true,
+    showClear: true,
+    // Other
+    calendarWeeks: true,
+    ignoreReadonly: true
+  });
+}
+
+function openDialogEditTask(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get Data-Dialog
+  thisDataDialog = $(this).attr('data-dialog');
+  // Get ID of Task
+  var taskID = $(this).attr('data-id');
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_dialog_task.php",
+    type: "POST",
+    datatype: 'html',
+    data: {
+      taskID: taskID
+    },
+    beforeSend: function () {
+
+      // Show progress circle
+      $('#taskDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+    },
+    success: function (data) {
+
+      setTimeout(function () {
+        // Add html data to 'div'
+        $('#taskDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+        // Init TinyMCE
+        tinymce.remove('#editTaskEditor');
+        initializeTinyMce('#editTaskEditor', 300);
+
+        // Init Select2 plugin
+        $('#taskDialogEdit .selectpicker').select2({
+          minimumResultsForSearch: -1,
+          dropdownParent: $('.page-content-wrapper'),
+          dropdownCssClass: 'zindex1060'
+        });
+
+        // Init DateTimePicker
+        initializeDateTimePicker('input[name=envo_edittasktime]');
+        initializeDateTimePicker('input[name=envo_edittaskreminder]');
+
+      }, 1000);
+
+    },
+    error: function () {
+
+    },
+    complete: function () {
+
+
+    }
+  });
+
+  // Open DialogFX
+  dialogEl = document.getElementById(thisDataDialog);
+  dlg = new DialogFx(dialogEl, {
+    onOpenDialog: function (instance) {
+      // Open DialogFX
+      console.log('OPEN');
+    },
+    onCloseDialog: function (instance) {
+      // Close DialogFX
+      console.log('CLOSE');
+    }
+  });
+  dlg.toggle(dlg);
+
+  return false;
+}
+
 /* 00. ISOTOPE PHOTO GALLERY
  ========================================================================*/
 $(function () {
@@ -951,6 +1112,7 @@ $(function () {
       if (timeout) {
         clearTimeout(timeout);
       }
+
       function delayed() {
         fn();
         timeout = null;
@@ -960,7 +1122,7 @@ $(function () {
     };
   }
 
-  $('a[href="#cmsPage9"]').on('shown.bs.tab', function (e) {
+  $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
 
@@ -1739,12 +1901,12 @@ $(function () {
 
     // Get max number of ID from input
     var arr = [];
-    $('input[name="envo_towername[]"]').each(function(){
+    $('input[name="envo_towername[]"]').each(function () {
       var $this = $(this);
-      arr.push([ $this.data('id')]);
+      arr.push([$this.data('id')]);
     });
-    var maxValue = Math.max.apply(Math,arr);
-    var minValue = Math.min.apply(Math,arr);
+    var maxValue = Math.max.apply(Math, arr);
+    var minValue = Math.min.apply(Math, arr);
     nextTowerId = maxValue + 1;
 
     // Add value to select
@@ -1805,4 +1967,313 @@ $(function () {
     $('.nav.nav-tabs.nav-tabs-fillup a[href="' + hash + '"]').tab('show');
   }
 
+});
+
+
+/** 00. Tasks manager
+ ========================================================================*/
+
+$(function () {
+
+  $('#addTask').on('click', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Get Data-Dialog
+    thisDataDialog = $(this).attr('data-dialog');
+
+    // Open DialogFX
+    dialogEl = document.getElementById(thisDataDialog);
+    dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        console.log('OPEN');
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        console.log('CLOSE');
+        $('#saveTask').attr('disabled', false);
+      }
+    });
+    dlg.toggle(dlg);
+
+  });
+
+  $('#saveTask').on('click', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Get value
+    var houseID = pageID;
+    var priority = $('select[name=envo_addtaskpriority]').val();
+    var status = $('select[name=envo_addtaskstatus]').val();
+    var title = $('input[name=envo_addtasktitle]').val();
+    var description = tinymce.get('envoEditorSmall').getContent();
+    var reminder = $('input[name=envo_addtaskreminder]').val();
+    var time = $('input[name=envo_addtasktime]').val();
+
+    console.log(status);
+    // Ajax
+    $.ajax({
+      type: "POST",
+      url: "/plugins/intranet/admin/ajax/int_table_addnew_task.php",
+      datatype: 'json',
+      data: {
+        houseID: houseID,
+        priority: priority,
+        status: status,
+        title: title,
+        description: description,
+        reminder: reminder,
+        time: time
+      },
+      success: function (data) {
+
+        if (data.status == 'success') {
+          // IF DATA SUCCESS
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var divdata = '';
+          var dataID = '';
+
+          $.each(result, function (key, data) {
+            //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                // console.log('ID: ', data['id']);
+
+                dataID = data["id"];
+
+                divdata += '<div id="task_' + data["id"] + '" class="task_' + data["id"] + '">' +
+                  '<div class="taskheader"><span>Task ID ' + data["id"] + '</span><span class="pull-right collapsetask">+</span></div>' +
+                  '<div class="taskinfo">' +
+                  '<div class="container-fluid">' +
+                  '<div class="table-responsive">' +
+                  '<table class="table table-task">' +
+                  '<thead>' +
+                  '<tr>' +
+                    '<th>Titulek</th>' +
+                    '<th>Priorita</th>' +
+                    '<th>Status</th>' +
+                    '<th>Datum Úkolu</th>' +
+                    '<th>Datum Připomenutí</th>' +
+                    '<th></th>' +
+                  '</tr>' +
+                  '</thead>' +
+                  '<tbody>' +
+                  '<tr>' +
+                    '<td>' + data["title"] + '</td>' +
+                    '<td>' + data["priority"] + '</td>' +
+                    '<td>' + data["status"] + '</td>' +
+                    '<td>' + data["time"] + '</td>' +
+                    '<td>' + data["reminder"] + '</td>' +
+                    '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-id="' + data["id"] + '" data-original-title="Editovat"><i class="fa fa-edit"></i></button>' +
+                    '<button type="button" class="btn btn-danger btn-xs" data-confirm="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit"><i class="fa fa-trash-o"></i></button></td>' +
+                  '</tr>' +
+                  '</tbody>' +
+                  '</table>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="taskcontent">' +
+                  '<p><strong >Popis Úkolu:</strong></p>' +
+                  '<div class="taskdescription">' + data["description"] + '</div>' +
+                  '</div>' +
+                  '</div>';
+
+              })
+
+            }
+
+          });
+
+          // // Put data to 'div'
+          $('#tasklist').prepend(divdata);
+
+          // Call function
+          $('#task_' + dataID + ' .taskheader').click(clickTaskHeader);
+          $('#task_' + dataID + ' .editTask').click(openDialogEditTask);
+
+          // Disable 'button'
+          $('#saveTask').attr('disabled', true);
+
+          // Notification
+          // Apply the plugin to the container
+          $('#notificationcontainer_add').pgNotification({
+            style: 'bar',
+            message: data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'success',
+            showClose: false
+          }).show();
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          // Apply the plugin to the container
+          $('#notificationcontainer_add').pgNotification({
+            style: 'bar',
+            message: data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'danger',
+            showClose: false
+          }).show();
+
+        }
+
+      },
+      error: function () {
+
+      }
+    });
+
+  });
+
+  $('#udpateTask').on('click', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Get value
+    var taskID = $('input[name=envo_edittaskid]').val();
+    var houseID = pageID;
+    var priority = $('select[name=envo_edittaskpriority]').val();
+    var status = $('select[name=envo_edittaskstatus]').val();
+    var title = $('input[name=envo_edittasktitle]').val();
+    var description = tinymce.get('editTaskEditor').getContent();
+    var reminder = $('input[name=envo_edittaskreminder]').val();
+    var time = $('input[name=envo_edittasktime]').val();
+
+    console.log(priority);
+    // Ajax
+    $.ajax({
+      type: "POST",
+      url: "/plugins/intranet/admin/ajax/int_table_update_task.php",
+      datatype: 'json',
+      data: {
+        taskID: taskID,
+        houseID: houseID,
+        priority: priority,
+        status: status,
+        title: title,
+        description: description,
+        reminder: reminder,
+        time: time
+      },
+      success: function (data) {
+
+        if (data.status == 'update_success') {
+          // IF DATA SUCCESS
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var divdata = '';
+          var dataID = '';
+
+          $.each(result, function (key, data) {
+            //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                // console.log('ID: ', data['id']);
+
+                dataID = data["id"];
+
+                divdata += '<div class="taskheader"><span>Task ID ' + data["id"] + '</span><span class="pull-right collapsetask">+</span></div>' +
+                  '<div class="taskinfo">' +
+                  '<div class="container-fluid">' +
+                  '<div class="table-responsive">' +
+                  '<table class="table table-task">' +
+                  '<thead>' +
+                  '<tr>' +
+                  '<th>Titulek</th>' +
+                  '<th>Priorita</th>' +
+                  '<th>Status</th>' +
+                  '<th>Datum Úkolu</th>' +
+                  '<th>Datum Připomenutí</th>' +
+                  '<th></th>' +
+                  '</tr>' +
+                  '</thead>' +
+                  '<tbody>' +
+                  '<tr>' +
+                  '<td>' + data["title"] + '</td>' +
+                  '<td>' + data["priority"] + '</td>' +
+                  '<td>' + data["status"] + '</td>' +
+                  '<td>' + data["time"] + '</td>' +
+                  '<td>' + data["reminder"] + '</td>' +
+                  '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-id="' + data["id"] + '" data-original-title="Editovat"><i class="fa fa-edit"></i></button>' +
+                  '<button type="button" class="btn btn-danger btn-xs" data-confirm="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit"><i class="fa fa-trash-o"></i></button></td>' +
+                  '</tr>' +
+                  '</tbody>' +
+                  '</table>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="taskcontent">' +
+                  '<p><strong >Popis Úkolu:</strong></p>' +
+                  '<div class="taskdescription">' + data["description"] + '</div>' +
+                  '</div>';
+
+              })
+
+            }
+
+          });
+
+          // Put data to 'div'
+          $('#task_' + dataID).html(divdata);
+
+          // Call function
+          $('#task_' + dataID + ' .taskheader').click(clickTaskHeader);
+          $('#task_' + dataID + ' .editTask').click(openDialogEditTask);
+
+          // Notification
+          // Apply the plugin to the container
+          $('#notificationcontainer_edit').pgNotification({
+            style: 'bar',
+            message: data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'success',
+            showClose: false
+          }).show();
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          // Apply the plugin to the container
+          $('#notificationcontainer_edit').pgNotification({
+            style: 'bar',
+            message: data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'danger',
+            showClose: false
+          }).show();
+
+        }
+
+      },
+      error: function () {
+
+      }
+    });
+
+  });
+
+  $('.editTask').click(openDialogEditTask);
+
+  $('.taskheader').click(clickTaskHeader);
+
+  initializeDateTimePicker('input[name=envo_addtasktime]');
+  initializeDateTimePicker('input[name=envo_addtaskreminder]');
 });

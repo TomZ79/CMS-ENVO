@@ -1,16 +1,20 @@
 /* 24. Photo Gallery
  ========================================================================*/
+/* Center Gallery container with CSS
+ * Add 'fitWidth: true' to isotope config
+ */
 .gallery {
-	margin: 20px auto 0 auto;
+	margin: 0 auto;
 }
 
+/* Gallery items */
 div[class^="gallery-item-"] {
 	overflow: hidden;
 	cursor: default;
 	background-color: #F0F0F0;
 	margin-bottom: 10px;
 	position: relative;
-	width: 220px;
+	width: 250px;
 	height: 240px;
 	float: left;
 }
@@ -21,7 +25,7 @@ div[class^="gallery-item-"] .img_container {
 
 div[class^="gallery-item-"] img {
 	object-fit: cover;
-	width: 220px;
+	width: 250px;
 	height: 170px;
 	/* Image zoom hover effect */
 	-webkit-transform: scale(1);
@@ -60,17 +64,18 @@ div[class^="gallery-item-"]:hover .overlays {
 	background: rgba(43, 48, 59, 0.9);
 }
 
-div[class^="gallery-item-"] .overlays.fullwidth {
-	width: 100%;
-}
-
-div[class^="gallery-item-"] .overlays .btn {
-	padding: 3px 12px;
-	font-size: 14.5px;
-}
-
-div[class^="gallery-item-"] .overlays .btn:first-child {
-	padding: 3px 8px;
+div[class^="gallery-item-"] .overlays {
+	.fullwidth {
+		width: 100%;
+	}
+	.btn {
+		padding: 5px 13px;
+		font-size: 16.5px;
+		margin-left: 5px;
+	}
+	.btn:first-child {
+		padding: 5px 10px;
+	}
 }
 
 div[class^="gallery-item-"] .text {
@@ -88,6 +93,34 @@ div[class^="gallery-item-"] .shortdesc {
 	word-wrap: break-word;
 }
 
+/* Filter 'ul' list */
 ul.filters li a.active {
 	color: #FBB05E;
+}
+
+/* Responsive DataTable */
+
+/*** Desktops & Laptops ***/
+@media (min-width: 980px) {
+
+}
+
+/*** General tablets and phones ***/
+@media (max-width: 979px) {
+
+}
+
+/*** Phones ***/
+@media (max-width: 480px) {
+	.gallery {
+		margin: 35px auto 0 auto;
+	}
+	
+	div[class^="gallery-item-"][data-width="1"] {
+		width: 250px;
+	}
+}
+
+@media (max-width: 320px) {
+
 }

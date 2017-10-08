@@ -390,6 +390,7 @@
         $(this).select2({
           minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1),
           dropdownParent: $('.page-content-wrapper'),
+          dropdownCssClass: ($(this).attr('data-class-select2') ? $(this).attr('data-class-select2') : ''),
           width: '100%'
         }).on('select2:open', function () {
           $.fn.scrollbar && $('.select2-results__options').scrollbar({

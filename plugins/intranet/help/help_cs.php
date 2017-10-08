@@ -69,6 +69,30 @@
       <!-- Changelog -->
       <article>
         <h4>Changelog</h4>
+        <h5>v 1.1</h5>
+        <pre class="prettyprint">
+// # Seznam nových komponent
+// ------------------------------
+
+[nový] Frontend - přidán Bootstrap Tooltip (aktivace => data-toggle="tooltipEnvo" title="Zobrazit Tooltip Text")
+[nový] Přidána podpora českého jazyka pro Fancybox plugin
+[nový] Přidáno tlačítko "Stáhnout Obrázek" pro Fancybox plugin
+
+// # Seznam opravených chyb
+// ------------------------------
+
+[opraveno] Fix typo
+
+// # Seznam odstraněných komponent
+// ------------------------------
+
+[odstraněno] Remove unnecessary code
+				</pre>
+
+        <h5>v 1.0</h5>
+        <pre class="prettyprint">
+Basic initial
+        </pre>
 
       </article>
 

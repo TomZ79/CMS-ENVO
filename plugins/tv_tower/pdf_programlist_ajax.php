@@ -142,7 +142,9 @@ foreach ($channelIDs as $channelIDs) {
             </tr>';
 
   $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvprogram WHERE towerid =' . $towerid . ' AND channelid =' . $channelid . ' ORDER BY tvr DESC');
-  // Determine number of rows result set
+
+  // EN: Determine the number of rows in the result from DB
+  // CZ: Určení počtu řádků ve výsledku z DB
   $row_cnt = $result1->num_rows;
 
   if ($row_cnt > 0) {

@@ -13,11 +13,14 @@
  * 03. Bind Functions Jquery- LAYOUT OPTIONS API
  * 04. Initialize layouts and plugins
  * 05. Bootstrap 3: Keep selected tab on page refresh
+ * 06. Bootstrap Tooltip
+ * 07. Bootstrap Table Search
+ * 08. Task manager
  *
  */
 
 
-/* 01. PROTOTYPE CONSTRUCTOR FUNCTION
+/** 01. PROTOTYPE CONSTRUCTOR FUNCTION
  ========================================================================*/
 
 (function ($) {
@@ -44,7 +47,10 @@
     this.color_info = "#3b4751";
   };
 
-  // Page preloader
+  /**
+   * Page preloader
+   * @require: Pace
+   */
   Webarch.prototype.initPagePreloader = function () {
     $(window).on('load', function () {
       if ($('body > .pageload').length) {
@@ -57,19 +63,25 @@
     });
   };
 
-  // Tooltip
-  // Required plugin: Bootstrap v3
+  /**
+   * Tooltip
+   * @require: Bootstrap v3
+   */
   Webarch.prototype.initTooltipPlugin = function () {
     $.fn.tooltip && $('[data-toggle="tooltip"]').tooltip();
   };
 
-  // Popover
-  // Required plugin: Bootstrap v3
+  /**
+   * Popover
+   * @require: Bootstrap v3
+   */
   Webarch.prototype.initPopoverPlugin = function () {
     $.fn.popover && $('[data-toggle="popover"]').popover();
   };
 
-  // Auto Scroll Up
+  /**
+   * Auto Scroll Up
+   */
   Webarch.prototype.initScrollUp = function () {
     $('[data-webarch="scrollup"]').click(function () {
       $("html, body").animate({
@@ -86,7 +98,9 @@
     });
   };
 
-  // Portlet / Panel Tools
+  /**
+   * Portlet / Panel Tools
+   */
   Webarch.prototype.initPortletTools = function () {
     var $this = this;
     $('.grid .tools a.remove').on('click', function () {
@@ -141,7 +155,9 @@
     });
   };
 
-  // Scrollbar Plugin
+  /**
+   * Scrollbar Plugin
+   */
   Webarch.prototype.initScrollBar = function () {
     $.fn.scrollbar && $('.scroller').each(function () {
       var h = $(this).attr('data-height');
@@ -157,7 +173,9 @@
     });
   };
 
-  // Sidebar
+  /**
+   * Sidebar
+   */
   Webarch.prototype.initSideBar = function () {
     var sidebar = $('.page-sidebar');
     var sidebarWrapper = $('.page-sidebar .page-sidebar-wrapper');
@@ -196,7 +214,9 @@
     $.fn.scrollbar && sidebarWrapper.scrollbar();
   };
 
-  // Sidebar Toggler
+  /**
+   * Sidebar Toggler
+   */
   Webarch.prototype.initSideBarToggle = function () {
     var $this = this;
     $('[data-webarch="toggle-left-side"]').on('touchstart click', function (e) {
@@ -205,7 +225,9 @@
     });
   };
 
-  // Left Side Bar / Mobile
+  /**
+   * Left Side Bar / Mobile
+   */
   Webarch.prototype.toggleLeftSideBar = function () {
     var timer;
     if ($('body').hasClass('open-menu-left')) {
@@ -224,7 +246,9 @@
     }
   };
 
-  // Util Functions
+  /**
+   * Util Functions
+   */
   Webarch.prototype.initUtil = function () {
     $('[data-height-adjust="true"]').each(function () {
       var h = $(this).attr('data-elem-height');
@@ -299,7 +323,9 @@
     });
   };
 
-  // Progress bar animation
+  /**
+   * Progress bar animation
+   */
   Webarch.prototype.initProgress = function () {
     $('[data-init="animate-number"], .animate-number').each(function () {
       var data = $(this).data();
@@ -311,7 +337,9 @@
     });
   };
 
-  // Form Elements
+  /**
+   * Form Elements
+   */
   Webarch.prototype.initFormElements = function () {
     $(".inside").children('input').blur(function () {
       $(this).parent().children('.add-on').removeClass('input-focus');
@@ -338,7 +366,9 @@
     });
   };
 
-  // Call initializers
+  /**
+   * Call initializers
+   */
   Webarch.prototype.init = function () {
     // init layout
     this.initPagePreloader();
@@ -361,7 +391,7 @@
 })(window.jQuery);
 
 
-/* 02. BEGIN Main Menu Toggle
+/** 02. BEGIN Main Menu Toggle
  ========================================================================*/
 $(function () {
 
@@ -394,11 +424,13 @@ $(function () {
 
 });
 
-/* 03. Bind Functions Jquery- LAYOUT OPTIONS API
+/** 03. Bind Functions Jquery- LAYOUT OPTIONS API
  ========================================================================*/
 (function ($) {
 
-  //Show/Hide Main Menu
+  /**
+   * Show/Hide Main Menu
+   */
   $.fn.toggleMenu = function () {
     var windowWidth = window.innerWidth;
     if (windowWidth > 768) {
@@ -406,7 +438,9 @@ $(function () {
     }
   };
 
-  //Condense Main Menu
+  /**
+   * Condense Main Menu
+   */
   $.fn.condensMenu = function () {
     var windowWidth = window.innerWidth;
     if (windowWidth > 768) {
@@ -417,7 +451,9 @@ $(function () {
     }
   };
 
-  //Toggle Fixed Menu Options
+  /**
+   * Toggle Fixed Menu Options
+   */
   $.fn.toggleFixedMenu = function () {
     var windowWidth = window.innerWidth;
     if (windowWidth > 768) {
@@ -443,7 +479,7 @@ $(function () {
 
 })(jQuery);
 
-/* 04. Initialize layouts and plugins
+/** 04. Initialize layouts and plugins
  ========================================================================*/
 $(function () {
 
@@ -454,7 +490,7 @@ $(function () {
 
 });
 
-/* 05. Bootstrap 3: Keep selected tab on page refresh
+/** 05. Bootstrap 3: Keep selected tab on page refresh
  ========================================================================*/
 
 $(function () {
@@ -464,7 +500,9 @@ $(function () {
     $(this).tab('show');
   });
 
-  // Responsive Tabs on clicking a tab
+  /**
+   * Responsive Tabs on clicking a tab
+   */
   $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function (event) {
     // store the currently selected tab in the hash value
     var id = $(event.target).attr("href").substr(1);
@@ -483,11 +521,17 @@ $(function () {
 
   });
 
-  // On load of the page: switch to the currently selected tab
+  /**
+   * On load of the page: switch to the currently selected tab
+   * @type {string}
+   */
   var hash = window.location.hash;
   $('#keepTabs a[href="' + hash + '"]').tab('show');
 
-  // On load of the page: Create Responsive Tabs
+  /**
+   * On load of the page: Create Responsive Tabs
+   * @type {void|jQuery|HTMLElement}
+   */
   var $target = $('.nav-tabs-responsive');
   var $current = $target.find('li a[href="' + hash + '"]').parents('li');
   var $current = hash.length > 0 ? $target.find('li a[href="' + hash + '"]').parents('li') : $target.find('li:first-child');
@@ -497,5 +541,85 @@ $(function () {
   $current.addClass('current');
   $prev.addClass('prev');
   $next.addClass('next');
+
+});
+
+/** 06. Bootstrap Tooltip
+ ========================================================================*/
+$(function () {
+
+  $('body').tooltip({
+    selector: '[data-toggle="tooltipEnvo"]',
+    placement: 'bottom',
+    trigger: 'hover',
+    container: 'body'
+  });
+
+});
+
+/** 07. Bootstrap Table Search
+ * @link: https://codepen.io/adobewordpress/pen/gbewLV
+ ========================================================================*/
+$(function () {
+
+  $('[class^=searchTable]').keyup(function () {
+    var searchTerm = $(this).val();
+    var searchTable = $(this).attr('data-table');
+    var listItem = $('#' + searchTable + ' tbody').children('tr');
+    var searchSplit = searchTerm.replace(/ /g, "'):containsi('");
+
+    $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+      return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+    });
+
+    $('#' + searchTable + ' tbody tr').each(function(e){
+      $(this).removeClass('hidden');
+    });
+
+    $('#' + searchTable + ' tbody tr').not(":containsi('" + searchSplit + "')").each(function(e){
+      $(this).attr('visible','false').addClass('hidden');
+    });
+
+    $('#' + searchTable + ' tbody tr:containsi("' + searchSplit + '")').each(function(e){
+      $(this).attr('visible','true');
+    });
+
+    // un-stripe table, since bootstrap striping doesn't work for filtered rows
+    $('#' + searchTable).removeClass('table-striped').addClass('table-filtred');
+    $('#' + searchTable + ' tbody tr:not(.hidden)').each(function (index) {
+      $(this).toggleClass('stripe', !!(index & 1));
+    });
+
+    var jobCount = $('#' + searchTable + ' tbody tr[visible="true"]').length;
+    $('.counter').text(jobCount + ' položek');
+
+    if(jobCount == '0') {$('.no-result').show();}
+    else {$('.no-result').hide();}
+  });
+  
+});
+
+/** 08. Task manager
+ ========================================================================*/
+
+$(function () {
+
+  $('.taskheader').click(function(){
+    $header = $(this);
+    //getting text element
+    $text = $header.children('span.collapsetask');
+    //getting the next element
+    $content = $header.next().next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(500, function () {
+      //execute this after slideToggle is done
+      //change text of header based on visibility of content div
+      $text.text(function () {
+        //change text based on condition
+        return $content.is(':visible') ? '-' : '+';
+      });
+    });
+  });
 
 });

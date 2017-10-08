@@ -89,7 +89,7 @@ if ($errors) { ?>
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -98,7 +98,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                         <?php
@@ -110,7 +110,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -118,7 +118,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -130,7 +130,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -138,7 +138,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -150,7 +150,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -158,7 +158,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -170,7 +170,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -178,7 +178,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -190,7 +190,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -198,7 +198,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -210,7 +210,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -218,7 +218,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -230,7 +230,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -238,7 +238,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php

@@ -9,34 +9,40 @@
       </li>
       <li>
         <a href="#tabs2" data-toggle="tab">
-          <span class="text">Stav Techniky</span>
+          <span class="text">Úkoly</span>
         </a>
       </li>
       <li>
         <a href="#tabs3" data-toggle="tab">
-          <span class="text">Hlavní Kontakty</span>
+          <span class="text">Stav Techniky</span>
         </a>
       </li>
       <li>
         <a href="#tabs4" data-toggle="tab">
-          <span class="text">Nájemníci</span>
+          <span class="text">Hlavní Kontakty</span>
         </a>
       </li>
       <li>
         <a href="#tabs5" data-toggle="tab">
-          <span class="text">Servisy</span>
+          <span class="text">Nájemníci</span>
         </a>
       </li>
       <li>
         <a href="#tabs6" data-toggle="tab">
-          <span class="text">Dokumenty</span>
+          <span class="text">Servisy</span>
         </a>
       </li>
       <li>
         <a href="#tabs7" data-toggle="tab">
+          <span class="text">Dokumenty</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tabs8" data-toggle="tab">
           <span class="text">Fotogalerie</span>
         </a>
       </li>
+
     </ul>
 
     <div class="tab-content" style="padding-top: 20px;">
@@ -116,10 +122,82 @@
       </div>
       <div id="tabs2" class="tab-pane fade">
         <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Úkoly</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
 
+                  <?php if (!empty($ENVO_HOUSE_TASK) && is_array($ENVO_HOUSE_TASK)) { ?>
+                    <div id="tasklist">
+
+                      <?php foreach ($ENVO_HOUSE_TASK as $htask) { ?>
+                        <div class="task_<?php echo $htask["id"]; ?>">
+                          <div class="taskheader">
+                            <span>Task ID <?php echo $htask["id"]; ?></span>
+                            <span class="pull-right collapsetask">+</span>
+                          </div>
+                          <div class="taskinfo">
+                            <div class="container-fluid">
+                              <table class="table table-task">
+                                <tr>
+                                  <td><strong>Titulek: </strong></td>
+                                  <td><strong>Priorita: </strong></td>
+                                  <td><strong>Status: </strong></td>
+                                  <td><strong>Datum Úkolu: </strong> </td>
+                                  <td><strong>Datum Připomenutí: </strong></td>
+                                </tr>
+                                <tr>
+                                  <td><?php echo $htask["title"]; ?></td>
+                                  <td><?php echo $htask["priority"]; ?></td>
+                                  <td><?php echo $htask["status"]; ?></td>
+                                  <td><?php echo $htask["time"]; ?></td>
+                                  <td><?php echo $htask["reminder"]; ?></td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="taskcontent">
+                            <p><strong >Popis Úkolu:</strong></p>
+                            <div class="taskdescription">
+                              <?php echo $htask["description"]; ?>
+                            </div>
+                          </div>
+                        </div>
+                      <?php } ?>
+
+                    </div>
+                  <?php } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      ?>
+
+                    </div>
+
+                  <?php } ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="tabs3" class="tab-pane fade">
+        <div class="row">
+
+        </div>
+      </div>
+      <div id="tabs4" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple">
@@ -138,11 +216,11 @@
                       <table class="table table-bordered">
                         <thead>
                         <tr>
-                          <th>Jméno</th>
-                          <th>Adresa</th>
-                          <th>Telefon</th>
-                          <th>Email</th>
-                          <th>Výbor</th>
+                          <th style="width:30%;">Jméno</th>
+                          <th style="width:20%;">Adresa</th>
+                          <th style="width:20%;">Telefon</th>
+                          <th style="width:20%;">Email</th>
+                          <th style="width:10%;">Výbor</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -198,7 +276,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs4" class="tab-pane fade">
+      <div id="tabs5" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple">
@@ -226,16 +304,27 @@
                         <div class="col-md-12">
                           <div class="box box-success">
                             <div class="box-body no-padding">
+
+                              <div class="clearfix">
+                                <div class="form-group pull-left">
+                                  <input type="text" class="searchTable-<?php echo $e["entrance"]; ?> form-control" placeholder="Vyhledat ..." data-table="tableapartment_<?php echo $e["entrance"]; ?>">
+                                </div>
+                                <span class="counter pull-left"></span>
+                              </div>
+
                               <div class="table-responsive">
                                 <table id="tableapartment_<?php echo($e["entrance"] ? $e["entrance"] : '0'); ?>" class="table table-bordered table-striped">
                                   <thead>
                                   <tr>
-                                    <th class="col-md-1">#</th>
-                                    <th class="col-md-1">Číslo bytu</th>
-                                    <th class="col-md-1">Patro</th>
-                                    <th class="col-md-2">Jméno</th>
-                                    <th class="col-md-2">Telefon</th>
-                                    <th class="col-md-2">Výbor</th>
+                                    <th style="width:5%;">#</th>
+                                    <th style="width:15%;">Číslo bytu</th>
+                                    <th style="width:10%;">Patro</th>
+                                    <th style="width:25%;">Jméno</th>
+                                    <th style="width:25%;">Telefon</th>
+                                    <th style="width:20%;">Výbor</th>
+                                  </tr>
+                                  <tr class="warning no-result">
+                                    <td colspan="6"><i class="fa fa-warning"></i> Žádné záznamy nebyly nalezeny</td>
                                   </tr>
                                   </thead>
                                   <tbody>
@@ -256,8 +345,8 @@
 
                                         echo '<tr>';
 
-                                        echo '<td>' . $foundApt['id'] . '</td>';
-                                        echo '<td>' . $foundApt['number'] . '</td>';
+                                        echo '<td style="color: #A7B1BE;">' . $foundApt['id'] . '</td>';
+                                        echo '<td style="font-weight:bold;text-align:center;">' . $foundApt['number'] . '</td>';
                                         echo '<td>' . $foundApt['etage'] . '</td>';
                                         echo '<td>' . $foundApt['name'] . '</td>';
                                         echo '<td>' . $foundApt['phone'] . '</td>';
@@ -321,7 +410,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs5" class="tab-pane fade">
+      <div id="tabs6" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple">
@@ -380,7 +469,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs6" class="tab-pane fade">
+      <div id="tabs7" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple">
@@ -444,7 +533,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs7" class="tab-pane fade">
+      <div id="tabs8" class="tab-pane fade">
         <div class="row">
           <div class="col-sm-12">
             <div class="grid simple">
@@ -491,12 +580,12 @@
 
                     <?php if (!empty($ENVO_HOUSE_IMG) && is_array($ENVO_HOUSE_IMG)) { ?>
 
-                      <div id="gallery">
+                      <div id="gallery" class="gallery">
 
                         <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
                           <div class="gallery-item-<?php echo $himg["id"] . ' ' . $himg["category"]; ?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a data-fancybox="gallery" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
+                              <a data-fancybox="fancybox-1" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
                                 <img src="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="">
                               </a>
                             </div>
@@ -507,12 +596,12 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="gallery" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" alt="">
-                                      <button class="btn btn-success btn-xs btn-mini" type="button">
+                                    <a data-fancybox="fancybox-2" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" alt="">
+                                      <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fa fa-image"></i>
                                       </button>
                                     </a>
-                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails">
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?php echo $himg["id"]; ?>" data-toggle="tooltipEnvo" title="Informace">
                                       <i class="fa fa-info"></i>
                                     </button>
                                   </div>
@@ -548,6 +637,20 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id="itemDetails" class="dialog item-details">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+      <div class="container-fluid">
+        <div class="row dialog__overview">
+          <!-- Data over AJAX  -->
+        </div>
+      </div>
+      <button class="close action top-right" type="button" data-dialog-close>
+        <i class="fa fa-times fs-30"></i>
+      </button>
     </div>
   </div>
 

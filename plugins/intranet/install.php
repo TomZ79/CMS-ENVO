@@ -169,7 +169,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         require_once APP_PATH.\'plugins/intranet/admin/intranet.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/intranet/admin/template/int_nav.php", "intranet", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/intranet/admin/template/int_nav.php", "intranet", "uninstall.php", "1.1", NOW())');
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -279,6 +279,22 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
   `countapartment` int(10) unsigned NOT NULL DEFAULT 0,
   `folder` varchar(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Tasks list)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Úkoly)
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousetasks (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) DEFAULT NULL,
+  `priority` varchar(255) NULL DEFAULT NULL,
+  `status` varchar(255) NULL DEFAULT NULL,
+  `title` varchar(255) NULL DEFAULT NULL,
+  `description` text NULL DEFAULT NULL,
+  `reminder` DATETIME DEFAULT NULL,
+  `time` DATETIME DEFAULT NULL,
+  `created` TIMESTAMP NULL DEFAULT NULL,
+  `updated` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

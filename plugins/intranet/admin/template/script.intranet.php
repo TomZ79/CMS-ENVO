@@ -21,17 +21,14 @@ if ($page == 'intranet') {
   echo PHP_EOL . '<!-- Start JS Intranet -->';
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Load 'ace.js'  - only for selected pages
-  if ($setting["adv_editor"]) {
-    // Plugin ACE Editor
-    echo $Html->addScript('assets/plugins/ace/ace.js');
-  }
+  // TinyMCE Plugin
+  echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
   // Plugin DataTable
   echo $Html->addScript('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js');
   // Plugin Tabledit
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.js');
   // Plugin Fancybox
-  echo $Html->addScript('/assets/plugins/fancybox/3.0/js/jquery.fancybox.min.js');
+  echo $Html->addScript('/assets/plugins/fancybox/3.1.25/js/jquery.fancybox.min.js');
   // Plugin DialogFX
   echo $Html->addScript('assets/plugins/classie/classie.js');
   echo $Html->addScript('assets/plugins/codrops-dialogFx/dialogFx.js');

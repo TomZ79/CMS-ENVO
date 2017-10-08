@@ -91,36 +91,41 @@ if ($errors) { ?>
     </li>
     <li role="presentation">
       <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
-        <span class="text">Hlavní kontakty</span>
+        <span class="text">Úkoly</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
-        <span class="text">Vchody - Byty</span>
+        <span class="text">Hlavní kontakty</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage5" role="tab" id="cmsPage5-tab" data-toggle="tab" aria-controls="cmsPage5">
-        <span class="text">Nájemníci</span>
+        <span class="text">Vchody - Byty</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage6" role="tab" id="cmsPage6-tab" data-toggle="tab" aria-controls="cmsPage6">
-        <span class="text">Stav Techniky</span>
+        <span class="text">Nájemníci</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage7" role="tab" id="cmsPage7-tab" data-toggle="tab" aria-controls="cmsPage7">
-        <span class="text">Servisy</span>
+        <span class="text">Stav Techniky</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage8" role="tab" id="cmsPage8-tab" data-toggle="tab" aria-controls="cmsPage8">
-        <span class="text">Dokumenty</span>
+        <span class="text">Servisy</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage9" role="tab" id="cmsPage9-tab" data-toggle="tab" aria-controls="cmsPage9">
+        <span class="text">Dokumenty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage10" role="tab" id="cmsPage10-tab" data-toggle="tab" aria-controls="cmsPage10">
         <span class="text">Fotogalerie</span>
       </a>
     </li>
@@ -143,7 +148,7 @@ if ($errors) { ?>
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -152,7 +157,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                         <?php
@@ -164,7 +169,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -172,7 +177,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -184,7 +189,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -192,7 +197,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -204,7 +209,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -212,7 +217,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -224,7 +229,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -232,7 +237,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -244,7 +249,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -252,7 +257,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -264,7 +269,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -272,7 +277,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -284,7 +289,7 @@ if ($errors) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -292,7 +297,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                       <div class="form-group no-margin">
 
                         <?php
@@ -695,6 +700,246 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
       <div class="row m-b-20">
+        <div class="col-md-12 p-l-15 p-r-15">
+          <div class="pull-right-sm pull-right-md pull-right-lg">
+
+          <?php
+          // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+          echo $Html->addButton('button', '', 'Přidat nový úkol', '', 'addTask', 'btn btn-info', array('data-dialog' => 'taskDialogAdd', 'style' => 'width: 100%;'));
+          ?>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="tasklist">
+
+            <?php if (!empty($ENVO_FORM_DATA_TASK) && is_array($ENVO_FORM_DATA_TASK)) foreach ($ENVO_FORM_DATA_TASK as $t) { ?>
+              <div id="task_<?php echo $t["id"]; ?>" class="task_<?php echo $t["id"]; ?>">
+                <div class="taskheader">
+                  <span>Task ID <?php echo $t["id"]; ?></span>
+                  <span class="pull-right collapsetask">+</span>
+                </div>
+                <div class="taskinfo">
+                  <div class="container-fluid">
+                    <div class="table-responsive">
+                      <table class="table table-task">
+                        <thead>
+                        <tr>
+                          <th>Titulek</th>
+                          <th>Priorita</th>
+                          <th>Status</th>
+                          <th>Datum Úkolu</th>
+                          <th>Datum Připomenutí</th>
+                          <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td><?php echo $t["title"]; ?></td>
+                          <td><?php echo $t["priority"]; ?></td>
+                          <td><?php echo $t["status"]; ?></td>
+                          <td><?php echo $t["time"]; ?></td>
+                          <td><?php echo $t["reminder"]; ?></td>
+                          <td>
+
+                            <?php
+                            // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                            // EDIT
+                            echo $Html->addButton('button', '', '<i class="fa fa-edit"></i>', '', 'editTask', 'btn btn-default btn-xs m-r-20 editTask', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"], 'data-dialog' => 'taskDialogEdit', 'data-id' => $t["id"]));
+                            // DELETE
+                            echo $Html->addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf('Jste si jistý, že chcete odstranit úkol <strong>%s</strong>', $t["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                            ?>
+
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="taskcontent">
+                  <p><strong >Popis Úkolu:</strong></p>
+                  <div class="taskdescription">
+                    <?php echo $t["description"]; ?>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
+
+          </div>
+        </div>
+      </div>
+      <div id="taskDialogAdd" class="dialog task-details">
+        <div class="dialog__overlay"></div>
+        <div class="dialog__content">
+          <div class="container-fluid">
+            <div class="row dialog__overview">
+              <!-- Data over AJAX  -->
+              <div class="col-sm-12 p-t-10 full-height item-description">
+                <div class="p-b-10"><h4 class="bold">Nový Úkol</h4></div>
+                <div class="block" style="height:calc(100% - 75px);overflow-y:auto;width:100%;padding-right: 20px;">
+                  <div class="block-content">
+                    <div id="notificationcontainer_add"></div>
+                    <div class="row-form">
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Titulek');
+                        ?>
+
+                      </div>
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_addtasktitle', '', '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Priorita');
+                        ?>
+
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group no-margin">
+                          <select name="envo_addtaskpriority" class="form-control selectpicker" data-class-select2="zindex1060">
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('0', 'Nedůležitá');
+                            echo $Html->addOption('1', 'Nízká priorita');
+                            echo $Html->addOption('2', 'Střední priorita');
+                            echo $Html->addOption('3', 'Vysoká priorita');
+                            echo $Html->addOption('4', 'Nejvyšší priorita');
+                            ?>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Status');
+                        ?>
+
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group no-margin">
+                          <select name="envo_addtaskstatus" class="form-control selectpicker" data-class-select2="zindex1060">
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('0', 'Žádný status');
+                            echo $Html->addOption('1', 'Zápis');
+                            echo $Html->addOption('2', 'V řešení');
+                            echo $Html->addOption('3', 'Vyřešeno - Uzavřeno');
+                            echo $Html->addOption('4', 'Stornováno');
+                            ?>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Datum Úkolu');
+                        ?>
+
+                      </div>
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_addtasktime', '', '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Datum Připomenutí');
+                        ?>
+
+                      </div>
+                      <div class="col-md-6">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_addtaskreminder', '', '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-12">
+
+                        <?php
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('', '<strong>Popis</strong>');
+                        // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                        echo $Html->addTextarea('envo_addtaskdescription', '', '10', '', array('id' => 'envoEditorSmall', 'class' => 'form-control envoEditorSmall'));
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dialog__footer">
+            <div class="col-sm-12 p-l-20 p-r-20">
+              <button id="saveTask" class="btn btn-success m-t-20 m-l-20 pull-right" type="button">
+                Uložit
+              </button>
+              <button class="btn btn-info m-t-20 pull-right action" type="button" data-dialog-close>
+                Zavřít
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="taskDialogEdit" class="dialog task-details">
+        <div class="dialog__overlay"></div>
+        <div class="dialog__content">
+          <div class="container-fluid">
+            <div class="row dialog__overview">
+              <!-- Data over AJAX  -->
+            </div>
+          </div>
+          <div class="dialog__footer">
+            <div class="col-sm-12 p-l-20 p-r-20">
+              <button id="udpateTask" class="btn btn-success m-t-20 m-l-20 pull-right" type="button">
+                Uložit
+              </button>
+              <button class="btn btn-info m-t-20 pull-right action" type="button" data-dialog-close>
+                Zavřít
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
+      <div class="row m-b-20">
         <div class="col-md-12 p-l-15 p-r-15 ">
           <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
             <div class="form-group">
@@ -776,7 +1021,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
       <div class="row m-b-20">
         <div class="col-md-12 p-l-15 p-r-15 ">
           <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
@@ -854,7 +1099,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
 
       <?php if (!empty($ENVO_FORM_DATA_ENT) && is_array($ENVO_FORM_DATA_ENT)) {
         foreach ($ENVO_FORM_DATA_ENT as $e) { ?>
@@ -969,7 +1214,7 @@ if ($errors) { ?>
       <?php } ?>
 
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
       <div class="row">
         <div class="col-md-6">
           <div class="box box-success">
@@ -1049,19 +1294,12 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
 
-              <?php if ($setting["adv_editor"]) {
-
-                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                echo $Html->addDiv('', 'htmleditor');
-                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["housedesctech"])), '', '', array('id' => 'envo_editor', 'class' => 'form-control hidden'));
-
-              } else {
+              <?php
 
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditor'));
+                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'envoEditorLarge', 'class' => 'form-control envoEditorLarge'));
 
-              } ?>
+              ?>
 
             </div>
             <div class="box-footer">
@@ -1076,7 +1314,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
       <div class="row m-b-20">
         <div class="col-md-12 p-l-15 p-r-15 ">
           <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
@@ -1130,7 +1368,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage9" aria-labelledby="cmsPage9-tab">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-success">
@@ -1239,7 +1477,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage9" aria-labelledby="cmsPage9-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage10" aria-labelledby="cmsPage10-tab">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-success">
