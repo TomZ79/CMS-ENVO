@@ -24,7 +24,7 @@ if ($page == 'growl') {
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/growl/admin/js/script.growl.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/growl/admin/js/script.growl.min.js');
 
   echo PHP_EOL . '<!-- End JS Growl -->' . PHP_EOL;
 

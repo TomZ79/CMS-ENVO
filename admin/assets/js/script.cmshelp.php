@@ -28,7 +28,7 @@ if ($page == 'cmshelp') {
   // Code-prettify JS
   echo $Html->addScript('assets/plugins/code-prettify-master/src/prettify.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.cmshelp.js');
+  echo $Html->addScript('assets/js/script.cmshelp.min.js');
 
   ?>
 

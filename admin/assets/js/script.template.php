@@ -24,7 +24,7 @@ if ($page == 'template') {
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.template.js');
+  echo $Html->addScript('assets/js/script.template.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Template -->' . PHP_EOL;
 

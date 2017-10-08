@@ -34,7 +34,7 @@ if ($page == 'news') {
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.news.js');
+  echo $Html->addScript('assets/js/script.news.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP News -->' . PHP_EOL;
 

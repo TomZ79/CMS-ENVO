@@ -22,7 +22,7 @@ if ($page == 'sitemap') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.sitemap.js');
+  echo $Html->addScript('assets/js/script.sitemap.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Sitemap -->' . PHP_EOL;
 

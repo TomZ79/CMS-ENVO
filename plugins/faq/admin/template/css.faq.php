@@ -23,7 +23,7 @@ if ($page == 'faq') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/faq/admin/css/style.faq.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/faq/admin/css/style.faq.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Faq -->';

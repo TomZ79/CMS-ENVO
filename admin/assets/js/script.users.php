@@ -22,7 +22,7 @@ if ($page == 'users') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.users.js');
+  echo $Html->addScript('assets/js/script.users.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Users -->' . PHP_EOL;
 

@@ -22,7 +22,7 @@ if ($page == 'searchlog') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.searchlog.js');
+  echo $Html->addScript('assets/js/script.searchlog.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Search Log -->' . PHP_EOL;
 

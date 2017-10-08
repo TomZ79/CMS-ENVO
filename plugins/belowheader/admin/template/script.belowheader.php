@@ -27,7 +27,7 @@ if ($page == 'belowheader') {
     echo $Html->addScript('assets/plugins/ace/ace.js');
   }
   // Plugin Javascript
-  echo $Html->addScript('/plugins/belowheader/admin/js/script.belowheader.js');
+  echo $Html->addScript('/plugins/belowheader/admin/js/script.belowheader.min.js');
 
   echo PHP_EOL . '<!-- End JS Belowheader -->' . PHP_EOL;
 

@@ -22,7 +22,7 @@ if ($page == 'searchsetting') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.searchsetting.js');
+  echo $Html->addScript('assets/js/script.searchsetting.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Search Settings -->' . PHP_EOL;
 

@@ -22,7 +22,7 @@ if (empty($page) && !ENVO_USERID) {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.login.js');
+  echo $Html->addScript('assets/js/script.login.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Login Page -->' . PHP_EOL;
 

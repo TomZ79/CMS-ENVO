@@ -115,7 +115,7 @@ if ($site_language = 'cs') {
 <!-- BEGIN JS FUNCTION -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('../assets/js/functions.js?=' . $setting["updatetime"]);
+echo $Html->addScript('/assets/js/functions.min.js?=' . $setting["updatetime"]);
 // Setting variable for Jquery external script files
 echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
 ?>
@@ -123,13 +123,13 @@ echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
 <!-- BEGIN CORE TEMPLATE JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('pages/js/pages.js');
+echo $Html->addScript('pages/js/pages.min.js');
 ?>
 
 <!-- BEGIN PAGE LEVEL JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('assets/js/global_js/scripts.js');
+echo $Html->addScript('assets/js/global_js/scripts.min.js');
 ?>
 
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->

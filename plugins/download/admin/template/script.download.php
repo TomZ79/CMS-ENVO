@@ -45,12 +45,12 @@ if ($page == 'download') {
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Slug
-  echo $Html->addScript('assets/js/global_js/slug.js');
+  echo $Html->addScript('assets/js/global_js/slug.min.js');
   // Categories plugin and script
   echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
-  echo $Html->addScript('assets/js/global_js/catorder.js');
+  echo $Html->addScript('assets/js/global_js/catorder.min.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/download/admin/js/script.download.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/download/admin/js/script.download.min.js');
 
   echo PHP_EOL . '<!-- End JS Download -->' . PHP_EOL;
 

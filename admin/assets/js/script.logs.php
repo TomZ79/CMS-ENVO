@@ -22,7 +22,7 @@ if ($page == 'logs') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.logs.js');
+  echo $Html->addScript('assets/js/script.logs.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Log of user login -->' . PHP_EOL;
 

@@ -26,7 +26,7 @@ if ($page == 'tv-tower') {
   // Plugin DataTable
   echo $Html->addScript('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js');
   // Plugin Javascript
-  echo $Html->addScript('/plugins/tv_tower/admin/js/script.tv_tower.js');
+  echo $Html->addScript('/plugins/tv_tower/admin/js/script.tv_tower.min.js');
 
   echo PHP_EOL . '<!-- End JS TV Tower -->' . PHP_EOL;
 

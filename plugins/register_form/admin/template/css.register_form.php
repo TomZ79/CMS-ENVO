@@ -23,7 +23,7 @@ if ($page == 'register-form') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/register_form/admin/css/style.register_form.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/register_form/admin/css/style.register_form.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Register Form -->';

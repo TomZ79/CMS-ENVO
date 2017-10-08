@@ -23,7 +23,7 @@ if ($page == 'blank-plugin') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/blank_plugin/admin/css/style.blank_plugin.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/blank_plugin/admin/css/style.blank_plugin.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Blank Plugin -->';

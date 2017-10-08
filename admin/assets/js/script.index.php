@@ -22,11 +22,11 @@ if ($page == '') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   //
-  echo $Html->addScript('assets/js/global_js/todo.js');
+  echo $Html->addScript('assets/js/global_js/todo.min.js');
   //
   echo $Html->addScript('assets/plugins/highcharts/v5.0.14/highcharts.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.index.js');
+  echo $Html->addScript('assets/js/script.index.min.js');
 
   echo PHP_EOL;
 

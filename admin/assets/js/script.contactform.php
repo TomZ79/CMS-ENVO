@@ -22,7 +22,7 @@ if ($page == 'contactform') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.contactform.js');
+  echo $Html->addScript('assets/js/script.contactform.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Contact Form -->' . PHP_EOL;
 

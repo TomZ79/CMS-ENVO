@@ -24,7 +24,7 @@ if ($page == 'newsletter') {
   // TinyMCE Plugin
   echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/newsletter/admin/js/script.newsletter.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/newsletter/admin/js/script.newsletter.min.js');
 
   echo PHP_EOL . '<!-- End JS Newsletter -->' . PHP_EOL;
 

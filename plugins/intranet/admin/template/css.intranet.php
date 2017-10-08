@@ -25,12 +25,12 @@ if ($page == 'intranet') {
   // Plugin DataTable
   echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.css');
   // Plugin Fancybox
-  echo $Html->addStylesheet('../assets/plugins/fancybox/3.1.25/css/jquery.fancybox.min.css');
+  echo $Html->addStylesheet('/assets/plugins/fancybox/3.1.25/css/jquery.fancybox.min.css');
   // Plugin DialogFX
-  echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog.css');
-  echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog-sandra.css');
+  echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog.min.css');
+  echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog-sandra.min.css');
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/intranet/admin/css/style.intranet.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/intranet/admin/css/style.intranet.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Intranet -->';

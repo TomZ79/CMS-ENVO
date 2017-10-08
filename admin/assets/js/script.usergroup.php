@@ -22,7 +22,7 @@ if ($page == 'usergroup') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.usergroup.js');
+  echo $Html->addScript('assets/js/script.usergroup.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP User Group -->' . PHP_EOL;
 

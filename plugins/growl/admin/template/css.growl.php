@@ -23,7 +23,7 @@ if ($page == 'growl') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/growl/admin/css/style.growl.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/growl/admin/css/style.growl.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Growl -->';

@@ -23,7 +23,7 @@ if ($page == 'newsletter') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/newsletter/admin/css/style.newsletter.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/newsletter/admin/css/style.newsletter.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Newsletter -->';

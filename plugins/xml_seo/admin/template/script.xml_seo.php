@@ -43,7 +43,7 @@ if ($page == 'xml_seo') {
   // Step Form Wizard plugin
   echo $Html->addScript('/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/xml_seo/admin/js/script.xml_seo.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/xml_seo/admin/js/script.xml_seo.min.js');
 
   ?>
 

@@ -28,7 +28,7 @@ if ($page == 'facebookgallery') {
     echo $Html->addScript('assets/plugins/bootstrap-fileinput/themes/fa/theme.js');
   }
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.facebookgallery.js');
+  echo $Html->addScript('assets/js/script.facebookgallery.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Facebook Gallery -->' . PHP_EOL;
 

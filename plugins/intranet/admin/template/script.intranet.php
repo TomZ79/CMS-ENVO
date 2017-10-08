@@ -26,18 +26,18 @@ if ($page == 'intranet') {
   // Plugin DataTable
   echo $Html->addScript('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js');
   // Plugin Tabledit
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.min.js');
   // Plugin Fancybox
   echo $Html->addScript('/assets/plugins/fancybox/3.1.25/js/jquery.fancybox.min.js');
   // Plugin DialogFX
   echo $Html->addScript('assets/plugins/classie/classie.js');
-  echo $Html->addScript('assets/plugins/codrops-dialogFx/dialogFx.js');
+  echo $Html->addScript('assets/plugins/codrops-dialogFx/dialogFx.min.js');
   // Plugin Isotope
   echo $Html->addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
   //
-  echo $Html->addScript('assets/js/global_js/gallery.js');
+  echo $Html->addScript('assets/js/global_js/gallery.min.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.min.js');
 
   echo PHP_EOL . '<!-- End JS Intranet -->' . PHP_EOL;
 

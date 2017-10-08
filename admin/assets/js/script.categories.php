@@ -44,12 +44,12 @@ if ($page == 'categories') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Slug
-  echo $Html->addScript('assets/js/global_js/slug.js');
+  echo $Html->addScript('assets/js/global_js/slug.min.js');
   // Categories plugin and script
   echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
-  echo $Html->addScript('assets/js/global_js/catorder.js');
+  echo $Html->addScript('assets/js/global_js/catorder.min.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.categories.js');
+  echo $Html->addScript('assets/js/script.categories.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Categories -->' . PHP_EOL;
 

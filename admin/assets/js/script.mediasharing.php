@@ -38,7 +38,7 @@ if ($page == 'mediasharing') {
   //
   echo $Html->addScript('/assets/plugins/jquery-sollist/jquery.sollist.min.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.mediasharing.js');
+  echo $Html->addScript('assets/js/script.mediasharing.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Media Sharing -->' . PHP_EOL;
 

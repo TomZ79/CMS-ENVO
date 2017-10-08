@@ -28,7 +28,7 @@ if ($page == 'changelog') {
   // Code-prettify JS
   echo $Html->addScript('assets/plugins/code-prettify-master/src/prettify.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.changelog.js');
+  echo $Html->addScript('assets/js/script.changelog.min.js');
 
   ?>
 

@@ -23,7 +23,7 @@ if ($page == 'belowheader') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/belowheader/admin/css/style.belowheader.css');
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/belowheader/admin/css/style.belowheader.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Belowheader -->';

@@ -22,7 +22,7 @@ if ($page == 'site-editor') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/site_editor/admin/js/script.site_editor.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/site_editor/admin/js/script.site_editor.min.js');
 
   echo PHP_EOL . '<!-- End JS Site Editor -->' . PHP_EOL;
 

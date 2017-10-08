@@ -22,7 +22,7 @@ if ($page == 'site') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.site.js');
+  echo $Html->addScript('assets/js/script.site.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Site -->' . PHP_EOL;
 

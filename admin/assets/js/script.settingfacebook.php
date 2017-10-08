@@ -24,7 +24,7 @@ if ($page == 'settingfacebook') {
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.settingfacebook.js');
+  echo $Html->addScript('assets/js/script.settingfacebook.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Setting Facebook -->' . PHP_EOL;
 
