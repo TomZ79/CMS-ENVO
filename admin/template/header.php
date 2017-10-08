@@ -40,7 +40,7 @@ echo $Html->addDoctype('html5');
   // Bootstrap Select
   echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
   // Bootstrap TagsInput
-  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.cssjquery-scrollbar', 'screen');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css?=v0.8.0', 'screen');
   // Bootstrap DateTimePicker
   echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.42');
   // Bootstrap IconPicker
