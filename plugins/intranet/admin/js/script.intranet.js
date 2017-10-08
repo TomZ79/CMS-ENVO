@@ -11,7 +11,70 @@
  *
  */
 
-/** 01. TinyMCE Initialisation
+/** 00. ACE Initialisation
+ ========================================================================*/
+
+/** ACE Editor
+ * Initialisation of ACE Editor
+ * @require: ACE Editor Plugin
+ *
+ * Set variable in php file as array (script.tv-tower.php)
+ * @param: 'aceEditor.acetheme' from generated_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_js.php
+ * @param: 'aceEditor.acetabSize' from generated_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_js.php
+ * @param: 'aceEditor.acegutter' from generated_js.php
+ *
+ * @example: Example add other variable setting to aceEditor object in script.download.php
+ *
+ * <script>
+ *  // Add to aceEditor settings javascript object
+ *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
+ * </script>
+ ========================================= */
+// Set WrapLimitRange from generated_js.php
+$wrapLimitRange = {
+  min: aceEditor.acewraplimit,
+  max: aceEditor.acewraplimit
+};
+
+if ($('#htmleditor').length) {
+  var htmlACE = ace.edit('htmleditor');
+  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
+  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
+  htmlACE.setOptions({
+    // session options
+    mode: "ace/mode/html",
+    tabSize: aceEditor.acetabSize,
+    useSoftTabs: true,
+    highlightActiveLine: aceEditor.aceactiveline,
+    // renderer options
+    showInvisibles: aceEditor.aceinvisible,
+    showGutter: aceEditor.acegutter
+  });
+  // This is to remove following warning message on console:
+  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
+  // set editor.$blockScrolling = Infinity to disable this message
+  htmlACE.$blockScrolling = Infinity;
+
+  texthtml = $('#envo_editor').val();
+  htmlACE.session.setValue(texthtml);
+}
+
+$(function () {
+  /* Submit Form
+   ========================================= */
+  $('form').submit(function () {
+    if ($('#envo_editor').length) {
+      $('#envo_editor').val(htmlACE.getValue());
+    }
+  });
+
+});
+
+/** 00. TinyMCE Initialisation
  * @require: TinyMCE Plugin
  ========================================================================*/
 
@@ -135,7 +198,7 @@ $.urlParam = function (name) {
 var pageID = $.urlParam('id');
 
 /**
- * Jquery Function - DialogFX Open
+ * Jquery Function - DialogFX Open - Image
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
@@ -227,6 +290,100 @@ function openDialog(event) {
 }
 
 /**
+ * Jquery Function - DialogFX Open - Task
+ * @example
+ * Attribute 'data-dialog' in button => ID of dialog 'div' block
+ * -----------------
+ * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
+ *
+ *  <div id="itemDetails" class="dialog item-details">
+ *    <div class="dialog__overlay"></div>
+ *    <div class="dialog__content">
+ *      <div class="container-fluid">
+ *        <div class="row dialog__overview">
+ *          <!-- Data over AJAX  -->
+ *        </div>
+ *      </div>
+ *      <button class="close action top-right" type="button" data-dialog-close>
+ *        <i class="pg-close fs-14"></i>
+ *      </button>
+ *    </div>
+ *  </div>
+ */
+function openDialogEditTask(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get Data-Dialog
+  thisDataDialog = $(this).attr('data-dialog');
+  // Get ID of Task
+  var taskID = $(this).attr('data-id');
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_dialog_task.php",
+    type: "POST",
+    datatype: 'html',
+    data: {
+      taskID: taskID
+    },
+    beforeSend: function () {
+
+      // Show progress circle
+      $('#taskDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+    },
+    success: function (data) {
+
+      setTimeout(function () {
+        // Add html data to 'div'
+        $('#taskDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+        // Init TinyMCE
+        tinymce.remove('#editTaskEditor');
+        initializeTinyMce('#editTaskEditor', 300);
+
+        // Init Select2 plugin
+        $('#taskDialogEdit .selectpicker').select2({
+          minimumResultsForSearch: -1,
+          dropdownParent: $('.page-content-wrapper'),
+          dropdownCssClass: 'zindex1060'
+        });
+
+        // Init DateTimePicker
+        initializeDateTimePicker('input[name=envo_edittasktime]');
+        initializeDateTimePicker('input[name=envo_edittaskreminder]');
+
+      }, 1000);
+
+    },
+    error: function () {
+
+    },
+    complete: function () {
+
+
+    }
+  });
+
+  // Open DialogFX
+  dialogEl = document.getElementById(thisDataDialog);
+  dlg = new DialogFx(dialogEl, {
+    onOpenDialog: function (instance) {
+      // Open DialogFX
+      console.log('OPEN');
+    },
+    onCloseDialog: function (instance) {
+      // Close DialogFX
+      console.log('CLOSE');
+    }
+  });
+  dlg.toggle(dlg);
+
+  return false;
+}
+
+/**
  * Jquery Function - Delete Image from DB
  * @example
  * Attribute 'data-id' in button => ID is id of image in DB
@@ -293,6 +450,106 @@ function deleteImg(event) {
     },
     error: function () {
 
+    }
+  });
+
+  return false;
+}
+
+/**
+ * Jquery Function - Delete Task from DB
+ * @example
+ * Attribute 'data-id' in button => ID is id of image in DB
+ * -----------------
+ * <button class="deleteTask" type="button" data-id="id_of_task_in_DB"></button>
+ *
+ */
+function deleteTask(taskID) {
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_delete_task.php",
+    type: "POST",
+    datatype: 'json',
+    data: {
+      taskID: taskID
+    },
+    success: function (data) {
+
+      if (data.status == 'delete_success') {
+        // IF DATA SUCCESS
+
+        // Removes elements from the Isotope instance and DOM
+        $('#task_' + data.data[0].id).remove();
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
+
+      } else {
+        // IF DATA ERROR
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+      }
+    },
+    complete: function () {
+
+    },
+    error: function () {
+
+    }
+  });
+
+  return false;
+}
+
+function confirmDeleteTask(event) {
+// Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of Task
+  var taskID = $(this).attr('data-id');
+
+  // Show Message
+  bootbox.setLocale(envoWeb.envo_lang);
+  bootbox.confirm({
+    title: "Potvrzení o odstranění!",
+    message: $(this).attr('data-confirm-deltask'),
+    className: "bootbox-confirm-del",
+    animate: true,
+    buttons: {
+      confirm: {
+        className: 'btn-success'
+      },
+      cancel: {
+        className: 'btn-danger'
+      }
+    },
+    callback: function (result) {
+      if (result == true) {
+        console.log(taskID);
+        deleteTask(taskID);
+      }
+      console.log('Bootbox confirm dialog: ' + result);
     }
   });
 
@@ -897,27 +1154,7 @@ function clickTaskHeader() {
   });
 }
 
-/**
- * Jquery Function - DialogFX Open
- * @example
- * Attribute 'data-dialog' in button => ID of dialog 'div' block
- * -----------------
- * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
- *
- *  <div id="itemDetails" class="dialog item-details">
- *    <div class="dialog__overlay"></div>
- *    <div class="dialog__content">
- *      <div class="container-fluid">
- *        <div class="row dialog__overview">
- *          <!-- Data over AJAX  -->
- *        </div>
- *      </div>
- *      <button class="close action top-right" type="button" data-dialog-close>
- *        <i class="pg-close fs-14"></i>
- *      </button>
- *    </div>
- *  </div>
- */
+/* Init TinyMCE */
 function initializeTinyMce(selector, height) {
   if (selector == undefined) {
     selector = 'textarea';
@@ -957,6 +1194,7 @@ function initializeTinyMce(selector, height) {
   });
 }
 
+/* Init DateTimePicker */
 function initializeDateTimePicker(selector) {
   /** DateTimePicker
    * @require: DateTimePicker Plugin
@@ -977,79 +1215,6 @@ function initializeDateTimePicker(selector) {
     calendarWeeks: true,
     ignoreReadonly: true
   });
-}
-
-function openDialogEditTask(event) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get Data-Dialog
-  thisDataDialog = $(this).attr('data-dialog');
-  // Get ID of Task
-  var taskID = $(this).attr('data-id');
-
-  // Ajax
-  $.ajax({
-    url: "/plugins/intranet/admin/ajax/int_table_dialog_task.php",
-    type: "POST",
-    datatype: 'html',
-    data: {
-      taskID: taskID
-    },
-    beforeSend: function () {
-
-      // Show progress circle
-      $('#taskDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
-
-    },
-    success: function (data) {
-
-      setTimeout(function () {
-        // Add html data to 'div'
-        $('#taskDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
-
-        // Init TinyMCE
-        tinymce.remove('#editTaskEditor');
-        initializeTinyMce('#editTaskEditor', 300);
-
-        // Init Select2 plugin
-        $('#taskDialogEdit .selectpicker').select2({
-          minimumResultsForSearch: -1,
-          dropdownParent: $('.page-content-wrapper'),
-          dropdownCssClass: 'zindex1060'
-        });
-
-        // Init DateTimePicker
-        initializeDateTimePicker('input[name=envo_edittasktime]');
-        initializeDateTimePicker('input[name=envo_edittaskreminder]');
-
-      }, 1000);
-
-    },
-    error: function () {
-
-    },
-    complete: function () {
-
-
-    }
-  });
-
-  // Open DialogFX
-  dialogEl = document.getElementById(thisDataDialog);
-  dlg = new DialogFx(dialogEl, {
-    onOpenDialog: function (instance) {
-      // Open DialogFX
-      console.log('OPEN');
-    },
-    onCloseDialog: function (instance) {
-      // Close DialogFX
-      console.log('CLOSE');
-    }
-  });
-  dlg.toggle(dlg);
-
-  return false;
 }
 
 /* 00. ISOTOPE PHOTO GALLERY
@@ -2071,8 +2236,8 @@ $(function () {
                     '<td>' + data["status"] + '</td>' +
                     '<td>' + data["time"] + '</td>' +
                     '<td>' + data["reminder"] + '</td>' +
-                    '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-id="' + data["id"] + '" data-original-title="Editovat"><i class="fa fa-edit"></i></button>' +
-                    '<button type="button" class="btn btn-danger btn-xs" data-confirm="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit"><i class="fa fa-trash-o"></i></button></td>' +
+                    '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-original-title="Editovat" data-id="' + data["id"] + '"><i class="fa fa-edit"></i></button>' +
+                    '<button type="button" class="btn btn-danger btn-xs deleteTask" data-confirm-deltask="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i></button></td>' +
                   '</tr>' +
                   '</tbody>' +
                   '</table>' +
@@ -2097,6 +2262,7 @@ $(function () {
           // Call function
           $('#task_' + dataID + ' .taskheader').click(clickTaskHeader);
           $('#task_' + dataID + ' .editTask').click(openDialogEditTask);
+          $('#task_' + dataID + ' .deleteTask').click(confirmDeleteTask);
 
           // Disable 'button'
           $('#saveTask').attr('disabled', true);
@@ -2271,6 +2437,8 @@ $(function () {
   });
 
   $('.editTask').click(openDialogEditTask);
+
+  $('.deleteTask').click(confirmDeleteTask);
 
   $('.taskheader').click(clickTaskHeader);
 

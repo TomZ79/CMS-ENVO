@@ -63,7 +63,7 @@
                       </div>
                       <div class="taskinfo">
                         <div class="container-fluid">
-                          <div class="row">
+                          <div class="row m-b-10">
                             <div class="col-sm-2">
                               <strong>Bytový dům: </strong>
                             </div>

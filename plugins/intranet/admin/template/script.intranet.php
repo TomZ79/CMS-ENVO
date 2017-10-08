@@ -21,6 +21,11 @@ if ($page == 'intranet') {
   echo PHP_EOL . '<!-- Start JS Intranet -->';
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Load 'ace.js'  - only for selected pages
+  if ($setting["adv_editor"]) {
+    // Plugin ACE Editor
+    echo $Html->addScript('assets/plugins/ace/ace.js');
+  }
   // TinyMCE Plugin
   echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
   // Plugin DataTable
