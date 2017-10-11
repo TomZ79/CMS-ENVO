@@ -239,6 +239,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         // CZ: Vytvoření tabulky pro plugin (TV Vysílače)
         $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvtower (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `active` int(11) NOT NULL DEFAULT 1,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
   `station` varchar(255) NULL DEFAULT NULL,
