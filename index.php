@@ -68,15 +68,6 @@ $ENVO_HOOK_FOOTER        = $envohooks->EnvoGethook("tpl_footer");
 $ENVO_HOOK_FOOTER_WIDGET = $envohooks->EnvoGethook("tpl_footer_widgets");
 $ENVO_HOOK_FOOTER_END    = $envohooks->EnvoGethook("tpl_footer_end");
 
-// EN: Get all the php Hook by name of Hook for 'index top'
-// CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-$indexhook = $envohooks->EnvoGethook("php_index_top");
-if ($indexhook) {
-  foreach ($indexhook as $it) {
-    eval($it['phpcode']);
-  }
-}
-
 // Define the avatarpath in the settings
 define('ENVO_USERRPATH_BASE', BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles');
 
@@ -98,7 +89,15 @@ if (ENVO_USERID) {
   define('ENVO_USERGROUPID', 1);
   $ENVO_USERNAME = FALSE;
   define('ENVO_ASACCESS', FALSE);
+}
 
+// EN: Get all the php Hook by name of Hook for 'index top'
+// CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
+$indexhook = $envohooks->EnvoGethook("php_index_top");
+if ($indexhook) {
+  foreach ($indexhook as $it) {
+    eval($it['phpcode']);
+  }
 }
 
 // Pagination/Date/template/plugin reset
