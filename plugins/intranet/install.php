@@ -195,6 +195,11 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 } else {
   $tlint = parse_ini_file(APP_PATH.\'plugins/intranet/lang/en.ini\', true);
 }';
+
+        // EN: Hook System - Index: set files for other uses
+        // CZ: Hook System - Index: nastavení používaných souborů
+        $index_top = 'include_once APP_PATH.\'plugins/intranet/hooks/hook_index_top.php\';';
+
         // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
         // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
         $insertphpcode = 'if (isset($defaults[\'envo_intranet\'])) {
@@ -206,6 +211,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 (NULL, "php_admin_lang", "Intranet Admin Language", "' . $adminlang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Intranet Site Language", "' . $sitelang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Intranet Admin CSS", "plugins/intranet/admin/template/css.intranet.php", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_index_top", "Intranet Index", "' . $index_top . '", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Intranet Usergroup New", "plugins/intranet/admin/template/usergroup_new.php", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Intranet Usergroup Edit", "plugins/intranet/admin/template/usergroup_edit.php", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Intranet Usergroup SQL", "' . $insertphpcode . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW())');
