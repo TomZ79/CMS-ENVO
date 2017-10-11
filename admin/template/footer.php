@@ -151,10 +151,6 @@ $notify =
   '});' .
   '</script>';
 
-// EN: Init debug mode - debug php to console.log
-// CZ: Inicializace debug módu - debug php do console
-$debug = new PHPDebug();
-
 if (!empty($page)) {
   // EN: Insert javascript files for page in array $ap'
   // CZ: Vložení javascript souborů pro stránky jejichž jména jsou v poli '$ap'
@@ -167,7 +163,6 @@ if (!empty($page)) {
     } else {
       echo sprintf($notify, $jscodeFile);
     }
-    // $debug->debug("JS Script path for this plugin or page: " . $jscodeFile, NULL, INFO);
   } elseif (!in_array($page, $ap) && !empty($page) && ($page != '404')) {
     $rPage = str_replace('-', '_', $page);
     $jscodeFile = '../plugins/' . $rPage . '/admin/template/script.' . $rPage . '.php';
@@ -176,7 +171,6 @@ if (!empty($page)) {
     } else {
       echo sprintf($notify, $jscodeFile);
     }
-    // $debug->debug("JS Script path for this plugin or page1: " . $jscodeFile, NULL, INFO);
   }
 
 } elseif (empty($page) && !ENVO_USERID) {
@@ -197,7 +191,6 @@ if ($page == 'template' && $page1 == 'settings') {
   } else {
     echo sprintf($notify, $jscodeFile);
   }
-  // $debug->debug("JS Script path template settings page: " . $jscodeFile, NULL, INFO);
 }
 
 ?>

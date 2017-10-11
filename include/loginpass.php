@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
 
     $_SESSION["warningmsg"] = $tl["general_error"]["generror24"];
     $errorlo                = $errors;
+
   }
 
 }

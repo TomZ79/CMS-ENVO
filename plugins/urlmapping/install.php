@@ -209,8 +209,8 @@ if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '
   $tlum = parse_ini_file(APP_PATH.\'plugins/urlmapping/admin/lang/en.ini\', true);
 }';
 
-      // EN: Index - set files for other uses
-      // CZ: Index - nastavení používaných souborů
+      // EN: Hook System - Index: set files for other uses
+      // CZ: Hook System - Index: nastavení používaných souborů
       $index_top = 'include_once APP_PATH.\'plugins/urlmapping/mapping.php\';';
 
       // EN: Insert data to table 'pluginhooks'
