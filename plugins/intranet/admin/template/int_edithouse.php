@@ -811,7 +811,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group no-margin">
-                          <select name="envo_addtaskpriority" class="form-control selectpicker" data-class-select2="zindex1060">
+                          <select name="envo_addtaskpriority" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -837,7 +837,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group no-margin">
-                          <select name="envo_addtaskstatus" class="form-control selectpicker" data-class-select2="zindex1060">
+                          <select name="envo_addtaskstatus" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

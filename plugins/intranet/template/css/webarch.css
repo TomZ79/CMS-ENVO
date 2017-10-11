@@ -167,6 +167,14 @@ body.modal-open .chat-window-wrapper {
 body.boxed-layout .footer-widget {
   display: none;
 }
+body.loginbody {
+  overflow: hidden;
+  background: url('/plugins/intranet/template/img/login_bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .navbar,
 .navbar-inverse {
   background-color: transparent;
@@ -3392,6 +3400,7 @@ textarea {
 .uneditable-input,
 textarea,
 input[type="text"],
+input[type="name"],
 input[type="password"],
 input[type="datetime"],
 input[type="datetime-local"],
@@ -3448,6 +3457,7 @@ textarea {
 textarea:focus,
 select:focus,
 input[type="text"]:focus,
+input[type="name"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,

@@ -45,14 +45,52 @@ $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousetasks SET
 // Get last row ID from DB
 $rowid = $envodb->envo_last_id();
 
-// Getting info uploaded image from DB
+// Getting info uploaded Task from DB
 $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousetasks WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
 $row    = $result->fetch_assoc();
 
+// EN: Change number to string
+// CZ: Změna čísla na text
+switch ($row['priority']) {
+  case '0':
+    $priority = 'Nedůležitá';
+    break;
+  case '1':
+    $priority = 'Nízká priorita';
+    break;
+  case '2':
+    $priority = 'Střední priorita';
+    break;
+  case '3':
+    $priority = 'Vysoká priorita';
+    break;
+  case '4':
+    $priority = 'Nejvyšší priorita';
+    break;
+}
+
+switch ($row['status']) {
+  case '0':
+    $status = 'Žádný status';
+    break;
+  case '1':
+    $status = 'Zápis';
+    break;
+  case '2':
+    $status = 'V řešení';
+    break;
+  case '3':
+    $status = 'Vyřešeno - Uzavřeno';
+    break;
+  case '4':
+    $status = 'Stornováno';
+    break;
+}
+
 $data_array[] = array(
   'id'          => $row['id'],
-  'priority'    => $row['priority'],
-  'status'      => $row['status'],
+  'priority'    => $priority,
+  'status'      => $status,
   'title'       => $row['title'],
   'description' => $row['description'],
   'reminder'    => date($dateformat, strtotime($row["reminder"])),

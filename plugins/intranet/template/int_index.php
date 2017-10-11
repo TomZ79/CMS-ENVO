@@ -67,7 +67,7 @@
                             <div class="col-sm-2">
                               <strong>Bytový dům: </strong>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-10">
                               <a href="<?php echo $htask["houseparseurl"]; ?>" class="all-caps"><?php echo $htask["housename"]; ?></a>
                             </div>
                           </div>
@@ -76,11 +76,11 @@
                               <div class="table-responsive">
                                 <table class="table table-task">
                                   <tr>
-                                    <td><strong>Titulek: </strong></td>
-                                    <td><strong>Priorita: </strong></td>
-                                    <td><strong>Status: </strong></td>
-                                    <td><strong>Datum Úkolu: </strong></td>
-                                    <td><strong>Datum Připomenutí: </strong></td>
+                                    <td class="col-sm-4"><strong>Titulek: </strong></td>
+                                    <td class="col-sm-2"><strong>Priorita: </strong></td>
+                                    <td class="col-sm-2"><strong>Status: </strong></td>
+                                    <td class="col-sm-2"><strong>Datum Úkolu: </strong></td>
+                                    <td class="col-sm-2"><strong>Datum Připomenutí: </strong></td>
                                   </tr>
                                   <tr>
                                     <td><?php echo $htask["title"]; ?></td>

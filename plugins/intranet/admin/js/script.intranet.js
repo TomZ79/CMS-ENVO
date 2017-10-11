@@ -2376,7 +2376,7 @@ $(function () {
                   '<td>' + data["time"] + '</td>' +
                   '<td>' + data["reminder"] + '</td>' +
                   '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-id="' + data["id"] + '" data-original-title="Editovat"><i class="fa fa-edit"></i></button>' +
-                  '<button type="button" class="btn btn-danger btn-xs" data-confirm="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit"><i class="fa fa-trash-o"></i></button></td>' +
+                  '<button type="button" class="btn btn-danger btn-xs deleteTask" data-confirm-deltask="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i></button></td>' +
                   '</tr>' +
                   '</tbody>' +
                   '</table>' +
@@ -2400,6 +2400,7 @@ $(function () {
           // Call function
           $('#task_' + dataID + ' .taskheader').click(clickTaskHeader);
           $('#task_' + dataID + ' .editTask').click(openDialogEditTask);
+          $('#task_' + dataID + ' .deleteTask').click(confirmDeleteTask);
 
           // Notification
           // Apply the plugin to the container

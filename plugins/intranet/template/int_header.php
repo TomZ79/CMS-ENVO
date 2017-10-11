@@ -30,7 +30,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   echo $Html->addStylesheet('/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Fontawesome icon
   echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0');
-  // Animate
+  // Scrollbar
   echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.css');
   // Google Fonts
   echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');

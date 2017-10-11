@@ -136,7 +136,14 @@ body {
 	&.boxed-layout .footer-widget {
 		display: none;
 	}
-	
+	&.loginbody {
+		overflow: hidden;
+		background: url('/plugins/intranet/template/img/login_bg.jpg') no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 }
 
 .navbar, .navbar-inverse {
@@ -1308,7 +1315,17 @@ body {
 	text-decoration: none;
 }
 
-.chat-window-wrapper input[type="text"], .chat-window-wrapper input[type="password"], .chat-window-wrapper input[type="date"], .chat-window-wrapper input[type="datetime"], .chat-window-wrapper input[type="email"], .chat-window-wrapper input[type="number"], .chat-window-wrapper input[type="search"], .chat-window-wrapper input[type="tel"], .chat-window-wrapper input[type="time"], .chat-window-wrapper input[type="url"], .chat-window-wrapper textarea, .chat-window-wrapper select {
+.chat-window-wrapper input[type="text"],
+.chat-window-wrapper input[type="password"],
+.chat-window-wrapper input[type="date"],
+.chat-window-wrapper input[type="datetime"],
+.chat-window-wrapper input[type="email"],
+.chat-window-wrapper input[type="number"],
+.chat-window-wrapper input[type="search"],
+.chat-window-wrapper input[type="tel"],
+.chat-window-wrapper input[type="time"],
+.chat-window-wrapper input[type="url"],
+.chat-window-wrapper textarea, .chat-window-wrapper select {
 	background-color: #0D0F12;
 	height: 28px;
 }
