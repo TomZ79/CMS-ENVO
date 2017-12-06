@@ -187,6 +187,10 @@ if (isset($_FILES['file'])) {
           case 'jpg':
           case 'jpeg':
 
+            // Fix for JPEG warnings for PHP smaller than 7.1.0 - Invalid SOS parameters for sequential JPEG
+            // For PHP 7.1.0 - The default of gd.jpeg_ignore_warning has been changed from 0 to 1.
+            ini_set ('gd.jpeg_ignore_warning', 1);
+
             // Get image from file
             $src = imagecreatefromjpeg($original_file);
 
