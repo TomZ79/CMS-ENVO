@@ -31,7 +31,8 @@ $valid_extensions = array(
   'xls',    // Legacy Excel worksheets; officially designated "Microsoft Excel 97-2003 Worksheet"
   'xlsx',   // Excel workbook
   'xlsm',   // Excel macro-enabled workbook
-  'pdf'
+  'pdf',    // Adobe Acrobat
+  'ai'      // Adobe Illustrator
 );
 
 // Upload directory

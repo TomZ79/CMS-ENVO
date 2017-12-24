@@ -35,7 +35,9 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   // Google Fonts
   echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // DataTables (Stylesheet only for pages which contains 'table')
-  if ($page1 == 'house' && empty($page2)) echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
+  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2')) echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
+  // Icon technology fonts
+  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'fonts/fonts.css');
   //
   if ($page1 == 'house' && !empty($page2)) {
     // Plugin Fancybox
@@ -52,7 +54,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Main StyleSheet
-  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.min.css');
+  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.css');
   ?>
 
   <!-- END CORE CSS FRAMEWORK -->
@@ -114,7 +116,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
           </li>
         </ul>
         <ul class="nav quick-section">
-          <li class="quicklinks"><span class="h-seperate"></span></li>
+          <li><span class="h-seperate"></span></li>
           <li class="quicklinks">
             <a href="#" class="" id="my-task-list" data-placement="bottom" data-content='' data-toggle="dropdown" data-original-title="Notifikace">
               <i class="material-icons">email</i>
@@ -263,4 +265,14 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <!-- BEGIN PAGE CONTAINER-->
   <div class="page-content">
     <div class="content ">
+
+      <?php if ($BREADCRUMBS) { ?>
+      <!-- BEGIN PAGE BREADCRUMBS AND TITLE-->
+      <ul class="breadcrumb">
+        <li><span class="title"><?php echo $SECTION_TITLE; ?></span></li>
+        <li><span class="description"><?php echo $SECTION_DESC; ?></span></li>
+      </ul>
+      <!-- END PAGE BREADCRUMBS AND TITLE -->
+      <?php } ?>
+
       <!-- START PAGE -->

@@ -1,5 +1,18 @@
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_header.php'; ?>
 
+  <div class="row-fluid">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form role="form" method="post" action="<?php echo ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'house', 'searchdvbt2'); ?>">
+        <div class="col-sm-6 m-b-20">
+          <button class="btn <?php echo ($ACTIVEBUTTON_CLASS1 ? $ACTIVEBUTTON_CLASS1 : 'btn-info')?>" name="searchdvbt2_yes" type="submit" style="width:100%;">Vyhledat domy s přípravou DVB-T2</button>
+        </div>
+        <div class="col-sm-6 m-b-20">
+          <button class="btn <?php echo ($ACTIVEBUTTON_CLASS2 ? $ACTIVEBUTTON_CLASS2 : 'btn-info')?>" name="searchdvbt2_no" type="submit" style="width:100%;">Vyhledat domy bez přípravy DVB-T2</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
 <?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
   <div class="row-fluid">

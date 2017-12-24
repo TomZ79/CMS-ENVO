@@ -29,6 +29,20 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
   </div>
 
+  <div class="row">
+    <div class="col-sm-12 p-l-15 p-r-15">
+      <form role="form" method="post" action="/admin/index.php?p=intranet&amp;sp=house&amp;ssp=searchdvbt2">
+        <div class="col-sm-4 m-b-10">
+          <button class="btn btn-info" name="searchdvbt2_yes" type="submit" style="width:100%;">Vyhledat domy s přípravou DVB-T2</button>
+        </div>
+        <div class="col-sm-4 m-b-10">
+          <button class="btn btn-info" name="searchdvbt2_no" type="submit" style="width:100%;">Vyhledat domy bez přípravy DVB-T2</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr>
+
 <?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -82,13 +96,13 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
               </td>
               <td>
-                <?php echo $h["street"];?>
+                <?php echo $h["street"]; ?>
               </td>
               <td>
-                <?php echo $h["city"];?>
+                <?php echo $h["city"]; ?>
               </td>
               <td>
-                <?php echo $h["housefic"];?>
+                <?php echo $h["housefic"]; ?>
               </td>
               <td class="text-center">
 

@@ -30,6 +30,7 @@ $envotable8 = DB_PREFIX . 'intranethousenotificationug';
 $envotable9 = DB_PREFIX . 'intranethousetower';
 $envotable10 = DB_PREFIX . 'intranethousechannel';
 $envotable11 = DB_PREFIX . 'intranethousetasks';
+$envotable12 = DB_PREFIX . 'intranethousevideo';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -88,9 +89,9 @@ switch ($page1) {
               $errors['e5'] = $tlint['int_error']['interror4'] . '<br>';
             }
 
-            // EN: Check if the ic not exists
-            // CZ: Kontrola jestli ič neexistuje
-            if (!empty($defaults['envo_housefic']) && is_numeric($defaults['envo_housefic']) && envo_house_not_exist($defaults['envo_housefic'], $envotable)) {
+            // EN: Check if the ic exists
+            // CZ: Kontrola jestli ič existuje
+            if (!empty($defaults['envo_housefic']) && is_numeric($defaults['envo_housefic']) && envo_house_exist($defaults['envo_housefic'], $envotable)) {
               $errors['e6'] = $tlint['int_error']['interror5'] . '<br>';
             }
 
@@ -128,8 +129,10 @@ switch ($page1) {
                 mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder, 0755, TRUE);
                 // Document folder
                 mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
-                // Image folder
+                // Fotogallery folder
                 mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
+                // Videogallery folder
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/videos/', 0755, TRUE);
                 // Create '*.txt' info file
                 $data = '
 HOUSE NAME - ' . $defaults['envo_housename'] . '
@@ -302,7 +305,8 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         housedesctech = "' . smartsql($defaults['envo_housedesctech']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
-                        permission = "' . smartsql($permission) . '"
+                        permission = "' . smartsql($permission) . '",
+                        preparationdvb = "' . smartsql($defaults['envo_housedvbt2']) . '"
                         WHERE id = "' . smartsql($pageID) . '"');
 
                 if (!$result) {
@@ -354,6 +358,10 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // CZ: Získání všech dat pro formulář - obrázky
           $ENVO_FORM_DATA_IMG = envo_get_house_image($pageID, $envotable5);
 
+          // EN: Get all the data for the form - videos
+          // CZ: Získání všech dat pro formulář - videa
+          $ENVO_FORM_DATA_VIDEO = envo_get_house_video($pageID, $envotable12);
+
           // EN: Get all the data for the form - apartment
           // CZ: Získání všech dat pro formulář - byty
           $ENVO_FORM_DATA_APT = envo_get_house_apartment($pageID, $envotable2);
@@ -371,6 +379,44 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // EN: Redirect page
           // CZ: Přesměrování stránky
           envo_redirect(BASE_URL . 'index.php?p=intranet&sp=house&status=ene');
+        }
+
+        break;
+      case 'searchdvbt2':
+        // SEARCH BY PREPARATION ON DVB-T2
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchdvbt2_yes'])) {
+
+          // EN: Getting the data about the Houses
+          // CZ: Získání dat o bytových domech
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, 'preparationdvb = 1');
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = $tlint["int_sec_title"]["intt1"];
+          $SECTION_DESC  = $tlint["int_sec_desc"]["intd1"];
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
+
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchdvbt2_no'])) {
+
+          // EN: Getting the data about the Houses
+          // CZ: Získání dat o bytových domech
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, 'preparationdvb = 0');
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = $tlint["int_sec_title"]["intt1"];
+          $SECTION_DESC  = $tlint["int_sec_desc"]["intd1"];
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
+
         }
 
         break;

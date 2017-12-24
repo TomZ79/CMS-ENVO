@@ -1145,7 +1145,7 @@ pre[class*="language-"] {
 }
 /* Nav Tabs global setting */
 .nav-tabs > li > a {
-  padding: 13px 14px;
+  padding: 13px 11px;
 }
 /* 00. Bootstrap Tables
  ========================================================================*/
@@ -1190,41 +1190,28 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   display: block;
   text-align: left;
 }
-/* 00. Bootstrap Modal Dialog
- ========================================================================*/
-.modal .panel-body {
-  color: #444;
-}
-/* Bootstrap Modal dialog - color for overlay */
-.modal.fade.fill-in.in {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-/* Bootstrap Modal Dialog */
-@media screen and (min-width: 768px) {
-  .modal-w-70p {
-    width: 70%;
-  }
-  .modal-w-90p {
-    width: 90%;
-  }
-  .modal-w-95p {
-    width: 95%;
-  }
-}
 /* 00. Bootstrap Plugin
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Bootbox Dialog Plugin  - modification
  * -----------------------------------------------------------------------*/
-.bootbox .modal-content {
+.bootbox {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.bootbox.modal {
+  background: rgba(55, 58, 71, 0.9);
+}
+.bootbox.modal .modal-content {
   border: none;
   border-radius: 0;
 }
-.bootbox .modal-content .modal-header {
+.bootbox.modal .modal-content .modal-header {
   text-align: left;
   padding: 10px 25px 10px 25px;
 }
-.bootbox .modal-content .modal-body .bootbox-body {
+.bootbox.modal .modal-content .modal-body .bootbox-body {
   font-size: 14px;
 }
 /* Bootbox Buttons - Delete */
@@ -1617,6 +1604,47 @@ ul.cform_drag li:hover {
 }
 .callout.callout-success {
   border-color: #00733E;
+}
+/* 00. Bootstrap Modal Dialog
+ ========================================================================*/
+.bootbox.modal.fade .modal-dialog {
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  top: 120px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.bootbox.modal.fade.in .modal-dialog {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform: translate3d(0, -120px, 0);
+  transform: translate3d(0, -120px, 0);
+  opacity: 1;
+}
+.modal .panel-body {
+  color: #444;
+}
+/* Bootstrap Modal dialog - color for overlay */
+.modal.fade.fill-in.in {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+/* Bootstrap Modal Dialog */
+@media screen and (min-width: 768px) {
+  .modal-w-70p {
+    width: 70%;
+  }
+  .modal-w-90p {
+    width: 90%;
+  }
+  .modal-w-95p {
+    width: 95%;
+  }
 }
 /* 00. Dashboard ( Small box )
  ========================================================================*/

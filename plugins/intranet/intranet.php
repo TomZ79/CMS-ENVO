@@ -37,6 +37,7 @@ $envotable6 = DB_PREFIX . 'intranethousedocu';
 $envotable7 = DB_PREFIX . 'intranethouseent';
 $envotable8 = DB_PREFIX . 'intranethouseapt';
 $envotable9 = DB_PREFIX . 'intranethousetasks';
+$envotable10 = DB_PREFIX . 'intranethousevideo';
 
 // Parse links once if needed a lot of time
 $backtoblog = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -107,6 +108,7 @@ switch ($page1) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
               $ENVO_HOUSE_DETAIL[]  = $row;
+              $envo_house_name      = $row['name'];
               $envo_house_latitude  = $row['latitude'];
               $envo_house_longitude = $row['longitude'];
             }
@@ -156,14 +158,14 @@ switch ($page1) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
               $ENVO_HOUSE_TASK[] = array(
-                'id'            => $row['id'],
-                'houseid'       => $row['houseid'],
-                'priority'      => $priority,
-                'status'        => $status,
-                'title'         => $row['title'],
-                'description'   => $row['description'],
-                'reminder'      => date($ENVO_SETTING_VAL['intranetdateformat'], strtotime($row['reminder'])),
-                'time'          => date($ENVO_SETTING_VAL['intranetdateformat'], strtotime($row['time'])),
+                'id'          => $row['id'],
+                'houseid'     => $row['houseid'],
+                'priority'    => $priority,
+                'status'      => $status,
+                'title'       => $row['title'],
+                'description' => $row['description'],
+                'reminder'    => date($ENVO_SETTING_VAL['intranetdateformat'], strtotime($row['reminder'])),
+                'time'        => date($ENVO_SETTING_VAL['intranetdateformat'], strtotime($row['time'])),
               );
 
             }
@@ -222,10 +224,23 @@ switch ($page1) {
               $ENVO_HOUSE_IMG[] = $row;
             }
 
+            // EN: Get the data of videos
+            // CZ: Získání dat o videích
+            $result = $envodb->query('SELECT * FROM ' . $envotable10 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSE_VIDEO[] = $row;
+            }
+
+            // EN: Breadcrumbs activation
+            // CZ: Aktivace Breadcrumbs
+            $BREADCRUMBS = TRUE;
+
             // EN: Title and Description
             // CZ: Titulek a Popis
             $SECTION_TITLE = 'Bytové domy';
-            $SECTION_DESC  = 'Detail bytového domu';
+            $SECTION_DESC  = 'Detail bytového domu <strong>' . $envo_house_name . '</strong>';
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
@@ -243,6 +258,60 @@ switch ($page1) {
         }
 
         break;
+      case 'searchdvbt2':
+        // SEARCH BY PREPARATION ON DVB-T2
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchdvbt2_yes'])) {
+
+          // EN: Getting the data about the Houses
+          // CZ: Získání dat o bytových domech
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID, 'preparationdvb = 1');
+
+          // EN: Breadcrumbs activation
+          // CZ: Aktivace Breadcrumbs
+          $BREADCRUMBS = TRUE;
+
+          // EN: Button activation
+          // CZ: Aktivace tlačítek
+          $ACTIVEBUTTON_CLASS1 = 'btn-success';
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = 'Bytové domy';
+          $SECTION_DESC  = 'Vyhledání bytových domů <strong>s přípravou DVB-T2</strong>';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
+
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchdvbt2_no'])) {
+
+          // EN: Getting the data about the Houses
+          // CZ: Získání dat o bytových domech
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID, 'preparationdvb = 0');
+
+          // EN: Breadcrumbs activation
+          // CZ: Aktivace Breadcrumbs
+          $BREADCRUMBS = TRUE;
+
+          // EN: Button activation
+          // CZ: Aktivace tlačítek
+          $ACTIVEBUTTON_CLASS2 = 'btn-success';
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = 'Bytové domy';
+          $SECTION_DESC  = 'Vyhledání bytových domů <strong>bez přípravy DVB-T2</strong>';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
+
+        }
+
+        break;
       default:
 
         // ----------- ERROR: REDIRECT PAGE ------------
@@ -251,7 +320,7 @@ switch ($page1) {
         // EN: If not exist value in 'case', redirect page to 404
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
-          if ($page2 != 'h') {
+          if ($page2 != 'h' || $page2 != 'searchdvbt2') {
             envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
@@ -262,6 +331,10 @@ switch ($page1) {
         // EN: Getting the data about the Houses by usergroupid
         // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
         $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID);
+
+        // EN: Breadcrumbs activation
+        // CZ: Aktivace Breadcrumbs
+        $BREADCRUMBS = TRUE;
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -345,6 +418,10 @@ switch ($page1) {
               );
             }
 
+            // EN: Breadcrumbs activation
+            // CZ: Aktivace Breadcrumbs
+            $BREADCRUMBS = TRUE;
+
             // EN: Title and Description
             // CZ: Titulek a Popis
             $SECTION_TITLE = 'Notifikace';
@@ -385,6 +462,10 @@ switch ($page1) {
         // EN: Getting the data about the Notifications by usergroupid
         // CZ: Získání dat o Notifikacích podle 'id' uživatelské skupiny
         $ENVO_NOTIFICATION_ALL = envo_get_notification_all(ENVO_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+
+        // EN: Breadcrumbs activation
+        // CZ: Aktivace Breadcrumbs
+        $BREADCRUMBS = TRUE;
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -435,8 +516,17 @@ switch ($page1) {
       /* =====================================================
        *  TASKS STATISTIC - STATISTIKA ÚKOLŮ
        * ===================================================== */
-      // EN: Get the data of main contacts
-      // CZ: Získání dat o hlavních kontaktech
+      // EN: Get the data about delayed Task
+      // CZ: Získání dat o zpožděných Úkolech
+      $ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+
+      // Count of all records by usergroup
+      $ENVO_TASK_DELAY_COUNTS = $ENVO_HOUSE_TASK_DELAY['count_of_task'];
+      // Percentage - records by usergroup / all records
+      $ENVO_TASK_DELAY_PERCENT = ($ENVO_HOUSE_TASK_DELAY['count_of_task'] * 100) . '%';
+
+      // EN: Get the data about active Task
+      // CZ: Získání dat o aktivních Úkolech
       $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
       // Count of all records by usergroup
@@ -488,8 +578,22 @@ switch ($page1) {
       /* =====================================================
        *  TASKS STATISTIC - STATISTIKA ÚKOLŮ
        * ===================================================== */
-      // EN: Get the data of main contacts
-      // CZ: Získání dat o hlavních kontaktech
+      // EN: Get the data about delayed Task
+      // CZ: Získání dat o zpožděných Úkolech
+      $ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result     = $envodb->query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable9 . '  WHERE time < NOW()');
+      $taskCtotal = $result->fetch_assoc();
+
+      // Count of all records by usergroup
+      $ENVO_TASK_DELAY_COUNTS = $ENVO_HOUSE_TASK_DELAY['count_of_task'];
+      // Percentage - records by usergroup / all records
+      $ENVO_TASK_DELAY_PERCENT = ($ENVO_TASK_DELAY_COUNTS / $taskCtotal['taskCtotal'] * 100) . '%';
+
+      // EN: Get the data about active Task
+      // CZ: Získání dat o aktivních Úkolech
       $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat']);
 
       // EN: Getting count of all records in DB
@@ -503,6 +607,10 @@ switch ($page1) {
       $ENVO_TASK_PERCENT = ($ENVO_TASK_COUNTS / $taskCtotal['taskCtotal'] * 100) . '%';
 
     }
+
+    // EN: Breadcrumbs activation
+    // CZ: Aktivace Breadcrumbs
+    $BREADCRUMBS = FALSE;
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

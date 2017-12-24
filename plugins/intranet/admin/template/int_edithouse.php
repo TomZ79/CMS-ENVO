@@ -129,6 +129,11 @@ if ($errors) { ?>
         <span class="text">Fotogalerie</span>
       </a>
     </li>
+    <li role="presentation">
+      <a href="#cmsPage11" role="tab" id="cmsPage11-tab" data-toggle="tab" aria-controls="cmsPage11">
+        <span class="text">Videogalerie</span>
+      </a>
+    </li>
   </ul>
 
   <div class="tab-content">
@@ -500,6 +505,34 @@ if ($errors) { ?>
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                             echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array ('readonly' => 'readonly'));
+                            ?>
+
+                            <span class="input-group-btn">
+
+                              <?php
+                              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              ?>
+
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-3">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Složka video');
+                          ?>
+
+                        </div>
+                        <div class="col-md-9">
+                          <div class="input-group">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/videos', '', 'form-control', array ('readonly' => 'readonly'));
                             ?>
 
                             <span class="input-group-btn">
@@ -1239,11 +1272,11 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-md-7">
-                      <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housechannels', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
                         ?>
 
                       </div>
@@ -1259,11 +1292,40 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-md-7">
-                      <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housetowers', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                      echo $Html->addTag('strong', 'Příprava na DVB-T2');
+                      echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => 'Bytový dům je připraven na příjem DVB-T2', 'data-original-title' => 'Nápověda'));
+                      ?>
+
+                    </div>
+                    <div class="col-md-7">
+                      <div class="radio radio-success">
+
+                        <?php
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html->addRadio('envo_housedvbt2', '1', ($ENVO_FORM_DATA["preparationdvb"] == '1') ? TRUE : FALSE, 'envo_housedvbt2_1');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('envo_housedvbt2_1', $tl["checkbox"]["chk"]);
+
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html->addRadio('envo_housedvbt2', '0', ($ENVO_FORM_DATA["preparationdvb"] == '0') ? TRUE : FALSE, 'envo_housedvbt2_2');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('envo_housedvbt2_2', $tl["checkbox"]["chk1"]);
                         ?>
 
                       </div>
@@ -1282,7 +1344,9 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -1296,8 +1360,8 @@ if ($errors) { ?>
 
               <?php
 
-                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'envoEditorLarge', 'class' => 'form-control envoEditorLarge'));
+              // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+              echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'envoEditorLarge', 'class' => 'form-control envoEditorLarge'));
 
               ?>
 
@@ -1399,11 +1463,11 @@ if ($errors) { ?>
                           <div class="btn btn-default file-input">
                             <span class="fa fa-folder-open"></span>
                             <span class="file-input-title">Vybrat Soubor</span>
-                            <input type="file" name="input-file" id="fileinput_doc" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"/>
+                          <input type="file" name="input-file" id="fileinput_doc" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai"/>
                           </div>
                         </span>
                         <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
-                        <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"><i class="glyphicon glyphicon-file"></i></span>
+                        <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai"><i class="glyphicon glyphicon-file"></i></span>
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-lg-3 m-t-10">
@@ -1420,9 +1484,16 @@ if ($errors) { ?>
                   <div class="row">
                     <div class="col-sm-12 m-t-10">
                       <!-- Upload Files Output -->
-                      <p id="docuprogress" class="small hint-text" style="display: none;">Determinate progress
-                        <span id="docupercent"></span>
-                      </p>
+                      <div id="docuprogress" class="small hint-text" style="display: none;">
+                        <div class="progress">
+                          <div id="docuprogressbar" class="progress-bar progress-bar-warning" style="width:0"></div>
+                        </div>
+                        <div>
+                          <span>Determinate progress </span><span id="docupercent" class="bold"></span>
+                          <span> | Bytes received </span><span id="docubyterec" class="bold"></span>
+                          <span> | Total bytes </span><span id="docubytetotal" class="bold"></span>
+                        </div>
+                      </div>
                       <p id="docuoutput" style="display: none;"></p>
                     </div>
                   </div>
@@ -1546,9 +1617,16 @@ if ($errors) { ?>
                     <div class="row">
                       <div class="col-sm-12 m-t-10">
                         <!-- Upload Files Output -->
-                        <p id="imgprogress" class="small hint-text" style="display: none;">Determinate progress
-                          <span id="imgpercent"></span>
-                        </p>
+                        <div id="imgprogress" class="small hint-text" style="display: none;">
+                          <div class="progress">
+                            <div id="imgprogressbar" class="progress-bar progress-bar-warning" style="width:0"></div>
+                          </div>
+                          <div>
+                            <span>Determinate progress </span><span id="imgpercent" class="bold"></span>
+                            <span> | Bytes received </span><span id="imgbyterec" class="bold"></span>
+                            <span> | Total bytes </span><span id="imgbytetotal" class="bold"></span>
+                          </div>
+                        </div>
                         <p id="imgoutput" style="display: none;"></p>
                       </div>
                     </div>
@@ -1649,7 +1727,208 @@ if ($errors) { ?>
                   </div>
               </div>
             </div>
+            </div>
+            <div class="box-footer">
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage11" aria-labelledby="cmsPage11-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('h3', 'Videogalerie', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-sm-2 m-t-10">
+                  <div class="form-group no-margin">
+                    <select name="envo_videocategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
+
+                      <?php
+                      // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                      echo $Html->addOption('*', 'Bez kategorie');
+                      echo $Html->addOption('service', 'Servisy');
+                      echo $Html->addOption('reconstruction', 'Rekonstrukce');
+                      echo $Html->addOption('installation', 'Instalace');
+                      echo $Html->addOption('complaint', 'Reklamace');
+                      ?>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-10 m-t-10">
+                  <!-- Upload Files -->
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-5 col-lg-5">
+                        <div id="upload_video" class="input-group" style="width: 100%;">
+                          <span class="input-group-btn" style="width: 1%;">
+                            <!-- File-clear button -->
+                            <button type="button" class="btn btn-default file-clear" style="display:none;">
+                              <span class="fa fa-remove"></span> Smazat
+                            </button>
+                            <!-- File-input button-->
+                            <div class="btn btn-default file-input">
+                              <span class="fa fa-folder-open"></span>
+                              <span class="file-input-title">Vybrat Soubor</span>
+                              <input type="file" name="input-file" id="fileinput_video" accept="video/wmv, video/x-m4v, video/avi"/>
+                            </div>
+                          </span>
+                          <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".wmv, .mp4, .mpg, .avi"><i class="glyphicon glyphicon-facetime-video"></i></span>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-5 col-lg-5">
+                        <div id="upload_videothumb" class="input-group" style="width: 100%;">
+                          <span class="input-group-btn" style="width: 1%;">
+                            <!-- File-clear button -->
+                            <button type="button" class="btn btn-default file-clear" style="display:none;">
+                              <span class="fa fa-remove"></span> Smazat
+                            </button>
+                            <!-- File-input button-->
+                            <div class="btn btn-default file-input">
+                              <span class="fa fa-folder-open"></span>
+                              <span class="file-input-title">Vybrat Soubor</span>
+                              <input type="file" name="input-file" id="fileinput_videothumb" accept="image/*"/>
+                            </div>
+                          </span>
+                          <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif"><i class="glyphicon glyphicon-picture"></i></span>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-2 col-lg-2">
+                        <div class="form-group">
+
+                          <?php
+                          // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnVideo', 'btn btn-info', array('style' => 'width: 100%;'));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 m-t-10">
+                        <!-- Upload Files Output -->
+                        <div id="videoprogress" class="small hint-text" style="display: none;">
+                          <div class="progress">
+                            <div id="videoprogressbar" class="progress-bar progress-bar-warning" style="width:0"></div>
+                          </div>
+                          <div>
+                            <span>Determinate progress </span><span id="videopercent" class="bold"></span>
+                            <span> | Bytes received </span><span id="videobyterec" class="bold"></span>
+                            <span> | Total bytes </span><span id="videobytetotal" class="bold"></span>
+                          </div>
+                        </div>
+                        <p id="videooutput" style="display: none;"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 padding-20">
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h5', 'Kategorie', 'bold');
+                  ?>
+
+                  <ul class="videofilters">
+                    <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
+                  </ul>
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                  ?>
+
+                  <p>
+
+                    <?php
+                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                    echo $Html->addInput('text', 'videoquicksearch', '', 'videoquicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
+                    ?>
+
+                  </p>
+                </div>
+                <div class="col-sm-9">
+                  <div id="videogallery_envo" class="gallery_envo">
+
+                    <?php
+                    if (!empty($ENVO_FORM_DATA_VIDEO) && is_array($ENVO_FORM_DATA_VIDEO)) {
+
+                      foreach ($ENVO_FORM_DATA_VIDEO as $video) {
+
+                        echo '<div id="' . $video["id"] . '" class="gallery-item-' . $video["id"] . ' ' . $video["category"] . '" data-width="1" data-height="1">';
+
+                        echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" alt=""></div>';
+
+
+                        echo '<div class="overlays">
+                                <div class="col-sm-12 full-height">
+                                  <div class="col-xs-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($video["filename"], PATHINFO_EXTENSION)) . '</div>
+                                  </div>
+                                  <div class="col-xs-7 full-height">
+                                    <div class="text">
+                                      <a href="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" alt="">
+                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button">
+                                         <i class="pg-video"></i>
+                                        </button>
+                                      </a>
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="videoitemDetails">
+                                        <i class="fa fa-edit"></i>
+                                      </button>
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $video["id"] . '">
+                                        <i class="fa fa-trash"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>';
+
+                        echo '<div class="full-width padding-10">';
+
+                        echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $video["shortdescription"] . '</p>';
+
+                        echo '</div>';
+
+                        echo '</div>';
+
+                      }
+                    } ?>
+
+                  </div>
+
+                  <div id="videoitemDetails" class="dialog item-details">
+                    <div class="dialog__overlay"></div>
+                    <div class="dialog__content">
+                      <div class="container-fluid">
+                        <div class="row dialog__overview">
+                          <!-- Data over AJAX  -->
+                        </div>
+                      </div>
+                      <button class="close action top-right" type="button" data-dialog-close>
+                        <i class="pg-close fs-30"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="box-footer">
 

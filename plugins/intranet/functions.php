@@ -13,14 +13,17 @@
  * @param $usergroupid
  * @return array
  */
-function envo_get_house_info($table, $ext_seo, $usergroupid)
+function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 {
   global $envodb;
   $envodata = array();
 
+  $sql = '';
+  if ($filter1) $sql = ' WHERE ' . $filter1;
+
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  $result = $envodb->query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
 
   while ($row = $result->fetch_assoc()) {
 
@@ -54,8 +57,8 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
 }
 
 /**
- * EN: Getting the data about the Tasks without limit by usergroupid
- * CZ: Získání dat o úkolech bez limitu podle 'id' uživatelské skupiny
+ * EN: Getting the data about active Tasks without limit by usergroupid
+ * CZ: Získání dat o aktivních Úkolech bez limitu podle 'id' uživatelské skupiny
  *
  * @author  BluesatKV
  * @version 1.0.8
@@ -101,6 +104,140 @@ function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
             
             AND 
             ' . DB_PREFIX . 'intranethousetasks.reminder < NOW()
+            
+            AND 
+            ' . DB_PREFIX . 'intranethousetasks.time > NOW()
+            
+            AND
+            ' . DB_PREFIX . 'intranethousetasks.status < 3
+            
+            ORDER BY priority DESC, id DESC 
+            
+            ');
+
+  // EN: Determine the number of rows in the result from DB
+  // CZ: Určení počtu řádků ve výsledku z DB
+  $row_cnt                   = $result->num_rows;
+  $envodata['count_of_task'] = $row_cnt;
+
+  while ($row = $result->fetch_assoc()) {
+
+    // EN: URL parsing
+    // CZ: Parsování URL adresy
+    $seo = '';
+    if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
+    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
+
+    // EN: Change number to string
+    // CZ: Změna čísla na text
+    switch ($row['priority']) {
+      case '0':
+        $priority = '<span class="label">Nedůležitá</span>';
+        break;
+      case '1':
+        $priority = '<span class="label">Nízká priorita</span>';
+        break;
+      case '2':
+        $priority = '<span class="label label-warning">Střední priorita</span>';
+        break;
+      case '3':
+        $priority = '<span class="label label-important">Vysoká priorita</span>';
+        break;
+      case '4':
+        $priority = '<span class="label label-important">Nejvyšší priorita</span>';
+        break;
+    }
+
+    switch ($row['status']) {
+      case '0':
+        $status = 'Žádný status';
+        break;
+      case '1':
+        $status = 'Zápis';
+        break;
+      case '2':
+        $status = 'V řešení';
+        break;
+      case '3':
+        $status = 'Vyřešeno - Uzavřeno';
+        break;
+      case '4':
+        $status = 'Stornováno';
+        break;
+    }
+
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = array(
+      'id'            => $row['id'],
+      'houseid'       => $row['houseid'],
+      'housename'     => $row['name'],
+      'houseparseurl' => $parseurl,
+      'priority'      => $priority,
+      'status'        => $status,
+      'title'         => $row['title'],
+      'description'   => $row['description'],
+      'reminder'      => date($dateformat, strtotime($row['reminder'])),
+      'time'          => date($dateformat, strtotime($row['time'])),
+      'created'       => $row['created'],
+      'updated'       => $row['updated'],
+    );
+
+  }
+
+  // EN: Returning values from function
+  // CZ: Vrácení hodnot z funkce
+  if (isset($envodata)) return $envodata;
+}
+
+/**
+ * EN: Getting the data about the delayed Tasks without limit by usergroupid
+ * CZ: Získání dat o zpožděných Úkolech bez limitu podle 'id' uživatelské skupiny
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    10/2017
+ *
+ * @param $usergroupid    integer   | Usergroup ID
+ * @param $ext_seo        boolean   | TRUE or FALSE - if TRUE, show seo friendly URL
+ * @param $tabs           string    | Boostrap Tabs name
+ * @param $dateformat
+ * @return array
+ */
+function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
+{
+  global $envodb;
+  $envodata = array();
+
+  // EN: SQL settings for all user groups without 'Administrator'
+  // CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
+  if ($usergroupid != 3) {
+    $sql = 'WHERE 
+            FIND_IN_SET(0, ' . DB_PREFIX . 'intranethouse.permission) <> 0
+            OR
+            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'intranethouse.permission) <> 0';
+  }
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
+  $result = $envodb->query('
+            SELECT 
+            
+            ' . DB_PREFIX . 'intranethousetasks.*, ' . DB_PREFIX . 'intranethouse.name, ' . DB_PREFIX . 'intranethouse.varname
+            
+            FROM 
+            ' . DB_PREFIX . 'intranethousetasks
+            
+            INNER JOIN
+            ' . DB_PREFIX . 'intranethouse
+            
+            ON
+            ' . DB_PREFIX . 'intranethousetasks.houseid = ' . DB_PREFIX . 'intranethouse.id
+            
+            ' . $sql . '
+            
+            AND 
+            ' . DB_PREFIX . 'intranethousetasks.time < NOW()
             
             AND
             ' . DB_PREFIX . 'intranethousetasks.status < 3
@@ -366,8 +503,8 @@ function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timefor
  * CZ: Získání FontAwesome ikon podle typu souboru
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    12/2017
  *
  * @param $filename       string    | name of file
  * @return bool|string
@@ -400,6 +537,9 @@ function envo_extension_icon($filename)
       break;
     case ('jpg'):
       return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;"></i>';
+      break;
+    case ('ai'):
+      return '<i class="techicon-adobe-ai fa-2x m-l-30"></i>';
       break;
     default:
       return FALSE;

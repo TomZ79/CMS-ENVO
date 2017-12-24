@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * CSS Template - Admin
+ * CSS Template - Admin Pages
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Css Template: Pages v2.3.1
@@ -4970,9 +4970,6 @@ body > .pgn-wrapper {
 .modal .drop-shadow {
   box-shadow: 0 0 9px rgba(191, 191, 191, 0.36) !important;
 }
-.modal.fade {
-  opacity: 1 !important;
-}
 .modal.fade.stick-up .modal-dialog {
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
@@ -5108,14 +5105,6 @@ body > .pgn-wrapper {
 }
 .fill-in-modal .modal-backdrop {
   background-color: transparent;
-}
-.modal-backdrop {
-  opacity: 0;
-  -webkit-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
-}
-.modal-backdrop.in {
-  opacity: 0.30;
 }
 /* Responsive Handlers: Modals
 ------------------------------------

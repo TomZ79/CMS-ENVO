@@ -6,7 +6,7 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
@@ -280,7 +280,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `housefpsc` varchar(255) NULL DEFAULT NULL,
   `housefic` varchar(100) NULL DEFAULT NULL,
   `housefdic` varchar(100) NULL DEFAULT NULL,
-  `housedesctech` varchar(255) NULL DEFAULT NULL,
+  `preparationdvb` TINYINT(1) NOT NULL DEFAULT 0,
+  `housedesctech` text NULL DEFAULT NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
   `countapartment` int(10) unsigned NOT NULL DEFAULT 0,
@@ -395,6 +396,22 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `exifimageheight` varchar(255) NULL DEFAULT NULL,
   `exiforientation` varchar(255) NULL DEFAULT NULL,
   `exifcreatedate` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Video Gallery)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Video Galerie)
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousevideo (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `shortdescription` varchar(255) NULL DEFAULT NULL,
+  `description` varchar(255) NULL DEFAULT NULL,
+  `filename` varchar(255) NULL DEFAULT NULL,
+  `mainfolder` varchar(255) NULL DEFAULT NULL,
+  `category` varchar(255) NULL DEFAULT NULL,
+  `subcategory` varchar(255) NULL DEFAULT NULL,
+  `timedefault` DATETIME DEFAULT NULL,
+  `timeedit` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

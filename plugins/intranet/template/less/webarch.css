@@ -1407,7 +1407,7 @@ body.loginbody {
   background-color: transparent;
   padding: 0 !important;
   border: none !important;
-  margin-bottom: 0;
+  margin: 0 0 18px;
 }
 .page-content .breadcrumb a {
   margin-left: 10px;
@@ -2422,8 +2422,17 @@ hr {
   font-weight: 300;
   text-shadow: none;
 }
+.breadcrumb > li .title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+}
+.breadcrumb > li .description {
+  font-size: 18px;
+  line-height: 33px;
+}
 .breadcrumb > li + li:before {
-  padding: 0 2px;
+  padding: 0 9px 0 2px;
   color: #515050;
   font-family: 'Material Icons';
   content: "\e5cc";
@@ -9918,6 +9927,19 @@ div[class^="task_"] .taskcontent .taskdescription {
   }
   body.hide-top-content-header .page-content .content {
     padding-top: 93px;
+  }
+  .breadcrumb {
+    text-align: center;
+  }
+  .breadcrumb > li .description {
+    display: inline-grid;
+  }
+  .breadcrumb > li + li {
+    width: 90%;
+  }
+  .breadcrumb > li + li:before {
+    padding: 0;
+    content: "";
   }
   .page-sidebar .page-sidebar-wrapper {
     display: inline-block;

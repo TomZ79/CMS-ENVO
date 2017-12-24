@@ -724,14 +724,6 @@ function saveCat(event) {
         // Edit Time
         $('#timeedit').html(data.data[0].timeedit);
 
-        // Add attribute to textarea
-        $('#desc').attr('readonly', true);
-        // Hide Save and Close button
-        $('#savedesc').hide();
-        $('#closedesc').hide();
-        // Show Edit button
-        $('#editdesc').show();
-
         // Add attribute to select
         $('#info1 .selectpicker').attr('disabled', true);
         // Hide Save and Close button
@@ -1339,10 +1331,28 @@ $(function () {
         var xhr = new window.XMLHttpRequest();
         //Upload progress bar
         xhr.upload.addEventListener("progress", function (evt) {
+          // Make sure we can compute the length
           if (evt.lengthComputable) {
-            var percent = (evt.loaded / evt.total) * 100;
+
+            var loaded = evt.loaded;
+            var total = evt.total;
+
+            // Append progress percentage
+            var percent = (loaded / total) * 100;
             var percentComplete = percent.toFixed(2) + '%';
+
+            // Bytes received
+            var byteRec = formatFileSize(loaded);
+
+            // Total bytes
+            var totalByte = formatFileSize(total);
+
+            // Progress output
+            $('#docuprogressbar').css('width', percentComplete);
             $('#docupercent').html(percentComplete);
+            $('#docubyterec').html(byteRec);
+            $('#docubytetotal').html(totalByte);
+
           }
         }, false);
 
@@ -1433,8 +1443,9 @@ $(function () {
 
       },
       complete: function () {
-        $("#docuprogress").hide();
-        $("#docuoutput").show();
+        $('#docuprogress').hide();
+        $('#docuprogressbar').css('width', '');
+        $('#docuoutput').show();
       }
     });
   }));
@@ -1480,10 +1491,28 @@ $(function () {
         var xhr = new window.XMLHttpRequest();
         //Upload progress bar
         xhr.upload.addEventListener("progress", function (evt) {
+          // Make sure we can compute the length
           if (evt.lengthComputable) {
-            var percent = (evt.loaded / evt.total) * 100;
+
+            var loaded = evt.loaded;
+            var total = evt.total;
+
+            // Append progress percentage
+            var percent = (loaded / total) * 100;
             var percentComplete = percent.toFixed(2) + '%';
+
+            // Bytes received
+            var byteRec = formatFileSize(loaded);
+
+            // Total bytes
+            var totalByte = formatFileSize(total);
+
+            // Progress output
+            $('#imgprogressbar').css('width', percentComplete);
             $('#imgpercent').html(percentComplete);
+            $('#imgbyterec').html(byteRec);
+            $('#imgbytetotal').html(totalByte);
+
           }
         }, false);
 
@@ -1599,11 +1628,177 @@ $(function () {
 
       },
       complete: function () {
-        $("#imgprogress").hide();
-        $("#imgoutput").show();
+        $('#imgprogress').hide();
+        $('#imgprogressbar').css('width', '');
+        $('#imgoutput').show();
       }
     });
   }));
+
+  $("#uploadBtnVideo").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Hide output
+    $('#videooutput').hide();
+    // Show progress info
+    $('#videoprogress').show();
+    // Reset
+    $("#videopercent").html('0%');
+
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_video').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpath"]').val();
+    // Get Video category
+    var videocat = $('select[name="envo_videocategory"]').val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('houseID', pageID);
+    form_data.append('videoCategory', videocat);
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet/admin/ajax/int_table_upload_video.php",
+      type: "POST",
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+
+      },
+      xhr: function () {
+        var xhr = new window.XMLHttpRequest();
+        // Upload progress bar
+        xhr.upload.addEventListener("progress", function (evt) {
+          // Make sure we can compute the length
+          if (evt.lengthComputable) {
+
+            var loaded = evt.loaded;
+            var total = evt.total;
+
+            // Append progress percentage
+            var percent = (loaded / total) * 100;
+            var percentComplete = percent.toFixed(2) + '%';
+
+            // Bytes received
+            var byteRec = formatFileSize(loaded);
+
+            // Total bytes
+            var totalByte = formatFileSize(total);
+
+            // Progress output
+            $('#videoprogressbar').css('width', percentComplete);
+            $('#videopercent').html(percentComplete);
+            $('#videobyterec').html(byteRec);
+            $('#videobytetotal').html(totalByte);
+
+          }
+        }, false);
+
+        return xhr;
+      },
+      success: function (data) {
+
+        console.log(data);
+
+        if (data.status == 'upload_success') {
+          // IF DATA SUCCESS
+
+          $('#videooutput').html('<div class="alert alert-success" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Success: </strong>' + data.status_msg +
+            '</div>');
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var divdata = '';
+
+          $.each(result, function (key, data) {
+            // console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                // console.log('ID: ', data['id']);
+                // console.log('Description: ', data['description']);
+                // console.log('Filethumbpath: ', data['filethumbpath']);
+
+
+              });
+
+            }
+
+          });
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else if (data.status.indexOf('upload_error') != -1) {
+          // IF DATA ERROR
+
+          $('#videooutput').html('<div class="alert alert-danger" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+            '</div>');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
+
+        }
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        $('#videoprogress').hide();
+        $('#videoprogressbar').css('width', '');
+        $('#videooutput').show();
+      }
+    });
+  }));
+
+  // Helper function that formats the file sizes
+  function formatFileSize(bytes) {
+    if (typeof bytes !== 'number') {
+      return '';
+    }
+
+    if (bytes >= 1000000000) {
+      return (bytes / 1000000000).toFixed(2) + ' GB';
+    }
+
+    if (bytes >= 1000000) {
+      return (bytes / 1000000).toFixed(2) + ' MB';
+    }
+
+    return (bytes / 1000).toFixed(2) + ' KB';
+  }
 
   /* Delete Image
    ========================================= */
@@ -2221,23 +2416,23 @@ $(function () {
                   '<table class="table table-task">' +
                   '<thead>' +
                   '<tr>' +
-                    '<th>Titulek</th>' +
-                    '<th>Priorita</th>' +
-                    '<th>Status</th>' +
-                    '<th>Datum Úkolu</th>' +
-                    '<th>Datum Připomenutí</th>' +
-                    '<th></th>' +
+                  '<th>Titulek</th>' +
+                  '<th>Priorita</th>' +
+                  '<th>Status</th>' +
+                  '<th>Datum Úkolu</th>' +
+                  '<th>Datum Připomenutí</th>' +
+                  '<th></th>' +
                   '</tr>' +
                   '</thead>' +
                   '<tbody>' +
                   '<tr>' +
-                    '<td>' + data["title"] + '</td>' +
-                    '<td>' + data["priority"] + '</td>' +
-                    '<td>' + data["status"] + '</td>' +
-                    '<td>' + data["time"] + '</td>' +
-                    '<td>' + data["reminder"] + '</td>' +
-                    '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-original-title="Editovat" data-id="' + data["id"] + '"><i class="fa fa-edit"></i></button>' +
-                    '<button type="button" class="btn btn-danger btn-xs deleteTask" data-confirm-deltask="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i></button></td>' +
+                  '<td>' + data["title"] + '</td>' +
+                  '<td>' + data["priority"] + '</td>' +
+                  '<td>' + data["status"] + '</td>' +
+                  '<td>' + data["time"] + '</td>' +
+                  '<td>' + data["reminder"] + '</td>' +
+                  '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-original-title="Editovat" data-id="' + data["id"] + '"><i class="fa fa-edit"></i></button>' +
+                  '<button type="button" class="btn btn-danger btn-xs deleteTask" data-confirm-deltask="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i></button></td>' +
                   '</tr>' +
                   '</tbody>' +
                   '</table>' +

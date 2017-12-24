@@ -141,7 +141,7 @@ $(function () {
       title: "Potvrzení o odstranění!",
       message: $(this).attr('data-confirm'),
       className: "bootbox-confirm-del",
-      animate: false,
+      animate: true,
       buttons: {
         confirm: {
           className: 'btn-success'
@@ -169,7 +169,7 @@ $(function () {
       title: "Potvrzení o odstranění!",
       message: $(this).attr('data-confirm-del'),
       className: "bootbox-confirm-del",
-      animate: false,
+      animate: true,
       buttons: {
         confirm: {
           className: 'btn-success'
@@ -198,7 +198,7 @@ $(function () {
       title: "Potvrzení o odstranění!",
       message: $(this).attr('data-confirm-trunc'),
       className: "bootbox-confirm-trunc",
-      animate: false,
+      animate: true,
       buttons: {
         confirm: {
           className: 'btn-success'
@@ -226,7 +226,7 @@ $(function () {
       title: "Odhlášení!",
       message: $(this).attr('data-confirm-logout'),
       className: "bootbox-confirm-logout",
-      animate: false,
+      animate: true,
       buttons: {
         confirm: {
           className: 'btn-info'

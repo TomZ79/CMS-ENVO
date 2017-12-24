@@ -5,16 +5,22 @@
  *  # Bootbox Dialog Plugin  - modification
  * -----------------------------------------------------------------------*/
 .bootbox {
-	.modal-content {
-		border: none;
-		border-radius: 0;
-		.modal-header {
-			text-align: left;
-			padding: 10px 25px 10px 25px;
-		}
-		.modal-body {
-			.bootbox-body {
-				font-size: 14px;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	&.modal {
+		background: rgba(55,58,71,.9);
+		.modal-content {
+			border: none;
+			border-radius: 0;
+			.modal-header {
+				text-align: left;
+				padding: 10px 25px 10px 25px;
+			}
+			.modal-body {
+				.bootbox-body {
+					font-size: 14px;
+				}
 			}
 		}
 	}

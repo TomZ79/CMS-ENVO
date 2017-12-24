@@ -31,6 +31,8 @@ if ($page == 'intranet') {
   echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog-sandra.min.css');
   // Plugin Css style
   echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/intranet/admin/css/style.intranet.min.css');
+  // Icon technology fonts
+  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/intranet/admin/fonts/fonts.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Intranet -->';

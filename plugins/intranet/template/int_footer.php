@@ -36,7 +36,7 @@ echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/webarch.min.js');
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 // Script only for pages which contains 'table'
-if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/js/jquery.dataTables.min.js?=v1.10.15');
+if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2')) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/js/jquery.dataTables.min.js?=v1.10.15');
 ?>
 
 <!-- END PAGE LEVEL PLUGINS   -->
@@ -47,7 +47,7 @@ if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_
 // Script only for Dashboard
 if (empty($page1)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/dashboard.min.js');
 // Script only for pages which contains 'table'
-if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/datatables.min.js');
+if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2')) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/datatables.min.js');
 ?>
 
 <?php if ($page1 == 'house' && !empty($page2)) {

@@ -134,6 +134,7 @@ $(function () {
     //  Before open animation starts
     beforeShow: function (instance, current) {
       $('.fancybox-download').attr('href', current.src);
+      this.title =  $(this.element).data("caption");
     }
   });
 
@@ -165,9 +166,6 @@ $(function () {
 $(function () {
 
   $('.dialog-open').on('click', function(){
-    // Stop, the default action of the event will not be triggered
-    event.preventDefault();
-
     // Get Data-Dialog
     thisDataDialog = $(this).attr('data-dialog');
     // Get ID of image
@@ -206,6 +204,18 @@ $(function () {
     dialogEl = document.getElementById(thisDataDialog);
     dlg = new DialogFx(dialogEl);
     dlg.toggle(dlg);
+  });
+
+});
+
+/** 04. Video Gallery
+ ========================================================================*/
+
+$(function () {
+
+  $('.launch-modal').on('click', function(e){
+    e.preventDefault();
+    $( '#' + $(this).data('modal-id') ).modal();
   });
 
 });

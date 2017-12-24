@@ -42,6 +42,11 @@
           <span class="text">Fotogalerie</span>
         </a>
       </li>
+      <li>
+        <a href="#tabs9" data-toggle="tab">
+          <span class="text">Videogalerie</span>
+        </a>
+      </li>
 
     </ul>
 
@@ -145,22 +150,24 @@
                           </div>
                           <div class="taskinfo">
                             <div class="container-fluid">
-                              <table class="table table-task">
-                                <tr>
-                                  <td><strong>Titulek: </strong></td>
-                                  <td><strong>Priorita: </strong></td>
-                                  <td><strong>Status: </strong></td>
-                                  <td><strong>Datum Úkolu: </strong> </td>
-                                  <td><strong>Datum Připomenutí: </strong></td>
-                                </tr>
-                                <tr>
-                                  <td><?php echo $htask["title"]; ?></td>
-                                  <td><?php echo $htask["priority"]; ?></td>
-                                  <td><?php echo $htask["status"]; ?></td>
-                                  <td><?php echo $htask["time"]; ?></td>
-                                  <td><?php echo $htask["reminder"]; ?></td>
-                                </tr>
-                              </table>
+                              <div class="table-responsive">
+                                <table class="table table-task">
+                                  <tr>
+                                    <td><strong>Titulek: </strong></td>
+                                    <td><strong>Priorita: </strong></td>
+                                    <td><strong>Status: </strong></td>
+                                    <td><strong>Datum Úkolu: </strong> </td>
+                                    <td><strong>Datum Připomenutí: </strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $htask["title"]; ?></td>
+                                    <td><?php echo $htask["priority"]; ?></td>
+                                    <td><?php echo $htask["status"]; ?></td>
+                                    <td><?php echo $htask["time"]; ?></td>
+                                    <td><?php echo $htask["reminder"]; ?></td>
+                                  </tr>
+                                </table>
+                              </div>
                             </div>
                           </div>
                           <div class="taskcontent">
@@ -596,7 +603,7 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="fancybox-2" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" alt="">
+                                    <a data-fancybox="fancybox-2" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" data-caption="<?php echo $himg["shortdescription"] . ' | ' . $himg["description"]; ?>" alt="">
                                       <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fa fa-image"></i>
                                       </button>
@@ -637,6 +644,112 @@
           </div>
         </div>
       </div>
+      <div id="tabs9" class="tab-pane fade">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Videogalerie</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
+                  <div class="col-sm-3">
+
+                    <?php
+                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    echo $Html->addTag('h5', 'Kategorie', 'bold');
+                    ?>
+
+                    <ul class="filters">
+                      <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
+                    </ul>
+
+                    <?php
+                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                    ?>
+
+                    <p>
+
+                      <?php
+                      // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                      echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
+                      ?>
+
+                    </p>
+
+                  </div>
+                  <div class="col-sm-9">
+
+                    <?php if (!empty($ENVO_HOUSE_VIDEO) && is_array($ENVO_HOUSE_VIDEO)) { ?>
+
+                      <div id="gallery" class="gallery">
+
+                        <?php foreach ($ENVO_HOUSE_VIDEO as $hvideo) { ?>
+                          <div class="gallery-item-<?php echo $hvideo["id"] . ' ' . $hvideo["category"]; ?>" data-width="1" data-height="1">
+                            <div class="img_container">
+                              <a href="<?php echo '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]; ?>" class="launch-modal" data-modal-id="modal-video">
+                                <span class="video-link-icon"><i class="fa fa-play"></i></span>
+                                <span class="video-link-text">Launch modal video</span>
+                              </a>
+                            </div>
+
+                            <div class="overlays">
+                              <div class="col-sm-12 full-height">
+                                <div class="col-xs-5 full-height">
+                                  <div class="text font-montserrat"></div>
+                                </div>
+                                <div class="col-xs-7 full-height">
+                                  <div class="text">
+                                    <a data-fancybox="fancybox-2" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]; ?>" data-caption="<?php echo $hvideo["shortdescription"] . ' | ' . $hvideo["description"]; ?>" alt="">
+                                      <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
+                                        <i class="fa fa-image"></i>
+                                      </button>
+                                    </a>
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?php echo $hvideo["id"]; ?>" data-toggle="tooltipEnvo" title="Informace">
+                                      <i class="fa fa-info"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="full-width padding-10">
+                              <p class="bold">Krátký Popis</p>
+                              <p class="shortdesc"><?php echo $hvideo["shortdescription"]; ?></p>
+                            </div>
+                          </div>
+                        <?php } ?>
+
+                      </div>
+
+                    <?php } else { ?>
+
+                      <div class="col-md-12">
+
+                        <?php
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo $Html->addDiv('Nejsou dostupné žádné fotografie.', '', array('class' => 'alert'));
+                        ?>
+
+                      </div>
+
+                    <?php } ?>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -651,6 +764,19 @@
       <button class="close action top-right" type="button" data-dialog-close>
         <i class="fa fa-times fs-30"></i>
       </button>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="width: 615px;">
+        <div class="modal-body">
+          <div class="modal-video">
+            <iframe width="585" height="400" src="<?php echo '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]; ?>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

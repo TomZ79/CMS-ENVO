@@ -1266,6 +1266,22 @@
 		}
 	}
 	
+	.breadcrumb {
+		text-align: center;
+		& > li {
+			.description {
+				display: inline-grid;
+			}
+			& + li {
+				width: 90%;
+				&:before {
+					padding: 0;
+					content: "";
+				}
+			}
+		}
+	}
+	
 	.page-sidebar .page-sidebar-wrapper {
 		display: inline-block;
 		.float(left);

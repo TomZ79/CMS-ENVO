@@ -22,7 +22,7 @@
       <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
         <div class="tiles green added-margin">
           <div class="tiles-body">
-            <div class="tiles-title"> AKTIVNÍ ÚKOLY</div>
+            <div class="tiles-title">AKTIVNÍ ÚKOLY</div>
             <div class="heading">
               <span class="animate-number" data-value="<?php echo $ENVO_TASK_COUNTS; ?>" data-animation-duration="1200">0</span>
             </div>
@@ -30,7 +30,23 @@
               <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?php echo $ENVO_TASK_PERCENT; ?>"></div>
             </div>
             <div class="description">
-              <span class="text-white mini-description ">Počet aktivních <span class="blend">úkolů v databázi</span></span>
+              <span class="text-white mini-description ">Počet aktivních <span class="blend">úkolů</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 spacing-bottom">
+        <div class="tiles red added-margin">
+          <div class="tiles-body">
+            <div class="tiles-title">OPOŽDĚNÉ ÚKOLY</div>
+            <div class="heading">
+              <span class="animate-number" data-value="<?php echo $ENVO_TASK_DELAY_COUNTS; ?>" data-animation-duration="1200">0</span>
+            </div>
+            <div class="progress transparent progress-small no-radius">
+              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?php echo $ENVO_TASK_DELAY_PERCENT; ?>"></div>
+            </div>
+            <div class="description">
+              <span class="text-white mini-description ">Počet opožděných <span class="blend">úkolů</span></span>
             </div>
           </div>
         </div>
@@ -41,7 +57,94 @@
       <div class="col-sm-12">
         <div class="grid simple transparent-color" style="position: static; zoom: 1;">
           <div class="grid-title">
-            <h4><i class="fa fa-tasks"></i> Seznam aktivních úkolů</h4>
+            <h4><i class="fa fa-tasks"></i> Seznam <strong>OPOŽDĚNÝCH</strong> úkolů</h4>
+            <div class="tools">
+              <a href="javascript:;" class="collapse"></a>
+              <a href="javascript:;" class="remove"></a>
+            </div>
+          </div>
+          <div class="grid-body no-border" style="display: block;">
+            <div class="row-fluid ">
+
+              <?php if (!empty($ENVO_HOUSE_TASK_DELAY) && is_array($ENVO_HOUSE_TASK_DELAY) && $ENVO_HOUSE_TASK_DELAY["count_of_task"] > 0) { ?>
+                <div id="tasklist_delayd">
+
+                  <?php
+                  // Loop Array at second item
+                  foreach (array_slice($ENVO_HOUSE_TASK_DELAY, 1) as $htaskdelay) { ?>
+                    <div class="task_<?php echo $htaskdelay["id"]; ?>">
+                      <div class="taskheader">
+                        <span>Task ID <?php echo $htaskdelay["id"]; ?></span>
+                        <span class="pull-right collapsetask">+</span>
+                      </div>
+                      <div class="taskinfo">
+                        <div class="container-fluid">
+                          <div class="row m-b-10">
+                            <div class="col-sm-2">
+                              <strong>Bytový dům: </strong>
+                            </div>
+                            <div class="col-sm-10">
+                              <a href="<?php echo $htaskdelay["houseparseurl"]; ?>" class="all-caps"><?php echo $htaskdelay["housename"]; ?></a>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="table-responsive">
+                                <table class="table table-task">
+                                  <tr>
+                                    <td class="col-sm-4"><strong>Titulek: </strong></td>
+                                    <td class="col-sm-2"><strong>Priorita: </strong></td>
+                                    <td class="col-sm-2"><strong>Status: </strong></td>
+                                    <td class="col-sm-2"><strong>Datum Úkolu: </strong></td>
+                                    <td class="col-sm-2"><strong>Datum Připomenutí: </strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $htaskdelay["title"]; ?></td>
+                                    <td><?php echo $htaskdelay["priority"]; ?></td>
+                                    <td><?php echo $htaskdelay["status"]; ?></td>
+                                    <td><?php echo $htaskdelay["time"]; ?></td>
+                                    <td><?php echo $htaskdelay["reminder"]; ?></td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="taskcontent">
+                        <p><strong>Popis Úkolu:</strong></p>
+                        <div class="taskdescription">
+                          <?php echo $htaskdelay["description"]; ?>
+                        </div>
+                      </div>
+                    </div>
+                  <?php } ?>
+
+                </div>
+              <?php } else { ?>
+
+                <div class="col-md-12">
+
+                  <?php
+                  // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                  echo $Html->addDiv('Nejsou dostupné žádné opožděné úkoly.', '', array('class' => 'alert'));
+                  ?>
+
+                </div>
+
+              <?php } ?>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="grid simple transparent-color" style="position: static; zoom: 1;">
+          <div class="grid-title">
+            <h4><i class="fa fa-tasks"></i> Seznam <strong>AKTIVNÍCH</strong> úkolů</h4>
             <div class="tools">
               <a href="javascript:;" class="collapse"></a>
               <a href="javascript:;" class="remove"></a>
@@ -51,7 +154,7 @@
             <div class="row-fluid ">
 
               <?php if (!empty($ENVO_HOUSE_TASK) && is_array($ENVO_HOUSE_TASK) && $ENVO_HOUSE_TASK["count_of_task"] > 0) { ?>
-                <div id="tasklist">
+                <div id="tasklist_active">
 
                   <?php
                   // Loop Array at second item
@@ -111,7 +214,7 @@
 
                   <?php
                   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                  echo $Html->addDiv('Nejsou dostupné žádné úkoly.', '', array('class' => 'alert'));
+                  echo $Html->addDiv('Nejsou dostupné žádné aktivní úkoly.', '', array('class' => 'alert'));
                   ?>
 
                 </div>

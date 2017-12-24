@@ -390,7 +390,8 @@ hr {
 
 .page-content .breadcrumb a,
 .page-content .breadcrumb i,
-.page-content .breadcrumb span, .page-content .breadcrumb li {
+.page-content .breadcrumb span,
+.page-content .breadcrumb li {
 	color: #515050;
 	font-weight: 300;
 	text-shadow: none;
@@ -398,9 +399,18 @@ hr {
 
 .breadcrumb {
 	& > li {
+		.title {
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 33px;
+		}
+		.description {
+			font-size: 18px;
+			line-height: 33px;
+		}
 		& + li {
 			&:before {
-				padding: 0 2px;
+				padding: 0 9px 0 2px;
 				color: #515050;
 				font-family: 'Material Icons';
 				content: "\e5cc";

@@ -74,14 +74,17 @@ function envo_get_tvchannel($limit, $table)
  * @return array
  *
  */
-function envo_get_house_info($table)
+function envo_get_house_info($table, $filter1 = NULL)
 {
   global $envodb;
   $envodata = array();
 
+  $sql = '';
+  if ($filter1) $sql = ' WHERE ' . $filter1;
+
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -355,19 +358,50 @@ function envo_get_house_image($id, $table)
 }
 
 /**
+ * EN: Getting the data about the documents of Houses without limit
+ * CZ: Získání dat o dokumentech bytových domů bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    12/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_house_video($id, $table)
+{
+
+  global $envodb;
+  $envodata = array();
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  while ($row = $result->fetch_assoc()) {
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = $row;
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
  * EN: Check if house exist
  * CZ: Kontrola jestli dům existuje
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.2
+ * @date    12/2017
  *
  * @param $ic
  * @param $table
  * @return bool
  *
  */
-function envo_house_not_exist($ic, $table)
+function envo_house_exist($ic, $table)
 {
   global $envodb;
 
@@ -455,8 +489,8 @@ function envo_plugin_usergroup_all($table, $column1, $column2 = NULL)
  * CZ: Získání FontAwesome ikon podle typu souboru
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    12/2017
  *
  * @param $filename       string    | name of file
  * @return bool|string
@@ -489,6 +523,9 @@ function envo_extension_icon($filename)
       break;
     case ('jpg'):
       return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;"></i>';
+      break;
+    case ('ai'):
+      return '<i class="techicon-adobe-ai fa-2x m-l-30"></i>';
       break;
     default:
       return FALSE;
