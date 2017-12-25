@@ -30,7 +30,7 @@ echo $Html->addDoctype('html5');
   // Pace preloader
   echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
   // Bootstrap
-  echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
+  echo $Html->addStylesheet('../assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Font Awesomemin
   echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   // Scrollbar
