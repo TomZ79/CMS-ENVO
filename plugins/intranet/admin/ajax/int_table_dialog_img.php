@@ -55,12 +55,12 @@ $envodata .= '
 <div class="col-sm-8 p-r-35 p-t-35 p-l-35 full-height item-description">
   <div id="notificationcontainer"></div>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#info1" style="padding: 12px 10px;">Hlavní Info</a></li>
-    <li><a data-toggle="tab" href="#info2" style="padding: 12px 10px;">Náhled</a></li>
-    <li><a data-toggle="tab" href="#info3" style="padding: 12px 10px;">Originál</a></li>
+    <li class="nav-item"><a href="#" class="active" data-toggle="tab" data-target="#info1" role="tab" style="padding: 12px 10px;">Hlavní Info</a></li>
+    <li class="nav-item"><a href="#" class="" data-toggle="tab" data-target="#info2" role="tab" style="padding: 12px 10px;">Náhled</a></li>
+    <li class="nav-item"><a href="#" class="" data-toggle="tab" data-target="#info3" role="tab" style="padding: 12px 10px;">Originál</a></li>
   </ul>
   <div class="tab-content">
-    <div id="info1" class="tab-pane fade in active" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
+    <div class="tab-pane fade active show" id="info1" role="tabpanel" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <div class="row m-b-10">
         <div class="col-sm-12">
           <p><strong>Krátky Popis</strong> - maxlength 70 characters</p>
@@ -110,7 +110,7 @@ $envodata .= '
         </div>
       </div>
     </div>
-    <div id="info2" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
+    <div class="tab-pane fade" id="info2" role="tabpanel" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <p><strong>Main Folder</strong></p>
       <p>/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . '</p>
       <p><strong>Thumb Name</strong></p>
@@ -122,7 +122,7 @@ $envodata .= '
       <p><strong>Date of upload thumb</strong></p>
       <p>' . $row["timedefault"] . '</p>
     </div>
-    <div id="info3" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
+    <div class="tab-pane fade" id="info3" role="tabpanel" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <h6><strong>BASIC INFO</strong></h6>
       <hr>
       <p><strong>Main Folder</strong></p>

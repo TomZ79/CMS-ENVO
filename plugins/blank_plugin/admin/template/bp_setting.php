@@ -51,30 +51,30 @@ if ($page2 == "e") { ?>
 
     <!-- Form Content -->
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
-      <li role="presentation" class="active">
-        <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+      <li class="nav-item">
+        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
           <span class="text"><?php echo $tlbp["bp_section_tab"]["bptab"]; ?></span>
         </a>
       </li>
-      <li role="presentation" class="next">
-        <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
+      <li class="nav-item next">
+        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
           <span class="text"><?php echo $tlbp["bp_section_tab"]["bptab1"]; ?></span>
         </a>
       </li>
-      <li role="presentation">
-        <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+      <li class="nav-item">
+        <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
           <span class="text"><?php echo $tlbp["bp_section_tab"]["bptab2"]; ?></span>
         </a>
       </li>
-      <li role="presentation">
-        <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
+      <li class="nav-item">
+        <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
           <span class="text"><?php echo $tlbp["bp_section_tab"]["bptab3"]; ?></span>
         </a>
       </li>
     </ul>
 
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
+      <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
         <div class="row">
           <div class="col-md-6">
             <div class="box box-success">
@@ -124,17 +124,17 @@ if ($page2 == "e") { ?>
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+      <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
         <div class="row">
 
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+      <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
         <div class="row">
 
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
+      <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
         <div class="row">
 
         </div>

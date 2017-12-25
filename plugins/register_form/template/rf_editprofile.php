@@ -33,6 +33,7 @@
             <a href="#tabsNavigationSimple3" data-toggle="tab"><?php echo $tlrf["rf_frontend"]["rf13"]; ?></a>
           </li>
         </ul>
+
         <div class="tab-content">
           <div class="tab-pane active" id="tabsNavigationSimple1">
             <h4 class="text-uppercase">
