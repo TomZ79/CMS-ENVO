@@ -82,10 +82,10 @@
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('assets/plugins/pace/pace.min.js?=v1.0.2');
-echo $Html->addScript('/assets/plugins/jquery/jquery-2.1.1.min.js');
+echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
 echo $Html->addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
 echo $Html->addScript('assets/plugins/modernizr.custom.js?=v2.8.3');
-echo $Html->addScript('../assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.7');
+echo $Html->addScript('../assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
 echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
 echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
 echo $Html->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');

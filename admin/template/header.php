@@ -30,7 +30,7 @@ echo $Html->addDoctype('html5');
   // Pace preloader
   echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
   // Bootstrap
-  echo $Html->addStylesheet('../assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
+  echo $Html->addStylesheet('../assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6');
   // Font Awesomemin
   echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   // Scrollbar
@@ -85,8 +85,11 @@ echo $Html->addDoctype('html5');
   <!-- PACE PRELOADER -->
   <div id="pace" class="active"></div>
 <?php if ($ENVO_PROVED) { ?>
+
   <!-- BEGIN SIDEBAR -->
-  <div class="page-sidebar" data-pages="sidebar">
+  <nav class="page-sidebar" data-pages="sidebar">
+
+    <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
     <div id="appMenu" class="sidebar-overlay-slide from-top">
       <div class="row">
         <div class="col-xs-6 no-padding">
@@ -124,7 +127,6 @@ echo $Html->addDoctype('html5');
 
         </div>
       </div>
-
       <div class="sidebar-footer text-center hidden-xs">
 
         <?php
@@ -136,6 +138,8 @@ echo $Html->addDoctype('html5');
 
       </div>
     </div>
+    <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
+
     <!-- BEGIN SIDEBAR HEADER -->
     <div class="sidebar-header">
       <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
@@ -149,6 +153,7 @@ echo $Html->addDoctype('html5');
       </div>
     </div>
     <!-- END SIDEBAR HEADER -->
+
     <!-- BEGIN SIDEBAR MENU -->
     <div class="sidebar-menu">
 
@@ -160,35 +165,19 @@ echo $Html->addDoctype('html5');
 
     </div>
     <!-- END SIDEBAR MENU -->
-  </div>
+  </nav>
   <!-- END SIDEBAR -->
+
   <!-- START PAGE-CONTAINER -->
   <div class="page-container">
   <!-- START PAGE HEADER WRAPPER -->
   <!-- START HEADER -->
   <div class="header ">
-    <!-- START MOBILE CONTROLS -->
-    <div class="container-fluid relative">
-      <!-- LEFT SIDE -->
-      <div class="pull-left full-height visible-sm visible-xs">
-        <!-- START ACTION BAR -->
-        <div class="header-inner">
-          <a href="#" class="btn-link toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5" data-toggle="sidebar">
-            <span class="icon-set menu-hambuger"></span>
-          </a>
-        </div>
-        <!-- END ACTION BAR -->
-      </div>
-      <div class="pull-center hidden-md hidden-lg">
-        <div class="header-inner">
-          <div class="brand inline">
-            <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END MOBILE CONTROLS -->
-    <div class=" pull-left sm-table hidden-xs hidden-sm">
+    <!-- START MOBILE SIDEBAR TOGGLE -->
+    <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar"></a>
+    <!-- END MOBILE SIDEBAR TOGGLE -->
+
+    <div class="pull-left sm-table hidden-xs hidden-sm">
       <div class="header-inner">
         <div class="brand inline">
           <a href="<?php echo BASE_URL_ORIG ?>" target="_blank">
@@ -318,7 +307,7 @@ echo $Html->addDoctype('html5');
       </div>
     </div>
     <div class=" pull-right">
-      <!-- START User Info-->
+      <!-- START USER INFO -->
       <div class="visible-lg visible-md m-t-10">
         <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
           <span class="bold"><?php echo $ENVO_WELCOME_NAME; ?></span>
@@ -329,25 +318,20 @@ echo $Html->addDoctype('html5');
               <img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $envouser->getVar("picture"); ?>" alt="" data-src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $envouser->getVar("picture"); ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
             </span>
           </button>
-          <ul class="dropdown-menu profile-dropdown" role="menu">
-            <li>
-              <a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo ENVO_USERID; ?>">
-                <i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo BASE_URL_ADMIN; ?>template/help.php" class="contentHelp"><i class="fa fa-info"></i> <?php echo $tl["hf_text"]["hftxt5"]; ?>
-              </a></li>
-            <li class="bg-master-lighter">
-              <a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["log_out"]["logout1"]; ?>" class="clearfix">
-                <span class="pull-left"><?php echo $tl["log_out"]["logout"]; ?></span>
-                <span class="pull-right"><i class="pg-power"></i></span>
-              </a>
-            </li>
-          </ul>
+          <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+            <a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo ENVO_USERID; ?>" class="dropdown-item">
+              <i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
+            </a>
+            <a href="<?php echo BASE_URL_ADMIN; ?>template/help.php" class="dropdown-item contentHelp"><i class="fa fa-info"></i> <?php echo $tl["hf_text"]["hftxt5"]; ?>
+            </a>
+            <a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["log_out"]["logout1"]; ?>" class="clearfix bg-master-lighter dropdown-item">
+              <span class="pull-left"><?php echo $tl["log_out"]["logout"]; ?></span>
+              <span class="pull-right"><i class="pg-power"></i></span>
+            </a>
+          </div>
         </div>
       </div>
-      <!-- END User Info-->
+      <!-- END USER INFO -->
     </div>
   </div>
   <!-- END HEADER -->
@@ -363,10 +347,10 @@ echo $Html->addDoctype('html5');
         <?php if ($page != '404' && !empty($page)) { ?>
           <div class="inner">
             <!-- START BREADCRUMB -->
-            <ul class="breadcrumb">
-              <li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
-              <li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
-            </ul>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><h6 class="title bold" style="margin: 0;line-height: 24px;"><?php echo $SECTION_TITLE; ?></h6></li>
+              <li class="breadcrumb-item"><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
+            </ol>
             <!-- END BREADCRUMB -->
           </div>
         <?php } ?>
