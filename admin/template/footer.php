@@ -85,6 +85,7 @@ echo $Html->addScript('assets/plugins/pace/pace.min.js?=v1.0.2');
 echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
 echo $Html->addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
 echo $Html->addScript('assets/plugins/modernizr.custom.js?=v2.8.3');
+echo $Html->addScript('../assets/plugins/tether/js/tether.min.js');
 echo $Html->addScript('../assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
 echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
 echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
@@ -122,13 +123,13 @@ echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
 <!-- BEGIN CORE TEMPLATE JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('pages/js/pages.min.js');
+echo $Html->addScript('pages/js/pages.js');
 ?>
 
 <!-- BEGIN PAGE LEVEL JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('assets/js/global_js/scripts.min.js');
+echo $Html->addScript('assets/js/global_js/scripts.js');
 ?>
 
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->
