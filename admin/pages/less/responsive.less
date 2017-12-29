@@ -33,16 +33,13 @@
 		width: @layout-container-fixed-lg - @layout-sidepanel-pin-width;
 	}
 	
-	.visible-xlg {
-		display: block !important;
+	/*.visible-xlg {
+			display: block !important;
 	}
-	
 	.hidden-xlg {
-		display: none !important;
-	}
-	
+			display: none !important;
+	}*/
 	.col-xlg-1, .col-xlg-2, .col-xlg-3, .col-xlg-4, .col-xlg-5, .col-xlg-6, .col-xlg-7, .col-xlg-8, .col-xlg-9, .col-xlg-10, .col-xlg-11 {
-		float: left;
 		min-height: 1px;
 		padding-left: 15px;
 		padding-right: 15px;
@@ -50,56 +47,67 @@
 	}
 	
 	.col-xlg-12 {
-		float: left;
 		min-height: 1px;
 		padding-left: 15px;
 		padding-right: 15px;
 		position: relative;
-		width: 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
 	}
 	
 	.col-xlg-11 {
-		width: 91.6667%;
+		flex: 0 0 91.6667%;
+		max-width: 91.6667%;
 	}
 	
 	.col-xlg-10 {
-		width: 83.3333%;
+		flex: 0 0 83.3333%;
+		max-width: 83.3333%;
 	}
 	
 	.col-xlg-9 {
-		width: 75%;
+		flex: 0 0 75%;
+		max-width: 75%;
 	}
 	
 	.col-xlg-8 {
-		width: 66.6667%;
+		flex: 0 0 66.6667%;
+		max-width: 66.6667%;
 	}
 	
 	.col-xlg-7 {
-		width: 58.3333%;
+		flex: 0 0 58.3333%;
+		max-width: 58.3333%;
 	}
 	
 	.col-xlg-6 {
-		width: 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
 	}
 	
 	.col-xlg-5 {
-		width: 41.6667%;
+		flex: 0 0 41.6667%;
+		max-width: 41.6667%;
 	}
 	
 	.col-xlg-4 {
-		width: 33.3333%;
+		flex: 0 0 33.3333%;
+		max-width: 33.3333%;
 	}
 	
 	.col-xlg-3 {
-		width: 25%;
+		flex: 0 0 25%;
+		max-width: 25%;
 	}
 	
 	.col-xlg-2 {
-		width: 16.6667%;
+		flex: 0 0 16.6667%;
+		max-width: 16.6667%;
 	}
 	
 	.col-xlg-1 {
-		width: 8.33333%;
+		flex: 0 0 8.33333%;
+		max-width: 8.33333%;
 	}
 	
 	.col-xlg-pull-12 {
@@ -281,6 +289,12 @@
 	}
 }
 
+@media only screen and (max-width: 1199px) {
+	.visible-xl-down {
+		display: block !important;
+	}
+}
+
 /*** Desktops & Laptops ***/
 @media only screen and (min-width: 980px) {
 	body {
@@ -292,7 +306,6 @@
 			}
 		}
 		&.menu-pin {
-			overflow-x: hidden;
 			.header .brand {
 				width: 245px;
 			}
@@ -358,6 +371,7 @@
 					background-color: #FFF;
 					border-bottom: 1px solid rgba(230, 230, 230, 0.7);
 					padding: 0 20px 0 0;
+					height: 100%;
 				}
 			}
 			.page-sidebar {
@@ -403,8 +417,23 @@
 /*** General tablets and phones ***/
 @media (max-width: 991px) {
 	
+	.hidden-lg-down {
+		display: none !important;
+	}
+	
 	.page-container {
 		.padding-left(0);
+	}
+	
+	.d-flex-lg-down {
+		display: flex;
+	}
+	
+	.justify-between-lg-down {
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
 	}
 	
 	body {
@@ -433,19 +462,23 @@
 				}
 			}
 		}
-		&.menu-opened.horizontal-menu {
-			overflow-y: hidden;
-			.bar {
-				.translate3d(0%, 0, 0);
+		&.horizontal-app-menu {
+			.header {
+				& > .container {
+					padding: 0;
+				}
+			}
+			.secondary-sidebar {
+				margin-left: 0;
 			}
 		}
 	}
 	
 	.header {
-		padding: 0 10px;
+		padding: 0 15px;
 		width: 100%;
 		border-bottom: 1px solid rgba(0, 0, 0, .07);
-		background: #FFF !important;
+		// background: #fff !important;
 		.header-inner {
 			text-align: center;
 			.mark-email {
@@ -498,7 +531,7 @@
 		-webkit-transform: translate3d(0, 0px, 0px) !important;
 		transform: translate3d(0, 0px, 0px) !important;
 		.sidebar-menu .menu-items > li ul.sub-menu > li {
-			padding: 0 30px 0 36px;
+			padding: 0px 30px 0 36px;
 		}
 	}
 	
@@ -559,7 +592,7 @@
 		}
 	}
 	
-	.inner-content {
+	.inner-content, .horizontal-app-menu .inner-content {
 		margin: 0;
 	}
 	
@@ -599,51 +632,8 @@
 		top: -9px;
 	}
 	
-	/*** Horizontal Menu **/
-	.horizontal-menu .bar {
-		display: block;
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		height: 100%;
-		width: 250px;
-		background-color: #FFF;
-		z-index: 10;
-		overflow-y: auto;
-		overflow-x: hidden;
-		-webkit-overflow-scrolling: touch;
-		right: 0;
-		z-index: @zIndex-horizontal-menu-mobile;
-		box-shadow: 0 0 9px rgba(191, 191, 191, .36);
-		border-left: 1px solid rgba(222, 227, 231, .56);
-		.translate3d(100%, 0, 0);
-		.transition(all .4s cubic-bezier(.19, 1, .22, 1));
-		.bar-inner {
-			& > ul > li {
-				display: block;
-				& > a .arrow {
-					float: right;
-					padding-right: 25px;
-				}
-				.classic {
-					position: relative;
-					background-color: transparent;
-					top: 0;
-				}
-				& .mega,
-				&.horizontal {
-					position: relative;
-				}
-				& > .horizontal {
-					position: relative;
-					top: 0;
-					border-bottom: 0;
-					li {
-						display: block;
-					}
-				}
-			}
-		}
+	.container {
+		width: 100%;
 	}
 	
 	//Table Block
@@ -691,6 +681,24 @@
 		
 	}
 	
+	.kill-pull-md-down {
+		position: relative;
+		display: block;
+		width: inherit;
+		.toggle-secondary-sidebar {
+			display: inline-block;
+			font-size: 18px;
+		}
+	}
+	
+	//set a min hieght for dropdown tabs
+	.nav-tabs-header.nav-tabs-linetriangle {
+		height: 61px;
+	}
+	
+	.overlay {
+		padding-left: 15px;
+	}
 }
 
 /* Landscape view of all tablet devices */
@@ -740,6 +748,18 @@
 		}
 	}
 	
+	.horizontal-app-menu .secondary-sidebar {
+		display: inline-block;
+		position: relative;
+		top: inherit;
+		left: inherit;
+		right: inherit;
+		padding: 20px 0;
+		border-radius: 0;
+		.float(left);
+		height: 100%;
+	}
+	
 	.split-details {
 		.margin-left(0);
 	}
@@ -781,6 +801,12 @@
 	.sm-b-b {
 		border-bottom-width: 1px;
 	}
+	
+	.sidebar-menu {
+		.icon-thumbnail {
+			margin-right: 15px;
+		}
+	}
 }
 
 // Make all columns equal height
@@ -796,19 +822,19 @@
 	}
 }
 
+@media (max-width: 1199px) and (min-width: 992px) {
+	//@TODO : Old Media Query current BS4 doesnt not allow this.
+	.visible-md {
+		display: block !important;
+	}
+}
+
 @media (min-width: 992px) {
 	.row-same-height {
 		overflow: hidden;
 		& > [class*="col-md"] {
 			margin-bottom: -99999px;
 			padding-bottom: 99999px;
-		}
-	}
-	
-	.horizontal-menu .bar {
-		display: table !important;
-		& + div {
-			padding-top: 50px;
 		}
 	}
 }
@@ -826,8 +852,37 @@
 		padding: 0;
 	}
 	
+	.d-flex-md-up {
+		display: flex;
+	}
+	
+	.navbar-toggle {
+		display: none;
+	}
+	
+	.navbar-collapse.collapse {
+		display: block !important;
+		height: auto !important;
+		padding-bottom: 0;
+		overflow: visible !important;
+	}
+	
 	.dataTables_wrapper.form-inline .checkbox input[type=checkbox], .form-inline .radio input[type=radio] {
 		position: absolute;
+	}
+	
+	.justify-end-md-up {
+		-webkit-box-pack: end;
+		-webkit-justify-content: flex-end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+	
+}
+
+@media (min-width: 700px) {
+	.dd {
+		float: none;
 	}
 }
 
@@ -839,7 +894,7 @@
 			padding-left: 27px;
 		}
 		ul.sub-menu > li {
-			padding: 0 27px 0 31px;
+			padding: 0px 27px 0 31px;
 		}
 	}
 	
@@ -854,6 +909,62 @@
 	}
 }
 
+//MD Screen
+@media (max-width: 991px) and (min-width: 768px) {
+	//OLD BS classes Remove later
+	.visible-sm {
+		display: block;
+	}
+	
+	.hidden-sm {
+		display: none;
+	}
+	
+	.visible-sm-inline-block {
+		display: inline-block !important;
+	}
+	
+	//New Screen Prefix
+	.generate-paddings-options-md(3);
+	
+	.generate-paddings-options-md(@n, @i: 0) when (@i =< @n) {
+		@step: @i*5;
+		.md-p-t-@{step} {
+			padding-top: (@step*1px);
+		}
+		.md-p-r-@{step} {
+			padding-right: (@step*1px);
+		}
+		.md-p-l-@{step} {
+			padding-left: (@step*1px);
+		}
+		.md-p-b-@{step} {
+			padding-bottom: (@step*1px);
+		}
+		.generate-paddings-options-md(@n, (@i + 1));
+	}
+	
+	.generate-margin-options-md(3);
+	
+	.generate-margin-options-md(@n, @i: 1) when (@i =< @n) {
+		@step: @i*5;
+		.md-m-t-@{step} {
+			margin-top: (@step*1px);
+		}
+		.md-m-r-@{step} {
+			margin-right: (@step*1px);
+		}
+		.md-m-l-@{step} {
+			margin-left: (@step*1px);
+		}
+		.md-m-b-@{step} {
+			margin-bottom: (@step*1px);
+		}
+		.generate-margin-options-md(@n, (@i + 1));
+	}
+}
+
+//MD and Below all
 @media (max-width: 979px) {
 	.toggle-secondary-sidebar {
 		
@@ -967,7 +1078,7 @@
 			padding-left: 20px;
 		}
 		ul.sub-menu > li {
-			padding: 0 25px 0 28px;
+			padding: 0px 25px 0 28px;
 		}
 	}
 	
@@ -992,7 +1103,7 @@
 		position: relative !important;
 	}
 	
-	.generate-paddings-options-sm(10);
+	.generate-paddings-options-sm(5);
 	
 	.generate-paddings-options-sm(@n, @i: 0) when (@i =< @n) {
 		@step: @i*5;
@@ -1014,7 +1125,7 @@
 		.generate-paddings-options-sm(@n, (@i + 1));
 	}
 	
-	.generate-margin-options-sm(10);
+	.generate-margin-options-sm(5);
 	
 	.generate-margin-options-sm(@n, @i: 1) when (@i =< @n) {
 		@step: @i*5;
@@ -1033,11 +1144,11 @@
 		.generate-margin-options-sm(@n, (@i + 1));
 	}
 	.sm-no-margin {
-		margin: 0;
+		margin: 0px !important;
 	}
 	
 	.sm-no-padding {
-		padding: 0;
+		padding: 0px !important;
 	}
 	
 	.sm-text-right {
@@ -1075,6 +1186,70 @@
 	.sm-image-responsive-height {
 		width: 100%;
 		height: auto;
+	}
+	
+	.email-composer {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	
+	.sm-padding-10 {
+		padding: 10px !important;
+	}
+	
+	.lock-box {
+		align-items: flex-start;
+		height: auto;
+	}
+	
+	.login-box {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	
+	.visible-xs-inline-block {
+		display: inline-block !important;
+	}
+	
+	.nav-tabs-linetriangle {
+		&.nav-cust {
+			flex-direction: column;
+		}
+		li {
+			a.active:after, a.active:before {
+				display: none;
+			}
+		}
+	}
+	
+	//View Port Heights
+	.sm-vh-25 {
+		height: 25vh !important;
+	}
+	
+	.sm-vh-50 {
+		height: 50vh !important;
+	}
+	
+	.sm-vh-75 {
+		height: 75vh !important;
+	}
+	
+	.sm-vh-100 {
+		height: 100vh !important;
+	}
+	
+	.horizontal-app-menu {
+		.page-container .page-content-wrapper .content > .container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	
+	//Summernote btn-group wrap
+	.summernote-wrapper .btn-group {
+		-ms-flex-flow: wrap;
+		flex-flow: wrap;
 	}
 }
 
@@ -1127,11 +1302,11 @@
 		line-height: @layout-mobile-header-height;
 	}
 	
-	.panel {
-		.panel-heading {
+	.card {
+		.card-heading {
 			padding-left: 15px;
 		}
-		.panel-body {
+		.card-body {
 			padding: 15px;
 			padding-top: 0;
 		}
@@ -1163,12 +1338,6 @@
 
 /*** Retina Display Images **/
 @media only screen and (-webkit-min-device-pixel-ratio: 2.0), only screen and (min--moz-device-pixel-ratio: 2.0), only screen and (-o-min-device-pixel-ratio: 200/100), only screen and (min-device-pixel-ratio: 2.0) {
-	.icon-set {
-		background: url('@{base-img-url}/icons/top_tray_2x.png');
-		position: relative;
-		background-size: 95px 19px;
-	}
-	
 	.editor-icon {
 		background-image: url("@{base-img-url}/editor_tray_2x.png");
 		background-size: 480px 40px;
@@ -1183,5 +1352,22 @@
 		opacity: 0.8;
 		background-size: 114px 29px;
 	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.visible-sm, .visible-xs {
+	display: none;
+}
+
+@media (max-width: 767px) {
+	.visible-xs {
+		display: block;
+	}
 	
+	.hidden-xs {
+		display: none;
+	}
 }

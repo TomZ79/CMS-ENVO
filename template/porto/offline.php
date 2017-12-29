@@ -15,7 +15,7 @@
 		</div>
 	</section>
 
-<?php } ?>
+<?php } else { ?>
 
 	<!-- OFFLINE PAGE -->
 	<section class="pt-large pb-large light-color">
@@ -30,5 +30,7 @@
 			</div>
 		</div>
 	</section>
+
+<?php } ?>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

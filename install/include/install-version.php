@@ -1,1 +1,1 @@
-<span class="navbar-brand pull-right" ><strong>CMS - Envo (1.2.1)</strong></span>
+<span class="navbar-brand float-right" ><strong>CMS - Envo (2.0.0)</strong></span>

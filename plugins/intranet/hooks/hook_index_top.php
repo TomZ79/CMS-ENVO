@@ -45,11 +45,11 @@ if (!ENVO_USERID && $page == 'intranet') {
       envo_redirect(BASE_URL);
 
     }
-    if (ENVO_USERID) {
+    if (ENVO_USERID && $page == 'intranet') {
       $envouserlogin->envoLogout(ENVO_USERID);
       $usergroupid = $envouser->getVar("usergroupid");
-      // EN: Add error message to session
-      // CZ: Přidání chybové zprávy do session
+      // EN: Add info message to session
+      // CZ: Přidání info zprávy do session
       $_SESSION["infomsg"] = $tl["notification"]["n4"];
       // EN: Redirect page
       // CZ: Přesměrování stránky

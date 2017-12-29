@@ -178,7 +178,7 @@
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -198,7 +198,7 @@
   }
 } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

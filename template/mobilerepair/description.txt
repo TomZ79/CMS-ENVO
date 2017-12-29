@@ -1,0 +1,1 @@
+﻿Mobile repair is a library for cell phone and computer repair service with predefined web elements which helps you to build your own site. Mobile repair Template has a fully responsive layout. It fits perfectly on various displays and resolutions from regular desktop screens to tablets, iPads, iPhones and small mobile devices.

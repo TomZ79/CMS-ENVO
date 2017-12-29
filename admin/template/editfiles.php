@@ -33,7 +33,7 @@ if ($ENVO_FILE_ERROR) { ?>
 
   <?php if (!isset($setting["cms_tpl"])) { ?>
     <div class="row">
-      <div class="col-md-6 text-center error-page">
+      <div class="col-sm-6 text-center error-page">
 
         <?php
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)

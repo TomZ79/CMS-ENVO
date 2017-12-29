@@ -33,7 +33,74 @@ if ($page1 == "e") { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="row tab-content-singel">
-      <div class="col-md-12">
+      <div class="col-sm-12">
+        <div class="box box-success">
+          <div class="box-header with-border">
+
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('h3', $tl["plug_box_title"]["plugbt1"], 'box-title');
+            ?>
+
+          </div>
+          <div class="box-body">
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <div class="col-sm-4">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc4"]);
+                        ?>
+
+                      </div>
+                      <div class="col">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_generala', $setting["accessgeneral"], '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <div class="col-sm-4">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc5"]);
+                        ?>
+
+                      </div>
+                      <div class="col">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_managea', $setting["accessmanage"], '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+
+            <?php
+            // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            ?>
+
+          </div>
+        </div>
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -50,11 +117,11 @@ if ($page1 == "e") { ?>
 
                 <li id="plugin-<?php echo $v["id"]; ?>" class="envoplugins">
                   <div class="row sm-no-margin">
-                    <div class="col-md-1 col-xs-3 text">
+                    <div class="col-sm-1 col-3 text">
                       <span># </span>
                       <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
                     </div>
-                    <div class="col-md-2 col-xs-5 text plugins-name">
+                    <div class="col-sm-2 col-5 text plugins-name">
 											<span title="<?php echo $v["description"]; ?>">
 
 												<?php
@@ -64,7 +131,7 @@ if ($page1 == "e") { ?>
 
 											</span>
                     </div>
-                    <div class="col-md-2 col-xs-4 text">
+                    <div class="col-sm-2 col-4 text">
                       <?php if ($v['pluginversion']) {
                         echo '(' . sprintf($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
                       }
@@ -73,7 +140,7 @@ if ($page1 == "e") { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-1 hidden-xs text text-center">
+                    <div class="col-sm-1 hidden-xs text text-center">
                       <?php
                       $filename = '../plugins/' . strtolower($v["name"]) . '/help/help_' . $site_language . '.php';
 
@@ -85,7 +152,7 @@ if ($page1 == "e") { ?>
                       }
                       ?>
                     </div>
-                    <div class="col-md-4 hidden-xs show">
+                    <div class="col-sm-4 hidden-xs show">
                       <div class="form-group form-inline">
 
                         <?php
@@ -97,7 +164,7 @@ if ($page1 == "e") { ?>
 
                       </div>
                     </div>
-                    <div class="col-md-2 hidden-xs actions">
+                    <div class="col-sm-2 hidden-xs actions">
 
                       <?php
 
@@ -157,7 +224,7 @@ if ($page1 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-3 col-sm-6">
+                      <div class="col-sm-3 col-sm-6">
 
                         <?php
                         echo $tl["plug_box_content"]["plugbc1"] . ' : ';
@@ -166,7 +233,7 @@ if ($page1 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-9 col-sm-6">
+                      <div class="col-sm-9 col-sm-6">
 
                         <?php
                         echo $tl["plug_box_content"]["plugbc2"] . ' : ';
@@ -190,71 +257,11 @@ if ($page1 == "e") { ?>
           <?php }
         } ?>
 
-        <div class="box box-success">
-          <div class="box-header with-border">
-
-            <?php
-            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('h3', $tl["plug_box_title"]["plugbt1"], 'box-title');
-            ?>
-
-          </div>
-          <div class="box-body">
-            <div class="block">
-              <div class="block-content">
-                <div class="row-form">
-                  <div class="col-md-5">
-
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc4"]);
-                    ?>
-
-                  </div>
-                  <div class="col-md-7">
-
-                    <?php
-                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_generala', $setting["accessgeneral"], '', 'form-control');
-                    ?>
-
-                  </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
-
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc5"]);
-                    ?>
-
-                  </div>
-                  <div class="col-md-7">
-
-                    <?php
-                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_managea', $setting["accessmanage"], '', 'form-control');
-                    ?>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="box-footer">
-
-            <?php
-            // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-            ?>
-
-          </div>
-        </div>
       </div>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php

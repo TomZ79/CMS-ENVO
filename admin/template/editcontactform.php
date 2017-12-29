@@ -65,7 +65,7 @@ if ($page3 == "e") { ?>
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -79,7 +79,7 @@ if ($page3 == "e") { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -88,7 +88,7 @@ if ($page3 == "e") { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                       <?php
@@ -100,7 +100,7 @@ if ($page3 == "e") { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -108,7 +108,7 @@ if ($page3 == "e") { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="radio radio-success">
 
                       <?php
@@ -127,7 +127,7 @@ if ($page3 == "e") { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -135,7 +135,7 @@ if ($page3 == "e") { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group no-margin">
 
                       <?php
@@ -147,7 +147,7 @@ if ($page3 == "e") { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -156,7 +156,7 @@ if ($page3 == "e") { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7 <?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="col-sm-7 <?php if (isset($errors["e2"])) echo " has-error"; ?>">
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -193,7 +193,7 @@ if ($page3 == "e") { ?>
             <ul class="cform_drag">
               <li id="cform_drag">
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-sm-3">
                     <div class="form-group">
 
                       <?php
@@ -204,7 +204,7 @@ if ($page3 == "e") { ?>
 
                     </div>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-sm-2">
                     <div class="form-group">
                       <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
                       <select name="envo_optionmandatory[]" class="form-control">
@@ -220,7 +220,7 @@ if ($page3 == "e") { ?>
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-sm-2">
                     <div class="form-group">
                       <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
                       <select name="envo_optiontype[]" class="form-control">
@@ -239,7 +239,7 @@ if ($page3 == "e") { ?>
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-sm-4">
 
                     <?php
                     echo $tl["cf_box_content"]["cfbc7"];
@@ -275,7 +275,7 @@ if ($page3 == "e") { ?>
 
                 <li class="envocform">
                   <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <div class="form-group">
 
                         <?php
@@ -286,7 +286,7 @@ if ($page3 == "e") { ?>
 
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
                       <div class="form-group">
                         <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
                         <select name="envo_optionmandatory_old[]" class="form-control">
@@ -302,7 +302,7 @@ if ($page3 == "e") { ?>
                         </select>
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
                       <div class="form-group">
                         <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
                         <select name="envo_optiontype_old[]" class="form-control">
@@ -321,7 +321,7 @@ if ($page3 == "e") { ?>
                         </select>
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
 
                       <?php
                       echo $tl["cf_box_content"]["cfbc7"];
@@ -330,7 +330,7 @@ if ($page3 == "e") { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-sm-1">
                       <div class="checkbox check-success">
                         <input type="checkbox" id="envo_sod<?php echo $o["id"]; ?>" name="envo_sod[]" value="<?php echo $o["id"]; ?>"/>
                         <label for="envo_sod<?php echo $o["id"]; ?>"><i class="fa fa-trash-o"></i></label>

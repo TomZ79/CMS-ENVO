@@ -1,3 +1,12 @@
+/*
+ * List of Error:
+ * -----------------------------------------
+ * E01: Scrollbar Plugin not exist
+ * E02: Scrollbar or Ioslist Plugin not exist
+ * E03: Scrollbar or Select2 Plugin not exist
+ *
+ */
+
 (function ($) {
   'use strict';
 
@@ -12,7 +21,7 @@
    */
   var Pages = function () {
     this.VERSION = "3.0.0";
-    this.AUTHOR = "Revox";
+    this.AUTHOR = "Revox and BluesatKV";
     this.SUPPORT = "support@revox.io";
 
     this.pageScrollElement = 'html, body';
@@ -20,7 +29,7 @@
 
     this.setUserOS();
     this.setUserAgent();
-  }
+  };
 
   /** @function setUserOS
    * @description SET User Operating System eg: mac,windows,etc
@@ -34,7 +43,7 @@
     if (navigator.appVersion.indexOf("Linux") != -1) OSName = "linux";
 
     this.$body.addClass(OSName);
-  }
+  };
 
   /** @function setUserAgent
    * @description SET User Device Name to mobile | desktop
@@ -49,7 +58,7 @@
         this.$body.addClass('ie9');
       }
     }
-  }
+  };
 
   /** @function isVisibleXs
    * @description Checks if the screen size is XS - Extra Small i.e below W480px
@@ -58,7 +67,7 @@
   Pages.prototype.isVisibleXs = function () {
     (!$('#pg-visible-xs').length) && this.$body.append('<div id="pg-visible-xs" class="visible-xs" />');
     return $('#pg-visible-xs').is(':visible');
-  }
+  };
 
   /** @function isVisibleSm
    * @description Checks if the screen size is SM - Small Screen i.e Above W480px
@@ -67,7 +76,7 @@
   Pages.prototype.isVisibleSm = function () {
     (!$('#pg-visible-sm').length) && this.$body.append('<div id="pg-visible-sm" class="visible-sm" />');
     return $('#pg-visible-sm').is(':visible');
-  }
+  };
 
   /** @function isVisibleMd
    * @description Checks if the screen size is MD - Medium Screen i.e Above W1024px
@@ -76,7 +85,7 @@
   Pages.prototype.isVisibleMd = function () {
     (!$('#pg-visible-md').length) && this.$body.append('<div id="pg-visible-md" class="visible-md" />');
     return $('#pg-visible-md').is(':visible');
-  }
+  };
 
   /** @function isVisibleLg
    * @description Checks if the screen size is LG - Large Screen i.e Above W1200px
@@ -85,7 +94,7 @@
   Pages.prototype.isVisibleLg = function () {
     (!$('#pg-visible-lg').length) && this.$body.append('<div id="pg-visible-lg" class="visible-lg" />');
     return $('#pg-visible-lg').is(':visible');
-  }
+  };
 
   /** @function getUserAgent
    * @description Get Current User Agent.
@@ -93,7 +102,7 @@
    */
   Pages.prototype.getUserAgent = function () {
     return $('body').hasClass('mobile') ? "mobile" : "desktop";
-  }
+  };
 
   /** @function setFullScreen
    * @description Make Browser fullscreen.
@@ -110,7 +119,7 @@
         wscript.SendKeys("{F11}");
       }
     }
-  }
+  };
 
   /** @function getColor
    * @description Get Color from CSS
@@ -131,7 +140,7 @@
     var rgba = "rgba(" + rgb[1] + ", " + rgb[2] + ", " + rgb[3] + ', ' + opacity + ')';
 
     return rgba;
-  }
+  };
 
   /** @function initSidebar
    * @description Initialize side bar to open and close
@@ -140,10 +149,10 @@
    */
   Pages.prototype.initSidebar = function (context) {
     $('[data-pages="sidebar"]', context).each(function () {
-      var $sidebar = $(this)
+      var $sidebar = $(this);
       $sidebar.sidebar($sidebar.data())
     })
-  }
+  };
 
   /** @function initDropDown
    * @description Initialize Boot-Strap dropdown Menue
@@ -165,7 +174,7 @@
         $(this).find('.dropdown-menu').width(btn.actual('outerWidth'));
       }
     });
-  }
+  };
 
   /** @function initFormGroupDefault
    * @description Initialize Pages form group input
@@ -200,7 +209,7 @@
     }, function () {
       $(this).parents('.form-group').removeClass('focused');
     });
-  }
+  };
 
   /** @function initSlidingTabs
    * @description Initialize Bootstrap Custom Sliding Tabs
@@ -223,7 +232,8 @@
         $(hrefCurrent).removeClass('sliding');
       }, 100);
     });
-  }
+  };
+
   /** @function reponsiveTabs
    * @description Responsive handlers for Bootstrap Tabs
    */
@@ -262,7 +272,7 @@
       $(select).wrap('<div class="nav-tab-dropdown cs-wrapper full-width hidden-md-up"></div>');
       new SelectFx(select);
     });
-  }
+  };
 
   /** @function initNotificationCenter
    * @description Initialize Pages Header Notifcation Dropdown
@@ -277,7 +287,7 @@
         p.toggleClass('open');
       });
     });
-  }
+  };
 
   /** @function initProgressBars
    * @description Initialize Pages ProgressBars
@@ -287,7 +297,7 @@
       // Hack: FF doesn't play SVG animations set as background-image
       $('.progress-bar-indeterminate, .progress-circle-indeterminate, .mapplic-pin').hide().show(0);
     });
-  }
+  };
 
   /** @function initInputFile
    * @description Initialize File Input for Bootstrap Buttons and Input groups
@@ -309,7 +319,8 @@
         $(this).parent().html(log);
       }
     });
-  }
+  };
+
   /** @function initHorizontalMenu
    * @description Initialize Horizontal Dropdown Menu
    */
@@ -378,7 +389,7 @@
         $('.horizontal-menu-backdrop').fadeToggle('fast', function () {
           $(this).remove();
         });
-      }
+      };
 
       $('.menu-bar').toggleClass('open');
     });
@@ -482,7 +493,8 @@
    */
   Pages.prototype.initTooltipPlugin = function (context) {
     $.fn.tooltip && $('[data-toggle="tooltip"]', context).tooltip();
-  }
+  };
+
   /** @function initSelect2Plugin
    * @description Initialize select2 dropdown
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -558,7 +570,7 @@
   Pages.prototype.initUnveilPlugin = function (context) {
     // lazy load retina images
     $.fn.unveil && $("img", context).unveil();
-  }
+  };
 
   /** @function initValidatorPlugin
    * @description Inintialize and Overide exsisting jquery-validate methods.
@@ -624,7 +636,7 @@
         }
       }
     });
-  }
+  };
 
   /** @function setBackgroundImage
    * @description load images to div using data API
@@ -751,7 +763,7 @@
     this.initInputFile();
     this.reponsiveTabs();
     this.secondarySidebar();
-  }
+  };
 
   $.Pages = new Pages();
   $.Pages.Constructor = Pages;
@@ -857,7 +869,7 @@
       event.initEvent('change', true, false);
       el.dispatchEvent(event);
     }
-  }
+  };
 
   /**
    * init function
@@ -895,7 +907,7 @@
       var inputText = this.children[index].innerHTML.trim();
     }
 
-  }
+  };
 
   /**
    * creates the structure for the select element
@@ -958,7 +970,7 @@
     var backdrop = document.createElement('div');
     backdrop.className = 'cs-backdrop';
     this.selEl.appendChild(backdrop);
-  }
+  };
 
   /**
    * initialize the events
@@ -1029,7 +1041,7 @@
           break;
       }
     });
-  }
+  };
 
   /**
    * navigate with up/dpwn keys
@@ -1049,7 +1061,7 @@
       // add class focus - track which option we are navigating
       classie.add(this.selOpts[this.preSelCurrent], 'cs-focus');
     }
-  }
+  };
 
   /**
    * open/close select
@@ -1161,7 +1173,7 @@
       }, 300);
 
     }
-  }
+  };
 
   /**
    * change option - the new value is set
@@ -1201,24 +1213,24 @@
 
     // callback
     this.options.onChange(this.el);
-  }
+  };
 
   /**
    * returns true if select element is opened
    */
   SelectFx.prototype._isOpen = function (opt) {
     return classie.has(this.selEl, 'cs-active');
-  }
+  };
 
   /**
    * removes the focus class from the option
    */
   SelectFx.prototype._removeFocus = function (opt) {
-    var focusEl = this.selEl.querySelector('li.cs-focus')
+    var focusEl = this.selEl.querySelector('li.cs-focus');
     if (focusEl) {
       classie.remove(focusEl, 'cs-focus');
     }
-  }
+  };
 
   /**
    * add to global namespace
@@ -1288,7 +1300,8 @@
       this.$pie.$left.css('transform', 'rotate(' + deg + 'deg)');
     }
 
-  }
+  };
+
   Progress.VERSION = "1.0.0";
 
   Progress.prototype.value = function (val) {
@@ -1309,7 +1322,7 @@
       this.$pie.$left.css('transform', 'rotate(' + deg + 'deg)');
     }
 
-  }
+  };
 
   // CIRCULAR PROGRESS PLUGIN DEFINITION
   // =======================
@@ -1325,15 +1338,15 @@
     })
   }
 
-  var old = $.fn.circularProgress
+  var old = $.fn.circularProgress;
 
-  $.fn.circularProgress = Plugin
-  $.fn.circularProgress.Constructor = Progress
+  $.fn.circularProgress = Plugin;
+  $.fn.circularProgress.Constructor = Progress;
 
 
   $.fn.circularProgress.defaults = {
     value: 0
-  }
+  };
 
   // CIRCULAR PROGRESS NO CONFLICT
   // ====================
@@ -1341,7 +1354,7 @@
   $.fn.circularProgress.noConflict = function () {
     $.fn.circularProgress = old;
     return this;
-  }
+  };
 
   // CIRCULAR PROGRESS DATA API
   //===================
@@ -1351,7 +1364,7 @@
       var $progress = $(this)
       $progress.circularProgress($progress.data())
     })
-  })
+  });
 
   function perc2deg(p) {
     return parseInt(p / 100 * 360);
@@ -1573,7 +1586,8 @@
     this.options = $.extend(true, {}, $.fn.card.defaults, options);
     this.$loader = null;
     this.$body = this.$element.find('.card-block');
-  }
+  };
+
   Card.VERSION = "1.0.0";
   // Button actions
   Card.prototype.collapse = function () {
@@ -1591,12 +1605,12 @@
     this.$element.addClass('card-collapsed');
     icon.removeClass().addClass('pg-arrow_minimize');
     $.isFunction(this.options.onCollapse) && this.options.onCollapse(this);
-  }
+  };
 
   Card.prototype.close = function () {
     this.$element.remove();
     $.isFunction(this.options.onClose) && this.options.onClose(this);
-  }
+  };
 
   Card.prototype.maximize = function () {
     var icon = this.$element.find(this.options.maximizeButton + ' > i');
@@ -1622,7 +1636,7 @@
       icon.removeClass('pg-fullscreen').addClass('pg-fullscreen_restore');
       $.isFunction(this.options.onMaximize) && this.options.onMaximize(this);
     }
-  }
+  };
 
   // Options
   Card.prototype.refresh = function (refresh) {
@@ -1701,7 +1715,7 @@
         _this.options.refresh = false;
       });
     }
-  }
+  };
 
   Card.prototype.error = function (error) {
     if (error) {
@@ -1720,7 +1734,7 @@
         }
       }).show();
     }
-  }
+  };
 
   // CARD PLUGIN DEFINITION
   // =======================
@@ -1738,10 +1752,10 @@
     })
   }
 
-  var old = $.fn.card
+  var old = $.fn.card;
 
-  $.fn.card = Plugin
-  $.fn.card.Constructor = Card
+  $.fn.card = Plugin;
+  $.fn.card.Constructor = Card;
 
 
   $.fn.card.defaults = {
@@ -1762,7 +1776,7 @@
     // onMaximize: function(portlet) {},
     // onRestore: function(portlet) {},
     // onClose: function(portlet) {}
-  }
+  };
 
   // CARD NO CONFLICT
   // ====================
@@ -1770,7 +1784,7 @@
   $.fn.card.noConflict = function () {
     $.fn.card = old;
     return this;
-  }
+  };
 
   // CARD DATA API
   //===================
@@ -1780,14 +1794,14 @@
     var $target = $this.closest('.card');
     if ($this.is('a')) e.preventDefault();
     $target.data('pg.card') && $target.card('collapse');
-  })
+  });
 
   $(document).on('click.pg.card.data-api', '[data-toggle="close"]', function (e) {
     var $this = $(this);
     var $target = $this.closest('.card');
     if ($this.is('a')) e.preventDefault();
     $target.data('pg.card') && $target.card('close');
-  })
+  });
 
   $(document).on('click.pg.card.data-api', '[data-toggle="refresh"]', function (e) {
     var $this = $(this);
@@ -1796,18 +1810,18 @@
     $target.data('pg.card') && $target.card({
       refresh: true
     })
-  })
+  });
 
   $(document).on('click.pg.card.data-api', '[data-toggle="maximize"]', function (e) {
     var $this = $(this);
     var $target = $this.closest('.card');
     if ($this.is('a')) e.preventDefault();
     $target.data('pg.card') && $target.card('maximize');
-  })
+  });
 
   $(window).on('load', function () {
     $('[data-pages="card"]').each(function () {
-      var $card = $(this)
+      var $card = $(this);
       $card.card($card.data())
     })
   })
@@ -1839,7 +1853,7 @@
       el.toggleClass(data.viewAnimation);
       self.options.onNavigate(toView, data.viewAnimation);
       return false;
-    })
+    });
     return this; // enable chaining
   };
   $.fn.pgMobileViews = function (options) {
@@ -1850,13 +1864,13 @@
     //Returns Target View & Animation Type
     onNavigate: function (view, animation) {
     }
-  }
+  };
   // MOBILE VIEW DATA API
   //===================
 
   $(window).on('load', function () {
     $('[data-navigate="view"]').each(function () {
-      var $mobileView = $(this)
+      var $mobileView = $(this);
       $mobileView.pgMobileViews();
     })
   });
@@ -1913,7 +1927,8 @@
       $(this).toggleClass('active');
     });
 
-  }
+  };
+
   Quickview.VERSION = "1.0.0";
 
   // QUICKVIEW PLUGIN DEFINITION
@@ -1929,10 +1944,10 @@
     })
   }
 
-  var old = $.fn.quickview
+  var old = $.fn.quickview;
 
-  $.fn.quickview = Plugin
-  $.fn.quickview.Constructor = Quickview
+  $.fn.quickview = Plugin;
+  $.fn.quickview.Constructor = Quickview;
 
 
   $.fn.quickview.defaults = {
@@ -1945,7 +1960,7 @@
     deleteNoteConfirmButton: '.btn-remove-notes',
     newNoteButton: '.new-note-link',
     backButton: '.close-note-link'
-  }
+  };
 
   // QUICKVIEW NO CONFLICT
   // ====================
@@ -1953,7 +1968,7 @@
   $.fn.quickview.noConflict = function () {
     $.fn.quickview = old;
     return this;
-  }
+  };
 
   // QUICKVIEW DATA API
   //===================
@@ -1961,7 +1976,7 @@
   $(window).on('load', function () {
 
     $('[data-pages="quickview"]').each(function () {
-      var $quickview = $(this)
+      var $quickview = $(this);
       $quickview.quickview($quickview.data())
     })
   });
@@ -1997,7 +2012,8 @@
       img.remove();
     }
 
-  }
+  };
+
   Parallax.VERSION = "1.0.0";
 
   Parallax.prototype.animate = function () {
@@ -2017,7 +2033,7 @@
     });
 
     this.$content.css({
-      'transform': direction + '(' + scrollPos * this.options.speed.content + 'px)',
+      'transform': direction + '(' + scrollPos * this.options.speed.content + 'px)'
     });
 
     if (scrollPos > opacityKeyFrame) {
@@ -2030,7 +2046,7 @@
       });
     }
 
-  }
+  };
 
   // PARALLAX PLUGIN DEFINITION
   // =======================
@@ -2045,10 +2061,10 @@
     })
   }
 
-  var old = $.fn.parallax
+  var old = $.fn.parallax;
 
-  $.fn.parallax = Plugin
-  $.fn.parallax.Constructor = Parallax
+  $.fn.parallax = Plugin;
+  $.fn.parallax.Constructor = Parallax;
 
 
   $.fn.parallax.defaults = {
@@ -2057,7 +2073,7 @@
       content: 0.17
     },
     scrollElement: window
-  }
+  };
 
   // PARALLAX NO CONFLICT
   // ====================
@@ -2065,7 +2081,7 @@
   $.fn.parallax.noConflict = function () {
     $.fn.parallax = old;
     return this;
-  }
+  };
 
   // PARALLAX DATA API
   //===================
@@ -2073,7 +2089,7 @@
   $(window).on('load', function () {
 
     $('[data-pages="parallax"]').each(function () {
-      var $parallax = $(this)
+      var $parallax = $(this);
       $parallax.parallax($parallax.data())
     })
   });
@@ -2208,8 +2224,8 @@
         return;
 
       if ($('.sidebar-overlay-slide').hasClass('show')) {
-        $('.sidebar-overlay-slide').removeClass('show')
-        $("[data-pages-toggle']").removeClass('active')
+        $('.sidebar-overlay-slide').removeClass('show');
+        $("[data-pages-toggle]").removeClass('active')
 
       }
 
@@ -2240,7 +2256,7 @@
     $(document).bind('ready', toggleMenuPin);
     $(window).bind('resize', toggleMenuPin);
 
-  }
+  };
 
 
   // Toggle sidebar for mobile view
@@ -2266,7 +2282,7 @@
 
     }
 
-  }
+  };
 
   Sidebar.prototype.togglePinSidebar = function (toggle) {
     if (toggle == 'hide') {
@@ -2277,7 +2293,7 @@
       this.$body.toggleClass('menu-pin');
     }
 
-  }
+  };
 
 
   // SIDEBAR PLUGIN DEFINITION
@@ -2301,7 +2317,7 @@
 
   $.fn.sidebar.defaults = {
     pageContainer: '.page-container'
-  }
+  };
 
   // SIDEBAR PROGRESS NO CONFLICT
   // ====================
@@ -2309,7 +2325,7 @@
   $.fn.sidebar.noConflict = function () {
     $.fn.sidebar = old;
     return this;
-  }
+  };
 
   // SIDEBAR PROGRESS DATA API
   //===================
@@ -2344,7 +2360,8 @@
     this.$element = $(element);
     this.options = $.extend(true, {}, $.fn.search.defaults, options);
     this.init();
-  }
+  };
+
   Search.VERSION = "1.0.0";
 
   Search.prototype.init = function () {
@@ -2395,7 +2412,7 @@
       }
     });
 
-  }
+  };
 
 
   Search.prototype.keypress = function (e) {
@@ -2412,7 +2429,7 @@
     if (e.which !== 0 && e.charCode !== 0 && !e.ctrlKey && !e.metaKey && !e.altKey && e.keyCode != 27) {
       this.toggleOverlay('show', String.fromCharCode(e.keyCode | e.charCode));
     }
-  }
+  };
 
 
   Search.prototype.toggleOverlay = function (action, key) {
@@ -2465,17 +2482,17 @@
     })
   }
 
-  var old = $.fn.search
+  var old = $.fn.search;
 
-  $.fn.search = Plugin
-  $.fn.search.Constructor = Search
+  $.fn.search = Plugin;
+  $.fn.search.Constructor = Search;
 
   $.fn.search.defaults = {
     searchField: '[data-search="searchField"]',
     closeButton: '[data-search="closeButton"]',
     suggestions: '[data-search="suggestions"]',
     brand: '[data-search="brand"]'
-  }
+  };
 
   // SEARCH NO CONFLICT
   // ====================
@@ -2483,7 +2500,7 @@
   $.fn.search.noConflict = function () {
     $.fn.search = old;
     return this;
-  }
+  };
 
   $(document).on('click.pg.search.data-api', '[data-toggle="search"]', function (e) {
     var $this = $(this);

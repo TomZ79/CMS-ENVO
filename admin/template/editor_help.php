@@ -42,7 +42,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 m-t-20">
+    <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master">
         <h3 class="semi-bold text-white">Help for Editor - Content</h3>
       </div>

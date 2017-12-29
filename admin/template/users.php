@@ -67,7 +67,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <form role="form" method="post" action="/admin/index.php?p=users&amp;sp=search&amp;ssp=go">
         <div class="input-group">
           <span class="input-group-btn">
@@ -77,32 +77,31 @@
         </div><!-- /input-group -->
       </form>
     </div>
-
+    <div class="col-sm-6">
     <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-      <div class="col-md-6">
-        <div class="input-group">
-          <select name="envo_group" class="form-control selectpicker">
+      <div class="input-group">
+        <select name="envo_group" class="form-control selectpicker">
 
-            <?php
-            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-            if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
-              if ($z["id"] != "1") {
-                echo $Html->addOption($z["id"], $z["name"]);
-              }
+          <?php
+          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+          if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
+            if ($z["id"] != "1") {
+              echo $Html->addOption($z["id"], $z["name"]);
             }
-            ?>
+          }
+          ?>
 
-          </select>
-          <span class="input-group-btn">
+        </select>
+        <span class="input-group-btn">
 
-						<?php
-            // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('move', $tl["button"]["btn20"], '', 'btn btn-warning');
-            ?>
+          <?php
+          // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+          echo $Html->addButtonSubmit('move', $tl["button"]["btn20"], '', 'btn btn-warning');
+          ?>
 
-          </span>
-        </div>
+        </span>
       </div>
+    </div>
   </div>
 
   <hr>
@@ -366,7 +365,7 @@
   </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php

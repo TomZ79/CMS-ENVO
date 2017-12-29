@@ -61,7 +61,7 @@ if ($errors) { ?>
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -75,7 +75,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -83,7 +83,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="radio radio-success">
 
                       <?php
@@ -102,7 +102,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -113,7 +113,7 @@ if ($errors) { ?>
 
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <select name="envo_offpage" class="form-control selectpicker">
 
                       <?php
@@ -132,7 +132,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -142,7 +142,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <select name="envo_pagenotfound" class="form-control selectpicker">
 
                       <?php
@@ -173,7 +173,7 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -187,7 +187,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -196,7 +196,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 
                       <?php
@@ -208,7 +208,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-12">
+                  <div class="col-sm-12">
 
                     <?php
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -220,7 +220,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-12">
+                  <div class="col-sm-12">
 
                     <?php
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -232,7 +232,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -240,7 +240,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -250,7 +250,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -258,7 +258,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="radio radio-success">
 
                       <?php
@@ -277,7 +277,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -285,11 +285,11 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('envo_copy', envo_edit_safe_userpost($setting["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
+                    echo $Html->addTextarea('envo_copy', envo_edit_safe_userpost($setting["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control', 'style' => 'height: auto;'));
                     ?>
 
                   </div>

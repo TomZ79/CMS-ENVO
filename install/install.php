@@ -122,7 +122,7 @@ if (DB_USER && DB_PASS) {
 
   <!-- Basic CSS and Bootstrap CSS -->
   <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" type="text/css" media="screen"/>
   <link rel="stylesheet" href="include/style.css" type="text/css" media="screen"/>
 
   <!-- Web Fonts -->
@@ -139,16 +139,18 @@ if (DB_USER && DB_PASS) {
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <div class="logo pull-left"><img src="include/logo_white.png" alt=""></div>
-        <?php include 'include/install-version.php'; ?>
+        <div class="row justify-content-between">
+          <div class="logo float-left"><img src="include/logo_white.png" alt=""></div>
+          <?php include 'include/install-version.php'; ?>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Begin page content -->
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row justify-content-between">
+      <div class="col-sm-12">
         <h1 class="page-title"><?php echo $tlinst["install"]["l1"];?></h1>
         <div class="separator-2"></div>
 
@@ -266,10 +268,12 @@ if (DB_USER && DB_PASS) {
               </tr>
             </table>
 
-            <div class="col-md-12 controls">
-              <button type="submit" class="btn square btn-default pull-right"><?php echo $tlinst["install"]["next"];?>
-                <i class="fa fa-chevron-right"></i>
-              </button>
+            <div class="controls">
+              <div class="d-flex justify-content-between">
+                <button type="submit" class="btn square btn-default float-right"><?php echo $tlinst["install"]["next"];?>
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+              </div>
             </div>
           </form>
 
@@ -375,8 +379,10 @@ if (DB_USER && DB_PASS) {
             }
             ?>
 
-            <div class="well well-sm">
-              <?php echo $tlinst["install"]["form2"];?>
+            <div class="card mb-3">
+              <div class="card-block">
+                <?php echo $tlinst["install"]["form2"];?>
+              </div>
             </div>
 
             <table class="table">
@@ -414,21 +420,23 @@ if (DB_USER && DB_PASS) {
               </tr>
             </table>
 
-            <div class="col-md-12 controls">
-              <a href="install.php" class="btn square btn-default pull-left" role="button">
-                <i class="fa fa-chevron-left"></i><?php echo $tlinst["install"]["prev"];?>
-              </a>
-              <?php if (file_exists('../config.php') && ($linkdb) && ($dlink) && !$check_db_content) { ?>
-                <button type="submit" class="btn square btn-default pull-right"><?php echo $tlinst["install"]["next"];?>
-                  <i class="fa fa-chevron-right"></i>
-                </button>
-              <?php } elseif (file_exists('../config.php') && ($linkdb) && ($dlink) && $check_db_content) { ?>
-                <a href="install.php?step=5" class="btn square btn-default pull-right" role="button" name="userf">
-                  <?php echo $tlinst["install"]["dbexist"];?><i class="fa fa-chevron-right"></i>
+            <div class="controls">
+              <div class="d-flex justify-content-between">
+                <a href="install.php" class="btn square btn-default float-left" role="button">
+                  <i class="fa fa-chevron-left"></i><?php echo $tlinst["install"]["prev"];?>
                 </a>
-              <?php } else { ?>
-                <input type="button" class="btn square btn-warning pull-right" value="<?php echo $tlinst["install"]["refresh"];?>" onclick="window.location.reload()"/>
-              <?php } ?>
+                <?php if (file_exists('../config.php') && ($linkdb) && ($dlink) && !$check_db_content) { ?>
+                  <button type="submit" class="btn square btn-default float-right"><?php echo $tlinst["install"]["next"];?>
+                    <i class="fa fa-chevron-right"></i>
+                  </button>
+                <?php } elseif (file_exists('../config.php') && ($linkdb) && ($dlink) && $check_db_content) { ?>
+                  <a href="install.php?step=5" class="btn square btn-default float-right" role="button" name="userf">
+                    <?php echo $tlinst["install"]["dbexist"];?><i class="fa fa-chevron-right"></i>
+                  </a>
+                <?php } else { ?>
+                  <input type="button" class="btn square btn-warning float-right" value="<?php echo $tlinst["install"]["refresh"];?>" onclick="window.location.reload()"/>
+                <?php } ?>
+              </div>
             </div>
           </form>
 
@@ -443,13 +451,15 @@ if (DB_USER && DB_PASS) {
 
             <h3><?php echo $tlinst["install"]["form3"];?></h3>
             <p><?php echo $tlinst["install"]["form3_1"];?></p>
-            <div class="col-md-12 controls margin-top">
-              <a href="install.php?step=2" class="btn square btn-default pull-left" role="button">
-                <i class="fa fa-chevron-left"></i><?php echo $tlinst["install"]["prev"];?>
-              </a>
-              <a href="install.php?step=4&amp;type=blank" class="btn square btn-default pull-right" role="button">
-                <?php echo $tlinst["install"]["install"];?><i class="fa fa-chevron-right"></i>
-              </a>
+            <div class="controls mt-3">
+              <div class="d-flex justify-content-between">
+                <a href="install.php?step=2" class="btn square btn-default float-left" role="button">
+                  <i class="fa fa-chevron-left"></i><?php echo $tlinst["install"]["prev"];?>
+                </a>
+                <a href="install.php?step=4&amp;type=blank" class="btn square btn-default float-right" role="button">
+                  <?php echo $tlinst["install"]["install"];?><i class="fa fa-chevron-right"></i>
+                </a>
+              </div>
             </div>
           </form>
 
@@ -478,12 +488,14 @@ if (DB_USER && DB_PASS) {
             $envodb->envo_close();
 
             ?>
-            <div class="alert bg-success"><?php echo $tlinst["install"]["form4"];?></div>
+            <div class="alert bg-success text-white"><?php echo $tlinst["install"]["form4"];?></div>
 
             <form id="company" method="post" action="install.php?step=4" enctype="multipart/form-data">
 
-              <div class="col-md-12 controls">
-                <button type="submit" name="useru" class="btn square btn-default pull-right"><?php echo $tlinst["install"]["superadmin"];?><i class="fa fa-chevron-right"></i></button>
+              <div class="controls">
+                <div class="d-flex justify-content-end">
+                  <button type="submit" name="useru" class="btn square btn-default"><?php echo $tlinst["install"]["superadmin"];?><i class="fa fa-chevron-right"></i></button>
+                </div>
               </div>
 
             </form>
@@ -558,7 +570,7 @@ if (DB_USER && DB_PASS) {
               $mail->MsgHTML($body);
               $mail->Send();
 
-              echo '<div class="alert bg-success">' . $tlinst["install"]["form5_6"] . '</div><div><a href="install.php?step=6" class="btn square btn-default pull-right" role="button" name="userf">' . $tlinst["install"]["folder"] . '<i class="fa fa-chevron-right"></i></a></div>';
+              echo '<div class="alert bg-success text-white">' . $tlinst["install"]["form5_6"] . '</div><div class="d-flex justify-content-end"><a href="install.php?step=6" class="btn square btn-default" role="button" name="userf">' . $tlinst["install"]["folder"] . '<i class="fa fa-chevron-right"></i></a></div>';
 
               $show_form = false;
 
@@ -604,8 +616,10 @@ if (DB_USER && DB_PASS) {
                 </tr>
               </table>
 
-              <div class="col-md-12 controls">
-                <button type="submit" name="user" class="btn square btn-default pull-right"><?php echo $tlinst["install"]["finish"];?></button>
+              <div class="controls">
+                <div class="d-flex justify-content-end">
+                  <button type="submit" name="user" class="btn square btn-default"><?php echo $tlinst["install"]["finish"];?></button>
+                </div>
               </div>
 
             </form>
@@ -614,20 +628,23 @@ if (DB_USER && DB_PASS) {
           <form id="company" method="post" action="install.php?step=6" enctype="multipart/form-data">
             <input type="hidden" name="act" value="removefolder"/>
             <!-- Form 6. -->
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <h3><?php echo $tlinst["install"]["form6"];?></h3>
             </div>
-            <div class="col-md-12 margin-top">
-              <div class="col-md-4">
-                <?php echo $tlinst["install"]["form6_1"];?>
+            <div class="col-sm-12 mt-4">
+              <div class="row align-items-center">
+                <div class="col-sm-4">
+                  <?php echo $tlinst["install"]["form6_1"];?>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" name="newfolder" id="newfolder" value="install_back">
+                </div>
               </div>
-              <div class="col-md-3">
-                <input type="text" class="form-control" name="newfolder" id="newfolder" value="install_back">
-              </div>
-              <div class="col-md-5"></div>
             </div>
-            <div class="col-md-12 controls margin-top">
-              <button type="submit" class="btn square btn-default pull-right"><?php echo $tlinst["install"]["folder1"];?><i class="fa fa-chevron-right"></i></button>
+            <div class="controls mt-4">
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn square btn-default"><?php echo $tlinst["install"]["folder1"];?><i class="fa fa-chevron-right"></i></button>
+              </div>
             </div>
 
           </form>
@@ -642,7 +659,9 @@ if (DB_USER && DB_PASS) {
 
 <div id="footer">
   <div class="container">
-    <p class="muted credit">Copyright 2016 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></p>
+    <div class="row">
+      <p class="muted credit">Copyright 2016 - <?php echo date('Y'); ?> by <a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></p>
+    </div>
   </div>
 </div>
 

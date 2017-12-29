@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Template - ADMIN
- * Copyright (c) 2016 - 2017 Bluesat.cz
+ * Copyright (c) 2016 - 2018 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
@@ -105,7 +105,7 @@ $(function () {
 
     element.on('shown.bs.modal', function (e) {
 
-      $(this).find('.modal-dialog').addClass('modal-w-90p');
+      $(this).find('.modal-dialog').addClass('modal-w-70p');
       $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
 
     }).on('hidden.bs.modal', function (e) {

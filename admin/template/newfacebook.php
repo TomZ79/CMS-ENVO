@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-  <div class="col-md-12 kv-main">
+  <div class="col-sm-12 kv-main">
 
     <?php
     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)

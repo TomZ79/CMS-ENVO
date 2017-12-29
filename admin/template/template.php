@@ -61,7 +61,7 @@ if ($page1 == "e") { ?>
 
 <?php if (is_dir_empty('../template/')) { ?>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 error-page">
+    <div class="col-sm-6 col-sm-offset-3 error-page">
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -94,15 +94,15 @@ if ($page1 == "e") { ?>
 
         ?>
 
-        <div class="col-sm-6 col-md-12 m-b-20 row-table no-padding">
-          <div class="col-md-3 col-table">
+        <div class="col-sm-6 col-sm-12 m-b-20 row-table no-padding">
+          <div class="col-sm-3 col-table">
             <div class="thumbnail" style="background: rgb(217, 217, 217) none repeat scroll 0% 0%; border: medium none; border-radius: 0px; margin: 0px; padding: 24px;">
               <div class="thumbnail-container">
                 <img class="img-responsive" src="../template/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"/>
               </div>
             </div>
           </div>
-          <div class="col-md-9 col-table" style="background: white none repeat scroll 0% 0%;">
+          <div class="col-sm-9 col-table" style="background: white none repeat scroll 0% 0%;">
             <div class="caption">
               <h3>
 
@@ -126,7 +126,7 @@ if ($page1 == "e") { ?>
                 }
                 ?>
               </p>
-              <div class="col-md-12">
+              <div class="col-sm-12">
 
                 <?php
                 if (ENVO_TEMPLATE != $l && !$template_addon) {
@@ -174,7 +174,7 @@ if ($page1 == "e") { ?>
                 } else {
                   ?>
 
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
                     <div class="row">
                       <div class="alert alert-danger" style="width: 100%; padding: 6px 10px; text-align: center;">
                         <?php echo str_replace("%s", ENVO_TEMPLATE, $tl["tpl_box_content"]["tplbc1"]); ?>
@@ -182,7 +182,7 @@ if ($page1 == "e") { ?>
                     </div>
                   </div>
                   <?php if (file_exists('../template/' . $l . '/help.php')) { ?>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
 
                       <?php
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

@@ -1,0 +1,55 @@
+/*
+@Author: ThemeMascot
+@URL: http://ThemeMascot.com
+
+This is the file where you can add your custom styles to change the look of the
+theme. But don't modify style-main.css file.
+
+*/
+
+/* Your custom css codes start here: */
+
+/*---------------------------------------
+        BOOTSTRAP v3 - Modification
+-----------------------------------------*/
+.vcenter {
+  display: flex;
+  align-items: center;
+}
+
+/*---------------------------------------
+        SHARING SOCIAL MEDIA
+-----------------------------------------*/
+.sl-container .sl-item {
+  padding-bottom: 0;
+}
+
+/*---------------------------------------
+        PROTECTED PAGE AREA
+-----------------------------------------*/
+.protected-page-area {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.protected-page-area h1 {
+  font-weight: 700;
+}
+
+.protected-page-area form input[type="password"] {
+  padding: 9px 32px 9px 32px;
+  height: auto;
+  border: 2px solid #CCC;
+  border-radius: 0 !important;
+  outline: none !important;
+}
+
+.protected-page-area form input[type="password"],
+.protected-page-area form input[type="password"]:focus {
+  border-right: none;
+}
+
+.protected-page-area .input-group-btn:last-child > .btn,
+.protected-page-area .input-group-btn:last-child > .btn-group {
+  margin-left: 0;
+}

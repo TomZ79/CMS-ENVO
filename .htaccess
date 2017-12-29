@@ -3,9 +3,9 @@
     RewriteOptions MaxRedirects=1
 
 # URL Canonicalization with HTTPS
-    RewriteCond %{HTTPS} off [OR]
-    RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^ https://www.your_site_domain.com%{REQUEST_URI} [R=301,L,NE]
+    RewriteCond %{HTTPS} !on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,QSA,NE]
 
 
 # SEO Url friendly

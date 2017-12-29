@@ -33,7 +33,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <div class="col-md-12 m-b-20">
+  <div class="col-sm-12 m-b-20">
     <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
       <div class="form-group">
         <label for="groupbase"><?php echo $tl["userg_box_content"]["usergbc"]; ?></label>
@@ -90,7 +90,7 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-sm-8">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -104,7 +104,7 @@ if ($errors) { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -113,7 +113,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
 
                           <?php
@@ -130,7 +130,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -138,7 +138,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -148,7 +148,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -156,7 +156,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="radio radio-success">
 
                           <?php
@@ -204,7 +204,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4">
             <?php if (ENVO_TAGS) { ?>
               <div class="box box-success">
                 <div class="box-header with-border">
@@ -219,7 +219,7 @@ if ($errors) { ?>
                   <div class="block">
                     <div class="block-content">
                       <div class="row-form">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                           <div class="radio radio-success">
 
                             <?php
@@ -272,7 +272,7 @@ if ($errors) { ?>
       <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP)) { ?>
         <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP) && is_array($ENVO_HOOK_ADMIN_USERGROUP)) foreach ($ENVO_HOOK_ADMIN_USERGROUP as $hs) {
                 include_once APP_PATH . $hs['phpcode'];
               } ?>

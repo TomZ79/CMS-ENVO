@@ -33,7 +33,7 @@ if ($page3 == "e") { ?>
 
 <?php if (!isset($setting["cms_tpl"])) { ?>
   <div class="row">
-    <div class="col-md-6 text-center error-page">
+    <div class="col-sm-6 text-center error-page">
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -62,7 +62,7 @@ if ($page3 == "e") { ?>
   } else { ?>
 
     <section class="content">
-      <div class="col-md-8 text-center error-page">
+      <div class="col-sm-8 text-center error-page">
         <div class="error-content">
 
           <?php

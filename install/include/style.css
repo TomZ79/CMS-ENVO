@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * CSS for Installation - ADMIN
- * Copyright (c) 2016 - 2017 Bluesat.cz
+ * Copyright (c) 2016 - 2018 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
@@ -66,9 +66,6 @@ body {
 .light-gray-bg {
   background-color: #fafafa;
 }
-.margin-top {
-  margin-top: 20px;
-}
 
 /* 04. Navbar
  ========================================================================*/
@@ -78,14 +75,14 @@ body {
   height: 65px;
 }
 .logo {
-  height: 64px;
+  height: 48px;
 }
 .logo img {
-  padding: 21px;
+  padding: 13px;
 }
 .navbar-brand {
-  height: 64px;
-  line-height: 32px;
+  height: 48px;
+  line-height: 42px;
 }
 /* 05. Button
  ========================================================================*/
@@ -93,6 +90,7 @@ body {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .btn-default {
@@ -312,11 +310,12 @@ body {
 }
 
 .gsi-step-indicator li .desc label {
-  font-size: 1.1em
+  font-size: .9em;
+  font-weight: 700;
 }
 
 .gsi-step-indicator li .desc span {
-  font-size: 14px;
+  font-size: .6em;
   display: block
 }
 
@@ -364,7 +363,7 @@ body {
 
 .gsi-step-indicator.triangle li > * {
   position: relative;
-  padding: 1em .8em .8em 2.5em;
+  padding: .5em .8em .5em 1.1em;
   color: #2c3f4c;
   background-color: #edeff0;
   border-color: #edeff0

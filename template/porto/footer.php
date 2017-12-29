@@ -18,6 +18,8 @@ switch ($section) {
       include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
     }
 
+    echo '</div>';
+    echo '</div>';
     echo '</section>';
 
     break;
@@ -268,6 +270,7 @@ include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/porto-revolutionSlid
 ?>
 
 <?php
+// Hook footer code
 if (isset($ENVO_HOOK_FOOTER_END) && is_array($ENVO_HOOK_FOOTER_END)) foreach ($ENVO_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];
 }
@@ -277,12 +280,12 @@ if (isset($setting["analytics"])) echo $setting["analytics"];
 
 // Javascript for page - FOOTER
 if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
-?>
 
-<!-- Social Buttons Script -->
-<?php if ($SHOWSOCIALBUTTON) {
+// Social Buttons Script
+if ($SHOWSOCIALBUTTON) {
   include APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php';
-} ?>
+}
+?>
 
 <?php if (isset($ENVO_NEWS_IN_CONTENT) && is_array($ENVO_NEWS_IN_CONTENT)) { ?>
   <!-- News in OWL Carousel -->

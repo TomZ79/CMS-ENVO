@@ -55,7 +55,7 @@ echo $Html->addDoctype('html5');
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   echo $Html->addStylesheet('pages/css/pages-icons.css');
-  echo $Html->addStylesheet('pages/css/pages.min.css', '', array('class' => 'main-stylesheet'));
+  echo $Html->addStylesheet('pages/css/pages.min.css?=v3.0.0', '', array('class' => 'main-stylesheet'));
   ?>
 
   <!-- BEGIN General Stylesheet with custom modifications -->
@@ -92,7 +92,7 @@ echo $Html->addDoctype('html5');
     <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
     <div id="appMenu" class="sidebar-overlay-slide from-top">
       <div class="row">
-        <div class="col-xs-6 no-padding">
+        <div class="col-6 no-padding">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -100,7 +100,7 @@ echo $Html->addDoctype('html5');
           ?>
 
         </div>
-        <div class="col-xs-6 no-padding">
+        <div class="col-6 no-padding">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -110,7 +110,7 @@ echo $Html->addDoctype('html5');
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6 m-t-20 no-padding">
+        <div class="col-6 m-t-20 no-padding">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -118,7 +118,7 @@ echo $Html->addDoctype('html5');
           ?>
 
         </div>
-        <div class="col-xs-6 m-t-20 no-padding">
+        <div class="col-6 m-t-20 no-padding">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -189,7 +189,7 @@ echo $Html->addDoctype('html5');
           <ul class="quick-list no-margin hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
             <li class="p-r-15 inline">
               <div class="dropdown">
-                <a href="javascript:;" id="notification-center" class="icon-set grid-box" data-toggle="dropdown"></a>
+                <a href="javascript:;" id="notification-center" class="header-icon pg pg-thumbs" data-toggle="dropdown"></a>
                 <!-- START Quick Dropdown -->
                 <div class="dropdown-menu quick-toggle" role="menu" aria-labelledby="notification-center">
                   <!-- START Quick -->
@@ -197,7 +197,7 @@ echo $Html->addDoctype('html5');
                     <!-- START Quick Body-->
                     <div class="quick-body scrollable">
                       <div class="row stacked">
-                        <div class="col-xs-4">
+                        <div class="col-4">
 
                           <?php
                           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -205,7 +205,7 @@ echo $Html->addDoctype('html5');
                           ?>
 
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-4">
 
                           <?php
                           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -213,7 +213,7 @@ echo $Html->addDoctype('html5');
                           ?>
 
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-4">
 
                           <?php
                           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -226,10 +226,10 @@ echo $Html->addDoctype('html5');
                       <?php $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
                       if ($envodb->affected_rows > 0) { ?>
                         <div class="row stacked">
-                          <div class="col-md-12 pluginname">
+                          <div class="col-sm-12 pluginname">
                             Plugin Blog
                           </div>
-                          <div class="col-xs-4">
+                          <div class="col-4">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -237,7 +237,7 @@ echo $Html->addDoctype('html5');
                             ?>
 
                           </div>
-                          <div class="col-xs-4">
+                          <div class="col-4">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -245,7 +245,7 @@ echo $Html->addDoctype('html5');
                             ?>
 
                           </div>
-                          <div class="col-xs-4">
+                          <div class="col-4">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -259,10 +259,10 @@ echo $Html->addDoctype('html5');
                       <?php $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
                       if ($envodb->affected_rows > 0) { ?>
                         <div class="row stacked">
-                          <div class="col-md-12 pluginname">
+                          <div class="col-sm-12 pluginname">
                             Plugin Download
                           </div>
-                          <div class="col-xs-4">
+                          <div class="col-4">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -270,7 +270,7 @@ echo $Html->addDoctype('html5');
                             ?>
 
                           </div>
-                          <div class="col-xs-4">
+                          <div class="col-4">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -278,7 +278,7 @@ echo $Html->addDoctype('html5');
                             ?>
 
                           </div>
-                          <div class="col-xs-4">
+                          <div class="col-4">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -308,7 +308,7 @@ echo $Html->addDoctype('html5');
     </div>
     <div class=" pull-right">
       <!-- START USER INFO -->
-      <div class="visible-lg visible-md m-t-10">
+      <div class="visible-lg visible-md">
         <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
           <span class="bold"><?php echo $ENVO_WELCOME_NAME; ?></span>
         </div>
@@ -341,19 +341,17 @@ echo $Html->addDoctype('html5');
   <!-- START PAGE CONTENT -->
   <div class="content <?php if ($page == 'cmshelp') echo 'full-height'; ?>">
   <!-- START JUMBOTRON -->
-  <?php if ($page != 'cmshelp') { ?>
+  <?php if ($page != 'cmshelp' && $page != '404' && !empty($page)) { ?>
     <div class="jumbotron" data-pages="parallax">
-      <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
-        <?php if ($page != '404' && !empty($page)) { ?>
+      <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20 p-t-10 p-b-10">
           <div class="inner">
             <!-- START BREADCRUMB -->
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><h6 class="title bold" style="margin: 0;line-height: 24px;"><?php echo $SECTION_TITLE; ?></h6></li>
-              <li class="breadcrumb-item"><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
+              <li class="breadcrumb-item"><h5 class="title bold" style="margin: 0;line-height: 24px;"><?php echo $SECTION_TITLE; ?></h5></li>
+              <li class="breadcrumb-item" style="position: relative;top: 1px;"><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
             </ol>
             <!-- END BREADCRUMB -->
           </div>
-        <?php } ?>
       </div>
     </div>
   <?php } ?>

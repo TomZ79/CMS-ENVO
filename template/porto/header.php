@@ -292,7 +292,8 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <?php } ?>
 
-  <div role="main" class="main"><!-- START MAIN CONTENT -->
+  <!-- START MAIN CONTENT -->
+  <div role="main" class="main">
 
     <!-- =========================
     START PAGE TITLE SECTION
@@ -305,7 +306,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
       }
 
-      if ($page) {
+      if (($page && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) || ($page && ENVO_ASACCESS)) {
         // Code for all page without home page
         ?>
 

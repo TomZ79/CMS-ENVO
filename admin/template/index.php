@@ -1,8 +1,8 @@
 <?php include "header.php"; ?>
 
   <!-- Small boxes (Stat box) -->
-  <div class="row">
-    <div class="col-lg-3 col-xs-12">
+  <div class="row m-t-20">
+    <div class="col-lg-3 col-12">
       <!-- small box -->
       <div class="dashboard-box bg-success">
         <div class="inner">
@@ -18,7 +18,7 @@
         </a>
       </div>
     </div>
-    <div class="col-lg-3 col-xs-12">
+    <div class="col-lg-3 col-12">
       <!-- small box -->
       <div class="dashboard-box bg-complete-dark">
         <div class="inner">
@@ -34,7 +34,7 @@
           <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    <div class="col-lg-3 col-xs-12">
+    <div class="col-lg-3 col-12">
       <!-- small box -->
       <div class="dashboard-box bg-warning">
         <div class="inner">
@@ -50,7 +50,7 @@
           <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    <div class="col-lg-3 col-xs-12">
+    <div class="col-lg-3 col-12">
       <!-- small box -->
       <?php if (ENVO_TAGS) { ?>
         <div class="dashboard-box bg-danger">
@@ -85,151 +85,155 @@
   </div>
 
   <!-- Content -->
-  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
-    <li class="nav-item">
-      <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab"]; ?></span>
-      </a>
-    </li>
-    <li class="nav-item next">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-        <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab1"]; ?></span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-        <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
-      </a>
-    </li>
-    <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
-      <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab3"]; ?></span>
-        </a>
-      </li>
-    <?php } ?>
-  </ul>
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+        <li class="nav-item">
+          <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
+            <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab"]; ?></span>
+          </a>
+        </li>
+        <li class="nav-item next">
+          <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
+            <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab1"]; ?></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
+            <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
+          </a>
+        </li>
+        <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
+          <li class="nav-item">
+            <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
+              <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab3"]; ?></span>
+            </a>
+          </li>
+        <?php } ?>
+      </ul>
 
-  <div class="tab-content">
-    <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box box-success">
-            <div class="box-header">
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="box box-success">
+                <div class="box-header">
 
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('i', '', 'fa fa-pie-chart');
-              echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt2"], 'box-title');
-              ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('i', '', 'fa fa-pie-chart');
+                  echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt2"], 'box-title');
+                  ?>
 
+                </div>
+                <div class="box-body no-padding">
+
+                  <?php
+                  // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                  echo $Html->addDiv('', 'chart_total', array('class' => 'charts'));
+                  ?>
+
+                </div>
+              </div>
             </div>
-            <div class="box-body no-padding">
+            <div class="col-sm-6">
+              <div class="box box-success">
+                <div class="box-header">
 
-              <?php
-              // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-              echo $Html->addDiv('', 'chart_total', array('class' => 'charts'));
-              ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('i', '', 'fa fa-pie-chart');
+                  echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt2"], 'box-title');
+                  ?>
 
+                </div>
+                <div class="box-body no-padding">
+
+                  <?php
+                  // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                  echo $Html->addDiv('', 'page_total', array('class' => 'charts'));
+                  ?>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="box box-success">
-            <div class="box-header">
+        <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box box-success">
+                <div class="box-header">
 
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('i', '', 'fa fa-pie-chart');
-              echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt2"], 'box-title');
-              ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('i', '', 'fa fa-pie-chart');
+                  echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt5"], 'box-title');
+                  ?>
 
-            </div>
-            <div class="box-body no-padding">
+                </div>
+                <div class="box-body no-padding table-responsive">
 
-              <?php
-              // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-              echo $Html->addDiv('', 'page_total', array('class' => 'charts'));
-              ?>
+                  <?php
+                  include "analytic.php";
+                  ?>
 
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box box-success">
+                <div class="box-header">
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('i', '', 'fa fa-paperclip');
+                  echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt1"], 'box-title');
+                  ?>
+
+                </div>
+                <div class="box-body">
+                  <ul class="todoList">
+                    <?php if (isset($todos) && is_array($todos)) foreach ($todos as $item) {
+                      echo $item;
+                    } ?>
+                  </ul>
+                </div>
+                <div class="box-footer clearfix no-border">
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('#', $tl["button"]["btn"], 'addTodo', 'btn btn-default addtodo pull-right');
+                  ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
+          <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
+            <div class="row">
+              <div class="col-sm-12">
+                <?php
+                if (isset($ENVO_HOOK_ADMIN_INDEX) && is_array($ENVO_HOOK_ADMIN_INDEX)) foreach ($ENVO_HOOK_ADMIN_INDEX as $hspi) {
+                  include_once APP_PATH . $hspi['phpcode'];
+                }
+                ?>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
       </div>
     </div>
-    <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box box-success">
-            <div class="box-header">
-
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('i', '', 'fa fa-pie-chart');
-              echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt5"], 'box-title');
-              ?>
-
-            </div>
-            <div class="box-body no-padding table-responsive">
-
-              <?php
-              include "analytic.php";
-              ?>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box box-success">
-            <div class="box-header">
-
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('i', '', 'fa fa-paperclip');
-              echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt1"], 'box-title');
-              ?>
-
-            </div>
-            <div class="box-body">
-              <ul class="todoList">
-                <?php if (isset($todos) && is_array($todos)) foreach ($todos as $item) {
-                  echo $item;
-                } ?>
-              </ul>
-            </div>
-            <div class="box-footer clearfix no-border">
-
-              <?php
-              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('#', $tl["button"]["btn"], 'addTodo', 'btn btn-default addtodo pull-right');
-              ?>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
-      <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
-        <div class="row">
-          <div class="col-md-12">
-            <?php
-            if (isset($ENVO_HOOK_ADMIN_INDEX) && is_array($ENVO_HOOK_ADMIN_INDEX)) foreach ($ENVO_HOOK_ADMIN_INDEX as $hspi) {
-              include_once APP_PATH . $hspi['phpcode'];
-            }
-            ?>
-          </div>
-        </div>
-      </div>
-    <?php } ?>
   </div>
 
   <div class="row padding-15 m-t-30">
-    <div class="container-fluid">
+    <div class="col-sm-12">
       <div class="text-center">
         <p>
 

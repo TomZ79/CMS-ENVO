@@ -8,7 +8,7 @@
       <div class="copyright sm-text-center">
         <p class="small no-margin pull-left sm-pull-reset">
           <span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by </span>
-          <span><strong><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
+          <span><strong><a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
           <span class="hint-text">All rights reserved.</span>
         </p>
         <p class="small no-margin pull-right sm-pull-reset">
@@ -123,7 +123,7 @@ echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
 <!-- BEGIN CORE TEMPLATE JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('pages/js/pages.js');
+echo $Html->addScript('pages/js/pages.min.js');
 ?>
 
 <!-- BEGIN PAGE LEVEL JS -->
@@ -141,7 +141,7 @@ $notify =
   '}, {' .
   ' type: "danger",' .
   ' delay: 5000,' .
-  ' template: "<div data-notify=\"container\" role=\"alert\" class=\"col-xs-11 col-sm-2 col-md-5 alert alert-{0}\">\
+  ' template: "<div data-notify=\"container\" role=\"alert\" class=\"col-11 col-sm-2 col-sm-5 alert alert-{0}\">\
                 <button type=\"button\" class=\"close\" data-notify=\"dismiss\">\
                   <span aria-hidden=\"true\">×</span>\
                   <span class=\"sr-only\">Close</span>\
@@ -206,7 +206,7 @@ if ($page == 'template' && $page1 == 'settings') {
     }, {
       // Settings
       timer: 8000,
-      template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
+      template: '<div data-notify="container" class="col-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
       '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
@@ -255,7 +255,7 @@ if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
       // settings
       type: 'danger',
       delay: 0,
-      template: '<div data-notify="container" class="col-xs-11 col-sm-5 alert alert-{0}" role="alert">' +
+      template: '<div data-notify="container" class="col-11 col-sm-5 alert alert-{0}" role="alert">' +
       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
       '<span data-notify="icon"></span> ' +
       '<span data-notify="message">{2}</span>' +
@@ -278,16 +278,16 @@ if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
 } ?>
 
 <!-- MODAL DIALOG -->
-<div class="modal fade fill-in" id="ENVOModal" tabindex="-1" role="dialog" aria-labelledby="ENVOModalLabel">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-    <i class="pg-close"></i>
+<div class="modal fade fill-in" id="ENVOModal">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <i class="pg-close" aria-hidden="true"></i>
   </button>
-  <div class="modal-dialog">
+  <div class="modal-dialog mw-100" role="document">
     <div class="modal-content">
       <div class="modal-header"></div>
       <div class="modal-body padding-0">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="body-content" style="display: flex;flex-direction: column;min-height: 90vh;"></div>
           </div>
         </div>

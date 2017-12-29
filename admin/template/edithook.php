@@ -64,7 +64,7 @@ if ($errors) { ?>
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -78,7 +78,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -87,7 +87,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -99,7 +99,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -108,7 +108,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
                       <select name="envo_hook" class="form-control selectpicker" data-search-select2="true">
 
@@ -129,7 +129,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -137,7 +137,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <select name="envo_plugin" class="form-control selectpicker" data-search-select2="true">
 
                       <?php
@@ -156,7 +156,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -165,7 +165,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
 
                       <?php

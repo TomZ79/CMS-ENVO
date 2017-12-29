@@ -197,7 +197,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php

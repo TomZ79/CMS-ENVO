@@ -5,7 +5,8 @@
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/todo.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
-//
+// EN: Important all Class and functions
+// CZ: Import všech tříd a funkcí
 require "../../class/class.todo.php";
 
 // EN: Detecting AJAX Requests

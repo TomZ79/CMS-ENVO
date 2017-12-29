@@ -59,7 +59,7 @@ if ($page1 == "e") { ?>
     <div class="tab-content">
       <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -73,7 +73,7 @@ if ($page1 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -81,7 +81,7 @@ if ($page1 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                           <?php
@@ -93,7 +93,7 @@ if ($page1 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -101,7 +101,7 @@ if ($page1 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -127,7 +127,7 @@ if ($page1 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 

@@ -57,7 +57,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     } else {
 
       // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-      echo $Html->startTag('div', array('class' => 'col-md-12'));
+      echo $Html->startTag('div', array('class' => 'col-sm-12'));
       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
       echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
       // Add Html Element -> endTag (Arguments: tag)

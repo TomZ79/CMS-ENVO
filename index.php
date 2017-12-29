@@ -362,8 +362,8 @@ if ($page == 'logout') {
   if (ENVO_USERID) {
     $envouserlogin->envoLogout(ENVO_USERID);
     $usergroupid = $envouser->getVar("usergroupid");
-    // EN: Add error message to session
-    // CZ: Přidání chybové zprávy do session
+    // EN: Add info message to session
+    // CZ: Přidání info zprávy do session
     $_SESSION["infomsg"] = $tl["notification"]["n4"];
     // EN: Redirect page
     // CZ: Přesměrování stránky

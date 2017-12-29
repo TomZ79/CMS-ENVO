@@ -28,23 +28,25 @@
 	text-shadow: none;
 	box-shadow: none;
 	line-height: 21px;
-	.padding-left(@padding-base-horizontal);
-	.padding-right(@padding-base-horizontal);
 	position: relative;
 	transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.2s linear 0s !important;
+	padding: 6px @padding-base-horizontal;
 	&:hover {
 		background-color: #FAFAFA;
 		border: 1px solid fade(@color-master, 27%);
+		color: #333;
 	}
 	&.active {
 		border-color: @color-master-light;
 		background: #FFF;
+		color: #333;
 	}
 	&:focus,
 	&:active:focus,
 	&.active:focus {
 		outline: none !important;
 		outline-style: none;
+		color: #333;
 	}
 	.caret {
 		.margin-left(3px);
@@ -118,7 +120,7 @@ Alternate buttons
 	}
 }
 
-// Link button 
+// Link button
 .btn-link {
 	color: #5E5E5E;
 	background-color: transparent;
@@ -161,6 +163,8 @@ Button Sizes
 	.padding-left(@padding-lg-horizontal);
 	.padding-right(@padding-lg-horizontal);
 	line-height: 23px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .btn-sm, .btn-group-sm > .btn {
@@ -185,14 +189,14 @@ Rounded buttons
 --------------------------------------------------
 */
 .btn-rounded {
-	border-radius: 100px;
+	border-radius: 100px !important;
 }
 
 /*
  Dropdown menus
 --------------------------------------------------
 */
-.open {
+.show {
 	.btn-group& .dropdown-toggle,
 	& .dropdown-toggle,
 	&.dropdown-default .dropdown-toggle {
@@ -204,7 +208,15 @@ Rounded buttons
 /* Pages default dropdown */
 .dropdown-default {
 	display: inline-block;
-	&.open {
+	&.toggle-only {
+		padding-left: 9px;
+		padding-right: 9px;
+		&:after {
+			position: initial;
+		}
+	}
+	
+	&.show {
 		& > .btn {
 			&.dropdown-toggle {
 				border-color: transparent !important;
@@ -216,7 +228,7 @@ Rounded buttons
 			opacity: 1;
 			transform: scale(1, 1);
 			z-index: @zIndex-dropdown;
-			li {
+			.dropdown-item {
 				visibility: visible;
 			}
 		}
@@ -305,7 +317,7 @@ Rounded buttons
 		.padding-right(@padding-base-horizontal + 10px);
 		&.btn-lg {
 			.padding-right(@padding-lg-horizontal + 14px);
-			.caret {
+			&:after {
 				.right(26px);
 			}
 			& + .dropdown-menu {
@@ -318,7 +330,7 @@ Rounded buttons
 		}
 		&.btn-sm {
 			.padding-right(@padding-sm-horizontal + 10px);
-			.caret {
+			&:after {
 				.right(16px);
 			}
 			& + .dropdown-menu {
@@ -331,7 +343,7 @@ Rounded buttons
 		}
 		&.btn-xs {
 			.padding-right(@padding-xs-horizontal + 12px);
-			.caret {
+			&:after {
 				.right(8px);
 			}
 			& + .dropdown-menu {
@@ -342,7 +354,7 @@ Rounded buttons
 				}
 			}
 		}
-		.caret {
+		&:after {
 			position: absolute;
 			.right(15px);
 			top: 50%;
@@ -376,9 +388,19 @@ Rounded buttons
 			background: @color-master-light;
 			width: 100%;
 		}
-		li {
+		li, // BS-3
+		.dropdown-item {
 			visibility: hidden;
 		}
+	}
+}
+
+.dropdown-toggle {
+	&:after {
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		margin-top: -2px;
 	}
 }
 
@@ -388,7 +410,7 @@ Rounded buttons
 	float: left;
 	list-style: none;
 	text-shadow: none;
-	.box-shadow(0 0 5px fade(@color-master, 20%));
+	.box-shadow(0px 0px 5px fade(@color-master, 20%));
 	border: none;
 	border-radius: 3px;
 	font-size: 13px;
@@ -402,8 +424,21 @@ Rounded buttons
 		margin: 3px 0;
 		border-bottom: 0;
 	}
-	& > li {
+	& > li, //BS-3
+	& > .dropdown-item {
 		padding-left: 0;
+		line-height: 35px;
+		color: @color-master;
+		padding: 0 20px;
+		border-radius: 3px;
+		display: block;
+		clear: both;
+		white-space: nowrap;
+		.text-align(left);
+		&:hover, &:focus {
+			color: @color-master-darker;
+			text-decoration: none;
+		}
 		&:first-child {
 			padding-top: 9px;
 		}
@@ -413,17 +448,18 @@ Rounded buttons
 		&.dropdown-header {
 			padding: 3px 20px;
 		}
-		&.active > a {
+		&.active > a, // BS-3
+		&.active {
 			&,
 			&:hover,
 			&:focus {
 				color: @color-master-darker;
 				text-decoration: none;
 				background-color: @color-master-lighter;
-				background-image: none;
 			}
 		}
-		&.disabled > a {
+		&.disabled > a, // BS-3
+		&.disabled {
 			&,
 			&:hover,
 			&:focus {
@@ -432,15 +468,16 @@ Rounded buttons
 			&:hover, &:focus {
 				text-decoration: none;
 				cursor: default;
-				background-color: transparent;
-				background-image: none;
 			}
 		}
-		& > a {
+		& > a { // BS-3
 			line-height: 35px;
 			color: @color-master;
 			padding: 0 20px;
 			border-radius: 3px;
+			display: block;
+			clear: both;
+			white-space: nowrap;
 			.text-align(left);
 			&:hover, &:focus {
 				color: @color-master-darker;
@@ -449,6 +486,10 @@ Rounded buttons
 				background-image: none;
 			}
 		}
+		
+	}
+	& > li { // BS-3
+		padding: 0;
 	}
 }
 
@@ -595,14 +636,14 @@ Misc buttons
 	&.active:focus,
 	&:active:focus,
 	&:active:hover,
-	.open .dropdown-toggle& {
+	.show .dropdown-toggle& {
 		background-color: mix(@background-color, @color-black, @mix-percentage-dark);
 		border-color: mix(@background-color, @color-black, @mix-percentage-dark);
 		color: @text-color;
 	}
 	&.hover,
 	&:hover,
-	.open .dropdown-toggle& {
+	.show .dropdown-toggle& {
 		background-color: mix(@background-color, @color-white, @mix-percentage-light);
 		border-color: mix(@background-color, @color-white, @mix-percentage-light);
 		color: @text-color;
@@ -628,5 +669,14 @@ Misc buttons
 	.badge {
 		color: @background-color;
 		background-color: @text-color;
+	}
+}
+
+.modal-content {
+	a.btn-primary:not([href]):not([tabindex]) {
+		color: #FFF;
+		&:hover, &:focus {
+			color: #FFF;
+		}
 	}
 }

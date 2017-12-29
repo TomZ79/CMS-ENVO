@@ -64,7 +64,7 @@ if ($ENVO_FILE_ERROR) { ?>
   <div class="tab-content">
     <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -78,7 +78,7 @@ if ($ENVO_FILE_ERROR) { ?>
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-12 margin-bottom-20">
+                    <div class="col-sm-12 margin-bottom-20">
                       <blockquote>
                         <p><?php echo $tl["fb_box_content"]["fbbc6"]; ?></p>
                       </blockquote>
@@ -89,7 +89,7 @@ if ($ENVO_FILE_ERROR) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
 
                       <?php
                       // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -115,7 +115,7 @@ if ($ENVO_FILE_ERROR) { ?>
     </div>
     <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -131,7 +131,7 @@ if ($ENVO_FILE_ERROR) { ?>
                   <div class="row-form <?php if (!$ENVO_FILECONTENT) {
                     echo "hidden";
                   } ?>">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
 
                       <?php
                       // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
@@ -147,7 +147,7 @@ if ($ENVO_FILE_ERROR) { ?>
                   </div>
                   <?php if ($ENVO_FILECONTENT) { ?>
                     <div class="row-form">
-                      <div class="col-md-12">
+                      <div class="col-sm-12">
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -184,7 +184,7 @@ if ($ENVO_FILE_ERROR) { ?>
     </div>
     <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -200,7 +200,7 @@ if ($ENVO_FILE_ERROR) { ?>
                   <div class="row-form <?php if (!$ENVO_FILECONTENT1) {
                     echo "hidden";
                   } ?>">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
 
                       <?php
                       // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
@@ -216,7 +216,7 @@ if ($ENVO_FILE_ERROR) { ?>
                   </div>
                   <?php if ($ENVO_FILECONTENT1) { ?>
                     <div class="row-form">
-                      <div class="col-md-12">
+                      <div class="col-sm-12">
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)

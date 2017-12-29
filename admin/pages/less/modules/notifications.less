@@ -15,6 +15,7 @@
 	padding-right: 6px;
 	padding-bottom: 4px;
 	color: @color-master;
+	border-radius: 10px;
 }
 
 .badge-success {
@@ -55,6 +56,13 @@
 .badge-disable {
 	background-color: @color-master-dark;
 	color: @color-master;
+}
+
+/* Tool Tip
+--------------------------------------------------
+*/
+.tooltip-inner {
+	font-size: 12px;
 }
 
 /* Notification popup
@@ -322,7 +330,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
 	margin: 0;
 }
 
-/* Simple 
+/* Simple
 ------------------------------------
 */
 
@@ -431,6 +439,10 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
 	float: left;
 }
 
+.pgn-wrapper[data-position^='bottom-'] .pgn-circle .alert {
+	margin-bottom: 20px;
+}
+
 .pgn-circle .alert > div > div.pgn-thumbnail > div {
 	border-radius: 50%;
 	overflow: hidden;
@@ -527,16 +539,16 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
 	}
 }
 
-/* Flip 
+/* Flip
 ------------------------------------
 */
 
 .pgn-wrapper[data-position^='top-'] .pgn-flip {
-	top: -30px;
+	// top: -30px;
 }
 
 .pgn-wrapper[data-position^='bottom-'] .pgn-flip {
-	bottom: -30px;
+	// bottom: -30px;
 }
 
 .pgn-wrapper[data-position^='bottom-'] .pgn-flip .alert {
@@ -716,4 +728,8 @@ body > .pgn-wrapper {
 			width: 100%;
 		}
 	}
+}
+
+.notification-tabs {
+	flex-wrap: wrap;
 }

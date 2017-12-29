@@ -109,6 +109,37 @@ form legend {
 	line-height: 22px;
 }
 
+//Select2 lg
+.select2-lg {
+	.select2-container .select2-selection.select2-selection--single {
+		height: 45px;
+		padding: 11px 13px;
+		.select2-selection__rendered {
+			padding-top: 0;
+			line-height: 22px;
+			font-size: 18px;
+		}
+		.select2-selection__arrow {
+			bottom: 9px;
+		}
+	}
+}
+
+.select2-sm {
+	.select2-container .select2-selection.select2-selection--single {
+		height: 32px;
+		padding: 8px 9px;
+		.select2-selection__rendered {
+			padding-top: 0;
+			line-height: 16px;
+			font-size: 13px;
+		}
+		.select2-selection__arrow {
+			bottom: 4px;
+		}
+	}
+}
+
 /* Checkboxes and Radio buttons
 --------------------------------------------------
 */
@@ -122,10 +153,16 @@ form legend {
 		display: inline-block;
 		cursor: pointer;
 		position: relative;
-		padding-left: 25px !important;
+		padding-left: 25px;
 		margin-right: 15px;
+		min-width: 17px;
+		min-height: 17px;
 		font-size: 13px;
+		line-height: 20px;
+		margin-bottom: 0;
 		&:before {
+			-webkit-box-sizing: inherit;
+			box-sizing: border-box;
 			content: "";
 			display: inline-block;
 			width: 17px;
@@ -141,7 +178,7 @@ form legend {
 
 .radio {
 	label {
-		margin-bottom: 6px;
+		margin-bottom: 0;
 		&:before {
 			bottom: 2.5px;
 			border-radius: 99px;
@@ -197,6 +234,10 @@ input[type=radio]:checked + label:before {
 	}
 }
 
+.checkbox + .checkbox, .radio + .radio {
+	margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+}
+
 .checkbox {
 	input[type=radio][disabled] {
 		& + label {
@@ -207,7 +248,6 @@ input[type=radio]:checked + label:before {
 	}
 	label {
 		transition: border 0.2s linear 0s, color 0.2s linear 0s;
-		white-space: nowrap;
 		&:before {
 			top: 1.4px;
 			border-radius: 3px;
@@ -218,7 +258,7 @@ input[type=radio]:checked + label:before {
 			width: 16px;
 			height: 16px;
 			position: absolute;
-			left: 3.2px;
+			left: 3.5px;
 			top: 0;
 			font-size: 11px;
 			transition: border 0.2s linear 0s, color 0.2s linear 0s;
@@ -391,11 +431,11 @@ input[type=checkbox]:checked + label {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-	form .row [class*="col-md-"]:not(:first-child),
-	form .row [class*="col-md-"]:not(:last-child) {
+	/*form .row [class*="col-md-"]:not(:first-child),
+	form .row [class*="col-md-"]:not(:last-child){
 		padding-right: 0;
 		padding-left: 0;
-	}
+	}*/
 }
 
 /* Form layouts  : Horizontal
@@ -421,6 +461,15 @@ input[type=checkbox]:checked + label {
 			opacity: .42;
 			.transition(opacity ease .3s)
 		}
+	}
+	.radio {
+		padding-top: 7px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.control-label {
+		padding-top: 7px;
+		margin-bottom: 0;
 	}
 }
 
@@ -505,9 +554,10 @@ input[type=checkbox]:checked + label {
 	margin-bottom: 10px;
 	label:not(.error) {
 		font-family: 'Montserrat';
-		font-size: 11px;
+		font-size: 10.5px;
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		font-weight: 600;
+		font-weight: 500;
 	}
 	label .help {
 		.margin-left(8px);
@@ -529,6 +579,7 @@ input[type=checkbox]:checked + label {
 	padding-right: 12px;
 	padding-bottom: 4px;
 	overflow: hidden;
+	width: 100%;
 	.transition(background-color .2s ease);
 	&.required:after {
 		color: @color-danger;
@@ -581,7 +632,7 @@ input[type=checkbox]:checked + label {
 			margin-top: 6px;
 			.padding-left(12px);
 			&.inline {
-				margin-top: 16px;
+				margin-top: 6px;
 				float: left;
 			}
 		}
@@ -592,7 +643,7 @@ input[type=checkbox]:checked + label {
 		}
 		.input-group-addon {
 			height: calc(@form-group-height - 4px);
-			min-width: calc(@form-group-height - 4px);
+			// min-width:calc(@form-group-height - 4px);
 			border-radius: 0;
 			border: none;
 		}
@@ -702,20 +753,26 @@ input[type=checkbox]:checked + label {
 				}
 			}
 		}
-		& > .input-lg {
+		&.input-lg {
 			height: auto;
 			padding: 0;
-			.select2-choice {
-				padding-top: 20px;
-				height: 56px;
+			.select2-container .select2-selection--single {
+				padding-top: 26px;
+				height: 58px;
+				.select2-selection__rendered {
+					font-size: 18px;
+				}
 			}
 		}
-		& > .input-sm {
+		&.input-sm {
 			height: auto;
 			padding: 0;
-			.select2-choice {
-				padding-top: 20px;
-				height: 46px;
+			.select2-container .select2-selection--single {
+				padding-top: 21px;
+				height: 49px;
+				.select2-selection__rendered {
+					font-size: 13px;
+				}
 			}
 		}
 	}
@@ -789,8 +846,7 @@ input[type=checkbox]:checked + label {
 	border: 1px solid @form-control-border-color;
 	color: fade(@color-master, 47%);
 	font-size: 14px;
-	padding: 6px 9px;
-	display: table-cell;
+	padding: 6px 10px;
 	border-radius: 3px;
 	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s, color 0.2s linear 0s, box-shadow 0.2s linear 0s, background 0.2s linear 0s;
 	i {
@@ -994,9 +1050,10 @@ https://github.com/eternicode/bootstrap-datepicker
 .input-daterange .input-group-addon {
 	text-shadow: none;
 	border: 0;
+	margin: 0;
 }
 
-/* Timepicker 
+/* Timepicker
 https://github.com/m3wolf/bootstrap3-timepicker
 */
 
@@ -1411,16 +1468,49 @@ select.full-width + .select2-container {
 https://github.com/timschlechter/bootstrap-tagsinput
 */
 
-.form-group-default .bootstrap-tagsinput {
-	border: 0;
-	.padding-left(0);
+.form-group-default {
+	.bootstrap-tagsinput {
+		border: 0;
+		.padding-left(0);
+		margin-bottom: 0;
+		padding-top: 0;
+		vertical-align: top;
+		padding-bottom: 0;
+		.padding-left(0);
+		margin-top: -3px;
+		.tag {
+			padding: 2px 9px;
+			line-height: 18px;
+			margin-bottom: 2px;
+			[data-role="remove"] {
+				display: inline-block;
+				vertical-align: top;
+			}
+			.margin-left(0);
+			.margin-right(2px);
+		}
+		input {
+			min-height: 20px;
+			&:first-child {
+				.margin-left(0);
+			}
+		}
+	}
 }
 
 .bootstrap-tagsinput {
+	.flex();
+	.flex-row();
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-ms-flex-flow: wrap;
+	flex-flow: wrap;
 	background-color: transparent;
 	border: 1px solid @form-control-border-color;
 	border-radius: 4px;
-	padding-bottom: 5px;
+	padding: 0;
+	padding-top: 5px;
+	.padding-right(5px);
 	.box-shadow(none);
 	width: 100%;
 	.transition(background 0.2s linear 0s);
@@ -1429,19 +1519,39 @@ https://github.com/timschlechter/bootstrap-tagsinput
 	}
 	input {
 		border: none;
-		margin-bottom: 0;
+		margin: 5px;
+		margin-top: 0;
+		.margin-right(0);
 		min-height: 25px;
 		min-width: 10em !important;
+		-webkit-box-flex: 1;
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+		//Older browsers
+		-webkit-flex-shrink: 0;
+		-webkit-flex-grow: 1;
+		-webkit-flex-basis: auto;
 	}
 	.tag {
-		vertical-align: middle;
-		padding: 6px 9px;
+		padding: 3px 9px;
 		.padding-right(6px);
 		border-radius: 3px;
-		line-height: 30px;
+		line-height: 18px;
+		-webkit-box-flex: 1;
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+		//Older browsers
+		-webkit-flex-shrink: 0;
+		-webkit-flex-grow: 1;
+		-webkit-flex-basis: auto;
+		margin: 5px;
+		margin-top: 0;
+		.margin-right(0);
 	}
-	.tag[data-role="remove"] {
-		margin-left: 4px;
+	.tag [data-role="remove"] {
+		.margin-left(4px);
+		.float(right);
+		vertical-align: middle;
 	}
 	.tag[data-role="remove"]:hover:active,
 	.tag [data-role="remove"]:hover {
@@ -1545,7 +1655,7 @@ https://github.com/Waxolunist/bootstrap3-wysihtml5-bower
 }
 
 .editor-icon {
-	background-image: url("../img/editor_tray.png");
+	background-image: url("@{base-img-url}/editor_tray.png");
 	display: inline-block;
 	height: 40px;
 	margin-top: 5px;
@@ -1964,6 +2074,9 @@ div.cs-skin-slide::before {
 
 .form-group-default .cs-wrapper {
 	width: 100%;
+	height: 100%;
+	.flex();
+	.align-items(center);
 }
 
 .cs-wrapper {
@@ -2033,6 +2146,7 @@ div.cs-skin-slide {
 	}
 	.cs-options {
 		height: auto;
+		padding: 9px 0;
 		width: auto;
 		padding: 10px;
 		max-height: 350px;
@@ -2145,6 +2259,13 @@ div.cs-skin-slide {
 	}
 }
 
+.dropzone {
+	overflow: hidden;
+	.dz-default.dz-message {
+		width: 100%;
+	}
+}
+
 /* Dropzone for Angular */
 .dropzone[dropzone="dropzone"] input[type="file"] {
 	visibility: hidden;
@@ -2155,4 +2276,76 @@ div.cs-skin-slide {
 /* Demo specifc classes */
 .demo-form-wysiwyg {
 	height: 250px;
+}
+
+// error form
+.error-form {
+	.form-group-default {
+		padding: 0;
+		justify-content: space-between;
+		.input-group-addon {
+			height: calc(50px);
+			// min-width: calc(50px);
+			border-radius: 0;
+			border: none;
+		}
+		label {
+			margin-top: 6px;
+			padding-left: 12px;
+		}
+		.form-control {
+			margin-top: -2px;
+			margin-bottom: 3px;
+			padding-left: 12px;
+		}
+	}
+	.transparent {
+		.input-group-addon {
+			background-color: transparent;
+			border-color: rgba(0, 0, 0, 0.07);
+		}
+	}
+}
+
+.error-container {
+	&.bottom-container {
+		margin-top: 0;
+	}
+}
+
+.form-group-default {
+	&.input-group {
+		padding: 0;
+		label {
+			margin-top: 6px;
+			padding-left: 12px;
+		}
+		.form-input-group {
+			width: 100%;
+		}
+		.form-control {
+			margin-top: -2px;
+			margin-bottom: 3px;
+			padding-left: 12px;
+			width: 100%;
+		}
+		.input-group-addon {
+			// min-width: calc(50px);
+			height: 52px;
+			border-radius: 0 !important;
+			border: none !important;
+		}
+	}
+}
+
+.h-c-50 {
+	height: calc(50px);
+}
+
+.card-toolbar {
+	.note-editor {
+		.btn-toolbar {
+			display: block;
+		}
+	}
 }

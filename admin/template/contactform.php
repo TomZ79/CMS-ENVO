@@ -140,7 +140,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -160,7 +160,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   }
 } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

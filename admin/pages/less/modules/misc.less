@@ -28,7 +28,7 @@
 	-webkit-backface-visibility: hidden;
 }
 
-/* Thumbnail for icons and profile pics 
+/* Thumbnail for icons and profile pics
 ------------------------------------
 */
 .thumbnail-wrapper {
@@ -132,28 +132,22 @@
 		border-left: 6px solid transparent;
 		content: '';
 	}
-	li {
+	& > a {
+		opacity: .5;
+		.transition(opacity ease .3s);
+		.padding-left(17px);
+		.padding-right(37px);
+		min-width: 138px;
+		& > i {
+			.margin-right(5px);
+		}
+		&:hover {
+			opacity: 1;
+		}
 		&:last-child {
 			margin-top: 11px;
-			padding: 0;
-			& > a {
-				padding-top: 3px;
-				padding-bottom: 3px;
-				.padding-right(19px);
-			}
-		}
-		& > a {
-			opacity: .5;
-			.transition(opacity ease .3s);
-			.padding-left(17px);
-			.padding-right(37px);
-			min-width: 138px;
-			& > i {
-				.margin-right(5px);
-			}
-			&:hover {
-				opacity: 1;
-			}
+			padding-bottom: 3px !important;
+			padding-top: 3px;
 		}
 	}
 }
@@ -161,6 +155,7 @@
 .profile-dropdown-toggle {
 	background: transparent;
 	border: none;
+	cursor: pointer;
 }
 
 /* Scroll
@@ -171,7 +166,7 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-/* Overides 
+/* Overides
 ------------------------------------
 */
 .no-padding {
@@ -295,11 +290,11 @@
 	overflow-x: hidden !important;
 }
 
-/* Generic Padding Helpers 
+/* Generic Padding Helpers
 ------------------------------------
 */
 
-.generate-paddings-options(20);
+.generate-paddings-options(10);
 
 .generate-paddings-options(@n, @i: 0) when (@i =< @n) {
 	@step: @i*5;
@@ -324,7 +319,7 @@
 /* Generic Margin Helpers
 ------------------------------------
  */
-.generate-margin-options(20);
+.generate-margin-options(10);
 
 .generate-margin-options(@n, @i: 0) when (@i =< @n) {
 	@step: @i*5;
@@ -352,7 +347,7 @@
 }
 
 .hide {
-	display: none;
+	display: none !important;
 }
 
 .inline {
@@ -360,14 +355,14 @@
 }
 
 .block {
-	display: block;
+	display: block !important;
 }
 
 .b-blank {
 	border-color: #000;
 }
 
-/* Border Helpers 
+/* Border Helpers
 ------------------------------------
 */
 .b-a,
@@ -471,7 +466,6 @@
 	display: inline-block;
 	.float(left);
 	border-radius: 100px 100px 100px 100px;
-	display: inline-block;
 	height: 35px;
 	overflow: hidden;
 	width: 35px;
@@ -491,6 +485,20 @@
 
 .relative {
 	position: relative;
+}
+
+.flex-1 {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+}
+
+[data-pages-bg-image] {
+	background-size: cover;
 }
 
 /* Demo Purposes */
@@ -516,8 +524,6 @@
 
 .error-container {
 	margin-top: -100px;
-	margin-left: auto;
-	margin-right: auto;
 	width: 38%;
 }
 
@@ -547,7 +553,7 @@
 .ar-1-2,
 .ar-3-2,
 .ar-2-3 {
-	.panel {
+	.card {
 		margin: 0;
 	}
 }
@@ -667,7 +673,7 @@
 	vertical-align: bottom !important;
 }
 
-/* columns of same height styles 
+/* columns of same height styles
 ------------------------------------
 */
 .container-xs-height {
@@ -699,12 +705,12 @@
 	}
 	
 	.row-sm-height {
-		display: table-row;
+		/*display:table-row;*/
 	}
 	
 	.col-sm-height {
-		display: table-cell !important;
-		float: none !important;
+		/*display:table-cell !important;
+		float:none !important;*/
 	}
 }
 
@@ -748,3 +754,9 @@
 	}
 }
 
+//IE Fixes
+.windows {
+	.d-flex {
+		-ms-flex-wrap: wrap;
+	}
+}

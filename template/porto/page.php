@@ -15,12 +15,6 @@
 
 		<div id="printdiv">
 
-	<?php }
-	if ($PAGE_SHOWTITLE && $ENVO_SHOW_NAVBAR) { ?>
-
-		<!-- Heading / Title -->
-		<h2><?php echo $PAGE_TITLE; ?></h2>
-
 	<?php } ?>
 
 	<?php if ($PAGE_PASSWORD && !ENVO_ASACCESS && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) {?>
@@ -52,6 +46,14 @@
 		</section>
 
 	<?php } else {
+
+    if ($PAGE_SHOWTITLE) { ?>
+
+      <!-- Heading / Title -->
+      <h2><?php echo $PAGE_TITLE; ?></h2>
+
+    <?php }
+
 		if (isset($ENVO_HOOK_PAGE) && is_array ($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
 			include_once APP_PATH . $hpage["phpcode"];
 		}

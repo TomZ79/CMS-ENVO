@@ -72,7 +72,7 @@
 <?php if (isset($ENVO_CAT1_EXIST) || isset($ENVO_CAT2_EXIST) || isset($ENVO_CAT3_EXIST)) { ?>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <!-- Header or Header/Footer -->
       <div class="box box-success">
         <div class="box-header with-border">
@@ -116,7 +116,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <!-- Footer Only -->
       <div class="box box-success">
         <div class="box-header with-border">
@@ -163,7 +163,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <!-- Not Visible -->
       <div class="box box-success">
         <div class="box-header with-border">
@@ -195,7 +195,7 @@
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -206,7 +206,7 @@
 
 <?php } ?>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php

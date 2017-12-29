@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-  <div class="col-md-6 text-center error-page">
+  <div class="col-sm-6 text-center error-page">
 
     <?php
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)

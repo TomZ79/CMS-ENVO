@@ -5,7 +5,7 @@ return array(
 	'az_AZ' => 'Azərbaycan dili',
 	'bg_BG' => 'български език',
 	'ca' => 'Català, valencià',
-	'cs' => 'čeština, český jazyk',
+	'cs_CZ' => 'čeština, český jazyk',
 	'da' => 'Dansk',
 	'de' => 'Deutsch',
 	'el_GR' => 'ελληνικά',

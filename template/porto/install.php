@@ -23,11 +23,11 @@ $succesfully = 0;
   <title>Installation - PORTO / Template</title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
-  <link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+  <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
   <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN Pages CSS-->
-  <link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
-  <link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+  <link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
+  <link class="main-stylesheet" href="/admin/pages/css/pages.min.css?=v3.0.0" rel="stylesheet" type="text/css"/>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
     /* Fix 'jumping scrollbar' issue */
@@ -44,17 +44,23 @@ $succesfully = 0;
     }
   </style>
   <!-- BEGIN VENDOR JS -->
-  <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-  <script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html->addScript('/assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
+  ?>
   <!-- BEGIN CORE TEMPLATE JS -->
-  <script src="/admin/pages/js/pages.js?=v2.2.0"></script>
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  ?>
 </head>
 <body>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 m-t-20">
-      <div class="jumbotron bg-master">
+    <div class="col-sm-12 m-t-20">
+      <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
         <h3 class="semi-bold text-white">Installation - PORTO / Template</h3>
       </div>
       <hr>
@@ -65,7 +71,7 @@ $succesfully = 0;
       $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_porto"');
       if ($envodb->affected_rows > 0) { ?>
 
-        <div class="alert alert-info fade in">
+        <div class="alert alert-info fade show">
           Template is already installed.
         </div>
 
@@ -95,9 +101,9 @@ $succesfully = 0;
           // EN: Set html data to insert
           // CZ: Nastavení HTML dat pro vložení
           $footerblocktext1 = '
-<div class="col-md-8">
+<div class="col-sm-8">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <h5>Blog</h5>
       <ul class="list list-icons list-icons-sm">
         <li><i class="fa fa-caret-right"></i> <a href="#">Blog Full Width</a></li>
@@ -106,7 +112,7 @@ $succesfully = 0;
         <li><i class="fa fa-caret-right"></i> <a href="#">Single Post</a></li>
       </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <h5>Pages</h5>
       <ul class="list list-icons list-icons-sm">
         <li><i class="fa fa-caret-right"></i> <a href="#">Full width</a></li>
@@ -115,7 +121,7 @@ $succesfully = 0;
         <li><i class="fa fa-caret-right"></i> <a href="#">Custom Header</a></li>
       </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <h5>Extra Pages</h5>
       <ul class="list list-icons list-icons-sm">
         <li><i class="fa fa-caret-right"></i> <a href="#">Team</a></li>
@@ -127,7 +133,7 @@ $succesfully = 0;
     </div>
   </div>
 </div>
-<div class="col-md-4">
+<div class="col-sm-4">
   <div class="contact-details">
     <h4>Contact Us</h4>
     <ul class="contact">
@@ -194,7 +200,7 @@ $succesfully = 0;
           $succesfully = 1;
 
           ?>
-          <div class="alert alert-success fade in">
+          <div class="alert alert-success fade show">
             Template successfully installed!
           </div>
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>

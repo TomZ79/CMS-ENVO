@@ -127,7 +127,7 @@ $site_locale = $setting["locale"] . '.utf8';
 if ($site_language == 'en') {
   $managerlang = 'en_EN';
 } else {
-  $managerlang = 'cs';
+  $managerlang = 'cs_CZ';
 }
 
 // Check if user is logged in

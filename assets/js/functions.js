@@ -1,11 +1,11 @@
 /*
  * CMS ENVO
  * JS for Admin Control Panel and Site with custom modification
- * Copyright (c) 2016 - 2017 Bluesat.cz
+ * Copyright (c) 2016 - 2018 Bluesat.cz
  *
  * -----------------------------------------------------------------------
  * Author: BluesatKV
- * Written by: Bluesat.cz - (http://www.bluesat.cz)
+ * Written by: Bluesat.cz - (https://www.bluesat.cz)
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:

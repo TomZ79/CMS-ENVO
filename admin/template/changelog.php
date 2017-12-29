@@ -1,13 +1,13 @@
 <?php include "header.php"; ?>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-sm-12">
     <!-- Detached content -->
     <div class="container-detached">
       <div class="content-detached">
         <!-- Version 1.2.1 -->
         <div id="v_1_2_1" class="scrollspyoffset">
-          <div class="panel panel-flat">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Version 1.2.1</h5>
               <div class="heading-elements">
@@ -60,7 +60,7 @@
 
         <!-- Version 1.2 -->
         <div id="v_1_2" class="scrollspyoffset">
-          <div class="panel panel-flat">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Version 1.2</h5>
               <div class="heading-elements">
@@ -170,7 +170,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 
         <!-- Version 1.1 -->
         <div id="v_1_1" class="scrollspyoffset">
-          <div class="panel panel-flat">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Version 1.1</h5>
               <div class="heading-elements">
@@ -215,7 +215,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 
         <!-- Initial release -->
         <div id="release" class="scrollspyoffset">
-          <div class="panel panel-flat">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Initial release</h5>
               <div class="heading-elements">
@@ -235,7 +235,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 
         <!-- Properties -->
         <div id="properties" class="scrollspyoffset">
-          <div class="panel panel-flat">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Admin Control Panel - Properties</h5>
             </div>

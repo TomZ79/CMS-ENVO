@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     $errors['e'] = $tl['general_error']['generror14'];
   }
 
-  // transform user email
+  // Transform user email
   $femail = filter_var($defaults['envoE'], FILTER_SANITIZE_EMAIL);
   $fwhen  = time();
 

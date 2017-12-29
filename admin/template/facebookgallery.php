@@ -62,25 +62,25 @@
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Form Content - Grid view -->
     <div id="gridview" class="row toggle visible">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <?php foreach ($ENVO_GALLERY_ALL as $v) { ?>
-          <div class="col-md-3">
+          <div class="col-sm-3">
             <div class="hovereffect gridview">
               <div class="center-cropped">
                 <img src="<?php echo $v["paththumb"] . 'thumb_' . $v["title"]; ?>"/>
               </div>
               <div class="caption">
                 <h4><?php echo envo_cut_text(pathinfo($v["title"], PATHINFO_FILENAME), 18, ' ...'); ?></h4>
-                <div class="col-md-12 col-xs-3">
+                <div class="col-sm-12 col-3">
                   <p><strong>Format: </strong><?php echo pathinfo($v["title"], PATHINFO_EXTENSION); ?></p>
                 </div>
-                <div class="col-md-12 col-xs-4">
+                <div class="col-sm-12 col-4">
                   <p><strong>Size: </strong><?php echo formatSizeUnits($v["size"]); ?></p>
                 </div>
-                <div class="col-md-12 col-xs-5">
+                <div class="col-sm-12 col-5">
                   <p><strong>Resolution: </strong><?php echo $v["width"] . ' x ' . $v["height"]; ?></p>
                 </div>
-                <div class="col-md-12">
+                <div class="col-sm-12">
                   <div class="pull-right">
                     <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-primary btn-xs">Info</a>
                     <a href="index.php?p=facebookgallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["fb_notification"]["del"], $v["title"]); ?>">Delete</a>
@@ -95,7 +95,7 @@
 
     <!-- Form Content - List view -->
     <div id="listview" class="row toggle hidden">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-body no-padding">
             <div class="table-responsive">
@@ -142,7 +142,7 @@
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -157,7 +157,7 @@
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

@@ -20,41 +20,47 @@ $succesfully = 0;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Uninstallation - PORTO / Template</title>
-	<meta charset="utf-8">
-	<!-- BEGIN Vendor CSS-->
-	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
-	<link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-	<!-- BEGIN Pages CSS-->
-	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
-	<link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
-	<!-- BEGIN CUSTOM MODIFICATION -->
-	<style type="text/css">
-		/* Fix 'jumping scrollbar' issue */
-		@media screen and (min-width: 960px) {
-			html {
-				margin-left: calc(100vw - 100%);
-				margin-right: 0;
-			}
-		}
+  <title>Installation - PORTO / Template</title>
+  <meta charset="utf-8">
+  <!-- BEGIN Vendor CSS-->
+  <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
+  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <!-- BEGIN Pages CSS-->
+  <link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
+  <link class="main-stylesheet" href="/admin/pages/css/pages.min.css?=v3.0.0" rel="stylesheet" type="text/css"/>
+  <!-- BEGIN CUSTOM MODIFICATION -->
+  <style type="text/css">
+    /* Fix 'jumping scrollbar' issue */
+    @media screen and (min-width: 960px) {
+      html {
+        margin-left: calc(100vw - 100%);
+        margin-right: 0;
+      }
+    }
 
-		/* Main body */
-		body {
-			background: transparent;
-		}
-	</style>
-	<!-- BEGIN VENDOR JS -->
-	<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
-	<!-- BEGIN CORE TEMPLATE JS -->
-	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
+    /* Main body */
+    body {
+      background: transparent;
+    }
+  </style>
+  <!-- BEGIN VENDOR JS -->
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html->addScript('/assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
+  ?>
+  <!-- BEGIN CORE TEMPLATE JS -->
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  ?>
 </head>
 <body>
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 m-t-20">
-			<div class="jumbotron bg-master">
+		<div class="col-sm-12 m-t-20">
+      <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
 				<h3 class="semi-bold text-white">Uninstallation - PORTO / Template</h3>
 			</div>
 			<hr>
@@ -74,7 +80,7 @@ $succesfully = 0;
 
 				?>
 
-				<div class="alert alert-success fade in">
+				<div class="alert alert-success fade show">
 					Template successfully uninstalled!
 				</div>
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -88,7 +94,7 @@ $succesfully = 0;
 			<form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
 				<div class="form-group form-inline">
 					<label for="text">Please read info about uninstallation and enter text: </label>
-					<input type="text" name="captcha" class="form-control" id="text">
+          <input type="text" name="captcha" class="form-control ml-2" id="text">
 					<img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
 				</div>
 				<button type="submit" name="uninstall" class="btn btn-complete btn-block">Uninstall Template</button>

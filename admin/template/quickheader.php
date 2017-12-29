@@ -40,6 +40,6 @@ echo $Html->addDoctype('html5');
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <section class="content-header">
         <h1><?php echo $tl["hf_text"]["hftxt8"]; ?></h1>

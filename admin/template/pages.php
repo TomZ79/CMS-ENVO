@@ -61,7 +61,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <form role="form" method="post" action="/admin/index.php?p=page&amp;sp=search&amp;ssp=go">
         <div class="input-group">
           <span class="input-group-btn">
@@ -235,7 +235,7 @@
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -255,7 +255,7 @@
   }
 } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
