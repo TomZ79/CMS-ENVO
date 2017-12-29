@@ -492,7 +492,12 @@
    * @requires bootstrap.js
    */
   Pages.prototype.initTooltipPlugin = function (context) {
-    $.fn.tooltip && $('[data-toggle="tooltip"]', context).tooltip();
+    $.fn.tooltip && $('[data-toggle="tooltip"]', context).tooltip({
+      placement: 'bottom',
+      trigger: 'hover',
+      container: 'body',
+      animation: false
+    });
   };
 
   /** @function initSelect2Plugin

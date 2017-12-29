@@ -66,7 +66,8 @@ $(function () {
       selector: o.BSTooltipSelectorIcon,
       placement: 'bottom',
       trigger: 'hover',
-      container: 'body'
+      container: 'body',
+      animation: false
     });
   }
 

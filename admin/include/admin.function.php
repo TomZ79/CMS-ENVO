@@ -677,13 +677,13 @@ function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3,
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] == 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $title1 . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] != 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["pageid"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $title2 . '"><i class="fa fa-pencil"></i></a>' : '') . '
-          			' . ($menu["items"][$itemId]["pluginid"] > 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="' . $title3 . '"><i class="fa fa-eyedropper"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] == 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title1 . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] != 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["pageid"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title2 . '"><i class="fa fa-pencil"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] > 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title3 . '"><i class="fa fa-eyedropper"></i></a>' : '') . '
           			' . ($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
           			
-          			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-confirm="' . $lang . '" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o" ></i></a>' : '') . '
+          			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-confirm="' . $lang . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o" ></i></a>' : '') . '
           		</span></div></li>';
       }
 
@@ -693,13 +693,13 @@ function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3,
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] == 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $title1 . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] != 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["pageid"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $title2 . '"><i class="fa fa-pencil"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] == 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title1 . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] != 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["pageid"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title2 . '"><i class="fa fa-pencil"></i></a>' : '') . '
           			' . ($menu["items"][$itemId]["pluginid"] > 0 && $menu["items"][$itemId]["exturl"] == '' ? '<i class="fa fa-eyedropper"></i>' : '') . '
           			' . ($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
           			
-          			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="#" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
+          			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="#" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
           		</span>
           		</div>';
         $html .= envo_build_menu_admin($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
