@@ -95,7 +95,7 @@ echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js?=v4.4.0
 echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js?=v0.8.0');
 echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js?=v1.7.0');
-echo $Html->addScript('assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js?=v4.17.42');
+echo $Html->addScript('assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.min.js?=v4.17.42');
 echo $Html->addScript('assets/plugins/jquery/jquery-easy.js');
 echo $Html->addScript('assets/plugins/jquery-unveil/1.3.0/jquery.unveil.min.js?=v1.3.0');
 echo $Html->addScript('assets/plugins/jquery-bez/1.0.11/jquery.bez.min.js?=v1.0.11');
@@ -109,7 +109,7 @@ echo $Html->addScript('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.m
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('assets/plugins/jquery-validation/js/jquery.validate.min.js');
 if ($site_language = 'cs') {
-  echo $Html->addScript('assets/plugins/jquery-validation/js/localization/messages_cs.js');
+  echo $Html->addScript('assets/plugins/jquery-validation/js/localization/messages_cs.min.js');
 } ?>
 
 <!-- BEGIN JS FUNCTION -->
@@ -129,7 +129,7 @@ echo $Html->addScript('pages/js/pages.min.js');
 <!-- BEGIN PAGE LEVEL JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('assets/js/global_js/scripts.js');
+echo $Html->addScript('assets/js/global_js/scripts.min.js');
 ?>
 
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->

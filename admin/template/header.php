@@ -28,11 +28,11 @@ echo $Html->addDoctype('html5');
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Pace preloader
-  echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
+  echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.min.css');
   // Bootstrap
   echo $Html->addStylesheet('../assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6');
   // Font Awesomemin
-  echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css');
   // Scrollbar
   echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.css?=v0.2.11', 'screen');
   //FileInput
@@ -40,7 +40,7 @@ echo $Html->addDoctype('html5');
   // Bootstrap Select
   echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
   // Bootstrap TagsInput
-  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css?=v0.8.0', 'screen');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css?=v0.8.0', 'screen');
   // Bootstrap DateTimePicker
   echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.42');
   // Bootstrap IconPicker

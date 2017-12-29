@@ -20,7 +20,7 @@
    * @property {object}  $body - Cache Body.
    */
   var Pages = function () {
-    this.VERSION = "3.0.0";
+    this.VERSION = "3.0.1";
     this.AUTHOR = "Revox and BluesatKV";
     this.SUPPORT = "support@revox.io";
 
