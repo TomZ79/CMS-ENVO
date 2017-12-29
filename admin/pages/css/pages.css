@@ -43,6 +43,7 @@
  * 30. Misc
  * 31. Print
  * 32. Demo
+ * 33. Popovers
  
 -------------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
@@ -13791,6 +13792,15 @@ Label the data
   .view-iframe-wrapper iframe {
     padding: 0;
   }
+}
+/*------------------------------------------------------------------
+[33. Popovers]
+*/
+/* Bootstrap v4 elemnets modification
+--------------------------------------------------
+*/
+.popover-title {
+  margin: 0 !important;
 }
 .visible-xlg {
   display: none;

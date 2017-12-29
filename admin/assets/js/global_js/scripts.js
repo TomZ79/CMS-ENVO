@@ -1221,7 +1221,7 @@ $('.cms-help').popover({
   trigger: 'focus',
   html: true,
   template: '<div class="popover style-1">' +
-  '<div class="arrow"></div>' +
+  '<div class="popover-arrow"></div>' +
   '<h3 class="popover-title"></h3>' +
   '<div class="popover-content"></div>' +
   '</div>'
