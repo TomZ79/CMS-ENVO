@@ -108,17 +108,9 @@ switch ($page1) {
     // Important template Stuff
     $getTotal = envo_get_total($envotable, '', '', '');
     if ($getTotal != 0) {
-      // Paginator
-      $pages                 = new ENVO_paginator;
-      $pages->items_total    = $getTotal;
-      $pages->mid_range      = $setting["adminpagemid"];
-      $pages->items_per_page = $setting["adminpageitem"];
-      $pages->envo_get_page   = $page1;
-      $pages->envo_where      = 'index.php?p=logs';
-      $pages->paginate();
-      $ENVO_PAGINATE = $pages->display_pages();
 
-      $ENVO_LOGINLOG_ALL = envo_get_page_info($envotable, $pages->limit, '');
+      $ENVO_LOGINLOG_ALL = envo_get_page_info($envotable, '');
+
     }
 
     // EN: Title and Description

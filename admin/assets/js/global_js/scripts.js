@@ -442,7 +442,7 @@ function restoreContent(fieldname, backupid, id) {
         var element = $(this);
         // Show detail without TD with buttons
         if (!$(e.target).closest('.call-button').length) {
-          element.toggleClass('active')
+          element.toggleClass('active');
           element.next('tr').toggle();
           element.find(".table-expandable-arrow").toggleClass("up");
         }

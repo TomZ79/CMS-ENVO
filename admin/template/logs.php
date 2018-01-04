@@ -193,10 +193,7 @@
     </div>
   </div>
 
-  <?php if ($ENVO_PAGINATE) {
-    echo $ENVO_PAGINATE;
-  }
-} else { ?>
+<?php } else { ?>
 
   <div class="col-sm-12">
 
