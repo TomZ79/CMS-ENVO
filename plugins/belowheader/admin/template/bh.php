@@ -77,8 +77,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
             <thead>
             <tr>
               <th class="no-sort" style="width:5%">#</th>
-              <th class="text-center no-sort" style="width:4%">
-                <div class="checkbox-singel check-success">
+              <th class="no-sort" style="width:4%">
+                <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
@@ -116,7 +116,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
-                  <div class="checkbox-singel check-success">
+                  <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)

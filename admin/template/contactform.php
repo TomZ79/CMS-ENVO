@@ -47,12 +47,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table id="contactf_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>#</th>
-              <th>
-                <div class="checkbox-singel check-success">
+              <th class="no-sort" style="width:5%">#</th>
+              <th class="no-sort" style="width:4%">
+                <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
@@ -63,9 +63,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 </div>
               </th>
-              <th><?php echo $tl["cf_box_table"]["cftb"]; ?></th>
-              <th><?php echo $tl["cf_box_table"]["cftb1"]; ?></th>
-              <th>
+              <th style="width:40%"><?php echo $tl["cf_box_table"]["cftb"]; ?></th>
+              <th style="width:39%"><?php echo $tl["cf_box_table"]["cftb1"]; ?></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -73,8 +73,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 ?>
 
               </th>
-              <th></th>
-              <th>
+              <th class="text-center no-sort" style="width:4%"></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -88,7 +88,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
-                  <div class="checkbox-singel check-success">
+                  <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
@@ -116,7 +116,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -124,7 +124,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

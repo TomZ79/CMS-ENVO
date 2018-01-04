@@ -241,7 +241,7 @@ switch ($page1) {
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tld["downl_sec_title"]["downlt1"];
-    $SECTION_DESC  = $tld["downl_sec_title"]["downld1"];
+    $SECTION_DESC  = $tld["downl_sec_desc"]["downld1"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

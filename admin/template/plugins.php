@@ -189,7 +189,7 @@ if ($page1 == "e") { ?>
                       echo $Html->addAnchor('index.php?p=plugins&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
 
                       if ($v["uninstallfile"]) {
-                        echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-trash-o"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                        echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-remove"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i33"]));
 
                       }
 
@@ -271,7 +271,7 @@ if ($page1 == "e") { ?>
       echo $Html->addTag('i', '', 'fa fa-flag', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i13"]));
       echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i6"]));
       echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i5"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-remove', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i33"]));
       ?>
 
     </div>
