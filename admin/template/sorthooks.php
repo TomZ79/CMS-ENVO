@@ -50,7 +50,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
           <ul class="list-unstyled overflow">
             <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
               <li class="filter-item" data-filter="<?php echo $h; ?>">
-                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;ssp=<?php echo $h; ?>"><?php echo $h; ?></a>
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?php echo $h; ?>"><?php echo $h; ?></a>
               </li>
             <?php } ?>
           </ul>
@@ -81,7 +81,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
             <div class="show">
               <?php echo $tl["hook_box_content"]["hookbc1"]; ?>:
-              <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
+              <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
               | <?php echo $tl["hook_box_content"]["hookbc4"] . ':';
               if ($v["pluginid"] != '0') { ?>
                 <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginname"]; ?></a><?php } else {
