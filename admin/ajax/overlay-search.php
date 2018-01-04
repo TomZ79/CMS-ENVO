@@ -64,7 +64,7 @@ if (is_ajax()) {
       echo '<div class="m-t-20">';
       // Output data of each row
       while ($rowpg = $resultpg->fetch_assoc()) {
-        echo '<a href="index.php?p=page&sp=edit&ssp=' . $rowpg["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowpg["title"] . '</a><br>';
+        echo '<a href="index.php?p=page&sp=edit&id=' . $rowpg["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowpg["title"] . '</a><br>';
       }
       echo '</div>';
       echo '</div>';
@@ -107,7 +107,7 @@ if (is_ajax()) {
       echo '<div class="m-t-20">';
       // Output data of each row
       while ($rowbl = $resultbl->fetch_assoc()) {
-        echo '<a href="index.php?p=blog&sp=edit&ssp=' . $rowbl["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowbl["title"] . '</a><br>';
+        echo '<a href="index.php?p=blog&sp=edit&id=' . $rowbl["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowbl["title"] . '</a><br>';
       }
       echo '</div>';
       echo '</div>';
@@ -150,7 +150,7 @@ if (is_ajax()) {
       echo '<div class="m-t-20">';
       // Output data of each row
       while ($rowns = $resultns->fetch_assoc()) {
-        echo '<a href="index.php?p=news&sp=edit&ssp=' . $rowns["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowns["title"] . '</a><br>';
+        echo '<a href="index.php?p=news&sp=edit&id=' . $rowns["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowns["title"] . '</a><br>';
       }
       echo '</div>';
       echo '</div>';
@@ -205,7 +205,7 @@ if (is_ajax()) {
       echo '<div class="m-t-20">';
       // Output data of each row
       while ($rowdl = $resultdl->fetch_assoc()) {
-        echo '<a href="index.php?p=download&sp=edit&ssp=' . $rowdl["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowdl["title"] . '</a><br>';
+        echo '<a href="index.php?p=download&sp=edit&id=' . $rowdl["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowdl["title"] . '</a><br>';
       }
       echo '</div>';
       echo '</div>';
@@ -248,7 +248,7 @@ if (is_ajax()) {
       echo '<div class="m-t-20">';
       // Output data of each row
       while ($rowfq = $resultfq->fetch_assoc()) {
-        echo '<a href="index.php?p=faq&sp=edit&ssp=' . $rowfq["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowfq["title"] . '</a><br>';
+        echo '<a href="index.php?p=faq&sp=edit&id=' . $rowfq["id"] . '" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 90%;display: inline-block;float: left;">' . $rowfq["title"] . '</a><br>';
       }
       echo '</div>';
       echo '</div>';

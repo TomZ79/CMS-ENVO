@@ -8,6 +8,9 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSTAGS)) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'tags';
@@ -15,10 +18,14 @@ $envotable1 = DB_PREFIX . 'tagcloud';
 $envotable2 = DB_PREFIX . 'pagesgrid';
 $envotable3 = DB_PREFIX . 'pluginhooks';
 
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
+
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'cloud':
+    // TAGS CLOUD
 
     // Important template Stuff
     $ENVO_TAGCLOUD = envo_admin_tag_cloud();
@@ -68,6 +75,7 @@ switch ($page1) {
 
     break;
   case 'setting':
+    // SETTINGS OF TAGS
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
@@ -244,6 +252,7 @@ switch ($page1) {
 
     break;
   default:
+    // LIST OF TAGS
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_tag'])) {
@@ -253,10 +262,10 @@ switch ($page1) {
 
       if (isset($defaults['delete'])) {
 
-        $tags = $defaults['envo_delete_tag'];
+        $deletetags = $defaults['envo_delete_tag'];
 
-        for ($i = 0; $i < count($tags); $i++) {
-          $tag = $tags[$i];
+        for ($i = 0; $i < count($deletetags); $i++) {
+          $tag = $deletetags[$i];
           ENVO_tags::envoDeleteOneTag($tag);
         }
 
@@ -274,6 +283,7 @@ switch ($page1) {
 
     switch ($page1) {
       case 'sort':
+        // SORT TAGS BY PLUGIN
 
         if ($page2 == 'pluginid') {
           $bu = 'pluginid';
@@ -336,6 +346,7 @@ switch ($page1) {
 
         break;
       case 'lock':
+        // LIST OF TAGS - LOCK TAG IN DB
 
         if (is_numeric($page2)) {
 
@@ -353,6 +364,8 @@ switch ($page1) {
 
         break;
       case 'delete':
+        // LIST OF TAGS - DELETE TAG FROM DB
+
         if (envo_row_exist($page2, $envotable)) {
 
           ENVO_tags::envoDeleteOneTag($page2);
@@ -373,6 +386,7 @@ switch ($page1) {
         }
         break;
       default:
+        // LIST OF TAGS
 
         // Important template Stuff
         $getTotal = envo_get_total($envotable, '', '', '');

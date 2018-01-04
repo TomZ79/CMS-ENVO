@@ -91,7 +91,7 @@ if ($page2 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -105,7 +105,7 @@ if ($page2 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -113,7 +113,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin">
 
                           <?php
@@ -141,7 +141,7 @@ if ($page2 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -155,7 +155,7 @@ if ($page2 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -163,7 +163,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin">
 
                           <?php
@@ -191,7 +191,7 @@ if ($page2 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -205,7 +205,7 @@ if ($page2 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -213,7 +213,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin">
 
                           <?php
@@ -241,7 +241,7 @@ if ($page2 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage5" role="tabpanel">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -255,7 +255,7 @@ if ($page2 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -263,7 +263,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin">
 
                           <?php
@@ -291,7 +291,7 @@ if ($page2 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage6" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -307,7 +307,7 @@ if ($page2 == "e") { ?>
                     <div class="row-form <?php if (!$ENVO_FILECONTENT) {
                       echo "hidden";
                     } ?>">
-                      <div class="col-md-12">
+                      <div class="col-sm-12">
 
                         <?php
                         // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
@@ -323,7 +323,7 @@ if ($page2 == "e") { ?>
                     </div>
                     <?php if ($ENVO_FILECONTENT) { ?>
                       <div class="row-form">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
 
                           <?php
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)

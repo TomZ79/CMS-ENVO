@@ -73,7 +73,7 @@ if ($errors) { ?>
 
     <!-- Form Content -->
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -88,7 +88,7 @@ if ($errors) { ?>
             <ul class="cform_drag">
               <li id="cform_drag">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-sm-4">
                     <div class="form-group">
 
                       <?php
@@ -99,7 +99,7 @@ if ($errors) { ?>
 
                     </div>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-sm-2">
                     <div class="form-group">
                       <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
                       <select name="envo_optiontype[]" class="form-control selectpicker">
@@ -115,7 +115,7 @@ if ($errors) { ?>
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-sm-3">
                     <div class="form-group">
 
                       <?php
@@ -127,7 +127,7 @@ if ($errors) { ?>
                     </div>
 
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-sm-2">
                     <div class="form-group">
                       <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
                       <select name="envo_optionmandatory[]" class="form-control selectpicker">
@@ -167,7 +167,7 @@ if ($errors) { ?>
 
                 <li class="envocform">
                   <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
 
                       <div class="form-group">
 
@@ -179,7 +179,7 @@ if ($errors) { ?>
 
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
                       <div class="form-group">
                         <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
                         <select name="envo_optiontype_old[]" class="form-control selectpicker">
@@ -195,7 +195,7 @@ if ($errors) { ?>
                         </select>
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
 
                       <?php
                       echo $tlrf["reg_box_content"]["regbc23"];
@@ -204,7 +204,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
                       <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
                       <select name="envo_optionmandatory_old[]" class="form-control selectpicker">
 
@@ -220,7 +220,7 @@ if ($errors) { ?>
 
                       </select>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-sm-1">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -237,7 +237,7 @@ if ($errors) { ?>
 
                       </select>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-sm-1">
                       <?php if ($o["id"] > 3) { ?>
                         <div class="checkbox-singel check-success">
 

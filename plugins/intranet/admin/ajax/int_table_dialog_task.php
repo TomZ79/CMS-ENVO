@@ -31,18 +31,18 @@ $envodata .= '
     <div class="block-content">
       <div id="notificationcontainer_edit"></div>
       <div class="row-form">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <strong>Titulek</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <input type="text" name="envo_edittasktitle" class="form-control" value="' . $row["title"] . '">
         </div>
       </div>
       <div class="row-form">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <strong>Priorita</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="form-group no-margin">
             <select name="envo_edittaskpriority" class="form-control selectpicker">
               <option value="0" ' . ($row["priority"] == 0 ? "selected" : "") . '>Nedůležitá</option>
@@ -55,10 +55,10 @@ $envodata .= '
         </div>
       </div>
       <div class="row-form">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <strong>Status</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="form-group no-margin">
             <select name="envo_edittaskstatus" class="form-control selectpicker"
               <option value="0" ' . ($row["status"] == 0 ? "selected" : "") . '>Žádný status</option>
@@ -71,23 +71,23 @@ $envodata .= '
         </div>
       </div>
       <div class="row-form">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <strong>Datum Úkolu</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <input type="text" name="envo_edittasktime" class="form-control" value="' . date($dateformat, strtotime($row["time"])) . '">
         </div>
       </div>
       <div class="row-form">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <strong>Datum Připomenutí</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <input type="text" name="envo_edittaskreminder" class="form-control" value="' . date($dateformat, strtotime($row["reminder"])) . '">
         </div>
       </div>
       <div class="row-form">
-        <div class="col-md-12">
+        <div class="col-sm-12">
           <label for=""><strong>Popis</strong></label>
           <textarea name="envo_edittaskdescription" rows="10" id="editTaskEditor" class="form-control editTaskEditor">' . $row["description"] . '</textarea>
         </div>

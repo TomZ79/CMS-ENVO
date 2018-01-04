@@ -25,7 +25,7 @@
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $page2, $tlum["urlmap_menu"]["urlmm2"]);
+    echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;id=' . $page2, $tlum["urlmap_menu"]["urlmm2"]);
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
     echo $Html->addTag('span', text_clipping_lower($tlum["urlmap_menu"]["urlmm2"]), 'icon-thumbnail');
     ?>

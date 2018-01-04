@@ -81,7 +81,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -90,7 +90,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -102,7 +102,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -110,7 +110,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="radio radio-success">
 
                       <?php
@@ -160,10 +160,10 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-12">
+                  <div class="col-sm-12">
                     <div class="row">
                       <?php if (isset($theme_files) && is_array($theme_files)) foreach ($theme_files as $l) { ?>
-                        <div class="col-sm-4 col-md-2">
+                        <div class="col-sm-4 col-sm-2">
                           <div class="thumbnail" style="text-align: center;">
                             <a class="nlprev" href="../plugins/newsletter/skins/<?php echo $l; ?>/full_width.html"><img
                                 src="../plugins/newsletter/skins/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"

@@ -57,7 +57,7 @@ if ($errors) { ?>
 
     <div class="row tab-content-singel">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -110,7 +110,7 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -165,7 +165,7 @@ if ($errors) { ?>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
           <div class="box box-success">
             <div class="box-header with-border">
 

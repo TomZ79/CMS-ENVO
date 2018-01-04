@@ -95,7 +95,7 @@
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=facebookgallery&amp;sp=delete&amp;ssp=' . $ENVO_FORM_DATA["id"], 'Delete', '', 'btn btn-danger pull-right', array('data-confirm' => sprintf($tl["fb_notification"]["del"], $ENVO_FORM_DATA["title"])));
+            echo $Html->addAnchor('index.php?p=facebookgallery&amp;sp=delete&amp;id=' . $ENVO_FORM_DATA["id"], 'Delete', '', 'btn btn-danger pull-right', array('data-confirm' => sprintf($tl["fb_notification"]["del"], $ENVO_FORM_DATA["title"])));
             ?>
 
           </div>

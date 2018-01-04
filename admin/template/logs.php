@@ -90,7 +90,7 @@
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["notification"]["n5"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["notification"]["n5"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -132,7 +132,7 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=logs&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["notification"]["n6"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=logs&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["notification"]["n6"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>

@@ -30,7 +30,7 @@
  * 16. Noname components
  
 -------------------------------------------------------------------*/
-/* 00. Bootstrap modification
+/* 01. Bootstrap modification
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Component: Bootstrap Pull Right - Responsive
@@ -133,7 +133,7 @@
 .zindex1060 {
   z-index: 1060;
 }
-/* 00. Bootstrap Components
+/* 02. Bootstrap Components
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Component: Box
@@ -145,7 +145,7 @@
   border-top: 3px solid #D2D6DE;
   margin-bottom: 20px;
   width: 100%;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 .box.box-primary {
   border-top-color: #6D5CAE;
@@ -457,8 +457,8 @@
   .row > [class^='col-md-'],
   .row > [class^='col-lg-'] {
     margin-bottom: 10px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .container .row {
     margin-left: 5px;
@@ -482,16 +482,16 @@
 }
 /* Forms */
 .controls {
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 .controls .row-form {
   float: left;
   width: 100%;
   line-height: 30px;
-  padding: 0px 0px 15px;
+  padding: 0 0 15px;
 }
 .controls .row-form:last-child {
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 .controls .row-form div[class^='col-md'] {
   line-height: 30px;
@@ -682,32 +682,32 @@
   display: inline-block;
   padding-left: 0;
 }
-.pagination > li:first-child > a {
-  border-radius: 0;
-}
+.pagination > li:first-child > a,
 .pagination > li:first-child > span {
-  border-radius: 0;
+  background-color: transparent;
+  color: #584b8d;
 }
-.pagination > li:last-child > a {
-  border-radius: 0;
-}
+.pagination > li:last-child > a,
 .pagination > li:last-child > span {
-  border-radius: 0;
+  background-color: transparent;
+  color: #584b8d;
 }
 .pagination > li > a,
 .pagination > li > span {
-  color: #10CFBD;
+  border-radius: 0;
   border: none;
-  margin-left: 5px;
+  margin: 0 2px;
+  padding: 4px 8px;
 }
-.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,
-.pagination > .active > span:focus,
-.pagination > .active > span:hover {
+.pagination > li.active > a,
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
   background-color: #10CFBD;
   border-color: transparent;
+  color: #FFF;
 }
 /* -----------------------------------------------------------------------
  *  # Component: Bootstrap Popover
@@ -767,10 +767,10 @@ li.filter-item > a:hover {
 .no-results {
   padding: 3px !important;
   margin: 0 7px !important;
-  color: #C00;
+  color: #F55753;
   font-weight: 700;
 }
-/* 00. Sidebar modification
+/* 03. Sidebar modification
  ========================================================================*/
 .page-sidebar .sidebar-overlay-slide .sidebar-footer {
   position: absolute;
@@ -817,7 +817,7 @@ li.filter-item > a:hover {
 .page-sidebar .sidebar-menu li.submenu-active li.submenu-active > .icon-thumbnail {
   color: #FFF !important;
 }
-/* 00. Bootstrap Elements
+/* 04. Bootstrap Elements
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Span  - modification
@@ -856,6 +856,9 @@ textarea.form-control,
   border: 1px solid #DFDFDF;
   box-shadow: none;
   color: #384343;
+}
+textarea.form-control {
+  height: auto;
 }
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -1045,7 +1048,7 @@ select[disabled] {
 pre[class*="language-"] {
   border-left-color: #2B6A94;
 }
-/* 00. Breadcrumb styles
+/* 05. Breadcrumb styles
  ========================================================================*/
 /* TITLE AND DESCRIPTION */
 /*** General Small Screen Desktops ***/
@@ -1073,7 +1076,7 @@ pre[class*="language-"] {
     content: "";
   }
 }
-/* 00. Bootstrap Tabs
+/* 06. Bootstrap Tabs
  * Responsive Bootstrap Tabs by @hayatbiralem
  ========================================================================*/
 /* Responsive Bootstrap Tabs */
@@ -1163,9 +1166,15 @@ pre[class*="language-"] {
 .nav-tabs > li > a {
   padding: 13px 14px;
 }
-/* 00. Bootstrap Tables
+/* 07. Tables
  ========================================================================*/
+/* -----------------------------------------------------------------------
+ *  # Bootstrap Tables  - modification
+ * -----------------------------------------------------------------------*/
 /* Table - General settings */
+.table {
+  border-collapse: separate !important;
+}
 .table thead tr th,
 .table tbody tr td {
   color: #333 !important;
@@ -1189,7 +1198,7 @@ table.table-expandable > tbody > tr:nth-child(odd) {
   cursor: pointer;
 }
 table.table-expandable > tbody > tr div.table-expandable-arrow {
-  background: transparent url(../img/table-arrows.png) no-repeat scroll 0px -16px;
+  background: transparent url(../img/table-arrows.png) no-repeat scroll 0 -16px;
   width: 16px;
   height: 16px;
   display: block;
@@ -1206,7 +1215,55 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   display: block;
   text-align: left;
 }
-/* 00. Bootstrap Plugin
+/* -----------------------------------------------------------------------
+ *  # dataTables  - modification
+ * -----------------------------------------------------------------------*/
+table.dataTable td,
+table.dataTable th {
+  /*! -webkit-box-sizing: inherit; */
+  box-sizing: inherit !important;
+}
+table.dataTable td.dataTables_empty,
+table.dataTable th.dataTables_empty {
+  text-align: left !important;
+  color: #F55753 !important;
+}
+.dataTables_wrapper {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+.dataTables_wrapper .dataTables_filter {
+  margin-left: 20px !important;
+}
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_paginate {
+  margin-top: 10px !important;
+}
+.dataTables_wrapper .dataTables_info {
+  font-size: 13px !important;
+  padding-top: 3px !important;
+}
+.dataTables_wrapper .table thead tr th {
+  border-bottom: 2px solid rgba(230, 230, 230, 0.7) !important;
+}
+table.dataTable thead .sorting::after,
+table.dataTable thead .sorting_asc::after,
+table.dataTable thead .sorting_desc::after {
+  opacity: 1 !important;
+  content: "" !important;
+}
+.dataTables_wrapper .dataTables_paginate ul > li {
+  font-size: 13px !important;
+}
+.dataTables_wrapper .dataTables_paginate ul > li.next > a,
+.dataTables_wrapper .dataTables_paginate ul > li.previous > a {
+  opacity: 1 !important;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+  padding-right: 20px !important;
+}
+/* 08. Bootstrap Plugin
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Bootbox Dialog Plugin  - modification
@@ -1442,15 +1499,13 @@ ul#cform_sort li:hover {
 }
 .envocat .text,
 .envohooks .text {
-  display: inline-block;
   color: #777;
   font-size: 14px;
-  vertical-align: middle;
 }
 .envocat .actions {
   position: absolute;
   right: 7px;
-  top: 6px;
+  top: 4px;
 }
 .envohooks .actions {
   position: absolute;
@@ -1621,7 +1676,7 @@ ul.cform_drag li:hover {
 .callout.callout-success {
   border-color: #00733E;
 }
-/* 00. Bootstrap Modal Dialog
+/* 09. Bootstrap Modal Dialog
  ========================================================================*/
 .bootbox.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
@@ -1634,7 +1689,7 @@ ul.cform_drag li:hover {
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-.bootbox.modal.fade.in .modal-dialog {
+.bootbox.modal.fade.show .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
@@ -1662,7 +1717,7 @@ ul.cform_drag li:hover {
     width: 95% !important;
   }
 }
-/* 00. Dashboard ( Small box )
+/* 10. Dashboard ( Small box )
  ========================================================================*/
 .dashboard-box {
   border-radius: 2px;
@@ -1738,7 +1793,7 @@ ul.cform_drag li:hover {
     font-size: 12px;
   }
 }
-/* 00. Todos List styles
+/* 11. Todos List styles
  ========================================================================*/
 ul.todoList {
   padding: 0;
@@ -1786,12 +1841,12 @@ ul.todoList li.todo .editTodo a.discardChanges {
 .addtodo {
   min-width: 120px;
 }
-/* 00. TinyMCE Plugin style
+/* 12. TinyMCE Plugin style
  ========================================================================*/
 div.mce-edit-area {
   padding: 10px;
 }
-/* 00. ACE Editor style
+/* 13. ACE Editor style
  ========================================================================*/
 #javaeditor,
 #csseditor,
@@ -1820,13 +1875,13 @@ div.mce-edit-area {
 #htmleditorlight4 {
   height: 200px;
 }
-/* 00. Charts
+/* 14. Charts
  ========================================================================*/
 .charts {
   width: 100%;
   height: 300px;
 }
-/* 00. Colors
+/* 15. Colors
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Color system
@@ -4331,7 +4386,7 @@ div.mce-edit-area {
 .text-default-100:focus {
   color: #333 !important;
 }
-/* 00. Noname Components
+/* 16. Noname Components
  ========================================================================*/
 /* Login Page */
 .lost-pwd {

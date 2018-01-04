@@ -11,7 +11,7 @@
     <div class="block">
       <div class="block-content">
         <div class="row-form">
-          <div class="col-md-5">
+          <div class="col-sm-5">
 
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -19,7 +19,7 @@
             ?>
 
           </div>
-          <div class="col-md-7">
+          <div class="col-sm-7">
             <div class="radio radio-success">
 
               <?php

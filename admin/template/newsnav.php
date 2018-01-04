@@ -15,7 +15,7 @@ if ($page == 'news') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo (($page == 'news' && $page1 == '') || ($page == 'news' && $page1 == 'new') || ($page == 'news' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
+    <li class="<?php echo (($page == 'news' && $page1 == '') || ($page == 'news' && $page1 == 'newnews') || ($page == 'news' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -25,22 +25,22 @@ if ($page == 'news') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'news' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+    <li class="<?php echo ($page == 'news' && $page1 == 'newnews') ? 'submenu-active' : ''; ?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=news&amp;sp=new', $tl["submenu"]["sm161"]);
+      echo $Html->addAnchor('index.php?p=news&amp;sp=newnews', $tl["submenu"]["sm161"]);
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm161"]), 'icon-thumbnail');
       ?>
 
     </li>
-    <?php if ($page == 'news' && $page1 == 'edit') { ?>
-      <li class="<?php echo ($page == 'news' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+    <?php if ($page == 'news' && $page1 == 'editnews') { ?>
+      <li class="<?php echo ($page == 'news' && $page1 == 'editnews') ? 'submenu-active' : ''; ?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=news&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm162"]);
+        echo $Html->addAnchor('index.php?p=news&amp;sp=editnews&amp;id=' . $page2, $tl["submenu"]["sm162"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm162"]), 'icon-thumbnail');
         ?>

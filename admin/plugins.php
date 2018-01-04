@@ -8,6 +8,9 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!ENVO_SUPERADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'categories';
@@ -28,26 +31,89 @@ $ENVO_SETTING_VAL = envo_get_setting_val('module');
 // Get all the hooks out the class file
 $ENVO_HOOK_LOCATIONS = ENVO_hooks::EnvoAllhooks();
 
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
+
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'hooks':
+    // HOOKS
 
     switch ($page2) {
-      case 'lock':
+      case 'newhook':
+        // ADD NEW HOOK TO DB
 
-        if (envo_row_exist($page3, $envotable2)) {
-          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
+          $defaults = $_POST;
+
+          if (empty($defaults['envo_name'])) {
+            $errors['e1'] = $tl['hook_error']['hookerror1'] . '<br>';
+          }
+
+          if (empty($defaults['envo_hook'])) {
+            $errors['e2'] = $tl['hook_error']['hookerror2'] . '<br>';
+          }
+
+          if (!is_numeric($defaults['envo_exorder'])) {
+            $errors['e3'] = $tl['hook_error']['hookerror3'] . '<br>';
+          }
+
+          if (count($errors) == 0) {
+
+            /* EN: Convert value
+             * smartsql - secure method to insert form data into a MySQL DB
+             * ------------------
+             * CZ: Převod hodnot
+             * smartsql - secure method to insert form data into a MySQL DB
+            */
+            $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
+                  name = "' . smartsql($defaults['envo_name']) . '",
+                  hook_name = "' . smartsql($defaults['envo_hook']) . '",
+                  phpcode = "' . smartsql($defaults['envo_phpcode']) . '",
+                  exorder = "' . smartsql($defaults['envo_exorder']) . '",
+                  pluginid = "' . smartsql($defaults['envo_plugin']) . '",
+                  time = NOW(),
+                  active = 1');
+
+            $rowid = $envodb->envo_last_id();
+
+            if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
+              envo_redirect(BASE_URL . 'index.php?p=plugins&sp=newhook&status=e');
+            } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
+              envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edithook&id=' . $rowid . '&status=s');
+            }
+          } else {
+
+            $errors['e'] = $tl['general_error']['generror'] . '<br>';
+            $errors      = $errors;
+          }
         }
 
-        // EN: Redirect page
-        // CZ: Přesměrování stránky
-        envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=s');
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tl["hook_sec_title"]["hookt3"];
+        $SECTION_DESC  = $tl["hook_sec_desc"]["hookd4"];
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $template = 'newhook.php';
 
         break;
-      case 'edit':
+      case 'edithook':
+        // EDIT HOOK
 
-        if (envo_row_exist($page3, $envotable2)) {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (envo_row_exist($pageID, $envotable2)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -82,17 +148,17 @@ switch ($page1) {
                         pluginid = "' . smartsql($defaults['envo_plugin']) . '",
                         time = NOW() ,
                         active = 1
-                        WHERE id = "' . smartsql($page3) . '"');
+                        WHERE id = "' . smartsql($pageID) . '"');
 
 
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&status=e');
+                envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edithook&id=' . $pageID . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&status=s');
+                envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edithook&id=' . $pageID . '&status=s');
               }
             } else {
 
@@ -102,7 +168,7 @@ switch ($page1) {
           }
 
           // Get the data from thbe hook
-          $ENVO_FORM_DATA = envo_get_data($page3, $envotable2);
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -115,13 +181,34 @@ switch ($page1) {
         }
 
         break;
+      case 'lock':
+        // LIST OF HOOKS - LOCK HOOK IN DB
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (envo_row_exist($pageID, $envotable2)) {
+          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
+        }
+
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
+        envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=s');
+
+        break;
       case 'delete':
+        // LIST OF HOOKS - DELETE HOOK FROM DB
 
-        if (envo_row_exist($page3, $envotable2)) {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
 
-          if ($page3 >= 5) {
+        if (envo_row_exist($pageID, $envotable2)) {
 
-            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '" LIMIT 1');
+          if ($pageID >= 5) {
+
+            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
 
 
             // EN: Redirect page
@@ -135,7 +222,39 @@ switch ($page1) {
         }
 
         break;
+      case 'sorthooks':
+        // SORT HOOKS BY NAME
+
+        // Important template Stuff
+        if (is_numeric($page3)) {
+          $sortwhere = 'pluginid';
+        } else {
+          $sortwhere = 'hook_name';
+        }
+
+        // SQL Query
+        $result = $envodb->query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page3) . '" ORDER BY exorder ASC');
+        while ($row = $result->fetch_assoc()) {
+          $ENVO_HOOKS[] = $row;
+        }
+
+        // Get the plugin name
+        if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $vpn) {
+          if ($vpn['pluginid'] == $page3) $ENVO_PLUGIN_NAME = $vpn['pluginname'];
+        }
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tl["hook_sec_title"]["hookt2"];
+        $SECTION_DESC  = (is_numeric($page3) ? $tl["hook_sec_desc"]["hookd2"] . ': ' . $ENVO_PLUGIN_NAME : $tl["hook_sec_desc"]["hookd3"] . ': ' . $page3);
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $template = 'sorthooks.php';
+
+        break;
       default:
+        // LIST OF HOOKS
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_hook'])) {
           // EN: Default Variable
@@ -167,14 +286,14 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['envo_delete_hook'];
+            $deleteuser = $defaults['envo_delete_hook'];
 
-            for ($i = 0; $i < count($lockuser); $i++) {
-              $locked = $lockuser[$i];
+            for ($i = 0; $i < count($deleteuser); $i++) {
+              $deleted = $deleteuser[$i];
 
-              if ($locked >= 5) {
+              if ($deleted >= 5) {
 
-                $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
+                $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($deleted) . '"');
               }
 
             }
@@ -193,28 +312,20 @@ switch ($page1) {
 
         }
 
-        // Important template Stuff
         $getTotal = envo_get_total($envotable2, '', '', '');
+
         if ($getTotal != 0) {
-          // Paginator
-          $pages                 = new ENVO_paginator;
-          $pages->items_total    = $getTotal;
-          $pages->mid_range      = $setting["adminpagemid"];
-          $pages->items_per_page = $setting["adminpageitem"];
-          $pages->envo_get_page   = $page2;
-          $pages->envo_where      = 'index.php?p=plugins&sp=hooks';
-          $pages->paginate();
-          $ENVO_PAGINATE = $pages->display_pages();
-        }
 
-        // SQL Query
-        $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks ORDER BY exorder ASC ' . $pages->limit);
-        while ($row = $result->fetch_assoc()) {
-          $plhooks[] = $row;
-        }
+          // SQL Query
+          $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks ORDER BY exorder ASC ');
+          while ($row = $result->fetch_assoc()) {
+            $plhooks[] = $row;
+          }
 
-        // Get all plugins out the databse
-        $ENVO_HOOKS = $plhooks;
+          // Get all plugins out the databse
+          $ENVO_HOOKS = $plhooks;
+
+        }
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -229,109 +340,21 @@ switch ($page1) {
     }
 
     break;
-  case 'sorthooks':
-
-    // Important template Stuff
-    if (is_numeric($page2)) {
-      $sortwhere = 'pluginid';
-    } else {
-      $sortwhere = 'hook_name';
-    }
-
-    // SQL Query
-    $result = $envodb->query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page2) . '" ORDER BY exorder ASC');
-    while ($row = $result->fetch_assoc()) {
-      $ENVO_HOOKS[] = $row;
-    }
-
-    // Get the plugin name
-    if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $vpn) {
-      if ($vpn['pluginid'] == $page2) $ENVO_PLUGIN_NAME = $vpn['pluginname'];
-    }
-
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["hook_sec_title"]["hookt2"];
-    $SECTION_DESC  = (is_numeric($page2) ? $tl["hook_sec_desc"]["hookd2"] . ': ' . $ENVO_PLUGIN_NAME : $tl["hook_sec_desc"]["hookd3"] . ': ' . $page2);
-
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $template = 'sorthooks.php';
-
-    break;
-  case 'newhook':
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (empty($defaults['envo_name'])) {
-        $errors['e1'] = $tl['hook_error']['hookerror1'] . '<br>';
-      }
-
-      if (empty($defaults['envo_hook'])) {
-        $errors['e2'] = $tl['hook_error']['hookerror2'] . '<br>';
-      }
-
-      if (!is_numeric($defaults['envo_exorder'])) {
-        $errors['e3'] = $tl['hook_error']['hookerror3'] . '<br>';
-      }
-
-      if (count($errors) == 0) {
-
-        /* EN: Convert value
-         * smartsql - secure method to insert form data into a MySQL DB
-         * ------------------
-         * CZ: Převod hodnot
-         * smartsql - secure method to insert form data into a MySQL DB
-        */
-        $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
-                  name = "' . smartsql($defaults['envo_name']) . '",
-                  hook_name = "' . smartsql($defaults['envo_hook']) . '",
-                  phpcode = "' . smartsql($defaults['envo_phpcode']) . '",
-                  exorder = "' . smartsql($defaults['envo_exorder']) . '",
-                  pluginid = "' . smartsql($defaults['envo_plugin']) . '",
-                  time = NOW(),
-                  active = 1');
-
-        $rowid = $envodb->envo_last_id();
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=plugins&sp=newhook&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $rowid . '&status=s');
-        }
-      } else {
-
-        $errors['e'] = $tl['general_error']['generror'] . '<br>';
-        $errors      = $errors;
-      }
-    }
-
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["hook_sec_title"]["hookt3"];
-    $SECTION_DESC  = $tl["hook_sec_desc"]["hookd4"];
-
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $template = 'newhook.php';
-
-    break;
   default:
+    // PLUGINS
 
     switch ($page1) {
       case 'lock':
+        // LIST OF PLUGINS - LOCK PLUGIN IN DB
 
-        if (envo_row_exist($page2, $envotable1)) {
-          $envodb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
-          $envodb->query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
-          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page2;
+
+        if (envo_row_exist($pageID, $envotable1)) {
+          $envodb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($pageID) . '"');
+          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($pageID) . '"');
         }
 
         // EN: Redirect page
@@ -340,6 +363,7 @@ switch ($page1) {
 
         break;
       default:
+        // LIST OF PLUGINS
 
         // Let's go on with the script
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

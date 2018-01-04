@@ -82,7 +82,7 @@ switch ($page1) {
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&ssp=' . $rowid . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&id=' . $rowid . '&status=s');
           }
 
         } else {
@@ -104,6 +104,94 @@ switch ($page1) {
     // CZ: Načtení php template (šablony)
     $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'new.php';
 
+    break;
+  case 'edit':
+
+    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $defaults = $_POST;
+
+        if (empty($defaults['envo_title'])) {
+          $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
+        }
+
+        if (count($errors) == 0) {
+
+          /* EN: Convert value
+           * smartsql - secure method to insert form data into a MySQL DB
+           * ------------------
+           * CZ: Převod hodnot
+           * smartsql - secure method to insert form data into a MySQL DB
+          */
+          $result = $envodb->query('UPDATE ' . $envotable . ' SET
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
+                        showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                        time = NOW()
+                        WHERE id = "' . smartsql($page2) . '"');
+
+          if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
+            envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&id=' . $page2 . '&status=e');
+          } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
+            envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&id=' . $page2 . '&status=s');
+          }
+
+        } else {
+          $errors['e'] = $tl['general_error']['generror'] . '<br>';
+          $errors      = $errors;
+        }
+      }
+
+      // Get the newsletter
+      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+
+      // Get the cat var name
+      $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(ENVO_PLUGIN_NEWSLETTER) . '"');
+      $rowc    = $resultc->fetch_assoc();
+
+      // EN: Title and Description
+      // CZ: Titulek a Popis
+      $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt2"];
+      $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld2"];
+
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
+      $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
+
+    } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
+      envo_redirect(BASE_URL . 'index.php?p=newsletter&status=ene');
+    }
+    break;
+  case 'delete':
+
+    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+
+      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+
+      if (!$result) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
+        envo_redirect(BASE_URL . 'index.php?p=newsletter&status=e');
+      } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
+        envo_redirect(BASE_URL . 'index.php?p=newsletter&status=s');
+      }
+
+    } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
+      envo_redirect(BASE_URL . 'index.php?p=newsletter&status=ene');
+    }
     break;
   case 'preview':
 
@@ -141,7 +229,7 @@ switch ($page1) {
           $result1 = $envodb->query('SELECT id, name FROM ' . $envotable1 . ' WHERE id IN(' . $row["nlgroup"] . ')');
           while ($row1 = $result1->fetch_assoc()) {
 
-            $nlgroup[] = '<a href="index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;sssp=' . $row1["id"] . '">' . $row1['name'] . '</a>';
+            $nlgroup[] = '<a href="index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;id=' . $row1["id"] . '">' . $row1['name'] . '</a>';
 
           }
 
@@ -153,7 +241,7 @@ switch ($page1) {
           $result2 = $envodb->query('SELECT id, email, name FROM ' . $envotable2 . ' WHERE id IN(' . $row["notsent"] . ')');
           while ($row2 = $result2->fetch_assoc()) {
 
-            $nluser[] = '<a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=' . $row2["id"] . '">' . $row2["name"] . ' (' . $row2["email"] . ')</a> <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=' . $row2["id"] . '" onclick="if(!confirm(\'' . $tlnl;["newsletter_notification"]["delallu"] . '\'))return false;" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>';
+            $nluser[] = '<a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;id=' . $row2["id"] . '">' . $row2["name"] . ' (' . $row2["email"] . ')</a> <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;id=' . $row2["id"] . '" onclick="if(!confirm(\'' . $tlnl;["newsletter_notification"]["delallu"] . '\'))return false;" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>';
 
           }
 
@@ -165,7 +253,7 @@ switch ($page1) {
           $result3 = $envodb->query('SELECT id, name FROM ' . DB_PREFIX . 'usergroup WHERE id IN(' . $row["cmsgroup"] . ')');
           while ($row3 = $result3->fetch_assoc()) {
 
-            $cmsgroup[] = '<a href="index.php?p=usergroup&amp;sp=edit&amp;ssp="' . $row3["id"] . '>' . $row3['name'] . '</a>';
+            $cmsgroup[] = '<a href="index.php?p=usergroup&amp;sp=edit&amp;id="' . $row3["id"] . '>' . $row3['name'] . '</a>';
 
           }
 
@@ -177,7 +265,7 @@ switch ($page1) {
           $result4 = $envodb->query('SELECT id, username, email FROM ' . DB_PREFIX . 'user WHERE id IN(' . $row["notsentcms"] . ')');
           while ($row4 = $result4->fetch_assoc()) {
 
-            $cmsuser[] = '<a href="index.php?p=users&amp;sp=edit&amp;ssp="' . $row4["id"] . '>' . $row4["name"] . '(' . $row4["email"] . ')</a>';
+            $cmsuser[] = '<a href="index.php?p=users&amp;sp=edit&amp;id="' . $row4["id"] . '>' . $row4["name"] . '(' . $row4["email"] . ')</a>';
 
           }
 
@@ -384,7 +472,7 @@ switch ($page1) {
 
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=send&ssp=' . $page2 . '&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=send&id=' . $page2 . '&status=s');
             }
 
           }
@@ -467,7 +555,7 @@ switch ($page1) {
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $rowid . '&status=s');
+                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&id=' . $rowid . '&status=s');
               }
 
             }
@@ -585,11 +673,11 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $page3 . '&status=e');
+                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&id=' . $page3 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $page3 . '&status=s');
+                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&id=' . $page3 . '&status=s');
               }
 
             } else {
@@ -711,11 +799,11 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['envo_delete_user'];
+            $deleteuser = $defaults['envo_delete_user'];
 
-            for ($i = 0; $i < count($lockuser); $i++) {
-              $locked = $lockuser[$i];
-              $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
+            for ($i = 0; $i < count($deleteuser); $i++) {
+              $deleted = $deleteuser[$i];
+              $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($deleted) . '"');
               $result = 1;
             }
 
@@ -806,7 +894,7 @@ switch ($page1) {
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $rowid . '&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&id=' . $rowid . '&status=s');
             }
 
           } else {
@@ -855,11 +943,11 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $page3 . '&status=e');
+                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&id=' . $page3 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $page3 . '&status=s');
+                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&id=' . $page3 . '&status=s');
               }
 
             } else {
@@ -963,13 +1051,13 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['envo_delete_usergroup'];
+            $deleteuser = $defaults['envo_delete_usergroup'];
 
-            for ($i = 0; $i < count($lockuser); $i++) {
-              $locked = $lockuser[$i];
+            for ($i = 0; $i < count($deleteuser); $i++) {
+              $deleted = $deleteuser[$i];
 
-              if ($locked != 1) {
-                $result = $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($locked) . '"');
+              if ($deleted != 1) {
+                $result = $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($deleted) . '"');
               }
             }
 
@@ -1145,153 +1233,61 @@ switch ($page1) {
     break;
   default:
 
-    switch ($page1) {
-      case 'delete':
+    // Hello we have a post request
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_newsletter'])) {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
+      $defaults = $_POST;
 
-        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+      if (isset($defaults['delete'])) {
 
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+        $deleteuser = $defaults['envo_delete_newsletter'];
 
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=newsletter&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=newsletter&status=s');
-          }
+        for ($i = 0; $i < count($deleteuser); $i++) {
+          $deleted = $deleteuser[$i];
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+        }
 
+        if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=newsletter&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=newsletter&status=ene');
-        }
-        break;
-      case 'edit':
-
-        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
-
-          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // EN: Default Variable
-            // CZ: Hlavní proměnné
-            $defaults = $_POST;
-
-            if (empty($defaults['envo_title'])) {
-              $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
-            }
-
-            if (count($errors) == 0) {
-
-              /* EN: Convert value
-               * smartsql - secure method to insert form data into a MySQL DB
-               * ------------------
-               * CZ: Převod hodnot
-               * smartsql - secure method to insert form data into a MySQL DB
-              */
-              $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        title = "' . smartsql($defaults['envo_title']) . '",
-                        content = "' . smartsql($defaults['envo_content']) . '",
-                        showdate = "' . smartsql($defaults['envo_showdate']) . '",
-                        time = NOW()
-                        WHERE id = "' . smartsql($page2) . '"');
-
-              if (!$result) {
-                // EN: Redirect page
-                // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&ssp=' . $page2 . '&status=e');
-              } else {
-                // EN: Redirect page
-                // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&ssp=' . $page2 . '&status=s');
-              }
-
-            } else {
-              $errors['e'] = $tl['general_error']['generror'] . '<br>';
-              $errors      = $errors;
-            }
-          }
-
-          // Get the newsletter
-          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
-
-          // Get the cat var name
-          $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(ENVO_PLUGIN_NEWSLETTER) . '"');
-          $rowc    = $resultc->fetch_assoc();
-
-          // EN: Title and Description
-          // CZ: Titulek a Popis
-          $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt2"];
-          $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld2"];
-
-          // EN: Load the php template
-          // CZ: Načtení php template (šablony)
-          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=newsletter&status=ene');
-        }
-        break;
-      default:
-
-        // Hello we have a post request
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_newsletter'])) {
-          // EN: Default Variable
-          // CZ: Hlavní proměnné
-          $defaults = $_POST;
-
-          if (isset($defaults['delete'])) {
-
-            $lockuser = $defaults['envo_delete_newsletter'];
-
-            for ($i = 0; $i < count($lockuser); $i++) {
-              $locked = $lockuser[$i];
-              $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
-            }
-
-            if (!$result) {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=newsletter&status=e');
-            } else {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=newsletter&status=s');
-            }
-
-          }
-
+          envo_redirect(BASE_URL . 'index.php?p=newsletter&status=s');
         }
 
-        // get all newsletters out
-        $getTotal = envo_get_total($envotable, '', '', '');
+      }
 
-        if ($getTotal != 0) {
-          // Paginator
-          $nletter                 = new ENVO_paginator;
-          $nletter->items_total    = $getTotal;
-          $nletter->mid_range      = $setting["adminpagemid"];
-          $nletter->items_per_page = $setting["adminpageitem"];
-          $nletter->envo_get_page   = $page1;
-          $nletter->envo_where      = 'index.php?p=newsletter';
-          $nletter->paginate();
-          $ENVO_PAGINATE = $nletter->display_pages();
-        }
-
-        // Newsletter
-        $ENVO_NEWSLETTER_ALL = envo_get_page_info($envotable, $nletter->limit);
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt"];
-        $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newsletter.php';
     }
+
+    // get all newsletters out
+    $getTotal = envo_get_total($envotable, '', '', '');
+
+    if ($getTotal != 0) {
+      // Paginator
+      $nletter                 = new ENVO_paginator;
+      $nletter->items_total    = $getTotal;
+      $nletter->mid_range      = $setting["adminpagemid"];
+      $nletter->items_per_page = $setting["adminpageitem"];
+      $nletter->envo_get_page   = $page1;
+      $nletter->envo_where      = 'index.php?p=newsletter';
+      $nletter->paginate();
+      $ENVO_PAGINATE = $nletter->display_pages();
+    }
+
+    // Newsletter
+    $ENVO_NEWSLETTER_ALL = envo_get_page_info($envotable, $nletter->limit);
+
+    // EN: Title and Description
+    // CZ: Titulek a Popis
+    $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt"];
+    $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld"];
+
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newsletter.php';
 }
 
 ?>

@@ -13,6 +13,7 @@
  * 03. Bootstrap Icon Picker
  * 04. DateTimePicker
  * 05. NestedSortable
+ * 06. DataTable Initialisation
  *
  */
 
@@ -131,25 +132,28 @@ $(function () {
     }
   });
 
-  /* Check all checkbox
-   ========================================= */
-  $("#envo_delete_all").click(function () {
+  /* Check all checkbox */
+  $('#envo_delete_all').click(function () {
     var checkedStatus = this.checked;
-    $(".highlight").each(function () {
+    if (checkedStatus) {
+      $('#button_delete').prop('disabled', false);
+    } else {
+      $('#button_delete').attr('disabled',true);
+    }
+    $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
-    });
-    $('#button_delete').prop('disabled', function (i, v) {
-      return !v;
     });
   });
 
-  /* Disable submit button if checkbox is not checked
-   ========================================= */
-  $(".highlight").change(function () {
+  /* Disable submit button if checkbox is not checked */
+  $('.highlight').change(function () {
     if (this.checked) {
-      $("#button_delete").removeAttr("disabled");
+      $('#button_delete').prop('disabled', false);
     } else {
-      $("#button_delete").attr("disabled", "disabled");
+      if ($('.highlight').filter(':checked').length < 1){
+        $('#envo_delete_all').prop('checked', false);
+        $('#button_delete').attr('disabled',true);
+      }
     }
   });
 
@@ -269,5 +273,39 @@ $(function () {
       }
     });
   });
+
+});
+
+/** 06. DataTable Initialisation
+ * @require: DataTable Plugin
+ ========================================================================*/
+
+$(function () {
+
+  // If exist 'table' -> init Plugin DataTable
+  if ($('#download_table').length > 0) {
+    $('#download_table').dataTable({
+      // Language
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+      },
+
+      "order": [],
+      "columnDefs": [{
+        "targets": 'no-sort',
+        "orderable": false
+      }],
+      // Page lenght
+      "pageLength": dataTablesSettings.pageLenght,
+      // Show entries
+      //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
+      // Design Table items
+      "dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>",
+      // Init bootstrap responsive table for mobile
+      "initComplete": function (settings, json) {
+        $(this).wrap('<div class="table-responsive"></div>');
+      }
+    });
+  }
 
 });

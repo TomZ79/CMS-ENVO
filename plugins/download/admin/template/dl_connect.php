@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="control-label"><?php echo $tld["downl_connect"]["downlc8"]; ?></label>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <select name="envo_showdlorder" class="form-control selectpicker">
 
             <?php
@@ -16,7 +16,7 @@
 
           </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <select name="envo_showdlmany" class="form-control selectpicker">
 
             <?php for ($i = 0; $i <= 10; $i++) {

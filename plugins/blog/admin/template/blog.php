@@ -78,7 +78,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
           <thead>
           <tr>
             <th class="no-sort" style="width:5%">#</th>
-            <th class="no-sort" style="width:5%">
+            <th class="text-center no-sort" style="width:4%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -91,11 +91,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </div>
             </th>
             <th style="width:35%"><?php echo $tlblog["blog_box_table"]["blogtb"]; ?></th>
-            <th style="width:16%"><?php echo $tlblog["blog_box_table"]["blogtb1"]; ?></th>
+            <th style="width:12%"><?php echo $tlblog["blog_box_table"]["blogtb1"]; ?></th>
             <th style="width:8%"><?php echo $tlblog["blog_box_table"]["blogtb2"]; ?></th>
-            <th style="width:10%"><?php echo $tlblog["blog_box_table"]["blogtb3"]; ?></th>
-            <th style="width:9%"><?php echo $tlblog["blog_box_table"]["blogtb4"]; ?></th>
-            <th class="no-sort" style="width:4%">
+            <th style="width:12%"><?php echo $tlblog["blog_box_table"]["blogtb3"]; ?></th>
+            <th style="width:12%"><?php echo $tlblog["blog_box_table"]["blogtb4"]; ?></th>
+            <th class="text-center no-sort" style="width:4%">
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -103,12 +103,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               ?>
 
             </th>
-            <th class="no-sort" style="width:4%"></th>
-            <th class="no-sort" style="width:4%">
+            <th class="text-center no-sort" style="width:4%"></th>
+            <th class="text-center no-sort" style="width:4%">
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlblog["blog_notification"]["delall"]));
+              echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlblog["blog_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
               ?>
 
             </th>
@@ -133,7 +133,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $v["id"], envo_cut_text($v["title"], 70, '...'));
+                echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 70, '...'));
                 ?>
 
               </td>
@@ -144,7 +144,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                     if (in_array($z["id"], explode(',', $v["catid"]))) {
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('index.php?p=blog&amp;sp=showcat&amp;ssp=' . $z["id"], $z["name"]);
+                      echo $Html->addAnchor('index.php?p=blog&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
                     }
                   }
                 } else {
@@ -201,27 +201,27 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 ?>
 
               </td>
-              <td>
+              <td class="text-center">
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=blog&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                echo $Html->addAnchor('index.php?p=blog&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                 ?>
 
               </td>
-              <td>
+              <td class="text-center">
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                 ?>
 
               </td>
-              <td>
+              <td class="text-center">
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=blog&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlblog["blog_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=blog&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlblog["blog_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>
@@ -232,7 +232,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -249,7 +249,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

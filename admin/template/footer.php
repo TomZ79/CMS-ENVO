@@ -94,14 +94,18 @@ echo $Html->addScript('assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=
 echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js?=v4.4.0');
 echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js?=v0.8.0');
 echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js?=v1.7.0');
-echo $Html->addScript('assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.min.js?=v4.17.42');
+echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js?=v1.9.0');
+echo $Html->addScript('assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.min.js?=v4.17.47');
 echo $Html->addScript('assets/plugins/jquery/jquery-easy.js');
 echo $Html->addScript('assets/plugins/jquery-unveil/1.3.0/jquery.unveil.min.js?=v1.3.0');
 echo $Html->addScript('assets/plugins/jquery-bez/1.0.11/jquery.bez.min.js?=v1.0.11');
 echo $Html->addScript('assets/plugins/imagesloaded/4.1.3/imagesloaded.pkgd.min.js?=v4.1.3');
 echo $Html->addScript('assets/plugins/jquery-actual/1.0.19/jquery.actual.min.js?=v1.0.19');
 echo $Html->addScript('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.min.js?=v0.2.11');
+// Plugin DataTable
+if ($page == 'plugins' || $page == 'page' || $page == 'news') {
+  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+}
 ?>
 
 <!-- Validadion -->

@@ -26,6 +26,8 @@ if ($page == 'belowheader') {
     // Plugin ACE Editor
     echo $Html->addScript('assets/plugins/ace/ace.js');
   }
+  // Plugin DataTable
+  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Javascript
   echo $Html->addScript('/plugins/belowheader/admin/js/script.belowheader.min.js');
 

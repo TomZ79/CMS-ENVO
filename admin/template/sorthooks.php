@@ -50,7 +50,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
           <ul class="list-unstyled overflow">
             <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
               <li class="filter-item" data-filter="<?php echo $h; ?>">
-                <a href="index.php?p=plugins&sp=sorthooks&ssp=<?php echo $h; ?>"><?php echo $h; ?></a>
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;ssp=<?php echo $h; ?>"><?php echo $h; ?></a>
               </li>
             <?php } ?>
           </ul>
@@ -75,16 +75,16 @@ if ($page2 == "e" || $page2 == "edn") { ?>
             <div>
 							<span class="text">
 								<span class="textid"># <?php echo $v["id"]; ?></span>
-								<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+								<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
 							</span>
             </div>
 
             <div class="show">
               <?php echo $tl["hook_box_content"]["hookbc1"]; ?>:
-              <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
+              <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
               | <?php echo $tl["hook_box_content"]["hookbc4"] . ':';
               if ($v["pluginid"] != '0') { ?>
-                <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginname"]; ?></a><?php } else {
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginname"]; ?></a><?php } else {
                 echo ' -';
               } ?>
             </div>
@@ -92,15 +92,15 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-r-5', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-r-5', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
 
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
 
               if ($v["id"] > 5) {
 
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["hook_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["hook_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
               }
               ?>

@@ -25,7 +25,7 @@
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=growl&amp;sp=edit&amp;ssp=' . $page2, $tlgwl["gwl_menu"]["gwlm2"]);
+    echo $Html->addAnchor('index.php?p=growl&amp;sp=edit&amp;id=' . $page2, $tlgwl["gwl_menu"]["gwlm2"]);
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
     echo $Html->addTag('span', text_clipping_lower($tlgwl["gwl_menu"]["gwlm2"]), 'icon-thumbnail');
     ?>

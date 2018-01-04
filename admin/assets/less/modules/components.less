@@ -1,4 +1,4 @@
-/* 00. Bootstrap Components
+/* 02. Bootstrap Components
  ========================================================================*/
 
 /* -----------------------------------------------------------------------
@@ -11,7 +11,7 @@
 	border-top: 3px solid #D2D6DE;
 	margin-bottom: 20px;
 	width: 100%;
-	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .box.box-primary {
@@ -408,8 +408,8 @@
 	.row > [class^='col-md-'],
 	.row > [class^='col-lg-'] {
 		margin-bottom: 10px;
-		padding-left: 0px;
-		padding-right: 0px;
+		padding-left: 0;
+		padding-right: 0;
 	}
 	
 	.container .row {
@@ -439,18 +439,18 @@
 
 /* Forms */
 .controls {
-	padding: 10px 0px;
+	padding: 10px 0;
 }
 
 .controls .row-form {
 	float: left;
 	width: 100%;
 	line-height: 30px;
-	padding: 0px 0px 15px;
+	padding: 0 0 15px;
 }
 
 .controls .row-form:last-child {
-	padding-bottom: 0px;
+	padding-bottom: 0;
 }
 
 .controls .row-form div[class^='col-md'] {
@@ -670,38 +670,38 @@
 
 .pagination > li {
 	&:first-child {
-		& > a {
-			border-radius: 0;
-		}
+		& > a,
 		& > span {
-			border-radius: 0;
+			background-color: transparent;
+			color: #584b8d;
 		}
 	}
 	&:last-child {
-		& > a {
-			border-radius: 0;
-		}
+		& > a,
 		& > span {
-			border-radius: 0;
+			background-color: transparent;
+			color: #584b8d;;
 		}
 	}
 	&  > a,
 	&  > span {
-		color: #10CFBD;
+		border-radius: 0;
 		border: none;
-		margin-left: 5px;
+		margin: 0 2px;
+		padding: 4px 8px;
 	}
 }
 
-.pagination > .active {
-	& > a,
-	& > a:focus,
-	& > a:hover,
-	& > span,
-	& > span:focus,
-	& > span:hover {
+.pagination {
+	& > li.active > a,
+	& > li > a:focus,
+	& > li > a:hover,
+	& > li > span,
+	& > li > span:focus,
+	& > li > span:hover {
 		background-color: #10CFBD;
 		border-color: transparent;
+		color: #FFF;
 	}
 }
 
@@ -774,6 +774,6 @@ li.filter-item > a:hover {
 .no-results {
 	padding: 3px !important;
 	margin: 0 7px !important;
-	color: #C00;
+	color: #F55753;
 	font-weight: 700;
 }

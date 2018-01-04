@@ -57,7 +57,7 @@ if ($errors) { ?>
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -71,7 +71,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -80,7 +80,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -92,7 +92,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -101,7 +101,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -113,7 +113,7 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -121,7 +121,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <select name="envo_usergroup" class="form-control selectpicker">
 
                       <?php
@@ -147,7 +147,7 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -161,8 +161,8 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d21"]; ?></strong></div>
-                  <div class="col-md-7">
+                  <div class="col-sm-5"><strong><?php echo $tlnl["nletter"]["d21"]; ?></strong></div>
+                  <div class="col-sm-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <span class="btn btn-default btn-file">
                         <span class="fileinput-new"><?php echo $tlnl["newsletter_box_content"]["nlbc28"]; ?></span>
@@ -175,20 +175,20 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d22"]; ?></strong></div>
-                  <div class="col-md-7">
+                  <div class="col-sm-5"><strong><?php echo $tlnl["nletter"]["d22"]; ?></strong></div>
+                  <div class="col-sm-7">
                     <input type="text" class="form-control" name="envo_delimiter" value="<?php if (isset($_REQUEST["envo_delimiter"])) echo $_REQUEST["envo_delimiter"]; ?>" placeholder=","/>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d23"]; ?></strong></div>
-                  <div class="col-md-7">
+                  <div class="col-sm-5"><strong><?php echo $tlnl["nletter"]["d23"]; ?></strong></div>
+                  <div class="col-sm-7">
                     <input type="text" class="form-control" name="envo_start" value="<?php if (isset($_REQUEST["envo_start"])) echo $_REQUEST["envo_start"]; ?>" placeholder="1"/>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tl["submenu"]["sm100"]; ?></strong></div>
-                  <div class="col-md-7">
+                  <div class="col-sm-5"><strong><?php echo $tl["submenu"]["sm100"]; ?></strong></div>
+                  <div class="col-sm-7">
                     <select name="envo_usergroupcsv" class="form-control selectpicker">
                       <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) { ?>
                         <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["envo_usergroupcsv"]) && $v["id"] == $_REQUEST["envo_usergroupcsv"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>

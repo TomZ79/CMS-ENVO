@@ -78,8 +78,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
           <table id="url_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th class="no-sort" style="width: 5%">#</th>
-              <th class="no-sort" style="width: 5%">
+              <th class="no-sort" style="width:5%">#</th>
+              <th class="text-center no-sort" style="width:4%">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -93,10 +93,10 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               </th>
               <th style="width: 20%"><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
               <th style="width: 20%"><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
-              <th style="width: 15%"><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
-              <th style="width: 14%"><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
-              <th style="width: 9%"><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
-              <th class="no-sort" style="width: 4%">
+              <th style="width: 19%"><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
+              <th style="width: 8%"><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
+              <th style="width: 12%"><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
+              <th class="text-center no-sort" style="width: 4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -104,12 +104,12 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 ?>
 
               </th>
-              <th class="no-sort" style="width: 4%"></th>
-              <th class="no-sort" style="width: 4%">
+              <th class="text-center no-sort" style="width: 4%"></th>
+              <th class="text-center no-sort" style="width: 4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlum["url_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlum["url_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -137,7 +137,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   // Add Html Element -> endTag (Arguments: tag)
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                   echo $Html->startTag('span');
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlold"], '', '', array('data-toggle' => 'tooltipEnvo', 'title' => $v["urlnew"]));
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;id=' . $v["id"], $v["urlold"], '', '', array('data-toggle' => 'tooltipEnvo', 'title' => $v["urlold"]));
                   echo $Html->endTag('span');
                   ?>
 
@@ -149,7 +149,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   // Add Html Element -> endTag (Arguments: tag)
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                   echo $Html->startTag('span');
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlnew"], '', '', array('data-toggle' => 'tooltipEnvo', 'title' => $v["urlnew"]));
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;id=' . $v["id"], $v["urlnew"], '', '', array('data-toggle' => 'tooltipEnvo', 'title' => $v["urlnew"]));
                   echo $Html->endTag('span');
                   ?>
 
@@ -163,7 +163,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   } ?>
 
                 </td>
-                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
+                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
                 <td>
 
                   <?php
@@ -175,27 +175,27 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tlum["url_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tlum["url_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>
@@ -223,7 +223,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

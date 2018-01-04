@@ -75,11 +75,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table id="faq_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>#</th>
-              <th>
+              <th class="no-sort" style="width:5%">#</th>
+              <th class="text-center no-sort" style="width:4%">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -91,30 +91,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 </div>
               </th>
-              <th>
-
-                <?php
-                echo $tlf["faq_box_table"]["faqtb1"];
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=sort&amp;ssp=title&amp;sssp=DESC', '<i class="fa fa-arrow-up"></i>', '', 'btn btn-warning btn-xs sort');
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=sort&amp;ssp=title&amp;sssp=ASC', '<i class="fa fa-arrow-down"></i>', '', 'btn btn-success btn-xs sort');
-                ?>
-
-              </th>
-              <th><?php echo $tlf["faq_box_table"]["faqtb"]; ?></th>
-              <th><?php echo $tlf["faq_box_table"]["faqtb2"]; ?></th>
-              <th>
-
-                <?php
-                echo $tlf["faq_box_table"]["faqtb3"];
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=sort&amp;ssp=hits&amp;sssp=DESC', '<i class="fa fa-arrow-up"></i>', '', 'btn btn-warning btn-xs sort');
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=sort&amp;ssp=hits&amp;sssp=ASC', '<i class="fa fa-arrow-down"></i>', '', 'btn btn-success btn-xs sort');
-                ?>
-
-              </th>
-              <th><?php echo $tlf["faq_box_table"]["faqtb4"]; ?></th>
-              <th>
+              <th style="width:35%"><?php echo $tlf["faq_box_table"]["faqtb1"];?></th>
+              <th style="width:12%"><?php echo $tlf["faq_box_table"]["faqtb"]; ?></th>
+              <th style="width:8%"><?php echo $tlf["faq_box_table"]["faqtb2"]; ?></th>
+              <th style="width:12%"><?php echo $tlf["faq_box_table"]["faqtb3"]; ?></th>
+              <th style="width:12%"><?php echo $tlf["faq_box_table"]["faqtb4"]; ?></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -122,12 +104,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 ?>
 
               </th>
-              <th></th>
-              <th>
+              <th class="text-center no-sort" style="width:4%"></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlf["faq_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlf["faq_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -153,7 +135,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                  echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
                   ?>
 
                 </td>
@@ -164,7 +146,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                       if ($v["catid"] == $z["id"]) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('index.php?p=faq&amp;sp=showcat&amp;ssp=' . $z["id"], $z["name"]);
+                        echo $Html->addAnchor('index.php?p=faq&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
                       }
                     }
                   } else {
@@ -172,7 +154,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   }
                   ?>
                 </td>
-                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
+                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td>
 
@@ -189,27 +171,27 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=faq&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  echo $Html->addAnchor('index.php?p=faq&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=faq&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlf["faq_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=faq&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlf["faq_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>
@@ -221,7 +203,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
     <div class="icon_legend">
 
       <?php
@@ -236,13 +218,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </div>
 
-  <?php
+<?php } else { ?>
 
-  if ($ENVO_PAGINATE) echo $ENVO_PAGINATE;
-
-} else { ?>
-
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

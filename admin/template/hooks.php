@@ -36,7 +36,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=plugins&sp=newhook', $tl["button"]["btn31"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;sp=newhook', $tl["button"]["btn31"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -61,7 +61,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
           <ul class="list-unstyled overflow">
             <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
               <li class="filter-item" data-filter="<?php echo $h; ?>">
-                <a href="index.php?p=plugins&sp=sorthooks&ssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $h; ?>"><?php echo $h; ?></a></li>
             <?php } ?>
           </ul>
           <div class="no-search-results">
@@ -82,11 +82,11 @@ if ($page2 == "e" || $page2 == "edn") { ?>
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table id="hooks_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>#</th>
-              <th>
+              <th class="no-sort" style="width:5%">#</th>
+              <th class="text-center no-sort" style="width:4%">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -98,10 +98,10 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
                 </div>
               </th>
-              <th><?php echo $tl["hook_box_table"]["hooktb"]; ?></th>
-              <th><?php echo $tl["hook_box_table"]["hooktb1"]; ?></th>
-              <th><?php echo $tl["hook_box_table"]["hooktb2"]; ?></th>
-              <th>
+              <th style="width:40%"><?php echo $tl["hook_box_table"]["hooktb"]; ?></th>
+              <th style="width:29%"><?php echo $tl["hook_box_table"]["hooktb1"]; ?></th>
+              <th style="width:10%"><?php echo $tl["hook_box_table"]["hooktb2"]; ?></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -109,12 +109,12 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                 ?>
 
               </th>
-              <th></th>
-              <th>
+              <th class="text-center no-sort" style="width:4%"></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["hook_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["hook_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -139,7 +139,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], $v["name"]);
+                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=' . $v["id"], $v["name"]);
                   ?>
 
                 </td>
@@ -147,7 +147,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=sorthooks&amp;ssp=' . $v["hook_name"], $v["hook_name"]);
+                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=' . $v["hook_name"], $v["hook_name"]);
                   ?>
 
                 </td>
@@ -156,35 +156,35 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                   <?php
                   if ($v["pluginid"] != '0') {
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=plugins&amp;sp=sorthooks&amp;ssp=' . $v["pluginid"], $v["pluginid"]);
+                    echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $v["pluginid"], $v["pluginid"]);
                   } else {
                     echo $v["pluginid"];
                   }
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   if ($v["id"] > 5) {
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["hook_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                    echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["hook_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   }
                   ?>
 
@@ -211,9 +211,5 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
     </div>
   </div>
-
-<?php if ($ENVO_PAGINATE) {
-  echo $ENVO_PAGINATE;
-} ?>
 
 <?php include "footer.php"; ?>

@@ -78,6 +78,11 @@ var notification = {
 var globalSettings = {
   advEditor: '{$setting["adv_editor"]}',
 };
+
+// DataTables settings
+var dataTablesSettings = {
+  pageLenght: '{$setting["adminpageitem"]}',
+};
 EOT;
 
 ?>

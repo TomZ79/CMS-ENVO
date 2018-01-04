@@ -134,12 +134,12 @@
             ?>
 
           </li>
-          <?php if ($page1 == 'sorthooks') { ?>
-            <li class="<?php echo ($page == 'plugins' && $page1 == 'sorthooks') ? 'submenu-active' : ''; ?>">
+          <?php if ($page1 == 'hooks' && $page2 == 'sorthooks') { ?>
+            <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'sorthooks') ? 'submenu-active' : ''; ?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=plugins&amp;sp=sorthooks&amp;ssp=' . $page2, $tl["submenu"]["sm15"]);
+              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $page2, $tl["submenu"]["sm15"]);
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm15"]), 'icon-thumbnail');
               ?>
@@ -147,22 +147,22 @@
             </li>
           <?php }
           if ($page1 == 'hooks' && $page2 == 'edit') { ?>
-            <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'edit') ? 'submenu-active' : ''; ?>">
+            <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'edithook') ? 'submenu-active' : ''; ?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3, $tl["submenu"]["sm13"]);
+              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=' . $page3, $tl["submenu"]["sm13"]);
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm13"]), 'icon-thumbnail');
               ?>
 
             </li>
           <?php } ?>
-          <li class="<?php echo ($page == 'plugins' && $page1 == 'newhook') ? 'submenu-active' : ''; ?>">
+          <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'newhook') ? 'submenu-active' : ''; ?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=plugins&amp;sp=newhook', $tl["submenu"]["sm14"]);
+            echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;sp=newhook', $tl["submenu"]["sm14"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm14"]), 'icon-thumbnail');
             ?>
@@ -269,7 +269,7 @@
             </li>
             <?php if ($page == 'facebookgallery' && $page1 == 'edit') { ?>
               <li class="active">
-                <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $page2; ?>"><?php echo $tl["submenu"]["sm43"]; ?></a>
+                <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $page2; ?>"><?php echo $tl["submenu"]["sm43"]; ?></a>
                 <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm43"]); ?></span>
               </li>
             <?php } ?>
@@ -373,7 +373,7 @@
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=users&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm92"]);
+            echo $Html->addAnchor('index.php?p=users&amp;sp=edit&amp;id=' . $page2, $tl["submenu"]["sm92"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm92"]), 'icon-thumbnail');
             ?>
@@ -407,7 +407,7 @@
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=usergroup&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm102"]);
+            echo $Html->addAnchor('index.php?p=usergroup&amp;sp=edit&amp;id=' . $page2, $tl["submenu"]["sm102"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm102"]), 'icon-thumbnail');
             ?>
@@ -437,12 +437,12 @@
             ?>
 
           </li>
-          <?php if ($page == 'categories' && $page1 == 'edit') { ?>
-            <li class="<?php echo ($page == 'categories' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+          <?php if ($page == 'categories' && $page1 == 'editcat') { ?>
+            <li class="<?php echo ($page == 'categories' && $page1 == 'editcat') ? 'submenu-active' : ''; ?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=categories&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm112"]);
+              echo $Html->addAnchor('index.php?p=categories&amp;sp=editcat&amp;id=' . $page2, $tl["submenu"]["sm112"]);
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm112"]), 'icon-thumbnail');
               ?>
@@ -476,7 +476,7 @@
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=page&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm122"]);
+              echo $Html->addAnchor('index.php?p=page&amp;sp=edit&amp;id=' . $page2, $tl["submenu"]["sm122"]);
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm122"]), 'icon-thumbnail');
               ?>
@@ -505,12 +505,12 @@
             ?>
 
           </li>
-          <?php if ($page == 'contactform' && $page1 == 'edit') { ?>
-            <li class="<?php echo ($page == 'contactform' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+          <?php if ($page == 'contactform' && $page1 == 'editcontact') { ?>
+            <li class="<?php echo ($page == 'contactform' && $page1 == 'editcontact') ? 'submenu-active' : ''; ?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=contactform&sp=edit&ssp=' . $page2, $tl["submenu"]["sm132"]);
+              echo $Html->addAnchor('index.php?p=contactform&amp;sp=editcontact&amp;id=' . $page2, $tl["submenu"]["sm132"]);
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm132"]), 'icon-thumbnail');
               ?>

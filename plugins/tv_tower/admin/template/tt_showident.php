@@ -77,7 +77,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
   <div class="tab-content">
     <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -91,11 +91,12 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               <table id="tt_table_sidtv" class="table table-striped table-hover">
                 <thead>
                 <tr>
-                  <th class="no-sort">#</th>
-                  <th>S_ID</th>
-                  <th>Název</th>
-                  <th class="no-sort">Datum Zadání</th>
-                  <th class="no-sort"></th>
+                  <th class="no-sort" style="width:5%">#</th>
+                  <th style="width:25%">S_ID</th>
+                  <th style="width:30%">Název</th>
+                  <th class="no-sort" style="width:30%">Datum Zadání</th>
+                  <th class="no-sort" style="width:5%"></th>
+                  <th class="no-sort" style="width:5%"></th>
                 </tr>
                 </thead>
 
@@ -116,14 +117,21 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?php echo date('d.m.Y - H:i:s', strtotime($sidtv["time"])); ?>
+                        <?php echo date('d.m.Y', strtotime($sidtv["time"])); ?>
                       </td>
                       <td class="text-center">
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $sidtv["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $sidtv["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        ?>
+
+                      </td>
+                      <td class="text-center">
+
+                        <?php
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // DELETE
                         echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $sidtv["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sidtv["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
@@ -140,7 +148,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -154,11 +162,12 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               <table id="tt_table_sidr" class="table table-striped table-hover">
                 <thead>
                 <tr>
-                  <th class="no-sort">#</th>
-                  <th>S_ID</th>
-                  <th>Název</th>
-                  <th class="no-sort">Datum Zadání</th>
-                  <th class="no-sort"></th>
+                  <th class="no-sort" style="width:5%">#</th>
+                  <th style="width:25%">S_ID</th>
+                  <th style="width:30%">Název</th>
+                  <th class="no-sort" style="width:30%">Datum Zadání</th>
+                  <th class="no-sort" style="width:5%"></th>
+                  <th class="no-sort" style="width:5%"></th>
                 </tr>
                 </thead>
 
@@ -179,14 +188,21 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?php echo date('d.m.Y - H:i:s', strtotime($sidr["time"])); ?>
+                        <?php echo date('d.m.Y', strtotime($sidr["time"])); ?>
                       </td>
                       <td class="text-center">
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idr&amp;id=' . $sidr["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idr&amp;id=' . $sidr["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        ?>
+
+                      </td>
+                      <td class="text-center">
+
+                        <?php
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // DELETE
                         echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidr&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sidr["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
@@ -214,11 +230,12 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               <table id="tt_table_sids" class="table table-striped table-hover">
                 <thead>
                 <tr>
-                  <th class="no-sort">#</th>
-                  <th>S_ID</th>
-                  <th>Název</th>
-                  <th class="no-sort">Datum Zadání</th>
-                  <th class="no-sort"></th>
+                  <th class="no-sort" style="width:5%">#</th>
+                  <th style="width:25%">S_ID</th>
+                  <th style="width:30%">Název</th>
+                  <th class="no-sort" style="width:30%">Datum Zadání</th>
+                  <th class="no-sort" style="width:5%"></th>
+                  <th class="no-sort" style="width:5%"></th>
                 </tr>
                 </thead>
 
@@ -239,14 +256,21 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?php echo date('d.m.Y - H:i:s', strtotime($sids["time"])); ?>
+                        <?php echo date('d.m.Y', strtotime($sids["time"])); ?>
                       </td>
                       <td class="text-center">
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_ids&amp;id=' . $sids["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_ids&amp;id=' . $sids["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        ?>
+
+                      </td>
+                      <td class="text-center">
+
+                        <?php
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // DELETE
                         echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesids&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sids["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
@@ -267,7 +291,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     </div>
     <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-4">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -325,7 +349,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-4">
           <div class="box box-success">
             <div class="box-header with-border">
 
@@ -387,7 +411,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     </div>
   </div>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -402,7 +426,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

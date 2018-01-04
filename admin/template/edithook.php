@@ -57,7 +57,7 @@ if ($errors) { ?>
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
       echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=plugins&sp=hooks', $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>

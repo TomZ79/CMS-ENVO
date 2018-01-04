@@ -80,7 +80,7 @@
                 </div>
               </td>
               <td>
-                <a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                <a href="index.php?p=page&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
               </td>
               <td>
 
@@ -98,7 +98,7 @@
                   if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                     if ($v["catid"] == $z["id"]) {
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('index.php?p=categories&amp;sp=edit&amp;ssp=' . $z["id"], $z["name"]);
+                      echo $Html->addAnchor('index.php?p=categories&amp;sp=edit&amp;id=' . $z["id"], $z["name"]);
                     }
                   }
                 } else {
@@ -113,7 +113,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=page&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                echo $Html->addAnchor('index.php?p=page&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                 ?>
 
               </td>
@@ -121,7 +121,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=page&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=page&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                 ?>
 
               </td>
@@ -129,7 +129,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=page&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tl["page_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=page&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tl["page_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>

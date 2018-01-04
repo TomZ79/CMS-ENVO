@@ -74,95 +74,6 @@ $(function () {
 
 });
 
-/** 00. TinyMCE Initialisation
- * @require: TinyMCE Plugin
- ========================================================================*/
-
-$(function () {
-
-  tinymce.init({
-    selector: "textarea.envoEditorLarge",
-    theme: "modern",
-    width: "100%",
-    height: 500,
-    language: envoWeb.envo_lang,
-    //UTF-8 Setting
-    entity_encoding: "raw",
-    // Custom Menubar
-    menubar: "edit insert view format table tools",
-    //
-    plugins: [
-      "advlist autolink link image lists charmap preview hr anchor pagebreak",
-      "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-      "save table contextmenu directionality emoticons paste textcolor responsivefilemanager bootstrap "
-    ],
-    bootstrapConfig: {
-      'type': 'dropdownMenu',
-      'dropdownText': 'Bootstrap Elements',
-      'bootstrapElements': {
-        'btn': true,
-        'icon': true,
-        'image': true,
-        'table': true,
-        'template': true,
-        'breadcrumb': true,
-        'pagination': true,
-        'pager': true,
-        'label': true,
-        'badge': true,
-        'alert': true,
-        'panel': true,
-        'snippet': true
-      }
-    },
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | preview | forecolor backcolor | bootstrap",
-    statusbar: false,
-    image_advtab: true,
-    relative_urls: false,
-    convert_urls: false,
-    remove_script_host: true,
-    document_base_url: "/",
-    valid_elements: "*[*]",
-    // Custom date time formats
-    insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
-    //
-    external_filemanager_path: "/assets/plugins/tinymce/plugins/filemanager/",
-    filemanager_title: "Filemanager",
-    external_plugins: {
-      "filemanager": "plugins/filemanager/plugin.min.js"
-    }
-  });
-
-  tinymce.init({
-    selector: "textarea.envoEditorSmall",
-    theme: "modern",
-    width: "100%",
-    height: 300,
-    language: envoWeb.envo_lang,
-    //UTF-8 Setting
-    entity_encoding: "raw",
-    // Custom Menubar
-    menubar: "edit insert view format table tools",
-    //
-    plugins: [
-      "advlist autolink link image lists charmap preview hr anchor pagebreak",
-      "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-      "save table contextmenu directionality paste textcolor "
-    ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignjustify | bullist numlist | forecolor backcolor",
-    statusbar: false,
-    image_advtab: true,
-    relative_urls: false,
-    convert_urls: false,
-    remove_script_host: true,
-    document_base_url: "/",
-    valid_elements: "*[*]",
-    // Custom date time formats
-    insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
-  });
-
-});
-
 /* 00. JQUERY CODE SNIPPET TO GET THE DYNAMIC VARIABLE
  ======================================================================== */
 /* jQuery code snippet to get the dynamic variables stored in the url as parameters and
@@ -196,6 +107,9 @@ $.urlParam = function (name) {
  * Setting variable from url for other uses
  */
 var pageID = $.urlParam('id');
+var page = $.urlParam('p');
+var page1 = $.urlParam('sp');
+var page2 = $.urlParam('ssp');
 
 /**
  * Jquery Function - DialogFX Open - Image
@@ -1209,6 +1123,97 @@ function initializeDateTimePicker(selector) {
   });
 }
 
+/** 00. TinyMCE Initialisation
+ * @require: TinyMCE Plugin
+ ========================================================================*/
+
+$(function () {
+
+  if (page2 != null) {
+    tinymce.init({
+      selector: "textarea.envoEditorLarge",
+      theme: "modern",
+      width: "100%",
+      height: 500,
+      language: envoWeb.envo_lang,
+      //UTF-8 Setting
+      entity_encoding: "raw",
+      // Custom Menubar
+      menubar: "edit insert view format table tools",
+      //
+      plugins: [
+        "advlist autolink link image lists charmap preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "save table contextmenu directionality emoticons paste textcolor responsivefilemanager bootstrap "
+      ],
+      bootstrapConfig: {
+        'type': 'dropdownMenu',
+        'dropdownText': 'Bootstrap Elements',
+        'bootstrapElements': {
+          'btn': true,
+          'icon': true,
+          'image': true,
+          'table': true,
+          'template': true,
+          'breadcrumb': true,
+          'pagination': true,
+          'pager': true,
+          'label': true,
+          'badge': true,
+          'alert': true,
+          'panel': true,
+          'snippet': true
+        }
+      },
+      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | preview | forecolor backcolor | bootstrap",
+      statusbar: false,
+      image_advtab: true,
+      relative_urls: false,
+      convert_urls: false,
+      remove_script_host: true,
+      document_base_url: "/",
+      valid_elements: "*[*]",
+      // Custom date time formats
+      insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
+      //
+      external_filemanager_path: "/assets/plugins/tinymce/plugins/filemanager/",
+      filemanager_title: "Filemanager",
+      external_plugins: {
+        "filemanager": "plugins/filemanager/plugin.min.js"
+      }
+    });
+
+    tinymce.init({
+      selector: "textarea.envoEditorSmall",
+      theme: "modern",
+      width: "100%",
+      height: 300,
+      language: envoWeb.envo_lang,
+      //UTF-8 Setting
+      entity_encoding: "raw",
+      // Custom Menubar
+      menubar: "edit insert view format table tools",
+      //
+      plugins: [
+        "advlist autolink link image lists charmap preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "save table contextmenu directionality paste textcolor "
+      ],
+      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignjustify | bullist numlist | forecolor backcolor",
+      statusbar: false,
+      image_advtab: true,
+      relative_urls: false,
+      convert_urls: false,
+      remove_script_host: true,
+      document_base_url: "/",
+      valid_elements: "*[*]",
+      // Custom date time formats
+      insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
+    });
+  }
+
+});
+
 /* 00. ISOTOPE PHOTO GALLERY
  ========================================================================*/
 $(function () {
@@ -1279,7 +1284,7 @@ $(function () {
     };
   }
 
-  $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
+  $('a[data-target="#cmsPage10"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
 
@@ -1550,11 +1555,11 @@ $(function () {
                   '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
                   '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
                   '<div class="overlays full-width">' +
-                  '<div class="col-sm-12 full-height">' +
-                  '<div class="col-xs-5 full-height">' +
+                  '<div class="row full-height">' +
+                  '<div class="col-5 full-height">' +
                   '<div class="text font-montserrat">' + data["filenamethumb"].substring(data["filenamethumb"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
                   '</div>' +
-                  '<div class="col-xs-7 full-height">' +
+                  '<div class="col-7 full-height">' +
                   '<div class="text">' +
                   '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '" alt="">' +
                   '<button class="btn btn-info btn-xs btn-mini m-r-5 fs-14" type="button"><i class="pg-image"></i></button>' +
@@ -1818,6 +1823,7 @@ $(function () {
     $('#' + parent + ' .file-filename').val('');
     $('#' + parent + ' .file-clear').hide();
     $('#' + parent + ' .file-input input:file').val('');
+    $('#' + parent + ' .file-input').css("border-radius", "3px 0 0 3px");
     $('#' + parent + ' .file-input-title').text('Vybrat Soubor');
   });
 
@@ -1829,6 +1835,7 @@ $(function () {
     console.log($(this).val());
 
     if ($(this).val() != '') {
+      $('#' + parent + ' .file-input').css("border-radius", "0");
       $('#' + parent + ' .file-input-title').text('Změnit');
       $('#' + parent + ' .file-clear').show();
       $('#' + parent + ' .file-filename').val(file.name);
@@ -1852,44 +1859,17 @@ $(function () {
     "language": {
       "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
     },
-
     "order": [],
     "columnDefs": [{
       "targets": 'no-sort',
       "orderable": false
     }],
     // Page lenght
-    "pageLength": 15,
+    "pageLength": dataTablesSettings.pageLenght,
     // Show entries
     //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
     // Design Table items
-    "dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>",
-    // Export table
-    buttons: [
-      {
-        extend: 'excel',
-        exportOptions: {
-          columns: [0, 2, 3, 4, 5]
-        }
-      },
-      {
-        extend: 'pdf',
-        exportOptions: {
-          columns: [0, 2, 3, 4, 5]
-        },
-        customize: function (doc) {
-          doc.content[1].table.widths =
-            Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-        }
-
-      },
-      {
-        extend: 'print',
-        exportOptions: {
-          columns: [0, 2, 3, 4, 5]
-        }
-      }
-    ],
+    "dom": "<'row'<'col-sm-6'<'float-left m-b-20'f>><'col-sm-6'<'float-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row '<'col-sm-7'i><'float-right col-sm-5'p>>"
   });
 
 });
@@ -2274,10 +2254,10 @@ $(function () {
     $('#contentChannel select').trigger('change');
 
     contentT.append($('<div class="row-form">' +
-      '<div class="col-md-5">' +
+      '<div class="col-sm-5">' +
       '<strong>Vysílač ID ' + nextTowerId + '</strong>' +
       '</div>' +
-      '<div class="col-md-7">' +
+      '<div class="col-sm-7">' +
       '<input type="text" name="envo_towername[]" class="form-control" data-id="' + nextTowerId + '" value="Vysílač ID ' + nextTowerId + '">' +
       '</div>' +
       '</div>'));
@@ -2294,13 +2274,13 @@ $(function () {
     contentC.find('div.alert').hide();
 
     contentC.append($('<div class="row-form">' +
-      '<div class="col-md-4">' +
+      '<div class="col-sm-4">' +
       '<strong>Kanál ' + nextId + '</strong>' +
       '</div>' +
-      '<div class="col-md-4">' +
+      '<div class="col-sm-4">' +
       '<select></select>' +
       '</div>' +
-      '<div class="col-md-4">' +
+      '<div class="col-sm-4">' +
       '<input type="text" name="envo_channelname[]" class="form-control">' +
       '</div>' +
       '</div>'));
@@ -2640,4 +2620,36 @@ $(function () {
 
   initializeDateTimePicker('input[name=envo_addtasktime]');
   initializeDateTimePicker('input[name=envo_addtaskreminder]');
+});
+
+/** 00. Tasks manager
+ ========================================================================*/
+
+$(function () {
+
+  /* Check all checkbox */
+  $('#envo_delete_all').click(function () {
+    var checkedStatus = this.checked;
+    if (checkedStatus) {
+      $('#button_delete').prop('disabled', false);
+    } else {
+      $('#button_delete').attr('disabled',true);
+    }
+    $('.highlight').each(function () {
+      $(this).prop('checked', checkedStatus);
+    });
+  });
+
+  /* Disable submit button if checkbox is not checked */
+  $('.highlight').change(function () {
+    if (this.checked) {
+      $('#button_delete').prop('disabled', false);
+    } else {
+      if ($('.highlight').filter(':checked').length < 1){
+        $('#envo_delete_all').prop('checked', false);
+        $('#button_delete').attr('disabled',true);
+      }
+    }
+  });
+
 });

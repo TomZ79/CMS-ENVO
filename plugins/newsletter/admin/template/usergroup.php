@@ -84,7 +84,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlnl["newsletter_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlnl["newsletter_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -109,7 +109,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;sssp=' . $v["id"], $v["name"]);
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;id=' . $v["id"], $v["name"]);
                   ?>
 
                 </td>
@@ -118,7 +118,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=user&amp;ssp=group&amp;sssp=' . $v["id"], '<i class="fa fa-user"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i26"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=user&amp;ssp=group&amp;id=' . $v["id"], '<i class="fa fa-user"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i26"]));
                   ?>
 
                 </td>
@@ -126,7 +126,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;sssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
@@ -135,7 +135,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   <?php if ($v["id"] != 1) {
 
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=newsletter&amp;sp=usergroup&amp;ssp=delete&amp;sssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tlnl["newsletter_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                    echo $Html->addAnchor('index.php?p=newsletter&amp;sp=usergroup&amp;ssp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tlnl["newsletter_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
                   } ?>
 
@@ -148,7 +148,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
     <div class="icon_legend">
 
       <?php
@@ -168,7 +168,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

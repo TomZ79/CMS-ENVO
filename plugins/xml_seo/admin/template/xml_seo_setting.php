@@ -45,7 +45,7 @@ if (isset($error2)) { ?>
 <?php } ?>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
 
       <form id="wizard_example" class="m-b-30" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
         <fieldset>

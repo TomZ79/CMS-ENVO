@@ -63,7 +63,7 @@
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=categories&sp=newcat', $tl["button"]["btn29"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=categories&amp;sp=newcat', $tl["button"]["btn29"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -91,9 +91,9 @@
             // Build menu for categories header and header/footer
             $lang = $tl["cat_notification"]["del"]; // Notification
             $title1 = $tl["icons"]["i11"];  // Add page
-            $title2 = $tl["icons"]["i10"];  //
+            $title2 = $tl["icons"]["i10"];  // Edit Page
             $title3 = $tl["icons"]["i8"];   //
-            $title4 = $tl["icons"]["i2"];   // Edit
+            $title4 = $tl["icons"]["i31"];  // Edit Category
             $title5 = $tl["icons"]["i1"];   // Trash
 
             echo envo_build_menu_admin(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable envo_cat_move"', ' id="mheader"');
@@ -135,9 +135,9 @@
             // Build menu for categories
             $lang = $tl["cat_notification"]["del"]; // Notification
             $title1 = $tl["icons"]["i11"];  // Add page
-            $title2 = $tl["icons"]["i10"];  //
+            $title2 = $tl["icons"]["i10"];  // Edit Page
             $title3 = $tl["icons"]["i8"];   //
-            $title4 = $tl["icons"]["i2"];   // Edit
+            $title4 = $tl["icons"]["i31"];  // Edit Category
             $title5 = $tl["icons"]["i1"];   // Trash
 
             echo envo_build_menu_admin(0, $mfooter, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable envo_cat_move"', ' id="mfooter"');
@@ -212,12 +212,11 @@
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-plus', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i7"]));
       echo $Html->addTag('i', '', 'fa fa-link', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i9"]));
       echo $Html->addTag('i', '', 'fa fa-eyedropper', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i8"]));
       echo $Html->addTag('i', '', 'fa fa-pencil', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i10"]));
       echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i11"]));
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i31"]));
       echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
 

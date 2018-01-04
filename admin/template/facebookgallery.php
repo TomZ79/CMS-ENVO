@@ -82,8 +82,8 @@
                 </div>
                 <div class="col-sm-12">
                   <div class="pull-right">
-                    <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-primary btn-xs">Info</a>
-                    <a href="index.php?p=facebookgallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["fb_notification"]["del"], $v["title"]); ?>">Delete</a>
+                    <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="btn btn-primary btn-xs">Info</a>
+                    <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["fb_notification"]["del"], $v["title"]); ?>">Delete</a>
                   </div>
                 </div>
               </div>
@@ -114,7 +114,7 @@
                   <tr>
                     <td>
                       <img src="<?php echo $v["paththumb"] . 'thumb_' . $v["title"]; ?>" alt="">
-                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="image-link"><?php echo $v["title"]; ?></a>
+                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="image-link"><?php echo $v["title"]; ?></a>
                       <span class="text-subhead">ID: <?php echo $v["id"]; ?></span>
                     </td>
                     <td><?php echo date("d.m.Y - H:i", strtotime($v["time"])); ?></td>
@@ -122,12 +122,12 @@
                       <?php echo formatSizeUnits($v["size"]); ?>
                     </td>
                     <td style="width: 10%;">
-                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
                         <i class="fa fa-edit"></i>
                       </a>
                     </td>
                     <td style="width: 10%;">
-                      <a href="index.php?p=facebookgallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["facebook"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                      <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["facebook"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                         <i class="fa fa-trash-o"></i>
                       </a>
                     </td>

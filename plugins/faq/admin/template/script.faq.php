@@ -49,6 +49,8 @@ if ($page == 'faq') {
   // Categories plugin and script
   echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
   echo $Html->addScript('assets/js/global_js/catorder.min.js');
+  // Plugin DataTable
+  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/faq/admin/js/script.faq.min.js');
 

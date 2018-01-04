@@ -742,6 +742,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
     break;
   case 'setting':
+    // SETTINGS OF INTRANET
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable

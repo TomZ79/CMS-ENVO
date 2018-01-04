@@ -40,7 +40,7 @@ if ($page == 'faq') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;ssp=' . $page2, $tlf["faq_menu"]["faqm3"]);
+        echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $page2, $tlf["faq_menu"]["faqm3"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm3"]), 'icon-thumbnail');
         ?>
@@ -74,7 +74,7 @@ if ($page == 'faq') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $page3, $tlf["faq_menu"]["faqm6"]);
+        echo $Html->addAnchor('index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;id=' . $page3, $tlf["faq_menu"]["faqm6"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm6"]), 'icon-thumbnail');
         ?>

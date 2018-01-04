@@ -438,7 +438,7 @@ function envo_get_notification_info($table)
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
+    $envodata[] = array('id' => $row['id'], 'name' => $row['name'], 'type' => $row['type'], 'shortdescription' => $row['shortdescription'], 'content' => $row['content'], 'permission' => $row['permission'], 'created' => date("d.m.Y", strtotime($row["created"])));
   }
 
   if (isset($envodata)) return $envodata;

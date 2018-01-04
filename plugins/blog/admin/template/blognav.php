@@ -40,7 +40,7 @@ if ($page == 'blog') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $page2, $tlblog["blog_menu"]["blogm3"]);
+        echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $page2, $tlblog["blog_menu"]["blogm3"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm3"]), 'icon-thumbnail');
         ?>
@@ -74,7 +74,7 @@ if ($page == 'blog') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $page3, $tlblog["blog_menu"]["blogm6"]);
+        echo $Html->addAnchor('index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;id=' . $page3, $tlblog["blog_menu"]["blogm6"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm6"]), 'icon-thumbnail');
         ?>

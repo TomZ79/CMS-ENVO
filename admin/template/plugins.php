@@ -119,7 +119,7 @@ if ($page1 == "e") { ?>
                   <div class="row sm-no-margin">
                     <div class="col-sm-1 col-3 text">
                       <span># </span>
-                      <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
+                      <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
                     </div>
                     <div class="col-sm-2 col-5 text plugins-name">
 											<span title="<?php echo $v["description"]; ?>">
@@ -184,9 +184,9 @@ if ($page1 == "e") { ?>
                       }
 
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=sorthooks&amp;ssp=' . $v["id"], '<i class="fa fa-flag"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i13"]));
+                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $v["id"], '<i class="fa fa-flag"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i13"]));
 
-                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
 
                       if ($v["uninstallfile"]) {
                         echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-trash-o"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));

@@ -55,116 +55,143 @@
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=news&sp=new', $tl["button"]["btn32"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=news&amp;sp=newnews', $tl["button"]["btn32"], '', 'btn btn-info button');
     ?>
 
   </div>
 
 <?php if (isset($ENVO_NEWS) && is_array($ENVO_NEWS)) { ?>
-  <div class="box box-success">
-    <div class="box-body no-padding">
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-          <tr>
-            <th>#</th>
-            <th><?php echo $tl["news_box_table"]["newstb"]; ?></th>
-            <th><?php echo $tl["news_box_table"]["newstb1"]; ?></th>
-            <th><?php echo $tl["news_box_table"]["newstb2"]; ?></th>
-            <th><?php echo $tl["news_box_table"]["newstb3"]; ?></th>
-            <th>
 
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs disabled');
-              ?>
-
-            </th>
-            <th></th>
-            <th>
-
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled',));
-              ?>
-
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php foreach ($ENVO_NEWS as $v) { ?>
+  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <div class="box box-success">
+      <div class="box-body no-padding">
+        <div class="table-responsive">
+          <table id="news_table" class="table table-striped table-hover">
+            <thead>
             <tr>
-              <td><?php echo $v["id"]; ?></td>
-              <td>
+              <th class="no-sort" style="width:5%">#</th>
+              <th class="text-center no-sort" style="width:4%">
+                <div class="checkbox-singel check-success">
+
+                  <?php
+                  // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                  // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
+                  ?>
+
+                </div>
+              </th>
+              <th style="width:48%"><?php echo $tl["news_box_table"]["newstb"]; ?></th>
+              <th style="width:8%"><?php echo $tl["news_box_table"]["newstb1"]; ?></th>
+              <th style="width:12%"><?php echo $tl["news_box_table"]["newstb2"]; ?></th>
+              <th style="width:12%"><?php echo $tl["news_box_table"]["newstb3"]; ?></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=news&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
                 ?>
 
-              </td>
-              <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
-              <td><?php echo $v["hits"]; ?></td>
-              <td>
-                <?php
-                // Time Control - variable
-                $today = date("Y-m-d H:i:s"); // Today time
-                $expire = date("Y-m-d H:i:s", $v["enddate"]); //End time of article or content from DB
-                $today_time = strtotime($today);
-                $expire_time = strtotime($expire);
-
-                // Control Active of article or content ...
-                if ($v["active"] == 1) {
-                  if (empty($v["enddate"])) {
-                    echo $tl["news_box_content"]["newsbc7"];
-                  } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-                    echo $tl["news_box_content"]["newsbc7"];
-                  } else {
-                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc10"] . '</span>';
-                  }
-                } else {
-                  if (empty($v["enddate"])) {
-                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc9"] . '</span>';
-                  } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc9"] . '</span>';
-                  } else {
-                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small"> - ' . $tl["news_box_content"]["newsbc9"] . ', ' . $tl["news_box_content"]["newsbc10"] . '</span>';
-                  }
-                }
-                ?>
-              </td>
-              <td>
+              </th>
+              <th class="text-center no-sort" style="width:4%"></th>
+              <th class="text-center no-sort" style="width:4%">
 
                 <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=news&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["news_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
-              </td>
-              <td>
-
-                <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=news&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
-                ?>
-
-              </td>
-              <td>
-
-                <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=news&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["news_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
-                ?>
-
-              </td>
+              </th>
             </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($ENVO_NEWS as $v) { ?>
+              <tr>
+                <td><?php echo $v["id"]; ?></td>
+                <td>
+                  <div class="checkbox-singel check-success">
 
-          <?php } ?>
-          </tbody>
-        </table>
+                    <?php
+                    // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                    // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                    echo $Html->addCheckbox('envo_delete_news[]', $v["id"], FALSE, 'envo_delete_news' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_news' . $v["id"], '');
+                    ?>
+
+                  </div>
+                </td>
+                <td>
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=news&amp;sp=editnews&amp;id=' . $v["id"], $v["title"]);
+                  ?>
+
+                </td>
+                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
+                <td><?php echo $v["hits"]; ?></td>
+                <td>
+                  <?php
+                  // Time Control - variable
+                  $today = date("Y-m-d H:i:s"); // Today time
+                  $expire = date("Y-m-d H:i:s", $v["enddate"]); //End time of article or content from DB
+                  $today_time = strtotime($today);
+                  $expire_time = strtotime($expire);
+
+                  // Control Active of article or content ...
+                  if ($v["active"] == 1) {
+                    if (empty($v["enddate"])) {
+                      echo $tl["news_box_content"]["newsbc7"];
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["news_box_content"]["newsbc7"];
+                    } else {
+                      echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc10"] . '</span>';
+                    }
+                  } else {
+                    if (empty($v["enddate"])) {
+                      echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc9"] . '</span>';
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc9"] . '</span>';
+                    } else {
+                      echo $tl["news_box_content"]["newsbc8"] . '<span class="small"> - ' . $tl["news_box_content"]["newsbc9"] . ', ' . $tl["news_box_content"]["newsbc10"] . '</span>';
+                    }
+                  }
+                  ?>
+                </td>
+                <td class="text-center">
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=news&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  ?>
+
+                </td>
+                <td class="text-center">
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=news&amp;sp=editnews&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  ?>
+
+                </td>
+                <td class="text-center">
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=news&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["news_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                  ?>
+
+                </td>
+              </tr>
+
+            <?php } ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 
   <div class="col-sm-12 m-b-30">
     <div class="icon_legend">

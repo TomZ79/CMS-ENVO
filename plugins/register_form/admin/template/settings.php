@@ -66,7 +66,7 @@ if ($page2 == "e") { ?>
     <div class="tab-content">
       <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -80,7 +80,7 @@ if ($page2 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-12">
+                      <div class="col-sm-12">
                         <div class="form-group no-margin">
 
                           <?php
@@ -116,7 +116,7 @@ if ($page2 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -124,7 +124,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="radio radio-success">
 
                           <?php
@@ -143,7 +143,7 @@ if ($page2 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -151,7 +151,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="radio radio-success">
 
                           <?php
@@ -170,7 +170,7 @@ if ($page2 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -178,7 +178,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="radio radio-success">
 
                           <?php
@@ -202,7 +202,7 @@ if ($page2 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -210,7 +210,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <select name="envo_redirect" class="form-control">
                           <option value="0"><?php echo $tlrf["reg_box_content"]["regbc29"]; ?></option>
                           <?php if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $c) { ?>
@@ -221,7 +221,7 @@ if ($page2 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -229,7 +229,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <select name="envo_usergroup" class="form-control selectpicker">
 
                           <?php
@@ -255,7 +255,7 @@ if ($page2 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -263,7 +263,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
 
                         <?php
 
@@ -286,7 +286,7 @@ if ($page2 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -294,7 +294,7 @@ if ($page2 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
 
                         <?php
 
@@ -333,7 +333,7 @@ if ($page2 == "e") { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
                 <?php

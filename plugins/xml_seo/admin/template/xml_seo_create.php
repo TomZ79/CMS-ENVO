@@ -36,7 +36,7 @@
 
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <div class="box box-success">
         <div class="box-header with-border">
 

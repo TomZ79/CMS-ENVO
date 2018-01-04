@@ -40,7 +40,7 @@ if ($page == 'newsletter') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;ssp=' . $page2, $tlnl["newsletter_menu"]["nlm3"]);
+        echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;id=' . $page2, $tlnl["newsletter_menu"]["nlm3"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlnl["newsletter_menu"]["nlm3"]), 'icon-thumbnail');
         ?>
@@ -74,7 +74,7 @@ if ($page == 'newsletter') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $page3, $tlnl["newsletter_menu"]["nlm6"]);
+        echo $Html->addAnchor('index.php?p=newsletter&sp=user&ssp=edit&id=' . $page3, $tlnl["newsletter_menu"]["nlm6"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlnl["newsletter_menu"]["nlm6"]), 'icon-thumbnail');
         ?>
@@ -108,7 +108,7 @@ if ($page == 'newsletter') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $page3, $tlnl["newsletter_menu"]["nlm9"]);
+        echo $Html->addAnchor('index.php?p=newsletter&sp=usergroup&ssp=edit&id=' . $page3, $tlnl["newsletter_menu"]["nlm9"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tlnl["newsletter_menu"]["nlm9"]), 'icon-thumbnail');
         ?>

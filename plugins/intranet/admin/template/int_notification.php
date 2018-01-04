@@ -76,8 +76,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
         <table id="int_table" class="table table-striped table-hover">
           <thead>
           <tr>
-            <th class="col-md-1 no-sort">#</th>
-            <th class="col-md-1 no-sort">
+            <th class="no-sort" style="width:5%">#</th>
+            <th class="text-center no-sort" style="width:4%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -89,11 +89,12 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
               </div>
             </th>
-            <th class="col-md-2">Název</th>
-            <th class="col-md-1">Typ</th>
-            <th class="col-md-3">Uživatelská skupina</th>
-            <th class="col-md-2 no-sort">Datum vytvoření</th>
-            <th class="col-md-2 no-sort"></th>
+            <th style="width:24%">Název</th>
+            <th style="width:24%">Typ</th>
+            <th style="width:23%">Uživatelská skupina</th>
+            <th class="no-sort" style="width:12%">Datum</th>
+            <th class="text-center no-sort" style="width:4%">
+            <th class="text-center no-sort" style="width:4%">
           </tr>
           </thead>
           <tbody>
@@ -134,7 +135,14 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // EDIT
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=editnotification&amp;id=' . $n["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=editnotification&amp;id=' . $n["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                ?>
+
+              </td>
+              <td class="text-center">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // DELETE
                 echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=delete&amp;id=' . $n["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf('Jste si jistý, že chcete odstranit notifikaci <strong>%s</strong>', $n["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
@@ -148,7 +156,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -163,7 +171,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

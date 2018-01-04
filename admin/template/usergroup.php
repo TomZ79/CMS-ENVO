@@ -61,7 +61,7 @@
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=usergroup&sp=newgroup', $tl["button"]["btn35"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=usergroup&amp;sp=newgroup', $tl["button"]["btn35"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -94,7 +94,7 @@
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["userg_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["userg_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -119,7 +119,7 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=usergroup&amp;sp=edit&amp;ssp=' . $v["id"], $v["name"]);
+                  echo $Html->addAnchor('index.php?p=usergroup&amp;sp=edit&amp;id=' . $v["id"], $v["name"]);
                   ?>
 
                 </td>
@@ -128,7 +128,7 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=usergroup&amp;sp=user&amp;ssp=' . $v["id"], '<i class="fa fa-user"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i20"]));
+                  echo $Html->addAnchor('index.php?p=usergroup&amp;sp=user&amp;id=' . $v["id"], '<i class="fa fa-user"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i20"]));
                   ?>
 
                 </td>
@@ -136,7 +136,7 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=usergroup&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=usergroup&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
@@ -146,7 +146,7 @@
                   if ($v["id"] > 4) {
 
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=usergroup&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["userg_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                    echo $Html->addAnchor('index.php?p=usergroup&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["userg_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   }
                   ?>
 

@@ -77,7 +77,7 @@
           <div class="icon">
             <i class="fa fa-flash"></i>
           </div>
-          <a href="index.php?p=plugins&sp=hooks" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+          <a href="index.php?p=plugins&amp;sp=hooks" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
             <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       <?php } ?>

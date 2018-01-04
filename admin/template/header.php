@@ -42,13 +42,17 @@ echo $Html->addDoctype('html5');
   // Bootstrap TagsInput
   echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css?=v0.8.0', 'screen');
   // Bootstrap DateTimePicker
-  echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.42');
+  echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.47');
   // Bootstrap IconPicker
   echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css?=v1.7.0');
   // Bootstrap GlyphIcons
   echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
   // Animate
   echo $Html->addStylesheet('assets/css/animate.min.css');
+  // Plugin DataTable
+  if ($page == 'plugins' || $page == 'page' || $page == 'news') {
+    echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
+  }
   ?>
 
   <!-- BEGIN Pages CSS-->
@@ -319,7 +323,7 @@ echo $Html->addDoctype('html5');
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-            <a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo ENVO_USERID; ?>" class="dropdown-item">
+            <a href="index.php?p=users&amp;sp=edit&amp;id=<?php echo ENVO_USERID; ?>" class="dropdown-item">
               <i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
             </a>
             <a href="<?php echo BASE_URL_ADMIN; ?>template/help.php" class="dropdown-item contentHelp"><i class="fa fa-info"></i> <?php echo $tl["hf_text"]["hftxt5"]; ?>

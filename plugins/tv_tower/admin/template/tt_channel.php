@@ -96,8 +96,8 @@ if ($page2 == "n") { ?>
         <table id="tt_table" class="table table-striped table-hover">
           <thead>
           <tr>
-            <th class="col-md-1 no-sort">#</th>
-            <th class="col-md-1 no-sort">
+            <th class="no-sort" style="width:5%">#</th>
+            <th class="text-center no-sort" style="width:4%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -109,10 +109,12 @@ if ($page2 == "n") { ?>
 
               </div>
             </th>
-            <th class="col-md-2">Číslo Kanálu</th>
-            <th class="col-md-3">Název Sítě</th>
-            <th class="col-md-3">Vysílač</th>
-            <th class="col-md-2 no-sort"></th>
+            <th style="width:27%">Číslo Kanálu</th>
+            <th style="width:26%">Název Sítě</th>
+            <th style="width:26%">Vysílač</th>
+            <th class="text-center no-sort" style="width:4%"></th>
+            <th class="text-center no-sort" style="width:4%"></th>
+            <th class="text-center no-sort" style="width:4%"></th>
           </tr>
           </thead>
           <?php foreach ($ENVO_TVCHANNEL_ALL as $tc) { ?>
@@ -159,10 +161,22 @@ if ($page2 == "n") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvprogram&amp;ssp=newprogram&amp;value=' . $tc["towerid"] . '-' . $tc["id"] . '-' . $tc["number"] , '<i class="fa fa-sticky-note-o"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvprogram&amp;ssp=newprogram&amp;value=' . $tc["towerid"] . '-' . $tc["id"] . '-' . $tc["number"] , '<i class="fa fa-sticky-note-o"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i32"]));
+                ?>
 
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvchannel&amp;ssp=editchannel&amp;id=' . $tc["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+              </td>
+              <td class="text-center">
 
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvchannel&amp;ssp=editchannel&amp;id=' . $tc["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                ?>
+
+              </td>
+              <td class="text-center">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvchannel&amp;ssp=delete&amp;id=' . $tc["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $tc["number"] . 'K'), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
 
@@ -174,12 +188,13 @@ if ($page2 == "n") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
+      echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i32"]));
       echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
       echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
@@ -189,7 +204,7 @@ if ($page2 == "n") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

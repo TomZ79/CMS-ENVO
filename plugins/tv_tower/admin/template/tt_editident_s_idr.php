@@ -74,7 +74,7 @@ if ($errors) { ?>
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -88,7 +88,7 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-1">
+                  <div class="col-sm-1">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -96,7 +96,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-sm-3">
                     <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                       <?php
@@ -106,8 +106,8 @@ if ($errors) { ?>
 
                     </div>
                   </div>
-                  <div class="col-md-1 hidden-xs"></div>
-                  <div class="col-md-3">
+                  <div class="col-sm-1 hidden-xs"></div>
+                  <div class="col-sm-3">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -115,7 +115,7 @@ if ($errors) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-sm-3">
                     <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
 
                       <?php
@@ -125,7 +125,7 @@ if ($errors) { ?>
 
                     </div>
                   </div>
-                  <div class="col-md-1 hidden-xs"></div>
+                  <div class="col-sm-1 hidden-xs"></div>
                 </div>
               </div>
             </div>
@@ -140,7 +140,7 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="col-md-6" style="height: 500px;">
+      <div class="col-sm-6" style="height: 500px;">
 
       </div>
     </div>

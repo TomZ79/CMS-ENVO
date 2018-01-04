@@ -103,7 +103,7 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -117,7 +117,7 @@ if ($errors) { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -125,7 +125,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin">
 
                           <?php
@@ -137,7 +137,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -145,7 +145,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -155,7 +155,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -163,9 +163,9 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-sm-6">
                             <select name="envo_showblogordern" class="form-control selectpicker">
 
                               <?php
@@ -178,7 +178,7 @@ if ($errors) { ?>
 
                             </select>
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-sm-6">
                             <select name="envo_showblogorder" class="form-control selectpicker">
 
                               <?php
@@ -193,7 +193,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -201,7 +201,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <select name="envo_bloglimit" class="form-control selectpicker">
 
                           <?php for ($i = 0; $i <= 50; $i++) {
@@ -215,7 +215,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -224,7 +224,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                           <select name="envo_date" class="form-control selectpicker">
 
@@ -243,7 +243,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -251,8 +251,8 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
-                        <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                      <div class="col-sm-7">
+                        <div class="form-group no-margin">
                           <select name="envo_time" class="form-control selectpicker">
 
                             <?php
@@ -288,7 +288,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -296,7 +296,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="radio radio-success">
 
                           <?php
@@ -315,7 +315,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5">
+                      <div class="col-sm-5">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -323,7 +323,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-sm-7">
                         <div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
 
                           <?php
@@ -347,7 +347,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -361,7 +361,7 @@ if ($errors) { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-6">
+                      <div class="col-sm-6">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -371,7 +371,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-sm-6">
                         <div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
                           <select name="envo_mid" class="form-control selectpicker">
 
@@ -389,7 +389,7 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-6">
+                      <div class="col-sm-6">
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -397,7 +397,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-sm-6">
                         <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
 
                           <?php
@@ -426,6 +426,7 @@ if ($errors) { ?>
                 <?php
                 // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                 echo $Html->addTag('h3', $tlblog["blog_box_title"]["blogbt12"], 'box-title');
+                echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
                 ?>
 
               </div>
@@ -433,7 +434,7 @@ if ($errors) { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-12">
+                      <div class="col-sm-12">
                         <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
 
                           <?php
@@ -461,7 +462,7 @@ if ($errors) { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -499,7 +500,7 @@ if ($errors) { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -537,7 +538,7 @@ if ($errors) { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <div class="box box-success">
               <div class="box-header with-border">
 

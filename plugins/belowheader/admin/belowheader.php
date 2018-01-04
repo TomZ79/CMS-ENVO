@@ -93,7 +93,7 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&ssp=' . $rowid . '&status=s');
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&id=' . $rowid . '&status=s');
         }
       } else {
 
@@ -119,95 +119,50 @@ switch ($page1) {
     $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newbh.php';
 
     break;
-  default:
+  case 'edit':
 
-    switch ($page1) {
-      case 'delete':
-        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
+      $defaults = $_POST;
 
-          // Delete the Content
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      if (empty($defaults['envo_title'])) {
+        $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
+      }
 
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky s notifikací - chybné
-            envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky s notifikací - úspěšné
-            /*
-            NOTIFIKACE:
-            'status=s'    - Záznam úspěšně uložen
-            'status1=s1'  - Záznam úspěšně odstraněn
-            */
-            envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s&status1=s1');
-          }
+      if (count($errors) == 0) {
 
+        if (!isset($defaults['envo_permission'])) {
+          $permission = 0;
+        } elseif (in_array(0, $defaults['envo_permission'])) {
+          $permission = 0;
         } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=ene');
-        }
-        break;
-      case 'lock':
-
-        $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s');
+          $permission = join(',', $defaults['envo_permission']);
         }
 
-        break;
-      case 'edit':
+        if (!isset($defaults['envo_pageid'])) {
+          $pageid = 0;
+        } elseif (in_array(0, $defaults['envo_pageid'])) {
+          $pageid = 0;
+        } else {
+          $pageid = join(',', $defaults['envo_pageid']);
+        }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          // EN: Default Variable
-          // CZ: Hlavní proměnné
-          $defaults = $_POST;
+        if (!isset($defaults['envo_newsid'])) {
+          $newsid = 0;
+        } elseif (in_array(0, $defaults['envo_newsid'])) {
+          $newsid = 0;
+        } else {
+          $newsid = join(',', $defaults['envo_newsid']);
+        }
 
-          if (empty($defaults['envo_title'])) {
-            $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
-          }
-
-          if (count($errors) == 0) {
-
-            if (!isset($defaults['envo_permission'])) {
-              $permission = 0;
-            } elseif (in_array(0, $defaults['envo_permission'])) {
-              $permission = 0;
-            } else {
-              $permission = join(',', $defaults['envo_permission']);
-            }
-
-            if (!isset($defaults['envo_pageid'])) {
-              $pageid = 0;
-            } elseif (in_array(0, $defaults['envo_pageid'])) {
-              $pageid = 0;
-            } else {
-              $pageid = join(',', $defaults['envo_pageid']);
-            }
-
-            if (!isset($defaults['envo_newsid'])) {
-              $newsid = 0;
-            } elseif (in_array(0, $defaults['envo_newsid'])) {
-              $newsid = 0;
-            } else {
-              $newsid = join(',', $defaults['envo_newsid']);
-            }
-
-            /* EN: Convert value
-             * smartsql - secure method to insert form data into a MySQL DB
-             * ------------------
-             * CZ: Převod hodnot
-             * smartsql - secure method to insert form data into a MySQL DB
-            */
-            $result = $envodb->query('UPDATE ' . $envotable . ' SET
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $envodb->query('UPDATE ' . $envotable . ' SET
                       pageid = "' . smartsql($pageid) . '",
                       newsid = "' . smartsql($newsid) . '",
                       newsmain = "' . smartsql($defaults['envo_mainnews']) . '",
@@ -220,112 +175,152 @@ switch ($page1) {
                       permission = "' . smartsql($permission) . '",
                       time = NOW() WHERE id = "' . smartsql($page2) . '"');
 
-            if (!$result) {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&ssp=' . $page2 . '&status=e');
-            } else {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&ssp=' . $page2 . '&status=s');
-            }
-          } else {
-            $errors['e'] = $tl['general_error']['generror'] . '<br>';
-            $errors      = $errors;
-          }
+        if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&id=' . $page2 . '&status=e');
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&id=' . $page2 . '&status=s');
         }
-
-        // Get all usergroup's
-        $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
-
-        // Pages and News
-        $ENVO_PAGES = envo_get_page_info($envotable1, '');
-        $ENVO_NEWS  = envo_get_page_info($envotable2, '');
-
-        // Get the data
-        $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlbh["bh_sec_title"]["bht2"];
-        $SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd2"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editbh.php';
-
-        break;
-      default:
-
-        // Hello we have a post request
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_belowheader'])) {
-          // EN: Default Variable
-          // CZ: Hlavní proměnné
-          $defaults = $_POST;
-
-          if (isset($defaults['delete'])) {
-
-            $lockuser = $defaults['envo_delete_belowheader'];
-
-            for ($i = 0; $i < count($lockuser); $i++) {
-              $locked = $lockuser[$i];
-
-              $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
-            }
-
-            if (!$result) {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky s notifikací - chybné
-              envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
-            } else {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky s notifikací - úspěšné
-              /*
-              NOTIFIKACE:
-              'status=s'    - Záznam úspěšně uložen
-              'status1=s1'  - Záznam úspěšně odstraněn
-              */
-              envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s&status1=s1');
-            }
-
-          }
-
-          if (isset($defaults['lock'])) {
-
-            $lockuser = $defaults['envo_delete_belowheader'];
-
-            for ($i = 0; $i < count($lockuser); $i++) {
-              $locked = $lockuser[$i];
-
-              // Delete the pics associated with the Nivo Slider
-              $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
-            }
-
-            if (!$result) {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
-            } else {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s');
-            }
-
-          }
-
-        }
-
-        $ENVO_BELOWHEADER_ALL = envo_get_belowheader();
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlbh["bh_sec_title"]["bht"];
-        $SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
+      } else {
+        $errors['e'] = $tl['general_error']['generror'] . '<br>';
+        $errors      = $errors;
+      }
     }
+
+    // Get all usergroup's
+    $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+
+    // Pages and News
+    $ENVO_PAGES = envo_get_page_info($envotable1, '');
+    $ENVO_NEWS  = envo_get_page_info($envotable2, '');
+
+    // Get the data
+    $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+
+    // EN: Title and Description
+    // CZ: Titulek a Popis
+    $SECTION_TITLE = $tlbh["bh_sec_title"]["bht2"];
+    $SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd2"];
+
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editbh.php';
+
+    break;
+  case 'lock':
+
+    $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
+
+    if (!$result) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
+      envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
+    } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
+      envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s');
+    }
+
+    break;
+  case 'delete':
+    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+
+      // Delete the Content
+      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+
+      if (!$result) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky s notifikací - chybné
+        envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
+      } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky s notifikací - úspěšné
+        /*
+        NOTIFIKACE:
+        'status=s'    - Záznam úspěšně uložen
+        'status1=s1'  - Záznam úspěšně odstraněn
+        */
+        envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s&status1=s1');
+      }
+
+    } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
+      envo_redirect(BASE_URL . 'index.php?p=belowheader&status=ene');
+    }
+    break;
+  default:
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_belowheader'])) {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
+      $defaults = $_POST;
+
+      if (isset($defaults['delete'])) {
+
+        $deleteuser = $defaults['envo_delete_belowheader'];
+
+        for ($i = 0; $i < count($deleteuser); $i++) {
+          $deleted = $deleteuser[$i];
+
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+        }
+
+        if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky s notifikací - chybné
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky s notifikací - úspěšné
+          /*
+          NOTIFIKACE:
+          'status=s'    - Záznam úspěšně uložen
+          'status1=s1'  - Záznam úspěšně odstraněn
+          */
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s&status1=s1');
+        }
+
+      }
+
+      if (isset($defaults['lock'])) {
+
+        $lockuser = $defaults['envo_delete_belowheader'];
+
+        for ($i = 0; $i < count($lockuser); $i++) {
+          $locked = $lockuser[$i];
+
+          // Delete the pics associated with the Nivo Slider
+          $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+        }
+
+        if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=e');
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=belowheader&status=s');
+        }
+
+      }
+
+    }
+
+    $ENVO_BELOWHEADER_ALL = envo_get_belowheader();
+
+    // EN: Title and Description
+    // CZ: Titulek a Popis
+    $SECTION_TITLE = $tlbh["bh_sec_title"]["bht"];
+    $SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd"];
+
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
 }
 
 ?>

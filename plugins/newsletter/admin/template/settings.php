@@ -92,7 +92,7 @@ if ($success) { ?>
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -106,7 +106,7 @@ if ($success) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -115,7 +115,7 @@ if ($success) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -127,7 +127,7 @@ if ($success) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -135,7 +135,7 @@ if ($success) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -145,7 +145,7 @@ if ($success) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -154,7 +154,7 @@ if ($success) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -166,7 +166,7 @@ if ($success) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -175,7 +175,7 @@ if ($success) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
 
                       <?php
@@ -187,7 +187,7 @@ if ($success) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -195,7 +195,7 @@ if ($success) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
                     <div class="radio">
                       <div class="radio radio-success">
 
@@ -218,7 +218,7 @@ if ($success) { ?>
 
                 <div id="smtpsettings" <?php echo (empty($ENVO_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -226,7 +226,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -236,7 +236,7 @@ if ($success) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -244,7 +244,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
                       <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
 
                         <?php
@@ -256,7 +256,7 @@ if ($success) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -264,7 +264,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
                       <div class="radio radio-success">
 
                         <?php
@@ -283,7 +283,7 @@ if ($success) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -291,7 +291,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
                       <div class="radio radio-success">
 
                         <?php
@@ -310,7 +310,7 @@ if ($success) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -318,7 +318,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
                       <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
 
                         <?php
@@ -330,7 +330,7 @@ if ($success) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -338,7 +338,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -348,7 +348,7 @@ if ($success) { ?>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -356,7 +356,7 @@ if ($success) { ?>
                       ?>
 
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-7">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -367,7 +367,7 @@ if ($success) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -375,7 +375,7 @@ if ($success) { ?>
                     ?>
 
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-7">
 
                     <?php
                     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)

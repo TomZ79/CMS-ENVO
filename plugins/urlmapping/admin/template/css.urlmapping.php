@@ -23,7 +23,7 @@ if ($page == 'urlmapping') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Plugin DataTable
-  echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.css');
+  echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
   // Plugin Css style
   echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/urlmapping/admin/css/style.urlmapping.min.css');
 

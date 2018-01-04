@@ -20,16 +20,16 @@ if ($page3 == "ene") { ?>
 <?php } ?>
 
   <div class="row">
-    <div class="col-lg-5 col-md-12 ">
-      <!-- START PANEL -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">Service ID (S_ID)
+    <div class="col-lg-5 col-sm-12 ">
+      <!-- START CARD -->
+      <div class="card card-default">
+        <div class="card-header">
+          <div class="card-title">Service ID (S_ID)
           </div>
         </div>
-        <div class="panel-body">
+        <div class="card-block">
           <p style="height: 60px">Unikátní identifikátor konkrétní služby přenášené transportním tokem (televizní program, rozhlasový program, ostatní služby).</p>
-          <div class="m-t-15 pull-right">
+          <div class="m-t-15">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -41,16 +41,16 @@ if ($page3 == "ene") { ?>
           </div>
         </div>
       </div>
-      <!-- END PANEL -->
+      <!-- END CARD -->
     </div>
-    <div class="col-lg-4 col-md-12 ">
-      <!-- START PANEL -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">Original Network ID (ON_ID)
+    <div class="col-lg-4 col-sm-12 ">
+      <!-- START CARD -->
+      <div class="card card-default">
+        <div class="card-header">
+          <div class="card-title">Original Network ID (ON_ID)
           </div>
         </div>
-        <div class="panel-body">
+        <div class="card-block">
           <p style="height: 60px">Unikátní identifikátor společný pro všechny sítě v rámci konkrétní země.</p>
           <div class="m-t-15 pull-right">
 
@@ -62,16 +62,16 @@ if ($page3 == "ene") { ?>
           </div>
         </div>
       </div>
-      <!-- END PANEL -->
+      <!-- END CARD -->
     </div>
-    <div class="col-lg-3 col-md-12 ">
-      <!-- START PANEL -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">Network ID (N_ID)
+    <div class="col-lg-3 col-sm-12 ">
+      <!-- START CARD -->
+      <div class="card card-default">
+        <div class="card-header">
+          <div class="card-title">Network ID (N_ID)
           </div>
         </div>
-        <div class="panel-body">
+        <div class="card-block">
           <p style="height: 60px">Unikátní identifikátor konkrétní sítě.</p>
           <div class="m-t-15 pull-right">
 
@@ -83,7 +83,7 @@ if ($page3 == "ene") { ?>
           </div>
         </div>
       </div>
-      <!-- END PANEL -->
+      <!-- END CARD -->
     </div>
   </div>
 

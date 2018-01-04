@@ -117,8 +117,8 @@ if ($page2 == "n") { ?>
         <table id="tt_table" class="table table-striped table-hover">
           <thead>
           <tr>
-            <th class="col-md-1 no-sort">#</th>
-            <th class="col-md-1 no-sort">
+            <th class="no-sort" style="width:5%">#</th>
+            <th class="text-center no-sort" style="width:4%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -130,10 +130,12 @@ if ($page2 == "n") { ?>
 
               </div>
             </th>
-            <th class="col-md-3"><?php echo $tltt["tt_box_table"]["tttb"]; ?></th>
-            <th class="col-md-3">Stanoviště</th>
-            <th class="col-md-2">Okres</th>
-            <th class="col-md-2 no-sort"></th>
+            <th style="width:27%"><?php echo $tltt["tt_box_table"]["tttb"]; ?></th>
+            <th style="width:26%">Stanoviště</th>
+            <th style="width:26%">Okres</th>
+            <th class="text-center no-sort" style="width:4%"></th>
+            <th class="text-center no-sort" style="width:4%"></th>
+            <th class="text-center no-sort" style="width:4%"></th>
           </tr>
           </thead>
           <?php foreach ($ENVO_TVTOWER_ALL as $tt) { ?>
@@ -170,9 +172,23 @@ if ($page2 == "n") { ?>
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // LOCK
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=lock&amp;id=' . $tt["id"], '<i class="fa fa-' . (($tt["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => ($tt["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=lock&amp;id=' . $tt["id"], '<i class="fa fa-' . (($tt["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($tt["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                ?>
+
+              </td>
+              <td class="text-center">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // EDIT
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=edittvtower&amp;id=' . $tt["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=edittvtower&amp;id=' . $tt["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                ?>
+
+              </td>
+              <td class="text-center">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // DELETE
                 echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=delete&amp;id=' . $tt["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $tt["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
@@ -186,12 +202,14 @@ if ($page2 == "n") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
+      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i6"]));
+      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i5"]));
       echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
       echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
@@ -201,7 +219,7 @@ if ($page2 == "n") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

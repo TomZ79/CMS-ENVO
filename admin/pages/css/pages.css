@@ -2382,8 +2382,8 @@ body.menu-pin .overlay .overlay-brand {
   text-transform: uppercase;
   display: inline-block;
   letter-spacing: 0.06em;
-  font-size: 10.5px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   margin: 0;
   padding: 0;
   line-height: normal;
@@ -9276,7 +9276,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
   opacity: .35;
 }
 .dataTables_wrapper .dataTables_paginate ul > li.disabled a:hover {
-  opacity: .35;
+  opacity: 1;
 }
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_paginate {
@@ -9305,7 +9305,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
 }
 .dataTables_wrapper .dataTables_paginate ul > li.active > a {
   font-weight: bold;
-  color: #626262;
+  color: #FFF;
   opacity: 1;
 }
 .export-options-container a {
@@ -9443,10 +9443,10 @@ table.dataTable.table-condensed .sorting_desc:after {
   width: 100%;
 }
 .dataTables_wrapper .row > div {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
   width: 100%;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
 }
 .dataTables_wrapper#tableWithDynamicRows_wrapper > div {
   width: 100%;

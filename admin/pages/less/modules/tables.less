@@ -257,7 +257,7 @@
 .dataTables_wrapper .dataTables_paginate ul > li.disabled a {
 	opacity: .35;
 	&:hover {
-		opacity: .35;
+		opacity: 1;
 	}
 }
 
@@ -295,7 +295,7 @@
 
 .dataTables_wrapper .dataTables_paginate ul > li.active > a {
 	font-weight: bold;
-	color: @color-master;
+	color: @color-white;
 	opacity: 1;
 }
 
@@ -467,10 +467,10 @@ table.dataTable.table-condensed .sorting_desc:after {
 	.row {
 		width: 100%;
 		& > div {
-			display: flex;
-			justify-content: space-between;
+			/* display: flex; */
+			/* justify-content: space-between; */
 			width: 100%;
-			flex-direction: row-reverse;
+			/* flex-direction: row-reverse; */
 		}
 	}
 	&#tableWithDynamicRows_wrapper {

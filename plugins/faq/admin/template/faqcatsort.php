@@ -74,7 +74,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlf["faq_notification"]["delall"]));
+              echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlf["faq_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
               ?>
 
             </th>
@@ -99,7 +99,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
                 ?>
 
               </td>
@@ -110,7 +110,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                     if ($v["catid"] == $z["id"]) {
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('index.php?p=faq&amp;sp=showcat&amp;ssp=' . $z["id"], $z["name"]);
+                      echo $Html->addAnchor('index.php?p=faq&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
                     }
                   }
                 } else {
@@ -124,7 +124,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                echo $Html->addAnchor('index.php?p=faq&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                 ?>
 
               </td>
@@ -132,7 +132,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                 ?>
 
               </td>
@@ -140,7 +140,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=faq&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tlf["faq_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=faq&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tlf["faq_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>
@@ -152,7 +152,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </div>
 </form>
 
-<div class="col-md-12">
+<div class="col-sm-12">
   <div class="icon_legend">
 
     <?php

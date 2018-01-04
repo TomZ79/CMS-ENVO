@@ -1,4 +1,18 @@
-/*! version : 4.17.42
+/*
+ * CMS ENVO
+ * CSS Template - Admin Pages with custom modification
+ * Override Pages default styles or create your own styles here
+ * Copyright (c) 2016 - 2018 Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Plugin: bootstrap-datetimejs
+ * Version: v4.17.47 custom modification
+ * Author: Jonathan Peterson and BluesatKV
+ * Email: bluesatkv@gmail.com
+ * Github: https://github.com/Eonasdan/bootstrap-datetimepicker
+-------------------------------------------------------------------*/
+
+
+/*! version : 4.17.47
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -142,6 +156,10 @@
 
                 if (d === undefined || d === null) {
                     returnMoment = moment(); //TODO should this use format? and locale?
+                } else if (moment.isDate(d) || moment.isMoment(d)) {
+                    // If the date that is passed in is already a Date() or moment() object,
+                    // pass it directly to moment.
+                    returnMoment = moment(d);
                 } else if (hasTimeZone()) { // There is a string to parse and a default time zone
                     // parse with the tz function which takes a default time zone if it is not in the format string
                     returnMoment = moment.tz(d, parseFormats, options.useStrict, options.timeZone);
@@ -336,6 +354,7 @@
                 if (use24Hours) {
                     template.addClass('usetwentyfour');
                 }
+
                 if (isEnabled('s') && !use24Hours) {
                     template.addClass('wider');
                 }
@@ -360,7 +379,7 @@
                     content.append(toolbar);
                 }
                 if (hasDate()) {
-                    content.append($('<li>').addClass((options.collapse && hasTime() ? 'collapse in' : '')).append(dateView));
+                    content.append($('<li>').addClass((options.collapse && hasTime() ? 'collapse show' : '')).append(dateView));
                 }
                 if (options.toolbarPlacement === 'default') {
                     content.append(toolbar);
@@ -448,15 +467,15 @@
                     widget.removeClass('pull-right');
                 }
 
-                // find the first parent element that has a relative css positioning
-                if (parent.css('position') !== 'relative') {
+                // find the first parent element that has a non-static css positioning
+                if (parent.css('position') === 'static') {
                     parent = parent.parents().filter(function () {
-                        return $(this).css('position') === 'relative';
+                        return $(this).css('position') !== 'static';
                     }).first();
                 }
 
                 if (parent.length === 0) {
-                    throw new Error('datetimepicker component should be placed within a relative positioned container');
+                    throw new Error('datetimepicker component should be placed within a non-static positioned container');
                 }
 
                 widget.css({
@@ -686,7 +705,7 @@
                     currentDate,
                     html = [],
                     row,
-                    clsName,
+                    clsNames = [],
                     i;
 
                 if (!hasDate()) {
@@ -717,26 +736,31 @@
                         }
                         html.push(row);
                     }
-                    clsName = '';
+                    clsNames = ['day'];
                     if (currentDate.isBefore(viewDate, 'M')) {
-                        clsName += ' old';
+                        clsNames.push('old');
                     }
                     if (currentDate.isAfter(viewDate, 'M')) {
-                        clsName += ' new';
+                        clsNames.push('new');
                     }
                     if (currentDate.isSame(date, 'd') && !unset) {
-                        clsName += ' active';
+                        clsNames.push('active');
                     }
                     if (!isValid(currentDate, 'd')) {
-                        clsName += ' disabled';
+                        clsNames.push('disabled');
                     }
                     if (currentDate.isSame(getMoment(), 'd')) {
-                        clsName += ' today';
+                        clsNames.push('today');
                     }
                     if (currentDate.day() === 0 || currentDate.day() === 6) {
-                        clsName += ' weekend';
+                        clsNames.push('weekend');
                     }
-                    row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="day' + clsName + '">' + currentDate.date() + '</td>');
+                    notifyEvent({
+                        type: 'dp.classify',
+                        date: currentDate,
+                        classNames: clsNames
+                    });
+                    row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '">' + currentDate.date() + '</td>');
                     currentDate.add(1, 'd');
                 }
 
@@ -862,11 +886,15 @@
 
                 if (options.stepping !== 1) {
                     targetMoment.minutes((Math.round(targetMoment.minutes() / options.stepping) * options.stepping)).seconds(0);
+
+                    while (options.minDate && targetMoment.isBefore(options.minDate)) {
+                        targetMoment.add(options.stepping, 'minutes');
+                    }
                 }
 
                 if (isValid(targetMoment)) {
                     date = targetMoment;
-                    //viewDate = date.clone(); // TODO this doesn't work right on first use
+                    viewDate = date.clone();
                     input.val(date.format(actualFormat));
                     element.data('date', date.format(actualFormat));
                     unset = false;
@@ -933,7 +961,6 @@
 
                 input.blur();
 
-                currentViewMode = 0;
                 viewDate = date.clone();
 
                 return picker;
@@ -945,7 +972,7 @@
 
             parseInputDate = function (inputDate) {
                 if (options.parseInputDate === undefined) {
-                    if (!moment.isMoment(inputDate)) {
+                    if (!moment.isMoment(inputDate) || inputDate instanceof Date) {
                         inputDate = getMoment(inputDate);
                     }
                 } else {
@@ -1087,8 +1114,8 @@
                 togglePicker: function (e) {
                     var $this = $(e.target),
                         $parent = $this.closest('ul'),
-                        expanded = $parent.find('.in'),
-                        closed = $parent.find('.collapse:not(.in)'),
+                        expanded = $parent.find('.show'),
+                        closed = $parent.find('.collapse:not(.show)'),
                         collapseData;
 
                     if (expanded && expanded.length) {
@@ -1100,8 +1127,8 @@
                             expanded.collapse('hide');
                             closed.collapse('show');
                         } else { // otherwise just toggle in class on the two views
-                            expanded.removeClass('in');
-                            closed.addClass('in');
+                            expanded.removeClass('show');
+                            closed.addClass('show');
                         }
                         if ($this.is('span')) {
                             $this.toggleClass(options.icons.time + ' ' + options.icons.date);
@@ -2402,11 +2429,12 @@
 
         if (typeof options === 'object') {
             return this.each(function () {
-                var $this = $(this);
+                var $this = $(this),
+                    _options;
                 if (!$this.data('DateTimePicker')) {
                     // create a private copy of the defaults object
-                    options = $.extend(true, {}, $.fn.datetimepicker.defaults, options);
-                    $this.data('DateTimePicker', dateTimePicker($this, options));
+                    _options = $.extend(true, {}, $.fn.datetimepicker.defaults, options);
+                    $this.data('DateTimePicker', dateTimePicker($this, _options));
                 }
             });
         } else if (typeof options === 'string') {
@@ -2446,15 +2474,15 @@
         disabledDates: false,
         enabledDates: false,
         icons: {
-            time: "fa fa-clock-o",
-            date: "fa fa-calendar",
-            up: "fa fa-arrow-up",
-            down: "fa fa-arrow-down",
-            previous: "fa fa-chevron-left",
-            next: "fa fa-chevron-right",
-            today: "fa fa-check-circle-o",
-            clear: "fa fa-trash",
-            close: "fa fa-times"
+            time: 'glyphicon glyphicon-time',
+            date: 'glyphicon glyphicon-calendar',
+            up: 'glyphicon glyphicon-chevron-up',
+            down: 'glyphicon glyphicon-chevron-down',
+            previous: 'glyphicon glyphicon-chevron-left',
+            next: 'glyphicon glyphicon-chevron-right',
+            today: 'glyphicon glyphicon-screenshot',
+            clear: 'glyphicon glyphicon-trash',
+            close: 'glyphicon glyphicon-remove'
         },
         tooltips: {
             today: 'Go to today',
@@ -2617,7 +2645,6 @@
         enabledHours: false,
         viewDate: false
     };
-    if (typeof module !== 'undefined') {
-        module.exports = $.fn.datetimepicker;
-    }
+
+    return $.fn.datetimepicker;
 }));

@@ -8,6 +8,9 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!ENVO_USERID || !ENVO_SUPERADMINACCESS) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'setting';
@@ -97,10 +100,14 @@ function getTemplateFiles($dir, $level, $rootLen)
   }
 }
 
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
+
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'settings':
+    // TEMPLATE SETTINGS
 
     $file = '../template/' . ENVO_TEMPLATE . '/templatesettings_case.php';
     if (file_exists($file)) {
@@ -122,6 +129,7 @@ switch ($page1) {
 
     break;
   case 'cssedit':
+    // EDIT CSS FILE OF TEMPLATE
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
@@ -196,6 +204,7 @@ switch ($page1) {
 
     break;
   case 'langedit':
+    // EDIT LANG FILE OF TEMPLATE
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
@@ -266,6 +275,7 @@ switch ($page1) {
 
     break;
   case 'edit-files':
+    // EDIT FILES OF TEMPLATE
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
@@ -336,6 +346,7 @@ switch ($page1) {
 
     break;
   case 'active':
+    // ACTIVE TEMPLATE
 
     $result = $envodb->query('UPDATE ' . $envotable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
 
@@ -351,6 +362,7 @@ switch ($page1) {
 
     break;
   default:
+    // LIST OF TEMPLATE
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB

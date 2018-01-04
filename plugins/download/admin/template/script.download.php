@@ -44,6 +44,8 @@ if ($page == 'download') {
   <?php
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
+  // Plugin DataTable
+  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Slug
   echo $Html->addScript('assets/js/global_js/slug.min.js');
   // Categories plugin and script

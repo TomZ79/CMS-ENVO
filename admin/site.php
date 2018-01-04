@@ -8,6 +8,9 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // EN: Default Variable

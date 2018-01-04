@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc"]; ?></label>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <select name="envo_showblogorder" class="form-control selectpicker">
 
             <?php
@@ -16,7 +16,7 @@
 
           </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <select name="envo_showblogmany" class="form-control selectpicker">
 
             <?php for ($i = 0; $i <= 10; $i++) {

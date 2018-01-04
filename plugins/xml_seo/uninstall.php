@@ -30,11 +30,17 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
   <title><?php echo $tlxml["xml_uninstall"]["xmluninst"]; ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
-  <link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
-  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6');
+  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  ?>
   <!-- BEGIN Pages CSS-->
-  <link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
-  <link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.0', '', array('class' => 'main-stylesheet'));
+  ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
     /* Fix 'jumping scrollbar' issue */
@@ -69,8 +75,8 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
       color: #384343;
     }
 
-    /* Portlet */
-    .portlet-collapse i {
+    /* Card */
+    .card-collapse i {
       font-size: 17px;
       font-weight: bold;
     }
@@ -81,66 +87,51 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
     }
   </style>
   <!-- BEGIN VENDOR JS -->
-  <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-  <script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html->addScript('/assets/plugins/tether/js/tether.min.js');
+  echo $Html->addScript('/assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
+  ?>
   <!-- BEGIN CORE TEMPLATE JS -->
-  <script src="/admin/pages/js/pages.js?=v2.2.0"></script>
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  ?>
 </head>
 <body>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 m-t-20">
-      <div class="jumbotron bg-master">
+    <div class="col-sm-12 m-t-20">
+      <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
         <h3 class="semi-bold text-white"><?php echo $tlxml["xml_uninstall"]["xmluninst"]; ?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
-        <h4 class="semi-bold"><?php echo $tlxml["xml_uninstall"]["xmluninst1"]; ?></h4>
-        <p>Plugin pracuje se souborem <strong>' sitemap.xml '</strong> a odinstalování pluginu neovlivní záznamy v DB.
-        </p>
 
-        <div id="portlet-advance" class="panel panel-transparent">
-          <div class="panel-heading separator">
-            <div class="panel-title"><?php echo $tlxml["xml_uninstall"]["xmluninst2"]; ?></div>
-            <div class="panel-controls">
+        <h4 class="semi-bold"><?php echo $tlxml["xml_uninstall"]["xmluninst1"]; ?></h4>
+
+        <div data-pages="card" class="card card-transparent" id="card-basic">
+          <div class="card-header separator">
+            <div class="card-title"><?php echo $tlxml["xml_uninstall"]["xmluninst2"]; ?></div>
+            <div class="card-controls">
               <ul>
                 <li>
-                  <a href="#" class="portlet-collapse" data-toggle="collapse">
-                    <i class="portlet-icon portlet-icon-collapse"></i>
+                  <a data-toggle="collapse" class="card-collapse" href="#">
+                    <i class="card-icon card-icon-collapse"></i>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="panel-body">
+          <div class="card-block">
             <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
             <p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
             <br>
-            <div>
-              <table class="table table-transparent">
-                <thead>
-                <tr class="bg-complete-lighter">
-                  <th>Koponenta</th>
-                  <th class="text-center">Ano - bude odinstalováno</th>
-                  <th class="text-center">Ne - data zůstanou v DB</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Tabulky DB pro práci s pluginem</td>
-                  <td class="text-center"><i class="fa fa-check"></i></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Nastavení pluginu</td>
-                  <td class="text-center"><i class="fa fa-check"></i></td>
-                  <td></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+            <h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
           </div>
         </div>
 
@@ -212,7 +203,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
         <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
           <div class="form-group form-inline">
             <label for="text"><?php echo $tlxml["xml_uninstall"]["xmluninst5"]; ?></label>
-            <input type="text" name="captcha" class="form-control" id="text">
+            <input type="text" name="captcha" class="form-control m-l-10" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
           <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlxml["xml_uninstall"]["xmluninst6"]; ?></button>
@@ -222,22 +213,6 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  (function ($) {
-    'use strict';
-    $('#portlet-advance').portlet({
-      onRefresh: function () {
-        setTimeout(function () {
-          // Throw any error you encounter while refreshing
-          $('#portlet-advance').portlet({
-            error: "Something went terribly wrong. Just keep calm and carry on!"
-          });
-        }, 2000);
-      }
-    });
-  })(window.jQuery);
-</script>
 
 </body>
 </html>

@@ -40,7 +40,7 @@ if ($page == 'download') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=download&amp;sp=edit&amp;ssp=' . $page2, $tld["downl_menu"]["downlm3"]);
+        echo $Html->addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $page2, $tld["downl_menu"]["downlm3"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm3"]), 'icon-thumbnail');
         ?>
@@ -74,7 +74,7 @@ if ($page == 'download') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $page3, $tld["downl_menu"]["downlm6"]);
+        echo $Html->addAnchor('index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;id=' . $page3, $tld["downl_menu"]["downlm6"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
         echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm6"]), 'icon-thumbnail');
         ?>

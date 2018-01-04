@@ -23,6 +23,8 @@ if ($page == 'growl') {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
+  // Plugin DataTable
+  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/growl/admin/js/script.growl.min.js');
 

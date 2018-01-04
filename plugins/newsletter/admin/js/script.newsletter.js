@@ -23,22 +23,27 @@
 $(function () {
 
   /* Check all checkbox */
-  $("#envo_delete_all").click(function () {
+  $('#envo_delete_all').click(function () {
     var checkedStatus = this.checked;
-    $(".highlight").each(function () {
+    if (checkedStatus) {
+      $('#button_delete').prop('disabled', false);
+    } else {
+      $('#button_delete').attr('disabled',true);
+    }
+    $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
-    });
-    $('#button_delete').prop('disabled', function (i, v) {
-      return !v;
     });
   });
 
   /* Disable submit button if checkbox is not checked */
-  $(".highlight").change(function () {
+  $('.highlight').change(function () {
     if (this.checked) {
-      $("#button_delete").removeAttr("disabled");
+      $('#button_delete').prop('disabled', false);
     } else {
-      $("#button_delete").attr("disabled", "disabled");
+      if ($('.highlight').filter(':checked').length < 1){
+        $('#envo_delete_all').prop('checked', false);
+        $('#button_delete').attr('disabled',true);
+      }
     }
   });
 

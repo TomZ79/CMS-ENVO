@@ -32,11 +32,16 @@ if ($page2 == "e" || $page2 == "ene") { ?>
   <div class="row">
     <div class="col-sm-12 p-l-15 p-r-15">
       <form role="form" method="post" action="/admin/index.php?p=intranet&amp;sp=house&amp;ssp=searchdvbt2">
-        <div class="col-sm-4 m-b-10">
-          <button class="btn btn-info" name="searchdvbt2_yes" type="submit" style="width:100%;">Vyhledat domy s přípravou DVB-T2</button>
-        </div>
-        <div class="col-sm-4 m-b-10">
-          <button class="btn btn-info" name="searchdvbt2_no" type="submit" style="width:100%;">Vyhledat domy bez přípravy DVB-T2</button>
+        <div class="row">
+          <div class="col-sm-3 m-b-10">
+            <button class="btn btn-info" name="searchdvbt2_yes" type="submit" style="width:100%;">Vyhledat domy s přípravou DVB-T2</button>
+          </div>
+          <div class="col-sm-3 m-b-10">
+            <button class="btn btn-info" name="searchdvbt2_no" type="submit" style="width:100%;">Vyhledat domy bez přípravy DVB-T2</button>
+          </div>
+          <div class="col m-b-10">
+
+          </div>
         </div>
       </form>
     </div>
@@ -52,7 +57,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
           <thead>
           <tr>
             <th class="no-sort" style="width:5%">#</th>
-            <th class="no-sort" style="width:5%">
+            <th class="text-center no-sort" style="width:4%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -64,7 +69,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
               </div>
             </th>
-            <th style="width:35%">Název</th>
+            <th style="width:36%">Název</th>
             <th style="width:20%">Ulice</th>
             <th style="width:10%">Město</th>
             <th class="no-sort" style="width:20%">IČ</th>
@@ -121,7 +126,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12 m-b-30">
+  <div class="col-sm-12 m-b-30">
     <div class="icon_legend">
 
       <?php
@@ -136,7 +141,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

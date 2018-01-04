@@ -22,6 +22,8 @@ if ($page == 'faq') {
   echo '<!-- Start CSS Faq -->';
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  // Plugin DataTable
+  echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
   // Plugin Css style
   echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/faq/admin/css/style.faq.min.css');
 

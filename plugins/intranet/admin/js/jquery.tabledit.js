@@ -473,18 +473,18 @@ if (typeof jQuery === 'undefined') {
 
               // Create delete button.
               if (settings.deleteButton) {
-                deleteButton = '<button type="button" class="tabledit-delete-button ' + settings.buttons.delete.class + '" style="float: none;">' + deleteButtonHtml + '</button>';
-                confirmButton = '<button type="button" class="tabledit-confirm-button ' + settings.buttons.confirm.class + '" style="display: none; float: none;">' + confirmButtonHtml + '</button>';
+                deleteButton = '<button type="button" class="tabledit-delete-button ' + settings.buttons.delete.class + '" style="float: none; ">' + deleteButtonHtml + '</button>';
+                confirmButton = '<button type="button" class="tabledit-confirm-button ' + settings.buttons.confirm.class + '" style="display: none; float: none; margin-left: 10px;">' + confirmButtonHtml + '</button>';
               }
 
               // Create save button.
               if (settings.editButton && settings.saveButton) {
-                saveButton = '<button type="button" class="tabledit-save-button ' + settings.buttons.save.class + '" style="display: none; float: none;">' + saveButtonHtml + '</button>';
+                saveButton = '<button type="button" class="tabledit-save-button ' + settings.buttons.save.class + '" style="display: none; float: none; margin-left: 10px;">' + saveButtonHtml + '</button>';
               }
 
               // Create restore button.
               if (settings.deleteButton && settings.restoreButton) {
-                restoreButton = '<button type="button" class="tabledit-restore-button ' + settings.buttons.restore.class + '" style="display: none; float: none;">' + restoreButtonHtml + '</button>';
+                restoreButton = '<button type="button" class="tabledit-restore-button ' + settings.buttons.restore.class + '" style="display: none; float: none; margin-left: 10px;">' + restoreButtonHtml + '</button>';
               }
 
               var toolbar = '<div class="tabledit-toolbar ' + settings.toolbarClass + '" style="text-align: left;">\n\
@@ -1040,12 +1040,12 @@ if (typeof jQuery === 'undefined') {
     buttons: {
       edit: {
         class: 'btn btn-sm btn-default',
-        html: '<span class="glyphicon glyphicon-pencil"></span>',
+        html: '<span class="glyphicons glyphicons-pencil"></span>',
         action: 'edit'
       },
       delete: {
         class: 'btn btn-sm btn-default',
-        html: '<span class="glyphicon glyphicon-trash"></span>',
+        html: '<span class="glyphicons glyphicons-remove-circle"></span>',
         action: 'delete'
       },
       save: {

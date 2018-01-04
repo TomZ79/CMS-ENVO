@@ -36,7 +36,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=contactform&sp=newcontact', $tl["button"]["btn30"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=contactform&amp;sp=newcontact', $tl["button"]["btn30"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -78,7 +78,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["cf_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tl["cf_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -103,7 +103,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=editcontact&amp;id=' . $v["id"], $v["title"]);
                   ?>
 
                 </td>
@@ -112,7 +112,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                   ?>
 
                 </td>
@@ -120,7 +120,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=editcontact&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
@@ -128,7 +128,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["cf_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=contactform&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["cf_notification"]["del"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>

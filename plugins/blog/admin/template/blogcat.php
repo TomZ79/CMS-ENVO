@@ -94,9 +94,9 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
       $lang   = $tlblog["blog_notification"]["catdel"];
       $title1 = $tl["icons"]["i5"];
       $title2 = $tl["icons"]["i6"];
-      $title3 = $tl["icons"]["i21"];
-      $title4 = $tl["icons"]["i2"];
-      $title5 = $tl["icons"]["i1"];
+      $title3 = $tl["icons"]["i21"];  // Add Article
+      $title4 = $tl["icons"]["i31"];  // Edit Category
+      $title5 = $tl["icons"]["i1"];   // Trash
 
       echo envo_build_menu_blog(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable envo_cat_move"', ' id="mheader"');
 
@@ -113,13 +113,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
     </div>
   </div>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
     <div class="icon_legend">
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-plus', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i7"]));
       echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i6"]));
       echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i5"]));
       echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i21"]));
@@ -132,7 +131,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

@@ -99,37 +99,11 @@ $(function () {
         "orderable": false
       }],
       // Page lenght
-      "pageLength": 15,
+      "pageLength": dataTablesSettings.pageLenght,
       // Show entries
       //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
       // Design Table items
       "dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>",
-      // Export table
-      buttons: [
-        {
-          extend: 'excel',
-          exportOptions: {
-            columns: [0, 2, 3, 4]
-          }
-        },
-        {
-          extend: 'pdf',
-          exportOptions: {
-            columns: [0, 2, 3, 4]
-          },
-          customize: function (doc) {
-            doc.content[1].table.widths =
-              Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-          }
-
-        },
-        {
-          extend: 'print',
-          exportOptions: {
-            columns: [0, 2, 3, 4]
-          }
-        }
-      ],
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
         $(this).wrap('<div class="table-responsive"></div>');

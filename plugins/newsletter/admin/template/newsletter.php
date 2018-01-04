@@ -81,7 +81,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlnl["newsletter_notification"]["delalln"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlnl["newsletter_notification"]["delalln"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i30"]));
                 ?>
 
               </th>
@@ -106,7 +106,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
                   ?>
 
                 </td>
@@ -126,7 +126,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   if ($v["sent"]) {
 
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=newsletter&amp;sp=stat&amp;ssp=' . $v["id"], '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i27"]));
+                    echo $Html->addAnchor('index.php?p=newsletter&amp;sp=stat&amp;id=' . $v["id"], '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i27"]));
 
                   }
                   ?>
@@ -136,7 +136,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=preview&amp;ssp=' . $v["id"], '<i class="fa fa-desktop"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i28"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=preview&amp;id=' . $v["id"], '<i class="fa fa-desktop"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i28"]));
                   ?>
 
                 </td>
@@ -144,7 +144,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=send&amp;ssp=' . $v["id"], '<i class="fa fa-envelope-o"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i29"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=send&amp;id=' . $v["id"], '<i class="fa fa-envelope-o"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i29"]));
                   ?>
 
                 </td>
@@ -152,7 +152,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
@@ -160,7 +160,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlnl["newsletter_notification"]["deln"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlnl["newsletter_notification"]["deln"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>
@@ -172,7 +172,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </form>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
     <div class="icon_legend">
 
       <?php
@@ -194,7 +194,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 } else { ?>
 
-  <div class="col-md-12">
+  <div class="col-sm-12">
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

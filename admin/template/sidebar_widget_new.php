@@ -31,7 +31,7 @@ if ($hookadminws)
           // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
           echo $Html->startTag('label', array('for' => 'envo_hookshow' . $v["id"]));
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], $v["name"]);
+          echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=' . $v["id"], $v["name"]);
           // Add Html Element -> endTag (Arguments: tag)
           echo $Html->endTag('label');
           ?>

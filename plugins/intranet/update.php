@@ -28,24 +28,74 @@ $nameofplugin  = 'Intranet';
   <title>Update - Intranet Plugin</title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
-  <link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
-  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6');
+  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  ?>
   <!-- BEGIN Pages CSS-->
-  <link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
-  <link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.0', '', array('class' => 'main-stylesheet'));
+  ?>
+  <!-- BEGIN CUSTOM MODIFICATION -->
+  <style type="text/css">
+    /* Fix 'jumping scrollbar' issue */
+    @media screen and (min-width: 960px) {
+      html {
+        margin-left: calc(100vw - 100%);
+        margin-right: 0;
+      }
+    }
+
+    /* Main body */
+    body {
+      background: transparent;
+    }
+
+    /* Notification */
+    #notificationcontainer {
+      position: relative;
+      z-index: 1000;
+      top: -21px;
+    }
+
+    .pgn-wrapper {
+      position: absolute;
+      z-index: 1000;
+    }
+
+    /* Button, input, checkbox ... */
+    input[type="text"]:hover {
+      background: #fafafa;
+      border-color: #c6c6c6;
+      color: #384343;
+    }
+
+    /* Card */
+    .card-collapse i {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    /* Table */
+    .table-transparent tbody tr td {
+      background: transparent;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 m-t-20">
-      <div class="jumbotron bg-master">
+    <div class="col-sm-12 m-t-20">
+      <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
         <h3 class="semi-bold text-white">Update - Intranet Plugin</h3>
       </div>
       <hr>
       <div class="m-b-30">
         <h4 class="semi-bold">Intranet Plugin - info about update to version <?php echo $pluginversion; ?></h4>
-
       </div>
       <hr>
 
