@@ -64,7 +64,6 @@ $(function () {
   if (o.enableBSToppltipIcon) {
     $('body').tooltip({
       selector: o.BSTooltipSelectorIcon,
-      placement: 'bottom',
       trigger: 'hover',
       container: 'body',
       animation: false
@@ -183,6 +182,7 @@ $(function () {
         if (result) {
           self.off("click");
           self.click();
+
         }
       }
     });

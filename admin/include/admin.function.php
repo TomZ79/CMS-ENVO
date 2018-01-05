@@ -333,8 +333,8 @@ function envo_admin_search($envovar, $envovar1, $envovar2)
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    01/2018
  *
  * @param $envovar
  * @return bool
@@ -343,9 +343,10 @@ function envo_admin_search($envovar, $envovar1, $envovar2)
 function envo_user_exist_deletable($envovar)
 {
   global $envodb;
-  $useridarray = explode(',', ENVO_SUPERADMIN);
+  $superadminidarray = explode(',', ENVO_SUPERADMIN);
   // check if userid is protected in the config.php
-  if (in_array($envovar, $useridarray)) {
+
+  if (in_array($envovar, $superadminidarray)) {
     return false;
   } else {
     $result = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($envovar) . '" LIMIT 1');

@@ -368,12 +368,12 @@
           ?>
 
         </li>
-        <?php if ($page == 'users' && $page1 == 'edit') { ?>
-          <li class="<?php echo ($page == 'user' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+        <?php if ($page == 'users' && $page1 == 'edituser') { ?>
+          <li class="<?php echo ($page == 'user' && $page1 == 'edituser') ? 'submenu-active' : ''; ?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=users&amp;sp=edit&amp;id=' . $page2, $tl["submenu"]["sm92"]);
+            echo $Html->addAnchor('index.php?p=users&amp;sp=edituser&amp;id=' . $page2, $tl["submenu"]["sm92"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm92"]), 'icon-thumbnail');
             ?>

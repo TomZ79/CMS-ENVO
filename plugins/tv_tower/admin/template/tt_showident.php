@@ -124,7 +124,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $sidtv["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $sidtv["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
                         ?>
 
                       </td>
@@ -133,7 +133,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // DELETE
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $sidtv["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sidtv["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $sidtv["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sidtv["name"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 
                         ?>
 
@@ -195,7 +195,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idr&amp;id=' . $sidr["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idr&amp;id=' . $sidr["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
                         ?>
 
                       </td>
@@ -204,7 +204,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // DELETE
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidr&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sidr["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidr&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sidr["name"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 
                         ?>
 
@@ -263,7 +263,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_ids&amp;id=' . $sids["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_ids&amp;id=' . $sids["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
                         ?>
 
                       </td>
@@ -272,7 +272,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // DELETE
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesids&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sids["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesids&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sids["name"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 
                         ?>
 
@@ -333,9 +333,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $onid["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $onid["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
                         // DELETE
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $onid["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $onid["country"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $onid["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $onid["country"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 
                         ?>
 
@@ -391,9 +391,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         // EDIT
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $sids["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $sids["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
                         // DELETE
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sids["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=deletesidtv&amp;id=' . $sidr["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $sids["name"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 
                         ?>
 
@@ -417,8 +417,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
       ?>
 
     </div>

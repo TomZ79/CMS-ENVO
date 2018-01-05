@@ -106,7 +106,7 @@
                   <label for="envo_delete_user<?php echo $v["id"]; ?>"></label>
                 </div>
               </td>
-              <td><a href="index.php?p=users&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td><a href="index.php?p=users&amp;sp=edituser&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </td>
               <td><?php echo $v["email"]; ?></td>
               <td><?php echo $v["username"]; ?></td>
@@ -153,7 +153,7 @@
                   <label for="envo_delete_user<?php echo $v["id"]; ?>"></label>
                 </div>
               </td>
-              <td><a href="index.php?p=users&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td><a href="index.php?p=users&amp;sp=edituser&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </td>
               <td><?php echo $v["email"]; ?></td>
               <td><?php echo $v["username"]; ?></td>
@@ -196,11 +196,11 @@
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i6"]));
-      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i5"]));
-      echo $Html->addTag('i', '', 'fa fa-key', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i14"]));
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"]));
+      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"]));
+      echo $Html->addTag('i', '', 'fa fa-key', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i14"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
       ?>
 
     </div>

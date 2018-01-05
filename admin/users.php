@@ -94,7 +94,7 @@ switch ($page1) {
           }
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&id=' . $rowid . '&status=s');
+          envo_redirect(BASE_URL . 'index.php?p=users&sp=edituser&id=' . $rowid . '&status=s');
         }
       } else {
 
@@ -116,7 +116,7 @@ switch ($page1) {
     $template = 'newuser.php';
 
     break;
-  case 'edit':
+  case 'edituser':
 
     // Check if the user exists
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
@@ -317,7 +317,7 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&id=' . $page2 . '&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=users&sp=edituser&id=' . $page2 . '&status=e');
           } else {
             // Now do all the dirty work if we changed the username, also check if we have more then one language installed
             if ($defaults['envo_username'] != $defaults['envo_username_old']) {
@@ -334,7 +334,7 @@ switch ($page1) {
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&id=' . $page2 . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=users&sp=edituser&id=' . $page2 . '&status=s');
           }
 
           // Output the errors
@@ -378,10 +378,15 @@ switch ($page1) {
 
     break;
   case 'lock':
+    // LOCK USER
 
-    if (envo_user_exist_deletable($page2)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
 
-      $result = $envodb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = ' . smartsql($page2));
+    if (envo_user_exist_deletable($pageID)) {
+
+      $result = $envodb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = ' . smartsql($pageID));
 
       if (!$result) {
         // EN: Redirect page
@@ -401,14 +406,17 @@ switch ($page1) {
     break;
   case 'delete':
 
-    // Check if user exists and can be deleted
-    if (envo_user_exist_deletable($page2)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (envo_user_exist_deletable($pageID)) {
 
       // Now check how many languages are installed and do the dirty work
-      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
+      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . smartsql($pageID));
 
       // Delete Avatar
-      $targetPath   = '../' . ENVO_FILES_DIRECTORY . '/' . $page2 . '/';
+      $targetPath   = '../' . ENVO_FILES_DIRECTORY . '/' . $pageID . '/';
       $removedouble = str_replace("//", "/", $targetPath);
       foreach (glob($removedouble . '*.*') as $envo_unlink) {
         @unlink($envo_unlink);
@@ -676,8 +684,13 @@ switch ($page1) {
 
     break;
   case 'verify':
+    // VERIFY USER BY EMAIL
 
-    $result = $envodb->query('SELECT id, username, email, activatenr, access FROM ' . DB_PREFIX . 'user WHERE id = ' . smartsql($page2));
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    $result = $envodb->query('SELECT id, username, email, activatenr, access FROM ' . DB_PREFIX . 'user WHERE id = ' . smartsql($pageID));
     $row    = $result->fetch_assoc();
 
     if ($row['access'] == 3) {
@@ -704,7 +717,7 @@ switch ($page1) {
 
     } else {
 
-      $result1 = $envodb->query('UPDATE ' . DB_PREFIX . 'user SET access = 1 WHERE id = ' . smartsql($page2));
+      $result1 = $envodb->query('UPDATE ' . DB_PREFIX . 'user SET access = 1 WHERE id = ' . smartsql($pageID));
 
       if (!$result1) {
         // EN: Redirect page
@@ -730,13 +743,18 @@ switch ($page1) {
 
     break;
   case 'password':
+    // SEND PASSWORD TO USER
 
-    if (envo_user_exist_deletable($page2)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (envo_user_exist_deletable($pageID)) {
 
       // Generate random password
       $password = envo_password_creator();
 
-      $result = $envodb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
+      $result = $envodb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($pageID));
       $row    = $result->fetch_assoc();
 
       // Send email to member with new password
@@ -775,6 +793,7 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (isset($defaults['move'])) {
+        // MOVE SELECTED USERS TO USERGROUP
 
         $envomove = $defaults['envo_delete_user'];
         $envogrid = $defaults['envo_group'];
@@ -797,6 +816,7 @@ switch ($page1) {
       }
 
       if (isset($defaults['lock'])) {
+        // LOCK SELECTED USERS
 
         $lockuser    = $defaults['envo_delete_user'];
         $useridarray = explode(',', ENVO_SUPERADMIN);
@@ -822,6 +842,7 @@ switch ($page1) {
       }
 
       if (isset($defaults['password'])) {
+        // SEND PASSWORDS TO SELECTED USERS
 
         $lockuser    = $defaults['envo_delete_user'];
         $useridarray = explode(',', ENVO_SUPERADMIN);
@@ -868,6 +889,7 @@ switch ($page1) {
       }
 
       if (isset($defaults['delete'])) {
+        // DELETE SELECTED USERS
 
         $deleteuser    = $defaults['envo_delete_user'];
         $useridarray = explode(',', ENVO_SUPERADMIN);
@@ -918,7 +940,6 @@ switch ($page1) {
         }
 
       }
-
 
     }
 

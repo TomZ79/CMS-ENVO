@@ -24,7 +24,7 @@ $(function () {
     if (checkedStatus) {
       $('#button_delete').prop('disabled', false);
     } else {
-      $('#button_delete').attr('disabled',true);
+      $('#button_delete').attr('disabled', true);
     }
     $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
@@ -37,7 +37,7 @@ $(function () {
     if (checkedStatus) {
       $('#button_delete_approve').prop('disabled', false);
     } else {
-      $('#button_delete_approve').attr('disabled',true);
+      $('#button_delete_approve').attr('disabled', true);
     }
     $('.highlight_approve').each(function () {
       $(this).prop('checked', checkedStatus);
@@ -49,9 +49,9 @@ $(function () {
     if (this.checked) {
       $('#button_delete').prop('disabled', false);
     } else {
-      if ($('.highlight').filter(':checked').length < 1){
+      if ($('.highlight').filter(':checked').length < 1) {
         $('#envo_delete_all').prop('checked', false);
-        $('#button_delete').attr('disabled',true);
+        $('#button_delete').attr('disabled', true);
       }
     }
   });
@@ -61,9 +61,9 @@ $(function () {
     if (this.checked) {
       $('#button_delete_approve').prop('disabled', false);
     } else {
-      if ($('.highlight_approve').filter(':checked').length < 1){
+      if ($('.highlight_approve').filter(':checked').length < 1) {
         $('#envo_delete_all_approve').prop('checked', false);
-        $('#button_delete_approve').attr('disabled',true);
+        $('#button_delete_approve').attr('disabled', true);
       }
     }
   });

@@ -184,12 +184,12 @@ if ($page1 == "e") { ?>
                       }
 
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $v["id"], '<i class="fa fa-flag"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i13"]));
+                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $v["id"], '<i class="fa fa-flag"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i13"]));
 
-                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
 
                       if ($v["uninstallfile"]) {
-                        echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-remove"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i33"]));
+                        echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-remove"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i33"]));
 
                       }
 
@@ -267,11 +267,11 @@ if ($page1 == "e") { ?>
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-clock-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i12"]));
-      echo $Html->addTag('i', '', 'fa fa-flag', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i13"]));
-      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i6"]));
-      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i5"]));
-      echo $Html->addTag('i', '', 'fa fa-remove', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i33"]));
+      echo $Html->addTag('i', '', 'fa fa-clock-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i12"]));
+      echo $Html->addTag('i', '', 'fa fa-flag', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i13"]));
+      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"]));
+      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"]));
+      echo $Html->addTag('i', '', 'fa fa-remove', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i33"]));
       ?>
 
     </div>
