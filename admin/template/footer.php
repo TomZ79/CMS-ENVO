@@ -212,7 +212,7 @@ if ($page == 'template' && $page1 == 'settings') {
       timer: 8000,
       template: '<div data-notify="container" class="col-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
-      '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
+      '<div style="float: left;margin-right: 20px;"><img src="<?php echo '../' . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +
       '</div>' +

@@ -226,15 +226,16 @@ if (DB_USER && DB_PASS) {
 
         <?php if(!isset($_GET['step'])){ ?>
 
-          <form method="post" action="install.php?step=2" enctype="multipart/form-data">
+          <form method="post" action="install.php?step=2">
             <input type="hidden" name="act" value="installdb"/>
             <!-- Form 1. -->
 
             <table class="table">
+              <tbody>
               <tr>
-                <td class="col-lg-4"><?php echo $tlinst["install"]["form1"];?></td>
-                <td class="col-lg-3"><input type="text" class="form-control" name="dbhost" id="dbhost" value="<?php echo $config[ 'dbhost' ] ?>"></td>
-                <td></td>
+                <td class="w-25"><?php echo $tlinst["install"]["form1"];?></td>
+                <td class="w-25"><input type="text" class="form-control" name="dbhost" id="dbhost" value="<?php echo $config[ 'dbhost' ] ?>"></td>
+                <td class="w-50"></td>
               </tr>
               <tr>
                 <td><?php echo $tlinst["install"]["form1_1"];?></td>
@@ -266,6 +267,7 @@ if (DB_USER && DB_PASS) {
                 <td><input type="text" class="form-control" name="filefolder" id="filefolder" value="<?php echo $config[ 'filefolder' ] ?>"></td>
                 <td><i><?php echo $tlinst["install"]["form1_61"];?></i></td>
               </tr>
+              </tbody>
             </table>
 
             <div class="controls">

@@ -20,6 +20,9 @@ if (!ENVO_FILES_DIRECTORY) die($tl['general_error']['generror101']);
 // CZ: Start PHP Session
 session_start();
 
+// Initiate the output buffer - Alternative for setcookie
+ob_start();
+
 // -----------------------------------------------------------------------
 // DEFINE SEPERATOR ALIASES
 // -----------------------------------------------------------------------

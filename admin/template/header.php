@@ -85,7 +85,7 @@ echo $Html->addDoctype('html5');
   } ?>
 
 </head>
-<body class="fixed-header has-detached-right overlay-disabled">
+<body class="fixed-header has-detached-right overlay-disabled" data-spy="scroll" data-target="#myScrollspy" >
   <!-- PACE PRELOADER -->
   <div id="pace" class="active"></div>
 <?php if ($ENVO_PROVED) { ?>
@@ -319,7 +319,7 @@ echo $Html->addDoctype('html5');
         <div class="dropdown pull-right">
           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="thumbnail-wrapper d32 circular inline m-t-5">
-              <img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $envouser->getVar("picture"); ?>" alt="" data-src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $envouser->getVar("picture"); ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+              <img src="<?php echo '../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture"); ?>" alt="" data-src="<?php echo '../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture"); ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">

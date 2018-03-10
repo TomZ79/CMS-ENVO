@@ -8,38 +8,12 @@
  * =======================================================================
  * INDEX:
  *
- * 01. Scrollspy offset
- * 02. Search icons
+ * 01. Search icons
  *
  */
 
-/** 01. Scrollspy offset
- ========================================================================*/
 
-$(function () {
-
-  $('body').scrollspy({
-    target: '#myScrollspy',
-    offset: 70
-  });
-
-  // Spy and scroll menu boogey - animate
-  $('#myScrollspy ul li a[href^="#"]').on('click', function (e) {
-    // prevent default anchor click behavior
-    e.preventDefault();
-    // store hash
-    var hash = this.hash;
-    // animate
-    $('html, body').animate({
-      scrollTop: $(this.hash).offset().top
-    }, 400, function () {
-      window.location.hash = hash
-    })
-  })
-
-});
-
-/** 02. Search icons
+/** 01. Search icons
  ========================================================================*/
 
 $(function () {

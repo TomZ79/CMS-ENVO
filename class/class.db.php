@@ -80,17 +80,22 @@ class ENVO_mysql extends mysqli
   }
 
   /**
-   * @param string $query
+   * @param string $sql | SQL to execute
+   * @param null $resultmode
    * @return bool|mysqli_result
    */
-  public function query($query)
+  public function query($sql, $resultmode = NULL)
   {
-    $result = parent::query($query);
+    // on with query execution, call the parent query method
+    // call it with @ operator, to supress error messages
+    $result = parent::query($sql);
+    //
     if (mysqli_error($this)) {
       // throw new QueryException(mysqli_error($this), mysqli_errno($this));
-      $this->envo_throw_error("<b>MySQL Query fail:</b> $query");
+      $this->envo_throw_error("<b>MySQL Query fail:</b> $sql");
     }
-
+    // if everything is OK, return the mysqli_result object
+    // that is returned from parent query method
     return $result;
   }
 

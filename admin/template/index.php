@@ -3,7 +3,7 @@
   <!-- Small boxes (Stat box) -->
   <div class="row m-t-20">
     <div class="col-lg-3 col-12">
-      <!-- small box -->
+      <!-- Small box -->
       <div class="dashboard-box bg-success">
         <div class="inner">
           <h3><span class="counter" data-counterend="<?php echo $totalhits; ?>"><?php echo $totalhits; ?></span></h3>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-lg-3 col-12">
-      <!-- small box -->
+      <!-- Small box -->
       <div class="dashboard-box bg-complete-dark">
         <div class="inner">
           <h3>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="col-lg-3 col-12">
-      <!-- small box -->
+      <!-- Small box -->
       <div class="dashboard-box bg-warning">
         <div class="inner">
           <h3>
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="col-lg-3 col-12">
-      <!-- small box -->
+      <!-- Small box -->
       <?php if (ENVO_TAGS) { ?>
         <div class="dashboard-box bg-danger">
           <div class="inner">
@@ -215,19 +215,25 @@
             </div>
           </div>
         </div>
+
         <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
+
           <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
             <div class="row">
               <div class="col-sm-12">
+
                 <?php
                 if (isset($ENVO_HOOK_ADMIN_INDEX) && is_array($ENVO_HOOK_ADMIN_INDEX)) foreach ($ENVO_HOOK_ADMIN_INDEX as $hspi) {
                   include_once APP_PATH . $hspi['phpcode'];
                 }
                 ?>
+
               </div>
             </div>
           </div>
+
         <?php } ?>
+
       </div>
     </div>
   </div>

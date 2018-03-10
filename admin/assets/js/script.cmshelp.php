@@ -51,15 +51,20 @@ echo PHP_EOL;
 
 <style>
   /*  */
+  .inner-content {
+    margin-left: 300px;
+  }
+  /*  */
   .secondary-sidebar {
     height: calc(100% - 60px) !important;
     overflow-y: auto;
-    width: 330px !important;
+    width: 300px !important;
   }
 
   .secondary-sidebar .main-menu > li a {
-    padding: 0;
     font-size: 13px;
+    padding: 5px 0;
+    line-height: 16px;
   }
 
   .secondary-sidebar .main-menu > li a:hover {
@@ -71,14 +76,14 @@ echo PHP_EOL;
     background-color: transparent;
   }
 
-  .secondary-sidebar .main-menu > li.active > a > .title::after {
-    top: 4.5px;
+  .secondary-sidebar ul li a.active {
+    color: #48B0F7;
   }
 
   /* hide inactive submenu */
   .nav ul.sub-menu,
   .nav ul.sub-menu ul.sub-menu-child{
-    display: none;
+    display: block;
   }
 
   /* show active submenu */
@@ -89,7 +94,7 @@ echo PHP_EOL;
 
   /*  */
   .secondary-sidebar .sub-menu-child {
-    margin-left: 23px;
+    margin-left: 20px;
   }
 
   .secondary-sidebar .sub-menu li.active  .sub-menu-child li a {
@@ -103,18 +108,6 @@ echo PHP_EOL;
   .secondary-sidebar .sub-menu li.active  .sub-menu-child li a:hover {
     color: #48B0F7 !important;
     background-color: transparent;
-  }
-
-  /*  */
-  .inner-content {
-    margin-left: 330px;
-  }
-
-  /*  */
-  .scrollspyoffset {
-    padding-top: 56px;
-    margin-top: -56px;
-    margin-bottom: 80px;
   }
 
   /* TABLE */

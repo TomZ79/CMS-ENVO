@@ -1,416 +1,428 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <!-- START SECONDARY SIDEBAR MENU-->
-<nav class="secondary-sidebar padding-30" id="myScrollspy">
-  <ul class="nav main-menu">
-    <li class="active">
-      <a href="#introduction">
-        <span class="title"><i class="pg-sent"></i> Úvod do CMS</span>
-      </a>
-      <ul class="sub-menu no-padding">
-        <li>
-          <a href="#introduction">
-            <span class="title">Začínáme</span>
-          </a>
-        </li>
-        <li>
-          <a href="#supported_browsers">
-            <span class="title">Podporované prohlížeče</span>
-          </a>
-        </li>
-        <li>
-          <a href="#requirements">
-            <span class="title">Minimální požadavky</span>
-          </a>
-        </li>
-        <li>
-          <a href="#installation">
-            <span class="title">Instalace</span>
-          </a>
-        </li>
-        <li>
-          <a href="#htaccess">
-            <span class="title">CMS and htaccess (Seo)</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#elements">
-        <span class="title"><i class="pg-folder"></i> UI Elements</span>
-      </a>
-      <ul class="sub-menu no-padding">
-        <li>
-          <a href="#elementscolor">
-            <span class="title">Color</span>
-          </a>
-        </li>
-        <li>
-          <a href="#elementstypography">
-            <span class="title">Typography</span>
-          </a>
-        </li>
-        <li>
-          <a href="#elementsicons">
-            <span class="title">Icons</span>
-          </a>
-          <ul class="sub-menu-child no-padding">
-            <li><a href="#elementsenvoicons">Envo Icons</a></li>
-            <li><a href="#elementsfontawesomeicons">Font Awesome Icons</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#elementsbuttons">
-            <span class="title">Buttons</span>
-          </a>
-        </li>
-        <li>
-          <a href="#elementscreate">
-            <span class="title">Create HTML Element</span>
-          </a>
-          <ul class="sub-menu-child no-padding">
-            <li><a href="#elementscreate-doctype">DOCTYPE</a></li>
-            <li><a href="#elementscreate-meta">META</a></li>
-            <li><a href="#elementscreate-stylesheet">STYLESHEET</a></li>
-            <li><a href="#elementscreate-script">SCRIPT</a></li>
-            <li><a href="#elementscreate-startend">START - END</a></li>
-            <li><a href="#elementscreate-anchor">ANCHOR</a></li>
-            <li><a href="#elementscreate-image">IMAGE</a></li>
-            <li><a href="#elementscreate-buttonf">BUTTONF</a></li>
-            <li><a href="#elementscreate-button">BUTTON</a></li>
-            <li><a href="#elementscreate-submitf">SUBMITF BUTTON</a></li>
-            <li><a href="#elementscreate-submit">SUBMIT BUTTON</a></li>
-            <li><a href="#elementscreate-textareaf">TEXTAREAF</a></li>
-            <li><a href="#elementscreate-textarea">TEXTAREA</a></li>
-            <li><a href="#elementscreate-radiof">LABELF - RADIOF BUTTON</a></li>
-            <li><a href="#elementscdreate-checkboxf">LABELF - CHECKBOXF BUTTON</a></li>
-            <li><a href="#elementscdreate-radio">LABEL - RADIO BUTTON</a></li>
-            <li><a href="#elementscdreate-checkbox">LABEL - CHECKBOX BUTTON</a></li>
-            <li><a href="#elementscdreate-input">INPUT</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#plugins">
-        <span class="title"><i class="pg-folder"></i> Plugins</span>
-      </a>
-      <ul class="sub-menu no-padding">
-        <li>
-          <a href="#pluginbelowheader">
-            <span class="title">Below Header</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginblog">
-            <span class="title">Blog</span>
-          </a>
-        </li>
-        <li>
-          <a href="#plugindownload">
-            <span class="title">Download</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginfaq">
-            <span class="title">FAQ</span>
-          </a>
-        </li>
-        <li>
-          <a href="#plugingrowl">
-            <span class="title">Growl</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginnewsletter">
-            <span class="title">Newsletter</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginopenurl">
-            <span class="title">Open URL</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginregisterform">
-            <span class="title">Register Form</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginsiteeditor">
-            <span class="title">Site Editor</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginurlmapping">
-            <span class="title">URL Mapping</span>
-          </a>
-        </li>
-        <li>
-          <a href="#pluginxmlseo">
-            <span class="title">XML Seo</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#hooks">
-        <span class="title"><i class="pg-folder"></i> Hooks</span>
-      </a>
-      <ul class="sub-menu no-padding">
-        <li>
-          <a href="#php_search">
-            <span class="title">Hook: php_search</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_tags">
-            <span class="title">Hook: php_tags</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_sitemap">
-            <span class="title">Hook: php_sitemap</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_index_top">
-            <span class="title">Hook: php_index_top</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_rss">
-            <span class="title">Hook: php_rss</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_index_bottom">
-            <span class="title">Hook: php_index_bottom</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_index_page">
-            <span class="title">Hook: php_index_page</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_lang">
-            <span class="title">Hook: php_lang</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_pages_news">
-            <span class="title">Hook: php_pages_news</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_usergroup">
-            <span class="title">Hook: php_admin_usergroup</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_user_rename">
-            <span class="title">Hook: php_admin_user_rename</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_user_delete">
-            <span class="title">Hook: php_admin_user_delete</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_user_delete_mass">
-            <span class="title">Hook: php_admin_user_delete_mass</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_lang">
-            <span class="title">Hook: php_admin_lang</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_setting">
-            <span class="title">Hook: php_admin_setting</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_setting_post">
-            <span class="title">Hook: php_admin_setting_post</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_user">
-            <span class="title">Hook: php_admin_user</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_user_edit">
-            <span class="title">Hook: php_admin_user_edit</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_index">
-            <span class="title">Hook: php_admin_index</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_fulltext_add">
-            <span class="title">Hook: php_admin_fulltext_add</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_fulltext_remove">
-            <span class="title">Hook: php_admin_fulltext_remove</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_pages_sql">
-            <span class="title">Hook: php_admin_pages_sql</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_news_sql">
-            <span class="title">Hook: php_admin_news_sql</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_pages_news_info">
-            <span class="title">Hook: php_admin_pages_news_info</span>
-          </a>
-        </li>
-        <li>
-          <a href="#php_admin_widgets_sql">
-            <span class="title">Hook: php_admin_widgets_sql</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_body_top">
-            <span class="title">Hook: tpl_body_top</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_between_head">
-            <span class="title">Hook: tpl_between_head</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_header">
-            <span class="title">Hook: tpl_header</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_below_header">
-            <span class="title">Hook: tpl_below_header</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_sidebar">
-            <span class="title">Hook: tpl_sidebar</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_page">
-            <span class="title">Hook: tpl_page</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_footer">
-            <span class="title">Hook: tpl_footer</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_footer_end">
-            <span class="title">Hook: tpl_footer_end</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_tags">
-            <span class="title">Hook: tpl_tags</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_sitemap">
-            <span class="title">Hook: tpl_sitemap</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_search">
-            <span class="title">Hook: tpl_search</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_page_news_grid">
-            <span class="title">Hook: tpl_page_news_grid</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_usergroup_edit">
-            <span class="title">Hook: tpl_admin_usergroup_edit</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_usergroup">
-            <span class="title">Hook: tpl_admin_usergroup</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_setting">
-            <span class="title">Hook: tpl_admin_setting</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_head">
-            <span class="title">Hook: tpl_admin_head</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_footer">
-            <span class="title">Hook: tpl_admin_footer</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_page_news">
-            <span class="title">Hook: tpl_admin_page_news</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_page_news_new">
-            <span class="title">Hook: tpl_admin_page_news_new</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_user">
-            <span class="title">Hook: tpl_admin_user</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_user_edit">
-            <span class="title">Hook: tpl_admin_user_edit</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_admin_index">
-            <span class="title">Hook: tpl_admin_index</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_footer_widgets">
-            <span class="title">Hook: tpl_footer_widgets</span>
-          </a>
-        </li>
-        <li>
-          <a href="#tpl_below_content">
-            <span class="title">Hook: tpl_below_content</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+<nav class="secondary-sidebar">
+  <div id="myScrollspy" class="list-group padding-20">
+    <ul class="nav navbar-nav main-menu">
+      <li class="nav-item">
+        <a class="nav-link active" href="#introduction">
+          <span class="title bold">Úvod do CMS</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#introduction">
+              <span class="title">Začínáme</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#supported_browsers">
+              <span class="title">Podporované prohlížeče</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#requirements">
+              <span class="title">Minimální požadavky</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#installation">
+              <span class="title">Instalace</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#htaccess">
+              <span class="title">CMS and htaccess (Seo)</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#elements">
+          <span class="title bold">UI Elements</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#elementscolor">
+              <span class="title">Color</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#elementstypography">
+              <span class="title">Typography</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#elementsicons">
+              <span class="title">Icons</span>
+            </a>
+            <ul class="sub-menu-child no-padding">
+              <li class="nav-item"><a class="nav-link" href="#elementsenvoicons">Envo Icons</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementsfontawesomeicons">Font Awesome Icons</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#elementsbuttons">
+              <span class="title">Buttons</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#elementscreate">
+              <span class="title">Create HTML Element</span>
+            </a>
+            <ul class="sub-menu-child no-padding">
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-doctype">DOCTYPE</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-meta">META</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-stylesheet">STYLESHEET</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-script">SCRIPT</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-startend">START - END</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-anchor">ANCHOR</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-image">IMAGE</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-buttonf">BUTTONF</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-button">BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-submitf">SUBMITF BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-submit">SUBMIT BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-textareaf">TEXTAREAF</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-textarea">TEXTAREA</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscreate-radiof">LABELF - RADIOF BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscdreate-checkboxf">LABELF - CHECKBOXF BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscdreate-radio">LABEL - RADIO BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscdreate-checkbox">LABEL - CHECKBOX BUTTON</a></li>
+              <li class="nav-item"><a class="nav-link" href="#elementscdreate-input">INPUT</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#plugins">
+          <span class="title bold">Plugins</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginbelowheader">
+              <span class="title">Below Header</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginblog">
+              <span class="title">Blog</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#plugindownload">
+              <span class="title">Download</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginfaq">
+              <span class="title">FAQ</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#plugingrowl">
+              <span class="title">Growl</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginnewsletter">
+              <span class="title">Newsletter</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginopenurl">
+              <span class="title">Open URL</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginregisterform">
+              <span class="title">Register Form</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginsiteeditor">
+              <span class="title">Site Editor</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginurlmapping">
+              <span class="title">URL Mapping</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pluginxmlseo">
+              <span class="title">XML Seo</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#hooks">
+          <span class="title bold">Hooks</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#php_search">
+              <span class="title">Hook: php_search</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_tags">
+              <span class="title">Hook: php_tags</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_sitemap">
+              <span class="title">Hook: php_sitemap</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_index_top">
+              <span class="title">Hook: php_index_top</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_rss">
+              <span class="title">Hook: php_rss</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_index_bottom">
+              <span class="title">Hook: php_index_bottom</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_index_page">
+              <span class="title">Hook: php_index_page</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_lang">
+              <span class="title">Hook: php_lang</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_pages_news">
+              <span class="title">Hook: php_pages_news</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_usergroup">
+              <span class="title">Hook: php_admin_usergroup</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_user_rename">
+              <span class="title">Hook: php_admin_user_rename</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_user_delete">
+              <span class="title">Hook: php_admin_user_delete</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_user_delete_mass">
+              <span class="title">Hook: php_admin_user_delete_mass</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_lang">
+              <span class="title">Hook: php_admin_lang</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_setting">
+              <span class="title">Hook: php_admin_setting</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_setting_post">
+              <span class="title">Hook: php_admin_setting_post</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_user">
+              <span class="title">Hook: php_admin_user</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_user_edit">
+              <span class="title">Hook: php_admin_user_edit</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_index">
+              <span class="title">Hook: php_admin_index</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_fulltext_add">
+              <span class="title">Hook: php_admin_fulltext_add</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_fulltext_remove">
+              <span class="title">Hook: php_admin_fulltext_remove</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_pages_sql">
+              <span class="title">Hook: php_admin_pages_sql</span>
+            </a>
+          </li><li class="nav-item">
+            <a class="nav-link" href="#php_admin_news_sql">
+              <span class="title">Hook: php_admin_news_sql</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_pages_news_info">
+              <span class="title">Hook: php_admin_pages_news_info</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#php_admin_widgets_sql">
+              <span class="title">Hook: php_admin_widgets_sql</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_body_top">
+              <span class="title">Hook: tpl_body_top</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_between_head">
+              <span class="title">Hook: tpl_between_head</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_header">
+              <span class="title">Hook: tpl_header</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_below_header">
+              <span class="title">Hook: tpl_below_header</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_sidebar">
+              <span class="title">Hook: tpl_sidebar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_page">
+              <span class="title">Hook: tpl_page</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_footer">
+              <span class="title">Hook: tpl_footer</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_footer_end">
+              <span class="title">Hook: tpl_footer_end</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_tags">
+              <span class="title">Hook: tpl_tags</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_sitemap">
+              <span class="title">Hook: tpl_sitemap</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_search">
+              <span class="title">Hook: tpl_search</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_page_news_grid">
+              <span class="title">Hook: tpl_page_news_grid</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_usergroup_edit">
+              <span class="title">Hook: tpl_admin_usergroup_edit</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_usergroup">
+              <span class="title">Hook: tpl_admin_usergroup</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_setting">
+              <span class="title">Hook: tpl_admin_setting</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_head">
+              <span class="title">Hook: tpl_admin_head</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_footer">
+              <span class="title">Hook: tpl_admin_footer</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_page_news">
+              <span class="title">Hook: tpl_admin_page_news</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_page_news_new">
+              <span class="title">Hook: tpl_admin_page_news_new</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_user">
+              <span class="title">Hook: tpl_admin_user</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_user_edit">
+              <span class="title">Hook: tpl_admin_user_edit</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_admin_index">
+              <span class="title">Hook: tpl_admin_index</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_footer_widgets">
+              <span class="title">Hook: tpl_footer_widgets</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tpl_below_content">
+              <span class="title">Hook: tpl_below_content</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#phphelptools">
+          <span class="title bold">PHP Help a Tools</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#phparray">
+              <span class="title">PHP Array</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </nav>
 <!-- END SECONDARY SIDEBAR MENU -->
 
 <div class="inner-content padding-20">
-
   <!-- Introduction -->
   <section id="introduction" class="scrollspyoffset">
     <h1 class="text-center">CMS - ENVO Documentation</h1>
@@ -3525,12 +3537,35 @@ if (is_numeric(ENVO_BCONTENT1_IGRID_TPL)) {
     <p>This is the brother from the below_header hook. You can close some divs or add some extra stuff that doesn't fit in the main section.</p>
   </section>
 
+
+  <!-- PHP Help a Tools -->
+  <section id="phphelptools" class="scrollspyoffset">
+    <h2 class="text-center">PHP Help a Tools</h2>
+    <hr>
+
+  </section>
+
+  <!-- PHP Array -->
+  <section id="phparray" class="scrollspyoffset">
+    <h2 class="text-center">PHP Array</h2>
+    <hr>
+    <h4 class="m-t-50">PHP Array - Output formatted array</h4>
+    <hr>
+    <p></p>
+    <pre class="prettyprint linenums lang-php">
+// Output a formatted array
+print('&lt;pre&gt;' . var_export($ARRAY, TRUE) . '&lt;/pre&gt;');
+</pre>
+
+  </section>
+
   <!-- XXXX -->
   <section id="XXX" class="scrollspyoffset">
     <h2 class="text-center">XXXX</h2>
     <hr>
 
   </section>
+
 </div>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>
