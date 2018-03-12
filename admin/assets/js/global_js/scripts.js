@@ -1064,7 +1064,7 @@ $('.dropdown-menu.livefilter .search-box').on("click.bs.dropdown", function (e) 
   e.preventDefault();
 });
 
-/* Jak Move - Sortable and Draggable
+/* Envo Move - Sortable and Draggable
  ========================================================================*/
 $(".envo_widget_move").sortable({
   placeholder: "ui-state-highlight",
