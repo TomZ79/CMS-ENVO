@@ -556,25 +556,11 @@
 /* -----------------------------------------------------------------------
  *  # Component: BOOTSTRAP Same height for column
  * -----------------------------------------------------------------------*/
-@media (min-width: 769px) {
-  .row-table {
-    display: table;
-  }
-  .col-table {
-    float: none;
-    display: table-cell;
-    vertical-align: top;
-  }
-}
-@media (max-width: 768px) {
-  .row-table {
-    display: block;
-  }
-  .col-table {
-    float: none;
-    display: block;
-    vertical-align: top;
-  }
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 /* 00. BOOTSTRAP - vertical center
 ========================================================================*/

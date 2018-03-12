@@ -131,7 +131,6 @@ switch ($page1) {
     // EN: Default Variable
     // CZ: Hlavní proměnné
     $pageID = $page2;
-    $envofield  = 'catparent';
 
     if (envo_row_exist($pageID, $envotable)) {
 
@@ -142,10 +141,6 @@ switch ($page1) {
 
         if (empty($defaults['envo_name'])) {
           $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
-        }
-
-        if (envo_field_not_exist_id($defaults['envo_varname'], $pageID, $envotable, $envofield1) || envo_varname_blocked($defaults['envo_varname'])) {
-          $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
         }
 
         if (empty($defaults['envo_varname'])) {
@@ -387,7 +382,7 @@ switch ($page1) {
 					<div class="text"><span class="textid">#' . $catblank["id"] . '</span><a href="index.php?p=categories&amp;sp=editcat&amp;id=' . $catblank["id"] . '">' . $catblank["name"] . '</a></div>
 					<div class="actions">
 						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 0 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;id=' . $catblank["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i11"] . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
-						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] >= 1 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=editcat&amp;id=' . $catblank["pageid"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i10"] . '"><i class="fa fa-pencil"></i></a>' : '') . '
+						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] >= 1 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;id=' . $catblank["pageid"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i10"] . '"><i class="fa fa-pencil"></i></a>' : '') . '
 						' . ($catblank["pluginid"] > 0 && $catblank["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i8"] . '"><i class="fa fa-eyedropper"></i></a>' : '') . '
 						' . ($catblank["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
 						
