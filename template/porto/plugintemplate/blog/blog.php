@@ -57,7 +57,7 @@
                       <span class="thumb-info">
                         <span class="thumb-info-wrapper">
                           <?php
-                          echo '<img src="' . $v["previmg"] . '" alt="' . $v['title'] . '" class= img-responsive">';
+                          echo '<img src="' . $v["previmg"] . '" alt="' . $v['previmgdesc'] . '" class= img-responsive">';
                           ?>
                           <span class="thumb-info-action">
                             <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>

@@ -470,6 +470,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
   `blog_javascript` text,
   `sidebar` smallint(1) UNSIGNED NOT NULL DEFAULT 1,
   `previmg` varchar(255) DEFAULT NULL,
+  `previmgdesc` mediumtext,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showcontact` int(11) unsigned NOT NULL DEFAULT 0,

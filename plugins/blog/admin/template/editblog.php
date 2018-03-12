@@ -312,6 +312,26 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc43"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlblog["blog_help"]["blogh5"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_imgdesc', (isset($ENVO_FORM_DATA["previmgdesc"])) ? $ENVO_FORM_DATA["previmgdesc"] : 'Image Preview | CMS', 'envo_imgdesc', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc35"]);
                         ?>
 
@@ -384,6 +404,7 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-sm-12">
+
                         <select name="envo_catid[]" multiple="multiple" class="form-control">
 
                           <?php

@@ -255,7 +255,7 @@ $(function () {
     showClear: true,
     // Other
     calendarWeeks: true,
-    ignoreReadonly: true,
+    ignoreReadonly: true
   });
 
   /* DateTimePicker

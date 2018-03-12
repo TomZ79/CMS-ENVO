@@ -133,6 +133,7 @@ switch ($page1) {
                     showdate = "' . smartsql($showdate) . '",
                     showcontact = "' . smartsql($envocon) . '",
                     socialbutton = "' . smartsql($defaults['envo_social']) . '",
+                    previmgdesc = "' . smartsql($defaults['envo_imgdesc']) . '",
                     ' . $insert);
 
           $rowid = $envodb->envo_last_id();
@@ -238,6 +239,9 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
+      // Get the important template stuff
+      $ENVO_CAT           = envo_get_cat_info($envotable1, 0);
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // EN: Default Variable
         // CZ: Hlavní proměnné
@@ -341,7 +345,8 @@ switch ($page1) {
                         showcontact = "' . smartsql($defaults['envo_showcontact']) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",
                         ' . $insert . '
-                        socialbutton = "' . smartsql($defaults['envo_social']) . '"
+                        socialbutton = "' . smartsql($defaults['envo_social']) . '",
+                        previmgdesc = "' . smartsql($defaults['envo_imgdesc']) . '"
                         WHERE id = "' . smartsql($page2) . '"');
 
           // Set tag active to zero
