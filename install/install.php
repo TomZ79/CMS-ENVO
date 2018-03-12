@@ -271,8 +271,8 @@ if (DB_USER && DB_PASS) {
             </table>
 
             <div class="controls">
-              <div class="d-flex justify-content-between">
-                <button type="submit" class="btn square btn-default float-right"><?php echo $tlinst["install"]["next"];?>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn square btn-default"><?php echo $tlinst["install"]["next"];?>
                   <i class="fa fa-chevron-right"></i>
                 </button>
               </div>

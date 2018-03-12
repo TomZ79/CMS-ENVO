@@ -157,11 +157,11 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
 $envodb->query("INSERT INTO " . DB_PREFIX . "pagesgrid VALUES
-(1, 1, 1, 9999, 0, 0, 0, 1),
+(1, 1, 0, 9999, 0, 0, 0, 1),
 (2, 1, 0, 9998, 0, 0, 0, 2),
 (3, 1, 0, 9997, 0, 0, 0, 3),
 (4, 0, 1, 9997, 0, 0, 0, 4),
-(5, 2, 1, 9999, 0, 0, 0, 1),
+(5, 2, 0, 9999, 0, 0, 0, 1),
 (6, 2, 0, 9998, 0, 0, 0, 2),
 (7, 2, 0, 9997, 0, 0, 0, 3)");
 

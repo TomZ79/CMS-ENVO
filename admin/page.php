@@ -476,6 +476,7 @@ switch ($page1) {
       $ENVO_FORM_DATA   = envo_get_data($pageID, $envotable);
       $ENVO_GET_NEWS    = envo_get_page_info($envotable4, '');
       $ENVO_CAT_NOTUSED = envo_get_cat_notused();
+      $ENVO_CAT           = envo_get_cat_info($envotable1, 1);
 
       // Now let's check if we display news with second option
       $shownewsarray = explode(":", $ENVO_FORM_DATA['shownews']);
@@ -539,48 +540,6 @@ switch ($page1) {
       // CZ: Přesměrování stránky
       envo_redirect(BASE_URL . 'index.php?p=page&status=ene');
     }
-    break;
-  case 'search':
-    // SEARCH PAGE
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (isset($defaults['search'])) {
-
-        if ($defaults['envoSH'] == '' or $defaults['envoSH'] == $tl['search']['s']) {
-          $errors['e'] = $tl['search']['s1'] . '<br>';
-        }
-
-        if (strlen($defaults['envoSH']) < '1') {
-          $errors['e1'] = $tl['search']['s2'] . '<br>';
-        }
-
-        if (count($errors) > 0) {
-
-          $errors['e2'] = $tl['search']['s3'] . '<br>';
-          $errors       = $errors;
-
-        } else {
-          $secureIn    = smartsql(strip_tags($defaults['envoSH']));
-          $SEARCH_WORD = $secureIn;
-          $ENVO_SEARCH  = envo_admin_search($secureIn, $envotable, 'pages');
-        }
-      }
-
-    }
-
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["page_sec_title"]["paget2"];
-    $SECTION_DESC  = $tl["page_sec_desc"]["paged2"];
-
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $template = 'searchpages.php';
-
     break;
   case 'lock':
     // LIST OF PAGES - LOCK PAGE IN DB

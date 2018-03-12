@@ -15,12 +15,21 @@ if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_erro
 // Set successfully to zero
 $succesfully = 0;
 
+// EN: Import the language file
+// CZ: Import jazykových souborů
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
+} else {
+  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $site_language = $setting["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - MOBILE REPAIR / Template</title>
+  <title><?php echo $tl["installtemplate"]["itpl"] . ' - MOBILE REPAIR Template'; ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
@@ -47,6 +56,7 @@ $succesfully = 0;
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html->addScript('/assets/plugins/tether/js/tether.min.js');
   echo $Html->addScript('/assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
@@ -61,7 +71,7 @@ $succesfully = 0;
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white">Installation - MOBILE REPAIR / Template</h3>
+        <h3 class="semi-bold text-white"><?php echo $tl["installtemplate"]["itpl"] . ' - MOBILE REPAIR Template'; ?></h3>
       </div>
       <hr>
 
@@ -71,8 +81,9 @@ $succesfully = 0;
       $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_mobilerepair"');
       if ($envodb->affected_rows > 0) { ?>
 
+        <!-- Info - check if template is installed -->
         <div class="alert alert-info fade show">
-          Template is already installed.
+          <?php echo $tl["installtemplate"]["itpl1"]; ?>
         </div>
 
         <!-- Plugin is not installed let's display the installation script -->
@@ -236,14 +247,21 @@ $succesfully = 0;
           $succesfully = 1;
 
           ?>
+          <!-- Alert Template installed - succes -->
           <div class="alert alert-success fade show">
-            Template successfully installed!
+            <?php echo $tl["installtemplate"]["itpl2"]; ?>
           </div>
-          <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+          <!-- Button Close Modal -->
+          <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">
+            <?php echo $tl["installtemplate"]["itpl4"]; ?>
+          </button>
         <?php }
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-            <button type="submit" name="install" class="btn btn-primary btn-block">Install Template</button>
+            <!-- Install button -->
+            <button type="submit" name="install" class="btn btn-primary btn-block">
+              <?php echo $tl["installtemplate"]["itpl3"]; ?>
+            </button>
           </form>
         <?php }
       } ?>

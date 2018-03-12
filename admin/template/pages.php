@@ -60,21 +60,6 @@
 
   </div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <form role="form" method="post" action="/admin/index.php?p=page&amp;sp=search&amp;ssp=go">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
-          </span>
-          <input type="text" name="envoSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p1"]; ?>">
-        </div><!-- /input-group -->
-      </form>
-    </div>
-  </div>
-
-  <hr>
-
 <?php if (isset($ENVO_PAGE_ALL) && is_array($ENVO_PAGE_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -161,7 +146,7 @@
                     if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                       if ($v["catid"] == $z["id"]) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('index.php?p=categories&amp;sp=edit&amp;id=' . $z["id"], $z["name"]);
+                        echo $Html->addAnchor('index.php?p=categories&amp;sp=editcat&amp;id=' . $z["id"], $z["name"]);
                       }
                     }
                   } else {

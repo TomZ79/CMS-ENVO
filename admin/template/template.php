@@ -83,118 +83,125 @@ if ($page1 == "e") { ?>
 <?php } else { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <div class="row">
+    <div class="row row-eq-height">
       <?php if (isset($site_style_files) && is_array($site_style_files)) foreach ($site_style_files as $l) {
 
+        // EN:
+        // CZ:
         if (isset($setting["cms_tpl"])) {
-          $template_addon = true;
+          $template_addon = TRUE;
         } else {
-          $template_addon = false;
+          $template_addon = FALSE;
+        }
+
+        // EN: Load the language file for description of template
+        // CZ: Načtení jazykového souboru pro popis šablony
+        if (file_exists(APP_PATH . '/template/' . $l . '/lang/' . $site_language . '.ini')) {
+          $tltpl = parse_ini_file(APP_PATH . '/template/' . $l . '/lang/' . $site_language . '.ini', TRUE);
+        } else {
+          $tltpl = parse_ini_file(APP_PATH . '/template/' . $l . '/lang//en.ini', TRUE);
         }
 
         ?>
 
-        <div class="col-sm-6 col-sm-12 m-b-20 row-table no-padding">
-          <div class="col-sm-3 col-table">
-            <div class="thumbnail" style="background: rgb(217, 217, 217) none repeat scroll 0% 0%; border: medium none; border-radius: 0px; margin: 0px; padding: 24px;">
-              <div class="thumbnail-container">
-                <img class="img-responsive" src="../template/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"/>
-              </div>
-            </div>
+        <div class="col-12 col-sm-6 m-b-30">
+          <div class="text-center" style="background: rgb(217, 217, 217); padding: 24px;">
+            <img class="img-fluid" src="../template/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"/>
           </div>
-          <div class="col-sm-9 col-table" style="background: white none repeat scroll 0% 0%;">
-            <div class="caption">
+          <div class="p-3 bg-white">
+            <div>
               <h3>
 
                 <?php
-                echo $l;
+                // Show name of template
+                echo $tltpl["tplinfo"]["tplname"];
+                // Active/Inactive template
                 if (ENVO_TEMPLATE == $l) echo ' <i class="fa fa-check text-success-800"></i>';
                 ?>
 
               </h3>
               <p>
-                <?php
-                // Content of file
-                $file = APP_PATH . '/template/' . $l . "/description.txt";
-                if (file_exists($file)) {
-                  // File exist, get content
-                  $content = file_get_contents($file);
-                  echo htmlspecialchars($content);
-                } else {
-                  // File not exist
-                  echo $tl["tpl_box_content"]["tplbc"];
-                }
-                ?>
+                <strong>Version: </strong> <?php echo $tltpl["tplinfo"]["tplversion"]; ?>
+                <strong class="m-l-30">Author: </strong> <?php echo $tltpl["tplinfo"]["tplauthor"]; ?>
+                <strong class="m-l-30">Technology: </strong> <?php echo $tltpl["tplinfo"]["tpltech"]; ?>
               </p>
-              <div class="col-sm-12">
+              <hr>
+            </div>
+            <div>
 
-                <?php
-                if (ENVO_TEMPLATE != $l && !$template_addon) {
+              <?php
+              // Show Description of template
+              echo '<p>' . $tltpl["tpldesc"]["tpldesc"] . '</p>';
+              ?>
 
-                  // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                  echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm m-r-5', array('data-loading-text' => $tl["button"]["btn41"]));
+              <hr>
+            </div>
+            <div class="row">
 
-                  if (file_exists('../template/' . $l . '/help.php')) {
+              <?php
+              if (ENVO_TEMPLATE != $l && !$template_addon) {
 
-                    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
+                // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm m-r-5', array('data-loading-text' => $tl["button"]["btn41"]));
 
-                  }
-                } elseif (ENVO_TEMPLATE == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) {
-
-                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('../template/' . $l . '/install.php', $tl["button"]["btn7"], '', 'btn btn-success btn-sm m-r-5 tempInst');
-
-                  if (file_exists('../template/' . $l . '/help.php')) {
-
-                    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
-
-                  }
-                } elseif (ENVO_TEMPLATE == $l && file_exists('../template/' . $l . '/uninstall.php') && $template_addon) {
-
-                  if (file_exists('../template/' . $l . '/styleswitcher.php')) {
-
-                    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($setting["styleswitcher_tpl"]) ? 'success' : 'default') . ' btn-sm m-r-5');
-
-                  }
+                if (file_exists('../template/' . $l . '/help.php')) {
 
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('../template/' . $l . '/uninstall.php', '<i class="fa fa-remove"></i>' . $tl["button"]["btn9"], '', 'btn btn-danger btn-sm m-r-5 tempInst');
+                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
 
-                  echo $Html->addAnchor('index.php?p=template&amp;sp=settings', $tl["button"]["btn10"], '', 'btn btn-primary btn-sm m-r-5 ' . ((!file_exists('../template/' . $l . '/templatesettings.php')) ? 'disabled' : ''));
+                }
+              } elseif (ENVO_TEMPLATE == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) {
 
-                  if (file_exists('../template/' . $l . '/help.php')) {
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../template/' . $l . '/install.php', $tl["button"]["btn7"], '', 'btn btn-success btn-sm m-r-5 tempInst');
 
+                if (file_exists('../template/' . $l . '/help.php')) {
+
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
+
+                }
+              } elseif (ENVO_TEMPLATE == $l && file_exists('../template/' . $l . '/uninstall.php') && $template_addon) {
+
+                if (file_exists('../template/' . $l . '/styleswitcher.php')) {
+
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($setting["styleswitcher_tpl"]) ? 'success' : 'default') . ' btn-sm m-r-5');
+
+                }
+
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../template/' . $l . '/uninstall.php', $tl["button"]["btn9"], '', 'btn btn-danger btn-sm m-r-5 tempInst');
+
+                echo $Html->addAnchor('index.php?p=template&amp;sp=settings', $tl["button"]["btn10"], '', 'btn btn-primary btn-sm m-r-5 ' . ((!file_exists('../template/' . $l . '/templatesettings.php')) ? 'disabled' : ''));
+
+                if (file_exists('../template/' . $l . '/help.php')) {
+
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm tempHelp');
+
+                }
+              } else {
+                ?>
+
+                <div class="col-9">
+                  <div class="alert alert-danger text-center" style="width: 100%; padding: 7px 10px; margin: 0;">
+                    <?php echo str_replace("%s", ENVO_TEMPLATE, $tl["tpl_box_content"]["tplbc1"]); ?>
+                  </div>
+                </div>
+                <?php if (file_exists('../template/' . $l . '/help.php')) { ?>
+                  <div class="col-3">
+
+                    <?php
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                     echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm tempHelp');
+                    ?>
 
-                  }
-                } else {
-                  ?>
-
-                  <div class="col-sm-5">
-                    <div class="row">
-                      <div class="alert alert-danger" style="width: 100%; padding: 6px 10px; text-align: center;">
-                        <?php echo str_replace("%s", ENVO_TEMPLATE, $tl["tpl_box_content"]["tplbc1"]); ?>
-                      </div>
-                    </div>
                   </div>
-                  <?php if (file_exists('../template/' . $l . '/help.php')) { ?>
-                    <div class="col-sm-2">
-
-                      <?php
-                      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm tempHelp');
-                      ?>
-
-                    </div>
-                  <?php } ?>
-
                 <?php } ?>
 
-              </div>
+              <?php } ?>
+
             </div>
           </div>
         </div>

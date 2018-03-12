@@ -488,7 +488,7 @@ switch ($page1) {
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=news&sp=edit&id=' . $pageID . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=news&sp=editnews&id=' . $pageID . '&status=s');
           }
         } else {
 
