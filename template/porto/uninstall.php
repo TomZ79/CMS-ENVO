@@ -6,7 +6,7 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
@@ -15,12 +15,21 @@ if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_erro
 // Set successfully to zero
 $succesfully = 0;
 
+// EN: Import the language file
+// CZ: Import jazykových souborů
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
+} else {
+  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $site_language = $setting["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - PORTO / Template</title>
+  <title><?php echo $tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'; ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
@@ -47,6 +56,7 @@ $succesfully = 0;
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html->addScript('/assets/plugins/tether/js/tether.min.js');
   echo $Html->addScript('/assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
@@ -58,51 +68,65 @@ $succesfully = 0;
 <body>
 
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12 m-t-20">
+  <div class="row">
+    <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-				<h3 class="semi-bold text-white">Uninstallation - PORTO / Template</h3>
-			</div>
-			<hr>
+        <h3 class="semi-bold text-white"><?php echo $tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'; ?></h3>
+      </div>
+      <hr>
 
-			<!-- UNINSTALLATION -->
-			<?php if (isset($_POST['uninstall'])) {
-				// Validate
-				session_start ();
-				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
-				// Delete all settings
-				$envodb->query ('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
+      <!-- UNINSTALLATION -->
+      <?php if (isset($_POST['uninstall'])) {
+        // Validate
+        session_start();
+        if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
+          // Delete all settings
+          $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
 
-				// Delete php code for lang site from hooks
-				$envodb->query ('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tpl_porto"');
+          // Delete php code for lang site from hooks
+          $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tpl_porto"');
 
-				$succesfully = 1;
+          $succesfully = 1;
 
-				?>
+          ?>
 
-				<div class="alert alert-success fade show">
-					Template successfully uninstalled!
-				</div>
-				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+          <!-- Alert Template uninstalled - succes -->
+          <div class="alert alert-success fade show">
+            <?php echo $tl["uninstalltemplate"]["unitpl1"]; ?>
+          </div>
+          <!-- Button Close Modal -->
+          <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">
+            <?php echo $tl["uninstalltemplate"]["unitpl5"]; ?>
+          </button>
 
-			<?php } else { ?>
-				<div>
-					<h5 class="text-danger bold">Wrong Code Entered - Please, enter right number !</h5>
-				</div>
-			<?php } }
-			if (!$succesfully) { ?>
-			<form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
-				<div class="form-group form-inline">
-					<label for="text">Please read info about uninstallation and enter text: </label>
-          <input type="text" name="captcha" class="form-control ml-2" id="text">
-					<img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
-				</div>
-				<button type="submit" name="uninstall" class="btn btn-complete btn-block">Uninstall Template</button>
-			</form>
-			<?php } ?>
+        <?php } else { ?>
+          <!-- Wrong code for uninstall -->
+          <div>
+            <h5 class="text-danger bold">
+              <?php echo $tl["uninstalltemplate"]["unitpl2"]; ?>
+            </h5>
+          </div>
+        <?php }
+      }
+      if (!$succesfully) { ?>
+        <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+          <div class="form-group form-inline">
+            <!--  Label for enter code -->
+            <label for="text">
+              <?php echo $tl["uninstalltemplate"]["unitpl3"]; ?>
+            </label>
+            <input type="text" name="captcha" class="form-control ml-2" id="text">
+            <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
+          </div>
+          <!-- Uninstall button -->
+          <button type="submit" name="uninstall" class="btn btn-complete btn-block">
+            <?php echo $tl["uninstalltemplate"]["unitpl4"]; ?>
+          </button>
+        </form>
+      <?php } ?>
 
-		</div>
-	</div>
+    </div>
+  </div>
 
 </div>
 </body>

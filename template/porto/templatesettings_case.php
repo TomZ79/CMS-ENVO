@@ -29,7 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$result1 = $envodb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 
+      WHEN "skin_porto_tpl" THEN "' . smartsql ($defaults['skinporto']) . '"
       WHEN "header_porto_tpl" THEN "' . smartsql ($defaults['headerporto']) . '"
+      WHEN "navi_porto_tpl" THEN "' . smartsql ($defaults['naviporto']) . '"
       
       WHEN "sitemapShow_porto_tpl" THEN "' . smartsql ($defaults['sitemapShow']) . '"
 			WHEN "sitemapLinks_porto_tpl" THEN "' . smartsql ($defaults['sitemapLinks']) . '"
@@ -62,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       WHEN "instagramfooterLinks_porto_tpl" THEN "' . smartsql ($defaults['instagramfooterLinks']) . '"
       
       END
-        WHERE varname IN ("header_porto_tpl", "sitemapShow_porto_tpl", "sitemapLinks_porto_tpl", "loginShow_porto_tpl", "logo1_porto_tpl", "facebookheaderShow_porto_tpl", "facebookheaderLinks_porto_tpl", "twitterheaderShow_porto_tpl", "twitterheaderLinks_porto_tpl", "googleheaderShow_porto_tpl", "googleheaderLinks_porto_tpl", "instagramheaderShow_porto_tpl", "instagramheaderLinks_porto_tpl", "phoneheaderShow_porto_tpl", "phoneheaderLinks_porto_tpl", "emailheaderShow_porto_tpl", "emailheaderLinks_porto_tpl", "footerblocktext1_porto_tpl", "logo2_porto_tpl", "socialfooterText_porto_tpl", "facebookfooterShow_porto_tpl", "facebookfooterLinks_porto_tpl", "twitterfooterShow_porto_tpl", "twitterfooterLinks_porto_tpl", "googlefooterShow_porto_tpl", "googlefooterLinks_porto_tpl", "instagramfooterShow_porto_tpl", "instagramfooterLinks_porto_tpl" )');
+        WHERE varname IN ("skin_porto_tpl", "header_porto_tpl", "navi_porto_tpl", "sitemapShow_porto_tpl", "sitemapLinks_porto_tpl", "loginShow_porto_tpl", "logo1_porto_tpl", "facebookheaderShow_porto_tpl", "facebookheaderLinks_porto_tpl", "twitterheaderShow_porto_tpl", "twitterheaderLinks_porto_tpl", "googleheaderShow_porto_tpl", "googleheaderLinks_porto_tpl", "instagramheaderShow_porto_tpl", "instagramheaderLinks_porto_tpl", "phoneheaderShow_porto_tpl", "phoneheaderLinks_porto_tpl", "emailheaderShow_porto_tpl", "emailheaderLinks_porto_tpl", "footerblocktext1_porto_tpl", "logo2_porto_tpl", "socialfooterText_porto_tpl", "facebookfooterShow_porto_tpl", "facebookfooterLinks_porto_tpl", "twitterfooterShow_porto_tpl", "twitterfooterLinks_porto_tpl", "googlefooterShow_porto_tpl", "googlefooterLinks_porto_tpl", "instagramfooterShow_porto_tpl", "instagramfooterLinks_porto_tpl" )');
 
   // EN: Save language file
   // CZ: Uložení jazykového souboru
