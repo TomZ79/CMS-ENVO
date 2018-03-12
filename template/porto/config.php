@@ -2,12 +2,17 @@
 
 /* ### CONFIG FILE ### */
 
-
-
+// NAVIGATION TYPE
+// Set class for navigation
+$navitype =  explode(",", $setting["navi_porto_tpl"]);
+$PORTONAVTYPE = $navitype[0];
+$PORTONAVTYPE1 = $navitype[1];
+$PORTONAVTYPE2 = $navitype[2];
+$PORTONAVTYPE3 = $navitype[3];
 
 /* ### FUNCTION FILE ### */
 
-// MENU BUILDER - METRICS, parentId 0 is the root
+// MENU BUILDER - PORTO, parentId 0 is the root
 // Global variable - array
 $arr1 = array();
 
