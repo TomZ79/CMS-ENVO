@@ -38,56 +38,12 @@ if (ENVO_ASACCESS) {
       <div class="row">
         <article>
 
+
           <?php if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
             include_once APP_PATH . $hpage["phpcode"];
           }
 
           if (isset($ENVO_PAGE_GRID) && is_array($ENVO_PAGE_GRID)) foreach ($ENVO_PAGE_GRID as $pg) {
-
-            // Show Content
-            if ($pg["pluginid"] == '9999') {
-
-              ?>
-
-              <div class="full-intro-head">
-                <?php if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>'; ?>
-                <?php if ($SHOWDATE || $SHOWHITS) { ?>
-                  <p>
-                    <!-- Show Date -->
-                    <?php if ($SHOWDATE) {
-                      echo $tl["news"]["news3"] . ' : <span><time datetime="' . $PAGE_TIME_HTML5 . '">' . $DATE_TIME . '</time></span>';
-                    } ?>
-                    <!-- Show Hits -->
-                    <?php if ($SHOWHITS) {
-                      echo $tl["news"]["news2"] . ' : <span>' . $PAGE_HITS . '</span>';
-                    } ?>
-                  </p>
-                <?php } ?>
-              </div>
-              <div class="full-intro-content">
-                <?php if ($ENVO_TAGLIST) { ?>
-                  <ul class="entry-meta">
-                    <?php echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
-                  </ul>
-                <?php } ?>
-
-                <?php echo $PAGE_CONTENT; ?>
-
-                <?php if ($SHOWSOCIALBUTTON) { ?>
-                  <div class="col-md-12">
-                    <hr>
-                    <div class="pull-right" style="display: table;">
-                      <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
-                        <strong><?php echo $tl["share"]["share1"] . ' '; ?></strong>
-                      </div>
-                      <div id="sollist-sharing"></div>
-                    </div>
-                  </div>
-                <?php } ?>
-              </div>
-
-              <?php
-            }
 
             // Load contact form
             if ($pg["pluginid"] == '9997' && $ENVO_SHOW_C_FORM) {
@@ -99,6 +55,43 @@ if (ENVO_ASACCESS) {
               eval($hpagegrid["phpcode"]);
             }
           } ?>
+
+          <div class="full-intro-head">
+            <?php if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>'; ?>
+            <?php if ($SHOWDATE || $SHOWHITS) { ?>
+              <p>
+                <!-- Show Date -->
+                <?php if ($SHOWDATE) {
+                  echo $tl["news"]["news3"] . ' : <span><time datetime="' . $PAGE_TIME_HTML5 . '">' . $DATE_TIME . '</time></span>';
+                } ?>
+                <!-- Show Hits -->
+                <?php if ($SHOWHITS) {
+                  echo $tl["news"]["news2"] . ' : <span>' . $PAGE_HITS . '</span>';
+                } ?>
+              </p>
+            <?php } ?>
+          </div>
+          <div class="full-intro-content">
+            <?php if ($ENVO_TAGLIST) { ?>
+              <ul class="entry-meta">
+                <?php echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
+              </ul>
+            <?php } ?>
+
+            <?php echo $PAGE_CONTENT; ?>
+
+            <?php if ($SHOWSOCIALBUTTON) { ?>
+              <div class="col-md-12">
+                <hr>
+                <div class="pull-right" style="display: table;">
+                  <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
+                    <strong><?php echo $tl["share"]["share1"] . ' '; ?></strong>
+                  </div>
+                  <div id="sollist-sharing"></div>
+                </div>
+              </div>
+            <?php } ?>
+          </div>
 
         </article>
       </div>

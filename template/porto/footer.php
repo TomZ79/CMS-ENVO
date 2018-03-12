@@ -347,7 +347,7 @@ if ($SHOWSOCIALBUTTON) {
       type: 'offline',
       timer: 0,
       template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
+      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
       '<span data-notify="icon"></span> ' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +

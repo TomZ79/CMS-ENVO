@@ -78,8 +78,8 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" media="none" onload="if(media!='all')media='all'">
   <!-- Fontawesome icon -->
   <link rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0" media="none" onload="if(media!='all')media='all'">
-  <!-- Simple icon -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/simple-line-icons/css/simple-line-icons.min.css?=v2.4.0">
+  <!-- Bluesat icon -->
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/bluesat-icons/css/bluesat-icons.min.css">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/bootstrap/css/bootstrap.min.css?=v3.3.7">
   <!-- Bootstrap Table -->
@@ -98,7 +98,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/theme-complete.min.css">
   <!-- Skin CSS -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/skins/skin-bluesat.min.css">
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE . '/css/skins/' . $setting["skin_porto_tpl"] . '.min.css'; ?>">
   <!-- Print CSS -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print.css" media="print"/>
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print-md.css" media="print"/>
@@ -123,7 +123,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- Favicons
   ================================================== -->
-  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
@@ -158,7 +158,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <!-- =========================
       START HEADER SECTION
     ============================== -->
-    <header id="header" class="header-narrow" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 57, 'stickySetTop': '-57px', 'stickyChangeLogo': false}">
+    <header id="header" class="<?php echo $PORTONAVTYPE; ?>" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 57, 'stickySetTop': '-57px', 'stickyChangeLogo': false}">
       <div class="header-body">
         <div class="header-top header-top-quaternary header-top-style-3">
           <div class="container">
@@ -252,7 +252,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             </p>
           </div>
         </div>
-        <div class="header-container container">
+        <div class="header-container container mt-sm">
           <div class="header-row">
             <div class="header-column">
               <div class="header-logo">
@@ -263,11 +263,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             </div>
             <div class="header-column">
               <div class="header-row">
-                <div class="header-nav header-nav-dark-dropdown">
+                <div class="header-nav <?php echo $PORTONAVTYPE1; ?>">
                   <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
                     <i class="fa fa-bars"></i>
                   </button>
-                  <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+                  <div class="header-nav-main <?php echo $PORTONAVTYPE2; ?> header-nav-main-sub-effect-1 collapse">
                     <nav>
 
                       <!-- Main navigation -->
