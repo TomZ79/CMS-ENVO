@@ -18,26 +18,29 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
           <div class="<?php echo($ENVO_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
             <article class="news-preview mb-xlg">
               <div class="preview-img">
-                <a href="<?php echo $v["parseurl"]; ?>">
+                <div class="preview-img-container">
+                  <div class="preview-img-item">
+                    <a href="<?php echo $v["parseurl"]; ?>">
 
-                  <?php
-                  // Image is available so display it or go standard image
-                  if ($v["previmg"]) {
-                    echo '<img src="' . $v["previmg"] . '" alt="' . $v["title"] . ' | ' . $setting["title"] . '" class="img-responsive">';
-                  } else { ?>
+                      <?php
+                      // Image is available so display it or go standard image
+                      if ($v["previmg"]) {
+                        echo '<img src="' . $v["previmg"] . '" alt="' . $v["title"] . ' | ' . $setting["title"] . '" class="img-responsive">';
+                      } else { ?>
 
+                        <div class="thumb-news text-center">
+                          <img src="<?php echo '/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg'; ?>" alt="<?php echo $v["title"] . ' | ' . $setting["title"]; ?>" class="img-responsive">
+                          <div class="caption text-center">
+                            <span class="color1"><?php echo $tlporto["news_text"]["newst"]; ?></span>
+                            <span class="color2"><?php echo $tlporto["news_text"]["newst1"]; ?></span>
+                          </div>
+                        </div>
 
-                    <div class="thumb-news text-center">
-                      <img src="<?php echo '/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg'; ?>" alt="<?php echo $v["title"] . ' | ' . $setting["title"]; ?>" class="img-responsive">
-                      <div class="caption text-center">
-                        <span class="color1"><?php echo $tlmetrics["news_text"]["newst"]; ?></span>
-                        <span class="color2"><?php echo $tlmetrics["news_text"]["newst1"]; ?></span>
-                      </div>
-                    </div>
+                      <?php } ?>
 
-                  <?php } ?>
-
-                </a>
+                    </a>
+                  </div>
+                </div>
               </div>
               <div class="preview-head">
                 <p class="text-sm">
@@ -58,7 +61,7 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
                   <p><?php echo $v["contentshort"]; ?></p>
 
                   <?php
-                  // System Icons - Edit and Quick Edit
+                  // SYSTEM ICONS - Edit and Quick Edit
                   if (ENVO_ASACCESS) { ?>
                     <div class="system-icons clearfix">
                       <div class="pull-right hidden-xs">

@@ -4,13 +4,21 @@
 
 // NAVIGATION TYPE
 // Set class for navigation
-$navitype =  explode(",", $setting["navi_porto_tpl"]);
-$PORTONAVTYPE = $navitype[0];
+$navitype      = explode(",", $setting["navi_porto_tpl"]);
+$PORTONAVTYPE  = $navitype[0];
 $PORTONAVTYPE1 = $navitype[1];
 $PORTONAVTYPE2 = $navitype[2];
 $PORTONAVTYPE3 = $navitype[3];
 
 /* ### FUNCTION FILE ### */
+
+// PRINT ARRAY - Print a nicely formatted array representation
+function print_array($aArray)
+{
+  echo '<pre>';
+  print_r($aArray);
+  echo '</pre>';
+}
 
 // MENU BUILDER - PORTO, parentId 0 is the root
 // Global variable - array
@@ -89,9 +97,9 @@ function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $d
         
           <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active"' : '') . '>' .
 
-            (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
+          (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
-             $menu["items"][$itemId]["name"] .
+          $menu["items"][$itemId]["name"] .
 
           '</a>
         </li>';
@@ -133,11 +141,11 @@ function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $d
           
             <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active"' : '') . '>' .
 
-              (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
+            (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
-              $menu["items"][$itemId]["name"] .
+            $menu["items"][$itemId]["name"] .
 
-              '</a>
+            '</a>
           </li>';
 
         }

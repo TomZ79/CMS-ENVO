@@ -400,7 +400,7 @@ if ($page == 'success') {
 if ($page == 'error') {
   $PAGE_TITLE      = $tl['title_page']['tpl'];
   $PAGE_CONTENT    = $tl['general_error']['generror10'];
-  $template        = 'standard.php';
+  $template        = 'error.php';
   $ENVO_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE  = 1;
 }

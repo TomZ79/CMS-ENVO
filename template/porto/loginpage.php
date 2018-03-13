@@ -1,6 +1,7 @@
 <?php
 
 if (!ENVO_USERID) {
+
   if (isset($_SESSION['password_recover'])) {
 
     echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
@@ -11,11 +12,11 @@ if (!ENVO_USERID) {
 
   <div class="loginF">
     <h3><?php echo $tl["general"]["g146"]; ?></h3>
+
     <?php if (isset($errorlo)) { ?>
-      <div class="alert bg-danger">
-        <?php echo $errorlo["e"]; ?>
-      </div>
+      <div class="alert bg-danger"><?php echo $errorlo["e"]; ?></div>
     <?php } ?>
+
     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
       <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
         <label class="control-label" for="username"><?php echo $tl["login"]["l1"]; ?></label>
@@ -37,12 +38,16 @@ if (!ENVO_USERID) {
         class="btn btn-success btn-block"><?php echo $tl["general"]["g146"]; ?></button>
       <input type="hidden" name="home" value="0"/>
     </form>
+
   </div>
-  <hr>
+
   <div class="forgotP">
     <h3><?php echo $tl["title"]["t14"]; ?></h3>
+
     <?php if (isset($errorfp)) { ?>
-      <div class="alert bg-danger"><?php echo $errorfp["e"]; ?></div><?php } ?>
+      <div class="alert bg-danger"><?php echo $errorfp["e"]; ?></div>
+    <?php } ?>
+
     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
       <div class="form-group<?php if (isset($errorfp)) echo " has-error"; ?>">
         <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>

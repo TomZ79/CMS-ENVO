@@ -1,6 +1,6 @@
 <?php
 /*
- * ALL VALUE for FRONTEND - download.php
+ * ALL VALUE for FRONTEND - newsart.php
  *
  * $PAGE_ID 							    number		|	- id článku News
  * $PAGE_TITLE					    	string			- Titulek stránky
@@ -42,7 +42,9 @@ if (ENVO_ASACCESS) {
         <article class="news-article">
 
 
-          <?php if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
+          <?php
+
+          if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
             include_once APP_PATH . $hpage["phpcode"];
           }
 
@@ -57,33 +59,54 @@ if (ENVO_ASACCESS) {
             if (isset($ENVO_HOOK_NEWS_GRID) && is_array($ENVO_HOOK_NEWS_GRID)) foreach ($ENVO_HOOK_NEWS_GRID as $hpagegrid) {
               eval($hpagegrid["phpcode"]);
             }
-          } ?>
+          }
+
+          ?>
 
           <div class="article-title">
-            <?php if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>'; ?>
+
+            <?php
+
+            if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>';
+
+            ?>
+
           </div>
           <div class="article-head">
-            <?php if ($SHOWDATE || $SHOWHITS) { ?>
-              <!-- Show Date -->
-              <?php if ($SHOWDATE) {
-                echo '<span class="art-date"><strong>' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME_HTML5 . '">' . $DATE_TIME . '</time></span>';
-              } ?>
-              <!-- Show Hits -->
-              <?php if ($SHOWHITS) {
+
+            <?php
+
+            if ($SHOWDATE || $SHOWHITS) {
+              // SHOW - Date
+              if ($SHOWDATE) {
+                echo '<span class="art-date"><strong>' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
+              }
+
+              // SHOW - Hits
+              if ($SHOWHITS) {
                 echo '<span class="art-hits"><strong>' . $tl["news"]["news2"] . '</strong>' . ' : ' . $PAGE_HITS . '</span>';
-              } ?>
-            <?php } ?>
+              }
+            }
+            ?>
+
           </div>
           <div class="article-content">
-            <?php if ($ENVO_TAGLIST) { ?>
-              <ul class="entry-meta">
-                <?php echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
-              </ul>
-            <?php } ?>
 
-            <?php echo $PAGE_CONTENT; ?>
+            <?php
 
-            <?php if ($SHOWSOCIALBUTTON) { ?>
+            // SHOW - Tag List
+            if ($ENVO_TAGLIST) {
+              echo '<ul class="entry-meta">';
+              echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
+              echo '</ul>';
+
+            }
+
+            // SHOW - Page content
+            echo $PAGE_CONTENT;
+
+            if ($SHOWSOCIALBUTTON) { ?>
+
               <div class="col-md-12">
                 <hr>
                 <div class="pull-right" style="display: table;">
@@ -93,7 +116,9 @@ if (ENVO_ASACCESS) {
                   <div id="sollist-sharing"></div>
                 </div>
               </div>
+
             <?php } ?>
+
           </div>
 
         </article>

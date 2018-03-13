@@ -2,14 +2,6 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-function print_array($aArray)
-{
-// Print a nicely formatted array representation:
-  echo '<pre>';
-  print_r($aArray);
-  echo '</pre>';
-}
-
 if (!$PAGE_ACTIVE) {
   echo '<div class="alert alert-danger">' . $tl["general_error"]["generror2"] . '</div>';
 } else {
@@ -25,9 +17,12 @@ if (!$PAGE_ACTIVE) {
     echo '<div id="printdiv">';
   }
 
-  if ($PAGE_PASSWORD && !ENVO_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) { ?>
+  if ($PAGE_PASSWORD && !ENVO_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) {
 
-    <!-- Protected page -->
+    // PROTECTED PAGE
+
+    ?>
+
     <section class="protected-page-area">
       <div class="container">
         <div class="row">
@@ -35,7 +30,6 @@ if (!$PAGE_ACTIVE) {
             <div class="text-center">
               <h1><?php echo $tl["global_text"]["gtxt1"]; ?></h1>
               <p><?php echo $tl["global_text"]["gtxt2"]; ?></p>
-              <!-- Show password form -->
               <form class="form-inline pt-small" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 
                 <div class="input-group">
@@ -55,6 +49,8 @@ if (!$PAGE_ACTIVE) {
 
   <?php } else {
 
+    // NOT PROTECTED PAGE
+
     if ($PAGE_SHOWTITLE) {
       echo '<h2>' . $PAGE_TITLE . '</h2>';
     }
@@ -63,7 +59,7 @@ if (!$PAGE_ACTIVE) {
       include_once APP_PATH . $hpage["phpcode"];
     }
 
-    // Load Grid Page
+    // LOAD - Grid Page
     if (isset($ENVO_PAGE_GRID) && is_array($ENVO_PAGE_GRID)) foreach ($ENVO_PAGE_GRID as $pg) {
 
       // SHOW - Page Content
@@ -141,7 +137,7 @@ if (!$PAGE_ACTIVE) {
         <?php
       }
 
-      // Hook PHP Code for page
+      // LOAD - Hook PHP Code for page
       if (isset($ENVO_HOOK_PAGE_GRID) && is_array($ENVO_HOOK_PAGE_GRID)) foreach ($ENVO_HOOK_PAGE_GRID as $hpagegrid) {
         eval($hpagegrid["phpcode"]);
       }
@@ -173,7 +169,7 @@ if (!$PAGE_ACTIVE) {
               if ($SHOWSOCIALBUTTON) { ?>
                 <div class="pull-right">
                   <div style="display: table;">
-                    <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
+                    <div style="display: table-cell;vertical-align: middle;padding-right: 20px;">
                       <strong><?php echo $tl["share"]["share"] . ' '; ?></strong>
                     </div>
                     <div id="sollist-sharing"></div>

@@ -4,7 +4,6 @@
 	START 404 SECTION
 	============================== -->
 	<section class="feature-404-area">
-		<!-- MAIN TITLE AREA -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
@@ -17,7 +16,7 @@
 					</div>
 				</div>
 			</div>
-		</div> <!-- END TITLE -->
+		</div>
 	</section>
 	<!-- =========================
   END 404 SECTION
