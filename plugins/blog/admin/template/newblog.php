@@ -302,7 +302,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_imgdesc', (isset($_REQUEST["envo_imgdesc"])) ? $_REQUEST["envo_imgdesc"] : 'Image Preview | CMS', 'envo_imgdesc', 'form-control');
+                        echo $Html->addInput('text', 'envo_imgdesc', (isset($_REQUEST["envo_imgdesc"])) ? $_REQUEST["envo_imgdesc"] : 'Image Preview', 'envo_imgdesc', 'form-control');
                         ?>
 
                       </div>

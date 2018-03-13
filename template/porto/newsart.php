@@ -21,22 +21,25 @@
  */
 ?>
 
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
+<?php
 
-<?php if (!$PAGE_ACTIVE) { ?>
-  <div class="alert alert-danger">
-    <?php echo $tl["general_error"]["generror2"]; ?>
-  </div>
-<?php }
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
+
+if (!$PAGE_ACTIVE) {
+  echo '<div class="alert alert-danger">' . $tl["general_error"]["generror2"] . '</div>';
+}
+
 if (ENVO_ASACCESS) {
   $apedit  = BASE_URL . 'admin/index.php?p=news&amp;sp=edit&amp;id=' . $PAGE_ID;
   $qapedit = BASE_URL . 'admin/index.php?p=news&amp;sp=quickedit&amp;id=' . $PAGE_ID;
-} ?>
+}
 
-  <section class="news-content-area">
+?>
+
+  <section>
     <div class="container-fluid">
       <div class="row">
-        <article>
+        <article class="news-article">
 
 
           <?php if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
@@ -56,22 +59,22 @@ if (ENVO_ASACCESS) {
             }
           } ?>
 
-          <div class="full-intro-head">
+          <div class="article-title">
             <?php if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>'; ?>
+          </div>
+          <div class="article-head">
             <?php if ($SHOWDATE || $SHOWHITS) { ?>
-              <p>
-                <!-- Show Date -->
-                <?php if ($SHOWDATE) {
-                  echo $tl["news"]["news3"] . ' : <span><time datetime="' . $PAGE_TIME_HTML5 . '">' . $DATE_TIME . '</time></span>';
-                } ?>
-                <!-- Show Hits -->
-                <?php if ($SHOWHITS) {
-                  echo $tl["news"]["news2"] . ' : <span>' . $PAGE_HITS . '</span>';
-                } ?>
-              </p>
+              <!-- Show Date -->
+              <?php if ($SHOWDATE) {
+                echo '<span class="art-date"><strong>' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME_HTML5 . '">' . $DATE_TIME . '</time></span>';
+              } ?>
+              <!-- Show Hits -->
+              <?php if ($SHOWHITS) {
+                echo '<span class="art-hits"><strong>' . $tl["news"]["news2"] . '</strong>' . ' : ' . $PAGE_HITS . '</span>';
+              } ?>
             <?php } ?>
           </div>
-          <div class="full-intro-content">
+          <div class="article-content">
             <?php if ($ENVO_TAGLIST) { ?>
               <ul class="entry-meta">
                 <?php echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>

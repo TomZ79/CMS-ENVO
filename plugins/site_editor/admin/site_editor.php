@@ -8,7 +8,7 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, $setting["accessmanage"])) envo_redirect(BASE_URL);
 
-if (isset($_POST['action'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // EDIT FILE 'robots.txt'
 
   // EN: Default Variable
@@ -39,6 +39,7 @@ if (isset($_POST['action'])) {
       $content = stripslashes($txtfile);
       file_put_contents($file, $content);
     }
+
   }
 
   if (isset($_POST['reset'])) {

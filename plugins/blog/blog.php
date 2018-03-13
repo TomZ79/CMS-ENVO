@@ -242,7 +242,7 @@ switch ($page1) {
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
-          $BLOG_CAT = $rowc['varname'];
+          $BLOG_CAT[] = $rowc['varname'];
         }
 
         if (!empty($catids)) {

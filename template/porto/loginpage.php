@@ -1,9 +1,14 @@
-<?php if (!ENVO_USERID) {
+<?php
+
+if (!ENVO_USERID) {
   if (isset($_SESSION['password_recover'])) {
 
     echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
 
-  } ?>
+  }
+
+  ?>
+
   <div class="loginF">
     <h3><?php echo $tl["general"]["g146"]; ?></h3>
     <?php if (isset($errorlo)) { ?>
@@ -49,6 +54,8 @@
   </div>
 
 <?php } else { ?>
+
   <h3><?php echo str_replace("%s", $ENVO_USERNAME, $tl["general"]["g8"]); ?></h3>
   <p><a href="<?php echo $P_USR_LOGOUT; ?>" class="btn btn-danger btn-block"><?php echo $tl["title"]["t6"]; ?></a></p>
+
 <?php } ?>

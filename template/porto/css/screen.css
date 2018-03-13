@@ -23,10 +23,10 @@
  * 13. PORTO MODIFICATION - SECTION
  * 14. PAGINATION
  * 15. NECESSARY CODE !!! - NEWS
- * 16. NECESSARY CODE !!! - BOOTSTRAP COL HEIGHT
- * 17. CAPTCHA
- * 18. BOOTSTRAP 3 MEDIA QUERIES
- * 19. NEWS
+ * 16. NEWS
+ * 17. NECESSARY CODE !!! - BOOTSTRAP COL HEIGHT
+ * 18. CAPTCHA
+ * 19. BOOTSTRAP 3 MEDIA QUERIES
  * 20. BLOG
  * 21. CUSTOM MODIFICATION
  */
@@ -1201,7 +1201,54 @@ input {
   color: #037ACC;
 }
 
-/* 16. NECESSARY CODE !!! - BOOTSTRAP COL HEIGHT
+/* 16. NEWS
+========================================================================*/
+/* News preview */
+.news-preview {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.news-preview .preview-head {
+  border-bottom: 1px solid #E3E3E3;
+  padding: 10px 10px;
+  font-size: 12px;
+  margin: 0 0 10px 0;
+  color: #A3A3A3;
+}
+
+.news-preview .preview-head p {
+  margin: 0;
+}
+
+.news-preview .preview-head span i {
+  padding-right: 5px;
+}
+
+.news-preview .preview-title {
+  padding: 0 10px;
+}
+
+.news-preview .preview-content {
+  padding: 0 10px;
+  margin: 0 0 10px 0;
+}
+
+.news-article {  }
+.news-article .article-title {  }
+.news-article .article-head {
+  border-bottom: 1px solid #e3e3e3;
+  padding: 10px 0;
+  margin: 0 0 20px 0;
+  color: #a3a3a3;
+}
+.news-article .article-head .art-date,
+.news-article .article-head .art-date {
+  margin-right: 10px;
+}
+.news-article .article-content {  }
+
+/* 17. NECESSARY CODE !!! - BOOTSTRAP COL HEIGHT
 ========================================================================
 http://www.minimit.com/demos/bootstrap-3-responsive-columns-of-same-height
 
@@ -1355,7 +1402,7 @@ USAGE
   }
 }
 
-/* 17. CAPTCHA
+/* 18. CAPTCHA
 ======================================================================== */
 .captcha {
   padding: 0;
@@ -1371,7 +1418,7 @@ USAGE
   }
 }
 
-/* 18. BOOTSTRAP 3 MEDIA QUERIES
+/* 19. BOOTSTRAP 3 MEDIA QUERIES
 ======================================================================== */
 /*==========  Mobile First Method  ==========*/
 
@@ -1516,18 +1563,6 @@ USAGE
 @media only screen and (max-width: 320px) {
 
 }
-
-/* 19. NEWS
-========================================================================*/
-/* News preview */
-article.news-article-preview {
-  border: 1px solid #ddd;
-}
-
-article.news-article-preview .full-intro-head {
-  padding: 15px 10px 0;
-}
-
 
 /* 20. BLOG
 ========================================================================*/
@@ -1737,6 +1772,13 @@ html .call-to-action.call-to-action-primary h3, html .call-to-action.call-to-act
 
 .call-to-action h3 {
   line-height: 31px;
+}
+
+/*===================================*
+  SYSTEM ICONS
+*====================================*/
+.system-icons {
+  margin: -15px 0 15px 0;
 }
 
 /*===================================*

@@ -1,5 +1,6 @@
 <?php if (ENVO_TAGS && ENVO_USER_TAGS && $ENVO_GET_TAG_CLOUD) { ?>
-	<aside class="nav-side-menu nav-sidebar-inline hidden-xs">
+
+  <aside class="nav-side-menu nav-sidebar-inline hidden-xs">
 
 		<div class="right-sidebar">
 
@@ -16,4 +17,5 @@
 
 		<hr>
 	</aside>
+
 <?php } ?>

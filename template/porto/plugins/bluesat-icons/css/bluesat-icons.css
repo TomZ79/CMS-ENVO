@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'bluesat-icons';
-  src:  url('../fonts/bluesat-icons.eot?34mu3d');
-  src:  url('../fonts/bluesat-icons.eot?34mu3d#iefix') format('embedded-opentype'),
-    url('../fonts/bluesat-icons.ttf?34mu3d') format('truetype'),
-    url('../fonts/bluesat-icons.woff?34mu3d') format('woff'),
-    url('../fonts/bluesat-icons.svg?34mu3d#bluesat-icons') format('svg');
+  src:  url('../fonts/bluesat-icons.eot?y55kga');
+  src:  url('../fonts/bluesat-icons.eot?y55kga#iefix') format('embedded-opentype'),
+    url('../fonts/bluesat-icons.ttf?y55kga') format('truetype'),
+    url('../fonts/bluesat-icons.woff?y55kga') format('woff'),
+    url('../fonts/bluesat-icons.svg?y55kga#bluesat-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,61 +24,61 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-antenna-02:before {
+.icon-antenna-01:before {
   content: "\e900";
 }
-.icon-antenna-01:before {
+.icon-antenna-02:before {
   content: "\e901";
 }
-.icon-house-01:before {
+.icon-garancy-01:before {
   content: "\e902";
 }
-.icon-house-02:before {
+.icon-house-01:before {
   content: "\e903";
 }
-.icon-iron-steel:before {
+.icon-house-02:before {
   content: "\e904";
 }
-.icon-lan-socket-02:before {
+.icon-iron-steel:before {
   content: "\e905";
 }
 .icon-lan-socket-01:before {
   content: "\e906";
 }
-.icon-lan-socket-03:before {
+.icon-lan-socket-02:before {
   content: "\e907";
 }
-.icon-remote-control-01:before {
+.icon-lan-socket-03:before {
   content: "\e908";
 }
-.icon-remote-control-02:before {
+.icon-remote-control-01:before {
   content: "\e909";
 }
-.icon-remote-control-04:before {
+.icon-remote-control-02:before {
   content: "\e90a";
 }
 .icon-remote-control-03:before {
   content: "\e90b";
 }
-.icon-satellite-dish-02:before {
+.icon-remote-control-04:before {
   content: "\e90c";
 }
 .icon-satellite-dish-01:before {
   content: "\e90d";
 }
-.icon-television-04:before {
+.icon-satellite-dish-02:before {
   content: "\e90e";
 }
-.icon-television-03:before {
+.icon-television-01:before {
   content: "\e90f";
 }
-.icon-television-01:before {
+.icon-television-02:before {
   content: "\e910";
 }
-.icon-television-02:before {
+.icon-television-03:before {
   content: "\e911";
 }
-.icon-wifi-03:before {
+.icon-television-04:before {
   content: "\e912";
 }
 .icon-wifi-01:before {
@@ -86,4 +86,7 @@
 }
 .icon-wifi-02:before {
   content: "\e914";
+}
+.icon-wifi-03:before {
+  content: "\e915";
 }

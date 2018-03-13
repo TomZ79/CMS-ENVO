@@ -17,20 +17,21 @@
 
 $(function () {
 
-  $("#editfile1").click(function (event) {
+  $("#editfile").click(function (event) {
     event.preventDefault();
-    $('#envo_file1, button[name="save1"]').removeAttr("readonly");
-    $('button[name="reset1"]').removeClass("hidden");
+    $('#envo_file').removeAttr("readonly");
+    $('button[name="save"]').prop("disabled", false);
+    $('button[name="reset"]').removeClass("hidden");
     $(this).addClass("hidden");
 
-    var txt = $("#envo_file1");
+    var txt = $("#envo_file");
     var time = new Date();
 
     if (txt.val().indexOf('CMS Robots File' && 'Last change') != -1) { // Value in txt = true
 
-      var lines = $('#envo_file1').val().split(/\n/);
+      var lines = $('#envo_file').val().split(/\n/);
       lines[1] = "#Last change - " + time;
-      $("#envo_file1").html(lines.join("\n"));
+      $("#envo_file").html(lines.join("\n"));
 
     } else {
 

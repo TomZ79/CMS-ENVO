@@ -1,8 +1,11 @@
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
+<?php
 
-<?php if (!ENVO_USERID) { ?>
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-  <?php if ($setting["rf_active"] && !ENVO_USERID) { ?>
+if (!ENVO_USERID) {
+
+  if ($setting["rf_active"] && !ENVO_USERID) { ?>
+
     <div class="col-md-6">
       <div class="featured-boxes register">
         <div class="col-xs-12 col-sm-12">
@@ -127,6 +130,7 @@
         </div>
       </div>
     </div>
+
   <?php } ?>
 
   <div class="<?php echo (!$setting["rf_active"]) ? 'col-md-6 col-md-offset-3' : 'col-md-6'; ?>">

@@ -1,5 +1,6 @@
 <?php if (ENVO_SEARCH && ENVO_USER_SEARCH && $page != 'search') { ?>
-	<aside class="nav-sidebar hidden-xs">
+
+  <aside class="nav-sidebar hidden-xs">
 		<h4 class="brand"><?php echo $tl["title_sidebar"]["tsid"]; ?></h4>
 
 		<form id="ajaxsearchForm" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">

@@ -37,7 +37,7 @@
   if ($ENVO_DOWNLOAD_CAT) { ?>
     <aside class="nav-side-menu">
 
-      <h4 class="brand"><?php echo ENVO_PLUGIN_NAME_DOWNLOAD . ' ' . $tld["downl_frontend"]["downl8"]; ?></h4>
+      <h4 class="brand"><?php echo ENVO_PLUGIN_NAME_DOWNLOAD . ' - ' . $tld["downl_frontend"]["downl8"]; ?></h4>
       <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#downloadsidebar"></span>
 
       <div class="menu-list">

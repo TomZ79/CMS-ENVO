@@ -1,6 +1,8 @@
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
+<?php
 
-<?php if ($USR_IP_BLOCKED) { ?>
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
+
+if ($USR_IP_BLOCKED) { ?>
 
 	<!-- IP USER BLOCKED -->
 	<section class="pt-small pb-small dark-color">
@@ -31,6 +33,10 @@
 		</div>
 	</section>
 
-<?php } ?>
+<?php
 
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>
+}
+
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php';
+
+?>

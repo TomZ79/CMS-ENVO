@@ -26,7 +26,7 @@
               <?php
               // Image is available so display it or go standard
               if ($img) {
-                echo '<a href="' . $v["parseurl"] . '"><img src="' . $v["previmg"] . '" alt="' . $v['previmgdesc'] . '" class="post-image img-responsive"></a>';
+                echo '<a href="' . $v["parseurl"] . '"><img src="' . $v["previmg"] . '" alt="' . $v['previmgdesc'] . ' | ' . $setting["title"] . '" class="post-image img-responsive"></a>';
               } else {
 
               }

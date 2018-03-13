@@ -1,4 +1,5 @@
 <?php if (ENVO_SEARCH && ENVO_USER_SEARCH) { ?>
+
 	<h3><?php echo $tl["title_sidebar"]["tsid"]; ?></h3>
 
 	<form class="form-search" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">

@@ -290,28 +290,39 @@ if ($SHOWSOCIALBUTTON) {
 <?php if (isset($ENVO_NEWS_IN_CONTENT) && is_array($ENVO_NEWS_IN_CONTENT)) { ?>
   <!-- News in OWL Carousel -->
   <script>
-    $('.owl-carousel').owlCarousel({
-      loop: true,
-      margin: 50,
-      nav: false,
-      responsive: {
-        0: {
-          items: 1
-        },
-        479: {
-          items: 1
-        },
-        768: {
-          items: 2
-        },
-        979: {
-          items: 3
-        },
-        1199: {
-          items: 3
+    // Be more specific with your selector if .items is used elsewhere on the page.
+    var items = $('.items');
+    if(items.length > 1) {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 50,
+        nav: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          479: {
+            items: 1
+          },
+          768: {
+            items: 2
+          },
+          979: {
+            items: 3
+          },
+          1199: {
+            items: 3
+          }
         }
-      }
-    });
+      });
+    } else {
+      // same as above but with loop: false;
+      $('.owl-carousel').owlCarousel({
+        loop: false,
+        margin: 50,
+        nav: false
+      });
+    }
   </script>
 <?php } ?>
 

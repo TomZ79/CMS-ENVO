@@ -2,7 +2,6 @@
 
 <?php echo $PAGE_CONTENT; ?>
 
-	<!-- site map -->
 	<section class="pt-medium pb-medium">
 		<div class="container">
 
@@ -128,8 +127,5 @@
 			</div>
 		</div>
 	</section>
-	<!-- / site map -->
-
-
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

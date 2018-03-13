@@ -1,4 +1,5 @@
 <?php if ($setting["showloginside"]) { ?>
+
   <aside class="nav-sidebar hidden-xs">
     <?php if (!ENVO_USERID) { ?>
       <?php if (isset($_SESSION['password_recover'])) {
@@ -61,4 +62,5 @@
       <hr>
     <?php } ?>
   </aside>
+
 <?php } ?>

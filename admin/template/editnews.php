@@ -295,6 +295,26 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tl["news_box_content"]["newsbc29"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["news_help"]["newsh3"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', '', $tl["news_box_content"]["newsbc30"],'', 'form-control', array('disabled' => 'disabled'));
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["news_box_content"]["newsbc20"]);
                         ?>
 

@@ -1,11 +1,13 @@
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
+<?php
 
-<?php if ($PAGE_ACTIVE) { ?>
-	<div class="alert bg-danger">
-		<?php echo $tl["general_error"]["generror2"]; ?>
-	</div>
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-<?php }
-echo $PAGE_CONTENT; ?>
+if ($PAGE_ACTIVE) {
+  echo '<div class="alert alert-danger">' . $tl["general_error"]["generror2"] . '</div>';
+}
 
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>
+echo $PAGE_CONTENT;
+
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php';
+
+?>
