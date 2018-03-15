@@ -137,7 +137,7 @@ switch ($page1) {
     }
 
     break;
-  case 'a':
+  case 'blog-article':
     // BLOG ARTICLE
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
@@ -215,7 +215,7 @@ switch ($page1) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
-          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $nextp['id'], $seo, '');
+          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'blog-article', $nextp['id'], $seo, '');
           $ENVO_NAV_NEXT_TITLE = $nextp['title'];
         }
 
@@ -226,7 +226,7 @@ switch ($page1) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
-          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $prevp['id'], $seop, '');
+          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'blog-article', $prevp['id'], $seop, '');
           $ENVO_NAV_PREV_TITLE = $prevp['title'];
         }
 
@@ -288,7 +288,7 @@ switch ($page1) {
     // EN: If not exist value in 'case', redirect page to 404
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1) && !is_numeric($page1)) {
-      if ($page1 != 'category' || $page1 != 'a') {
+      if ($page1 != 'category' || $page1 != 'blog-article') {
         envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
       }
     }

@@ -224,7 +224,7 @@ if ($page1 == ENVO_PLUGIN_VAR_BLOG) {
 	if ($setting["blogrss"]) {
 		$sql = 'SELECT id, title, content, time FROM '.DB_PREFIX.'blog WHERE active = 1 ORDER BY time DESC LIMIT '.$setting["blogrss"];
 		$sURL = ENVO_PLUGIN_VAR_BLOG;
-		$sURL1 = 'a';
+		$sURL1 = 'blog-article';
 		$what = 1;
 		$seowhat = $setting["blogurl"];
 
@@ -439,7 +439,7 @@ $blog = new ENVO_search($SearchInput);
         	$blog->envoFieldstoSelect("id, title, content");
 
         	// Load the array into template
-        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, 'a', $setting["blogurl"]);
+        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, 'blog-article', $setting["blogurl"]);
         </pre>
 
       </article>

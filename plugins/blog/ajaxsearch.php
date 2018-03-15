@@ -30,7 +30,7 @@ if (strlen($SearchInput) >= 3) {
   $blog->envoFieldstoSearch(array('title', 'content'));
   $blog->envoFieldstoSelect("id, title, content");
 
-  $blogarray = $blog->set_result($urldetail, 'a', $_GET['seo']);
+  $blogarray = $blog->set_result($urldetail, 'blog-article', $_GET['seo']);
 
   if (isset($blogarray) && is_array($blogarray)) {
     ENVO_search::search_cloud($SearchInput);

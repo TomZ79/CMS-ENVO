@@ -256,7 +256,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 	if ($setting[\"downloadrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"downloadrss\"];
 		$sURL = ENVO_PLUGIN_VAR_DOWNLOAD;
-		$sURL1 = \'a\';
+		$sURL1 = \'download-article\';
 		$what = 1;
 		$seowhat = $setting[\"downloadurl\"];
 		

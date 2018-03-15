@@ -30,7 +30,7 @@ if (strlen($SearchInput) >= 3) {
   $news->envoFieldstoSearch(array('title', 'content')); // This fields will be searched
   $news->envoFieldstoSelect("id, title" . ", content"); // This will be the output for the template, packed in a array
 
-  $newsarray = $news->set_result($urldetail, 'a', $_GET['seo']);
+  $newsarray = $news->set_result($urldetail, 'news-article', $_GET['seo']);
 
   if (isset($newsarray) && is_array($newsarray)) {
     ENVO_search::search_cloud($SearchInput);

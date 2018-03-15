@@ -225,7 +225,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
         	$faq->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$ENVO_SEARCH_RESULT_FAQ = $faq->set_result(ENVO_PLUGIN_VAR_FAQ, \'a\', $setting[\"faqurl\"]);';
+        	$ENVO_SEARCH_RESULT_FAQ = $faq->set_result(ENVO_PLUGIN_VAR_FAQ, \'faq-article\', $setting[\"faqurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
@@ -234,7 +234,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 	if ($setting[\"faqrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'faq WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"faqrss\"];
 		$sURL = ENVO_PLUGIN_VAR_FAQ;
-		$sURL1 = \'a\';
+		$sURL1 = \'faq-article\';
 		$what = 1;
 		$seowhat = $setting[\"faqurl\"];
 		

@@ -40,7 +40,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
     if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['title']);
-    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
+    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'blog-article', $row['id'], $seo);
 
     // finally get the time
     $getTime = ENVO_base::envoTimesince($row['time'], $setting["blogdateformat"], $setting["blogtimeformat"], $timeago);
