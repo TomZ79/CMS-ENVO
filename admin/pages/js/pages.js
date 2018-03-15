@@ -389,7 +389,8 @@
         $('.horizontal-menu-backdrop').fadeToggle('fast', function () {
           $(this).remove();
         });
-      };
+      }
+      ;
 
       $('.menu-bar').toggleClass('open');
     });
@@ -516,6 +517,33 @@
       });
     });
   }
+
+  /** @function initCustomSelect2Plugin
+   * @description Initialize select2 dropdown
+   * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
+   * @requires select2.js version 4.0.x
+   */
+  Pages.prototype.initCustomSelect2Plugin = function (context) {
+    // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
+    if ((typeof $.fn.select2 !== 'undefined' && $.isFunction($.fn.select2)) || typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) {
+      $.fn.select2 && $('.selectpicker', context).each(function () {
+        $(this).select2({
+          minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1),
+          dropdownParent: $('.page-content-wrapper'),
+          dropdownCssClass: 'zindex1060',
+          width: '100%'
+        }).on('select2:open', function () {
+          $.fn.scrollbar && $('.select2-results__options').scrollbar({
+            ignoreMobile: false
+          })
+        });
+      });
+    } else {
+      // Output to console
+      console.log('Error E03: $.fn.select2 or $.fn.scrollbar is not function');
+    }
+  };
+
   /** @function initScrollBarPlugin
    * @description Initialize Global Scroller
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -526,6 +554,7 @@
       ignoreOverlay: false
     });
   }
+
   /** @function initListView
    * @description Initialize iOS like List view plugin
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -759,6 +788,7 @@
     // init plugins
     this.initTooltipPlugin();
     this.initSelect2Plugin();
+    this.initCustomSelect2Plugin();
     this.initScrollBarPlugin();
     this.initSwitcheryPlugin();
     this.initSelectFxPlugin();

@@ -1214,7 +1214,7 @@ input {
 .news-preview .preview-img-container {
   position: relative;
   width: 100%;
-  height: 210px;
+  height: 150px;
   overflow: hidden;
 }
 
@@ -1274,7 +1274,7 @@ input {
   color: #a3a3a3;
 }
 .news-article .article-head .art-date,
-.news-article .article-head .art-date {
+.news-article .article-head .art-hits {
   margin-right: 10px;
 }
 .news-article .article-content {  }
@@ -1836,6 +1836,27 @@ html .call-to-action.call-to-action-primary h3, html .call-to-action.call-to-act
   overflow: hidden;
   z-index: 1;
   position: relative;
+}
+
+.serviceBox:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-transform-origin: center center 0;
+  -moz-transform-origin: center center 0;
+  -o-transform-origin: center center 0;
+  -ms-transform-origin: center center 0;
+  transform-origin: center center 0;
+  -webkit-box-shadow: 0 0 30px 0 rgba(50,50,50,0.5);
+  -moz-box-shadow: 0 0 30px 0 rgba(50,50,50,0.5);
+  box-shadow: 0 0 30px 0 rgba(50,50,50,0.5);
+  -webkit-transition: .3s all ease-in-out;
+  -moz-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
+  -ms-transition: .3s all ease-in-out;
+  transition: .3s all ease-in-out;
 }
 
 .serviceBox:before {

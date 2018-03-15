@@ -1,13 +1,12 @@
 <ul>
-  <!-- dashboard -->
+  <!-- Dashboard -->
   <li>
     <a href="<?php echo ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
       <i class="material-icons">dashboard</i>
       <span class="title">Dashboard</span>
     </a>
   </li>
-  <!-- /dashboard -->
-  <!-- house -->
+  <!-- House -->
   <li>
     <a href="javascript:;" class="auto">
       <i class="material-icons">home</i>
@@ -22,5 +21,4 @@
       </li>
     </ul>
   </li>
-  <!-- /house -->
 </ul>

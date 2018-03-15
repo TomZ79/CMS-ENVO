@@ -291,27 +291,27 @@ if ($SHOWSOCIALBUTTON) {
   <!-- News in OWL Carousel -->
   <script>
     // Be more specific with your selector if .items is used elsewhere on the page.
-    var items = $('.items');
-    if(items.length > 1) {
+    var items = $('.owl-carousel .item').size();
+    if(items > 1) {
       $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 50,
+        loop: false,
+        margin: 10,
         nav: false,
-        responsive: {
-          0: {
+        responsive : {
+          0 : {
             items: 1
           },
-          479: {
-            items: 1
-          },
-          768: {
-            items: 2
-          },
-          979: {
+          768 : {
             items: 3
           },
-          1199: {
-            items: 3
+          960 : {
+            items: 4
+          },
+          1200 : {
+            items: 4
+          },
+          1920 : {
+            items: 6
           }
         }
       });

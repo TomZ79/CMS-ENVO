@@ -6,15 +6,29 @@
 
     <div class="row" style="margin-bottom: 20px">
       <div class="col-md-6">
-          <div class="row"  style="line-height: 34px;">
-            <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
-            <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?><strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
-          </div>
+        <div class="row" style="line-height: 34px;">
+            <span class="col-xs-12 col-md-6 text-xs-center">
+              <?php echo $tltt["tt_frontend_list"]["ttl"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong>
+            </span>
+            <span class="col-xs-12 col-md-6 text-xs-center">
+
+              <?php
+              if ($COUNT_TVPROGRAM_ALL > 0) {
+                echo $tltt["tt_frontend_list"]["ttl1"] . '<strong>' . $TIME_TVPROGRAM_ALL . '</strong>';
+              }
+              ?>
+
+            </span>
+        </div>
       </div>
       <div class="col-md-6 text-xs-center">
-        <form class="dl-list" action="/plugins/tv_tower/pdf_programlist.php" target="_blank">
-          <button type="submit" class="btn btn-info">Export programů do PDF</button>
-        </form>
+
+        <?php if ($COUNT_TVPROGRAM_ALL > 0) { ?>
+          <form class="dl-list" action="/plugins/tv_tower/pdf_programlist.php" target="_blank">
+            <button type="submit" class="btn btn-info">Export programů do PDF</button>
+          </form>
+        <?php } ?>
+
       </div>
     </div>
     <hr>

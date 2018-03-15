@@ -133,6 +133,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $eucookie_btxt = '#000';
     }
 
+    if ($defaults['envo_eucookie_theme'] == 'eucookie_theme8') {
+      $eucookie_pbck = '#252E39';
+      $eucookie_ptxt = '#FFF';
+      $eucookie_bbck = '#08C';
+      $eucookie_btxt = '#000';
+    }
+
+    if ($defaults['envo_eucookie_theme'] == 'eucookie_theme9') {
+      $eucookie_pbck = '#1AB2FF';
+      $eucookie_ptxt = '#FFF';
+      $eucookie_bbck = '#FFF';
+      $eucookie_btxt = '#1ab2ff';
+    }
+
     // EN: Write data to MySQL DB
     // CZ: Zápis dat do databáze MySQL a vyhodnocení výsledku zápisu
     if (count($errors) == 0) {

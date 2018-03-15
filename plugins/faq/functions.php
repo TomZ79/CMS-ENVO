@@ -34,7 +34,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
-    $shortmsg = envo_cut_text($row['content'], $setting["faqshortmsg"], '...');
+    $shortmsg = envo_cut_text_html_tag($row['content']);
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
@@ -43,7 +43,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     }
 
     // Parse url for user link
-    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
+    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'faq-article', $row['id'], $seo, '');
 
 
     $getTime = ENVO_base::envoTimesince($row['time'], $setting["faqdateformat"], $setting["faqtimeformat"], $timeago);

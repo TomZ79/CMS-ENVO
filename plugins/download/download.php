@@ -55,7 +55,8 @@ $ENVO_TPL_PLUG_URL = $backtodl;
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
-  case 'c':
+  case 'category':
+    // DOWNLOAD CATEGORY
 
     if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
 
@@ -141,6 +142,7 @@ switch ($page1) {
 
     break;
   case 'f':
+    // DOWNLOAD ARTICLE
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
@@ -305,7 +307,7 @@ switch ($page1) {
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -356,7 +358,7 @@ switch ($page1) {
 
     break;
   case 'dl':
-
+    // DOWNLOAD
     if ($_SESSION['envo_thisFileID'] == $page2 && is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       // EN: Get the file from DB
@@ -509,7 +511,21 @@ switch ($page1) {
 
     break;
   default:
-    // MAIN PAGE OF PLUGIN
+    // MAIN PAGE OF PLUGIN - LIST OF DOWNLOAD ARTICLE
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    if (!empty($page1) && !is_numeric($page1)) {
+      if ($page1 != 'category' || $page1 != 'f' || $page1 != 'dl') {
+        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     $getTotal = envo_get_total_permission_dl();
 

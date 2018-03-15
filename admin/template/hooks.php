@@ -61,7 +61,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
           <ul class="list-unstyled overflow">
             <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
               <li class="filter-item" data-filter="<?php echo $h; ?>">
-                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;ssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
             <?php } ?>
           </ul>
           <div class="no-search-results">

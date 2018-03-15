@@ -30,7 +30,7 @@ if (!$PAGE_ACTIVE) {
 }
 
 if (ENVO_ASACCESS) {
-  $apedit  = BASE_URL . 'admin/index.php?p=news&amp;sp=edit&amp;id=' . $PAGE_ID;
+  $apedit  = BASE_URL . 'admin/index.php?p=news&amp;sp=editnews&amp;id=' . $PAGE_ID;
   $qapedit = BASE_URL . 'admin/index.php?p=news&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 }
 
@@ -105,6 +105,7 @@ if (ENVO_ASACCESS) {
             // SHOW - Page content
             echo $PAGE_CONTENT;
 
+            // SHOW - Social Button
             if ($SHOWSOCIALBUTTON) { ?>
 
               <div class="col-md-12">

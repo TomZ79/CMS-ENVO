@@ -78,7 +78,7 @@ if (!$PAGE_ACTIVE) {
         ?>
 
         <section class="news-content-area-new">
-          <div class="container-fluid">
+          <div class="container">
             <h2><?php echo $setting["newstitle"]; ?></h2>
             <div id="owl-carousel" class="owl-carousel all-carousel owl-theme">
 
@@ -87,44 +87,69 @@ if (!$PAGE_ACTIVE) {
               foreach ($ENVO_NEWS_IN_CONTENT as $n) {
                 ?>
 
-                <article class="item">
-                  <div class="full-intro-head">
-                    <h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo envo_cut_text($n["title"], 30, "..."); ?></a>
-                    </h3>
-                    <p>
-                      <?php echo $tl["news"]["news3"] . ' : <span>' . $n["created"] . '</span>'; ?>
-                    </p>
-                  </div>
-                  <div class="full-intro-content">
-                    <hr>
-                    <p>
-                      <?php echo $n["contentshort"]; ?>
-                    </p>
-                    <p>
-                      <a href="<?php echo $v["parseurl"]; ?>" class="pull-right"><?php echo $tl["news"]["news1"]; ?>
-                        <i class="fa fa-arrow-right"></i>
-                      </a>
-                    </p>
+                <div class="news-preview item">
+                  <div class="preview-img">
+                    <div class="preview-img-container">
+                      <div class="preview-img-item">
+                        <a href="<?php echo $n["parseurl"]; ?>">
 
-                    <div class="clearfix"></div>
+                          <?php
+                          // Image is available so display it or go standard image
+                          if ($n["previmg"]) {
+                            echo '<img src="' . $n["previmg"] . '" alt="' . $n["title"] . ' | ' . $setting["title"] . '" class="img-responsive">';
+                          } else { ?>
 
-                    <?php if (ENVO_ASACCESS) { ?>
+                            <div class="thumb-news text-center">
+                              <img src="<?php echo '/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg'; ?>" alt="<?php echo $n["title"] . ' | ' . $setting["title"]; ?>" class="img-responsive">
+                              <div class="caption text-center">
+                                <span class="color1"><?php echo $tlporto["news_text"]["newst"]; ?></span>
+                                <span class="color2"><?php echo $tlporto["news_text"]["newst1"]; ?></span>
+                              </div>
+                            </div>
 
-                      <div class="system-icons">
-                        <hr class="mt-small mb-small">
-                        <div class="pull-right">
-                          <a class="btn btn-filled btn-primary btn-xs" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                          <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
-                            <i class="fa fa-edit"></i>
-                          </a>
-                        </div>
+                          <?php } ?>
+
+                        </a>
                       </div>
-
-                    <?php } ?>
+                    </div>
                   </div>
-                </article>
+                  <div class="preview-head">
+                    <p class="text-sm">
+
+                      <?php
+                      echo '<span class="text-uppercase"><strong>' . $tl["news"]["news3"] . ' : </strong></span><span>' . $n["created"] . '</span>';
+                      ?>
+
+                    </p>
+                  </div>
+                  <div class="preview-title">
+                    <h5>
+                      <a href="<?php echo $n["parseurl"]; ?>"><?php echo $n["title"]; ?></a>
+                    </h5>
+                  </div>
+                  <div class="preview-content">
+                    <div class="preview-box-content">
+                      <p><?php echo $n["contentshort"]; ?></p>
+
+                      <?php
+                      // SYSTEM ICONS - Edit and Quick Edit
+                      if (ENVO_ASACCESS) { ?>
+                        <div class="system-icons clearfix">
+                          <div class="pull-right hidden-xs">
+                            <a class="btn btn-filled btn-primary btn-xs" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>">
+                              <?php echo $tl["button"]["btn1"]; ?>
+                            </a>
+                            <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                              <?php echo $tl["button"]["btn2"]; ?>
+                            </a>
+                          </div>
+                        </div>
+                      <?php } ?>
+
+                      <a href="<?php echo $n["parseurl"]; ?>" class="btn btn-borders btn-default btn-block"><?php echo $tl["global_text"]["gtxt10"]; ?></a>
+                    </div>
+                  </div>
+                </div>
 
                 <?php
               }

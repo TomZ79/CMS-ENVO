@@ -1563,9 +1563,23 @@ if ($success) { ?>
                             </div>
                           </label>
 
+                          <input name="envo_eucookie_theme" id="theme8-colour" class="input-hidden" value="eucookie_theme8" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme8') ? 'checked="checked"' : ''; ?> type="radio">
+                          <label for="theme8-colour">
+                            <div class="theme-preview-container" style="background:#252E39;">
+                              <div class="theme-preview-button" style="background:#08C;"></div>
+                            </div>
+                          </label>
+
                           <input name="envo_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme5-colour">
                             <div class="theme-preview-container" style="background:#237AFC;">
+                              <div class="theme-preview-button" style="background:#FFF;"></div>
+                            </div>
+                          </label>
+
+                          <input name="envo_eucookie_theme" id="theme9-colour" class="input-hidden" value="eucookie_theme9" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme9') ? 'checked="checked"' : ''; ?> type="radio">
+                          <label for="theme9-colour">
+                            <div class="theme-preview-container" style="background:#1AB2FF;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>

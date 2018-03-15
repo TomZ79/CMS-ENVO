@@ -15,77 +15,125 @@
  * $FAQ_CATLIST          text        - Seznam kategorií
  *
  */
+
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
+
+if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=edit&amp;id=' . $PAGE_ID;
+$qapedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=quickedit&amp;id=' . $PAGE_ID;
+if ($setting["printme"]) $printme = 1;
+
 ?>
 
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
-
-<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=edit&amp;id=' . $PAGE_ID;
-$qapedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=quickedit&amp;id=' . $PAGE_ID;
-if ($setting["printme"]) $printme = 1; ?>
-
   <div id="printdiv">
-    <div class="row">
-      <div class="col-md-12">
-        <h3><?php echo $PAGE_TITLE; ?></h3>
-        <div>
-          <p style="font-size: 0.9em">
 
-            <?php
-            if ($SHOWDATE) {
-              echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq20"] . '</strong> : ' . $PAGE_TIME . '</span>';
-            }
-            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq21"] . '</strong> : ' . $FAQ_HITS . '</span>';
-            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq22"] . '</strong> : ' . $FAQ_CATLIST . '</span>';
+    <!-- =========================
+    START FAQ SECTION
+    ============================== -->
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <article class="faq-article">
+            <div class="article-title">
 
-            if ($ENVO_TAGLIST) {
+              <?php
 
-              echo '<span style="margin-right: 20px;">' . $ENVO_TAGLIST . '</span>';
+              if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>';
 
-            } ?>
+              ?>
 
-          </p>
+            </div>
+            <div class="article-head">
+
+              <?php
+
+              if ($SHOWDATE || $SHOWHITS) {
+                // SHOW - Date
+                if ($SHOWDATE) {
+                  echo '<span class="art-date"><strong>' . $tlf["faq_frontend"]["faq4"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
+                }
+
+                // SHOW - Category
+                if ($SHOWCATS) {
+                  echo '<span class="art-cats"><strong>' . $tlf["faq_frontend"]["faq5"] . '</strong>' . ' : ' . $FAQ_CATLIST . '</span>';
+                }
+
+                // SHOW - Hits
+                if ($SHOWHITS) {
+                  echo '<span class="art-hits"><strong>' . $tlf["faq_frontend"]["faq6"] . '</strong>' . ' : ' . $FAQ_HITS . '</span>';
+                }
+              }
+              ?>
+
+            </div>
+            <div class="article-content">
+
+              <?php
+
+              // SHOW - Tag List
+              if ($ENVO_TAGLIST) {
+                echo $ENVO_TAGLIST;
+              }
+
+              // SHOW - Page content
+              echo $PAGE_CONTENT;
+
+              // SHOW - Social Button
+              if ($SHOWSOCIALBUTTON) { ?>
+
+                <div class="col-md-12">
+                  <hr>
+                  <div class="pull-right" style="display: table;">
+                    <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
+                      <strong><?php echo $tl["share"]["share1"] . ' '; ?></strong>
+                    </div>
+                    <div id="sollist-sharing"></div>
+                  </div>
+                </div>
+
+              <?php } ?>
+
+            </div>
+
+          </article>
         </div>
       </div>
-    </div>
-    <hr>
-    <?php echo $PAGE_CONTENT; ?>
+    </section>
+
+    <!-- =========================
+    END FAQ SECTION
+    ============================== -->
+
+    <!-- Show Contact form -->
+    <?php if ($ENVO_SHOW_C_FORM) {
+      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
+    } ?>
+
   </div>
+  <!-- End Print Post -->
 
-<?php if ($ENVO_SHOW_C_FORM) {
-  include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-} ?>
-
-  <!-- Show Social Buttons -->
-<?php if ($SHOWSOCIALBUTTON) { ?>
-  <div class="col-md-12">
-    <div class=" pull-right" style="display: table;">
-      <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
-        <strong><?php echo $tl["share"]["share"] . ' '; ?></strong>
+  <section class="pt-small pb-small">
+    <div class="container-fluid">
+      <div class="row">
+        <ul class="pager">
+          <?php if ($ENVO_NAV_PREV) { ?>
+            <li class="previous">
+              <a href="<?php echo $ENVO_NAV_PREV; ?>">
+                <i class="fa fa-caret-left"></i>
+                <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
+              </a>
+            </li>
+          <?php }
+          if ($ENVO_NAV_NEXT) { ?>
+            <li class="next">
+              <a href="<?php echo $ENVO_NAV_NEXT; ?>">
+                <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
+                <i class="fa fa-caret-right"></i>
+              </a>
+            </li>
+          <?php } ?>
+        </ul>
       </div>
-      <div id="sollist-sharing"></div>
     </div>
-  </div>
-<?php } ?>
-
-  <div class="col-md-12">
-    <ul class="pager">
-      <?php if ($ENVO_NAV_PREV) { ?>
-        <li class="previous">
-          <a href="<?php echo $ENVO_NAV_PREV; ?>">
-            <i class="fa fa-caret-left"></i>
-            <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
-          </a>
-        </li>
-      <?php }
-      if ($ENVO_NAV_NEXT) { ?>
-        <li class="next">
-          <a href="<?php echo $ENVO_NAV_NEXT; ?>">
-            <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
-            <i class="fa fa-caret-right"></i>
-          </a>
-        </li>
-      <?php } ?>
-    </ul>
-  </div>
+  </section>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

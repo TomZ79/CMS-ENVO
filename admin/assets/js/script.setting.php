@@ -51,7 +51,7 @@ echo PHP_EOL;
     border-color: #1f323c;
   }
 
-  .cookie-consent-configurator input[type=radio]:hover + label {
+  .cookie-consent-configurator input[type="radio"]:hover + label {
     border-color: rgba(31, 50, 60, .5);
     cursor: pointer
   }

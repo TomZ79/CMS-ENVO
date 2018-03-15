@@ -6,9 +6,19 @@
 
   <div class="row" style="margin-bottom: 20px">
     <div class="col-md-6">
-      <div class="row"  style="line-height: 34px;">
-        <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
-        <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?><strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
+      <div class="row" style="line-height: 34px;">
+        <span class="col-xs-12 col-md-6 text-xs-center">
+          <?php echo $tltt["tt_frontend_wizard"]["ttw"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong>
+        </span>
+        <span class="col-xs-12 col-md-6 text-xs-center">
+
+          <?php
+          if ($COUNT_TVPROGRAM_ALL > 0) {
+            echo $tltt["tt_frontend_wizard"]["ttw1"] . '<strong>' . $TIME_TVPROGRAM_ALL . '</strong>';
+          }
+          ?>
+
+        </span>
       </div>
     </div>
   </div>
@@ -75,7 +85,7 @@
   // Pokud neexistuje žádný záznam s vysílači - bude zobrazeno chybové hlášení
 
   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-  echo $Html->addDiv($tltt["tt_frontend_button"]["ttw4"], '', array('class' => 'alert alert-danger'));
+  echo $Html->addDiv($tltt["tt_frontend_wizard"]["ttw4"], '', array('class' => 'alert alert-danger'));
 
 } ?>
 

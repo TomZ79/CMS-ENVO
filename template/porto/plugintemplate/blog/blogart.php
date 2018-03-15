@@ -1,8 +1,12 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
+<?php
+
+if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $PAGE_ID;
-if ($setting["printme"]) $printme = 1; ?>
+if ($setting["printme"]) $printme = 1;
+
+?>
 
   <div id="printdiv">
 
@@ -21,7 +25,7 @@ if ($setting["printme"]) $printme = 1; ?>
             if ($SHOWDATE) {
               echo $tlblog["blog_frontend"]["blog3"] . ' : <span class="mr-sm">' . $PAGE_TIME . '</span>';
             }
-            echo $tlblog["blog_frontend"]["blog4"] . ' : <span>' . $BLOG_CATLIST . '</span>';
+            echo $tlblog["blog_frontend"]["blog4"] . ' : <span class="mr-sm">' . $BLOG_CATLIST . '</span>';
             echo $tlblog["blog_frontend"]["blog6"] . ' : <span class="mr-sm">' . $BLOG_HITS . '</span>';
             ?>
           </p>
@@ -67,7 +71,7 @@ if ($setting["printme"]) $printme = 1; ?>
     <?php } ?>
 
     <!-- Show Contact form -->
-    <?php if ($ENVO_SHOW_C_FORM) {?>
+    <?php if ($ENVO_SHOW_C_FORM) { ?>
       <div class="row">
         <div class="col-md-12">
           <hr class="dashed tall mt-lg mb-lg">

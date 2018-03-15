@@ -645,7 +645,7 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
     $shortmsg = envo_cut_text($PAGE_CONTENT, $setting["shortmsg"], '...');
 
     // Parse url for user link
-    $parseurl = ENVO_rewrite::envoParseurl($plname, 'a', $row['id'], ENVO_base::envoCleanurl($PAGE_TITLE), '');
+    $parseurl = ENVO_rewrite::envoParseurl($plname, 'news-article', $row['id'], ENVO_base::envoCleanurl($PAGE_TITLE), '');
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -835,6 +835,81 @@ function envo_cut_text($text, $limit, $envovar2)
   }
 
   return $envodata;
+}
+
+
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $string
+ * @param int $length
+ * @param string $append
+ * @return array|string
+ */
+function envo_cut_text_html_tag($string,$length=350,$append="&hellip;") {
+
+  $string = trim($string);
+  $string_length = strlen($string);
+
+  $original_string = $string;
+
+  if( $string_length > $length ) {
+
+    $remaining_chars = $string_length - $length;
+
+    if( strpos($string, '<') !== false && strpos($string, '>') !== false ) {
+
+      $string = wordwrap($string, $length);
+      $string = explode("\n", $string, 2);
+      $string = $string[0] . $append;
+
+      $fillimi = substr_count($string, '<');
+      $fundi = substr_count($string, '>');
+
+      if( $fillimi == $fundi ) {
+        $string = $string;
+      } else {
+        $i = 1;
+        while( $i <= $remaining_chars ) {
+
+          $string = wordwrap($original_string, $length + $i);
+          $string = explode("\n", $string, 2);
+          $new_remaining_chars = $string_length - ($length + $i);
+          if( $new_remaining_chars > 0 ) {
+            $string = $string[0] . $append;
+          } else {
+            $string = $string[0];
+          }
+
+          $fillimi = substr_count($string, '<');
+          $fundi = substr_count($string, '>');
+
+          if( $fillimi == $fundi ) {
+            $string = $string;
+            break;
+          }
+
+          $i++;
+        }
+      }
+
+    } else {
+      $string = trim($string);
+
+      $string = wordwrap($string, $length);
+      $string = explode("\n", $string, 2);
+      $string = $string[0] . $append;
+
+    }
+
+  }
+
+  return $string;
 }
 
 /**

@@ -233,6 +233,17 @@
 
           </li>
 
+        <?php } else { ?>
+
+          <li style="padding-left: 32px">
+
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('span', $tl["menu"]["mm8"]);
+            ?>
+
+          </li>
+
         <?php } ?>
       </ul>
     </li>

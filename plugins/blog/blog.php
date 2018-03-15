@@ -50,7 +50,8 @@ $ENVO_TPL_PLUG_URL = $backtoblog;
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
-  case 'c':
+  case 'category':
+    // BLOG CATEGORY
 
     if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
 
@@ -137,6 +138,7 @@ switch ($page1) {
 
     break;
   case 'a':
+    // BLOG ARTICLE
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
@@ -238,7 +240,7 @@ switch ($page1) {
 
           // EN: Create array with all categories ( Plugin Blog have one or more categories for one article, in array will be it one or more categories )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Blog má jednu nebo více kategorií pro jeden článek, v poli bude jedna nebo více kategorií )
-          $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+          $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -278,7 +280,21 @@ switch ($page1) {
 
     break;
   default:
-    // MAIN PAGE OF PLUGIN
+    // MAIN PAGE OF PLUGIN - LIST OF BLOG ARTICLE
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    if (!empty($page1) && !is_numeric($page1)) {
+      if ($page1 != 'category' || $page1 != 'a') {
+        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     $getTotal = envo_get_total_permission_blog();
 

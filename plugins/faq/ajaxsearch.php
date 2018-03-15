@@ -29,7 +29,7 @@ if (strlen($SearchInput) >= 3) {
   $faq->envoFieldstoSearch(array('title', 'content'));
   $faq->envoFieldstoSelect("id, title, content");
 
-  $faqarray = $faq->set_result($urldetail, 'a', $_GET['seo']);
+  $faqarray = $faq->set_result($urldetail, 'faq-article', $_GET['seo']);
 
   if (isset($faqarray) && is_array($faqarray)) {
     ENVO_search::search_cloud($SearchInput);

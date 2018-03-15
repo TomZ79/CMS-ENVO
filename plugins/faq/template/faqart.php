@@ -32,10 +32,10 @@ if ($setting["printme"]) $printme = 1; ?>
 
             <?php
             if ($SHOWDATE) {
-              echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq20"] . '</strong> : ' . $PAGE_TIME . '</span>';
+              echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq4"] . '</strong> : ' . $PAGE_TIME . '</span>';
             }
-            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq21"] . '</strong> : ' . $FAQ_HITS . '</span>';
-            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq22"] . '</strong> : ' . $FAQ_CATLIST . '</span>';
+            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq5"] . '</strong> : ' . $FAQ_HITS . '</span>';
+            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq6"] . '</strong> : ' . $FAQ_CATLIST . '</span>';
 
             if ($ENVO_TAGLIST) {
 

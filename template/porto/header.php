@@ -108,7 +108,9 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
   <?php } ?>
 
+  <!-- Custom Porto Style -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/screen.min.css" type="text/css"/>
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/custom/css/customstyle.css" type="text/css"/>
 
   <!-- CUSTOM CSS
   ================================================== -->
@@ -314,7 +316,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h1><?php echo envo_cut_text($PAGE_TITLE, 35, "..."); ?></h1>
+                <h1 class="text-uppercase"><?php echo envo_cut_text($PAGE_TITLE, 50, "..."); ?></h1>
                 <ul class="breadcrumb breadcrumb-valign-mid">
 
                   <?php

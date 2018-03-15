@@ -29,57 +29,52 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="help-accordion">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-              <?php if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $v) { ?>
+          <div class="faq-preview panel-group mt-10" id="accordion" role="tablist" aria-multiselectable="true">
 
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="heading<?php echo $v["id"]; ?>">
-                    <h3 class="panel-title">
-                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $v["id"]; ?>"  aria-expanded="true" aria-controls="collapse<?php echo $v["id"]; ?>">
-                        <?php echo $v["title"]; ?>
+            <?php if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $v) { ?>
+
+              <div class="panel panel-grey accordion">
+                <div class="panel-heading accordion-heading" role="tab" id="acc1">
+                  <h4 class="panel-title accordion-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#ac<?php echo $v["id"]; ?>" aria-expanded="false" aria-controls="ac_col1" class="collapsed">
+                      <?php echo $v["title"]; ?>
+                    </a>
+                  </h4>
+                </div>
+                <div id="ac<?php echo $v["id"]; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="acc<?php echo $v["id"]; ?>" aria-expanded="false" style="height: 0;">
+                  <div class="panel-body accordion-body">
+                    <p><?php echo $v["contentshort"]; ?></p>
+
+                    <div class="pull-right">
+
+                      <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-borders btn-default btn-footer">
+                        <?php echo $tlf["faq_frontend"]["faq1"]; ?>
                       </a>
-                    </h3>
-                  </div>
-                  <div id="collapse<?php echo $v["id"]; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $v["id"]; ?>">
-                    <div class="panel-body">
-                      <h4><?php echo $tlf["faq_frontend"]["faq"]; ?></h4>
-                      <div>
-                        <p>
-                          <?php echo $v["contentshort"]; ?>
-                        </p>
-                      </div>
 
-                      <div class="clearfix"></div>
-                      <div class="pull-right">
+                      <!-- Post System Button - Admin -->
+                      <?php if (ENVO_ASACCESS) { ?>
 
-                        <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-default btn-sm"><?php echo $tlf["faq_frontend"]["faq1"]; ?></a>
+                        <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-primary btn-sm">
+                          <span class="visible-xs"><i class="fa fa-edit"></i></span>
+                          <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
+                        </a>
+                        <a class="btn btn-primary btn-sm quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                          <span class="visible-xs"><i class="fa fa-pencil"></i></span>
+                          <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
+                        </a>
 
-                        <!-- Post System Button - Admin -->
-                        <?php if (ENVO_ASACCESS) { ?>
-
-                          <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-primary btn-sm">
-                            <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                            <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
-                          </a>
-                          <a class="btn btn-primary btn-sm quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
-                            <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                            <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
-                          </a>
-
-                        <?php } ?>
-
-                      </div>
+                      <?php } ?>
 
                     </div>
                   </div>
                 </div>
+              </div>
 
-              <?php } ?>
+            <?php } ?>
 
-            </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -91,6 +91,8 @@ switch ($page1) {
                     content = "' . smartsql($defaults['envo_content']) . '",
                     showtitle = "' . smartsql($showtitle) . '",
                     showdate = "' . smartsql($showdate) . '",
+                    showcat = "' . smartsql($defaults['envo_showcat']) . '",
+                    showhits = "' . smartsql($defaults['envo_showhits']) . '",
                     showcontact = "' . smartsql($envocon) . '",
                     socialbutton = "' . smartsql($defaults['envo_social']) . '",
                     ' . $insert . '
@@ -181,8 +183,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlf["faq"]["m2"];
-    $SECTION_DESC  = $tlf["faq"]["t1"];
+    $SECTION_TITLE = $tlf["faq_sec_title"]["faqt1"];
+    $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd1"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -192,6 +194,10 @@ switch ($page1) {
   case 'edit':
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+
+      // Get the important template stuff
+      $ENVO_CAT           = envo_get_cat_info($envotable1, 0);
+      $ENVO_CONTACT_FORMS = envo_get_page_info($envotable3, '');
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // EN: Default Variable
@@ -245,6 +251,8 @@ switch ($page1) {
                         showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                         showcontact = "' . smartsql($defaults['envo_showcontact']) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                        showcat = "' . smartsql($defaults['envo_showcat']) . '",
+                        showhits = "' . smartsql($defaults['envo_showhits']) . '",
                         ' . $insert . '
                         socialbutton = "' . smartsql($defaults['envo_social']) . '"
                         WHERE id = "' . smartsql($page2) . '"');
@@ -389,8 +397,8 @@ switch ($page1) {
 
       // EN: Title and Description
       // CZ: Titulek a Popis
-      $SECTION_TITLE = $tlf["faq"]["m1"];
-      $SECTION_DESC  = $tlf["faq"]["t3"];
+      $SECTION_TITLE = $tlf["faq_sec_title"]["faqt3"];
+      $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd3"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -479,8 +487,8 @@ switch ($page1) {
 
       // EN: Title and Description
       // CZ: Titulek a Popis
-      $SECTION_TITLE = $tlf["faq"]["m1"];
-      $SECTION_DESC  = $tlf["faq"]["t"];
+      $SECTION_TITLE = $tlf["faq_sec_title"]["faqt2"];
+      $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd2"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -625,8 +633,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["submenu"]["sm112"];
-          $SECTION_DESC  = $tl[" "][" "];
+          $SECTION_TITLE = $tlf["faq_sec_title"]["faqt5"];
+          $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd5"];
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -704,8 +712,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm110"];
-        $SECTION_DESC  = "";
+        $SECTION_TITLE = $tlf["faq_sec_title"]["faqt4"];
+        $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd4"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -796,8 +804,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm111"];
-    $SECTION_DESC  = $tl["cmdesc"]["d8"];
+    $SECTION_TITLE = $tlf["faq_sec_title"]["faqt6"];
+    $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd6"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -986,8 +994,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm10"];
-    $SECTION_DESC  = $tl[" "][" "];
+    $SECTION_TITLE = $tlf["faq_sec_title"]["faqt9"];
+    $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd9"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -1132,13 +1140,13 @@ switch ($page1) {
     $getTotal = envo_get_total($envotable, '', '', '');
 
     if ($getTotal != 0) {
-      $ENVO_FAQ_ALL = envo_get_faqs($envotable, '');
+      $ENVO_FAQ_ALL = envo_get_faqs('', '', $envotable);
     }
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlf["faqt"]["m1"];
-    $SECTION_DESC  = $tlf["faq"]["t"];
+    $SECTION_TITLE = $tlf["faq_sec_title"]["faqt"];
+    $SECTION_DESC  = $tlf["faq_sec_desc"]["faqd"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

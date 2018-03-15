@@ -4,6 +4,9 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
+// -------- DATA FOR ALL FRONTEND PAGES --------
+// -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'news';
@@ -28,9 +31,16 @@ $ENVO_TPL_PLUG_URL = $backtonews;
 $ENVO_HEADER_CSS        = $setting["news_css"];
 $ENVO_FOOTER_JAVASCRIPT = $setting["news_javascript"];
 
+
+// -------- DATA FOR SELECTED FRONTEND PAGES --------
+// -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
+
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
 
-  case 'a':
+  case 'news-article':
+    // NEWS ARTICLE
 
     if (is_numeric($page2)) {
 
@@ -120,13 +130,13 @@ switch ($page1) {
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($nextp) {
-          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWS, 'a', $nextp['id'], ENVO_base::envoCleanurl($nextp['title']), '');
+          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWS, 'news-article', $nextp['id'], ENVO_base::envoCleanurl($nextp['title']), '');
           $ENVO_NAV_NEXT_TITLE = $nextp['title'];
         }
 
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($prevp) {
-          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWS, 'a', $prevp['id'], ENVO_base::envoCleanurl($prevp['title']), '');
+          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWS, 'news-article', $prevp['id'], ENVO_base::envoCleanurl($prevp['title']), '');
           $ENVO_NAV_PREV_TITLE = $prevp['title'];
         }
 
@@ -158,6 +168,21 @@ switch ($page1) {
 
     break;
   default:
+    // MAIN PAGE OF PLUGIN - LIST OF NEWS ARTICLE
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    if (!empty($page1) && !is_numeric($page1)) {
+      if ($page1 != 'news-article') {
+        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     $newsloadonce = FALSE;
 

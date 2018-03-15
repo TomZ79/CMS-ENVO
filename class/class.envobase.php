@@ -326,7 +326,7 @@ class ENVO_base
           $seo = $row['varname'];
         }
 
-        $row['parseurl'] = ENVO_rewrite::envoParseurl($where, 'c', $row['id'], $seo, '');
+        $row['parseurl'] = ENVO_rewrite::envoParseurl($where, 'category', $row['id'], $seo, '');
 
         if ($where1) {
           $row['parseurl1'] = ENVO_rewrite::envoParseurl($where1, $where, $row['id'], '', '');

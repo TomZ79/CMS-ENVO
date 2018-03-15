@@ -1,0 +1,116 @@
+/*
+ *
+ * CMS ENVO - PORTO TEMPLATE
+ * CSS with custom modification
+ * Copyright © 2017  Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Author: BluesatKV
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ * INDEX:
+ * 1. FAQ PLUGIN
+ */
+
+/* 1. FAQ PLUGIN
+========================================================================*/
+/* Faq preview */
+.faq-preview .accordion {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #ECECEC;
+  border-radius: 0 !important;
+}
+
+.faq-preview .accordion-heading {
+  border-radius: 0;
+  padding: 0;
+}
+
+.faq-preview .accordion-title a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1;
+  display: block;
+  padding: 20px 0 20px 0 !important;
+  border-radius: 0;
+}
+
+.faq-preview .accordion-body {
+  font-size: 15px;
+  font-weight: 400;
+  color: #999;
+  line-height: 170%;
+  text-align: left;
+  border: none !important;
+  padding: 18px 0 30px 0;
+}
+
+.faq-preview .accordion-body p {
+  margin-bottom: 20px;
+}
+
+.faq-preview .panel-body {
+  border-top: 1px solid #EEE !important;
+}
+
+.faq-preview .panel-default > .panel-heading {
+  color: #333;
+  background-color: transparent !important;
+  border-color: #DDD;
+}
+
+/*Grey Accordions*/
+.faq-preview .panel-grey > .panel-heading a {
+  color: #111;
+  background-color: #F7F7F7 !important;
+  border: none !important;
+  border-radius: 5px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.faq-preview .panel-grey {
+  border: none !important;
+}
+
+.faq-preview .panel-grey .panel-body {
+  border: none !important;
+}
+
+.faq-preview .panel-grey .accordion-title a:after {
+  content: '\f056';
+  font-size: 25px;
+  font-family: "FontAwesome";
+  color: #0077b3;
+  float: right;
+  position: relative;
+  top: -5px;
+}
+
+.faq-preview .panel-grey .accordion-title .collapsed:after {
+  content: '\f055';
+  font-size: 25px;
+  font-family: "FontAwesome";
+  color: #333;
+  float: right;
+  position: relative;
+  top: -5px;
+}
+
+/* News article */
+.faq-article {  }
+.faq-article .article-title {  }
+.faq-article .article-head {
+  border-bottom: 1px solid #e3e3e3;
+  padding: 10px 0;
+  margin: 0 0 20px 0;
+  color: #a3a3a3;
+}
+.faq-article .article-head .art-date,
+.faq-article .article-head .art-cats,
+.faq-article .article-head .art-hits {
+  margin-right: 10px;
+}
+.faq-article .article-content {  }

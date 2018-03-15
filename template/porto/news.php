@@ -9,13 +9,16 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
 }
 ?>
 
-  <section>
+  <!-- =========================
+    START NEWS SECTION
+  ============================== -->
+  <section class="news-content-area">
     <div class="container-fluid">
       <div class="row">
 
         <?php if (isset($ENVO_NEWS_ALL) && is_array($ENVO_NEWS_ALL)) foreach ($ENVO_NEWS_ALL as $v) { ?>
 
-          <div class="<?php echo($ENVO_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
+          <div class="<?php echo($ENVO_HOOK_SIDE_GRID ? "col-md-6" : "col-md-3"); ?> col-sm-4">
             <article class="news-preview mb-xlg">
               <div class="preview-img">
                 <div class="preview-img-container">
@@ -86,6 +89,9 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
       </div>
     </div>
   </section>
+  <!-- =========================
+    END NEWS SECTION
+  ============================== -->
 
   <section class="pb-small">
     <div class="container-fluid">

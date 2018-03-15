@@ -77,7 +77,7 @@ html .heading.heading-quaternary h6 {
 html .heading-dark,
 html .lnk-dark,
 html .text-color-dark {
-  color: #2E353E !important;
+  color: #333 !important;
 }
 
 html .heading.heading-dark h1,
