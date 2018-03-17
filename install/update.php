@@ -344,7 +344,7 @@ $succesfully = 0;
 		if ($setting[\"downloadrss\"]) {
 			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"downloadrss\"];
 			$sURL = ENVO_PLUGIN_VAR_DOWNLOAD;
-			$sURL1 = \'a\';
+			$sURL1 = \'download-article\';
 			$what = 1;
 			$seowhat = $setting[\"downloadurl\"];
 			

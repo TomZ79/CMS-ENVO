@@ -10,11 +10,11 @@ require_once 'include/db.php';
 
 // EN: Error reporting, if install folder exists
 // CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
-if (is_dir('install')) die($tl['general_error']['generror100']);
+if (is_dir('install')) die('Please delete or rename install folder.');
 
 // EN: Error reporting, if files directory does not exists
 // CZ: Zobrazení chybového hlášení, pokud neexistuje složka souborů
-if (!ENVO_FILES_DIRECTORY) die($tl['general_error']['generror101']);
+if (!ENVO_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
 
 // EN: Start a PHP Session
 // CZ: Start PHP Session
