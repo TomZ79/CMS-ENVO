@@ -487,7 +487,7 @@ switch ($page1) {
     // EN: If not exist value in 'case', redirect page to 404
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1)) {
-      if ($page1 != 'house') {
+      if ($page1 != 'house' || $page1 != 'notification') {
         envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
       }
     }
