@@ -1602,18 +1602,11 @@ article.blog-article-preview {
   padding: 15px;
 }
 
-.blog-content-area article:first-child {
-  background: #F0F0F0;
-  margin-bottom: 20px !important;
-}
+.blog-content-area article:first-child {  }
 
-.blog-content-area article:first-child p {
-  color: #000 !important;
-}
+.blog-content-area article:first-child p {  }
 
-.blog-content-area article:first-child hr {
-  display: none;
-}
+.blog-content-area article:first-child hr {  }
 
 article.blog-article-preview .full-intro-content h4 a {
   text-decoration: none;
