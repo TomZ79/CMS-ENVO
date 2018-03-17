@@ -218,7 +218,7 @@ switch ($page1) {
           if ($setting["faqurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
-          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'faq-article', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -246,7 +246,7 @@ switch ($page1) {
           if ($setting["blogurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
-          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'blog-article', $row1['id'], $seo, '', '');
 
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole

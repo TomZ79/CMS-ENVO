@@ -17,6 +17,10 @@
             $resultc = $envodb->query('SELECT id, name, varname FROM ' . DB_PREFIX . 'blogcategories WHERE id IN(' . $v['catid'] . ') ORDER BY id ASC');
             while ($rowc = $resultc->fetch_assoc()) {
 
+              if ($setting["blogurl"]) {
+                $seoc = ENVO_base::envoCleanurl($rowc['varname']);
+              }
+
               // EN: Create array with all categories
               // CZ: Vytvoření pole se všemi kategoriemi
               $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
