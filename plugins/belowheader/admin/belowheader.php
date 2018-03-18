@@ -72,6 +72,7 @@ switch ($page1) {
 
         // Do the dirty work in mysql
         $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
+                  allpage = "' . smartsql($defaults['envo_allpage']) . '",
                   pageid = "' . smartsql($pageid) . '",
                   newsid = "' . smartsql($newsid) . '",
                   newsmain = "' . smartsql($defaults['envo_mainnews']) . '",
@@ -79,8 +80,8 @@ switch ($page1) {
                   search = "' . smartsql($defaults['envo_search']) . '",
                   sitemap = "' . smartsql($defaults['envo_sitemap']) . '",
                   title = "' . smartsql($defaults['envo_title']) . '",
-                  content = "' . smartsql($defaults['envo_content']) . '",
-                  content_below = "' . smartsql($defaults['envo_contentb']) . '",
+                  content_before = "' . smartsql($defaults['envo_content']) . '",
+                  content_after = "' . smartsql($defaults['envo_contentb']) . '",
                   permission = "' . smartsql($permission) . '",
                   time = NOW()');
 
@@ -163,6 +164,7 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('UPDATE ' . $envotable . ' SET
+                      allpage = "' . smartsql($defaults['envo_allpage']) . '",
                       pageid = "' . smartsql($pageid) . '",
                       newsid = "' . smartsql($newsid) . '",
                       newsmain = "' . smartsql($defaults['envo_mainnews']) . '",
@@ -170,8 +172,8 @@ switch ($page1) {
                       search = "' . smartsql($defaults['envo_search']) . '",
                       sitemap = "' . smartsql($defaults['envo_sitemap']) . '",
                       title = "' . smartsql($defaults['envo_title']) . '",
-                      content = "' . smartsql($defaults['envo_content']) . '",
-                      content_below = "' . smartsql($defaults['envo_contentb']) . '",
+                      content_before = "' . smartsql($defaults['envo_content']) . '",
+                      content_after = "' . smartsql($defaults['envo_contentb']) . '",
                       permission = "' . smartsql($permission) . '",
                       time = NOW() WHERE id = "' . smartsql($page2) . '"');
 

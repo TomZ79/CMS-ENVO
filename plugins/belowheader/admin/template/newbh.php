@@ -122,13 +122,8 @@ if ($errors) { ?>
               <div class="box-header with-border">
 
                 <?php
-                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                echo $Html->startTag('h3', array('class' => 'box-title'));
-                echo $tlbh["bh_box_title"]["bhbt1"];
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlbh["bh_help"]["bhh1"], 'data-original-title' => $tlbh["bh_help"]["bhh"]));
-                // Add Html Element -> endTag (Arguments: tag)
-                echo $Html->endTag('h3');
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt6"], 'box-title');
                 ?>
 
               </div>
@@ -136,32 +131,30 @@ if ($errors) { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-sm-12">
-                        <select name="envo_pageid[]" multiple="multiple" class="form-control" style="min-height: 330px;">
+                      <div class="col-sm-7">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc11"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-5">
+                        <div class="radio radio-success">
 
                           <?php
-                          // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_pageid"]) && ($_REQUEST["envo_pageid"] == '0' || (in_array('0', $_REQUEST["envo_pageid"]))) || !isset($_REQUEST["envo_pageid"]))) ? TRUE : FALSE;
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html->addRadio('envo_allpage', '1', ((isset($_REQUEST["envo_allpage"]) && $_REQUEST["envo_allpage"] == '1')) ? TRUE : FALSE, 'envo_allpage1');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('envo_allpage1', $tl["checkbox"]["chk"]);
 
-                          echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc1"], $selected);
-                          if (isset($ENVO_PAGES) && is_array($ENVO_PAGES)) foreach ($ENVO_PAGES as $v) {
-
-                            if (isset($_REQUEST["envo_pageid"]) && (in_array($v["id"], $_REQUEST["envo_pageid"]))) {
-                              if (isset($_REQUEST["envo_pageid"]) && (in_array('0', $_REQUEST["envo_pageid"]))) {
-                                $selected = FALSE;
-                              } else {
-                                $selected = TRUE;
-                              }
-                            } else {
-                              $selected = FALSE;
-                            }
-
-                            echo $Html->addOption($v["id"], $v["title"], $selected);
-
-                          }
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html->addRadio('envo_allpage', '0', ((isset($_REQUEST["envo_allpage"]) && $_REQUEST["envo_allpage"] == '0') || !isset($_REQUEST["envo_allpage"])) ? TRUE : FALSE, 'envo_allpage2');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('envo_allpage2', $tl["checkbox"]["chk1"]);
                           ?>
 
-                        </select>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -236,89 +229,118 @@ if ($errors) { ?>
 
               </div>
             </div>
-            <div class="box box-success">
-              <div class="box-header with-border">
+          </div>
+        </div>
+        <div class="row">
+          <div class="box box-success">
+            <div class="box-header with-border">
 
-                <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt3"], 'box-title');
-                ?>
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt3"], 'box-title');
+              ?>
 
-              </div>
-              <div class="box-body">
-                <div class="block">
-                  <div class="block-content">
-                    <div class="row-form">
-                      <div class="col-sm-5">
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div>
 
                         <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc3"]);
+                        // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                        echo $Html->startTag('h6', array('class' => 'box-title'));
+                        echo $tlbh["bh_box_title"]["bhbt1"];
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlbh["bh_help"]["bhh1"], 'data-original-title' => $tlbh["bh_help"]["bhh"]));
+                        // Add Html Element -> endTag (Arguments: tag)
+                        echo $Html->endTag('h6');
                         ?>
 
                       </div>
-                      <div class="col-sm-7">
-                        <select name="envo_newsid[]" multiple="multiple" class="form-control">
+                      <div class="row-form">
+                        <div class="col-sm-12">
+                          <select name="envo_pageid[]" multiple="multiple" class="form-control" style="min-height: 330px;">
 
-                          <?php
-                          // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_newsid"]) && ($_REQUEST["envo_newsid"] == '0' || (in_array('0', $_REQUEST["envo_newsid"]))) || !isset($_REQUEST["envo_newsid"]))) ? TRUE : FALSE;
+                            <?php
+                            // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+                            $selected = ((isset($_REQUEST["envo_pageid"]) && ($_REQUEST["envo_pageid"] == '0' || (in_array('0', $_REQUEST["envo_pageid"]))) || !isset($_REQUEST["envo_pageid"]))) ? TRUE : FALSE;
 
-                          echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc1"], $selected);
-                          if (isset($ENVO_NEWS) && is_array($ENVO_NEWS)) foreach ($ENVO_NEWS as $n) {
+                            echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc1"], $selected);
+                            if (isset($ENVO_PAGES) && is_array($ENVO_PAGES)) foreach ($ENVO_PAGES as $v) {
 
-                            if (isset($_REQUEST["envo_newsid"]) && (in_array($n["id"], $_REQUEST["envo_newsid"]))) {
-                              if (isset($_REQUEST["envo_newsid"]) && (in_array('0', $_REQUEST["envo_newsid"]))) {
-                                $selected = FALSE;
+                              if (isset($_REQUEST["envo_pageid"]) && (in_array($v["id"], $_REQUEST["envo_pageid"]))) {
+                                if (isset($_REQUEST["envo_pageid"]) && (in_array('0', $_REQUEST["envo_pageid"]))) {
+                                  $selected = FALSE;
+                                } else {
+                                  $selected = TRUE;
+                                }
                               } else {
-                                $selected = TRUE;
+                                $selected = FALSE;
                               }
-                            } else {
-                              $selected = FALSE;
+
+                              echo $Html->addOption($v["id"], $v["title"], $selected);
+
                             }
+                            ?>
 
-                            echo $Html->addOption($n["id"], $n["title"], $selected);
-
-                          }
-                          ?>
-
-                        </select>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-sm-7">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc4"]);
-                        ?>
-
-                      </div>
-                      <div class="col-sm-5">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_mainnews', '1', ((isset($_REQUEST["envo_mainnews"]) && $_REQUEST["envo_mainnews"] == '1')) ? TRUE : FALSE, 'envo_mainnews1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_mainnews1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_mainnews', '0', ((isset($_REQUEST["envo_mainnews"]) && $_REQUEST["envo_mainnews"] == '0') || !isset($_REQUEST["envo_mainnews"])) ? TRUE : FALSE, 'envo_mainnews2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_mainnews2', $tl["checkbox"]["chk1"]);
-                          ?>
-
+                          </select>
                         </div>
                       </div>
                     </div>
-                    <?php if (ENVO_TAGS) { ?>
+                    <div class="col-sm-6">
+                      <div>
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('h6', $tlbh["bh_box_title"]["bhbt3"], 'box-title');
+                        ?>
+
+                      </div>
+                      <div class="row-form">
+                        <div class="col-sm-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc3"]);
+                          ?>
+
+                        </div>
+                        <div class="col-sm-7">
+                          <select name="envo_newsid[]" multiple="multiple" class="form-control">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+                            $selected = ((isset($_REQUEST["envo_newsid"]) && ($_REQUEST["envo_newsid"] == '0' || (in_array('0', $_REQUEST["envo_newsid"]))) || !isset($_REQUEST["envo_newsid"]))) ? TRUE : FALSE;
+
+                            echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc1"], $selected);
+                            if (isset($ENVO_NEWS) && is_array($ENVO_NEWS)) foreach ($ENVO_NEWS as $n) {
+
+                              if (isset($_REQUEST["envo_newsid"]) && (in_array($n["id"], $_REQUEST["envo_newsid"]))) {
+                                if (isset($_REQUEST["envo_newsid"]) && (in_array('0', $_REQUEST["envo_newsid"]))) {
+                                  $selected = FALSE;
+                                } else {
+                                  $selected = TRUE;
+                                }
+                              } else {
+                                $selected = FALSE;
+                              }
+
+                              echo $Html->addOption($n["id"], $n["title"], $selected);
+
+                            }
+                            ?>
+
+                          </select>
+                        </div>
+                      </div>
                       <div class="row-form">
                         <div class="col-sm-7">
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc5"]);
+                          echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc4"]);
                           ?>
 
                         </div>
@@ -327,85 +349,114 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('envo_tags', '1', ((isset($_REQUEST["envo_tags"]) && $_REQUEST["envo_tags"] == '1')) ? TRUE : FALSE, 'envo_tags1');
+                            echo $Html->addRadio('envo_mainnews', '1', ((isset($_REQUEST["envo_mainnews"]) && $_REQUEST["envo_mainnews"] == '1')) ? TRUE : FALSE, 'envo_mainnews1');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('envo_tags1', $tl["checkbox"]["chk"]);
+                            echo $Html->addLabel('envo_mainnews1', $tl["checkbox"]["chk"]);
 
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('envo_tags', '0', ((isset($_REQUEST["envo_tags"]) && $_REQUEST["envo_tags"] == '0') || !isset($_REQUEST["envo_tags"])) ? TRUE : FALSE, 'envo_tags2');
+                            echo $Html->addRadio('envo_mainnews', '0', ((isset($_REQUEST["envo_mainnews"]) && $_REQUEST["envo_mainnews"] == '0') || !isset($_REQUEST["envo_mainnews"])) ? TRUE : FALSE, 'envo_mainnews2');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('envo_tags2', $tl["checkbox"]["chk1"]);
+                            echo $Html->addLabel('envo_mainnews2', $tl["checkbox"]["chk1"]);
                             ?>
 
                           </div>
                         </div>
                       </div>
-                    <?php } ?>
-                    <div class="row-form">
-                      <div class="col-sm-7">
+                      <?php if (ENVO_TAGS) { ?>
+                        <div class="row-form">
+                          <div class="col-sm-7">
 
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc6"]);
-                        ?>
+                            <?php
+                            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                            echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc5"]);
+                            ?>
 
-                      </div>
-                      <div class="col-sm-5">
-                        <div class="radio radio-success">
+                          </div>
+                          <div class="col-sm-5">
+                            <div class="radio radio-success">
+
+                              <?php
+                              // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                              echo $Html->addRadio('envo_tags', '1', ((isset($_REQUEST["envo_tags"]) && $_REQUEST["envo_tags"] == '1')) ? TRUE : FALSE, 'envo_tags1');
+                              // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                              echo $Html->addLabel('envo_tags1', $tl["checkbox"]["chk"]);
+
+                              // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                              echo $Html->addRadio('envo_tags', '0', ((isset($_REQUEST["envo_tags"]) && $_REQUEST["envo_tags"] == '0') || !isset($_REQUEST["envo_tags"])) ? TRUE : FALSE, 'envo_tags2');
+                              // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                              echo $Html->addLabel('envo_tags2', $tl["checkbox"]["chk1"]);
+                              ?>
+
+                            </div>
+                          </div>
+                        </div>
+                      <?php } ?>
+                      <div class="row-form">
+                        <div class="col-sm-7">
 
                           <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_search', '1', ((isset($_REQUEST["envo_search"]) && $_REQUEST["envo_search"] == '1')) ? TRUE : FALSE, 'envo_search1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_search1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_search', '0', ((isset($_REQUEST["envo_search"]) && $_REQUEST["envo_search"] == '0') || !isset($_REQUEST["envo_search"])) ? TRUE : FALSE, 'envo_search2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_search2', $tl["checkbox"]["chk1"]);
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc6"]);
                           ?>
 
                         </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-sm-7">
+                        <div class="col-sm-5">
+                          <div class="radio radio-success">
 
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc7"]);
-                        ?>
+                            <?php
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('envo_search', '1', ((isset($_REQUEST["envo_search"]) && $_REQUEST["envo_search"] == '1')) ? TRUE : FALSE, 'envo_search1');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('envo_search1', $tl["checkbox"]["chk"]);
 
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('envo_search', '0', ((isset($_REQUEST["envo_search"]) && $_REQUEST["envo_search"] == '0') || !isset($_REQUEST["envo_search"])) ? TRUE : FALSE, 'envo_search2');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('envo_search2', $tl["checkbox"]["chk1"]);
+                            ?>
+
+                          </div>
+                        </div>
                       </div>
-                      <div class="col-sm-5">
-                        <div class="radio radio-success">
+                      <div class="row-form">
+                        <div class="col-sm-7">
 
                           <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_sitemap', '1', ((isset($_REQUEST["envo_sitemap"]) && $_REQUEST["envo_sitemap"] == '1')) ? TRUE : FALSE, 'envo_sitemap1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_sitemap1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_sitemap', '0', ((isset($_REQUEST["envo_sitemap"]) && $_REQUEST["envo_sitemap"] == '0') || !isset($_REQUEST["envo_sitemap"])) ? TRUE : FALSE, 'envo_sitemap2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_sitemap2', $tl["checkbox"]["chk1"]);
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc7"]);
                           ?>
 
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="radio radio-success">
+
+                            <?php
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('envo_sitemap', '1', ((isset($_REQUEST["envo_sitemap"]) && $_REQUEST["envo_sitemap"] == '1')) ? TRUE : FALSE, 'envo_sitemap1');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('envo_sitemap1', $tl["checkbox"]["chk"]);
+
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('envo_sitemap', '0', ((isset($_REQUEST["envo_sitemap"]) && $_REQUEST["envo_sitemap"] == '0') || !isset($_REQUEST["envo_sitemap"])) ? TRUE : FALSE, 'envo_sitemap2');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('envo_sitemap2', $tl["checkbox"]["chk1"]);
+                            ?>
+
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="box-footer">
+            </div>
+            <div class="box-footer">
 
-                <?php
-                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-                ?>
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              ?>
 
-              </div>
             </div>
           </div>
         </div>

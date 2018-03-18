@@ -2,72 +2,92 @@
 
 // EN: Getting data from the database
 // CZ: Získání dat z databáze
-$resultbh = $envodb->query('SELECT pageid, newsid, newsmain, tags, search, sitemap, content, content_below, permission FROM ' . DB_PREFIX . 'belowheader WHERE active = 1');
+$resultbh = $envodb->query('SELECT allpage, pageid, newsid, newsmain, tags, search, sitemap, content_before, content_after, permission FROM ' . DB_PREFIX . 'belowheader WHERE active = 1');
 
 while ($rowbh = $resultbh->fetch_assoc()) {
-  $content       = base64_encode($rowbh["content"]);
-  $content_below = base64_encode($rowbh["content_below"]);
 
-  // Get the pages in a array
-  if ($rowbh['pageid'] != 0 && !is_numeric($rowbh['pageid'])) {
+  $content_before       = base64_encode($rowbh["content_before"]);
+  $content_after = base64_encode($rowbh["content_after"]);
 
-    $pagearray = explode(',', $rowbh['pageid']);
+  if ($rowbh["allpage"] != 0 && is_numeric($rowbh['allpage'])) {
 
-    for ($i = 0; $i < count($pagearray); $i++) {
+    // EN:
+    // CZ: Zobrazení Belowheader ve všech stránkách a pluginech
 
-      $ENVO_PAGE_BELOW_HEADER[$pagearray[$i]] = array('pageid' => $pagearray[$i], 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
+    $ENVO_ALLPAGE_BELOW_HEADER[] = array('allpage' => 1, 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
 
-    }
+  } else {
 
-  }
+    // EN:
+    // CZ: Zobrazení Belowheader pouze ve vybraných stránkách nebo pluginech
 
-  if (is_numeric($rowbh['pageid'])) {
+    // EN:
+    // CZ: Vytvoření pole dat pro jednotlivé Stránky
+    if ($rowbh['pageid'] != 0 && !is_numeric($rowbh['pageid'])) {
 
-    $ENVO_PAGE_BELOW_HEADER[$rowbh['pageid']] = array('pageid' => $rowbh['pageid'], 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
-  }
+      $pagearray = explode(',', $rowbh['pageid']);
 
+      for ($i = 0; $i < count($pagearray); $i++) {
 
-  // Get the news in a array
-  if ($rowbh['newsid'] != 0 && !is_numeric($rowbh['newsid'])) {
+        $ENVO_PAGE_BELOW_HEADER[$pagearray[$i]] = array('pageid' => $pagearray[$i], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
 
-    $newsarray = explode(',', $rowbh['newsid']);
-
-    for ($i = 0; $i < count($newsarray); $i++) {
-
-      $ENVO_NEWS_BELOW_HEADER[$newsarray[$i]] = array('newsid' => $newsarray[$i], 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
+      }
 
     }
 
-  }
+    if (is_numeric($rowbh['pageid'])) {
 
-  if ($rowbh['newsid'] != 0 && is_numeric($rowbh['newsid'])) {
+      $ENVO_PAGE_BELOW_HEADER[$rowbh['pageid']] = array('pageid' => $rowbh['pageid'], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
+    }
 
-    $ENVO_NEWS_BELOW_HEADER[$rowbh['newsid']] = array('newsid' => $rowbh['newsid'], 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
-  }
 
-  // EN: Show Belowheader on the main page of news
-  // CZ: Zobrazení Belowheader na hlavní stránce zpráv
-  if ($rowbh['newsmain'] != 0 && is_numeric($rowbh['newsmain'])) {
+    // EN:
+    // CZ: Vytvoření pole dat pro jednotlivé Zprávy
+    if ($rowbh['newsid'] != 0 && !is_numeric($rowbh['newsid'])) {
 
-    $ENVO_NEWSMAIN_BELOW_HEADER[] = array('newsmain' => 1, 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
-  }
+      $newsarray = explode(',', $rowbh['newsid']);
 
-  // Check if we display the content on the news main page
-  if ($rowbh['tags'] != 0 && is_numeric($rowbh['tags'])) {
+      for ($i = 0; $i < count($newsarray); $i++) {
 
-    $ENVO_TAGS_BELOW_HEADER[] = array('tags' => 1, 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
-  }
+        $ENVO_NEWS_BELOW_HEADER[$newsarray[$i]] = array('newsid' => $newsarray[$i], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
 
-  // Check if we display the content on the news main page
-  if ($rowbh['search'] != 0 && is_numeric($rowbh['search'])) {
+      }
 
-    $ENVO_SEARCH_BELOW_HEADER[] = array('search' => 1, 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
-  }
+    }
 
-  // Check if we display the content on the news main page
-  if ($rowbh['sitemap'] != 0 && is_numeric($rowbh['sitemap'])) {
+    if ($rowbh['newsid'] != 0 && is_numeric($rowbh['newsid'])) {
 
-    $ENVO_SITEMAP_BELOW_HEADER[] = array('sitemap' => 1, 'content' => $content, 'content_below' => $content_below, 'permission' => $rowbh['permission']);
+      $ENVO_NEWS_BELOW_HEADER[$rowbh['newsid']] = array('newsid' => $rowbh['newsid'], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
+    }
+
+    // EN:
+    // CZ: Vytvoření pole dat na hlavní stránce Zpráv
+    if ($rowbh['newsmain'] != 0 && is_numeric($rowbh['newsmain'])) {
+
+      $ENVO_NEWSMAIN_BELOW_HEADER[] = array('newsmain' => 1, 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
+    }
+
+    // EN:
+    // CZ: Vytvoření pole dat na stránce Štítků (Tagů)
+    if ($rowbh['tags'] != 0 && is_numeric($rowbh['tags'])) {
+
+      $ENVO_TAGS_BELOW_HEADER[] = array('tags' => 1, 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
+    }
+
+    // EN:
+    // CZ: Vytvoření pole dat na stránce Vyhledávání
+    if ($rowbh['search'] != 0 && is_numeric($rowbh['search'])) {
+
+      $ENVO_SEARCH_BELOW_HEADER[] = array('search' => 1, 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
+    }
+
+    // EN:
+    // CZ: Vytvoření pole dat na stránce Mapa sítě
+    if ($rowbh['sitemap'] != 0 && is_numeric($rowbh['sitemap'])) {
+
+      $ENVO_SITEMAP_BELOW_HEADER[] = array('sitemap' => 1, 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission']);
+    }
+
   }
 
 }

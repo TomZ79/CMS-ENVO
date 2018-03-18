@@ -12,14 +12,6 @@ $PORTONAVTYPE3 = $navitype[3];
 
 /* ### FUNCTION FILE ### */
 
-// PRINT ARRAY - Print a nicely formatted array representation
-function print_array($aArray)
-{
-  echo '<pre>';
-  print_r($aArray);
-  echo '</pre>';
-}
-
 // MENU BUILDER - PORTO, parentId 0 is the root
 // Global variable - array
 $arr1 = array();

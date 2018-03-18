@@ -76,6 +76,27 @@
       <!-- Changelog -->
       <article>
         <h4>Changelog</h4>
+        <h5>v 1.2</h5>
+        <pre class="prettyprint">
+// # Seznam nových komponent
+// ------------------------------
+
+[nový] New design
+[nový] Add new placement option added - to all pages
+
+// # Seznam opravených chyb
+// ------------------------------
+
+[opraveno] Reformat code
+[opraveno] Language file cs.ini
+[opraveno] Fix typo
+
+// # Seznam odstraněných komponent
+// ------------------------------
+
+[odstraněno] Remove unnecessary code
+				</pre>
+
         <h5>v 1.1</h5>
         <pre class="prettyprint">
 // # Seznam nových komponent

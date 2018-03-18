@@ -183,7 +183,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
         require_once APP_PATH.\'plugins/belowheader/admin/belowheader.php\';
         $ENVO_PROVED = 1;
         $checkp = 1;
-      }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.1", NOW())');
+      }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.2", NOW())');
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -225,6 +225,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
       // CZ: Vytvoření tabulky pro plugin
       $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'belowheader (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `allpage` smallint(1) unsigned NOT NULL DEFAULT 0,
   `pageid` varchar(100) DEFAULT NULL,
   `newsid` varchar(100) DEFAULT NULL,
   `newsmain` smallint(1) unsigned NOT NULL DEFAULT 0,
@@ -232,8 +233,8 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
   `search` smallint(1) unsigned NOT NULL DEFAULT 0,
   `sitemap` smallint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
-  `content` mediumtext,
-  `content_below` mediumtext,
+  `content_before` mediumtext,
+  `content_after` mediumtext,
   `permission` varchar(100) DEFAULT NULL,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',

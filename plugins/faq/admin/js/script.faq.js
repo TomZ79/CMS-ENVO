@@ -53,7 +53,7 @@ if ($('#htmleditor').length) {
   htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE.setOptions({
     // session options
-    mode: "ace/mode/ini",
+    mode: "ace/mode/html",
     tabSize: aceEditor.acetabSize,
     useSoftTabs: true,
     highlightActiveLine: aceEditor.aceactiveline,

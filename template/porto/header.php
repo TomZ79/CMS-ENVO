@@ -110,7 +110,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- Custom Porto Style -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/screen.min.css" type="text/css"/>
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/custom/css/customstyle.css" type="text/css"/>
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/custom/css/customstyle.min.css" type="text/css"/>
 
   <!-- CUSTOM CSS
   ================================================== -->

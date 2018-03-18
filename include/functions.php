@@ -1,6 +1,23 @@
 <?php
 
 /**
+ * EN: PRINT ARRAY - Print a nicely formatted array representation
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    03/2018
+ *
+ * @param $aArray
+ */
+function print_array($aArray)
+{
+  echo '<pre>';
+  print_r($aArray);
+  echo '</pre>';
+}
+
+/**
  * EN: Redirect function
  * CZ:
  *

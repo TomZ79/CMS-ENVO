@@ -96,13 +96,13 @@ switch ($page1) {
       $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
 
       while ($row1 = $result1->fetch_assoc()) {
-        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], $row1['id'], ENVO_base::envoCleanurl($row1['title']), '', '');
+        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'news-article',$row1['id'], ENVO_base::envoCleanurl($row1['title']), '');
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
       }
 
-      // Create sitemap for tags
+      // Create sitemap for Tags
       $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 3');
       $row    = $result->fetch_assoc();
 
@@ -115,7 +115,7 @@ switch ($page1) {
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
       }
 
-      // Create sitemap for download
+      // Create sitemap for Download
       // now get the plugin id for further use
       $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
       $rows    = $results->fetch_assoc();
@@ -140,64 +140,6 @@ switch ($page1) {
         $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $setting["downloadurl"]);
 
         if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) {
-          $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
-        }
-      }
-
-      // Create sitemap for shop
-      // now get the plugin id for further use
-      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
-      $rows    = $results->fetch_assoc();
-
-      if ($rows) {
-
-        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
-        $row    = $result->fetch_assoc();
-
-        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'shop WHERE active = 1 && catid != 0');
-
-        while ($row1 = $result1->fetch_assoc()) {
-          if ($setting["shopurl"]) {
-            $seo = ENVO_base::envoCleanurl($row1['title']);
-          }
-          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
-          // EN: Insert each record into array
-          // CZ: Vložení získaných dat do pole
-          $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
-        }
-
-        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $setting["shopurl"]);
-
-        if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) {
-          $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
-        }
-      }
-
-      // Create sitemap for Ticketing
-      // now get the plugin id for further use
-      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ticketing"');
-      $rows    = $results->fetch_assoc();
-
-      if ($rows) {
-
-        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
-        $row    = $result->fetch_assoc();
-
-        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'tickets WHERE active = 1 && catid != 0');
-
-        while ($row1 = $result1->fetch_assoc()) {
-          if ($setting["ticketurl"]) {
-            $seo = ENVO_base::envoCleanurl($row1['title']);
-          }
-          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 't', $row1['id'], $seo, '', '');
-          // EN: Insert each record into array
-          // CZ: Vložení získaných dat do pole
-          $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
-        }
-
-        $ENVO_TICKET_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $setting["ticketurl"]);
-
-        if (isset($ENVO_TICKET_CAT) && is_array($ENVO_TICKET_CAT)) foreach ($ENVO_TICKET_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
@@ -255,35 +197,6 @@ switch ($page1) {
 
         $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $setting["blogurl"]);
         if (isset($ENVO_BLOG_CAT) && is_array($ENVO_BLOG_CAT)) foreach ($ENVO_BLOG_CAT as $c) {
-          $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
-        }
-      }
-
-      // Create sitemap for B2B Marketplace
-      // now get the plugin id for further use
-      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "MarketPlace"');
-      $rows    = $results->fetch_assoc();
-
-      if ($rows) {
-
-        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
-        $row    = $result->fetch_assoc();
-
-        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'b2b_item WHERE active = 1 && catid != 0');
-
-        while ($row1 = $result1->fetch_assoc()) {
-          if ($setting["b2b_url"]) {
-            $seo = ENVO_base::envoCleanurl($row1['title']);
-          }
-          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
-          // EN: Insert each record into array
-          // CZ: Vložení získaných dat do pole
-          $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
-        }
-
-        $ENVO_B2B_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $setting["b2b_url"]);
-
-        if (isset($ENVO_B2B_CAT) && is_array($ENVO_B2B_CAT)) foreach ($ENVO_B2B_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
