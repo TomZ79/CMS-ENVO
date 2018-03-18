@@ -868,7 +868,7 @@ function envo_cut_text($text, $limit, $envovar2)
  * @param string $append
  * @return array|string
  */
-function envo_cut_text_html_tag($string,$length=350,$append="&hellip;") {
+function envo_cut_text_html_tag($string,$length=500,$append="&hellip;") {
 
   $string = trim($string);
   $string_length = strlen($string);

@@ -84,37 +84,6 @@
 
   </div>
 </div>
-<style type="text/css">
-  #editorContainer {
-    height: 500px;
-    position: relative;
-  }
-
-  #htmleditor {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  #cover.active {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #f4f4f4;
-    z-index: 1050;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-  }
-
-  .cover-header {
-    background: #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-</style>
 <script type="text/javascript">
   var clicked = false;
   var resizeFirstEditor = function (resizeEditor) {
