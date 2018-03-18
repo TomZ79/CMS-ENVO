@@ -406,6 +406,20 @@ if ($SHOWSOCIALBUTTON) {
   </div>
 </div>
 
+<!-- Search box -->
+<?php if (JAK_SEARCH && JAK_USER_SEARCH) { ?>
+
+  <form action="<?php echo $P_SEAERCH_LINK; ?>" id="search-inner" method="POST">
+    <div class="input-data ">
+      <div class="container">
+        <input class="search-box" type="text" name="envoSH" id="search-box" placeholder="<?php echo $tl["placeholder"]["plc"]; if ($setting["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
+      </div>
+    </div>
+    <button type="button" id="close" class="close-searchbutton"></button>
+  </form>
+
+<?php } ?>
+
 <!-- Search script -->
 <?php if ($setting["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
   <script>

@@ -456,7 +456,63 @@ if ($errors) { ?>
 
         <div class="row">
           <div class="col-sm-12">
-            <?php include_once APP_PATH . "admin/template/editor_edit.php"; ?>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt4"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <table class="table table-striped">
+                  <tr>
+                    <td>
+                      <?php if ($setting["adv_editor"]) { ?>
+                        <div id="cover">
+                          <div class="cover-header">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=htmleditor', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array('title' => 'Show Filemanager'));
+                            ?>
+
+                          </div>
+                          <div id="editorContainer">
+
+                            <?php
+                            // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                            echo $Html->addDiv('', 'htmleditor');
+                            ?>
+
+                          </div>
+                        </div>
+
+                        <?php
+                        // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                        echo $Html->addTextarea('envo_content', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["content_before"])), '', '', array('id' => 'envo_editor', 'class' => 'form-control hidden'));
+
+                      } else {
+
+                        // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                        echo $Html->addTextarea('envo_content', envo_edit_safe_userpost($ENVO_FORM_DATA["content_before"]), '40', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditor'));
+
+                      } ?>
+
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>

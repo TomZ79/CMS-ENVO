@@ -147,10 +147,12 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 </head>
 <body class="loading-overlay-showing" data-loading-overlay>
 <div class="loading-overlay">
-  <div class="bounce-loader">
-    <div class="bounce1"></div>
-    <div class="bounce2"></div>
-    <div class="bounce3"></div>
+  <div class="loader-inner">
+    <div class="ball-scale-multiple">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </div>
 
@@ -213,45 +215,50 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
               </ul>
             </div>
-            <ul class="header-social-icons social-icons social-icons-transparent social-icons-icon-light pull-right ml-xs mt-xs hidden-xs">
+            <div class="pull-right ">
+              <p class="text-color-light mr-xs ">
 
-              <?php if ($setting["facebookheaderShow_porto_tpl"] == 1) { ?>
-                <li class="social-icons-facebook">
-                  <a href="<?php echo $setting["facebookheaderLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
-                </li>
-              <?php }
-              if ($setting["twitterheaderShow_porto_tpl"] == 1) { ?>
-                <li class="social-icons-twitter">
-                  <a href="<?php echo $setting["twitterheaderLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
-                </li>
-              <?php }
-              if ($setting["googleheaderShow_porto_tpl"] == 1) { ?>
-                <li class="social-icons-googleplus">
-                  <a href="<?php echo $setting["googleheaderLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
-                </li>
-              <?php }
-              if ($setting["instagramheaderShow_porto_tpl"] == 1) { ?>
-                <li class="social-icons-instagram">
-                  <a href="<?php echo $setting["instagramheaderLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
-                </li>
-              <?php }
-              if ($setting["emailheaderShow_porto_tpl"] == 1) { ?>
-                <li class="social-icons-email">
-                  <a href="mailto:<?php echo envo_encode_email($setting["emailheaderLinks_porto_tpl"]); ?>" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
-                </li>
-              <?php } ?>
+                <?php if ($setting["phoneheaderShow_porto_tpl"] == 1) { ?>
+                  <i class="icon-call-end icons mr-xs"></i>
+                  <a class="phone" href="tel:<?php echo $setting["phoneheaderLinks_porto_tpl"]; ?>" target="_blank"><?php echo $setting["phoneheaderLinks_porto_tpl"]; ?></a>
+                <?php } ?>
 
-            </ul>
-            <p class="pull-right text-color-light">
-            <span class="mr-xs">
+              </p>
+              <ul class="header-social-icons social-icons social-icons-transparent social-icons-icon-light ml-xs mt-xs mr-xs hidden-xs">
 
-              <?php if ($setting["phoneheaderShow_porto_tpl"] == 1) { ?>
-                <i class="icon-call-end icons mr-xs"></i>
-                <a class="phone" href="tel:<?php echo $setting["phoneheaderLinks_porto_tpl"]; ?>" target="_blank"><?php echo $setting["phoneheaderLinks_porto_tpl"]; ?></a>
-              <?php } ?>
+                <?php if ($setting["facebookheaderShow_porto_tpl"] == 1) { ?>
+                  <li class="social-icons-facebook">
+                    <a href="<?php echo $setting["facebookheaderLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                  </li>
+                <?php }
+                if ($setting["twitterheaderShow_porto_tpl"] == 1) { ?>
+                  <li class="social-icons-twitter">
+                    <a href="<?php echo $setting["twitterheaderLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                  </li>
+                <?php }
+                if ($setting["googleheaderShow_porto_tpl"] == 1) { ?>
+                  <li class="social-icons-googleplus">
+                    <a href="<?php echo $setting["googleheaderLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                  </li>
+                <?php }
+                if ($setting["instagramheaderShow_porto_tpl"] == 1) { ?>
+                  <li class="social-icons-instagram">
+                    <a href="<?php echo $setting["instagramheaderLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                  </li>
+                <?php }
+                if ($setting["emailheaderShow_porto_tpl"] == 1) { ?>
+                  <li class="social-icons-email">
+                    <a href="mailto:<?php echo envo_encode_email($setting["emailheaderLinks_porto_tpl"]); ?>" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
+                  </li>
+                <?php } ?>
 
-            </span>
-            </p>
+              </ul>
+              <p class="text-color-light ml-xs searchIco">
+
+                <a href="#"><i class="fa fa-search"></i></a>
+
+              </p>
+            </div>
           </div>
         </div>
         <div class="header-container container mt-sm">
