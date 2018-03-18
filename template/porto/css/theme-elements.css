@@ -1,9 +1,17 @@
-@charset "UTF-8";
 /*
-Name: 			theme-elements.css
-Written by: 	Okler Themes - (http://www.okler.net)
-Theme Version:	5.7.2
+ * CMS ENVO - FRONTEND TEMPLATE
+ * Copyright (c) 2016 - 2018 Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Theme : Porto (Bluesat modification)
+ * Template Version: 5.7.3
+ * Author: Okler and BluesatKV
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ * INDEX:
+ *
+ *
 */
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
 	color: #1d2127;
@@ -2958,6 +2966,10 @@ h6 .inverted {
 
 .font-size-xl {
 	font-size: 1.2em !important;
+}
+
+.font-size-xxl {
+	font-size: 1.4em !important;
 }
 
 /* Line Height */

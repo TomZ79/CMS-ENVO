@@ -55,6 +55,15 @@ if ($hooklang) foreach ($hooklang as $hlang) {
   eval($hlang['phpcode']);
 }
 
+// EN: Get all the php Hook by name of Hook for 'index top'
+// CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
+$indexhook = $envohooks->EnvoGethook("php_index_top");
+if ($indexhook) {
+  foreach ($indexhook as $it) {
+    eval($it['phpcode']);
+  }
+}
+
 // EN: Get all data from the Hook by name of Hook
 // CZ: Načtení všech dat z Hook podle jména Hook
 $ENVO_HOOK_HEAD_TOP      = $envohooks->EnvoGethook("tpl_between_head");
@@ -63,7 +72,7 @@ $ENVO_HOOK_HEADER        = $envohooks->EnvoGethook("tpl_header");
 $ENVO_HOOK_BELOW_HEADER  = $envohooks->EnvoGethook("tpl_below_header");
 $ENVO_HOOK_PAGE          = $envohooks->EnvoGethook("tpl_page");
 $ENVO_HOOK_SIDEBAR       = $envohooks->EnvoGethook("tpl_sidebar");
-$ENVO_HOOK_BELOW_CONTENT = $envohooks->EnvoGethook("tpl_below_content");
+$ENVO_HOOK_BELOW_FOOTER = $envohooks->EnvoGethook("tpl_below_footer");
 $ENVO_HOOK_FOOTER        = $envohooks->EnvoGethook("tpl_footer");
 $ENVO_HOOK_FOOTER_WIDGET = $envohooks->EnvoGethook("tpl_footer_widgets");
 $ENVO_HOOK_FOOTER_END    = $envohooks->EnvoGethook("tpl_footer_end");
@@ -89,15 +98,6 @@ if (ENVO_USERID) {
   define('ENVO_USERGROUPID', 1);
   $ENVO_USERNAME = FALSE;
   define('ENVO_ASACCESS', FALSE);
-}
-
-// EN: Get all the php Hook by name of Hook for 'index top'
-// CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-$indexhook = $envohooks->EnvoGethook("php_index_top");
-if ($indexhook) {
-  foreach ($indexhook as $it) {
-    eval($it['phpcode']);
-  }
 }
 
 // Pagination/Date/template/plugin reset

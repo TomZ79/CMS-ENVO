@@ -147,7 +147,7 @@
 
         <p>You can include a file, for example:</p>
         <pre class="prettyprint linenums lang-php">
-plugins/belowheader/bhinput.php
+plugins/belowheader/bh_header.php
 </pre>
 
       </article>
@@ -160,7 +160,7 @@ plugins/belowheader/bhinput.php
 
         <p>You can include a file, for example:</p>
         <pre class="prettyprint linenums lang-php">
-plugins/belowheader/bhinputb.php
+plugins/belowheader/bh_footer.php
 </pre>
 
       </article>

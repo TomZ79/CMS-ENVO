@@ -33,8 +33,8 @@ switch ($section) {
 
 <?php if ($ENVO_SHOW_FOOTER) {
   // Import templates below header
-  if (isset($ENVO_HOOK_BELOW_CONTENT) && is_array($ENVO_HOOK_BELOW_CONTENT)) foreach ($ENVO_HOOK_BELOW_CONTENT as $bcontent) {
-    include_once APP_PATH . $bcontent['phpcode'];
+  if (isset($ENVO_HOOK_BELOW_FOOTER) && is_array($ENVO_HOOK_BELOW_FOOTER)) foreach ($ENVO_HOOK_BELOW_FOOTER as $bfooter) {
+    include_once APP_PATH . $bfooter['phpcode'];
   }
 } ?>
 

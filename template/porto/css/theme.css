@@ -1,8 +1,17 @@
 /*
-Name: 			theme.css
-Written by: 	Okler Themes - (http://www.okler.net)
-Theme Version:	5.7.2
+ * CMS ENVO - FRONTEND TEMPLATE
+ * Copyright (c) 2016 - 2018 Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Theme : Porto (Bluesat modification)
+ * Template Version: 5.7.3
+ * Author: Okler and BluesatKV
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ * INDEX:
+ *
+ *
 */
+
 html {
 	direction: ltr;
 	overflow-x: hidden;

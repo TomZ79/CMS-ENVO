@@ -20,7 +20,7 @@ if (!$page1 && isset($PAGE_ID) && isset($ENVO_PAGE_BELOW_HEADER) && is_array($EN
 }
 
 // Let's check if there is a valid News array
-if (isset($backtonews) && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && is_array($ENVO_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_NEWS_BELOW_HEADER)) {
+if ($page == ENVO_PLUGIN_VAR_NEWS && isset($backtonews) && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && is_array($ENVO_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_NEWS_BELOW_HEADER)) {
 
   foreach ($ENVO_NEWS_BELOW_HEADER as $subn) {
     if ($subn['newsid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
@@ -37,7 +37,7 @@ if (isset($backtonews) && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && i
 }
 
 // Let's check if there is a valid News Main array
-if (isset($backtonews) && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
+if ($page == ENVO_PLUGIN_VAR_NEWS && isset($backtonews) && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
 
   foreach ($ENVO_NEWSMAIN_BELOW_HEADER as $submn) {
 

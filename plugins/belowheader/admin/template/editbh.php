@@ -140,8 +140,13 @@ if ($errors) { ?>
               <div class="box-header with-border">
 
                 <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt1"], 'box-title');
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html->startTag('h3', array('class' => 'box-title'));
+                echo $tlbh["bh_box_title"]["bhbt1"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlbh["bh_help"]["bhh1"], 'data-original-title' => $tlbh["bh_help"]["bhh"]));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html->endTag('h3');
                 ?>
 
               </div>

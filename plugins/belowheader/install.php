@@ -203,18 +203,23 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
   $tlbh = parse_ini_file(APP_PATH.\'plugins/belowheader/admin/lang/en.ini\', true);
 }';
 
+      // EN: Hook System - Index: set files for other uses
+      // CZ: Hook System - Index: nastavení používaných souborů
+      $index_top = 'include_once APP_PATH.\'plugins/belowheader/belowheader.php\';';
+
       // EN: Frontend - set files for other uses
       // CZ: Frontend - nastavení používaných souborů
-      $belowheader  = 'plugins/belowheader/bhinput.php';
-      $belowcontent = 'plugins/belowheader/bhinputb.php';
+      $belowheader  = 'plugins/belowheader/bh_header.php';
+      $belowfooter = 'plugins/belowheader/bh_footer.php';
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "BelowHeader Admin Language", "' . $adminlang . '", "belowheader", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "BelowHeader Admin CSS", "plugins/belowheader/admin/template/css.belowheader.php", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_index_top", "BelowHeader Index", "' . $index_top . '", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_below_header", "BelowHeader Input", "' . $belowheader . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_below_content", "BelowHeader / Content", "' . $belowcontent . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW())');
+(NULL, "tpl_below_footer", "BelowHeader Footer", "' . $belowfooter . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW())');
 
       // EN: Create table for plugin
       // CZ: Vytvoření tabulky pro plugin
