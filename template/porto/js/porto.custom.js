@@ -33,7 +33,7 @@
         }, 500);
       }
     },
-    submitHandler: function(form) {
+    submitHandler: function (form) {
 
       var $form = $(form),
         $messageSuccess = $('#contactSuccess'),
@@ -53,7 +53,7 @@
           phone: $form.find('#phone').val(),
           message: $form.find('#message').val()
         }
-      }).always(function(data, textStatus, jqXHR) {
+      }).always(function (data, textStatus, jqXHR) {
 
         $errorMessage.empty().hide();
 
@@ -317,7 +317,6 @@
     var toggle = toggles[i];
     toggleHandler(toggle);
   }
-  ;
 
   function toggleHandler(toggle) {
     toggle.addEventListener("click", function (e) {
@@ -327,6 +326,28 @@
   }
 
 })();
+
+/*
+ |--------------------------------------------------------------------------
+ | NECESSARY CODE !!! - SEARCH
+ |--------------------------------------------------------------------------
+ */
+
+$(function () {
+
+  $('.searchIco a').on('click', function () {
+    $('#search-inner').addClass('active-it');
+    setTimeout(function () {
+      $('input[name="envoSH"]').focus()
+    }, 500);
+  });
+
+  $('#close').on('click', function () {
+    $('#search-inner').removeClass('active-it');
+  });
+
+});
+
 
 /*
  |--------------------------------------------------------------------------
