@@ -8014,6 +8014,11 @@ html.ie11 .scroll-to-top {
 	visibility: visible;
 }
 
+body > .loading-overlay {
+	position: fixed;
+	z-index: 999999;
+}
+
 .loading-overlay {
 	transition: visibility 0s ease-in-out 0.4s, opacity 0.4s ease-in-out;
 	bottom: 0;
@@ -8022,7 +8027,6 @@ html.ie11 .scroll-to-top {
 	opacity: 0;
 	right: 0;
 	top: 0;
-	z-index: 9999;
 	visibility: hidden;
 	background: #FFF;
 }
