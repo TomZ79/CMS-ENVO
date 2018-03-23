@@ -71,12 +71,12 @@
 
             <?php if (ENVO_ASACCESS) { ?>
 
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm envotooltip">
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm">
                 <span class="visible-xs"><i class="fa fa-edit"></i></span>
                 <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
               </a>
 
-              <a class="btn btn-info btn-sm envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+              <a class="btn btn-info btn-sm quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
                 <span class="visible-xs"><i class="fa fa-pencil"></i></span>
                 <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
               </a>

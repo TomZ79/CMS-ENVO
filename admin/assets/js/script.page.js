@@ -21,12 +21,12 @@
  * @require: ACE Editor Plugin
  *
  * Set variable in php file as array (script.tv-tower.php)
- * @param: 'aceEditor.acetheme' from generated_js.php
- * @param: 'aceEditor.acewraplimit' from generated_js.php
- * @param: 'aceEditor.acetabSize' from generated_js.php
- * @param: 'aceEditor.aceactiveline' from generated_js.php
- * @param: 'aceEditor.aceinvisible' from generated_js.php
- * @param: 'aceEditor.acegutter' from generated_js.php
+ * @param: 'aceEditor.acetheme' from generated_admin_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_admin_js.php
+ * @param: 'aceEditor.acetabSize' from generated_admin_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_admin_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_admin_js.php
+ * @param: 'aceEditor.acegutter' from generated_admin_js.php
  *
  * @example: Example add other variable setting to aceEditor object in script.download.php
  *
@@ -35,7 +35,7 @@
  *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
  * </script>
  ========================================= */
-// Set WrapLimitRange from generated_js.php
+// Set WrapLimitRange from generated_admin_js.php
 $wrapLimitRange = {
   min: aceEditor.acewraplimit,
   max: aceEditor.acewraplimit
@@ -106,9 +106,9 @@ function responsive_filemanager_callback(field_id) {
 $(function () {
 
   /** Restore content of ACE Editor
-   * @param: 'notification.confirmRestore' from generated_js.php
+   * @param: 'notification.confirmRestore' from generated_admin_js.php
    * @param: 'globalSettings.pageID2' from script.page.php
-   * @param: 'globalSettings.advEditor' from generated_js.php
+   * @param: 'globalSettings.advEditor' from generated_admin_js.php
    ========================================= */
   if ($('#restorcontent').length) {
     $('#restorcontent').change(function () {

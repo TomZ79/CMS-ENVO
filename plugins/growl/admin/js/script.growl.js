@@ -33,7 +33,7 @@
    *    acegutter: <?php echo json_encode($setting["acegutter"]); ?>
    * };
  ========================================= */
-// Set WrapLimitRange from generated_js.php
+// Set WrapLimitRange from generated_admin_js.php
 $wrapLimitRange = {
   min: aceEditor.acewraplimit,
   max: aceEditor.acewraplimit

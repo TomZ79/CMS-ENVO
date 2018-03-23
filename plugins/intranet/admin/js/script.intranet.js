@@ -19,12 +19,12 @@
  * @require: ACE Editor Plugin
  *
  * Set variable in php file as array (script.tv-tower.php)
- * @param: 'aceEditor.acetheme' from generated_js.php
- * @param: 'aceEditor.acewraplimit' from generated_js.php
- * @param: 'aceEditor.acetabSize' from generated_js.php
- * @param: 'aceEditor.aceactiveline' from generated_js.php
- * @param: 'aceEditor.aceinvisible' from generated_js.php
- * @param: 'aceEditor.acegutter' from generated_js.php
+ * @param: 'aceEditor.acetheme' from generated_admin_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_admin_js.php
+ * @param: 'aceEditor.acetabSize' from generated_admin_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_admin_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_admin_js.php
+ * @param: 'aceEditor.acegutter' from generated_admin_js.php
  *
  * @example: Example add other variable setting to aceEditor object in script.download.php
  *
@@ -33,7 +33,7 @@
  *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
  * </script>
  ========================================= */
-// Set WrapLimitRange from generated_js.php
+// Set WrapLimitRange from generated_admin_js.php
 $wrapLimitRange = {
   min: aceEditor.acewraplimit,
   max: aceEditor.acewraplimit

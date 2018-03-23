@@ -12,7 +12,6 @@
     envo_search_link: "",
     envo_template: "",
     envo_quickedit: "",
-    envo_acp_nav: false,
     envo_jslang: "",
     envo_forgotlogin: ""
   }

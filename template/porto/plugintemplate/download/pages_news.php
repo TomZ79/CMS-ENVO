@@ -69,12 +69,12 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
               <br>
               <?php if (ENVO_ASACCESS) { ?>
 
-                <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs envotooltip">
+                <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs">
                   <span class="visible-xs"><i class="fa fa-edit"></i></span>
                   <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
                 </a>
 
-                <a class="btn btn-info btn-xs envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                <a class="btn btn-info btn-xs quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
                   <span class="visible-xs"><i class="fa fa-pencil"></i></span>
                   <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
                 </a>

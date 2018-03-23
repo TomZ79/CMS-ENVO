@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/php_feeder.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/generated_admin_js.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // Standard Language
@@ -18,10 +18,10 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 }
 
 // Set define variable
-$BASE_URL_ORIG = BASE_URL_ORIG;
+$BASE_URL_ORIG  = BASE_URL_ORIG;
 $BASE_URL_ADMIN = BASE_URL_ADMIN;
 $BASE_PATH_ORIG = BASE_PATH_ORIG;
-$ENVO_TEMPLATE = $setting["sitestyle"];
+$ENVO_TEMPLATE  = $setting["sitestyle"];
 
 // GENERATED JAVASCRIPT FILE
 //---------------------------

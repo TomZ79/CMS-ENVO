@@ -9,13 +9,13 @@
     htmlefACE2.session.setWrapLimitRange(<?php echo $setting["acewraplimit"] . ',' . $setting["acewraplimit"]; ?>);
     htmlefACE2.setOptions({
       // session options
-      mode: "ace/mode/<?php echo $acemode2;?>",
+      mode: "ace/mode/javascript",
       tabSize: <?php echo $setting["acetabSize"]; ?>,
       useSoftTabs: true,
       highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
       // renderer options
       showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
-      showGutter: <?php echo $setting["acegutter"]; ?>,
+      showGutter: <?php echo $setting["acegutter"]; ?>
     });
     // This is to remove following warning message on console:
     // Automatically scrolling cursor into view after selection change this will be disabled in the next version
@@ -39,7 +39,7 @@
       highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
       // renderer options
       showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
-      showGutter: <?php echo $setting["acegutter"]; ?>,
+      showGutter: <?php echo $setting["acegutter"]; ?>
     });
     // This is to remove following warning message on console:
     // Automatically scrolling cursor into view after selection change this will be disabled in the next version

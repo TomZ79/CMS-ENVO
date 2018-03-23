@@ -4,10 +4,10 @@
 // CZ: Nastavení složky šablony
 $templatedir = '/template/' . $row['value'];
 
-// EN: Set php file
+// EN: Set js file
 // CZ: Nastavení php souboru
-$phpdir     = '..' . $templatedir . '/js/';
-$phpfile    = $phpdir . 'porto-revolutionSlider.php';
+$jsdir     = '..' . $templatedir . '/js/';
+$jsfile    = $jsdir . 'porto-revolutionSlider.js';
 
 // EN: Set language file
 // CZ: Nastavení jazykového souboru
@@ -121,13 +121,13 @@ if (file_exists ($langfile)) {
   fclose ($openfile);
 }
 
-// Open php file
-if (file_exists ($phpfile)) {
-  $openfile1        = fopen ($phpfile, 'r');
-  $filecontent1     = @fread ($openfile1, filesize ($phpfile));
+// Open js file
+if (file_exists ($jsfile)) {
+  $openfile1        = fopen ($jsfile, 'r');
+  $filecontent1     = @fread ($openfile1, filesize ($jsfile));
   $displaycontent1  = preg_replace ('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent1);
   $ENVO_FILECONTENT1 = $displaycontent1;
-  $ENVO_FILEURL1     = $phpfile;
+  $ENVO_FILEURL1     = $jsfile;
 
   fclose ($openfile1);
 }

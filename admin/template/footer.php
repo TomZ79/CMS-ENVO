@@ -119,9 +119,9 @@ if ($site_language = 'cs') {
 <!-- BEGIN JS FUNCTION -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('/assets/js/functions.min.js?=' . $setting["updatetime"]);
+echo $Html->addScript('assets/js/global_js/functions.min.js?=' . $setting["updatetime"]);
 // Setting variable for Jquery external script files
-echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
+echo $Html->addScript('assets/js/global_js/generated_admin_js.php', array('type' => 'text/javascript'));
 ?>
 
 <!-- BEGIN CORE TEMPLATE JS -->

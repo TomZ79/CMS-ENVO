@@ -247,36 +247,21 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 <!-- Theme Base, Components and Settings -->
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/theme.min.js"></script>
 
-<!-- Theme Custom -->
+<!-- Theme Function -->
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/porto.custom.min.js"></script>
+<script src="/assets/js/generated_js.php"></script>
 
 <!-- Theme Initialization Files -->
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/theme.init.min.js"></script>
 
-<!-- Definition JS value -->
-<script>
-  envoWeb.envo_lang = '<?php echo $site_language;?>';
-  envoWeb.envo_jslang = '<?php echo $jslangdata_output;?>';
-  envoWeb.envo_url = '<?php echo BASE_URL;?>';
-  envoWeb.envo_url_orig = '<?php echo BASE_URL;?>';
-  envoWeb.envo_search_link = '<?php echo $ENVO_SEARCH_LINK;?>';
-  envoWeb.request_uri = '<?php echo ENVO_PARSE_REQUEST;?>';
-  envoWeb.envo_quickedit = '<?php echo $tl["global_text"]["gtxt6"];?>'
-</script>
-
 <!-- Revolutin Slider 5.0 Initialization -->
-<?php
-include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/porto-revolutionSlider.php'
-?>
+<script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/porto-revolutionSlider.js"></script>
 
 <?php
 // Hook footer code
 if (isset($ENVO_HOOK_FOOTER_END) && is_array($ENVO_HOOK_FOOTER_END)) foreach ($ENVO_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];
 }
-
-// Analytics code
-if (isset($setting["analytics"])) echo $setting["analytics"];
 
 // Javascript for page - FOOTER
 if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
@@ -327,48 +312,53 @@ if ($SHOWSOCIALBUTTON) {
 <?php } ?>
 
 <!-- Notification -->
-<script>
-  // Load script after page loading
-  $(window).on("load", function () {
-    <?php if (isset($_SESSION["infomsg"])) { ?>
-    $.notify({icon: 'icon-info', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
-    <?php }
-    if (isset($_SESSION["successmsg"])) { ?>
-    $.notify({icon: 'icon-check', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
-    <?php }
-    if (isset($_SESSION["errormsg"])) { ?>
-    $.notify({icon: 'icon-attention', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
-    <?php }
-    if (isset($_SESSION["warningmsg"])) { ?>
-    $.notify({icon: '', message: '<?php echo $_SESSION["warningmsg"];?>'}, {type: 'warning'});
-    <?php }
-    if ($errorpp) { ?>
-    $.notify({icon: 'icon-attention', message: '<?php echo $errorpp["e"];?>'}, {type: 'danger'});
-    <?php }
-    if ($PAGE_PASSWORD && ENVO_ASACCESS) { ?>
-    $.notify({icon: 'icon-info', message: '<?php echo $tl["notification"]["n5"];?>'}, {type: 'info', delay: 0});
-    <?php }
-    if ($setting["offline"] == 1 && ENVO_ASACCESS) { ?>
-    $.notify({
-      // Options
-      icon: 'icon-flash',
-      message: '<?php echo $tl["notification"]["n1"];?>'
-    }, {
-      // Settings
-      type: 'offline',
-      timer: 0,
-      template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-      '<span data-notify="icon"></span> ' +
-      '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
-      '<span data-notify="message">{2}</span>' +
-      '</div>' +
-      '</div>'
-    });
+<?php if (isset($_SESSION)) { ?>
 
-    <?php } ?>
-  });
-</script>
+  <script>
+    // Load script after page loading
+    $(window).on("load", function () {
+      <?php if (isset($_SESSION["infomsg"])) { ?>
+      $.notify({icon: 'icon-info', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
+      <?php }
+      if (isset($_SESSION["successmsg"])) { ?>
+      $.notify({icon: 'icon-check', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
+      <?php }
+      if (isset($_SESSION["errormsg"])) { ?>
+      $.notify({icon: 'icon-attention', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
+      <?php }
+      if (isset($_SESSION["warningmsg"])) { ?>
+      $.notify({icon: '', message: '<?php echo $_SESSION["warningmsg"];?>'}, {type: 'warning'});
+      <?php }
+      if ($errorpp) { ?>
+      $.notify({icon: 'icon-attention', message: '<?php echo $errorpp["e"];?>'}, {type: 'danger'});
+      <?php }
+      if ($PAGE_PASSWORD && ENVO_ASACCESS) { ?>
+      $.notify({icon: 'icon-info', message: '<?php echo $tl["notification"]["n5"];?>'}, {type: 'info', delay: 0});
+      <?php }
+      if ($setting["offline"] == 1 && ENVO_ASACCESS) { ?>
+      $.notify({
+        // Options
+        icon: 'icon-flash',
+        message: '<?php echo $tl["notification"]["n1"];?>'
+      }, {
+        // Settings
+        type: 'offline',
+        timer: 0,
+        template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+        '<span data-notify="icon"></span> ' +
+        '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+        '<span data-notify="message">{2}</span>' +
+        '</div>' +
+        '</div>'
+      });
+
+      <?php } ?>
+    });
+  </script>
+
+<?php } ?>
+
 
 <!-- Porto Print script -->
 <?php if ($setting["printme"]) { ?>

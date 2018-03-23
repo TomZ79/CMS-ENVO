@@ -212,7 +212,7 @@
                             if (ENVO_ASACCESS) {
 
                               echo '<div class="rTableRow">';
-                              echo '<div class="rTableCell col-md-12 text-right" style="height: auto;"><a href="' . BASE_URL . 'admin/index.php?p=tv-tower&sp=tvprogram&ssp=editprogram&id=' . $foundProgram["id"] . '" title="' . $tl["button"]["btn1"] . '" class="btn btn-info btn-sm envotooltip"><span class="visible-xs"><i class="fa fa-edit"></i></span><span class="hidden-xs">' . $tl["button"]["btn1"] . '</span></a></div>';
+                              echo '<div class="rTableCell col-md-12 text-right" style="height: auto;"><a href="' . BASE_URL . 'admin/index.php?p=tv-tower&sp=tvprogram&ssp=editprogram&id=' . $foundProgram["id"] . '" title="' . $tl["button"]["btn1"] . '" class="btn btn-info btn-sm"><span class="visible-xs"><i class="fa fa-edit"></i></span><span class="hidden-xs">' . $tl["button"]["btn1"] . '</span></a></div>';
                               echo '</div>';
                             }
 

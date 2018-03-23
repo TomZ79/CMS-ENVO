@@ -298,10 +298,33 @@
     envo_search_link: "",
     envo_template: "",
     envo_quickedit: "",
-    envo_acp_nav: false,
-    envo_jslang: ""
+    envo_jslang: "",
+    envo_forgotlogin: ""
   }
 })();
+
+/*
+ |--------------------------------------------------------------------------
+ | NECESSARY CODE !!! - Quick edit
+ |--------------------------------------------------------------------------
+ */
+
+$(function () {
+
+  $('.quickedit').on('click', function (e) {
+    e.preventDefault();
+    frameSrc = $(this).attr("href");
+    $('#ENVOModalLabel').html(envoWeb.envo_quickedit);
+    $('#ENVOModal').on('show.bs.modal', function () {
+      $('<iframe src="' + frameSrc + '" width="100%" height="450" frameborder="0">').appendTo('.modal-body');
+    });
+    $('#ENVOModal').on('hidden.bs.modal', function () {
+      window.location.reload();
+    });
+    $('#ENVOModal').modal({show: true});
+  });
+
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -355,7 +378,6 @@ $(function () {
  |--------------------------------------------------------------------------
  */
 
-// Ajax Search
 (function ($) {
 
   $.fn.ajaxSearch = function (settings) {

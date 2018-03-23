@@ -38,9 +38,9 @@ if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC"
               <div class="pull-right">
                 <?php if (ENVO_ASACCESS) { ?>
 
-                  <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-xs envotooltip"><i class="fa fa-pencil"></i></a>
+                  <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
 
-                  <a class="btn btn-default btn-xs envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-default btn-xs quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
                 <?php } ?>
 

@@ -43,9 +43,9 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
           <a href="<?php echo $bl["parseurl"]; ?>" class="btn btn-color btn-sm"><?php echo $tl["general"]["g3"]; ?></a>
           <?php if (ENVO_ASACCESS) { ?>
 
-            <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm envotooltip"><i class="fa fa-pencil"></i></a>
+            <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i></a>
 
-            <a class="btn btn-default btn-sm envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-default btn-sm quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
           <?php } ?>
         </div>

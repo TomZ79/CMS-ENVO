@@ -144,6 +144,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Head Libs -->
   <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/modernizr/modernizr.min.js"></script>
 
+  <?php
+  // Analytics code
+  if (isset($setting["analytics"])) echo $setting["analytics"];
+  ?>
+
 </head>
 <body class="loading-overlay-showing" data-loading-overlay>
 <div class="loading-overlay">
