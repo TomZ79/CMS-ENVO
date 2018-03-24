@@ -4,7 +4,7 @@
 // EN: The data was successfully stored in DB
 // CZ: Data byla úspěšně uložena do DB
 if ($page2 == "s") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -23,7 +23,7 @@ if ($page2 == "s") { ?>
 // EN: An error occurred while saving to DB
 // CZ: Při ukládání do DB došlo k chybě
 if ($page2 == "e") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

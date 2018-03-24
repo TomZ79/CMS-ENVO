@@ -18,7 +18,7 @@ if ($setting["md_email"] == 1) array_push ($stack, $email);
 ?>
 
 <script src="/assets/plugins/jquery-sollist/jquery.sollist.min.js"></script>
-<script type="text/javascript">
+<script>
 	$(function () {
 		$("#sollist-sharing").sollist({
 			pixelsBetweenItems: <?php echo $setting["md_mediaSize"] ?>,

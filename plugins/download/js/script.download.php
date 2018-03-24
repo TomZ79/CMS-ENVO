@@ -1,6 +1,6 @@
 <?php if ($FT_SHARE && $ENVO_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, with Facebook SDK Connection ?>
 
-<script type="text/javascript">
+<script>
   function shareOnFB() {
     FB.ui({
       method: 'feed',
@@ -20,8 +20,8 @@
 
 <?php } elseif ($FT_SHARE && !$ENVO_FACEBOOK_SDK_CONNECTION) { ?>
 
-<script type="text/javascript" src="<?php echo BASE_URL; ?>plugins/download/js/jquery.tweetfaceAction.js"></script>
-<script type="text/javascript">
+<script src="<?php echo BASE_URL; ?>plugins/download/js/jquery.tweetfaceAction.js"></script>
+<script>
   $(document).ready(function () {
 
     // TWITTER SHARING
@@ -79,7 +79,7 @@
 
 <?php } else { ?>
 
-<script type="text/javascript">
+<script>
   $(document).ready(function () {
     /* This code is executed after the DOM has been completely loaded */
     $('.dclick').click( function(e) {
@@ -94,7 +94,7 @@
 
 <?php } ?>
 
-<script type="text/javascript">
+<script>
   /*! bootstrap3-showmanyslideonecarousel - v1.0.0 - 2015-03-27
    * Copyright (c) 2015 Matthew Harris, rtpHarry <matthew@rtpdesign.co.uk>; Licensed MIT
    * https://github.com/rtpHarry/Bootstrap3-ShowManySlideOneCarousel */

@@ -1,7 +1,7 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if (isset($succes1)) { ?>
-  <script type="text/javascript">
+  <script>
     setTimeout(function () {
       $.notify({
         // options
@@ -15,7 +15,7 @@
   </script>
 <?php }
 if (isset($error1)) { ?>
-  <script type="text/javascript">
+  <script>
     setTimeout(function () {
       $.notify({
         // options
@@ -29,7 +29,7 @@ if (isset($error1)) { ?>
   </script>
 <?php }
 if (isset($error2)) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

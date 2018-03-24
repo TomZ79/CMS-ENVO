@@ -100,7 +100,7 @@ if (isset($ENVO_SEARCH_USED)) { ?>
   </div>
 <?php } ?>
 
-  <script type="text/javascript">
+  <script>
     $(document).ready(function () {
 
       $('#searchi').alphanumeric({nocaps: false, allow: ' -+*'});

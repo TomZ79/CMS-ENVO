@@ -36,9 +36,9 @@
   <?php } ?>
 
   <script src="<?php echo BASE_URL; ?>plugins/newsletter/js/nlform.js?=<?php echo $setting["updatetime"]; ?>"
-    type="text/javascript"></script>
+   ></script>
 
-  <script type="text/javascript">
+  <script>
 
     envoWeb.envo_submit = "<?php echo $tl["general"]["g10"];?>";
     envoWeb.envo_submitwait = "<?php echo $tl['general']['g99'];?>";

@@ -4,7 +4,7 @@
 // EN: Checking of some page was unsuccessful
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page3 == "ene") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

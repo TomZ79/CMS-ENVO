@@ -462,7 +462,7 @@ if ($SHOWSOCIALBUTTON) {
 
 <!-- Login Page -->
 <?php if ($page == 'login') { ?>
-  <script type="text/javascript">
+  <script>
     $(document).ready(function () {
 
       $(".forgotP").hide();

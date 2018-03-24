@@ -31,8 +31,8 @@
 		<button type="submit" class="btn btn-color btn-block envo-submit"><?php echo $tl["contact"]["s"]; ?></button>
 
 	</form>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/contact.js"></script>
-	<script type="text/javascript">
+	<script src="<?php echo BASE_URL; ?>assets/js/contact.js"></script>
+	<script>
 
 		<?php if ($setting["hvm"]) { ?>
 		jQuery(document).ready(function () {

@@ -66,7 +66,7 @@
         <a class="lost-pwd" href="#"><?php echo $tl["title"]["t16"]; ?></a>
       </div>
 
-      <script type="text/javascript">
+      <script>
 
         $(document).ready(function () {
 

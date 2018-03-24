@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
   $(document).ready(function () {
     $("a[href^='http']:not([href^='<?php echo BASE_URL;?>'])")
       .attr({

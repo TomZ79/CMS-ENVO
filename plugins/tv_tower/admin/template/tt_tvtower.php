@@ -4,7 +4,7 @@
 // EN: Checking of some page was successful
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -23,7 +23,7 @@ if ($page2 == "s") { ?>
 // EN: Remove records from DB was successful
 // CZ: Odstranění záznamu z DB bylo úspěšné
 if ($page3 == "s1" || $page3 == "s2") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -44,7 +44,7 @@ if ($page3 == "s1" || $page3 == "s2") { ?>
 // EN: Checking of some page was unsuccessful
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "ene") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -63,7 +63,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 // EN: Errors
 // CZ: Výpis chyb při zpracování
 if ($errors) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -84,7 +84,7 @@ if ($errors) { ?>
 // EN: Errors
 // CZ: Výpis chyb při zpracování
 if ($page2 == "n") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

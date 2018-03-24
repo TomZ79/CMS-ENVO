@@ -95,7 +95,7 @@
                     <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/classycountdown/js/jquery.classycountdown.min.js"></script>
 
                     <!-- Classy Countdown Script -->
-                    <script type="text/javascript">
+                    <script>
                       $(document).ready(function() {
                         $('#countdown17').ClassyCountdown({
                           theme: "flat-colors-very-wide",

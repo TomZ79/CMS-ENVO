@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 <?php if (isset($xml_result)) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

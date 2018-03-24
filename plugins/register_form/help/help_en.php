@@ -121,7 +121,7 @@
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
-<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="/assets/plugins/jquery/jquery-2.2.4.min.js"></script>
 <script src="/admin/assets/doc/js/doc.js"></script>
 
 <script>

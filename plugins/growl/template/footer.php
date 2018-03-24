@@ -1,6 +1,6 @@
 <?php if ($ENVO_GROWL_SHOW) { ?>
-  <script src="<?php echo BASE_URL; ?>plugins/growl/asstes/js/gritter.js" type="text/javascript"></script>
-  <script type="text/javascript">
+  <script src="<?php echo BASE_URL; ?>plugins/growl/asstes/js/gritter.js"></script>
+  <script>
 
     $(document).ready(function () {
       $('head').append('<link rel="stylesheet" href="<?php echo BASE_URL;?>plugins/growl/assets/css/style.css?=<?php echo $setting["updatetime"];?>" type="text/css" />');
@@ -12,7 +12,7 @@
   if (is_array($ENVO_ALL_GROWL)) foreach ($ENVO_ALL_GROWL as $suball) {
     if (($suball['startdate'] == 0 || $suball['startdate'] <= time()) && ($suball['enddate'] == 0 || $suball['enddate'] >= time()) && (envo_get_access(ENVO_USERGROUPID, $suball['permission']) || $suball['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($suball['remember']) { ?>
           if (!getCookie('growl_<?php echo $suball['id'];?>')) {
@@ -65,7 +65,7 @@
   if (!$page1 && is_array($ENVO_PAGE_GROWL) && array_key_exists($PAGE_ID, $ENVO_PAGE_GROWL)) foreach ($ENVO_PAGE_GROWL as $subp) {
     if (($subp['startdate'] == 0 || $subp['startdate'] <= time()) && ($subp['enddate'] == 0 || $subp['enddate'] >= time()) && $subp['pageid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($subp['remember']) { ?>
           if (!getCookie('growl_<?php echo $subp['id'];?>')) {
@@ -113,7 +113,7 @@
   if ($backtonews && is_array($ENVO_NEWS_GROWL) && array_key_exists($PAGE_ID, $ENVO_NEWS_GROWL)) foreach ($ENVO_NEWS_GROWL as $subn) {
     if (($subn['startdate'] == 0 || $subn['startdate'] <= time()) && ($subn['enddate'] == 0 || $subn['enddate'] >= time()) && $subn['newsid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($subn['remember']) { ?>
           if (!getCookie('growl_<?php echo $subn['id'];?>')) {
@@ -161,7 +161,7 @@
   if ($backtonews && !$page1 && is_array($ENVO_NEWSMAIN_GROWL)) foreach ($ENVO_NEWSMAIN_GROWL as $submn) {
     if (($submn['startdate'] == 0 || $submn['startdate'] <= time()) && ($submn['enddate'] == 0 || $submn['enddate'] >= time()) && $submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($submn['remember']) { ?>
           if (!getCookie('growl_<?php echo $submn['id'];?>')) {
@@ -209,7 +209,7 @@
   if ($page == ENVO_PLUGIN_VAR_TAGS && is_array($ENVO_TAGS_GROWL) && ENVO_USER_TAGS) foreach ($ENVO_TAGS_GROWL as $subt) {
     if (($subt['startdate'] == 0 || $subt['startdate'] <= time()) && ($subt['enddate'] == 0 || $subt['enddate'] >= time()) && $subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($subt['remember']) { ?>
           if (!getCookie('growl_<?php echo $subt['id'];?>')) {
@@ -257,7 +257,7 @@
   if ($page == $tl['link']['l2'] && is_array($ENVO_SEARCH_GROWL)) foreach ($ENVO_SEARCH_GROWL as $subs) {
     if (($subs['startdate'] == 0 || $subs['startdate'] <= time()) && ($subs['enddate'] == 0 || $subs['enddate'] >= time()) && $subs['search'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($subs['remember']) { ?>
           if (!getCookie('growl_<?php echo $subs['id'];?>')) {
@@ -305,7 +305,7 @@
   if ($page == ENVO_PLUGIN_VAR_SITEMAP && is_array($ENVO_SITEMAP_GROWL)) foreach ($ENVO_SITEMAP_GROWL as $subsit) {
     if (($subsit['startdate'] == 0 || $subsit['startdate'] <= time()) && ($subsit['enddate'] == 0 || $subsit['enddate'] >= time()) && $subsit['sitemap'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) { ?>
 
-      <script type="text/javascript">
+      <script>
         $(document).ready(function () {
           <?php if ($subsit['remember']) { ?>
           if (!getCookie('growl_<?php echo $subsit['id'];?>')) {

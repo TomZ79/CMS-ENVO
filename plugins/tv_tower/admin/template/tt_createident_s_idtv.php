@@ -4,7 +4,7 @@
 // EN: An error occurred while saving to DB
 // CZ: Při ukládání do DB došlo k chybě
 if ($page4 == "e") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -23,7 +23,7 @@ if ($page4 == "e") { ?>
 // EN: Checking the saved elements in the page was not successful
 // CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

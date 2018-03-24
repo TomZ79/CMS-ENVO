@@ -4,7 +4,7 @@
 // EN: Checking of some page was successful
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page3 == "s") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -23,7 +23,7 @@ if ($page3 == "s") { ?>
 // EN: Errors
 // CZ: Výpis chyb při zpracování
 if ($errors) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

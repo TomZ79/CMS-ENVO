@@ -4,7 +4,7 @@
 // EN: Checking of some page was successful
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page1 == "s") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -23,7 +23,7 @@ if ($page1 == "s") { ?>
 // EN: Checking of some page was unsuccessful
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page1 == "e" || $page1 == "ene") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
