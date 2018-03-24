@@ -3,13 +3,20 @@ echo $Html->addDoctype('html5');
 ?>
 <html lang="<?php echo $site_language; ?>">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <meta charset="utf-8"/>
 
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('../assets/plugins/bootstrapv3/css/bootstrap.min.css', 'screen');
-  echo $Html->addStylesheet('assets/css/style.css', 'screen');
+  // Bootstrap
+  echo $Html->addStylesheet('../assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6', 'screen');
+  ?>
+
+  <!-- BEGIN General Stylesheet with custom modifications -->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('assets/css/style.min.css');
   ?>
 
   <!-- CUSTOM CSS -->
@@ -20,20 +27,10 @@ echo $Html->addDoctype('html5');
     }
   </style>
 
-  <!-- BEGIN VENDOR JS -->
-  <?php
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('assets/plugins/jquery/jquery-1.11.1.min.js');
-  ?>
-
   <!-- Import all hooks for in between head -->
   <?php if (isset($ENVO_HOOK_HEAD_ADMIN) && is_array($ENVO_HOOK_HEAD_ADMIN)) foreach ($ENVO_HOOK_HEAD_ADMIN as $headt) {
     include_once APP_PATH . $headt['phpcode'];
   } ?>
-
-  <!--[if lt IE 9]>
-  <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
 
 </head>
 <body>

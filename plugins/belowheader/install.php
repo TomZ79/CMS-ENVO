@@ -288,7 +288,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
   </div>
 </div>
 
-<script type="text/javascript">
+<script>
   (function ($) {
     'use strict';
     $('#portlet-advance').portlet({

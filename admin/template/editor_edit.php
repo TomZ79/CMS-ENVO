@@ -129,7 +129,7 @@
 
   </div>
 </div>
-<script type="text/javascript">
+<script>
   var clicked = false;
   var resizeFirstEditor = function (resizeEditor) {
     var MeContainer = document.getElementById('cover');

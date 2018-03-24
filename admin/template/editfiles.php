@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 <?php if ($ENVO_FILE_SUCCESS) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -16,7 +16,7 @@
   </script>
 <?php }
 if ($ENVO_FILE_ERROR) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

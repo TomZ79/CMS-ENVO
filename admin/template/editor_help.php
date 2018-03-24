@@ -30,8 +30,8 @@
     }
   </style>
   <!-- BEGIN VENDOR JS -->
-  <script src="/assets/plugins/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-  <script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/assets/plugins/jquery/jquery-2.1.1.min.js"></script>
+  <script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js"></script>
   <!-- Code-prettify -->
   <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
   <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>

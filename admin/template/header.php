@@ -71,7 +71,7 @@ echo $Html->addDoctype('html5');
   <!--[if lte IE 9]>
   <link href="pages/css/ie9.css" rel="stylesheet" type="text/css"/>
   <![endif]-->
-  <script type="text/javascript">
+  <script>
     window.onload = function () {
       // fix for windows 8
       if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)

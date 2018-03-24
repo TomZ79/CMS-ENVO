@@ -3,25 +3,42 @@
 </div>
 </div>
 
-<script type="text/javascript">
-  envoWeb.envo_url_orig = "<?php echo BASE_URL_ORIG;?>";
-  envoWeb.envo_url = "<?php echo BASE_URL_ADMIN;?>";
-  envoWeb.envo_path = "<?php echo BASE_PATH_ORIG;?>";
-  envoWeb.envo_lang = "<?php echo $site_language;?>";
-  envoWeb.envo_template = "<?php echo ENVO_TEMPLATE;?>";
+<!-- BEGIN VENDOR JS -->
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+?>
 
-  <?php if (isset($_SESSION["infomsg"])) { ?>
-  $.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
-  <?php } if (isset($_SESSION["successmsg"])) { ?>
-  $.notify({icon: 'fa fa-check-square-o', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
-  <?php } if (isset($_SESSION["errormsg"])) { ?>
-  $.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
-  <?php } ?>
-</script>
+<!-- BEGIN JS FUNCTION -->
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('assets/js/global_js/functions.min.js?=' . $setting["updatetime"]);
+// Setting variable for Jquery external script files
+echo $Html->addScript('assets/js/global_js/generated_admin_js.php', array('type' => 'text/javascript'));
+?>
+
+<!-- BEGIN NOTIFY CONFIG JS -->
+<?php if (isset($_SESSION)) { ?>
+
+  <script>
+    // Load script after page loading
+    $(window).on("load", function () {
+      <?php if (isset($_SESSION["infomsg"])) { ?>
+      $.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
+      <?php } if (isset($_SESSION["successmsg"])) { ?>
+      $.notify({icon: 'fa fa-check-square-o', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
+      <?php } if (isset($_SESSION["errormsg"])) { ?>
+      $.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
+      <?php } ?>
+    });
+  </script>
+
+<?php } ?>
 
 <?php if ($setting["adv_editor"]) { ?>
-  <script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
-  <script type="text/javascript">
+
+  <script src="assets/plugins/ace/ace.js"></script>
+  <script>
 
     /* ACE Editor
      ========================================= */
@@ -61,9 +78,10 @@
       $("#envo_editor_light").val(htmlelACE.getValue());
     });
   </script>
+
 <?php }
 if (!$setting["adv_editor"]) { ?>
-  <script type="text/javascript" src="../assets/plugins/tinymce/tinymce.min.js"></script>
+  <script src="../assets/plugins/tinymce/tinymce.min.js"></script>
   <?php include_once('assets/js/tiny.editor.php');
 } ?>
 

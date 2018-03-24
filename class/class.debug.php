@@ -61,7 +61,7 @@ class PHPDebug
     if (!defined("ERROR")) define("ERROR", 4);
 
     define("NL", "\r\n");
-    echo '<script type="text/javascript">' . NL;
+    echo '<script>' . NL;
 
     /// this is for IE and other browsers w/o console
     echo 'if (!window.console) console = {};' . NL;
@@ -76,7 +76,7 @@ class PHPDebug
 
   function debug($name, $var = NULL, $type = LOG)
   {
-    echo '<script type="text/javascript">' . NL;
+    echo '<script>' . NL;
     switch ($type) {
       case LOG:
         echo 'console.log("' . $name . '");' . NL;

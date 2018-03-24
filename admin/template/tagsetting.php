@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 <?php if ($page2 == "s") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -16,7 +16,7 @@
   </script>
 <?php }
 if ($page2 == "e") { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -31,7 +31,7 @@ if ($page2 == "e") { ?>
   </script>
 <?php }
 if ($errors) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({

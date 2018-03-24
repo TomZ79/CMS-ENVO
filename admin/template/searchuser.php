@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 <?php if ($errors) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
