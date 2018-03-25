@@ -9,7 +9,7 @@
     <?php
     echo $setting["title"];
     if ($setting["title"]) {
-      echo "&raquo;";
+      echo " &raquo; ";
     }
     echo $PAGE_TITLE;
     ?>

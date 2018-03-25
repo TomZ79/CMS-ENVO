@@ -16,7 +16,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
     <?php
     echo $setting["title"];
     if ($setting["title"]) {
-      echo "&raquo;";
+      echo " &raquo; ";
     }
     echo $PAGE_TITLE;
     ?>

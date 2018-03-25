@@ -26,7 +26,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <?php
     echo $setting["title"];
     if ($setting["title"]) {
-      echo "&raquo;";
+      echo " &raquo; ";
     }
     echo $PAGE_TITLE;
     ?>
