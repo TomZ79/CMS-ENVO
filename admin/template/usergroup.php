@@ -70,7 +70,7 @@
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table id="usergroups_table" class="table table-striped table-hover">
             <thead>
             <tr>
               <th>#</th>
