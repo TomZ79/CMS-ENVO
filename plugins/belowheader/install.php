@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlbh["bh_install"]["bhinst"]; ?></title>
+  <title><?=$tlbh["bh_install"]["bhinst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tlbh["bh_install"]["bhinst"]; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tlbh["bh_install"]["bhinst"]?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?php echo $tlbh["bh_install"]["bhinst1"]; ?></h4>
+        <h4 class="semi-bold"><?=$tlbh["bh_install"]["bhinst1"]?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?php echo $tlbh["bh_install"]["bhinst2"]; ?></div>
+            <div class="card-title"><?=$tlbh["bh_install"]["bhinst2"]?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -159,7 +159,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
             // Apply the plugin to the body
             $('#notificationcontainer').pgNotification({
               style: 'bar',
-              message: '<?php echo $tlbh["bh_install"]["bhinst2"]; ?>',
+              message: '<?=$tlbh["bh_install"]["bhinst2"]?>',
               position: 'top',
               timeout: 0,
               type: 'warning'
@@ -253,7 +253,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
             // Apply the plugin to the body
             $('#notificationcontainer').pgNotification({
               style: 'bar',
-              message: '<?php echo $tlbh["bh_install"]["bhinst4"]; ?>',
+              message: '<?=$tlbh["bh_install"]["bhinst4"]?>',
               position: 'top',
               timeout: 0,
               type: 'success'
@@ -270,16 +270,20 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
       $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
 
       ?>
-        <div class="alert bg-danger"><?php echo $tlbh["bh_install"]["bhinst5"]; ?></div>
+        <div class="alert bg-danger"><?=$tlbh["bh_install"]["bhinst5"]?></div>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tlbh["bh_install"]["bhinst6"]; ?></button>
+          <button type="submit" name="redirect" class="btn btn-danger btn-block">
+            <?=$tlbh["bh_install"]["bhinst6"]?>
+          </button>
         </form>
       <?php }
       } ?>
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tlbh["bh_install"]["bhinst7"]; ?></button>
+          <button type="submit" name="install" class="btn btn-primary btn-block">
+            <?=$tlbh["bh_install"]["bhinst7"]?>
+          </button>
         </form>
       <?php }
       } ?>

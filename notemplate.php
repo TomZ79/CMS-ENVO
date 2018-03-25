@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $tl["notetemplate"]["ntpl"]; ?></title>
+  <title><?=$tl["notetemplate"]["ntpl"]?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -43,12 +43,12 @@
 <section class="content">
   <div class="col-sm-8 text-center vertical-center error-page">
     <div class="col-sm-12">
-      <h3 class="headline text-warning-800 bold"><?php echo $tl["notetemplate"]["ntpl1"]; ?></h3>
+      <h3 class="headline text-warning-800 bold"><?=$tl["notetemplate"]["ntpl1"]?></h3>
       <div class="error-content">
         <h3>
-          <i class="fa fa-warning text-warning-800"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?>
+          <i class="fa fa-warning text-warning-800"></i> <?=$tl["notetemplate"]["ntpl2"]?>
         </h3>
-        <p><?php echo $tl["notetemplate"]["ntpl3"]; ?></p>
+        <p><?=$tl["notetemplate"]["ntpl3"]?></p>
       </div>
     </div>
   </div>

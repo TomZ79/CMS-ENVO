@@ -5,7 +5,7 @@ if ($page == 'blank-plugin') {
   $classbpiconbg  = 'bg-success';
 }
 ?>
-<li class="<?php echo $classbpsection; ?>">
+<li class="<?=$classbpsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -16,7 +16,7 @@ if ($page == 'blank-plugin') {
 
   <ul class="sub-menu">
 
-    <li class="<?php echo ($page == 'blank-plugin' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'blank-plugin' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

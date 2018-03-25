@@ -8,7 +8,7 @@ if ($page2 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -37,7 +37,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -54,17 +54,17 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tlbh["bh_section_tab"]["bhtab"]; ?></span>
+          <span class="text"><?=$tlbh["bh_section_tab"]["bhtab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tlbh["bh_section_tab"]["bhtab1"]; ?></span>
+          <span class="text"><?=$tlbh["bh_section_tab"]["bhtab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tlbh["bh_section_tab"]["bhtab2"]; ?></span>
+          <span class="text"><?=$tlbh["bh_section_tab"]["bhtab2"]?></span>
         </a>
       </li>
     </ul>

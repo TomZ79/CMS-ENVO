@@ -1,7 +1,7 @@
 <!-- START BELOWHEADER SECTION -->
 <li class="list-divider"></li>
 
-<li class="<?php echo ($page == 'belowheader') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'belowheader') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -11,7 +11,7 @@
   ?>
 
 </li>
-<li class="<?php echo ($page == 'belowheader' && $page1 == 'newbh') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'belowheader' && $page1 == 'newbh') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -22,7 +22,7 @@
 
 </li>
 <?php if ($page == 'belowheader' && $page1 == 'edit') { ?>
-  <li class="<?php echo ($page == 'belowheader' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+  <li class="<?=($page == 'belowheader' && $page1 == 'edit') ? 'submenu-active' : ''?>">
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

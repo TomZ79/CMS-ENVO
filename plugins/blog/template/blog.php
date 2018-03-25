@@ -37,13 +37,13 @@
             <div class="post-content">
 						<span class="font-size-sm">
 							<?php if ($v["showdate"]) { ?>
-                <i class="fa fa-calendar"></i> <?php echo $v["created"]; ?>
+                <i class="fa fa-calendar"></i> <?=$v["created"]?>
               <?php } ?>
 						</span>
               <!-- Post Content -->
-              <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 100, ""); ?></a></h3>
-              <p><?php echo envo_cut_text($v['content'], $setting["blogshortmsg"], '....') ?></p>
-              <p class="pull-right"><a href="<?php echo $v["parseurl"]; ?>"><?php echo $tlblog["blog_frontend"]["blog5"]; ?></a></p>
+              <h3><a href="<?=$v["parseurl"]?>"><?=envo_cut_text($v["title"], 100, "")?></a></h3>
+              <p><?=envo_cut_text($v['content'], $setting["blogshortmsg"], '....')?></p>
+              <p class="pull-right"><a href="<?=$v["parseurl"]?>"><?=$tlblog["blog_frontend"]["blog5"]?></a></p>
             </div>
           </div>
         </div>
@@ -55,14 +55,14 @@
             <?php if (ENVO_ASACCESS) { ?>
 
             <span class="pull-right hidden-xs">
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm">
+              <a href="<?=BASE_URL?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn1"]?>" class="btn btn-info btn-sm">
                 <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
+                <span class="hidden-xs"><?=$tl["button"]["btn1"]?></span>
               </a>
 
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>" class="btn btn-info btn-sm quickedit">
+              <a href="<?=BASE_URL?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn2"]?>" class="btn btn-info btn-sm quickedit">
                 <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
+                <span class="hidden-xs"><?=$tl["button"]["btn2"]?></span>
               </a>
             </span>
 

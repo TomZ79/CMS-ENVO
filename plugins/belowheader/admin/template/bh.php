@@ -8,7 +8,7 @@ if ($page1 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page2 == "s1") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -69,7 +69,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 <?php if (isset($ENVO_BELOWHEADER_ALL) && is_array($ENVO_BELOWHEADER_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -89,9 +89,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 </div>
               </th>
-              <th style="width:55%"><?php echo $tlbh["bh_box_table"]["bhtb"]; ?></th>
-              <th style="width:8%"><?php echo $tlbh["bh_box_table"]["bhtb1"]; ?></th>
-              <th style="width:12%"><?php echo $tlbh["bh_box_table"]["bhtb2"]; ?></th>
+              <th style="width:55%"><?=$tlbh["bh_box_table"]["bhtb"]?></th>
+              <th style="width:8%"><?=$tlbh["bh_box_table"]["bhtb1"]?></th>
+              <th style="width:12%"><?=$tlbh["bh_box_table"]["bhtb2"]?></th>
               <th class="text-center no-sort" style="width:4%">
 
                 <?php
@@ -114,7 +114,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
             </thead>
             <?php foreach ($ENVO_BELOWHEADER_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
@@ -135,7 +135,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
+                <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
                 <td>
 
                   <?php

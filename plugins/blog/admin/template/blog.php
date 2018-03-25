@@ -9,7 +9,7 @@ if ($page1 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -29,7 +29,7 @@ if ($page2 == "s1") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -71,7 +71,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 <?php if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <table id="blog_table" class="table table-striped table-hover span12">
@@ -90,11 +90,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
               </div>
             </th>
-            <th style="width:35%"><?php echo $tlblog["blog_box_table"]["blogtb"]; ?></th>
-            <th style="width:12%"><?php echo $tlblog["blog_box_table"]["blogtb1"]; ?></th>
-            <th style="width:8%"><?php echo $tlblog["blog_box_table"]["blogtb2"]; ?></th>
-            <th style="width:12%"><?php echo $tlblog["blog_box_table"]["blogtb3"]; ?></th>
-            <th style="width:12%"><?php echo $tlblog["blog_box_table"]["blogtb4"]; ?></th>
+            <th style="width:35%"><?=$tlblog["blog_box_table"]["blogtb"]?></th>
+            <th style="width:12%"><?=$tlblog["blog_box_table"]["blogtb1"]?></th>
+            <th style="width:8%"><?=$tlblog["blog_box_table"]["blogtb2"]?></th>
+            <th style="width:12%"><?=$tlblog["blog_box_table"]["blogtb3"]?></th>
+            <th style="width:12%"><?=$tlblog["blog_box_table"]["blogtb4"]?></th>
             <th class="text-center no-sort" style="width:4%">
 
               <?php
@@ -116,7 +116,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
           </thead>
           <?php foreach ($ENVO_BLOG_ALL as $v) { ?>
             <tr>
-              <td><?php echo $v["id"]; ?></td>
+              <td><?=$v["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
@@ -153,8 +153,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 ?>
 
               </td>
-              <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
-              <td><?php echo $v["hits"]; ?></td>
+              <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
+              <td><?=$v["hits"]?></td>
               <td>
 
                 <?php

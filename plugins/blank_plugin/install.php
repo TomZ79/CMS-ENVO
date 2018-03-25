@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlbp["bp_install"]["bpinst"]; ?></title>
+  <title><?=$tlbp["bp_install"]["bpinst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -105,17 +105,17 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
     <div class="col-sm-12">
       <div class="col-sm-12 m-t-20">
         <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-          <h3 class="semi-bold text-white"><?php echo $tlbp["bp_install"]["bpinst"]; ?></h3>
+          <h3 class="semi-bold text-white"><?=$tlbp["bp_install"]["bpinst"]?></h3>
         </div>
         <hr>
         <div id="notificationcontainer"></div>
         <div class="m-b-30">
 
-          <h4 class="semi-bold"><?php echo $tlbp["bp_install"]["bpinst1"]; ?></h4>
+          <h4 class="semi-bold"><?=$tlbp["bp_install"]["bpinst1"]?></h4>
 
           <div data-pages="card" class="card card-transparent" id="card-basic">
             <div class="card-header separator">
-              <div class="card-title"><?php echo $tlbp["bp_install"]["bpinst2"]; ?></div>
+              <div class="card-title"><?=$tlbp["bp_install"]["bpinst2"]?></div>
               <div class="card-controls">
                 <ul>
                   <li>
@@ -159,7 +159,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlbp["bp_install"]["bpinst3"]; ?>',
+                message: '<?=$tlbp["bp_install"]["bpinst3"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'warning'
@@ -250,7 +250,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlbp["bp_install"]["bpinst4"]; ?>',
+                message: '<?=$tlbp["bp_install"]["bpinst4"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'success'
@@ -268,16 +268,20 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         ?>
 
-          <div class="alert bg-danger"><?php echo $tlbp["bp_install"]["bpinst5"]; ?></div>
+          <div class="alert bg-danger"><?=$tlbp["bp_install"]["bpinst5"]?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-            <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tlbp["bp_install"]["bpinst6"]; ?></button>
+            <button type="submit" name="redirect" class="btn btn-danger btn-block">
+              <?=$tlbp["bp_install"]["bpinst6"]?>
+            </button>
           </form>
 
         <?php }
         }
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php">
-            <button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tlbp["bp_install"]["bpinst7"]; ?></button>
+            <button type="submit" name="install" class="btn btn-complete btn-block">
+              <?=$tlbp["bp_install"]["bpinst7"]?>
+            </button>
           </form>
         <?php }
         } ?>

@@ -115,7 +115,7 @@ if (DB_USER && DB_PASS) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><?php echo $tlinst["install"]["l"];?></title>
+  <title><?=$tlinst["install"]["l"]?></title>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="/assets/css/stylesheet.css" type="text/css" media="screen"/>
@@ -151,7 +151,7 @@ if (DB_USER && DB_PASS) {
   <div class="container">
     <div class="row justify-content-between">
       <div class="col-sm-12">
-        <h1 class="page-title"><?php echo $tlinst["install"]["l1"];?></h1>
+        <h1 class="page-title"><?=$tlinst["install"]["l1"]?></h1>
         <div class="separator-2"></div>
 
         <!--
@@ -165,58 +165,58 @@ if (DB_USER && DB_PASS) {
             <!-- BEGIN STEP INDICATOR-->
             <ul class="gsi-step-indicator triangle gsi-style-2 gsi-step-no-available">
               <li <?php if(!isset($_GET['step'])){ echo ' class="current"'; } ?>>
-                <?php echo (!isset($_GET['step']) ? '<span>' : '<a href="#">'); ?>
+                <?=(!isset($_GET['step']) ? '<span>' : '<a href="#">')?>
                 <span class="number">1</span>
                 <span class="desc">
-                    <label><?php echo $tlinst["install"]["step1"];?></label>
-                    <span><?php echo $tlinst["install"]["step1_1"];?></span>
+                    <label><?=$tlinst["install"]["step1"]?></label>
+                    <span><?=$tlinst["install"]["step1_1"]?></span>
                 </span>
-                <?php echo (!isset($_GET['step']) ? '</span>' : '</a>'); ?>
+                <?=(!isset($_GET['step']) ? '</span>' : '</a>')?>
               </li>
               <li id="step2" <?php if(isset($_GET['step']) && $_GET['step'] == 2) { echo ' class="current"'; } ?>>
-                <?php echo ($_GET['step'] == 2 ? '<span>' : '<a href="#">'); ?>
+                <?=($_GET['step'] == 2 ? '<span>' : '<a href="#">')?>
                 <span class="number">2</span>
                 <span class="desc">
-                    <label><?php echo $tlinst["install"]["step2"];?></label>
-                    <span><?php echo $tlinst["install"]["step2_1"];?></span>
+                    <label><?=$tlinst["install"]["step2"]?></label>
+                    <span><?=$tlinst["install"]["step2_1"]?></span>
                 </span>
-                <?php echo ($_GET['step'] == 2 ? '</span>' : '</a>'); ?>
+                <?=($_GET['step'] == 2 ? '</span>' : '</a>')?>
               </li>
               <li id="step3" <?php if(isset($_GET['step']) && $_GET['step'] == 3) { echo ' class="current"'; } ?>>
-                <?php echo ($_GET['step'] == 3 ? '<span>' : '<a href="#">'); ?>
+                <?=($_GET['step'] == 3 ? '<span>' : '<a href="#">')?>
                 <span class="number">3</span>
                 <span class="desc">
-                    <label><?php echo $tlinst["install"]["step3"];?></label>
-                    <span><?php echo $tlinst["install"]["step3_1"];?></span>
+                    <label><?=$tlinst["install"]["step3"]?></label>
+                    <span><?=$tlinst["install"]["step3_1"]?></span>
                 </span>
-                <?php echo ($_GET['step'] == 3 ? '</span>' : '</a>'); ?>
+                <?=($_GET['step'] == 3 ? '</span>' : '</a>')?>
               </li>
               <li id="step4" <?php if(isset($_GET['step']) && $_GET['step'] == 4) { echo ' class="current"'; } ?>>
-                <?php echo ($_GET['step'] == 4 ? '<span>' : '<a href="#">'); ?>
+                <?=($_GET['step'] == 4 ? '<span>' : '<a href="#">')?>
                 <span class="number">4</span>
                 <span class="desc">
-                    <label><?php echo $tlinst["install"]["step4"];?></label>
-                    <span><?php echo $tlinst["install"]["step4_1"];?></span>
+                    <label><?=$tlinst["install"]["step4"]?></label>
+                    <span><?=$tlinst["install"]["step4_1"]?></span>
                 </span>
-                <?php echo ($_GET['step'] == 4 ? '</span>' : '</a>'); ?>
+                <?=($_GET['step'] == 4 ? '</span>' : '</a>')?>
               </li>
               <li id="step5" <?php if(isset($_GET['step']) && $_GET['step'] == 5) { echo ' class="current"'; } ?>>
-                <?php echo ($_GET['step'] == 5 ? '<span>' : '<a href="#">'); ?>
+                <?=($_GET['step'] == 5 ? '<span>' : '<a href="#">')?>
                 <span class="number">5</span>
                 <span class="desc">
-                    <label><?php echo $tlinst["install"]["step5"];?></label>
-                    <span><?php echo $tlinst["install"]["step5_1"];?></span>
+                    <label><?=$tlinst["install"]["step5"]?></label>
+                    <span><?=$tlinst["install"]["step5_1"]?></span>
                 </span>
-                <?php echo ($_GET['step'] == 5 ? '</span>' : '</a>'); ?>
+                <?=($_GET['step'] == 5 ? '</span>' : '</a>')?>
               </li>
               <li id="step5" <?php if(isset($_GET['step']) && $_GET['step'] == 6) { echo ' class="current"'; } ?>>
-                <?php echo ($_GET['step'] == 6 ? '<span>' : '<a href="#">'); ?>
+                <?=($_GET['step'] == 6 ? '<span>' : '<a href="#">')?>
                 <span class="number">6</span>
                 <span class="desc">
-                    <label><?php echo $tlinst["install"]["step6"];?></label>
-                    <span><?php echo $tlinst["install"]["step6_1"];?></span>
+                    <label><?=$tlinst["install"]["step6"]?></label>
+                    <span><?=$tlinst["install"]["step6_1"]?></span>
                 </span>
-                <?php echo ($_GET['step'] == 6 ? '</span>' : '</a>'); ?>
+                <?=($_GET['step'] == 6 ? '</span>' : '</a>')?>
               </li>
             </ul>
             <!-- END STEP INDICATOR -->
@@ -233,46 +233,46 @@ if (DB_USER && DB_PASS) {
             <table class="table">
               <tbody>
               <tr>
-                <td class="w-25"><?php echo $tlinst["install"]["form1"];?></td>
-                <td class="w-25"><input type="text" class="form-control" name="dbhost" id="dbhost" value="<?php echo $config[ 'dbhost' ] ?>"></td>
+                <td class="w-25"><?=$tlinst["install"]["form1"]?></td>
+                <td class="w-25"><input type="text" class="form-control" name="dbhost" id="dbhost" value="<?=$config['dbhost']?>"></td>
                 <td class="w-50"></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form1_1"];?></td>
-                <td><input type="text" class="form-control" name="dbuser" id="dbuser" value="<?php echo $config[ 'dbuser' ] ?>"></td>
+                <td><?=$tlinst["install"]["form1_1"]?></td>
+                <td><input type="text" class="form-control" name="dbuser" id="dbuser" value="<?=$config['dbuser']?>"></td>
                 <td></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form1_2"];?></td>
-                <td><input type="text" class="form-control" name="dbpass" id="dbpass" value="<?php echo $config[ 'dbpass' ] ?>"></td>
+                <td><?=$tlinst["install"]["form1_2"]?></td>
+                <td><input type="text" class="form-control" name="dbpass" id="dbpass" value="<?=$config['dbpass']?>"></td>
                 <td></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form1_3"];?></td>
-                <td><input type="text" class="form-control" name="dbname" id="dbname" value="<?php echo $config[ 'dbname' ] ?>"></td>
+                <td><?=$tlinst["install"]["form1_3"]?></td>
+                <td><input type="text" class="form-control" name="dbname" id="dbname" value="<?=$config['dbname']?>"></td>
                 <td></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form1_4"];?></td>
-                <td><input type="text" class="form-control" name="dbprefix" id="dbprefix" value="<?php echo $config[ 'dbprefix' ] ?>"></td>
-                <td><i><?php echo $tlinst["install"]["form1_41"];?></i></td>
+                <td><?=$tlinst["install"]["form1_4"]?></td>
+                <td><input type="text" class="form-control" name="dbprefix" id="dbprefix" value="<?=$config['dbprefix']?>"></td>
+                <td><i><?=$tlinst["install"]["form1_41"]?></i></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form1_5"];?></td>
-                <td><input type="text" class="form-control" name="fullsitedomain" id="fullsitedomain" value="<?php echo $config[ 'fullsitedomain' ] ?>"></td>
-                <td><i><?php echo $tlinst["install"]["form1_51"];?></i></td>
+                <td><?=$tlinst["install"]["form1_5"]?></td>
+                <td><input type="text" class="form-control" name="fullsitedomain" id="fullsitedomain" value="<?=$config['fullsitedomain']?>"></td>
+                <td><i><?=$tlinst["install"]["form1_51"]?></i></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form1_6"];?></td>
-                <td><input type="text" class="form-control" name="filefolder" id="filefolder" value="<?php echo $config[ 'filefolder' ] ?>"></td>
-                <td><i><?php echo $tlinst["install"]["form1_61"];?></i></td>
+                <td><?=$tlinst["install"]["form1_6"]?></td>
+                <td><input type="text" class="form-control" name="filefolder" id="filefolder" value="<?=$config['filefolder']?>"></td>
+                <td><i><?=$tlinst["install"]["form1_61"]?></i></td>
               </tr>
               </tbody>
             </table>
 
             <div class="controls">
               <div class="d-flex justify-content-end">
-                <button type="submit" class="btn square btn-default"><?php echo $tlinst["install"]["next"];?>
+                <button type="submit" class="btn square btn-default"><?=$tlinst["install"]["next"]?>
                   <i class="fa fa-chevron-right"></i>
                 </button>
               </div>
@@ -383,60 +383,60 @@ if (DB_USER && DB_PASS) {
 
             <div class="card mb-3">
               <div class="card-block">
-                <?php echo $tlinst["install"]["form2"];?>
+                <?=$tlinst["install"]["form2"]?>
               </div>
             </div>
 
             <table class="table">
               <tr>
-                <td><?php echo $tlinst["install"]["form2_1"];?></td>
-                <td><?php echo $tlinst["install"]["form2_11"];?></td>
+                <td><?=$tlinst["install"]["form2_1"]?></td>
+                <td><?=$tlinst["install"]["form2_11"]?></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form2_2"];?></td>
-                <td><?php echo $data_file ?></td>
+                <td><?=$tlinst["install"]["form2_2"]?></td>
+                <td><?=$data_file?></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form2_3"];?></td>
-                <td><?php echo $conn_data ?></td>
+                <td><?=$tlinst["install"]["form2_3"]?></td>
+                <td><?=$conn_data?></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form2_4"];?></td>
-                <td><?php echo $result_mysqlv; ?> / <?php echo $result_mysqli ?></td>
+                <td><?=$tlinst["install"]["form2_4"]?></td>
+                <td><?=$result_mysqlv?> / <?=$result_mysqli?></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form2_5"];?></td>
-                <td><?php echo $data_exist ?></td>
+                <td><?=$tlinst["install"]["form2_5"]?></td>
+                <td><?=$data_exist?></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form2_6"];?></td>
-                <td><?php echo @$result_php ?><?php echo $result_safe ?></td>
+                <td><?=$tlinst["install"]["form2_6"]?></td>
+                <td><?=@$result_php?><?=$result_safe?></td>
               </tr>
               <tr>
-                <td valign="top"><?php echo $tlinst["install"]["form2_7"];?></td>
-                <td><?php echo $writefolder; ?></td>
+                <td valign="top"><?=$tlinst["install"]["form2_7"]?></td>
+                <td><?=$writefolder?></td>
               </tr>
               <tr>
-                <td><?php echo $tlinst["install"]["form2_8"];?></td>
-                <td><?php echo $gd_data; ?></td>
+                <td><?=$tlinst["install"]["form2_8"]?></td>
+                <td><?=$gd_data?></td>
               </tr>
             </table>
 
             <div class="controls">
               <div class="d-flex justify-content-between">
                 <a href="install.php" class="btn square btn-default float-left" role="button">
-                  <i class="fa fa-chevron-left"></i><?php echo $tlinst["install"]["prev"];?>
+                  <i class="fa fa-chevron-left"></i><?=$tlinst["install"]["prev"]?>
                 </a>
                 <?php if (file_exists('../config.php') && ($linkdb) && ($dlink) && !$check_db_content) { ?>
-                  <button type="submit" class="btn square btn-default float-right"><?php echo $tlinst["install"]["next"];?>
+                  <button type="submit" class="btn square btn-default float-right"><?=$tlinst["install"]["next"]?>
                     <i class="fa fa-chevron-right"></i>
                   </button>
                 <?php } elseif (file_exists('../config.php') && ($linkdb) && ($dlink) && $check_db_content) { ?>
                   <a href="install.php?step=5" class="btn square btn-default float-right" role="button" name="userf">
-                    <?php echo $tlinst["install"]["dbexist"];?><i class="fa fa-chevron-right"></i>
+                    <?=$tlinst["install"]["dbexist"]?><i class="fa fa-chevron-right"></i>
                   </a>
                 <?php } else { ?>
-                  <input type="button" class="btn square btn-warning float-right" value="<?php echo $tlinst["install"]["refresh"];?>" onclick="window.location.reload()"/>
+                  <input type="button" class="btn square btn-warning float-right" value="<?=$tlinst["install"]["refresh"]?>" onclick="window.location.reload()"/>
                 <?php } ?>
               </div>
             </div>
@@ -451,15 +451,15 @@ if (DB_USER && DB_PASS) {
             <input type="hidden" name="act" value=""/>
             <!-- Form 3. -->
 
-            <h3><?php echo $tlinst["install"]["form3"];?></h3>
-            <p><?php echo $tlinst["install"]["form3_1"];?></p>
+            <h3><?=$tlinst["install"]["form3"]?></h3>
+            <p><?=$tlinst["install"]["form3_1"]?></p>
             <div class="controls mt-3">
               <div class="d-flex justify-content-between">
                 <a href="install.php?step=2" class="btn square btn-default float-left" role="button">
-                  <i class="fa fa-chevron-left"></i><?php echo $tlinst["install"]["prev"];?>
+                  <i class="fa fa-chevron-left"></i><?=$tlinst["install"]["prev"]?>
                 </a>
                 <a href="install.php?step=4&amp;type=blank" class="btn square btn-default float-right" role="button">
-                  <?php echo $tlinst["install"]["install"];?><i class="fa fa-chevron-right"></i>
+                  <?=$tlinst["install"]["install"]?><i class="fa fa-chevron-right"></i>
                 </a>
               </div>
             </div>
@@ -490,13 +490,13 @@ if (DB_USER && DB_PASS) {
             $envodb->envo_close();
 
             ?>
-            <div class="alert bg-success text-white"><?php echo $tlinst["install"]["form4"];?></div>
+            <div class="alert bg-success text-white"><?=$tlinst["install"]["form4"]?></div>
 
             <form id="company" method="post" action="install.php?step=4" enctype="multipart/form-data">
 
               <div class="controls">
                 <div class="d-flex justify-content-end">
-                  <button type="submit" name="useru" class="btn square btn-default"><?php echo $tlinst["install"]["superadmin"];?><i class="fa fa-chevron-right"></i></button>
+                  <button type="submit" name="useru" class="btn square btn-default"><?=$tlinst["install"]["superadmin"]?><i class="fa fa-chevron-right"></i></button>
                 </div>
               </div>
 
@@ -594,33 +594,33 @@ if (DB_USER && DB_PASS) {
               <input type="hidden" name="act" value=""/>
               <!-- Form 5. -->
 
-              <h3><?php echo $tlinst["install"]["form5"];?></h3>
+              <h3><?=$tlinst["install"]["form5"]?></h3>
               <table class="table">
                 <tr>
-                  <td><?php echo $tlinst["install"]["form5_1"];?> <span class="complete">*</span></td>
-                  <td><input type="text" value="" class="form-control" name="onumber" placeholder="<?php echo $tlinst["install"]["form5_11"];?>"/></td>
+                  <td><?=$tlinst["install"]["form5_1"]?> <span class="complete">*</span></td>
+                  <td><input type="text" value="" class="form-control" name="onumber" placeholder="<?=$tlinst["install"]["form5_11"]?>"/></td>
                 </tr>
                 <tr>
-                  <td><?php echo $tlinst["install"]["form5_2"];?> <span class="complete">*</span></td>
+                  <td><?=$tlinst["install"]["form5_2"]?> <span class="complete">*</span></td>
                   <td><input type="text" value="" class="form-control" name="name" title="Name"/></td>
                 </tr>
                 <tr>
-                  <td><?php echo $tlinst["install"]["form5_3"];?> <span class="complete">*</span></td>
+                  <td><?=$tlinst["install"]["form5_3"]?> <span class="complete">*</span></td>
                   <td><input type="text" value="" class="form-control" name="username" title="Username"/></td>
                 </tr>
                 <tr>
-                  <td><?php echo $tlinst["install"]["form5_4"];?> <span class="complete">*</span></td>
+                  <td><?=$tlinst["install"]["form5_4"]?> <span class="complete">*</span></td>
                   <td><input type="text" value="" class="form-control" name="pass" title="Password"/></td>
                 </tr>
                 <tr>
-                  <td><?php echo $tlinst["install"]["form5_5"];?> <span class="complete">*</span></td>
+                  <td><?=$tlinst["install"]["form5_5"]?> <span class="complete">*</span></td>
                   <td><input type="text" value="" class="form-control" name="email" title="Email"/></td>
                 </tr>
               </table>
 
               <div class="controls">
                 <div class="d-flex justify-content-end">
-                  <button type="submit" name="user" class="btn square btn-default"><?php echo $tlinst["install"]["finish"];?></button>
+                  <button type="submit" name="user" class="btn square btn-default"><?=$tlinst["install"]["finish"]?></button>
                 </div>
               </div>
 
@@ -631,12 +631,12 @@ if (DB_USER && DB_PASS) {
             <input type="hidden" name="act" value="removefolder"/>
             <!-- Form 6. -->
             <div class="col-sm-12">
-              <h3><?php echo $tlinst["install"]["form6"];?></h3>
+              <h3><?=$tlinst["install"]["form6"]?></h3>
             </div>
             <div class="col-sm-12 mt-4">
               <div class="row align-items-center">
                 <div class="col-sm-4">
-                  <?php echo $tlinst["install"]["form6_1"];?>
+                  <?=$tlinst["install"]["form6_1"]?>
                 </div>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" name="newfolder" id="newfolder" value="install_back">
@@ -645,7 +645,7 @@ if (DB_USER && DB_PASS) {
             </div>
             <div class="controls mt-4">
               <div class="d-flex justify-content-end">
-                <button type="submit" class="btn square btn-default"><?php echo $tlinst["install"]["folder1"];?><i class="fa fa-chevron-right"></i></button>
+                <button type="submit" class="btn square btn-default"><?=$tlinst["install"]["folder1"]?><i class="fa fa-chevron-right"></i></button>
               </div>
             </div>
 
@@ -662,7 +662,7 @@ if (DB_USER && DB_PASS) {
 <div id="footer">
   <div class="container">
     <div class="row">
-      <p class="muted credit">Copyright 2016 - <?php echo date('Y'); ?> by <a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></p>
+      <p class="muted credit">Copyright 2016 - <?=date('Y')?> by <a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></p>
     </div>
   </div>
 </div>

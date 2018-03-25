@@ -1,9 +1,9 @@
 <?php if ($pg["pluginid"] == ENVO_PLUGIN_BLOG) { ?>
 
   <li class="envocontent">
-    <div class="envocontent_header"><?php echo $tlblog["blog_connect"]["blogc10"]; ?></div>
+    <div class="envocontent_header"><?=$tlblog["blog_connect"]["blogc10"]?></div>
     <div class="form-group">
-      <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc"]; ?></label>
+      <label class="control-label"><?=$tlblog["blog_connect"]["blogc"]?></label>
       <div class="row">
         <div class="col-sm-6">
           <select name="envo_showblogorder" class="form-control selectpicker">
@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc1"]; ?></label>
+      <label class="control-label"><?=$tlblog["blog_connect"]["blogc1"]?></label>
       <select name="envo_showblog[]" multiple="multiple" class="form-control">
 
         <?php

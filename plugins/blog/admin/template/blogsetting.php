@@ -9,7 +9,7 @@ if ($page2 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page2 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'success',
@@ -65,7 +65,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -80,22 +80,22 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tlblog["blog_section_tab"]["blogtab"]; ?></span>
+          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tlblog["blog_section_tab"]["blogtab1"]; ?></span>
+          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tlblog["blog_section_tab"]["blogtab2"]; ?></span>
+          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tlblog["blog_section_tab"]["blogtab3"]; ?></span>
+          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab3"]?></span>
         </a>
       </li>
     </ul>
@@ -260,7 +260,7 @@ if ($errors) { ?>
                             echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['blogtimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
-                            <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
+                            <optgroup label="<?=$tl["selection"]["sel111"]?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -271,7 +271,7 @@ if ($errors) { ?>
                               ?>
 
                             </optgroup>
-                            <optgroup label="<?php echo $tl["selection"]["sel112"]; ?>">
+                            <optgroup label="<?=$tl["selection"]["sel112"]?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
