@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
   <div class="row">
     <div class="col-sm-12">
       <div class="box box-success">
@@ -38,7 +38,7 @@
               echo $Html->addTag('p', $Html->addTag('strong', $tlxml["xml_box_content"]["xmlbc23"]));
               ?>
 
-              <pre class="prettyprint linenums lang-xml" style="overflow: auto; max-height: 30em; white-space: pre;"><?php echo htmlentities($contentxml); ?></pre>
+              <pre class="prettyprint linenums lang-xml" style="overflow: auto; max-height: 30em; white-space: pre;"><?=htmlentities($contentxml)?></pre>
             </div>
           <?php } ?>
         </div>

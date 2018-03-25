@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlxml["xml_install"]["xmlinst"]; ?></title>
+  <title><?=$tlxml["xml_install"]["xmlinst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -104,18 +104,18 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tlxml["xml_install"]["xmlinst"]; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tlxml["xml_install"]["xmlinst"]?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?php echo $tlxml["xml_install"]["xmlinst1"]; ?></h4>
+        <h4 class="semi-bold"><?=$tlxml["xml_install"]["xmlinst1"]?></h4>
         <p>Plugin pracuje se souborem <strong>' sitemap.xml '</strong>.</p>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?php echo $tlxml["xml_install"]["xmlinst2"]; ?></div>
+            <div class="card-title"><?=$tlxml["xml_install"]["xmlinst2"]?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -175,7 +175,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
             // Apply the plugin to the body
             $('#notificationcontainer').pgNotification({
               style: 'bar',
-              message: '<?php echo $tlxml["xml_install"]["xmlinst3"]; ?>',
+              message: '<?=$tlxml["xml_install"]["xmlinst3"]?>',
               position: 'top',
               timeout: 0,
               type: 'warning'
@@ -244,7 +244,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
             // Apply the plugin to the body
             $('#notificationcontainer').pgNotification({
               style: 'bar',
-              message: '<?php echo $tlxml["xml_install"]["xmlinst4"]; ?>',
+              message: '<?=$tlxml["xml_install"]["xmlinst4"]?>',
               position: 'top',
               timeout: 0,
               type: 'success'
@@ -262,9 +262,9 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
       ?>
 
-        <div class="alert bg-danger"><?php echo $tlxml["xml_install"]["xmlinst5"]; ?></div>
+        <div class="alert bg-danger"><?=$tlxml["xml_install"]["xmlinst5"]?></div>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tlxml["xml_install"]["xmlinst6"]; ?></button>
+          <button type="submit" name="redirect" class="btn btn-danger btn-block"><?=$tlxml["xml_install"]["xmlinst6"]?></button>
         </form>
 
       <?php }
@@ -272,7 +272,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tlxml["xml_install"]["xmlinst7"]; ?></button>
+          <button type="submit" name="install" class="btn btn-complete btn-block"><?=$tlxml["xml_install"]["xmlinst7"]?></button>
         </form>
       <?php }
       } ?>

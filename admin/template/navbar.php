@@ -162,7 +162,7 @@
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;sp=newhook', $tl["submenu"]["sm14"]);
+            echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=newhook', $tl["submenu"]["sm14"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm14"]), 'icon-thumbnail');
             ?>

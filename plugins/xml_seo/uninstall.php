@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlxml["xml_uninstall"]["xmluninst"]; ?></title>
+  <title><?=$tlxml["xml_uninstall"]["xmluninst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tlxml["xml_uninstall"]["xmluninst"]; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tlxml["xml_uninstall"]["xmluninst"]?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?php echo $tlxml["xml_uninstall"]["xmluninst1"]; ?></h4>
+        <h4 class="semi-bold"><?=$tlxml["xml_uninstall"]["xmluninst1"]?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?php echo $tlxml["xml_uninstall"]["xmluninst2"]; ?></div>
+            <div class="card-title"><?=$tlxml["xml_uninstall"]["xmluninst2"]?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -169,7 +169,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlxml["xml_uninstall"]["xmluninst3"]; ?>',
+                message: '<?=$tlxml["xml_uninstall"]["xmluninst3"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'success'
@@ -180,7 +180,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
           </script>
         <?php } else { ?>
           <div>
-            <h5 class="text-danger bold"><?php echo $tlxml["xml_uninstall"]["xmluninst4"]; ?></h5>
+            <h5 class="text-danger bold"><?=$tlxml["xml_uninstall"]["xmluninst4"]?></h5>
           </div>
           <script>
             $(document).ready(function () {
@@ -188,7 +188,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlxml["xml_uninstall"]["xmluninst4"]; ?>',
+                message: '<?=$tlxml["xml_uninstall"]["xmluninst4"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'danger'
@@ -202,11 +202,11 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
       if (!$succesfully) { ?>
         <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
           <div class="form-group form-inline">
-            <label for="text"><?php echo $tlxml["xml_uninstall"]["xmluninst5"]; ?></label>
+            <label for="text"><?=$tlxml["xml_uninstall"]["xmluninst5"]?></label>
             <input type="text" name="captcha" class="form-control m-l-10" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
-          <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlxml["xml_uninstall"]["xmluninst6"]; ?></button>
+          <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?=$tlxml["xml_uninstall"]["xmluninst6"]?></button>
         </form>
       <?php } ?>
 
