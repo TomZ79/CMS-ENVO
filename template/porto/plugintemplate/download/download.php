@@ -47,7 +47,7 @@
 
       <?php foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
         <tr>
-          <td><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 40, ""); ?></a></td>
+          <td><a href="<?=$v["parseurl"]?>"><?=envo_cut_text($v["title"], 40, "")?></a></td>
           <td>
             <?php if ($v["showdate"]) echo $v["created"]; ?>
           </td>

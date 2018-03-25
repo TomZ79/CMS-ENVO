@@ -34,28 +34,28 @@
 
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-<?php echo $v["id"]; ?>" aria-expanded="false"> <?php echo $v["title"]; ?> <i class="fa fa-plus collape-plus"></i></a></h4>
+                    <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-<?=$v["id"]?>" aria-expanded="false"> <?=$v["title"]?> <i class="fa fa-plus collape-plus"></i></a></h4>
                   </div>
-                  <div id="collapse-<?php echo $v["id"]; ?>" class="panel-collapse collapse">
+                  <div id="collapse-<?=$v["id"]?>" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <?php echo $v["contentshort"]; ?>
+                      <?=$v["contentshort"]?>
 
                       <div class="pull-right">
 
-                        <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-borders btn-default btn-footer">
-                          <?php echo $tlf["faq_frontend"]["faq1"]; ?>
+                        <a href="<?=$v["parseurl"]?>" class="btn btn-borders btn-default btn-footer">
+                          <?=$tlf["faq_frontend"]["faq1"]?>
                         </a>
 
                         <!-- Post System Button - Admin -->
                         <?php if (ENVO_ASACCESS) { ?>
 
-                          <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-primary btn-sm">
+                          <a href="<?=BASE_URL?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn1"]?>" class="btn btn-primary btn-sm">
                             <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                            <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
+                            <span class="hidden-xs"><?=$tl["button"]["btn1"]?></span>
                           </a>
-                          <a class="btn btn-primary btn-sm quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                          <a class="btn btn-primary btn-sm quickedit" href="<?=BASE_URL?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn2"]?>">
                             <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                            <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
+                            <span class="hidden-xs"><?=$tl["button"]["btn2"]?></span>
                           </a>
 
                         <?php } ?>

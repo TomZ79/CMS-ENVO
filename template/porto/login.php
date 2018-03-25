@@ -30,23 +30,23 @@ if (!ENVO_USERID) {
               <?php } else if (isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] == 1) { ?>
 
                 <div class="alert alert-tertiary">
-                  <?php echo $setting["rf_welcome"]; ?>
+                  <?=$setting["rf_welcome"]?>
                 </div>
 
               <?php } if (!isset($_SESSION["rf_msg_sent"]) || isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] != 1) { ?>
 
               <h4 class="heading-primary text-uppercase mb-md">
-                <?php echo $tl["lform_text"]["lformt9"]; ?>
+                <?=$tl["lform_text"]["lformt9"]?>
               </h4>
-              <form method="post" class="cFrom" id="registerForm" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
+              <form method="post" class="cFrom" id="registerForm" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
                 <?php if ($setting["rf_simple"]) { ?>
                   <div class="row">
                     <div class="form-group <?php if (isset($errorsC["e3"])) echo " has-error"; ?>">
                       <div class="col-md-12">
-                        <label><?php echo $tl["lform_text"]["lformt1"]; ?>
+                        <label><?=$tl["lform_text"]["lformt1"]?>
                           <span class="text-color-secondary ml-sm">*</span>
                         </label>
-                        <input type="text" class="form-control input-lg" value="<?php if (isset($_REQUEST["username"])) echo $_REQUEST["username"]; ?>" name="username" id="username" placeholder="<?php echo $tl["placeholder"]["plc3"]; ?>" data-msg-required="Zadejte uživatelské jméno"
+                        <input type="text" class="form-control input-lg" value="<?php if (isset($_REQUEST["username"])) echo $_REQUEST["username"]; ?>" name="username" id="username" placeholder="<?=$tl["placeholder"]["plc3"]?>" data-msg-required="Zadejte uživatelské jméno"
                           required>
                       </div>
                     </div>
@@ -54,10 +54,10 @@ if (!ENVO_USERID) {
                   <div class="row">
                     <div class="form-group <?php if ($errorsC["e4"]) echo " has-error"; ?>">
                       <div class="col-md-12">
-                        <label><?php echo $tl["lform_text"]["lformt7"]; ?>
+                        <label><?=$tl["lform_text"]["lformt7"]?>
                           <span class="text-color-secondary ml-sm">*</span>
                         </label>
-                        <input type="email" class="form-control input-lg" value="<?php if (isset($_REQUEST["email"])) echo $_REQUEST["email"]; ?>" name="email" id="email" placeholder="<?php echo $tl["placeholder"]["plc5"]; ?>" data-msg-required="Zadejte Vaši emailovou adresu" data-msg-email="Zadejte validní emailovou adresu" required>
+                        <input type="email" class="form-control input-lg" value="<?php if (isset($_REQUEST["email"])) echo $_REQUEST["email"]; ?>" name="email" id="email" placeholder="<?=$tl["placeholder"]["plc5"]?>" data-msg-required="Zadejte Vaši emailovou adresu" data-msg-email="Zadejte validní emailovou adresu" required>
                       </div>
                     </div>
                   </div>
@@ -85,7 +85,7 @@ if (!ENVO_USERID) {
                     <div class="row">
                       <div class="form-group <?php if ($errorsA) echo " has-error"; ?>">
                         <div class="col-md-12">
-                          <label><?php echo $tl["lform_text"]["lformt11"]; ?>
+                          <label><?=$tl["lform_text"]["lformt11"]?>
                             <span class="text-color-secondary ml-sm">*</span>
                           </label>
                         </div>
@@ -102,7 +102,7 @@ if (!ENVO_USERID) {
                           </div>
                         </div>
                         <div class="col-md-8">
-                          <input type="text" class="form-control input-lg captcha-input" value="" maxlength="6" name="captcha" id="captcha" placeholder="<?php echo $tl["placeholder"]["plc6"]; ?>" data-msg-captcha="Špatný kontrolní kód." data-msg-required="Zadejte kontrolní kód" required>
+                          <input type="text" class="form-control input-lg captcha-input" value="" maxlength="6" name="captcha" id="captcha" placeholder="<?=$tl["placeholder"]["plc6"]?>" data-msg-captcha="Špatný kontrolní kód." data-msg-required="Zadejte kontrolní kód" required>
                         </div>
                       </div>
                     </div>
@@ -119,7 +119,7 @@ if (!ENVO_USERID) {
                     </div>
                   </div>
                   <div class="col-md-3">
-                    <input type="submit" value="<?php echo $tl["button"]["btn11"]; ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." name="registerF" id="registerFormSubmit">
+                    <input type="submit" value="<?=$tl["button"]["btn11"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." name="registerF" id="registerFormSubmit">
                   </div>
                 </div>
               </form>
@@ -133,29 +133,29 @@ if (!ENVO_USERID) {
 
   <?php } ?>
 
-  <div class="<?php echo (!$setting["rf_active"]) ? 'col-md-6 col-md-offset-3' : 'col-md-6'; ?>">
+  <div class="<?=(!$setting["rf_active"]) ? 'col-md-6 col-md-offset-3' : 'col-md-6'?>">
     <div class="featured-boxes loginF">
       <div class="col-xs-12 col-sm-12">
         <div class="featured-box featured-box-primary align-left mt-xlg">
           <div class="box-content">
             <h4 class="heading-primary text-uppercase mb-md">
-              <?php echo $tl["lform_text"]["lformt"]; ?>
+              <?=$tl["lform_text"]["lformt"]?>
             </h4>
-            <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" id="loginForm" method="post">
+            <form action="<?=$_SERVER['REQUEST_URI']?>" id="loginForm" method="post">
               <div class="row">
                 <div class="form-group <?php if ($errorlo) echo " has-error"; ?>">
                   <div class="col-md-12">
-                    <label><?php echo $tl["lform_text"]["lformt1"]; ?></label>
-                    <input type="text" class="form-control input-lg" value="<?php if (isset($_REQUEST["envoU"])) echo $_REQUEST["envoU"]; ?>" name="loginusername" id="loginusername" placeholder="<?php echo $tl["placeholder"]["plc3"]; ?>" data-msg-required="Zadejte uživatelské jméno" required>
+                    <label><?=$tl["lform_text"]["lformt1"]?></label>
+                    <input type="text" class="form-control input-lg" value="<?php if (isset($_REQUEST["envoU"])) echo $_REQUEST["envoU"]; ?>" name="loginusername" id="loginusername" placeholder="<?=$tl["placeholder"]["plc3"]?>" data-msg-required="Zadejte uživatelské jméno" required>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group <?php if ($errorlo) echo " has-error"; ?>">
                   <div class="col-md-12">
-                    <a class="lost-pwd pull-right" href="#">(<?php echo $tl["lform_text"]["lformt5"]; ?>?)</a>
-                    <label><?php echo $tl["lform_text"]["lformt2"]; ?></label>
-                    <input type="password" class="form-control input-lg" value="" name="loginpassword" id="loginpassword" placeholder="<?php echo $tl["placeholder"]["plc4"]; ?>" data-msg-required="Zadejte heslo" required>
+                    <a class="lost-pwd pull-right" href="#">(<?=$tl["lform_text"]["lformt5"]?>?)</a>
+                    <label><?=$tl["lform_text"]["lformt2"]?></label>
+                    <input type="password" class="form-control input-lg" value="" name="loginpassword" id="loginpassword" placeholder="<?=$tl["placeholder"]["plc4"]?>" data-msg-required="Zadejte heslo" required>
                   </div>
                 </div>
               </div>
@@ -164,12 +164,12 @@ if (!ENVO_USERID) {
                   <span class="remember-box checkbox">
                     <label for="rememberme">
                       <input type="checkbox" id="lcookies" name="lcookies">
-                      <?php echo $tl["lform_text"]["lformt3"]; ?>
+                      <?=$tl["lform_text"]["lformt3"]?>
                     </label>
                   </span>
                 </div>
                 <div class="col-md-6">
-                  <input type="submit" value="<?php echo $tl["button"]["btn8"]; ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="login" name="login">
+                  <input type="submit" value="<?=$tl["button"]["btn8"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="login" name="login">
                   <input type="hidden" name="home" value="0"/>
                 </div>
               </div>
@@ -184,22 +184,22 @@ if (!ENVO_USERID) {
         <div class="featured-box featured-box-primary align-left mt-xlg">
           <div class="box-content">
             <h4 class="heading-primary text-uppercase mb-md">
-              <?php echo $tl["lform_text"]["lformt6"]; ?>
+              <?=$tl["lform_text"]["lformt6"]?>
             </h4>
             <div class="alert alert-warning text-center">
-              <a class="lost-pwd" href="#"><?php echo $tl["lform_text"]["lformt8"]; ?></a>
+              <a class="lost-pwd" href="#"><?=$tl["lform_text"]["lformt8"]?></a>
             </div>
 
             <?php if ($errorfp) { ?>
-              <div class="alert alert-danger"><?php echo $errorfp["e"]; ?></div>
+              <div class="alert alert-danger"><?=$errorfp["e"]?></div>
             <?php } ?>
 
-            <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" id="loginFormPassword" method="post">
+            <form action="<?=$_SERVER['REQUEST_URI']?>" id="loginFormPassword" method="post">
               <div class="row">
                 <div class="form-group <?php if ($errorfp) echo " has-error"; ?>">
                   <div class="col-md-12">
-                    <label><?php echo $tl["lform_text"]["lformt7"]; ?></label>
-                    <input type="text" class="form-control input-lg" value="" name="envoE" id="email" placeholder="<?php echo $tl["placeholder"]["plc5"]; ?>" data-msg-required="Zadejte Vaši emailovou adresu" data-msg-email="Zadejte validní emailovou adresu" required>
+                    <label><?=$tl["lform_text"]["lformt7"]?></label>
+                    <input type="text" class="form-control input-lg" value="" name="envoE" id="email" placeholder="<?=$tl["placeholder"]["plc5"]?>" data-msg-required="Zadejte Vaši emailovou adresu" data-msg-email="Zadejte validní emailovou adresu" required>
                   </div>
                 </div>
               </div>
@@ -208,7 +208,7 @@ if (!ENVO_USERID) {
 
                 </div>
                 <div class="col-md-6">
-                  <input type="submit" value="<?php echo $tl["button"]["btn10"]; ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." name="forgotP">
+                  <input type="submit" value="<?=$tl["button"]["btn10"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." name="forgotP">
                 </div>
               </div>
             </form>
@@ -221,16 +221,16 @@ if (!ENVO_USERID) {
 <?php } else { ?>
 
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <h3 class="text-center"><?php echo str_replace("%s", $ENVO_USERNAME, $tl["lpage_text"]["lpaget"]); ?></h3>
-    <p class="text-center"><?php echo $tl["lpage_text"]["lpaget1"] ?></p>
+    <h3 class="text-center"><?=str_replace("%s", $ENVO_USERNAME, $tl["lpage_text"]["lpaget"])?></h3>
+    <p class="text-center"><?=$tl["lpage_text"]["lpaget1"]?></p>
     <div class="col-md-6 col-centered">
       <ul class="list list-icons list-icons-style-3 list-quaternary mb-xlg">
-        <li><i class="fa fa-check"></i> <?php echo $tlporto["lpage_text"]["lpaget1"] ?></li>
-        <li><i class="fa fa-check"></i> <?php echo $tlporto["lpage_text"]["lpaget2"] ?></li>
+        <li><i class="fa fa-check"></i> <?=$tlporto["lpage_text"]["lpaget1"]?></li>
+        <li><i class="fa fa-check"></i> <?=$tlporto["lpage_text"]["lpaget2"]?></li>
       </ul>
       <p>
-        <a href="<?php echo $P_USR_LOGOUT; ?>" class="btn btn-danger btn-block" data-loading-text="Odesílání...">
-          <?php echo $tl["button"]["btn9"]; ?>
+        <a href="<?=$P_USR_LOGOUT?>" class="btn btn-danger btn-block" data-loading-text="Odesílání...">
+          <?=$tl["button"]["btn9"]?>
         </a>
       </p>
     </div>

@@ -5,13 +5,13 @@
     FB.ui({
       method: 'feed',
       display: 'popup',
-      link: '<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>'
+      link: '<?=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"?>'
     }, function (t) {
       var str = JSON.stringify(t);
       var obj = JSON.parse(str);
       if (obj.post_id != '') {
         //after successful sharing, you can show your download content here
-        var secret_data = "<a href='<?php echo $DL_LINK;?>' class='dclick btn btn-info btn-lg'><?php echo $tld["downl_frontend"]["downl7"]; ?></a>";
+        var secret_data = "<a href='<?=$DL_LINK?>' class='dclick btn btn-info btn-lg'><?=$tld["downl_frontend"]["downl7"]?></a>";
         jQuery("#results").html(secret_data);
       }
     });
@@ -20,7 +20,7 @@
 
 <?php } elseif ($FT_SHARE && !$ENVO_FACEBOOK_SDK_CONNECTION) { ?>
 
-<script src="<?php echo BASE_URL; ?>plugins/download/js/jquery.tweetfaceAction.js"></script>
+<script src="<?=BASE_URL?>plugins/download/js/jquery.tweetfaceAction.js"></script>
 <script>
   $(document).ready(function () {
 
@@ -29,17 +29,17 @@
     // parameters, refer to http://dev.twitter.com/pages/intents#tweet-intent
 
     $('#tweetLink').tweetAction({
-      text: "<?php echo $PAGE_TITLE . ' - ' . $setting["title"];?>",
-      url: '<?php echo BASE_URL . ENVO_PARSE_REQUEST;?>',
-      via: '<?php echo $setting["downloadtwitter"];?>',
-      related: '<?php echo $setting["downloadtwitter"];?>'
+      text: "<?=$PAGE_TITLE . ' - ' . $setting["title"]?>",
+      url: '<?=BASE_URL . ENVO_PARSE_REQUEST?>',
+      via: '<?=$setting["downloadtwitter"]?>',
+      related: '<?=$setting["downloadtwitter"]?>'
     }, function () {
 
       // Callback function. Triggered when the user closes the pop-up window
       $('a.dclick')
         .removeAttr('disabled')
-        .attr('href', '<?php echo $DL_LINK;?>')
-        .html('<?php echo $tld["downl_frontend"]["downl7"]; ?>') ;
+        .attr('href', '<?=$DL_LINK?>')
+        .html('<?=$tld["downl_frontend"]["downl7"]?>') ;
 
 
       $('.dclick').click(function () {
@@ -54,14 +54,14 @@
 
     // FACEBOOK SHARING
     $('#faceLink').faceAction({
-      url: '<?php echo BASE_URL . ENVO_PARSE_REQUEST;?>'
+      url: '<?=BASE_URL . ENVO_PARSE_REQUEST?>'
     }, function () {
 
       // Callback function. Triggered when the user closes the pop-up window
       $('a.dclick')
         .removeAttr('disabled')
-        .attr('href', '<?php echo $DL_LINK;?>')
-        .html('<?php echo $tld["downl_frontend"]["downl7"]; ?>') ;
+        .attr('href', '<?=$DL_LINK?>')
+        .html('<?=$tld["downl_frontend"]["downl7"]?>') ;
 
 
       $('.dclick').click(function () {

@@ -9,37 +9,43 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]>
-<html class="ie ie6" lang="<?php echo $site_language; ?>"> <![endif]-->
+<html class="ie ie6" lang="<?=$site_language?>"> <![endif]-->
 <!--[if IE 7 ]>
-<html class="ie ie7" lang="<?php echo $site_language; ?>"> <![endif]-->
+<html class="ie ie7" lang="<?=$site_language?>"> <![endif]-->
 <!--[if IE 8 ]>
-<html class="ie ie8" lang="<?php echo $site_language; ?>"> <![endif]-->
+<html class="ie ie8" lang="<?=$site_language?>"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="<?php echo $site_language; ?>">
+<html lang="<?=$site_language?>">
 <!--<![endif]-->
 <head>
 
   <meta charset="utf-8">
   <!-- Document Title
   ============================================= -->
-  <title><?php echo $setting["title"];
-    if ($setting["title"]) { ?> &raquo; <?php }
-    echo $PAGE_TITLE; ?></title>
+  <title>
+    <?php
+    echo $setting["title"];
+    if ($setting["title"]) {
+      echo "&raquo;";
+    }
+    echo $PAGE_TITLE;
+    ?>
+  </title>
 
-  <meta name="keywords" content="<?php echo trim($PAGE_KEYWORDS); ?>">
-  <meta name="description" content="<?php echo trim($PAGE_DESCRIPTION); ?>">
-  <meta name="author" content="<?php echo $setting["metaauthor"]; ?>">
+  <meta name="keywords" content="<?=trim($PAGE_KEYWORDS)?>">
+  <meta name="description" content="<?=trim($PAGE_DESCRIPTION)?>">
+  <meta name="author" content="<?=$setting["metaauthor"]?>">
 
   <!-- Share Social Network
   ============================================= -->
   <!-- Facebook - Open Graph data -->
-  <meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
+  <meta property="og:title" content="<?=$PAGE_TITLE?>"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"/>
-  <meta property="og:image" content="<?php echo($FB_IMAGE ? $FB_IMAGE : ($SHOWIMG ? BASE_URL . ltrim($SHOWIMG, '/') : '')); ?>"/>
-  <meta property="og:image:width" content="<?php echo $FB_IMAGE_W; ?>"/>
-  <meta property="og:image:height" content="<?php echo $FB_IMAGE_H; ?>"/>
-  <meta property="og:description" content="<?php echo trim($PAGE_DESCRIPTION); ?>"/>
+  <meta property="og:url" content="<?=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"?>"/>
+  <meta property="og:image" content="<?=($FB_IMAGE ? $FB_IMAGE : ($SHOWIMG ? BASE_URL . ltrim($SHOWIMG, '/') : ''))?>"/>
+  <meta property="og:image:width" content="<?=$FB_IMAGE_W?>"/>
+  <meta property="og:image:height" content="<?=$FB_IMAGE_H?>"/>
+  <meta property="og:description" content="<?=trim($PAGE_DESCRIPTION)?>"/>
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
@@ -58,12 +64,12 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <?php if ($page == '404') { ?>
     <meta name="robots" content="noindex, follow">
   <?php } else { ?>
-    <meta name="robots" content="<?php echo $jk_robots; ?>">
+    <meta name="robots" content="<?=$jk_robots?>">
   <?php }
   if ($page == "success" or $page == "logout") { ?>
-    <meta http-equiv="refresh" content="1;URL=<?php echo $_SERVER['HTTP_REFERER']; ?>">
+    <meta http-equiv="refresh" content="1;URL=<?=$_SERVER['HTTP_REFERER']?>">
   <?php } ?>
-  <link rel="canonical" href="<?php echo (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
+  <link rel="canonical" href="<?=(ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl($page, $page1, $page2, $page3, $page4, $page5, $page6)?>">
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -79,29 +85,29 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Fontawesome icon -->
   <link rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0" media="none" onload="if(media!='all')media='all'">
   <!-- Bluesat icon -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/bluesat-icons/css/bluesat-icons.min.css">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/plugins/bluesat-icons/css/bluesat-icons.min.css">
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/bootstrap/css/bootstrap.min.css?=v3.3.7">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/plugins/bootstrap/css/bootstrap.min.css?=v3.3.7">
   <!-- Bootstrap Table -->
   <link rel="stylesheet" href="/assets/plugins/bootstrap-table-master/dist/bootstrap-table.min.css">
   <!-- Animate -->
   <link rel="stylesheet" href="/assets/plugins/animate/animate.min.css?=v3.5.1">
   <!-- OWL Carousel -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/owl.carousel/assets/owl.carousel.min.css?=v2.1.6">
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/owl.carousel/assets/owl.theme.default.min.css?=v2.1.6">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/plugins/owl.carousel/assets/owl.carousel.min.css?=v2.1.6">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/plugins/owl.carousel/assets/owl.theme.default.min.css?=v2.1.6">
   <!-- Magnific-popup -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/magnific-popup/magnific-popup.min.css?=v1.1.0">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/plugins/magnific-popup/magnific-popup.min.css?=v1.1.0">
   <!-- RS5.0 Main Stylesheetm, Layers and Navigation Styles -->
   <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/settings.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/layers.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/navigation.min.css">
   <!-- Theme CSS -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/theme-complete.min.css">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/css/theme-complete.min.css">
   <!-- Skin CSS -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE . '/css/skins/' . $setting["skin_porto_tpl"] . '.min.css'; ?>">
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE . '/css/skins/' . $setting["skin_porto_tpl"] . '.min.css'?>">
   <!-- Print CSS -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print.css" media="print"/>
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print-md.css" media="print"/>
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/css/bootstrap-print.css" media="print"/>
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/css/bootstrap-print-md.css" media="print"/>
 
   <?php if ($SHOWSOCIALBUTTON) { ?>
     <!-- Sollist -->
@@ -109,8 +115,8 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <?php } ?>
 
   <!-- Custom Porto Style -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/screen.min.css" type="text/css"/>
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/custom/css/customstyle.min.css" type="text/css"/>
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/css/screen.min.css" type="text/css"/>
+  <link rel="stylesheet" href="/template/<?=ENVO_TEMPLATE?>/custom/css/customstyle.min.css" type="text/css"/>
 
   <!-- CUSTOM CSS
   ================================================== -->
@@ -142,7 +148,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <?php if (isset($ENVO_HEADER_CSS)) echo $ENVO_HEADER_CSS; ?>
 
   <!-- Head Libs -->
-  <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/modernizr/modernizr.min.js"></script>
+  <script src="/template/<?=ENVO_TEMPLATE?>/plugins/modernizr/modernizr.min.js"></script>
 
   <?php
   // Analytics code
@@ -167,7 +173,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <!-- =========================
       START HEADER SECTION
     ============================== -->
-    <header id="header" class="<?php echo $PORTONAVTYPE; ?>" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 57, 'stickySetTop': '-57px', 'stickyChangeLogo': false}">
+    <header id="header" class="<?=$PORTONAVTYPE?>" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 57, 'stickySetTop': '-57px', 'stickyChangeLogo': false}">
       <div class="header-body">
         <div class="header-top header-top-quaternary header-top-style-3">
           <div class="container">
@@ -187,7 +193,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
                 <?php if ($setting["sitemapShow_porto_tpl"] == 1) { ?>
                   <li>
-                    <a href="/<?php echo $setting["sitemapLinks_porto_tpl"]; ?>"><?php echo $tlporto["header_text"]["ht"]; ?></a>
+                    <a href="/<?=$setting["sitemapLinks_porto_tpl"]?>"><?=$tlporto["header_text"]["ht"]?></a>
                   </li>
                 <?php }
                 if ($setting["loginShow_porto_tpl"] == 1) {
@@ -206,14 +212,14 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                     </li>
                   <?php } else { ?>
                     <li>
-                      <a href="<?php echo $P_USR_LOGOUT; ?>" id="logout">
+                      <a href="<?=$P_USR_LOGOUT?>" id="logout">
                         <?php
                         echo sprintf($tlporto["header_text"]["ht2"], $envouser->getVar("username"));
                         ?>
                       </a>
                     </li>
                     <?php if (ENVO_ASACCESS) { ?>
-                      <li><a href="<?php echo BASE_URL; ?>admin/"><?php echo $tlporto["header_text"]["ht3"]; ?></a></li>
+                      <li><a href="<?=BASE_URL?>admin/"><?=$tlporto["header_text"]["ht3"]?></a></li>
                     <?php }
                   }
                 } ?>
@@ -225,7 +231,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
                 <?php if ($setting["phoneheaderShow_porto_tpl"] == 1) { ?>
                   <i class="icon-call-end icons mr-xs"></i>
-                  <a class="phone" href="tel:<?php echo $setting["phoneheaderLinks_porto_tpl"]; ?>" target="_blank"><?php echo $setting["phoneheaderLinks_porto_tpl"]; ?></a>
+                  <a class="phone" href="tel:<?=$setting["phoneheaderLinks_porto_tpl"]?>" target="_blank"><?=$setting["phoneheaderLinks_porto_tpl"]?></a>
                 <?php } ?>
 
               </p>
@@ -233,27 +239,27 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
                 <?php if ($setting["facebookheaderShow_porto_tpl"] == 1) { ?>
                   <li class="social-icons-facebook">
-                    <a href="<?php echo $setting["facebookheaderLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="<?=$setting["facebookheaderLinks_porto_tpl"]?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
                   </li>
                 <?php }
                 if ($setting["twitterheaderShow_porto_tpl"] == 1) { ?>
                   <li class="social-icons-twitter">
-                    <a href="<?php echo $setting["twitterheaderLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="<?=$setting["twitterheaderLinks_porto_tpl"]?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
                   </li>
                 <?php }
                 if ($setting["googleheaderShow_porto_tpl"] == 1) { ?>
                   <li class="social-icons-googleplus">
-                    <a href="<?php echo $setting["googleheaderLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                    <a href="<?=$setting["googleheaderLinks_porto_tpl"]?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
                   </li>
                 <?php }
                 if ($setting["instagramheaderShow_porto_tpl"] == 1) { ?>
                   <li class="social-icons-instagram">
-                    <a href="<?php echo $setting["instagramheaderLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="<?=$setting["instagramheaderLinks_porto_tpl"]?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
                   </li>
                 <?php }
                 if ($setting["emailheaderShow_porto_tpl"] == 1) { ?>
                   <li class="social-icons-email">
-                    <a href="mailto:<?php echo envo_encode_email($setting["emailheaderLinks_porto_tpl"]); ?>" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
+                    <a href="mailto:<?=envo_encode_email($setting["emailheaderLinks_porto_tpl"])?>" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
                   </li>
                 <?php } ?>
 
@@ -270,18 +276,18 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           <div class="header-row">
             <div class="header-column">
               <div class="header-logo">
-                <a href="<?php echo BASE_URL; ?>">
-                  <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $setting["title"]; ?>" height="48" src="<?php echo $setting["logo1_porto_tpl"]; ?>">
+                <a href="<?=BASE_URL?>">
+                  <img alt="<?=$tlporto["image_desc"]["imdesc"] . $setting["title"]?>" height="48" src="<?=$setting["logo1_porto_tpl"]?>">
                 </a>
               </div>
             </div>
             <div class="header-column">
               <div class="header-row">
-                <div class="header-nav <?php echo $PORTONAVTYPE1; ?>">
+                <div class="header-nav <?=$PORTONAVTYPE1?>">
                   <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
                     <i class="fa fa-bars"></i>
                   </button>
-                  <div class="header-nav-main <?php echo $PORTONAVTYPE2; ?> header-nav-main-sub-effect-1 collapse">
+                  <div class="header-nav-main <?=$PORTONAVTYPE2?> header-nav-main-sub-effect-1 collapse">
                     <nav>
 
                       <!-- Main navigation -->
@@ -328,7 +334,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h1 class="text-uppercase"><?php echo envo_cut_text($PAGE_TITLE, 50, "..."); ?></h1>
+                <h1 class="text-uppercase"><?=envo_cut_text($PAGE_TITLE, 50, "...")?></h1>
                 <ul class="breadcrumb breadcrumb-valign-mid">
 
                   <?php

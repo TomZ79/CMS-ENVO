@@ -23,7 +23,7 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
               <div class="preview-img">
                 <div class="preview-img-container">
                   <div class="preview-img-item">
-                    <a href="<?php echo $v["parseurl"]; ?>">
+                    <a href="<?=$v["parseurl"]?>">
 
                       <?php
                       // Image is available so display it or go standard image
@@ -32,10 +32,10 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
                       } else { ?>
 
                         <div class="thumb-news text-center">
-                          <img src="<?php echo '/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg'; ?>" alt="<?php echo $v["title"] . ' | ' . $setting["title"]; ?>" class="img-responsive">
+                          <img src="<?='/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg'?>" alt="<?=$v["title"] . ' | ' . $setting["title"]?>" class="img-responsive">
                           <div class="caption text-center">
-                            <span class="color1"><?php echo $tlporto["news_text"]["newst"]; ?></span>
-                            <span class="color2"><?php echo $tlporto["news_text"]["newst1"]; ?></span>
+                            <span class="color1"><?=$tlporto["news_text"]["newst"]?></span>
+                            <span class="color2"><?=$tlporto["news_text"]["newst1"]?></span>
                           </div>
                         </div>
 
@@ -56,29 +56,29 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
               </div>
               <div class="preview-title">
                 <h5>
-                  <a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 100, "..."); ?></a>
+                  <a href="<?=$v["parseurl"]?>"><?=envo_cut_text($v["title"], 100, "...")?></a>
                 </h5>
               </div>
               <div class="preview-content">
                 <div class="preview-box-content">
-                  <p><?php echo $v["contentshort"]; ?></p>
+                  <p><?=$v["contentshort"]?></p>
 
                   <?php
                   // SYSTEM ICONS - Edit and Quick Edit
                   if (ENVO_ASACCESS) { ?>
                     <div class="system-icons clearfix">
                       <div class="pull-right hidden-xs">
-                        <a class="btn btn-filled btn-primary btn-xs" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>">
-                          <?php echo $tl["button"]["btn1"]; ?>
+                        <a class="btn btn-filled btn-primary btn-xs" href="<?=BASE_URL?>admin/index.php?p=news&amp;sp=edit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn1"]?>">
+                          <?=$tl["button"]["btn1"]?>
                         </a>
-                        <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
-                          <?php echo $tl["button"]["btn2"]; ?>
+                        <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?=BASE_URL?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn2"]?>">
+                          <?=$tl["button"]["btn2"]?>
                         </a>
                       </div>
                     </div>
                   <?php } ?>
 
-                  <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-borders btn-default btn-block"><?php echo $tl["global_text"]["gtxt10"]; ?></a>
+                  <a href="<?=$v["parseurl"]?>" class="btn btn-borders btn-default btn-block"><?=$tl["global_text"]["gtxt10"]?></a>
                 </div>
               </div>
             </article>

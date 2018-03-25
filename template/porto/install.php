@@ -29,7 +29,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><?php echo $tl["installtemplate"]["itpl"] . ' - PORTO Template'; ?></title>
+  <title><?=$tl["installtemplate"]["itpl"] . ' - PORTO Template'?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
@@ -71,7 +71,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tl["installtemplate"]["itpl"] . ' - PORTO Template'; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tl["installtemplate"]["itpl"] . ' - PORTO Template'?></h3>
       </div>
       <hr>
 
@@ -83,7 +83,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 
         <!-- Info - check if template is installed -->
         <div class="alert alert-info fade show">
-          <?php echo $tl["installtemplate"]["itpl1"]; ?>
+          <?=$tl["installtemplate"]["itpl1"]?>
         </div>
 
         <!-- Plugin is not installed let's display the installation script -->
@@ -215,18 +215,18 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
           ?>
           <!-- Alert Template installed - succes -->
           <div class="alert alert-success fade show">
-            <?php echo $tl["installtemplate"]["itpl2"]; ?>
+            <?=$tl["installtemplate"]["itpl2"]?>
           </div>
           <!-- Button Close Modal -->
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">
-            <?php echo $tl["installtemplate"]["itpl4"]; ?>
+            <?=$tl["installtemplate"]["itpl4"]?>
           </button>
         <?php }
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php" enctype="multipart/form-data">
             <!-- Install button -->
             <button type="submit" name="install" class="btn btn-primary btn-block">
-              <?php echo $tl["installtemplate"]["itpl3"]; ?>
+              <?=$tl["installtemplate"]["itpl3"]?>
             </button>
           </form>
         <?php }

@@ -9,10 +9,10 @@
 				<div class="col-md-12 text-center">
 					<div class="feature-404-title">
 						<div class="feature-404-shadow-heading">
-							<h2><?php echo $tl["general_error"]["generror"]; ?></h2>
+							<h2><?=$tl["general_error"]["generror"]?></h2>
 						</div>
-						<h2><?php echo $tl["general_error"]["generror"]; ?></h2>
-						<p><?php echo $tl["general_error"]["generror5"]; ?></p>
+						<h2><?=$tl["general_error"]["generror"]?></h2>
+						<p><?=$tl["general_error"]["generror5"]?></p>
 					</div>
 				</div>
 			</div>

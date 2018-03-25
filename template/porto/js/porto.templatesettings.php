@@ -4,18 +4,18 @@
    ========================================= */
   if ($('#htmleditor2').length) {
     var htmlefACE2 = ace.edit("htmleditor2");
-    htmlefACE2.setTheme("ace/theme/<?php echo $setting["acetheme"]; ?>");
+    htmlefACE2.setTheme("ace/theme/<?=$setting["acetheme"]?>");
     htmlefACE2.session.setUseWrapMode(true);
-    htmlefACE2.session.setWrapLimitRange(<?php echo $setting["acewraplimit"] . ',' . $setting["acewraplimit"]; ?>);
+    htmlefACE2.session.setWrapLimitRange(<?=$setting["acewraplimit"] . ',' . $setting["acewraplimit"]?>);
     htmlefACE2.setOptions({
       // session options
       mode: "ace/mode/javascript",
-      tabSize: <?php echo $setting["acetabSize"]; ?>,
+      tabSize: <?=$setting["acetabSize"]?>,
       useSoftTabs: true,
-      highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
+      highlightActiveLine: <?=$setting["aceactiveline"]?>,
       // renderer options
-      showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
-      showGutter: <?php echo $setting["acegutter"]; ?>
+      showInvisibles: <?=$setting["aceinvisible"]?>,
+      showGutter: <?=$setting["acegutter"]?>
     });
     // This is to remove following warning message on console:
     // Automatically scrolling cursor into view after selection change this will be disabled in the next version
@@ -28,18 +28,18 @@
 
   if ($('#htmleditor3').length) {
     var htmlefACE3 = ace.edit("htmleditor3");
-    htmlefACE3.setTheme("ace/theme/<?php echo $setting["acetheme"]; ?>");
+    htmlefACE3.setTheme("ace/theme/<?=$setting["acetheme"]?>");
     htmlefACE3.session.setUseWrapMode(true);
-    htmlefACE3.session.setWrapLimitRange(<?php echo $setting["acewraplimit"] . ',' . $setting["acewraplimit"]; ?>);
+    htmlefACE3.session.setWrapLimitRange(<?=$setting["acewraplimit"] . ',' . $setting["acewraplimit"]?>);
     htmlefACE3.setOptions({
       // session options
-      mode: "ace/mode/<?php echo $acemode3;?>",
-      tabSize: <?php echo $setting["acetabSize"]; ?>,
+      mode: "ace/mode/<?=$acemode3?>",
+      tabSize: <?=$setting["acetabSize"]?>,
       useSoftTabs: true,
-      highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
+      highlightActiveLine: <?=$setting["aceactiveline"]?>,
       // renderer options
-      showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
-      showGutter: <?php echo $setting["acegutter"]; ?>
+      showInvisibles: <?=$setting["aceinvisible"]?>,
+      showGutter: <?=$setting["acegutter"]?>
     });
     // This is to remove following warning message on console:
     // Automatically scrolling cursor into view after selection change this will be disabled in the next version

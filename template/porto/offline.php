@@ -10,7 +10,7 @@ if ($USR_IP_BLOCKED) { ?>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center">
-						<h3 class="no-margin"><?php echo $USR_IP_BLOCKED; ?></h3>
+						<h3 class="no-margin"><?=$USR_IP_BLOCKED?></h3>
 					</div>
 				</div>
 			</div>
@@ -25,8 +25,8 @@ if ($USR_IP_BLOCKED) { ?>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center">
-						<h1><?php echo $tl["general_error"]["generror6"]; ?></h1>
-						<p><?php echo $tl["general_error"]["generror7"]; ?></p>
+						<h1><?=$tl["general_error"]["generror6"]?></h1>
+						<p><?=$tl["general_error"]["generror7"]?></p>
 					</div>
 				</div>
 			</div>
