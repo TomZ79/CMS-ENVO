@@ -10,7 +10,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
   $stylett1        = 'style="display: block;"';
 }
 ?>
-<li class="<?php echo $classttsection; ?>">
+<li class="<?=$classttsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -21,7 +21,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 
   <ul class="sub-menu">
 
-    <li class="<?php echo (($page == 'tv-tower' && $page1 == 'tvprogram') || ($page == 'tv-tower' && $page1 == 'newprogram')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'tv-tower' && $page1 == 'tvprogram') || ($page == 'tv-tower' && $page1 == 'newprogram')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -31,7 +31,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'tv-tower' && $page1 == 'tvprogram' && $page2 == 'newprogram') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tv-tower' && $page1 == 'tvprogram' && $page2 == 'newprogram') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -42,7 +42,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 
     </li>
     <?php if ($page == 'tv-tower' && $page1 == 'tvprogram' && $page2 == 'editprogram') { ?>
-      <li class="<?php echo ($page == 'tv-tower' && $page1 == 'tvprogram' && $page2 == 'editprogram') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'tv-tower' && $page1 == 'tvprogram' && $page2 == 'editprogram') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -55,7 +55,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo (($page == 'tv-tower' && $page1 == 'tvchannel') || ($page == 'tv-tower' && $page1 == 'newchannel')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'tv-tower' && $page1 == 'tvchannel') || ($page == 'tv-tower' && $page1 == 'newchannel')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -65,7 +65,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'tv-tower' && $page1 == 'tvchannel' && $page2 == 'newchannel') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tv-tower' && $page1 == 'tvchannel' && $page2 == 'newchannel') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -76,7 +76,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 
     </li>
     <?php if ($page == 'tv-tower' && $page1 == 'tvchannel' && $page2 == 'editchannel') { ?>
-      <li class="<?php echo ($page == 'tv-tower' && $page1 == 'tvchannel' && $page2 == 'editchannel') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'tv-tower' && $page1 == 'tvchannel' && $page2 == 'editchannel') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -89,7 +89,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo (($page == 'tv-tower' && $page1 == 'tvtower') || ($page == 'tv-tower' && $page1 == 'newtvtower')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'tv-tower' && $page1 == 'tvtower') || ($page == 'tv-tower' && $page1 == 'newtvtower')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -99,7 +99,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'tv-tower' && $page1 == 'tvtower' && $page2 == 'newtvtower') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tv-tower' && $page1 == 'tvtower' && $page2 == 'newtvtower') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -110,7 +110,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 
     </li>
     <?php if ($page == 'tv-tower' && $page1 == 'tvtower' && $page2 == 'edittvtower') { ?>
-      <li class="<?php echo ($page == 'tv-tower' && $page1 == 'tvtower' && $page2 == 'edittvtower') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'tv-tower' && $page1 == 'tvtower' && $page2 == 'edittvtower') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -123,7 +123,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo $classttsection1; ?>">
+    <li class="<?=$classttsection1?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -132,8 +132,8 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
       echo $Html->addTag('span', 'ID', 'icon-thumbnail ' . $classttconbg1);
       ?>
 
-      <ul class="sub-menu" <?php echo $stylett1; ?>>
-        <li class="<?php echo (($page == 'tv-tower' && $page1 == 'identifiers' && $page2 == 'createident')) ? 'submenu-active' : ''; ?>">
+      <ul class="sub-menu" <?=$stylett1?>>
+        <li class="<?=(($page == 'tv-tower' && $page1 == 'identifiers' && $page2 == 'createident')) ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -143,7 +143,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
           ?>
 
         </li>
-        <li class="<?php echo ($page == 'tv-tower' && $page1 == 'identifiers') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'tv-tower' && $page1 == 'identifiers') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -157,7 +157,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
     </li>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'tv-tower' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tv-tower' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

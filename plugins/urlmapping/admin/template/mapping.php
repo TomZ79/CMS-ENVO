@@ -9,7 +9,7 @@ if ($page1 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -29,7 +29,7 @@ if ($page2 == "s1") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -71,7 +71,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php if (isset($ENVO_UM_ALL) && is_array($ENVO_UM_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -91,11 +91,11 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                 </div>
               </th>
-              <th style="width: 20%"><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
-              <th style="width: 20%"><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
-              <th style="width: 19%"><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
-              <th style="width: 8%"><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
-              <th style="width: 12%"><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
+              <th style="width: 20%"><?=$tlum["url_box_table"]["urltb"]?></th>
+              <th style="width: 20%"><?=$tlum["url_box_table"]["urltb1"]?></th>
+              <th style="width: 19%"><?=$tlum["url_box_table"]["urltb2"]?></th>
+              <th style="width: 8%"><?=$tlum["url_box_table"]["urltb3"]?></th>
+              <th style="width: 12%"><?=$tlum["url_box_table"]["urltb4"]?></th>
               <th class="text-center no-sort" style="width: 4%">
 
                 <?php
@@ -117,7 +117,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
             </thead>
             <?php foreach ($ENVO_UM_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -163,7 +163,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   } ?>
 
                 </td>
-                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
+                <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
                 <td>
 
                   <?php

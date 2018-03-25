@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tltt["tt_install"]["ttinst"]; ?></title>
+  <title><?=$tltt["tt_install"]["ttinst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -105,16 +105,16 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
     <div class="col-sm-12">
       <div class="col-sm-12 m-t-20">
         <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-          <h3 class="semi-bold text-white"><?php echo $tltt["tt_install"]["ttinst"]; ?></h3>
+          <h3 class="semi-bold text-white"><?=$tltt["tt_install"]["ttinst"]?></h3>
         </div>
         <hr>
         <div id="notificationcontainer"></div>
         <div class="m-b-30">
-          <h4 class="semi-bold"><?php echo $tltt["tt_install"]["ttinst1"]; ?></h4>
+          <h4 class="semi-bold"><?=$tltt["tt_install"]["ttinst1"]?></h4>
 
           <div data-pages="card" class="card card-transparent" id="card-basic">
             <div class="card-header separator">
-              <div class="card-title"><?php echo $tltt["tt_install"]["ttinst2"]; ?></div>
+              <div class="card-title"><?=$tltt["tt_install"]["ttinst2"]?></div>
               <div class="card-controls">
                 <ul>
                   <li>
@@ -158,7 +158,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tltt["tt_install"]["ttinst3"]; ?>',
+                message: '<?=$tltt["tt_install"]["ttinst3"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'warning'
@@ -378,7 +378,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tltt["tt_install"]["ttinst4"]; ?>',
+                message: '<?=$tltt["tt_install"]["ttinst4"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'success'
@@ -396,16 +396,20 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         ?>
 
-          <div class="alert bg-danger"><?php echo $tltt["tt_install"]["ttinst5"]; ?></div>
+          <div class="alert bg-danger"><?=$tltt["tt_install"]["ttinst5"]?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-            <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tltt["tt_install"]["ttinst6"]; ?></button>
+            <button type="submit" name="redirect" class="btn btn-danger btn-block">
+              <?=$tltt["tt_install"]["ttinst6"]?>
+            </button>
           </form>
 
         <?php }
         }
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php">
-            <button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tltt["tt_install"]["ttinst7"]; ?></button>
+            <button type="submit" name="install" class="btn btn-complete btn-block">
+              <?=$tltt["tt_install"]["ttinst7"]?>
+            </button>
           </form>
         <?php }
         } ?>

@@ -5,7 +5,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $succes1; ?>'
+        message: '<?=$succes1?>'
       }, {
         // settings
         type: 'success',
@@ -19,7 +19,7 @@ if (isset($error1)) { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $error1; ?>'
+        message: '<?=$error1?>'
       }, {
         // settings
         type: 'danger',
@@ -34,7 +34,7 @@ if (isset($error2)) { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $error2; ?>'
+        message: '<?=$error2?>'
       }, {
         // settings
         type: 'danger',
@@ -47,7 +47,7 @@ if (isset($error2)) { ?>
   <div class="row">
     <div class="col-sm-12">
 
-      <form id="wizard_example" class="m-b-30" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+      <form id="wizard_example" class="m-b-30" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
         <fieldset>
           <legend>
 
@@ -62,8 +62,8 @@ if (isset($error2)) { ?>
               <table class="table no-border">
                 <tr>
                   <td class="form-inline">
-                    <label for="folder"><?php echo BASE_URL_ORIG; ?></label>
-                    <input type="text" name="envo_xmlseopath" id="folder" value="<?php echo $XMLSEOPATH; ?>" class="form-control"/>
+                    <label for="folder"><?=BASE_URL_ORIG?></label>
+                    <input type="text" name="envo_xmlseopath" id="folder" value="<?=$XMLSEOPATH?>" class="form-control"/>
                     sitemap.xml
                   </td>
                 </tr>
@@ -96,15 +96,15 @@ if (isset($error2)) { ?>
               ?>
 
               <div class="form-group">
-                <label><?php echo $tlxml["xml_box_content"]["xmlbc5"]; ?></label>
-                <textarea id="envo_filetxt" name="envo_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars($content); ?></textarea>
+                <label><?=$tlxml["xml_box_content"]["xmlbc5"]?></label>
+                <textarea id="envo_filetxt" name="envo_filetxt" rows="8" placeholder="<?=$tlxml["xml_box_content"]["xmlbc6"]?>" class="form-control"><?=htmlspecialchars($content)?></textarea>
               </div>
               <div>
-                <p><?php echo $tlxml["xml_box_content"]["xmlbc7"]; ?></p>
+                <p><?=$tlxml["xml_box_content"]["xmlbc7"]?></p>
                 <pre id="sitemapcode" class="code"></pre>
               </div>
               <p>
-                <a href="http://www.sitemaps.org/protocol.html#informing" target="_blank"><?php echo $tlxml["xml_box_content"]["xmlbc8"]; ?></a>
+                <a href="http://www.sitemaps.org/protocol.html#informing" target="_blank"><?=$tlxml["xml_box_content"]["xmlbc8"]?></a>
               </p>
 
             </div>
@@ -124,7 +124,7 @@ if (isset($error2)) { ?>
               <table class="table table-striped">
                 <tbody>
                 <tr>
-                  <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc9"]; ?></td>
+                  <td style="vertical-align: middle;"><?=$tlxml["xml_box_content"]["xmlbc9"]?></td>
                   <td>
                     <select name="envo_frepages" class="form-control selectpicker">
 
@@ -143,7 +143,7 @@ if (isset($error2)) { ?>
                   </td>
                 </tr>
                 <tr>
-                  <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc10"]; ?></td>
+                  <td style="vertical-align: middle;"><?=$tlxml["xml_box_content"]["xmlbc10"]?></td>
                   <td>
                     <select name="envo_freblog" class="form-control selectpicker">
 
@@ -162,7 +162,7 @@ if (isset($error2)) { ?>
                   </td>
                 </tr>
                 <tr>
-                  <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc11"]; ?></td>
+                  <td style="vertical-align: middle;"><?=$tlxml["xml_box_content"]["xmlbc11"]?></td>
                   <td>
                     <select name="envo_fredownload" class="form-control selectpicker">
 

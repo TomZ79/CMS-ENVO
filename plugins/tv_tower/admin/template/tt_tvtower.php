@@ -9,7 +9,7 @@ if ($page2 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -111,7 +111,7 @@ if ($page2 == "n") { ?>
 
 <?php if (!empty($ENVO_TVTOWER_ALL) && is_array($ENVO_TVTOWER_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <table id="tt_table" class="table table-striped table-hover">
@@ -130,7 +130,7 @@ if ($page2 == "n") { ?>
 
               </div>
             </th>
-            <th style="width:27%"><?php echo $tltt["tt_box_table"]["tttb"]; ?></th>
+            <th style="width:27%"><?=$tltt["tt_box_table"]["tttb"]?></th>
             <th style="width:26%">Stanoviště</th>
             <th style="width:26%">Okres</th>
             <th class="text-center no-sort" style="width:4%"></th>
@@ -140,7 +140,7 @@ if ($page2 == "n") { ?>
           </thead>
           <?php foreach ($ENVO_TVTOWER_ALL as $tt) { ?>
             <tr>
-              <td><?php echo $tt["id"]; ?></td>
+              <td><?=$tt["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
@@ -162,10 +162,10 @@ if ($page2 == "n") { ?>
 
               </td>
               <td>
-                <?php echo $tt["station"];?>
+                <?=$tt["station"]?>
               </td>
               <td>
-                <?php echo $tt["district"];?>
+                <?=$tt["district"]?>
               </td>
               <td class="text-center">
 

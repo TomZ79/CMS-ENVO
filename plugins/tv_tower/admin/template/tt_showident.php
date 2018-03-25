@@ -9,7 +9,7 @@ if ($page2 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -29,7 +29,7 @@ if ($page3 == "s1") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -104,9 +104,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_SIDTV_ALL as $sidtv) { ?>
 
                     <tr>
-                      <td><?php echo $sidtv["id"]; ?></td>
+                      <td><?=$sidtv["id"]?></td>
                       <td>
-                        <?php echo $sidtv["sid"]; ?>
+                        <?=$sidtv["sid"]?>
                       </td>
                       <td>
 
@@ -117,7 +117,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?php echo date('d.m.Y', strtotime($sidtv["time"])); ?>
+                        <?=date('d.m.Y', strtotime($sidtv["time"]))?>
                       </td>
                       <td class="text-center">
 
@@ -175,9 +175,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_SIDR_ALL as $sidr) { ?>
 
                     <tr>
-                      <td><?php echo $sidr["id"]; ?></td>
+                      <td><?=$sidr["id"]?></td>
                       <td>
-                        <?php echo $sidr["sid"]; ?>
+                        <?=$sidr["sid"]?>
                       </td>
                       <td>
 
@@ -188,7 +188,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?php echo date('d.m.Y', strtotime($sidr["time"])); ?>
+                        <?=date('d.m.Y', strtotime($sidr["time"]))?>
                       </td>
                       <td class="text-center">
 
@@ -243,10 +243,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_SIDS_ALL as $sids) { ?>
 
                     <tr>
-                      <td><?php echo $sids["id"]; ?></td>
-                      <td>
-                        <?php echo $sids["sid"]; ?>
-                      </td>
+                      <td><?=$sids["id"]?></td>
+                      <td><?=$sids["sid"]?></td>
                       <td>
 
                         <?php
@@ -256,7 +254,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?php echo date('d.m.Y', strtotime($sids["time"])); ?>
+                        <?=date('d.m.Y', strtotime($sids["time"]))?>
                       </td>
                       <td class="text-center">
 
@@ -316,10 +314,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_ONID_ALL as $onid) { ?>
 
                     <tr>
-                      <td><?php echo $onid["id"]; ?></td>
-                      <td>
-                        <?php echo $onid["onid"]; ?>
-                      </td>
+                      <td><?=$onid["id"]?></td>
+                      <td><?=$onid["onid"]?></td>
                       <td>
 
                         <?php
@@ -374,10 +370,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_NID_ALL as $nid) { ?>
 
                     <tr>
-                      <td><?php echo $nid["id"]; ?></td>
-                      <td>
-                        <?php echo $nid["site"]; ?>
-                      </td>
+                      <td><?=$nid["id"]?></td>
+                      <td><?=$nid["site"]?></td>
                       <td>
 
                         <?php

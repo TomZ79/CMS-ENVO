@@ -8,7 +8,7 @@
     <div class="col-md-6">
       <div class="row" style="line-height: 34px;">
         <span class="col-xs-12 col-md-6 text-xs-center">
-          <?php echo $tltt["tt_frontend_wizard"]["ttw"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong>
+          <?=$tltt["tt_frontend_wizard"]["ttw"]?><strong> <?=$COUNT_TVPROGRAM_ALL?></strong>
         </span>
         <span class="col-xs-12 col-md-6 text-xs-center">
 
@@ -30,7 +30,7 @@
     <div class="col-md-12">
       <div class="col-md-4">
         <div class="form-group">
-          <label for="selectTrans" style="width: 200px;"><?php echo $tltt["tt_frontend_wizard"]["ttw2"]; ?></label>
+          <label for="selectTrans" style="width: 200px;"><?=$tltt["tt_frontend_wizard"]["ttw2"]?></label>
           <select id="selectTrans" class="form-control" multiple="multiple">
 
             <?php
@@ -50,7 +50,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label for="selectChannel" style="width: 200px;"><?php echo $tltt["tt_frontend_wizard"]["ttw3"]; ?></label>
+          <label for="selectChannel" style="width: 200px;"><?=$tltt["tt_frontend_wizard"]["ttw3"]?></label>
           <select id="selectChannel" class="" multiple="multiple"></select>
         </div>
       </div>

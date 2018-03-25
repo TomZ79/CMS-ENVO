@@ -9,7 +9,7 @@ if ($page2 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page2 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'success',
@@ -38,7 +38,7 @@ if ($page2 == "e") { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -53,32 +53,32 @@ if ($page2 == "e") { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab"]; ?></span>
+          <span class="text"><?=$tltt["tt_section_tab"]["tttab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab1"]; ?></span>
+          <span class="text"><?=$tltt["tt_section_tab"]["tttab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab2"]; ?></span>
+          <span class="text"><?=$tltt["tt_section_tab"]["tttab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab3"]; ?></span>
+          <span class="text"><?=$tltt["tt_section_tab"]["tttab3"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab4"]; ?></span>
+          <span class="text"><?=$tltt["tt_section_tab"]["tttab4"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage6" role="tab">
-          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab5"]; ?></span>
+          <span class="text"><?=$tltt["tt_section_tab"]["tttab5"]?></span>
         </a>
       </li>
     </ul>

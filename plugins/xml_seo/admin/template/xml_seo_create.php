@@ -6,7 +6,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tlxml["xml_notification"]["xmlnot"]; ?>'
+        message: '<?=$tlxml["xml_notification"]["xmlnot"]?>'
       }, {
         // settings
         type: 'success',
@@ -18,7 +18,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tlxml["xml_notification"]["xmlnot1"] . '<br>' . BASE_URL_ORIG . $XMLSEOPATH; ?>sitemap.xml'
+        message: '<?=$tlxml["xml_notification"]["xmlnot1"] . '<br>' . BASE_URL_ORIG . $XMLSEOPATH?>sitemap.xml'
       }, {
         // settings
         type: 'warning',
@@ -29,12 +29,12 @@
   </script>
 
   <div>
-    <p><strong><?php echo $tlxml["xml_box_content"]["xmlbc23"]; ?></strong></p>
-    <pre class="prettyprint linenums lang-xml" style="overflow: auto; max-height: 30em; white-space: pre;"><?php echo htmlentities($xml_result); ?></pre>
+    <p><strong><?=$tlxml["xml_box_content"]["xmlbc23"]?></strong></p>
+    <pre class="prettyprint linenums lang-xml" style="overflow: auto; max-height: 30em; white-space: pre;"><?=htmlentities($xml_result)?></pre>
   </div>
 <?php } else { ?>
 
-<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
   <div class="row">
     <div class="col-sm-12">
       <div class="box box-success">
@@ -49,13 +49,13 @@
         <div class="box-body">
           <table class="table">
             <tr>
-              <td><?php echo $tlxml["xml_box_content"]["xmlbc19"]; ?></td>
-              <td><?php echo $XMLSEODATE; ?></td>
+              <td><?=$tlxml["xml_box_content"]["xmlbc19"]?></td>
+              <td><?=$XMLSEODATE?></td>
             </tr>
           </table>
         </div>
         <div class="box-footer">
-          <button type="submit" name="save" class="btn btn-block btn-primary"><?php echo $tlxml["xml_box_content"]["xmlbc20"]; ?></button>
+          <button type="submit" name="save" class="btn btn-block btn-primary"><?=$tlxml["xml_box_content"]["xmlbc20"]?></button>
         </div>
       </div>
     </div>

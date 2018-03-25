@@ -35,11 +35,11 @@ while ($rwresexh2 = $resexh2->fetch_assoc()) {
     <table class="table table-striped table-hover">
       <tr>
         <td>Celkový počet exportů</td>
-        <td><?php echo $rwresexh['totalM']; ?></td>
+        <td><?=$rwresexh['totalM']?></td>
       </tr>
       <tr>
         <td>Počet exportů za posledních 30 dnů</td>
-        <td><?php echo $rwresexh1['totalMM']; ?></td>
+        <td><?=$rwresexh1['totalMM']?></td>
       </tr>
     </table>
     <div>
@@ -59,9 +59,9 @@ while ($rwresexh2 = $resexh2->fetch_assoc()) {
         <?php if (isset($tt_envodata)) foreach ($tt_envodata as $tte) { ?>
 
           <tr>
-            <td><?php echo $tte["email"]; ?></td>
-            <td><?php echo $tte["exportname"]; ?></td>
-            <td><?php echo $tte["time"]; ?></td>
+            <td><?=$tte["email"]?></td>
+            <td><?=$tte["exportname"]?></td>
+            <td><?=$tte["time"]?></td>
           </tr>
         <?php } ?>
 

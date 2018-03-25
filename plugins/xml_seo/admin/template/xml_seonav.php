@@ -8,7 +8,7 @@ if ($page == 'xml_seo') {
 ?>
 
 <li class="list-divider"></li>
-<li class="<?php echo $classxmlsection; ?>">
+<li class="<?=$classxmlsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -17,8 +17,8 @@ if ($page == 'xml_seo') {
   echo $Html->addTag('span', 'SM', 'icon-thumbnail ' . $classxmlconbg);
   ?>
 
-  <ul class="sub-menu" <?php echo $stylexml; ?>>
-    <li class="<?php echo (($page == 'xml_seo' && $page1 == 'create')) ? 'submenu-active' : ''; ?>">
+  <ul class="sub-menu" <?=$stylexml?>>
+    <li class="<?=(($page == 'xml_seo' && $page1 == 'create')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -28,7 +28,7 @@ if ($page == 'xml_seo') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'xml_seo' && $page1 == 'view') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'xml_seo' && $page1 == 'view') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -39,7 +39,7 @@ if ($page == 'xml_seo') {
 
     </li>
 
-    <li class="<?php echo ($page == 'xml_seo' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'xml_seo' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

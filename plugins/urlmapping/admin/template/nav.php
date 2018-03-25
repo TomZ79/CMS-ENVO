@@ -1,6 +1,6 @@
 <!-- START URLMAPPING SECTION -->
 <li class="list-divider"></li>
-<li class="<?php echo ($page == 'urlmapping') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'urlmapping') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -10,7 +10,7 @@
   ?>
 
 </li>
-<li class="<?php echo ($page == 'urlmapping' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'urlmapping' && $page1 == 'new') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -21,7 +21,7 @@
 
 </li>
 <?php if ($page == 'urlmapping' && $page1 == 'edit') { ?>
-  <li class="<?php echo ($page == 'urlmapping' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+  <li class="<?=($page == 'urlmapping' && $page1 == 'edit') ? 'submenu-active' : ''?>">
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

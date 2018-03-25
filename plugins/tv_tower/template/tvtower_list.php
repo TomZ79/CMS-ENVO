@@ -8,7 +8,7 @@
       <div class="col-md-6">
         <div class="row" style="line-height: 34px;">
             <span class="col-xs-12 col-md-6 text-xs-center">
-              <?php echo $tltt["tt_frontend_list"]["ttl"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong>
+              <?=$tltt["tt_frontend_list"]["ttl"]?><strong> <?=$COUNT_TVPROGRAM_ALL?></strong>
             </span>
             <span class="col-xs-12 col-md-6 text-xs-center">
 
@@ -60,8 +60,8 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div id="tramsmitter-<?php echo $tt['varname']; ?>">
-                <h4><?php echo $tt['name'] . ' - ' . $tt['station']; ?></h4>
+              <div id="tramsmitter-<?=$tt['varname']?>">
+                <h4><?=$tt['name'] . ' - ' . $tt['station']?></h4>
 
                 <div class="col-md-12" style="margin-bottom: 20px">
                   <div class="col-md-6">
@@ -69,11 +69,11 @@
                     <?php if ($programcounter > 0) { ?>
 
                       <div class="form-group siteselect">
-                        <label for="SelectTrans<?php echo $tt['id']; ?>" class="sitelabel"><?php echo $tltt["tt_frontend_list"]["ttl2"]; ?></label>
+                        <label for="SelectTrans<?=$tt['id']?>" class="sitelabel"><?=$tltt["tt_frontend_list"]["ttl2"]?></label>
                         <div class="siteselection">
-                          <select id="SelectTrans<?php echo $tt['id']; ?>" class="form-control sumoselect">
+                          <select id="SelectTrans<?=$tt['id']?>" class="form-control sumoselect">
 
-                            <option value=""><?php echo $tltt["tt_frontend_list"]["ttl3"]; ?></option>
+                            <option value=""><?=$tltt["tt_frontend_list"]["ttl3"]?></option>
                             <?php
                             // Zobrazení názvů sítí pro danný vysílač
                             if (isset($ENVO_TVCHANNEL_ALL) && is_array($ENVO_TVCHANNEL_ALL)) {
@@ -121,17 +121,17 @@
                 </div>
 
                 <div class="col-md-12">
-                  <div id="Transmitter<?php echo $tt['id']; ?>" class="table-responsive">
+                  <div id="Transmitter<?=$tt['id']?>" class="table-responsive">
                     <table class="table table-hover table-expandable">
                       <thead>
                       <tr>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl6"]; ?></th>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl7"]; ?></th>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl8"]; ?></th>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl9"]; ?></th>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl10"]; ?></th>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl11"]; ?></th>
-                        <th><?php echo $tltt["tt_frontend_list"]["ttl12"]; ?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl6"]?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl7"]?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl8"]?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl9"]?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl10"]?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl11"]?></th>
+                        <th><?=$tltt["tt_frontend_list"]["ttl12"]?></th>
                       </tr>
                       </thead>
                       <tbody>
