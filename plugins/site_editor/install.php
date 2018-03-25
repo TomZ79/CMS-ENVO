@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlsedi["siteedit_install"]["seinst"]; ?></title>
+  <title><?=$tlsedi["siteedit_install"]["seinst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -104,18 +104,18 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tlsedi["siteedit_install"]["seinst"]; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tlsedi["siteedit_install"]["seinst"]?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?php echo $tlsedi["siteedit_install"]["seinst1"]; ?></h4>
+        <h4 class="semi-bold"><?=$tlsedi["siteedit_install"]["seinst1"]?></h4>
         <p>Plugin umožní editaci souboru <strong>' robots.txt '</strong>.</p>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?php echo $tlsedi["siteedit_install"]["seinst2"]; ?></div>
+            <div class="card-title"><?=$tlsedi["siteedit_install"]["seinst2"]?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -158,7 +158,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
             // Apply the plugin to the body
             $('#notificationcontainer').pgNotification({
               style: 'bar',
-              message: '<?php echo $tlsedi["siteedit_install"]["seinst3"]; ?>',
+              message: '<?=$tlsedi["siteedit_install"]["seinst3"]?>',
               position: 'top',
               timeout: 0,
               type: 'warning'
@@ -218,7 +218,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
             // Apply the plugin to the body
             $('#notificationcontainer').pgNotification({
               style: 'bar',
-              message: '<?php echo $tlsedi["siteedit_install"]["seinst4"]; ?>',
+              message: '<?=$tlsedi["siteedit_install"]["seinst4"]?>',
               position: 'top',
               timeout: 0,
               type: 'success'
@@ -235,16 +235,20 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
       $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
       ?>
-        <div class="alert bg-danger"><?php echo $tlsedi["siteedit_install"]["seinst5"]; ?></div>
+        <div class="alert bg-danger"><?=$tlsedi["siteedit_install"]["seinst5"]?></div>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tlsedi["siteedit_install"]["seinst6"]; ?></button>
+          <button type="submit" name="redirect" class="btn btn-danger btn-block">
+            <?=$tlsedi["siteedit_install"]["seinst6"]?>
+          </button>
         </form>
       <?php }
       } ?>
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tlsedi["siteedit_install"]["seinst7"]; ?></button>
+          <button type="submit" name="install" class="btn btn-complete btn-block">
+            <?=$tlsedi["siteedit_install"]["seinst7"]?>
+          </button>
         </form>
       <?php }
       } ?>

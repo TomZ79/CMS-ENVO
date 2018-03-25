@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlsedi["siteedit_uninstall"]["seuninst"]; ?></title>
+  <title><?=$tlsedi["siteedit_uninstall"]["seuninst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tlsedi["siteedit_uninstall"]["seuninst"]; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tlsedi["siteedit_uninstall"]["seuninst"]?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?php echo $tlsedi["siteedit_uninstall"]["seuninst1"]; ?></h4>
+        <h4 class="semi-bold"><?=$tlsedi["siteedit_uninstall"]["seuninst1"]?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?php echo $tlsedi["siteedit_uninstall"]["seuninst2"]; ?></div>
+            <div class="card-title"><?=$tlsedi["siteedit_uninstall"]["seuninst2"]?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -161,7 +161,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlsedi["siteedit_uninstall"]["seuninst3"]; ?>',
+                message: '<?=$tlsedi["siteedit_uninstall"]["seuninst3"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'success'
@@ -172,7 +172,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
           </script>
         <?php } else { ?>
           <div>
-            <h5 class="text-danger bold"><?php echo $tlsedi["siteedit_uninstall"]["seuninst4"]; ?></h5>
+            <h5 class="text-danger bold"><?=$tlsedi["siteedit_uninstall"]["seuninst4"]?></h5>
           </div>
           <script>
             $(document).ready(function () {
@@ -180,7 +180,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlsedi["siteedit_uninstall"]["seuninst4"]; ?>',
+                message: '<?=$tlsedi["siteedit_uninstall"]["seuninst4"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'danger'
@@ -195,11 +195,13 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
       <?php if (!$succesfully) { ?>
         <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
           <div class="form-group form-inline">
-            <label for="text"><?php echo $tlsedi["siteedit_uninstall"]["seuninst5"]; ?></label>
+            <label for="text"><?=$tlsedi["siteedit_uninstall"]["seuninst5"]?></label>
             <input type="text" name="captcha" class="form-control m-l-10" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
-          <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlsedi["siteedit_uninstall"]["seuninst6"]; ?></button>
+          <button type="submit" name="uninstall" class="btn btn-complete btn-block">
+            <?=$tlsedi["siteedit_uninstall"]["seuninst6"]?>
+          </button>
         </form>
       <?php } ?>
 

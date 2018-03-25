@@ -1,7 +1,7 @@
 <li class="envocontent">
   <div class="form-group">
-    <div class="envocontent_header"><?php echo $tlrf["reg_connect"]["regc"]; ?></div>
-    <label class="control-label"><?php echo $tlrf["reg_box_content"]["regbc"]; ?></label>
+    <div class="envocontent_header"><?=$tlrf["reg_connect"]["regc"]?></div>
+    <label class="control-label"><?=$tlrf["reg_box_content"]["regbc"]?></label>
     <div class="radio radio-success">
 
       <?php

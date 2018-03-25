@@ -1,6 +1,6 @@
 <!-- START SITE EDIT -->
 <li class="list-divider"></li>
-<li class="<?php echo ($page == 'site-editor') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'site-editor') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

@@ -9,7 +9,7 @@ if ($page2 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page2 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'success',
@@ -38,7 +38,7 @@ if ($page2 == "e") { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -53,12 +53,12 @@ if ($page2 == "e") { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tlrf["reg_section_tab"]["regtab"]; ?></span>
+          <span class="text"><?=$tlrf["reg_section_tab"]["regtab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tlrf["reg_section_tab"]["regtab1"]; ?></span>
+          <span class="text"><?=$tlrf["reg_section_tab"]["regtab1"]?></span>
         </a>
       </li>
     </ul>
@@ -212,11 +212,11 @@ if ($page2 == "e") { ?>
                       </div>
                       <div class="col-sm-7">
                         <select name="envo_redirect" class="form-control">
-                          <option value="0"><?php echo $tlrf["reg_box_content"]["regbc29"]; ?></option>
+                          <option value="0"><?=$tlrf["reg_box_content"]["regbc29"]?></option>
                           <?php if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $c) { ?>
-                            <option value="<?php echo $c["id"]; ?>"<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $z) {
+                            <option value="<?=$c["id"]?>"<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $z) {
                               if ($z["varname"] == 'rf_redirect' && $c["id"] == $z["value"]) { ?> selected="selected"<?php }
-                            } ?>><?php echo $c["name"]; ?></option><?php } ?>
+                            } ?>><?=$c["name"]?></option><?php } ?>
                         </select>
                       </div>
                     </div>

@@ -1,6 +1,6 @@
 <!-- START REGISTER FORM -->
 <li class="list-divider"></li>
-<li class="<?php echo ($page == 'register-form') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'register-form') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -10,7 +10,7 @@
   ?>
 
 </li>
-<li class="<?php echo ($page == 'register-form' && $page1 == 'settings') ? 'submenu-active' : ''; ?>">
+<li class="<?=($page == 'register-form' && $page1 == 'settings') ? 'submenu-active' : ''?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

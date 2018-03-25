@@ -24,16 +24,16 @@ $rwresrf2 = $resrf2->fetch_assoc();
   <div class="box-body no-padding">
     <table class="table table-striped table-hover">
       <tr>
-        <td><?php echo $tlrf["reg_box_content"]["regbc1"]; ?></td>
-        <td><?php echo $rwresrf['totalM']; ?></td>
+        <td><?=$tlrf["reg_box_content"]["regbc1"]?></td>
+        <td><?=$rwresrf['totalM']?></td>
       </tr>
       <tr>
-        <td><?php echo $tlrf["reg_box_content"]["regbc2"]; ?></td>
-        <td><?php echo $rwresrf1['totalMW']; ?></td>
+        <td><?=$tlrf["reg_box_content"]["regbc2"]?></td>
+        <td><?=$rwresrf1['totalMW']?></td>
       </tr>
       <tr>
-        <td><?php echo $tlrf["reg_box_content"]["regbc3"]; ?></td>
-        <td><?php echo $rwresrf2['totalMM']; ?></td>
+        <td><?=$tlrf["reg_box_content"]["regbc3"]?></td>
+        <td><?=$rwresrf2['totalMM']?></td>
       </tr>
     </table>
   </div>

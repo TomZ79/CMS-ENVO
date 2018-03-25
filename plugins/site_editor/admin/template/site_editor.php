@@ -11,7 +11,7 @@
           ?>
 
         </div>
-        <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+        <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
           <div class="box-body">
 
             <?php
