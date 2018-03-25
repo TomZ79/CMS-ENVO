@@ -27,14 +27,15 @@ ob_start();
 // -----------------------------------------------------------------------
 // DEFINE SEPERATOR ALIASES
 // -----------------------------------------------------------------------
-define("URL_SEPARATOR", '/');
-define("DS", DIRECTORY_SEPARATOR);
-define("PS", PATH_SEPARATOR);
-define("US", URL_SEPARATOR);
+define("URL_SEPARATOR", '/');         // Value '/'
+define("US", URL_SEPARATOR);          // Value '/'
+define("DS", DIRECTORY_SEPARATOR);    // Value '/'
+define("PS", PATH_SEPARATOR);         // Value ':'
+define('ROOT', __DIR__ .'/');
 
 // EN: Setting of absolute path
 // CZ: Nastavení absolutní cesty
-define('APP_PATH', dirname(__file__) . DIRECTORY_SEPARATOR);
+define('APP_PATH', dirname(__file__) . DS);
 if (isset($_SERVER['SCRIPT_NAME'])) {
   # on Windows _APP_MAIN_DIR becomes \ and abs url would look something like HTTP_HOST\/restOfUrl, so \ should be trimed too
   $app_main_dir = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');

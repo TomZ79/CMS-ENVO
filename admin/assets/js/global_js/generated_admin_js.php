@@ -10,10 +10,10 @@ $site_language = $setting["lang"];
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
+if ($setting["lang"] != $site_language && file_exists(ROOT_ADMIN . 'lang/' . $site_language . '.ini')) {
+  $tl = parse_ini_file(ROOT_ADMIN . 'lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $tl            = parse_ini_file(ROOT_ADMIN . 'lang/' . $setting["lang"] . '.ini', TRUE);
   $site_language = $setting["lang"];
 }
 

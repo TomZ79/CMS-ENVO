@@ -49,10 +49,10 @@ if (ENVO_USERID && !ENVO_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
  * ===================================================== */
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
+if ($setting["lang"] != $site_language && file_exists(ROOT_ADMIN . 'lang/' . $site_language . '.ini')) {
+  $tl = parse_ini_file(ROOT_ADMIN . 'lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $tl            = parse_ini_file(ROOT_ADMIN . 'lang/' . $setting["lang"] . '.ini', TRUE);
   $site_language = $setting["lang"];
 }
 
@@ -357,12 +357,14 @@ if ($page == 'cmshelp') {
 // CZ: Pokud stránka není nalezena
 if ($checkp == 0) envo_redirect(BASE_URL . 'index.php?p=404');
 
-if (isset($template) && $template != '') {
-  include_once APP_PATH . 'admin/template/' . $template;
-}
-
 // EN: Get the admin template
 // CZ: Získání administračních šablon
+if (isset($template) && $template != '') {
+  include_once ROOT_ADMIN . 'template/' . $template;
+}
+
+// EN: Get the admin template - plugins
+// CZ: Získání administračních šablon - pluginy
 if (isset($plugin_template) && $plugin_template != '') {
   include_once APP_PATH . $plugin_template;
 }
