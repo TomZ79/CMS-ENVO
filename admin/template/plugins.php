@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -31,7 +31,7 @@ if ($page1 == "e") { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="row tab-content-singel">
       <div class="col-sm-12">
         <div class="box box-success">
@@ -115,14 +115,14 @@ if ($page1 == "e") { ?>
             <ul class="envo_plugins_move">
               <?php if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $v) { ?>
 
-                <li id="plugin-<?php echo $v["id"]; ?>" class="envoplugins">
+                <li id="plugin-<?=$v["id"]?>" class="envoplugins">
                   <div class="row sm-m-0">
                     <div class="col-sm-1 col-3 text">
                       <span># </span>
-                      <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
+                      <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?=$v["id"]?>"><?=$v["id"]?></a>
                     </div>
                     <div class="col-sm-2 col-5 text plugins-name">
-											<span title="<?php echo $v["description"]; ?>">
+											<span title="<?=$v["description"]?>">
 
 												<?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)

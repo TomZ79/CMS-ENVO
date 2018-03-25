@@ -27,7 +27,7 @@ $(function () {
       "insertdatetime media table contextmenu paste responsivefilemanager"
     ],
     toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | clientcode",
-    content_css: "<?php echo $customCSS;?>",
+    content_css: "<?=$customCSS?>",
     statusbar: false,
     menubar: false,
     relative_urls: false,
@@ -57,7 +57,7 @@ $(function () {
       "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
       "save table contextmenu directionality emoticons paste textcolor responsivefilemanager clientcode bootstrap3"
     ],
-    content_css: "<?php echo $customCSS;?>",
+    content_css: "<?=$customCSS?>",
     toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image | preview media fullpage | forecolor backcolor emoticons | clientcode bootstrap3",
     statusbar: false,
     image_advtab: true,

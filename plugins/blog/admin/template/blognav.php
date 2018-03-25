@@ -5,7 +5,7 @@ if ($page == 'blog') {
   $classblogiconbg  = 'bg-success';
 }
 ?>
-<li class="<?php echo $classblogsection; ?>">
+<li class="<?=$classblogsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -15,7 +15,7 @@ if ($page == 'blog') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo (($page == 'blog' && $page1 == '') || ($page == 'blog' && $page1 == 'new') || ($page == 'blog' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'blog' && $page1 == '') || ($page == 'blog' && $page1 == 'new') || ($page == 'blog' && $page1 == 'edit')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -25,7 +25,7 @@ if ($page == 'blog') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'blog' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'blog' && $page1 == 'new') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -36,7 +36,7 @@ if ($page == 'blog') {
 
     </li>
     <?php if ($page == 'blog' && $page1 == 'edit') { ?>
-      <li class="<?php echo ($page == 'blog' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'blog' && $page1 == 'edit') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -49,7 +49,7 @@ if ($page == 'blog') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo (($page == 'blog' && $page1 == 'categories') || ($page == 'blog' && $page1 == 'newcategory')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'blog' && $page1 == 'categories') || ($page == 'blog' && $page1 == 'newcategory')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -59,7 +59,7 @@ if ($page == 'blog') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'blog' && $page1 == 'newcategory') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'blog' && $page1 == 'newcategory') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -70,7 +70,7 @@ if ($page == 'blog') {
 
     </li>
     <?php if ($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') { ?>
-      <li class="<?php echo ($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -83,7 +83,7 @@ if ($page == 'blog') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'blog' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'blog' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

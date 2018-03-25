@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -62,7 +62,7 @@
 
 <?php if (isset($ENVO_PAGE_ALL) && is_array($ENVO_PAGE_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -82,12 +82,12 @@
 
                 </div>
               </th>
-              <th style="width:25%"><?php echo $tl["page_box_table"]["pagetb"]; ?></th>
-              <th class="text-center no-sort" style="width:4%"><?php echo $tl["page_box_table"]["pagetb5"]; ?></th>
-              <th style="width:10%"><?php echo $tl["page_box_table"]["pagetb1"]; ?></th>
-              <th style="width:10%"><?php echo $tl["page_box_table"]["pagetb2"]; ?></th>
-              <th style="width:10%"><?php echo $tl["page_box_table"]["pagetb3"]; ?></th>
-              <th style="width:10%"><?php echo $tl["page_box_table"]["pagetb4"]; ?></th>
+              <th style="width:25%"><?=$tl["page_box_table"]["pagetb"]?></th>
+              <th class="text-center no-sort" style="width:4%"><?=$tl["page_box_table"]["pagetb5"]?></th>
+              <th style="width:10%"><?=$tl["page_box_table"]["pagetb1"]?></th>
+              <th style="width:10%"><?=$tl["page_box_table"]["pagetb2"]?></th>
+              <th style="width:10%"><?=$tl["page_box_table"]["pagetb3"]?></th>
+              <th style="width:10%"><?=$tl["page_box_table"]["pagetb4"]?></th>
               <th class="text-center no-sort" style="width:4%">
 
                 <?php
@@ -109,7 +109,7 @@
             </thead>
             <?php foreach ($ENVO_PAGE_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -155,8 +155,8 @@
                   ?>
 
                 </td>
-                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
-                <td><?php echo $v["hits"]; ?></td>
+                <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
+                <td><?=$v["hits"]?></td>
                 <td>
 
                   <?php

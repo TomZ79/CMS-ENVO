@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -66,7 +66,7 @@
 
   </div>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -86,8 +86,8 @@
 
                 </div>
               </th>
-              <th><?php echo $tl["userg_box_table"]["usergtb"]; ?></th>
-              <th><?php echo $tl["userg_box_table"]["usergtb1"]; ?></th>
+              <th><?=$tl["userg_box_table"]["usergtb"]?></th>
+              <th><?=$tl["userg_box_table"]["usergtb1"]?></th>
               <th></th>
               <th></th>
               <th>
@@ -102,7 +102,7 @@
             </thead>
             <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -123,7 +123,7 @@
                   ?>
 
                 </td>
-                <td><?php echo $v["description"]; ?></td>
+                <td><?=$v["description"]?></td>
                 <td>
 
                   <?php

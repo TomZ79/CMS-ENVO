@@ -50,16 +50,16 @@ class ENVO_mysql extends mysqli
       </tr>
       <tr>
         <td align="right" valign="top">Message:</td>
-        <td><?php echo $msg; ?></td>
+        <td><?=$msg?></td>
       </tr>
       <?php if (strlen($this->error) > 0) echo '<tr><td align="right" valign="top" nowrap>MySQL Error:</td><td>' . $this->error . '</td></tr>'; ?>
       <tr>
         <td align="right">Date:</td>
-        <td><?php echo date("l, F j, Y \a\\t g:i:s A"); ?></td>
+        <td><?=date("l, F j, Y \a\\t g:i:s A")?></td>
       </tr>
       <tr>
         <td align="right">Script:</td>
-        <td><a href="<?php echo @$_SERVER['REQUEST_URI']; ?>"><?php echo @$_SERVER['REQUEST_URI']; ?></a></td>
+        <td><a href="<?=@$_SERVER['REQUEST_URI']?>"><?=@$_SERVER['REQUEST_URI']?></a></td>
       </tr>
       <?php if (strlen(@$_SERVER['HTTP_REFERER']) > 0) echo '<tr><td align="right">Referer:</td><td><a href="' . @$_SERVER['HTTP_REFERER'] . '">' . @$_SERVER['HTTP_REFERER'] . '</a></td></tr>'; ?>
     </table>

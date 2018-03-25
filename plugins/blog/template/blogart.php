@@ -7,24 +7,24 @@ if ($setting["printme"]) $printme = 1; ?>
   <div id="printdiv" class="blog-p">
 
     <div class="blog-p-body">
-      <h2 class="first-child text-color hidden-xs"><?php echo $PAGE_TITLE; ?></h2>
+      <h2 class="first-child text-color hidden-xs"><?=$PAGE_TITLE?></h2>
       <div class="row">
         <div class="col-sm-6">
-          <p class="text-muted"><i class="fa fa-hand-o-right"></i> <?php echo $BLOG_CATLIST; ?>
-            <br><?php if ($SHOWDATE) { ?><i class="fa fa-clock-o"></i> <?php echo $PAGE_TIME; ?><br><?php } ?>
-            <i class="fa fa-eye"></i> <?php echo $BLOG_HITS; ?></p>
+          <p class="text-muted"><i class="fa fa-hand-o-right"></i> <?=$BLOG_CATLIST?>
+            <br><?php if ($SHOWDATE) { ?><i class="fa fa-clock-o"></i> <?=$PAGE_TIME?><br><?php } ?>
+            <i class="fa fa-eye"></i> <?=$BLOG_HITS?></p>
         </div>
         <div class="col-sm-6">
           <!-- Show date, social buttons and tag list -->
           <?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php'; ?>
           <?php if ($ENVO_TAGLIST) { ?>
-            <i class="fa fa-tags"></i> <?php echo $ENVO_TAGLIST; ?>
+            <i class="fa fa-tags"></i> <?=$ENVO_TAGLIST?>
           <?php } ?>
         </div>
       </div>
       <hr>
-      <?php echo $PAGE_CONTENT; ?>
-      <!-- <img src="<?php echo BASE_URL . $SHOWIMG; ?>" alt="envo-preview" class="post-image img-responsive"> -->
+      <?=$PAGE_CONTENT?>
+      <!-- <img src="<?=BASE_URL . $SHOWIMG?>" alt="envo-preview" class="post-image img-responsive"> -->
     </div>
 
   </div>
@@ -34,16 +34,16 @@ if ($setting["printme"]) $printme = 1; ?>
     <ul class="pager">
       <?php if ($ENVO_NAV_PREV) { ?>
         <li class="previous">
-          <a href="<?php echo $ENVO_NAV_PREV; ?>">
+          <a href="<?=$ENVO_NAV_PREV?>">
             <i class="fa fa-caret-left"></i>
-            <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
+            <span class="nav_text_left"><?=$ENVO_NAV_PREV_TITLE?></span>
           </a>
         </li>
       <?php }
       if ($ENVO_NAV_NEXT) { ?>
         <li class="next">
-          <a href="<?php echo $ENVO_NAV_NEXT; ?>">
-            <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
+          <a href="<?=$ENVO_NAV_NEXT?>">
+            <span class="nav_text_right"><?=$ENVO_NAV_NEXT_TITLE?></span>
             <i class="fa fa-caret-right"></i>
           </a>
         </li>

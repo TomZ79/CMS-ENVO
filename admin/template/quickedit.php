@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -48,17 +48,17 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
 
     <table class="table table-striped">
       <thead>
       <tr>
-        <th colspan="2"><?php echo $tl["global_text"]["globaltxt15"]; ?></th>
+        <th colspan="2"><?=$tl["global_text"]["globaltxt15"]?></th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td><?php echo $tl["global_text"]["globaltxt16"]; ?></td>
+        <td><?=$tl["global_text"]["globaltxt16"]?></td>
         <td>
           <div class="form-group m-0<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 

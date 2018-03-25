@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -34,9 +34,9 @@ if ($errors) { ?>
 <?php } ?>
 
   <div class="col-sm-12 m-b-20">
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
       <div class="form-group">
-        <label for="groupbase"><?php echo $tl["userg_box_content"]["usergbc"]; ?></label>
+        <label for="groupbase"><?=$tl["userg_box_content"]["usergbc"]?></label>
         <div class="input-group">
           <select name="envo_groupbase" id="groupbase" class="form-control selectpicker">
 
@@ -51,14 +51,14 @@ if ($errors) { ?>
 
           </select>
           <span class="input-group-btn">
-		    	<button class="btn btn-info" name="create" type="submit"><?php echo $tl["button"]["btn1"]; ?></button>
+		    	<button class="btn btn-info" name="create" type="submit"><?=$tl["button"]["btn1"]?></button>
 		    </span>
         </div>
       </div>
     </form>
   </div>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -75,13 +75,13 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tl["userg_section_tab"]["usergtab"]; ?></span>
+          <span class="text"><?=$tl["userg_section_tab"]["usergtab"]?></span>
         </a>
       </li>
       <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
         <li class="nav-item next">
           <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-            <span class="text"><?php echo $tl["userg_section_tab"]["usergtab1"]; ?></span>
+            <span class="text"><?=$tl["userg_section_tab"]["usergtab1"]?></span>
           </a>
         </li>
       <?php } ?>

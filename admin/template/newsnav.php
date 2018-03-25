@@ -5,7 +5,7 @@ if ($page == 'news') {
   $classnewsiconbg = 'bg-success';
 }
 ?>
-<li class="<?php echo $classnewssection; ?>">
+<li class="<?=$classnewssection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -15,7 +15,7 @@ if ($page == 'news') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo (($page == 'news' && $page1 == '') || ($page == 'news' && $page1 == 'newnews') || ($page == 'news' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'news' && $page1 == '') || ($page == 'news' && $page1 == 'newnews') || ($page == 'news' && $page1 == 'edit')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -25,7 +25,7 @@ if ($page == 'news') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'news' && $page1 == 'newnews') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'news' && $page1 == 'newnews') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -36,7 +36,7 @@ if ($page == 'news') {
 
     </li>
     <?php if ($page == 'news' && $page1 == 'editnews') { ?>
-      <li class="<?php echo ($page == 'news' && $page1 == 'editnews') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'news' && $page1 == 'editnews') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -47,7 +47,7 @@ if ($page == 'news') {
 
       </li>
     <?php } ?>
-    <li class="<?php echo ($page == 'news' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'news' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

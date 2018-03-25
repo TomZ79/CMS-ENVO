@@ -1,7 +1,7 @@
 <?php
 echo $Html->addDoctype('html5');
 ?>
-<html lang="<?php echo $site_language; ?>">
+<html lang="<?=$site_language?>">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <meta charset="utf-8"/>

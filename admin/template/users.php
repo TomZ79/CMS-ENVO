@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -71,14 +71,14 @@
       <form role="form" method="post" action="/admin/index.php?p=users&amp;sp=search&amp;ssp=go">
         <div class="input-group">
           <span class="input-group-btn">
-            <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
+            <button class="btn btn-info" name="search" type="submit"><?=$tl["button"]["btn21"]?></button>
           </span>
-          <input type="text" name="envoSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p2"]; ?>">
+          <input type="text" name="envoSH" class="form-control" placeholder="<?=$tl["placeholder"]["p2"]?>">
         </div><!-- /input-group -->
       </form>
     </div>
     <div class="col-sm-6">
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
       <div class="input-group">
         <select name="envo_group" class="form-control selectpicker">
 
@@ -108,7 +108,7 @@
 
 <?php if (isset($ENVO_USER_ALL_APPROVE) && is_array($ENVO_USER_ALL_APPROVE)) { ?>
 
-  <h3><?php echo $tl["user_box_table"]["usertb5"]; ?></h3>
+  <h3><?=$tl["user_box_table"]["usertb5"]?></h3>
 
   <div class="box box-success">
     <div class="box-body no-padding">
@@ -129,9 +129,9 @@
 
               </div>
             </th>
-            <th><?php echo $tl["user_box_table"]["usertb"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb1"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb2"]; ?></th>
+            <th><?=$tl["user_box_table"]["usertb"]?></th>
+            <th><?=$tl["user_box_table"]["usertb1"]?></th>
+            <th><?=$tl["user_box_table"]["usertb2"]?></th>
             <th></th>
             <th class="text-center">
 
@@ -154,7 +154,7 @@
           </thead>
           <?php foreach ($ENVO_USER_ALL_APPROVE as $va) { ?>
             <tr>
-              <td><?php echo $va["id"]; ?></td>
+              <td><?=$va["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
@@ -238,7 +238,7 @@
 
 <?php } ?>
 
-  <h3><?php echo $tl["user_box_table"]["usertb4"]; ?></h3>
+  <h3><?=$tl["user_box_table"]["usertb4"]?></h3>
 
   <div class="box box-success">
     <div class="box-body no-padding">
@@ -260,7 +260,7 @@
               </div>
             </th>
             <th>
-              <?php echo $tl["user_box_table"]["usertb"]; ?>
+              <?=$tl["user_box_table"]["usertb"]?>
               <a class="btn btn-warning btn-xs" href="index.php?p=users&amp;sp=sort&amp;ssp=username&amp;sssp=DESC">
                 <i class="fa fa-arrow-up"></i>
               </a>
@@ -269,7 +269,7 @@
               </a>
             </th>
             <th>
-              <?php echo $tl["user_box_table"]["usertb1"]; ?>
+              <?=$tl["user_box_table"]["usertb1"]?>
               <a class="btn btn-warning btn-xs" href="index.php?p=users&amp;sp=sort&amp;ssp=email&amp;sssp=DESC">
                 <i class="fa fa-arrow-up"></i>
               </a>
@@ -277,9 +277,9 @@
                 <i class="fa fa-arrow-down"></i>
               </a>
             </th>
-            <th><?php echo $tl["user_box_table"]["usertb2"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb6"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb3"]; ?></th>
+            <th><?=$tl["user_box_table"]["usertb2"]?></th>
+            <th><?=$tl["user_box_table"]["usertb6"]?></th>
+            <th><?=$tl["user_box_table"]["usertb3"]?></th>
             <th>
 
               <?php
@@ -307,7 +307,7 @@
           </thead>
           <?php if (isset($ENVO_USER_ALL) && is_array($ENVO_USER_ALL)) foreach ($ENVO_USER_ALL as $v) { ?>
             <tr>
-              <td><?php echo $v["id"]; ?></td>
+              <td><?=$v["id"]?></td>
               <td>
 
                 <?php
@@ -365,7 +365,7 @@
                 ?>
 
               </td>
-              <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
+              <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
               <td>
 
                 <?php

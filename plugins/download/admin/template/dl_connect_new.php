@@ -1,9 +1,9 @@
 <?php if (!isset($dl_exist)) { ?>
 
   <li class="envocontent">
-    <div class="envocontent_header"><?php echo $tld["downl_connect"]["downlc11"]; ?></div>
+    <div class="envocontent_header"><?=$tld["downl_connect"]["downlc11"]?></div>
     <div class="form-group">
-      <label class="control-label"><?php echo $tld["downl_connect"]["downlc8"]; ?></label>
+      <label class="control-label"><?=$tld["downl_connect"]["downlc8"]?></label>
       <div class="row">
         <div class="col-sm-6">
           <select name="envo_showdlorder" class="form-control selectpicker">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label"><?php echo $tld["downl_connect"]["downlc9"]; ?></label>
+      <label class="control-label"><?=$tld["downl_connect"]["downlc9"]?></label>
       <select name="envo_showdl[]" multiple="multiple" class="form-control">
 
         <?php

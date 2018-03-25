@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -62,7 +62,7 @@
 
 <?php if (isset($ENVO_NEWS) && is_array($ENVO_NEWS)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -82,10 +82,10 @@
 
                 </div>
               </th>
-              <th style="width:48%"><?php echo $tl["news_box_table"]["newstb"]; ?></th>
-              <th style="width:8%"><?php echo $tl["news_box_table"]["newstb1"]; ?></th>
-              <th style="width:12%"><?php echo $tl["news_box_table"]["newstb2"]; ?></th>
-              <th style="width:12%"><?php echo $tl["news_box_table"]["newstb3"]; ?></th>
+              <th style="width:48%"><?=$tl["news_box_table"]["newstb"]?></th>
+              <th style="width:8%"><?=$tl["news_box_table"]["newstb1"]?></th>
+              <th style="width:12%"><?=$tl["news_box_table"]["newstb2"]?></th>
+              <th style="width:12%"><?=$tl["news_box_table"]["newstb3"]?></th>
               <th class="text-center no-sort" style="width:4%">
 
                 <?php
@@ -108,7 +108,7 @@
             <tbody>
             <?php foreach ($ENVO_NEWS as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
@@ -129,8 +129,8 @@
                   ?>
 
                 </td>
-                <td><?php echo date("d.m.Y", strtotime($v["time"])); ?></td>
-                <td><?php echo $v["hits"]; ?></td>
+                <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
+                <td><?=$v["hits"]?></td>
                 <td>
                   <?php
                   // Time Control - variable

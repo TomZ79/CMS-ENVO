@@ -4,27 +4,27 @@
   window.addEventListener("load", function(){
     window.cookieconsent.initialise({
       cookie: {
-        name: '<?php echo $setting["eucookie_name"]; ?>',
-        expiryDays: <?php echo $setting["eucookie_expiryDays"]; ?>
+        name: '<?=$setting["eucookie_name"]?>',
+        expiryDays: <?=$setting["eucookie_expiryDays"]?>
       },
       "palette": {
         "popup": {
-          "background": '<?php echo hex2rgba($setting["eucookie_pbck"], $setting["eucookie_alpha"]); ?>',
-          "text": '<?php echo $setting["eucookie_ptxt"]; ?>'
+          "background": '<?=hex2rgba($setting["eucookie_pbck"], $setting["eucookie_alpha"])?>',
+          "text": '<?=$setting["eucookie_ptxt"]?>'
         },
         "button": {
-          "background": '<?php echo ($setting["eucookie_style"] == 'wire') ? 'transparent' : $setting["eucookie_bbck"]; ?>',
-          "text": '<?php echo ($setting["eucookie_style"] == 'wire') ? $setting["eucookie_bbck"] : $setting["eucookie_btxt"]; ?>',
+          "background": '<?=($setting["eucookie_style"] == 'wire') ? 'transparent' : $setting["eucookie_bbck"]?>',
+          "text": '<?=($setting["eucookie_style"] == 'wire') ? $setting["eucookie_bbck"] : $setting["eucookie_btxt"]?>',
           <?php if ($setting["eucookie_style"] == 'wire') echo '"border": "' . $setting["eucookie_bbck"] . '"'; ?>
         }
       },
-      "position": '<?php echo $setting["eucookie_position"]; ?>',
-      "theme": '<?php echo $setting["eucookie_style"]; ?>',
+      "position": '<?=$setting["eucookie_position"]?>',
+      "theme": '<?=$setting["eucookie_style"]?>',
       "content": {
-        message: '<?php echo $setting["eucookie_message"]; ?>',
-        dismiss: '<?php echo $setting["eucookie_dismiss"]; ?>',
-        link: '<?php echo $setting["eucookie_link"]; ?>',
-        href: '<?php echo $setting["eucookie_href"]; ?>'
+        message: '<?=$setting["eucookie_message"]?>',
+        dismiss: '<?=$setting["eucookie_dismiss"]?>',
+        link: '<?=$setting["eucookie_link"]?>',
+        href: '<?=$setting["eucookie_href"]?>'
       }
     })});
 </script>

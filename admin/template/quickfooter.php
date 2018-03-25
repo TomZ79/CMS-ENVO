@@ -24,11 +24,11 @@ echo $Html->addScript('assets/js/global_js/generated_admin_js.php', array('type'
     // Load script after page loading
     $(window).on("load", function () {
       <?php if (isset($_SESSION["infomsg"])) { ?>
-      $.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
+      $.notify({icon: 'fa fa-info-circle', message: '<?=$_SESSION["infomsg"]?>'}, {type: 'info'});
       <?php } if (isset($_SESSION["successmsg"])) { ?>
-      $.notify({icon: 'fa fa-check-square-o', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
+      $.notify({icon: 'fa fa-check-square-o', message: '<?=$_SESSION["successmsg"]?>'}, {type: 'success'});
       <?php } if (isset($_SESSION["errormsg"])) { ?>
-      $.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
+      $.notify({icon: 'fa fa-exclamation-triangle', message: '<?=$_SESSION["errormsg"]?>'}, {type: 'danger'});
       <?php } ?>
     });
   </script>
@@ -43,18 +43,18 @@ echo $Html->addScript('assets/js/global_js/generated_admin_js.php', array('type'
     /* ACE Editor
      ========================================= */
     var htmlelACE = ace.edit("htmleditorlight");
-    htmlelACE.setTheme("ace/theme/<?php echo $setting["acetheme"]; ?>");
+    htmlelACE.setTheme("ace/theme/<?=$setting["acetheme"]?>");
     htmlelACE.session.setUseWrapMode(true);
     htmlelACE.session.setWrapLimitRange();
     htmlelACE.setOptions({
       // session options
       mode: "ace/mode/html",
-      tabSize: <?php echo $setting["acetabSize"]; ?>,
+      tabSize: <?=$setting["acetabSize"]?>,
       useSoftTabs: true,
-      highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
+      highlightActiveLine: <?=$setting["aceactiveline"]?>,
       // renderer options
-      showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
-      showGutter: <?php echo $setting["acegutter"]; ?>
+      showInvisibles: <?=$setting["aceinvisible"]?>,
+      showGutter: <?=$setting["acegutter"]?>
     });
 
     texthtmlel = $("#envo_editor_light").val();

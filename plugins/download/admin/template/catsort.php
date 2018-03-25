@@ -9,7 +9,7 @@ if ($page1 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -38,7 +38,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -58,11 +58,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 </div>
               </th>
-              <th><?php echo $tld["downl_box_table"]["downltb"]; ?></th>
-              <th><?php echo $tld["downl_box_table"]["downltb1"]; ?></th>
-              <th><?php echo $tld["downl_box_table"]["downltb2"]; ?></th>
-              <th><?php echo $tld["downl_box_table"]["downltb3"]; ?></th>
-              <th><?php echo $tld["downl_box_table"]["downltb6"]; ?></th>
+              <th><?=$tld["downl_box_table"]["downltb"]?></th>
+              <th><?=$tld["downl_box_table"]["downltb1"]?></th>
+              <th><?=$tld["downl_box_table"]["downltb2"]?></th>
+              <th><?=$tld["downl_box_table"]["downltb3"]?></th>
+              <th><?=$tld["downl_box_table"]["downltb6"]?></th>
               <th>
 
                 <?php
@@ -84,7 +84,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
             </thead>
             <?php if (isset($ENVO_DOWNLOAD_SORT) && is_array($ENVO_DOWNLOAD_SORT)) foreach ($ENVO_DOWNLOAD_SORT as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -126,9 +126,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
-                <td><?php echo $v["hits"]; ?></td>
-                <td><?php echo $v["countdl"]; ?></td>
+                <td><?=date("d.m.Y - H:i:s", strtotime($v["time"]))?></td>
+                <td><?=$v["hits"]?></td>
+                <td><?=$v["countdl"]?></td>
                 <td>
 
                   <?php
