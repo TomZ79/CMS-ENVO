@@ -190,7 +190,7 @@ echo $Html->addDoctype('html5');
         </div>
         <div class="inline p-l-30">
           <!-- START QUICK LIST -->
-          <ul class="quick-list no-margin hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
+          <ul class="quick-list m-0 hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
             <li class="p-r-15 inline">
               <div class="dropdown">
                 <a href="javascript:;" id="notification-center" class="header-icon pg pg-thumbs" data-toggle="dropdown"></a>

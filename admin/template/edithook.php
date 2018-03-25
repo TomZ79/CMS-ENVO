@@ -55,7 +55,7 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
@@ -88,7 +88,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                    <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> m-0">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -109,7 +109,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+                    <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> m-0">
                       <select name="envo_hook" class="form-control selectpicker" data-search-select2="true">
 
                         <?php
@@ -166,7 +166,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> m-0">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -183,7 +183,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>
@@ -203,7 +203,7 @@ if ($errors) { ?>
             // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
             echo $Html->addDiv('', 'htmleditor');
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('envo_phpcode', $ENVO_FORM_DATA["phpcode"], '', '', array('id' => 'envo_phpcode', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('envo_phpcode', $ENVO_FORM_DATA["phpcode"], '', '', array('id' => 'envo_phpcode', 'class' => 'form-control d-none'));
             ?>
 
           </div>
@@ -211,7 +211,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>

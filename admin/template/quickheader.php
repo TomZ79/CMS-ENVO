@@ -11,6 +11,8 @@ echo $Html->addDoctype('html5');
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Bootstrap
   echo $Html->addStylesheet('../assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6', 'screen');
+  // Font Awesomemin
+  echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css');
   ?>
 
   <!-- BEGIN General Stylesheet with custom modifications -->
@@ -39,4 +41,3 @@ echo $Html->addDoctype('html5');
   <div class="row">
     <div class="col-sm-12">
       <section class="content-header">
-        <h1><?php echo $tl["hf_text"]["hftxt8"]; ?></h1>

@@ -40,7 +40,7 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=users', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
@@ -72,7 +72,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin">
+                    <div class="form-group m-0">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -93,7 +93,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                    <div class="form-group m-0<?php if (isset($errors["e2"])) echo " has-error"; ?>">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -114,7 +114,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                    <div class="form-group m-0<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -183,7 +183,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>
@@ -213,7 +213,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                    <div class="form-group m-0<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                       <div class="label-indicator-absolute">
 
                         <?php
@@ -238,7 +238,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                    <div class="form-group m-0<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                       <div class="label-indicator-absolute">
 
                         <?php
@@ -259,7 +259,7 @@ if ($errors) { ?>
             // Add Html Element -> addButtonF (Arguments: fieldname, value, optional assoc. array)
             echo $Html->addButtonF('', $tl["button"]["btn24"], array('type' => 'button', 'class' => 'btn btn-info generate-label-absolute'));
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>

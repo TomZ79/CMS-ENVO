@@ -54,23 +54,15 @@ echo $Html->addScript('assets/js/global_js/generated_admin_js.php', array('type'
       highlightActiveLine: <?php echo $setting["aceactiveline"]; ?>,
       // renderer options
       showInvisibles: <?php echo $setting["aceinvisible"]; ?>,
-      showGutter: <?php echo $setting["acegutter"]; ?>,
+      showGutter: <?php echo $setting["acegutter"]; ?>
     });
 
     texthtmlel = $("#envo_editor_light").val();
     htmlelACE.session.setValue(texthtmlel);
-
-    /* Responsive Filemanager
-     ========================================= */
-    function responsive_filemanager_callback(field_id) {
-
-      if (field_id == "htmleditorlight") {
-
-        // get the path for the ace file
-        var acefile = jQuery('#' + field_id).val();
-        htmlelACE.insert(acefile);
-      }
-    }
+    // This is to remove following warning message on console:
+    // Automatically scrolling cursor into view after selection change this will be disabled in the next version
+    // set editor.$blockScrolling = Infinity to disable this message
+    htmlelACE.$blockScrolling = Infinity;
 
     /* Submit Form
      ========================================= */

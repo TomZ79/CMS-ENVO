@@ -1562,9 +1562,9 @@ $(function () {
                   '<div class="col-7 full-height">' +
                   '<div class="text">' +
                   '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '" alt="">' +
-                  '<button class="btn btn-info btn-xs btn-mini m-r-5 fs-14" type="button"><i class="pg-image"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
                   '</a>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open m-r-5" type="button" data-dialog="itemDetails"><i class="fa fa-edit"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="itemDetails"><i class="fa fa-edit"></i></button>' +
                   '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"><i class="fa fa-trash"></i></button>' +
                   '</div>' +
                   '</div>' +

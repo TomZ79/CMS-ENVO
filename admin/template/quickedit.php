@@ -56,10 +56,11 @@ if ($errors) { ?>
         <th colspan="2"><?php echo $tl["global_text"]["globaltxt15"]; ?></th>
       </tr>
       </thead>
+      <tbody>
       <tr>
         <td><?php echo $tl["global_text"]["globaltxt16"]; ?></td>
         <td>
-          <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+          <div class="form-group m-0<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
             <?php
             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -69,6 +70,7 @@ if ($errors) { ?>
           </div>
         </td>
       </tr>
+      </tbody>
     </table>
 
     <?php include_once "editorlight_edit.php"; ?>
@@ -77,7 +79,7 @@ if ($errors) { ?>
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success rounded-0 float-right', array('data-loading-text' => $tl["button"]["btn41"]));
     ?>
 
   </form>

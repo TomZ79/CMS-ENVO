@@ -33,8 +33,8 @@ if ($page3 == "ene") { ?>
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idtv', 'Nové S_ID - TV', '', 'btn btn-info button m-r-5');
-            echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idr', 'Nové S_ID - R', '', 'btn btn-info button m-r-5');
+            echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idtv', 'Nové S_ID - TV', '', 'btn btn-info button mr-1');
+            echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idr', 'Nové S_ID - R', '', 'btn btn-info button mr-1');
             echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_ids', 'Nové S_ID - Služby', '', 'btn btn-info button');
             ?>
 

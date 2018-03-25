@@ -6,12 +6,12 @@
   <?php if ($page != 'cmshelp') { ?>
     <div class="container-fluid container-fixed-lg footer">
       <div class="copyright sm-text-center">
-        <p class="small no-margin pull-left sm-pull-reset">
+        <p class="small m-0 pull-left sm-pull-reset">
           <span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by </span>
           <span><strong><a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
           <span class="hint-text">All rights reserved.</span>
         </p>
-        <p class="small no-margin pull-right sm-pull-reset">
+        <p class="small m-0 pull-right sm-pull-reset">
           <?php echo sprintf($tl["hf_text"]["hftxt"], $setting["version"]); ?>
           <span class="hint-text">&amp; Made with Love</span>
         </p>

@@ -142,23 +142,23 @@ if ($page1 == "e") { ?>
               if (ENVO_TEMPLATE != $l && !$template_addon) {
 
                 // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm m-r-5', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm mr-1', array('data-loading-text' => $tl["button"]["btn41"]));
 
                 if (file_exists('../template/' . $l . '/help.php')) {
 
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
+                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm mr-1 tempHelp');
 
                 }
               } elseif (ENVO_TEMPLATE == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) {
 
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../template/' . $l . '/install.php', $tl["button"]["btn7"], '', 'btn btn-success btn-sm m-r-5 tempInst');
+                echo $Html->addAnchor('../template/' . $l . '/install.php', $tl["button"]["btn7"], '', 'btn btn-success btn-sm mr-1 tempInst');
 
                 if (file_exists('../template/' . $l . '/help.php')) {
 
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
+                  echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm mr-1 tempHelp');
 
                 }
               } elseif (ENVO_TEMPLATE == $l && file_exists('../template/' . $l . '/uninstall.php') && $template_addon) {
@@ -166,14 +166,14 @@ if ($page1 == "e") { ?>
                 if (file_exists('../template/' . $l . '/styleswitcher.php')) {
 
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($setting["styleswitcher_tpl"]) ? 'success' : 'default') . ' btn-sm m-r-5');
+                  echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($setting["styleswitcher_tpl"]) ? 'success' : 'default') . ' btn-sm mr-1');
 
                 }
 
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../template/' . $l . '/uninstall.php', $tl["button"]["btn9"], '', 'btn btn-danger btn-sm m-r-5 tempInst');
+                echo $Html->addAnchor('../template/' . $l . '/uninstall.php', $tl["button"]["btn9"], '', 'btn btn-danger btn-sm mr-1 tempInst');
 
-                echo $Html->addAnchor('index.php?p=template&amp;sp=settings', $tl["button"]["btn10"], '', 'btn btn-primary btn-sm m-r-5 ' . ((!file_exists('../template/' . $l . '/templatesettings.php')) ? 'disabled' : ''));
+                echo $Html->addAnchor('index.php?p=template&amp;sp=settings', $tl["button"]["btn10"], '', 'btn btn-primary btn-sm mr-1 ' . ((!file_exists('../template/' . $l . '/templatesettings.php')) ? 'disabled' : ''));
 
                 if (file_exists('../template/' . $l . '/help.php')) {
 

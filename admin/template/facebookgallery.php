@@ -94,7 +94,7 @@
     </div>
 
     <!-- Form Content - List view -->
-    <div id="listview" class="row toggle hidden">
+    <div id="listview" class="row toggle d-none">
       <div class="col-sm-12">
         <div class="box box-success">
           <div class="box-body no-padding">

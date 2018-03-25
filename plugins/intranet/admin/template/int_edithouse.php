@@ -70,7 +70,7 @@ if ($errors) { ?>
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
     echo $Html->addAnchor('index.php?p=intranet&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
     ?>
@@ -320,7 +320,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -390,7 +390,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -441,7 +441,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -565,7 +565,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -723,7 +723,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -1338,7 +1338,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -1370,7 +1370,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -1479,7 +1479,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnDocu', 'btn btn-info', array('style' => 'width: 100%;'));
+                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnDocu', 'btn btn-info', array('style' => 'width: 100%;'));
                           ?>
 
                         </div>
@@ -1617,7 +1617,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
+                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
                           ?>
 
                         </div>
@@ -1819,7 +1819,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnVideo', 'btn btn-info', array('style' => 'width: 100%;'));
+                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnVideo', 'btn btn-info', array('style' => 'width: 100%;'));
                           ?>
 
                         </div>

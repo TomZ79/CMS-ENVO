@@ -109,7 +109,7 @@ if ($ENVO_FILE_ERROR) { ?>
                   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                   echo $Html->addDiv('', 'htmleditor');
                   // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                  echo $Html->addTextarea('envo_filecontent', $ENVO_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control hidden'));
+                  echo $Html->addTextarea('envo_filecontent', $ENVO_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control d-none'));
                   ?>
 
                 </td>
@@ -134,7 +134,7 @@ if ($ENVO_FILE_ERROR) { ?>
           } else {
 
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
           }
         } ?>
       </div>

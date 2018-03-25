@@ -41,7 +41,7 @@
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=contactform', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
@@ -74,7 +74,7 @@
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                    <div class="form-group m-0<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -121,7 +121,7 @@
 
                   </div>
                   <div class="col-sm-7">
-                    <div class="form-group no-margin">
+                    <div class="form-group m-0">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -157,7 +157,7 @@
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>
@@ -249,7 +249,7 @@
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('i', '', 'fa fa-arrow-up m-r-5');
+              echo $Html->addTag('i', '', 'fa fa-arrow-up mr-1');
               echo $tl["cf_box_content"]["cfbc8"];
               echo $Html->addTag('i', '', 'fa fa-arrow-down m-l-5');
               ?>
@@ -325,7 +325,7 @@
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>

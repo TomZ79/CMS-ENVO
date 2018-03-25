@@ -96,7 +96,7 @@ if ($page1 == "e") { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>
@@ -116,7 +116,7 @@ if ($page1 == "e") { ?>
               <?php if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $v) { ?>
 
                 <li id="plugin-<?php echo $v["id"]; ?>" class="envoplugins">
-                  <div class="row sm-no-margin">
+                  <div class="row sm-m-0">
                     <div class="col-sm-1 col-3 text">
                       <span># </span>
                       <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>

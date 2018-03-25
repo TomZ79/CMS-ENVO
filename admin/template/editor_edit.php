@@ -82,9 +82,9 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('javascript:;', '<span class="label label-warning">Content for Members/Guests</span>', '', 'short-sc m-r-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt"]));
-                  echo $Html->addAnchor('javascript:;', '<span class="label label-danger">Members only</span>', '', 'short-sc1 m-r-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt1"]));
-                  echo $Html->addAnchor('javascript:;', '<span class="label label-info">Guests only</span>', '', 'short-sc2 m-r-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt2"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-warning">Content for Members/Guests</span>', '', 'short-sc mr-1', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-danger">Members only</span>', '', 'short-sc1 mr-1', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt1"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-info">Guests only</span>', '', 'short-sc2 mr-1', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt2"]));
                   ?>
 
                 </div>
@@ -103,7 +103,7 @@
             <?php
 
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('envo_content', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["content"])), '', '', array('id' => 'envo_editor', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('envo_content', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["content"])), '', '', array('id' => 'envo_editor', 'class' => 'form-control d-none'));
 
             ?>
 
@@ -124,7 +124,7 @@
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
     ?>
 
   </div>

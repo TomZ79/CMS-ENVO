@@ -64,7 +64,7 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=newsletter', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
@@ -172,7 +172,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>
@@ -205,13 +205,13 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-warning">{myweburl}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt"]));
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-warning">{mywebname}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt1"]));
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-info">{username}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt4"]));
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-info">{fullname}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt5"]));
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-info">{useremail}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt6"]));
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-primary">{browserversion}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt2"]));
-                      echo $Html->addAnchor('javascript:;', '<span class="label label-primary">{unsubscribe}</span>', '', 'short-sc m-r-5', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt3"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-warning">{myweburl}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-warning">{mywebname}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt1"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-info">{username}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt4"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-info">{fullname}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt5"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-info">{useremail}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt6"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-primary">{browserversion}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt2"]));
+                      echo $Html->addAnchor('javascript:;', '<span class="label label-primary">{unsubscribe}</span>', '', 'short-sc mr-1', array('data-short-scf' => 'details', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tlnl["newsletter_eltitle"]["nlelt3"]));
                       ?>
 
                     </div>
@@ -230,7 +230,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
             ?>
 
           </div>
