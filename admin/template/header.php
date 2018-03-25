@@ -50,7 +50,7 @@ echo $Html->addDoctype('html5');
   // Animate
   echo $Html->addStylesheet('assets/css/animate.min.css');
   // Plugin DataTable
-  if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users' || $page == 'usergroup') {
+  if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users' || $page == 'usergroup' || $page == 'tags') {
     echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
   }
   ?>

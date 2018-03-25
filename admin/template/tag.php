@@ -56,11 +56,11 @@
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table id="tags_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>#</th>
-              <th>
+              <th class="no-sort" style="width:5%">#</th>
+              <th class="text-center no-sort" style="width:5%">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -72,18 +72,9 @@
 
                 </div>
               </th>
-              <th>
-
-                <?php
-                echo $tl["tag_box_table"]["tagtb"];
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=tags&amp;sp=sort&amp;ssp=tag&amp;sssp=DESC', '<i class="fa fa-arrow-up"></i>', '', 'btn btn-warning btn-xs sort');
-                echo $Html->addAnchor('index.php?p=tags&amp;sp=sort&amp;ssp=tag&amp;sssp=ASC', '<i class="fa fa-arrow-down"></i>', '', 'btn btn-success btn-xs sort');
-                ?>
-
-              </th>
-              <th><?=$tl["tag_box_table"]["tagtb1"]?></th>
-              <th>
+              <th style="width:40%"><?=$tl["tag_box_table"]["tagtb"]?></th>
+              <th style="width:40%"><?=$tl["tag_box_table"]["tagtb1"]?></th>
+              <th class="text-center no-sort" style="width:5%">
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -91,7 +82,7 @@
                 ?>
 
               </th>
-              <th>
+              <th class="text-center no-sort" style="width:5%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -125,7 +116,7 @@
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -133,7 +124,7 @@
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

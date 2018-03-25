@@ -73,8 +73,8 @@
           <table id="usergroups_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>#</th>
-              <th>
+              <th class="no-sort">#</th>
+              <th class="text-center no-sort">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -88,9 +88,9 @@
               </th>
               <th><?=$tl["userg_box_table"]["usergtb"]?></th>
               <th><?=$tl["userg_box_table"]["usergtb1"]?></th>
-              <th></th>
-              <th></th>
-              <th>
+              <th class="no-sort"></th>
+              <th class="no-sort"></th>
+              <th class="text-center no-sort">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -124,7 +124,7 @@
 
                 </td>
                 <td><?=$v["description"]?></td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -132,7 +132,7 @@
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -140,7 +140,7 @@
                   ?>
 
                 </td>
-                <td>
+                <td class="text-center">
 
                   <?php
                   if ($v["id"] > 4) {
