@@ -21,11 +21,11 @@ if ($setting["md_email"] == 1) array_push ($stack, $email);
 <script>
 	$(function () {
 		$("#sollist-sharing").sollist({
-			pixelsBetweenItems: <?php echo $setting["md_mediaSize"] ?>,
-			size: <?php echo $setting["md_iconSize"] ?>,
-			theme: '<?php echo $setting["md_mediatheme"] ?>',
-			hoverEffect: '<?php echo $setting["md_mediahover"] ?>',
-			profiles: { <?php echo implode (",", $stack); ?> },
+			pixelsBetweenItems: <?=$setting["md_mediaSize"]?>,
+			size: <?=$setting["md_iconSize"]?>,
+			theme: '<?=$setting["md_mediatheme"]?>',
+			hoverEffect: '<?=$setting["md_mediahover"]?>',
+			profiles: { <?=implode (",", $stack)?> },
 			itemClass: 'pop'
 		});
 	});

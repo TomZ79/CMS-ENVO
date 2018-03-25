@@ -6,7 +6,7 @@
 	<?php if (isset($ENVO_NO_TAG_DATA)) { ?>
 
 		<div class="alert bg-info">
-			<?php echo $ENVO_NO_TAG_DATA; ?>
+      <?=$ENVO_NO_TAG_DATA?>
 		</div>
 
 	<?php }
@@ -21,9 +21,9 @@
 			<div class="col-md-3 col-sm-6">
 				<div class="service-wrapper">
 					<i class="fa fa-file-text-o fa-4x"></i>
-					<h3><a href="<?php echo $p["parseurl"]; ?>"><?php echo $p["title"]; ?></a></h3>
-					<p><?php echo $p["content"]; ?></p>
-					<a href="<?php echo $p["parseurl"]; ?>" class="btn btn-color"><?php echo $tl["global_text"]["gtxt8"]; ?></a>
+					<h3><a href="<?=$p["parseurl"]?>"><?=$p["title"]?></a></h3>
+					<p><?=$p["content"]?></p>
+					<a href="<?=$p["parseurl"]?>" class="btn btn-color"><?=$tl["global_text"]["gtxt8"]?></a>
 				</div>
 			</div>
 
@@ -34,9 +34,9 @@
 			<div class="col-md-3 col-sm-6">
 				<div class="service-wrapper">
 					<i class="fa fa-newspaper-o fa-4x"></i>
-					<h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo $n["title"]; ?></a></h3>
-					<p><?php echo $n["content"]; ?></p>
-					<a href="<?php echo $n["parseurl"]; ?>" class="btn btn-color"><?php echo $tl["global_text"]["gtxt8"]; ?></a>
+					<h3><a href="<?=$n["parseurl"]?>"><?=$n["title"]?></a></h3>
+					<p><?=$n["content"]?></p>
+					<a href="<?=$n["parseurl"]?>" class="btn btn-color"><?=$tl["global_text"]["gtxt8"]?></a>
 				</div>
 			</div>
 
@@ -50,13 +50,13 @@
 <?php if (isset($count)) { ?>
 
 	<div class="alert bg-info">
-		<?php echo str_replace ("%s", $count, $tl["searching"]["stxt13"]); ?>
+    <?=str_replace ("%s", $count, $tl["searching"]["stxt13"])?>
 	</div>
 
 <?php } else { ?>
 
 	<div class="alert bg-danger">
-		<?php echo $tl["searching"]["stxt12"]; ?>
+    <?=$tl["searching"]["stxt12"]?>
 	</div>
 
 <?php } ?>

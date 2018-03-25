@@ -29,7 +29,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><?php echo $tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'; ?></title>
+  <title><?=$tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
@@ -71,7 +71,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'?></h3>
       </div>
       <hr>
 
@@ -92,18 +92,18 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 
           <!-- Alert Template uninstalled - succes -->
           <div class="alert alert-success fade show">
-            <?php echo $tl["uninstalltemplate"]["unitpl1"]; ?>
+            <?=$tl["uninstalltemplate"]["unitpl1"]?>
           </div>
           <!-- Button Close Modal -->
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">
-            <?php echo $tl["uninstalltemplate"]["unitpl5"]; ?>
+            <?=$tl["uninstalltemplate"]["unitpl5"]?>
           </button>
 
         <?php } else { ?>
           <!-- Wrong code for uninstall -->
           <div>
             <h5 class="text-danger bold">
-              <?php echo $tl["uninstalltemplate"]["unitpl2"]; ?>
+              <?=$tl["uninstalltemplate"]["unitpl2"]?>
             </h5>
           </div>
         <?php }
@@ -113,14 +113,14 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
           <div class="form-group form-inline">
             <!--  Label for enter code -->
             <label for="text">
-              <?php echo $tl["uninstalltemplate"]["unitpl3"]; ?>
+              <?=$tl["uninstalltemplate"]["unitpl3"]?>
             </label>
             <input type="text" name="captcha" class="form-control ml-2" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
           <!-- Uninstall button -->
           <button type="submit" name="uninstall" class="btn btn-complete btn-block">
-            <?php echo $tl["uninstalltemplate"]["unitpl4"]; ?>
+            <?=$tl["uninstalltemplate"]["unitpl4"]?>
           </button>
         </form>
       <?php } ?>

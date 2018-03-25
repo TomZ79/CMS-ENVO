@@ -5,10 +5,10 @@
 		<div class="right-sidebar">
 
 			<div class="sidebar-inner">
-				<h2 class="brand"><?php echo ENVO_PLUGIN_NAME_TAGS; ?></h2>
+				<h2 class="brand"><?=ENVO_PLUGIN_NAME_TAGS?></h2>
 
 				<ul class="tag-cloud">
-					<?php echo $ENVO_GET_TAG_CLOUD; ?>
+          <?=$ENVO_GET_TAG_CLOUD?>
 				</ul>
 
 			</div>
