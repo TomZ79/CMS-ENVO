@@ -9,7 +9,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"]; ?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -45,7 +45,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton hidden-xs">
 
@@ -62,7 +62,7 @@ if ($errors) { ?>
   <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
     <li class="nav-item">
       <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?php echo $tlint["int_section_tab"]["inttab"]; ?></span>
+        <span class="text"><?=$tlint["int_section_tab"]["inttab"]?></span>
       </a>
     </li>
     <li class="nav-item next">

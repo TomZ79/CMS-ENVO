@@ -9,7 +9,7 @@ if ($page1 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page2 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'success',
@@ -60,7 +60,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -101,7 +101,7 @@ if ($errors) { ?>
                   </div>
                   <div class="col-sm-2">
                     <div class="form-group">
-                      <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
+                      <?=$tlrf["reg_box_content"]["regbc18"]?>
                       <select name="envo_optiontype[]" class="form-control selectpicker">
 
                         <?php
@@ -129,7 +129,7 @@ if ($errors) { ?>
                   </div>
                   <div class="col-sm-2">
                     <div class="form-group">
-                      <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
+                      <?=$tlrf["reg_box_content"]["regbc24"]?>
                       <select name="envo_optionmandatory[]" class="form-control selectpicker">
 
                         <?php
@@ -181,7 +181,7 @@ if ($errors) { ?>
                     </div>
                     <div class="col-sm-2">
                       <div class="form-group">
-                        <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
+                        <?=$tlrf["reg_box_content"]["regbc18"]?>
                         <select name="envo_optiontype_old[]" class="form-control selectpicker">
 
                           <?php
@@ -205,7 +205,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-2">
-                      <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
+                      <?=$tlrf["reg_box_content"]["regbc24"]?>
                       <select name="envo_optionmandatory_old[]" class="form-control selectpicker">
 
                         <?php
@@ -272,7 +272,7 @@ if ($errors) { ?>
           <div class="box-footer">
             <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["button"]["btn1"]; ?>
+              <?=$tl["button"]["btn1"]?>
             </button>
           </div>
         </div>

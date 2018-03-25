@@ -50,7 +50,7 @@ $nameofplugin  = 'FAQ';
       </div>
       <hr>
       <div class="m-b-30">
-        <h4 class="semi-bold">FAQ Plugin - info about update to version <?php echo $pluginversion; ?></h4>
+        <h4 class="semi-bold">FAQ Plugin - info about update to version <?=$pluginversion?></h4>
         <p>Nunc pharetra aliquet felis, sit amet consequat sapien maximus id. Suspendisse eu dolor interdum ex fringilla maximus vitae at lorem. Nam sodales sed metus et iaculis. Aliquam in dolor in sapien facilisis tempus vitae et ante. Aliquam sem velit, pharetra id erat vel, efficitur rutrum dolor. Sed ut lectus dignissim, malesuada nulla ut, accumsan mauris. Vivamus maximus tristique dui. </p>
       </div>
       <hr>

@@ -27,7 +27,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $tlint["int_uninstall"]["intuninst"]; ?></title>
+  <title><?=$tlint["int_uninstall"]["intuninst"]?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?php echo $tlint["int_uninstall"]["intuninst"]; ?></h3>
+        <h3 class="semi-bold text-white"><?=$tlint["int_uninstall"]["intuninst"]?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?php echo $tlint["int_uninstall"]["intuninst1"]; ?></h4>
+        <h4 class="semi-bold"><?=$tlint["int_uninstall"]["intuninst1"]?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?php echo $tlint["int_uninstall"]["intuninst2"]; ?></div>
+            <div class="card-title"><?=$tlint["int_uninstall"]["intuninst2"]?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -186,7 +186,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlint["int_uninstall"]["intuninst3"]; ?>',
+                message: '<?=$tlint["int_uninstall"]["intuninst3"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'success'
@@ -197,7 +197,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
           </script>
         <?php } else { ?>
           <div>
-            <h5 class="text-danger bold"><?php echo $tlint["int_uninstall"]["intuninst4"]; ?></h5>
+            <h5 class="text-danger bold"><?=$tlint["int_uninstall"]["intuninst4"]?></h5>
           </div>
           <script>
             $(document).ready(function () {
@@ -205,7 +205,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
               // Apply the plugin to the body
               $('#notificationcontainer').pgNotification({
                 style: 'bar',
-                message: '<?php echo $tlint["int_uninstall"]["intuninst4"]; ?>',
+                message: '<?=$tlint["int_uninstall"]["intuninst4"]?>',
                 position: 'top',
                 timeout: 0,
                 type: 'danger'
@@ -219,11 +219,13 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
       if (!$succesfully) { ?>
         <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
           <div class="form-group form-inline">
-            <label for="text"><?php echo $tlint["int_uninstall"]["intuninst5"]; ?></label>
+            <label for="text"><?=$tlint["int_uninstall"]["intuninst5"]?></label>
             <input type="text" name="captcha" class="form-control m-l-10" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
-          <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlint["int_uninstall"]["intuninst6"]; ?></button>
+          <button type="submit" name="uninstall" class="btn btn-complete btn-block">
+            <?=$tlint["int_uninstall"]["intuninst6"]?>
+          </button>
         </form>
       <?php } ?>
 

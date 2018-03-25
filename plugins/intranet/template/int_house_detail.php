@@ -70,25 +70,25 @@
                     <div class="form-group">
                       <label class="form-label">Název Domu</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["name"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?=$hdetail["name"]?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Ulice</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["street"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?=$hdetail["street"]?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Město</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["city"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?=$hdetail["city"]?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">PSČ</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["psc"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?=$hdetail["psc"]?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -143,9 +143,9 @@
                     <div id="tasklist">
 
                       <?php foreach ($ENVO_HOUSE_TASK as $htask) { ?>
-                        <div class="task_<?php echo $htask["id"]; ?>">
+                        <div class="task_<?=$htask["id"]?>">
                           <div class="taskheader">
-                            <span>Task ID <?php echo $htask["id"]; ?></span>
+                            <span>Task ID <?=$htask["id"]?></span>
                             <span class="pull-right collapsetask">+</span>
                           </div>
                           <div class="taskinfo">
@@ -160,11 +160,11 @@
                                     <td><strong>Datum Připomenutí: </strong></td>
                                   </tr>
                                   <tr>
-                                    <td><?php echo $htask["title"]; ?></td>
-                                    <td><?php echo $htask["priority"]; ?></td>
-                                    <td><?php echo $htask["status"]; ?></td>
-                                    <td><?php echo $htask["time"]; ?></td>
-                                    <td><?php echo $htask["reminder"]; ?></td>
+                                    <td><?=$htask["title"]?></td>
+                                    <td><?=$htask["priority"]?></td>
+                                    <td><?=$htask["status"]?></td>
+                                    <td><?=$htask["time"]?></td>
+                                    <td><?=$htask["reminder"]?></td>
                                   </tr>
                                 </table>
                               </div>
@@ -173,7 +173,7 @@
                           <div class="taskcontent">
                             <p><strong >Popis Úkolu:</strong></p>
                             <div class="taskdescription">
-                              <?php echo $htask["description"]; ?>
+                              <?=$htask["description"]?>
                             </div>
                           </div>
                         </div>
@@ -234,10 +234,10 @@
 
                         <?php foreach ($ENVO_HOUSE_CONT as $hcont) { ?>
                           <tr>
-                            <td><?php echo $hcont["name"]; ?></td>
-                            <td><?php echo $hcont["address"]; ?></td>
-                            <td><?php echo $hcont["phone"]; ?></td>
-                            <td><?php echo $hcont["email"]; ?></td>
+                            <td><?=$hcont["name"]?></td>
+                            <td><?=$hcont["address"]?></td>
+                            <td><?=$hcont["phone"]?></td>
+                            <td><?=$hcont["email"]?></td>
                             <td>
 
                               <?php
@@ -314,7 +314,7 @@
 
                               <div class="clearfix">
                                 <div class="form-group pull-left">
-                                  <input type="text" class="searchTable-<?php echo $e["entrance"]; ?> form-control" placeholder="Vyhledat ..." data-table="tableapartment_<?php echo $e["entrance"]; ?>">
+                                  <input type="text" class="searchTable-<?=$e["entrance"]?> form-control" placeholder="Vyhledat ..." data-table="tableapartment_<?=$e["entrance"]?>">
                                 </div>
                                 <span class="counter pull-left"></span>
                               </div>
@@ -446,10 +446,10 @@
 
                         <?php foreach ($ENVO_HOUSE_SERV as $hserv) { ?>
                           <tr>
-                            <td><?php echo $hserv["description"]; ?></td>
-                            <td><?php echo $hserv["timedefault"]; ?></td>
-                            <td><?php echo $hserv["timestart"]; ?></td>
-                            <td><?php echo $hserv["timeend"]; ?></td>
+                            <td><?=$hserv["description"]?></td>
+                            <td><?=$hserv["timedefault"]?></td>
+                            <td><?=$hserv["timestart"]?></td>
+                            <td><?=$hserv["timeend"]?></td>
                           </tr>
                         <?php } ?>
 
@@ -504,8 +504,8 @@
 
                         <?php foreach ($ENVO_HOUSE_DOCU as $hdocu) { ?>
                           <tr>
-                            <td><?php echo envo_extension_icon($hdocu["filename"]); ?></td>
-                            <td><?php echo $hdocu["description"]; ?></td>
+                            <td><?=envo_extension_icon($hdocu["filename"])?></td>
+                            <td><?=$hdocu["description"]?></td>
                             <td>
 
                               <?php
@@ -590,10 +590,10 @@
                       <div id="gallery" class="gallery">
 
                         <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
-                          <div class="gallery-item-<?php echo $himg["id"] . ' ' . $himg["category"]; ?>" data-width="1" data-height="1">
+                          <div class="gallery-item-<?=$himg["id"] . ' ' . $himg["category"]?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a data-fancybox="fancybox-1" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
-                                <img src="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="">
+                              <a data-fancybox="fancybox-1" href="<?='/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]?>">
+                                <img src="<?='/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]?>" class="img-responsive" alt="">
                               </a>
                             </div>
                             <div class="overlays">
@@ -603,12 +603,12 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="fancybox-2" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" data-caption="<?php echo $himg["shortdescription"] . ' | ' . $himg["description"]; ?>" alt="">
+                                    <a data-fancybox="fancybox-2" href="<?='/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]?>" data-caption="<?=$himg["shortdescription"] . ' | ' . $himg["description"]?>" alt="">
                                       <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fa fa-image"></i>
                                       </button>
                                     </a>
-                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?php echo $himg["id"]; ?>" data-toggle="tooltipEnvo" title="Informace">
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?=$himg["id"]?>" data-toggle="tooltipEnvo" title="Informace">
                                       <i class="fa fa-info"></i>
                                     </button>
                                   </div>
@@ -617,7 +617,7 @@
                             </div>
                             <div class="full-width padding-10">
                               <p class="bold">Krátký Popis</p>
-                              <p class="shortdesc"><?php echo $himg["shortdescription"]; ?></p>
+                              <p class="shortdesc"><?=$himg["shortdescription"]?></p>
                             </div>
                           </div>
                         <?php } ?>
@@ -694,9 +694,9 @@
                       <div id="gallery" class="gallery">
 
                         <?php foreach ($ENVO_HOUSE_VIDEO as $hvideo) { ?>
-                          <div class="gallery-item-<?php echo $hvideo["id"] . ' ' . $hvideo["category"]; ?>" data-width="1" data-height="1">
+                          <div class="gallery-item-<?=$hvideo["id"] . ' ' . $hvideo["category"]?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a href="<?php echo '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]; ?>" class="launch-modal" data-modal-id="modal-video">
+                              <a href="<?='/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]?>" class="launch-modal" data-modal-id="modal-video">
                                 <span class="video-link-icon"><i class="fa fa-play"></i></span>
                                 <span class="video-link-text">Launch modal video</span>
                               </a>
@@ -709,12 +709,12 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="fancybox-2" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]; ?>" data-caption="<?php echo $hvideo["shortdescription"] . ' | ' . $hvideo["description"]; ?>" alt="">
+                                    <a data-fancybox="fancybox-2" href="<?='/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]?>" data-caption="<?=$hvideo["shortdescription"] . ' | ' . $hvideo["description"]?>" alt="">
                                       <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fa fa-image"></i>
                                       </button>
                                     </a>
-                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?php echo $hvideo["id"]; ?>" data-toggle="tooltipEnvo" title="Informace">
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?=$hvideo["id"]?>" data-toggle="tooltipEnvo" title="Informace">
                                       <i class="fa fa-info"></i>
                                     </button>
                                   </div>
@@ -723,7 +723,7 @@
                             </div>
                             <div class="full-width padding-10">
                               <p class="bold">Krátký Popis</p>
-                              <p class="shortdesc"><?php echo $hvideo["shortdescription"]; ?></p>
+                              <p class="shortdesc"><?=$hvideo["shortdescription"]?></p>
                             </div>
                           </div>
                         <?php } ?>
@@ -773,7 +773,7 @@
       <div class="modal-content" style="width: 615px;">
         <div class="modal-body">
           <div class="modal-video">
-            <iframe width="585" height="400" src="<?php echo '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]; ?>" frameborder="0" allowfullscreen></iframe>
+            <iframe width="585" height="400" src="<?='/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"]?>" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>

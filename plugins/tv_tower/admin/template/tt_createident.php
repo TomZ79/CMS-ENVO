@@ -9,7 +9,7 @@ if ($page3 == "ene") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror2"];?>'
+        message: '<?=$tl["general_error"]["generror2"]?>'
       }, {
         // settings
         type: 'success',

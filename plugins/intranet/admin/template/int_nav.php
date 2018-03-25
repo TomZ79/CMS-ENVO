@@ -5,7 +5,7 @@ if ($page == 'intranet') {
   $classinticonbg  = 'bg-success';
 }
 ?>
-<li class="<?php echo $classintsection; ?>">
+<li class="<?=$classintsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -15,7 +15,7 @@ if ($page == 'intranet') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo (($page == 'intranet' && $page1 == 'house') || ($page == 'intranet' && $page1 == 'newhouse')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'intranet' && $page1 == 'house') || ($page == 'intranet' && $page1 == 'newhouse')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -25,7 +25,7 @@ if ($page == 'intranet') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'intranet' && $page1 == 'house' && $page2 == 'newhouse') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'intranet' && $page1 == 'house' && $page2 == 'newhouse') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -36,7 +36,7 @@ if ($page == 'intranet') {
 
     </li>
     <?php if ($page == 'intranet' && $page1 == 'house' && $page2 == 'edithouse') { ?>
-      <li class="<?php echo ($page == 'intranet' && $page1 == 'house' && $page2 == 'edithouse') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'intranet' && $page1 == 'house' && $page2 == 'edithouse') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -49,7 +49,7 @@ if ($page == 'intranet') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo (($page == 'intranet' && $page1 == 'notification') || ($page == 'intranet' && $page1 == 'newnotification')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'intranet' && $page1 == 'notification') || ($page == 'intranet' && $page1 == 'newnotification')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -59,7 +59,7 @@ if ($page == 'intranet') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'intranet' && $page1 == 'notification' && $page2 == 'newnotification') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'intranet' && $page1 == 'notification' && $page2 == 'newnotification') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -70,7 +70,7 @@ if ($page == 'intranet') {
 
     </li>
     <?php if ($page == 'intranet' && $page1 == 'notification' && $page2 == 'editnotification') { ?>
-      <li class="<?php echo ($page == 'intranet' && $page1 == 'notification' && $page2 == 'editnotification') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'intranet' && $page1 == 'notification' && $page2 == 'editnotification') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -83,7 +83,7 @@ if ($page == 'intranet') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'intranet' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'intranet' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

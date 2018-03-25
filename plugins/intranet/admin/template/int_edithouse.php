@@ -9,7 +9,7 @@ if ($page4 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"]; ?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -64,7 +64,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton hidden-xs">
 
@@ -81,7 +81,7 @@ if ($errors) { ?>
   <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
     <li class="nav-item">
       <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?php echo $tlint["int_section_tab"]["inttab"]; ?></span>
+        <span class="text"><?=$tlint["int_section_tab"]["inttab"]?></span>
       </a>
     </li>
     <li class="nav-item next">
@@ -749,9 +749,9 @@ if ($errors) { ?>
           <div id="tasklist">
 
             <?php if (!empty($ENVO_FORM_DATA_TASK) && is_array($ENVO_FORM_DATA_TASK)) foreach ($ENVO_FORM_DATA_TASK as $t) { ?>
-              <div id="task_<?php echo $t["id"]; ?>" class="task_<?php echo $t["id"]; ?>">
+              <div id="task_<?=$t["id"]?>" class="task_<?=$t["id"]?>">
                 <div class="taskheader">
-                  <span>Task ID <?php echo $t["id"]; ?></span>
+                  <span>Task ID <?=$t["id"]?></span>
                   <span class="pull-right collapsetask">+</span>
                 </div>
                 <div class="taskinfo">
@@ -770,11 +770,11 @@ if ($errors) { ?>
                         </thead>
                         <tbody>
                         <tr>
-                          <td><?php echo $t["title"]; ?></td>
-                          <td><?php echo $t["priority"]; ?></td>
-                          <td><?php echo $t["status"]; ?></td>
-                          <td><?php echo $t["time"]; ?></td>
-                          <td><?php echo $t["reminder"]; ?></td>
+                          <td><?=$t["title"]?></td>
+                          <td><?=$t["priority"]?></td>
+                          <td><?=$t["status"]?></td>
+                          <td><?=$t["time"]?></td>
+                          <td><?=$t["reminder"]?></td>
                           <td>
 
                             <?php
@@ -795,7 +795,7 @@ if ($errors) { ?>
                 <div class="taskcontent">
                   <p><strong >Popis Úkolu:</strong></p>
                   <div class="taskdescription">
-                    <?php echo $t["description"]; ?>
+                    <?=$t["description"]?>
                   </div>
                 </div>
               </div>
@@ -1016,11 +1016,11 @@ if ($errors) { ?>
                   <?php if (!empty($ENVO_FORM_DATA_CONT) && is_array($ENVO_FORM_DATA_CONT)) foreach ($ENVO_FORM_DATA_CONT as $c) { ?>
 
                     <tr>
-                      <td><?php echo $c["id"]; ?></td>
-                      <td><?php echo $c["name"]; ?></td>
-                      <td><?php echo $c["address"]; ?></td>
-                      <td><?php echo $c["phone"]; ?></td>
-                      <td><?php echo $c["email"]; ?></td>
+                      <td><?=$c["id"]?></td>
+                      <td><?=$c["name"]?></td>
+                      <td><?=$c["address"]?></td>
+                      <td><?=$c["phone"]?></td>
+                      <td><?=$c["email"]?></td>
                       <td>
 
                         <?php
@@ -1098,10 +1098,10 @@ if ($errors) { ?>
                   <?php if (!empty($ENVO_FORM_DATA_ENT) && is_array($ENVO_FORM_DATA_ENT)) foreach ($ENVO_FORM_DATA_ENT as $e) { ?>
 
                     <tr>
-                      <td><?php echo $e["id"]; ?></td>
-                      <td><?php echo $e["entrance"]; ?></td>
-                      <td><?php echo $e["countapartment"]; ?></td>
-                      <td><?php echo $e["countetage"]; ?></td>
+                      <td><?=$e["id"]?></td>
+                      <td><?=$e["entrance"]?></td>
+                      <td><?=$e["countapartment"]?></td>
+                      <td><?=$e["countetage"]?></td>
                       <td>
 
                         <?php
@@ -1413,11 +1413,11 @@ if ($errors) { ?>
                   <?php if (!empty($ENVO_FORM_DATA_SERV) && is_array($ENVO_FORM_DATA_SERV)) foreach ($ENVO_FORM_DATA_SERV as $s) { ?>
 
                     <tr>
-                      <td><?php echo $s["id"]; ?></td>
-                      <td><?php echo $s["description"]; ?></td>
-                      <td><?php echo $s["timedefault"]; ?></td>
-                      <td><?php echo $s["timestart"]; ?></td>
-                      <td><?php echo $s["timeend"]; ?></td>
+                      <td><?=$s["id"]?></td>
+                      <td><?=$s["description"]?></td>
+                      <td><?=$s["timedefault"]?></td>
+                      <td><?=$s["timestart"]?></td>
+                      <td><?=$s["timeend"]?></td>
                     </tr>
 
                   <?php } else {
@@ -1521,9 +1521,9 @@ if ($errors) { ?>
                       <?php if (!empty($ENVO_FORM_DATA_DOCU) && is_array($ENVO_FORM_DATA_DOCU)) foreach ($ENVO_FORM_DATA_DOCU as $d) { ?>
 
                         <tr>
-                          <td><?php echo $d["id"]; ?></td>
-                          <td><?php echo envo_extension_icon($d["filename"]); ?></td>
-                          <td><?php echo $d["description"]; ?></td>
+                          <td><?=$d["id"]?></td>
+                          <td><?=envo_extension_icon($d["filename"])?></td>
+                          <td><?=$d["description"]?></td>
                           <td>
 
                             <?php
@@ -1948,7 +1948,7 @@ if ($errors) { ?>
     </div>
   </div>
 
-  <input type="hidden" name="folderpath" value="<?php echo $ENVO_FORM_DATA["folder"]; ?>">
+  <input type="hidden" name="folderpath" value="<?=$ENVO_FORM_DATA["folder"]?>">
 </form>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

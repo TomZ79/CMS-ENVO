@@ -6,15 +6,21 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $site_language; ?>">
+<html lang="<?=$site_language?>">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <meta charset="utf-8"/>
   <!-- Document Title
   ============================================= -->
-  <title><?php echo $setting["title"];
-    if ($setting["title"]) { ?> &raquo; <?php }
-    echo $PAGE_TITLE; ?></title>
+  <title>
+    <?php
+    echo $setting["title"];
+    if ($setting["title"]) {
+      echo "&raquo;";
+    }
+    echo $PAGE_TITLE;
+    ?>
+  </title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -92,13 +98,13 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
         </li>
       </ul>
       <!-- BEGIN LOGO -->
-      <a href="<?php echo ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '') ?>">
+      <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
         <img src="/plugins/intranet/template/img/logo.png" class="logo" alt="" width="106" height="21"/>
       </a>
       <!-- END LOGO -->
       <ul class="nav pull-right notifcation-center">
         <li class="dropdown hidden-xs hidden-sm">
-          <a href="<?php echo ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '') ?>" class="dropdown-toggle">
+          <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '')?>" class="dropdown-toggle">
             <i class="material-icons">dashboard</i>
           </a>
         </li>
@@ -189,7 +195,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
       <div class="pull-right">
         <div class="chat-toggler sm">
           <div class="profile-pic">
-            <img src="<?php echo '/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR; ?>" alt="" width="35" height="35"/>
+            <img src="<?='/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR?>" alt="" width="35" height="35"/>
             <div class="availability-bubble online"></div>
           </div>
         </div>
@@ -200,7 +206,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
               <li>
-                <a href="<?php echo ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'notification', '', '', ''); ?>"> Notifikace
+                <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'notification', '', '', '')?>"> Notifikace
 
                   <?php
                   if ($notifCount > 0) {
@@ -213,10 +219,10 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
               </li>
               <li class="divider"></li>
               <li>
-                <a href="<?php echo BASE_URL; ?>">Zpět na web</a>
+                <a href="<?=BASE_URL?>">Zpět na web</a>
               </li>
               <li>
-                <a href="<?php echo $P_USR_LOGOUT; ?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Odhlásit</a>
+                <a href="<?=$P_USR_LOGOUT?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Odhlásit</a>
               </li>
             </ul>
           </li>
@@ -237,12 +243,12 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
       <div class="user-info-wrapper sm">
         <div class="profile-wrapper sm">
-          <img src="<?php echo '/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR; ?>" alt="" width="69" height="69"/>
+          <img src="<?='/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR?>" alt="" width="69" height="69"/>
           <div class="availability-bubble online"></div>
         </div>
         <div class="user-info sm">
-          <div class="username"><?php echo $ENVO_USER_NAME; ?></div>
-          <div class="status"><?php echo $ENVO_USER_GROUP; ?> ...</div>
+          <div class="username"><?=$ENVO_USER_NAME?></div>
+          <div class="status"><?=$ENVO_USER_GROUP?> ...</div>
         </div>
       </div>
       <!-- END MINI-PROFILE -->
@@ -257,7 +263,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 
   <div class="footer-widget">
     <div class="text-center">
-      <span>Intranet verze <?php echo get_pluginversion('Intranet'); ?></span>
+      <span>Intranet verze <?=get_pluginversion('Intranet')?></span>
     </div>
   </div>
 
@@ -269,8 +275,8 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
       <?php if ($BREADCRUMBS) { ?>
       <!-- BEGIN PAGE BREADCRUMBS AND TITLE-->
       <ul class="breadcrumb">
-        <li><span class="title"><?php echo $SECTION_TITLE; ?></span></li>
-        <li><span class="description"><?php echo $SECTION_DESC; ?></span></li>
+        <li><span class="title"><?=$SECTION_TITLE?></span></li>
+        <li><span class="description"><?=$SECTION_DESC?></span></li>
       </ul>
       <!-- END PAGE BREADCRUMBS AND TITLE -->
       <?php } ?>

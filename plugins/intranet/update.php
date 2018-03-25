@@ -95,7 +95,7 @@ $nameofplugin  = 'Intranet';
       </div>
       <hr>
       <div class="m-b-30">
-        <h4 class="semi-bold">Intranet Plugin - info about update to version <?php echo $pluginversion; ?></h4>
+        <h4 class="semi-bold">Intranet Plugin - info about update to version <?=$pluginversion?></h4>
       </div>
       <hr>
 

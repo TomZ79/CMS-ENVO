@@ -22,7 +22,7 @@ echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-numberAnimate
 <script>
   // Global options
   var envoWebIntranet = {
-    envo_lang: '<?php echo $site_language; ?>'
+    envo_lang: '<?=$site_language?>'
   };
 </script>
 <?php

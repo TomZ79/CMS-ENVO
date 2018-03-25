@@ -5,9 +5,15 @@
   <meta charset="utf-8"/>
   <!-- Document Title
   ============================================= -->
-  <title><?php echo $setting["title"];
-    if ($setting["title"]) { ?> &raquo; <?php }
-    echo $PAGE_TITLE; ?></title>
+  <title>
+    <?php
+    echo $setting["title"];
+    if ($setting["title"]) {
+      echo "&raquo;";
+    }
+    echo $PAGE_TITLE;
+    ?>
+  </title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -57,7 +63,7 @@
 
       </div>
       <div class="tiles grey p-t-20 p-b-20 no-margin text-black tab-content">
-        <form class="animated fadeIn validate" id="" name="" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
+        <form class="animated fadeIn validate" id="" name="" method="post" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
           <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
             <div class="col-md-6 col-sm-6">
               <input class="form-control" id="loginusername" name="loginusername" placeholder="Uživatelské jméno" type="name" required>
@@ -92,7 +98,7 @@ echo $Html->addScript('/assets/plugins/bootstrapv3/js/bootstrap.min.js');
 <script>
   // Global options
   var envoWebIntranet = {
-    envo_lang: '<?php echo $site_language; ?>'
+    envo_lang: '<?=$site_language?>'
   };
 </script>
 <?php

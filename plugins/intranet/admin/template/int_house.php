@@ -50,7 +50,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <table id="int_table" class="table table-striped table-hover">
@@ -79,7 +79,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
           <tbody>
           <?php foreach ($ENVO_HOUSE_ALL as $h) { ?>
             <tr>
-              <td><?php echo $h["id"]; ?></td>
+              <td><?=$h["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success">
 
@@ -101,13 +101,13 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
               </td>
               <td>
-                <?php echo $h["street"]; ?>
+                <?=$h["street"]?>
               </td>
               <td>
-                <?php echo $h["city"]; ?>
+                <?=$h["city"]?>
               </td>
               <td>
-                <?php echo $h["housefic"]; ?>
+                <?=$h["housefic"]?>
               </td>
               <td class="text-center">
 

@@ -8,7 +8,7 @@ if ($page1 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page2 == "s1") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -70,7 +70,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php if (!empty($ENVO_NOTIFICATION_ALL) && is_array($ENVO_NOTIFICATION_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <table id="int_table" class="table table-striped table-hover">
@@ -100,7 +100,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
           <tbody>
           <?php foreach ($ENVO_NOTIFICATION_ALL as $n) { ?>
             <tr>
-              <td><?php echo $n["id"]; ?></td>
+              <td><?=$n["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
@@ -122,13 +122,13 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
               </td>
               <td>
-                <?php echo $n["type"];?>
+                <?=$n["type"]?>
               </td>
               <td>
-                <?php echo $n["permission"];?>
+                <?=$n["permission"]?>
               </td>
               <td>
-                <?php echo $n["created"];?>
+                <?=$n["created"]?>
               </td>
               <td class="text-center">
 

@@ -1,6 +1,6 @@
 <script>
   $(document).ready(function () {
-    $("a[href^='http']:not([href^='<?php echo BASE_URL;?>'])")
+    $("a[href^='http']:not([href^='<?=BASE_URL?>'])")
       .attr({
         target: "_blank"
       })
