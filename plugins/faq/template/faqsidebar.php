@@ -8,7 +8,7 @@
   if ($ENVO_FAQ_CAT) { ?>
     <aside class="nav-side-menu">
 
-      <h4 class="brand"><?php echo ENVO_PLUGIN_NAME_FAQ . ' ' . $tlf["faq_frontend"]["faq3"]; ?></h4>
+      <h4 class="brand"><?=ENVO_PLUGIN_NAME_FAQ . ' ' . $tlf["faq_frontend"]["faq3"]?></h4>
       <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#faqsidebar"></span>
 
       <div class="menu-list">
@@ -23,13 +23,13 @@
               if ($c["varname"] == $FAQ_CAT) echo 'class="active"';
 
               ?> >
-                <a href="<?php echo $c["parseurl"]; ?>" title="<?php echo strip_tags($c["content"]); ?>">
+                <a href="<?=$c["parseurl"]?>" title="<?=strip_tags($c["content"])?>">
                   <?php if ($c["catimg"]) { ?>
-                    <i class="fa <?php echo $c["catimg"]; ?> fa-fw"></i>
+                    <i class="fa <?=$c["catimg"]?> fa-fw"></i>
                   <?php }
                   echo $c["name"]; ?>
-                  <span <?php echo ($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"'; ?>>
-										<?php echo $c["count"]; ?>
+                  <span <?=($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"'?>>
+										<?=$c["count"]?>
 									</span>
                 </a>
 
@@ -37,14 +37,14 @@
                   <?php if (isset($ENVO_FAQ_CAT) && is_array($ENVO_FAQ_CAT)) foreach ($ENVO_FAQ_CAT as $c1) { ?>
                     <?php if ($c1["catparent"] != '0' && $c1["catparent"] == $c["id"]) { ?>
                       <li>
-                        <a href="<?php echo $c1["parseurl"]; ?>" title="<?php echo strip_tags($c1["content"]); ?>">
+                        <a href="<?=$c1["parseurl"]?>" title="<?=strip_tags($c1["content"])?>">
                           <?php if ($c1["catimg"]) { ?>
-                            <i class="fa <?php echo $c1["catimg"]; ?> fa-fw"></i>
+                            <i class="fa <?=$c1["catimg"]?> fa-fw"></i>
                           <?php }
                           echo $c1["name"]; ?>
-                          <span <?php echo ($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"'; ?>>
-										      <?php echo $c1["count"]; ?>
-									      </span>
+                          <span <?=($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"'?>>
+                            <?=$c1["count"]?>
+                          </span>
                         </a>
                       </li>
                     <?php }

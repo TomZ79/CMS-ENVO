@@ -5,7 +5,7 @@ if ($page == 'faq') {
   $classfaqiconbg  = 'bg-success';
 }
 ?>
-<li class="<?php echo $classfaqsection; ?>">
+<li class="<?=$classfaqsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -15,7 +15,7 @@ if ($page == 'faq') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo (($page == 'faq' && $page1 == '') || ($page == 'faq' && $page1 == 'new') || ($page == 'faq' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'faq' && $page1 == '') || ($page == 'faq' && $page1 == 'new') || ($page == 'faq' && $page1 == 'edit')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -25,7 +25,7 @@ if ($page == 'faq') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'faq' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'faq' && $page1 == 'new') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -36,7 +36,7 @@ if ($page == 'faq') {
 
     </li>
     <?php if ($page == 'faq' && $page1 == 'edit') { ?>
-      <li class="<?php echo ($page == 'blog' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'blog' && $page1 == 'edit') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -49,7 +49,7 @@ if ($page == 'faq') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo (($page == 'faq' && $page1 == 'categories') || ($page == 'faq' && $page1 == 'newcategory')) ? 'submenu-active' : ''; ?>">
+    <li class="<?=(($page == 'faq' && $page1 == 'categories') || ($page == 'faq' && $page1 == 'newcategory')) ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -59,7 +59,7 @@ if ($page == 'faq') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'faq' && $page1 == 'newcategory') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'faq' && $page1 == 'newcategory') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -70,7 +70,7 @@ if ($page == 'faq') {
 
     </li>
     <?php if ($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') { ?>
-      <li class="<?php echo ($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''; ?>">
+      <li class="<?=($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -83,7 +83,7 @@ if ($page == 'faq') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'faq' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'faq' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

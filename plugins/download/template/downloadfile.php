@@ -44,25 +44,25 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
 
         <div class="alert bg-danger fade in">
           <button type="button" class="close" data-dismiss="alert">×</button>
-          <?php echo $errorpp["e"]; ?>
+          <?=$errorpp["e"]?>
         </div>
 
       <?php } ?>
 
       <div class="col-md-12" style="margin: 20px 0 50px 0">
         <div class="text-center">
-          <h1 class="large"><?php echo $tl["global_text"]["gtxt1"]; ?></h1>
-          <p class="lead"><?php echo $tl["global_text"]["gtxt2"]; ?></p>
+          <h1 class="large"><?=$tl["global_text"]["gtxt1"]?></h1>
+          <p class="lead"><?=$tl["global_text"]["gtxt2"]?></p>
           <!-- Show password form -->
-          <form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+          <form class="form-inline" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
 
             <div class="input-group">
-              <input type="password" name="dlpass" class="form-control" value="" placeholder="<?php echo $tld["downl_frontend_ph"]["downlph1"]; ?>"/>
+              <input type="password" name="dlpass" class="form-control" value="" placeholder="<?=$tld["downl_frontend_ph"]["downlph1"]?>"/>
               <span class="input-group-btn">
-						<button type="submit" name="dlprotect" class="btn btn-primary"><?php echo $tl["button"]["btn3"]; ?></button>
+						<button type="submit" name="dlprotect" class="btn btn-primary"><?=$tl["button"]["btn3"]?></button>
 					</span>
             </div>
-            <input type="hidden" name="dlsec" value="<?php echo $PAGE_ID; ?>"/>
+            <input type="hidden" name="dlsec" value="<?=$PAGE_ID?>"/>
 
           </form>
         </div>
@@ -84,10 +84,10 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
         } else { ?>
 
           <div class="thumb-download text-center">
-            <img src="/plugins/download/assets/img/file-for-download.png" alt="<?php echo $PAGE_TITLE; ?>" class="img-thumbnail img-responsive">
+            <img src="/plugins/download/assets/img/file-for-download.png" alt="<?=$PAGE_TITLE?>" class="img-thumbnail img-responsive">
             <div class="caption text-center">
-              <span class="color1"><?php echo $tld["downl_frontend"]["downl14"]; ?></span>
-              <span class="color2"><?php echo $tld["downl_frontend"]["downl15"]; ?></span>
+              <span class="color1"><?=$tld["downl_frontend"]["downl14"]?></span>
+              <span class="color2"><?=$tld["downl_frontend"]["downl15"]?></span>
             </div>
           </div>
 
@@ -96,7 +96,7 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
       </div>
       <!-- Project Info Column -->
       <div class="col-sm-8">
-        <h3><?php echo $PAGE_TITLE; ?></h3>
+        <h3><?=$PAGE_TITLE?></h3>
 
         <div style="margin-bottom: 20px">
           <p style="font-size: 0.9em">
@@ -110,7 +110,7 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
             ?>
           </p>
           <hr>
-          <p><?php echo $PAGE_CONTENT; ?></p>
+          <p><?=$PAGE_CONTENT?></p>
         </div>
 
       </div>
@@ -126,23 +126,23 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
 
           <div class="col-sm-8 col-height">
             <p>
-              <?php echo $tld["downl_frontend"]["downl3"]; ?> <br>
-              <?php echo $tld["downl_frontend"]["downl4"]; ?>
+              <?=$tld["downl_frontend"]["downl3"]?> <br>
+              <?=$tld["downl_frontend"]["downl4"]?>
             </p>
             <div>
               <button class="btn btn-primary" onclick="shareOnFB();">Facebook</button>
             </div>
           </div>
           <div id="results" class="col-sm-4 col-height col-middle text-center">
-            <a href="#" class="dclick btn btn-info" disabled="disabled"><?php echo $tld["downl_frontend"]["downl6"]; ?></a>
+            <a href="#" class="dclick btn btn-info" disabled="disabled"><?=$tld["downl_frontend"]["downl6"]?></a>
           </div>
 
         <?php } elseif ($FT_SHARE && !$ENVO_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, without Facebook SDK Connection ?>
 
           <div class="col-sm-8 col-height">
             <p>
-              <?php echo $tld["downl_frontend"]["downl3"]; ?> <br>
-              <?php echo $tld["downl_frontend"]["downl4"]; ?>
+              <?=$tld["downl_frontend"]["downl3"]?> <br>
+              <?=$tld["downl_frontend"]["downl4"]?>
             </p>
             <p>
               <a href="javascript:void(0)" id="tweetLink" class="btn btn-warning">
@@ -154,18 +154,18 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
             </p>
           </div>
           <div class="col-sm-4 col-height col-middle text-center">
-            <a href="#" class="dclick btn btn-info" disabled="disabled"><?php echo $tld["downl_frontend"]["downl6"]; ?></a>
+            <a href="#" class="dclick btn btn-info" disabled="disabled"><?=$tld["downl_frontend"]["downl6"]?></a>
           </div>
 
         <?php } else { // Without Share on Social Sites ?>
 
           <div class="col-sm-8 col-height">
-            <p><strong><?php echo $tld["downl_frontend"]["downl2"]; ?></strong></p>
-            <p><?php echo $tld["downl_frontend"]["downl5"]; ?></p>
+            <p><strong><?=$tld["downl_frontend"]["downl2"]?></strong></p>
+            <p><?=$tld["downl_frontend"]["downl5"]?></p>
           </div>
           <div class="col-sm-4 col-height col-middle text-center">
             <p>
-              <a class="dclick btn btn-info" href="<?php echo $DL_LINK; ?>"><?php echo $tld["downl_frontend"]["downl7"]; ?></a>
+              <a class="dclick btn btn-info" href="<?=$DL_LINK?>"><?=$tld["downl_frontend"]["downl7"]?></a>
             </p>
           </div>
 
@@ -180,7 +180,7 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
     <div class="col-md-12">
       <div class=" pull-right" style="display: table;">
         <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
-          <strong><?php echo $tl["share"]["share"] . ' '; ?></strong>
+          <strong><?=$tl["share"]["share"] . ' '?></strong>
         </div>
         <div id="sollist-sharing"></div>
       </div>
@@ -191,16 +191,16 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
     <ul class="pager">
       <?php if ($ENVO_NAV_PREV) { ?>
         <li class="previous">
-          <a href="<?php echo $ENVO_NAV_PREV; ?>">
+          <a href="<?=$ENVO_NAV_PREV?>">
             <i class="fa fa-caret-left"></i>
-            <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
+            <span class="nav_text_left"><?=$ENVO_NAV_PREV_TITLE?></span>
           </a>
         </li>
       <?php }
       if ($ENVO_NAV_NEXT) { ?>
         <li class="next">
-          <a href="<?php echo $ENVO_NAV_NEXT; ?>">
-            <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
+          <a href="<?=$ENVO_NAV_NEXT?>">
+            <span class="nav_text_right"><?=$ENVO_NAV_NEXT_TITLE?></span>
             <i class="fa fa-caret-right"></i>
           </a>
         </li>

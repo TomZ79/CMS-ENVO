@@ -9,7 +9,7 @@ if ($page3 == "s") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -28,7 +28,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -59,7 +59,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -76,27 +76,27 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tld["downl_section_tab"]["downltab"]; ?></span>
+          <span class="text"><?=$tld["downl_section_tab"]["downltab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tld["downl_section_tab"]["downltab4"]; ?></span>
+          <span class="text"><?=$tld["downl_section_tab"]["downltab4"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tld["downl_section_tab"]["downltab1"]; ?></span>
+          <span class="text"><?=$tld["downl_section_tab"]["downltab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tld["downl_section_tab"]["downltab2"]; ?></span>
+          <span class="text"><?=$tld["downl_section_tab"]["downltab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?php echo $tld["downl_section_tab"]["downltab3"]; ?></span>
+          <span class="text"><?=$tld["downl_section_tab"]["downltab3"]?></span>
         </a>
       </li>
     </ul>
@@ -794,9 +794,9 @@ if ($errors) { ?>
                         <div class="row-form">
                           <div class="col-sm-12">
                             <div class="form-group">
-                              <label for="tags"><?php echo $tld["downl_box_content"]["downlbc50"]; ?></label>
+                              <label for="tags"><?=$tld["downl_box_content"]["downlbc50"]?></label>
                               <div class="controls">
-                                <?php echo $ENVO_TAGLIST; ?>
+                                <?=$ENVO_TAGLIST?>
                               </div>
                             </div>
                           </div>

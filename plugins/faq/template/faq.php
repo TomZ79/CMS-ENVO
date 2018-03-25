@@ -30,34 +30,34 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">
-                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordionFaq" href="#collapse<?php echo $v["id"]; ?>">
-                  <?php echo $v["title"]; ?>
+                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordionFaq" href="#collapse<?=$v["id"]?>">
+                  <?=$v["title"]?>
                 </a>
               </h3>
             </div>
-            <div id="collapse<?php echo $v["id"]; ?>" class="panel-collapse collapse">
+            <div id="collapse<?=$v["id"]?>" class="panel-collapse collapse">
               <div class="panel-body">
-                <h4><?php echo $tlf["faq_frontend"]["faq"]; ?></h4>
+                <h4><?=$tlf["faq_frontend"]["faq"]?></h4>
                 <div>
                   <p>
-                    <?php echo $v["contentshort"]; ?>
+                    <?=$v["contentshort"]?>
                   </p>
                 </div>
 
                 <div class="clearfix"></div>
                 <div class="pull-right">
 
-                  <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-default btn-sm"><?php echo $tlf["faq_frontend"]["faq1"]; ?></a>
+                  <a href="<?=$v["parseurl"]?>" class="btn btn-default btn-sm"><?=$tlf["faq_frontend"]["faq1"]?></a>
 
                   <?php if (ENVO_ASACCESS) { ?>
 
-                    <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm">
+                    <a href="<?=BASE_URL?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn1"]?>" class="btn btn-info btn-sm">
                       <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                      <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
+                      <span class="hidden-xs"><?=$tl["button"]["btn1"]?></span>
                     </a>
-                    <a class="btn btn-info btn-sm quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                    <a class="btn btn-info btn-sm quickedit" href="<?=BASE_URL?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn2"]?>">
                       <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                      <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
+                      <span class="hidden-xs"><?=$tl["button"]["btn2"]?></span>
                     </a>
 
                   <?php } ?>

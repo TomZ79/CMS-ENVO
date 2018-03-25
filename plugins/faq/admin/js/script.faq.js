@@ -37,7 +37,7 @@
  *
  * <script>
  *  // Add to aceEditor settings javascript object
- *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
+ *  aceEditor['otherconfigvariable'] = <?=json_encode($othervalue)?>;
  * </script>
  ========================================= */
 // Set WrapLimitRange from generated_admin_js.php

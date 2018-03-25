@@ -1,9 +1,9 @@
 <?php if ($pg["pluginid"] == ENVO_PLUGIN_FAQ) { ?>
 
   <li class="envocontent">
-    <div class="envocontent_header"><?php echo $tlf["faq_connect"]["faqc10"]; ?></div>
+    <div class="envocontent_header"><?=$tlf["faq_connect"]["faqc10"]?></div>
     <div class="form-group">
-      <label class="control-label"><?php echo $tlf["faq_connect"]["faqc7"]; ?></label>
+      <label class="control-label"><?=$tlf["faq_connect"]["faqc7"]?></label>
       <div class="row">
         <div class="col-sm-6">
           <select name="envo_showfaqorder" class="form-control selectpicker">
@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label"><?php echo $tlf["faq_connect"]["faqc8"]; ?></label>
+      <label class="control-label"><?=$tlf["faq_connect"]["faqc8"]?></label>
       <select name="envo_showfaq[]" multiple="multiple" class="form-control">
 
         <?php

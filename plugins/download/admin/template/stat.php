@@ -39,30 +39,30 @@ while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
   <div class="box-body no-padding">
     <table class="table table-striped table-hover">
       <tr>
-        <td><?php echo $tld["downl_box_content"]["downlbc53"]; ?></td>
-        <td><?php echo $rwresdlh['totalM']; ?></td>
+        <td><?=$tld["downl_box_content"]["downlbc53"]?></td>
+        <td><?=$rwresdlh['totalM']?></td>
       </tr>
       <tr>
-        <td><?php echo $tld["downl_box_content"]["downlbc54"]; ?></td>
-        <td><?php echo $rwresdlh1['totalMW']; ?></td>
+        <td><?=$tld["downl_box_content"]["downlbc54"]?></td>
+        <td><?=$rwresdlh1['totalMW']?></td>
       </tr>
       <tr>
-        <td><?php echo $tld["downl_box_content"]["downlbc55"]; ?></td>
-        <td><?php echo $rwresdlh2['totalMM']; ?></td>
+        <td><?=$tld["downl_box_content"]["downlbc55"]?></td>
+        <td><?=$rwresdlh2['totalMM']?></td>
       </tr>
     </table>
     <div>
-      <h5 class="m-l-30"><?php echo $tld["downl_box_content"]["downlbc56"]; ?></h5>
+      <h5 class="m-l-30"><?=$tld["downl_box_content"]["downlbc56"]?></h5>
     </div>
     <div class="table-responsive">
       <table class="table table-striped table-hover table-statis-200">
         <thead>
         <tr>
-          <th><?php echo $tld["downl_box_table"]["downltb10"]; ?></th>
-          <th><?php echo $tld["downl_box_table"]["downltb11"]; ?></th>
-          <th><?php echo $tld["downl_box_table"]["downltb12"]; ?></th>
-          <th><?php echo $tld["downl_box_table"]["downltb13"]; ?></th>
-          <th><?php echo $tld["downl_box_table"]["downltb14"]; ?></th>
+          <th><?=$tld["downl_box_table"]["downltb10"]?></th>
+          <th><?=$tld["downl_box_table"]["downltb11"]?></th>
+          <th><?=$tld["downl_box_table"]["downltb12"]?></th>
+          <th><?=$tld["downl_box_table"]["downltb13"]?></th>
+          <th><?=$tld["downl_box_table"]["downltb14"]?></th>
         </tr>
         </thead>
         <tbody>
@@ -74,11 +74,11 @@ while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
         ?>
 
           <tr>
-            <td><?php echo $dle["fileid"]; ?></td>
-            <td><?php echo $rwresdl["title"]; ?></td>
-            <td><?php echo $dle["email"]; ?></td>
-            <td><?php echo $dle["filename"]; ?></td>
-            <td><?php echo $dle["time"]; ?></td>
+            <td><?=$dle["fileid"]?></td>
+            <td><?=$rwresdl["title"]?></td>
+            <td><?=$dle["email"]?></td>
+            <td><?=$dle["filename"]?></td>
+            <td><?=$dle["time"]?></td>
           </tr>
         <?php } ?>
 
