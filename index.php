@@ -8,7 +8,8 @@ define('ENVO_PREVENT_ACCESS', 1);
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/index.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
-// Now check if there is more then one page
+// EN: Parsování webové adresy
+// CZ: Parsování webové adresy
 $page  = ($tempp ? envo_url_input_filter($tempp) : '');
 $page1 = ($tempp1 ? envo_url_input_filter($tempp1) : '');
 $page2 = ($tempp2 ? envo_url_input_filter($tempp2) : '');

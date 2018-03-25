@@ -11,7 +11,8 @@ $ENVO_PROVED = FALSE;
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/index.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
-// Now check if there is more then one page
+// EN: Parsování webové adresy
+// CZ: Parsování webové adresy
 $page  = ($temppa ? envo_url_input_filter($temppa) : '');
 $page1 = ($temppa1 ? envo_url_input_filter($temppa1) : '');
 $page2 = ($temppa2 ? envo_url_input_filter($temppa2) : '');
@@ -20,19 +21,32 @@ $page4 = ($temppa4 ? envo_url_input_filter($temppa4) : '');
 $page5 = ($temppa5 ? envo_url_input_filter($temppa5) : '');
 $page6 = ($temppa6 ? envo_url_input_filter($temppa6) : '');
 
+/* =====================================================
+ *  DEFINE CONSTANT - DEFINICE KONSTANT
+ * ===================================================== */
 // Only the SuperAdmin in the config file see everything
 if (ENVO_USERID && $envouser->envoSuperAdminAccess(ENVO_USERID)) {
   define('ENVO_SUPERADMINACCESS', TRUE);
 } else {
   define('ENVO_SUPERADMINACCESS', FALSE);
 }
+// We need the template folder, title, author and lang as template variable
+define('ENVO_PAGINATE_ADMIN', 1);
+// Define other constant
+define('ENVO_TEMPLATE', $setting["sitestyle"]);
 
+/* =====================================================
+ *  XXX
+ * ===================================================== */
 // Get the redirect into a sessions for better login handler
 if ($page && $page != '404') $_SESSION['ENVORedirect'] = $_SERVER['REQUEST_URI'];
 
 // All other user will be redirect to the homepage, nothing else to do for this people
 if (ENVO_USERID && !ENVO_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
+/* =====================================================
+ *  XXX
+ * ===================================================== */
 // EN: Import the language file
 // CZ: Import jazykových souborů
 if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
@@ -42,12 +56,9 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   $site_language = $setting["lang"];
 }
 
-// We need the template folder, title, author and lang as template variable
-define('ENVO_PAGINATE_ADMIN', 1);
-
-// Define other constant
-define('ENVO_TEMPLATE', $setting["sitestyle"]);
-
+/* =====================================================
+ *  XXX
+ * ===================================================== */
 // First check if the user is logged in
 if (ENVO_USERID) {
 
@@ -84,8 +95,8 @@ if (ENVO_USERID) {
   $ENVO_WELCOME_NAME = $envouser->getVar("name");
 }
 
-// We do not need code highlighting
-$CODE_HIGHLIGHT = $ENVO_PAGINATE = FALSE;
+//
+$ENVO_PAGINATE = FALSE;
 
 // Errors
 $errors = $exorder = $pluginid = array();
@@ -125,16 +136,9 @@ if (ENVO_USERID) {
   }
 }
 
-// Get statistics for Navbar
-$envotable  = DB_PREFIX . 'pages';
-$envotable1 = DB_PREFIX . 'user';
-$envotable2 = DB_PREFIX . 'usergroup';
-
-$ENVO_COUNTS_NAVBAR = $envodb->queryRow('SELECT
-																			(SELECT COUNT(*) FROM ' . $envotable . ') AS COUNT_PAGES,
-																			(SELECT COUNT(*) FROM ' . $envotable1 . ') AS COUNT_USER,
-																			(SELECT COUNT(*) FROM ' . $envotable2 . ') AS COUNT_USERGROUP');
-
+/* =====================================================
+ *  PAGE DEFINITION - DEFINICE STRÁNEK
+ * ===================================================== */
 // EN: Home page
 // CZ: Úvodní strana
 if ($page == '') {
@@ -207,6 +211,8 @@ if ($page == '') {
   }
   $checkp = 1;
 }
+// EN: Logout from site
+// CZ: Odhlášení z webové sítě
 if ($page == 'logout') {
   $checkp = 1;
   if (!ENVO_USERID) {
@@ -217,6 +223,8 @@ if ($page == 'logout') {
     envo_redirect(BASE_URL);
   }
 }
+// EN: '404' page
+// CZ: '404' stránka
 if ($page == '404') {
   if (!ENVO_USERID) {
     envo_redirect(BASE_URL);
@@ -234,6 +242,8 @@ if ($page == '404') {
   $template = '404.php';
   $checkp   = 1;
 }
+// EN: Other page
+// CZ: Ostatní stránky
 if ($page == 'site') {
   require_once 'site.php';
   $ENVO_PROVED      = 1;
@@ -351,7 +361,8 @@ if (isset($template) && $template != '') {
   include_once APP_PATH . 'admin/template/' . $template;
 }
 
-// Get the plugin template
+// EN: Get the admin template
+// CZ: Získání administračních šablon
 if (isset($plugin_template) && $plugin_template != '') {
   include_once APP_PATH . $plugin_template;
 }

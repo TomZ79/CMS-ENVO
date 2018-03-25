@@ -2,7 +2,7 @@
 
 // EN: Error reporting, if install folder exists
 // CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
-if (is_dir('../install')) die($tl['general_error']['generror41']);
+if (is_dir('../install')) die('Please delete or rename install folder.');
 
 // EN: The DB connections data
 // CZ: Data pro připojení do DB
