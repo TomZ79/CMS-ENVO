@@ -5,7 +5,7 @@ if ($page == 'tags') {
   $classtagiconbg = 'bg-success';
 }
 ?>
-<li class="<?php echo $classtagsection; ?>">
+<li class="<?=$classtagsection?>">
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -15,7 +15,7 @@ if ($page == 'tags') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo ($page == 'tags' && $page1 == '') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tags' && $page1 == '') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -25,7 +25,7 @@ if ($page == 'tags') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'tags' && $page1 == 'cloud') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tags' && $page1 == 'cloud') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -35,7 +35,7 @@ if ($page == 'tags') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'tags' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?=($page == 'tags' && $page1 == 'setting') ? 'submenu-active' : ''?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

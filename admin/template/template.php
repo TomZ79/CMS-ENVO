@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"]; ?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "s1") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"]; ?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -33,7 +33,7 @@ if ($page1 == "s1") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n1"]; ?>'
+        message: '<?=$tl["notification"]["n1"]?>'
       }, {
         // settings
         type: 'info',
@@ -49,7 +49,7 @@ if ($page1 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"]; ?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -82,7 +82,7 @@ if ($page1 == "e") { ?>
   </div>
 <?php } else { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="row row-eq-height">
       <?php if (isset($site_style_files) && is_array($site_style_files)) foreach ($site_style_files as $l) {
 
@@ -106,7 +106,7 @@ if ($page1 == "e") { ?>
 
         <div class="col-12 col-sm-6 m-b-30">
           <div class="text-center" style="background: rgb(217, 217, 217); padding: 24px;">
-            <img class="img-fluid" src="../template/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"/>
+            <img class="img-fluid" src="../template/<?=$l?>/preview.jpg" alt="<?=$l?>"/>
           </div>
           <div class="p-3 bg-white">
             <div>
@@ -121,9 +121,9 @@ if ($page1 == "e") { ?>
 
               </h3>
               <p>
-                <strong>Version: </strong> <?php echo $tltpl["tplinfo"]["tplversion"]; ?>
-                <strong class="m-l-30">Author: </strong> <?php echo $tltpl["tplinfo"]["tplauthor"]; ?>
-                <strong class="m-l-30">Technology: </strong> <?php echo $tltpl["tplinfo"]["tpltech"]; ?>
+                <strong>Version: </strong> <?=$tltpl["tplinfo"]["tplversion"]?>
+                <strong class="m-l-30">Author: </strong> <?=$tltpl["tplinfo"]["tplauthor"]?>
+                <strong class="m-l-30">Technology: </strong> <?=$tltpl["tplinfo"]["tpltech"]?>
               </p>
               <hr>
             </div>
@@ -186,7 +186,7 @@ if ($page1 == "e") { ?>
 
                 <div class="col-9">
                   <div class="alert alert-danger text-center" style="width: 100%; padding: 7px 10px; margin: 0;">
-                    <?php echo str_replace("%s", ENVO_TEMPLATE, $tl["tpl_box_content"]["tplbc1"]); ?>
+                    <?=str_replace("%s", ENVO_TEMPLATE, $tl["tpl_box_content"]["tplbc1"])?>
                   </div>
                 </div>
                 <?php if (file_exists('../template/' . $l . '/help.php')) { ?>

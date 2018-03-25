@@ -20,17 +20,17 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+      <form role="form" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
         <div class="input-group">
           <span class="input-group-btn">
-              <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
+              <button class="btn btn-info" name="search" type="submit"><?=$tl["button"]["btn21"]?></button>
           </span>
-          <input type="text" name="envoSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p2"]; ?>">
+          <input type="text" name="envoSH" class="form-control" placeholder="<?=$tl["placeholder"]["p2"]?>">
         </div>
       </form>
     </div>
 
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
       <div class="col-sm-6">
         <div class="input-group">
           <select name="envo_group" class="form-control selectpicker">
@@ -46,7 +46,7 @@
 
           </select>
           <span class="input-group-btn">
-          <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["button"]["btn20"]; ?></button>
+          <button type="submit" name="move" class="btn btn-warning"><?=$tl["button"]["btn20"]?></button>
         </span>
         </div>
       </div>
@@ -75,23 +75,23 @@
 
               </div>
             </th>
-            <th><?php echo $tl["user_box_table"]["usertb"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb1"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb2"]; ?></th>
-            <th><?php echo $tl["user_box_table"]["usertb3"]; ?></th>
+            <th><?=$tl["user_box_table"]["usertb"]?></th>
+            <th><?=$tl["user_box_table"]["usertb1"]?></th>
+            <th><?=$tl["user_box_table"]["usertb2"]?></th>
+            <th><?=$tl["user_box_table"]["usertb3"]?></th>
             <th>
               <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                 <i class="fa fa-lock"></i>
               </button>
             </th>
             <th>
-              <button type="submit" name="password" id="button_key" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["user_notification"]["pass1"]; ?>">
+              <button type="submit" name="password" id="button_key" class="btn btn-default btn-xs" data-confirm="<?=$tl["user_notification"]["pass1"]?>">
                 <i class="fa fa-key"></i>
               </button>
             </th>
             <th></th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["user_notification"]["delall"]; ?>" disabled="disabled">
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?=$tl["user_notification"]["delall"]?>" disabled="disabled">
                 <i class="fa fa-trash-o"></i>
               </button>
             </th>
@@ -99,26 +99,26 @@
           </thead>
           <?php if ($ENVO_SEARCH) { ?><?php if (isset($ENVO_SEARCH) && is_array($ENVO_SEARCH)) foreach ($ENVO_SEARCH as $v) { ?>
             <tr>
-              <td><?php echo $v["id"]; ?></td>
+              <td><?=$v["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success">
-                  <input type="checkbox" id="envo_delete_user<?php echo $v["id"]; ?>" name="envo_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-                  <label for="envo_delete_user<?php echo $v["id"]; ?>"></label>
+                  <input type="checkbox" id="envo_delete_user<?=$v["id"]?>" name="envo_delete_user[]" class="highlight" value="<?=$v["id"]?>"/>
+                  <label for="envo_delete_user<?=$v["id"]?>"></label>
                 </div>
               </td>
-              <td><a href="index.php?p=users&amp;sp=edituser&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td><a href="index.php?p=users&amp;sp=edituser&amp;id=<?=$v["id"]?>"><?=$v["name"]?></a>
               </td>
-              <td><?php echo $v["email"]; ?></td>
-              <td><?php echo $v["username"]; ?></td>
+              <td><?=$v["email"]?></td>
+              <td><?=$v["username"]?></td>
               <td>
                 <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $y) {
                   if ($v["usergroupid"] == $y["id"]) { ?>
-                    <a href="index.php?p=usergroup&amp;sp=user&amp;id=<?php echo $y["id"]; ?>"><?php echo $y["name"]; ?></a>
+                    <a href="index.php?p=usergroup&amp;sp=user&amp;id=<?=$y["id"]?>"><?=$y["name"]?></a>
                   <?php }
                 } ?>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=lock&amp;id=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["access"] == '1') {
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=lock&amp;id=<?=$v["id"]?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["access"] == '1') {
                   echo $tl["icons"]["i6"];
                 } else {
                   echo $tl["icons"]["i5"];
@@ -127,17 +127,17 @@
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=password&amp;id=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=password&amp;id=<?=$v["id"]?>" data-confirm="<?=$tl["user_notification"]["pass"]?>" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i14"]?>">
                   <i class="fa fa-key"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=edit&amp;id=<?=$v["id"]?>" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i2"]?>">
                   <i class="fa fa-edit"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=delete&amp;id=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["user_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=delete&amp;id=<?=$v["id"]?>" data-confirm="<?=sprintf($tl["user_notification"]["del"], $v["name"])?>" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i1"]?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>
@@ -146,38 +146,38 @@
           } ?>
           <?php if ($ENVO_LIST_USER) { ?><?php if (isset($ENVO_LIST_USER) && is_array($ENVO_LIST_USER)) foreach ($ENVO_LIST_USER as $v) { ?>
             <tr>
-              <td><?php echo $v["id"]; ?></td>
+              <td><?=$v["id"]?></td>
               <td>
                 <div class="checkbox-singel check-success">
-                  <input type="checkbox" id="envo_delete_user<?php echo $v["id"]; ?>" name="envo_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-                  <label for="envo_delete_user<?php echo $v["id"]; ?>"></label>
+                  <input type="checkbox" id="envo_delete_user<?=$v["id"]?>" name="envo_delete_user[]" class="highlight" value="<?=$v["id"]?>"/>
+                  <label for="envo_delete_user<?=$v["id"]?>"></label>
                 </div>
               </td>
-              <td><a href="index.php?p=users&amp;sp=edituser&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td><a href="index.php?p=users&amp;sp=edituser&amp;id=<?=$v["id"]?>"><?=$v["name"]?></a>
               </td>
-              <td><?php echo $v["email"]; ?></td>
-              <td><?php echo $v["username"]; ?></td>
+              <td><?=$v["email"]?></td>
+              <td><?=$v["username"]?></td>
               <td><?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $y) {
                   if ($v["usergroupid"] == $y["id"]) { ?>
-                    <a href="index.php?p=usergroup&amp;sp=user&amp;id=<?php echo $y["id"]; ?>"><?php echo $y["name"]; ?></a><?php }
+                    <a href="index.php?p=usergroup&amp;sp=user&amp;id=<?=$y["id"]?>"><?=$y["name"]?></a><?php }
                 } ?></td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=lock&amp;id=<?php echo $v["id"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=lock&amp;id=<?=$v["id"]?>">
                   <i class="fa fa-<?php if ($v["access"] == '1') { ?>check<?php } else { ?>lock<?php } ?>"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=password&amp;id=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=password&amp;id=<?=$v["id"]?>" data-confirm="<?=$tl["user_notification"]["pass"]?>" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i14"]?>">
                   <i class="fa fa-key"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=edit&amp;id=<?=$v["id"]?>">
                   <i class="fa fa-edit"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=delete&amp;id=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["user_notification"]["del"], $v["username"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=delete&amp;id=<?=$v["id"]?>" data-confirm="<?=sprintf($tl["user_notification"]["del"], $v["username"])?>" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i1"]?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>

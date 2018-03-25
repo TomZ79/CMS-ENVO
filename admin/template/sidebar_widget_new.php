@@ -14,7 +14,7 @@ if ($hookadminws)
 <ul class="envo_widget_move">
   <?php if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $v) { ?>
 
-    <li id="widget-<?php echo $v["id"]; ?>" class="envowidget">
+    <li id="widget-<?=$v["id"]?>" class="envowidget">
       <div class="sidebar-widget">
         <div class="checkbox check-success">
 

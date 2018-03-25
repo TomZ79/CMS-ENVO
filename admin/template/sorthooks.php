@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -34,7 +34,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
   <div class="btn-toolbar m-b-20">
     <div class="btn-group">
 
-      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 130px;"><?php echo $tl["button"]["btn4"]; ?>
+      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 130px;"><?=$tl["button"]["btn4"]?>
         <span class="caret"></span>
       </button>
       <div class="dropdown-menu livefilter">
@@ -49,13 +49,13 @@ if ($page2 == "e" || $page2 == "edn") { ?>
         <div class="list-to-filter">
           <ul class="list-unstyled overflow">
             <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
-              <li class="filter-item" data-filter="<?php echo $h; ?>">
-                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?php echo $h; ?>"><?php echo $h; ?></a>
+              <li class="filter-item" data-filter="<?=$h?>">
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?=$h?>"><?=$h?></a>
               </li>
             <?php } ?>
           </ul>
           <div class="no-search-results">
-            <div class="no-results" role="alert"><?php echo $tl["selection"]["sel6"]; ?></div>
+            <div class="no-results" role="alert"><?=$tl["selection"]["sel6"]?></div>
           </div>
         </div>
       </div>
@@ -70,23 +70,27 @@ if ($page2 == "e" || $page2 == "edn") { ?>
       <ul class="envo_hooks_move">
         <?php foreach ($ENVO_HOOKS as $v) { ?>
 
-          <li id="hook-<?php echo $v["id"]; ?>" class="envohooks">
+          <li id="hook-<?=$v["id"]?>" class="envohooks">
 
             <div>
 							<span class="text">
-								<span class="textid"># <?php echo $v["id"]; ?></span>
-								<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+								<span class="textid"># <?=$v["id"]?></span>
+								<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edithook&amp;id=<?=$v["id"]?>"><?=$v["name"]?></a>
 							</span>
             </div>
 
             <div class="show">
-              <?php echo $tl["hook_box_content"]["hookbc1"]; ?>:
-              <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
-              | <?php echo $tl["hook_box_content"]["hookbc4"] . ':';
+              <?=$tl["hook_box_content"]["hookbc1"]?>:
+              <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?=$v["hook_name"]?>"><?=$v["hook_name"]?></a> |
+
+              <?php
+              echo $tl["hook_box_content"]["hookbc4"] . ':';
               if ($v["pluginid"] != '0') { ?>
-                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginname"]; ?></a><?php } else {
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?=$v["pluginid"]?>"><?=$v["pluginname"]?></a><?php } else {
                 echo ' -';
-              } ?>
+              }
+              ?>
+
             </div>
             <div class="actions">
 

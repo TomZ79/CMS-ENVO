@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -72,7 +72,7 @@ if ($success) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" class="envo_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" class="envo_form" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -87,38 +87,38 @@ if ($success) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tl["gs_section_tab"]["gstab"]; ?></span>
+          <span class="text"><?=$tl["gs_section_tab"]["gstab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tl["gs_section_tab"]["gstab1"]; ?></span>
+          <span class="text"><?=$tl["gs_section_tab"]["gstab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tl["gs_section_tab"]["gstab2"]; ?></span>
+          <span class="text"><?=$tl["gs_section_tab"]["gstab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tl["gs_section_tab"]["gstab3"]; ?></span>
+          <span class="text"><?=$tl["gs_section_tab"]["gstab3"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?php echo $tl["gs_section_tab"]["gstab4"]; ?></span>
+          <span class="text"><?=$tl["gs_section_tab"]["gstab4"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage6" role="tab">
-          <span class="text"><?php echo $tl["gs_section_tab"]["gstab6"]; ?></span>
+          <span class="text"><?=$tl["gs_section_tab"]["gstab6"]?></span>
         </a>
       </li>
       <?php if (isset($ENVO_HOOK_ADMIN_SETTING_EDIT)) { ?>
         <li class="nav-item">
           <a href="#" class="" data-toggle="tab" data-target="#cmsPage7" role="tab">
-            <span class="text"><?php echo $tl["gs_section_tab"]["gstab5"]; ?></span>
+            <span class="text"><?=$tl["gs_section_tab"]["gstab5"]?></span>
           </a>
         </li>
       <?php } ?>
@@ -156,7 +156,7 @@ if ($success) { ?>
                             if ($v["varname"] == 'email') {
                               echo $v["value"];
                             }
-                          } ?>" placeholder="<?php echo $tl["placeholder"]["p13"]; ?>"/>
+                          } ?>" placeholder="<?=$tl["placeholder"]["p13"]?>"/>
                         </div>
                       </div>
                     </div>
@@ -175,12 +175,12 @@ if ($success) { ?>
                           <input type="radio" id="envo_shttp1" name="envo_shttp" value="0"<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                             if ($v["varname"] == 'sitehttps' && $v["value"] == '0') { ?> checked="checked"<?php }
                           } ?> />
-                          <label for="envo_shttp1"><?php echo $tl["gs_box_content"]["gsbc3"]; ?></label>
+                          <label for="envo_shttp1"><?=$tl["gs_box_content"]["gsbc3"]?></label>
 
                           <input type="radio" id="envo_shttp2" name="envo_shttp" value="1"<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                             if ($v["varname"] == 'sitehttps' && $v["value"] == '1') { ?> checked="checked"<?php }
                           } ?> />
-                          <label for="envo_shttp2"><?php echo $tl["gs_box_content"]["gsbc4"]; ?></label>
+                          <label for="envo_shttp2"><?=$tl["gs_box_content"]["gsbc4"]?></label>
 
                         </div>
                       </div>
@@ -280,7 +280,7 @@ if ($success) { ?>
                             echo $Html->addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['timeformat'] == '') ? TRUE : FALSE);
                             ?>
 
-                            <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
+                            <optgroup label="<?=$tl["selection"]["sel111"]?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -291,7 +291,7 @@ if ($success) { ?>
                               ?>
 
                             </optgroup>
-                            <optgroup label="<?php echo $tl["selection"]["sel112"]; ?>">
+                            <optgroup label="<?=$tl["selection"]["sel112"]?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -671,7 +671,7 @@ if ($success) { ?>
                       </div>
                       <div class="col-sm-7">
                         <select name="envo_acetheme" class="form-control selectpicker">
-                          <optgroup label="<?php echo $tl["gs_box_content"]["gsbc22"]; ?>">
+                          <optgroup label="<?=$tl["gs_box_content"]["gsbc22"]?>">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -679,7 +679,7 @@ if ($success) { ?>
                             ?>
 
                           </optgroup>
-                          <optgroup label="<?php echo $tl["gs_box_content"]["gsbc23"]; ?>">
+                          <optgroup label="<?=$tl["gs_box_content"]["gsbc23"]?>">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -890,7 +890,7 @@ if ($success) { ?>
                         </div>
                       </div>
                     </div>
-                    <div id="smtpsettings" <?php echo (empty($ENVO_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
+                    <div id="smtpsettings" <?=(empty($ENVO_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : ''?>>
                       <div class="row-form">
                         <div class="col-sm-5">
 
@@ -1155,14 +1155,14 @@ if ($success) { ?>
                                 if ($v["varname"] == 'useravatwidth') {
                                   echo $v["value"];
                                 }
-                              } ?>" placeholder="<?php echo $tl["placeholder"]["p5"]; ?>"/>
+                              } ?>" placeholder="<?=$tl["placeholder"]["p5"]?>"/>
                             </div>
                             <div class="col-sm-6">
                               <input type="text" name="envo_avatheight" class="form-control" value="<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                                 if ($v["varname"] == 'useravatheight') {
                                   echo $v["value"];
                                 }
-                              } ?>" placeholder="<?php echo $tl["placeholder"]["p6"]; ?>"/>
+                              } ?>" placeholder="<?=$tl["placeholder"]["p6"]?>"/>
                             </div>
                           </div>
                         </div>
@@ -1477,63 +1477,63 @@ if ($success) { ?>
 
                         <div class="cookie-consent-configurator">
 
-                          <input name="envo_eucookie_theme" id="theme7-colour" class="input-hidden" value="eucookie_theme7" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme7') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme7-colour" class="input-hidden" value="eucookie_theme7" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme7') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme7-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#80AA1D;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme1-colour" class="input-hidden" value="eucookie_theme1" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme1') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme1-colour" class="input-hidden" value="eucookie_theme1" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme1') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme1-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#F1D600;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme2-colour" class="input-hidden" value="eucookie_theme2" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme2') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme2-colour" class="input-hidden" value="eucookie_theme2" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme2') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme2-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme3-colour" class="input-hidden" value="eucookie_theme3" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme3') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme3-colour" class="input-hidden" value="eucookie_theme3" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme3') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme3-colour">
                             <div class="theme-preview-container" style="background:#EAF7F7;">
                               <div class="theme-preview-button" style="background:#56CBDB;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme4-colour" class="input-hidden" value="eucookie_theme4" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme4') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme4-colour" class="input-hidden" value="eucookie_theme4" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme4') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme4-colour">
                             <div class="theme-preview-container" style="background:#252E39;">
                               <div class="theme-preview-button" style="background:#14A7D0;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme8-colour" class="input-hidden" value="eucookie_theme8" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme8') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme8-colour" class="input-hidden" value="eucookie_theme8" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme8') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme8-colour">
                             <div class="theme-preview-container" style="background:#252E39;">
                               <div class="theme-preview-button" style="background:#08C;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme5-colour">
                             <div class="theme-preview-container" style="background:#237AFC;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme9-colour" class="input-hidden" value="eucookie_theme9" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme9') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme9-colour" class="input-hidden" value="eucookie_theme9" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme9') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme9-colour">
                             <div class="theme-preview-container" style="background:#1AB2FF;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="envo_eucookie_theme" id="theme6-colour" class="input-hidden" value="eucookie_theme6" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme6') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme6-colour" class="input-hidden" value="eucookie_theme6" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme6') ? 'checked="checked"' : ''?> type="radio">
                           <label for="theme6-colour">
                             <div class="theme-preview-container" style="background:#EDEFF5;">
                               <div class="theme-preview-button" style="background:#4B81E8;"></div>

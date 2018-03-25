@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -53,7 +53,7 @@
 
 <?php if (isset($ENVO_SEARCHLOG_ALL) && is_array($ENVO_SEARCHLOG_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -73,9 +73,9 @@
 
                 </div>
               </th>
-              <th><?php echo $tl["slogs_box_table"]["slogstb"]; ?></th>
-              <th><?php echo $tl["slogs_box_table"]["slogstb1"]; ?></th>
-              <th><?php echo $tl["slogs_box_table"]["slogstb2"]; ?></th>
+              <th><?=$tl["slogs_box_table"]["slogstb"]?></th>
+              <th><?=$tl["slogs_box_table"]["slogstb1"]?></th>
+              <th><?=$tl["slogs_box_table"]["slogstb2"]?></th>
               <th>
 
                 <?php
@@ -96,7 +96,7 @@
             </thead>
             <?php foreach ($ENVO_SEARCHLOG_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -109,9 +109,9 @@
 
                   </div>
                 </td>
-                <td><?php echo $v["tag"]; ?></td>
-                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
-                <td><?php echo $v["count"]; ?></td>
+                <td><?=$v["tag"]?></td>
+                <td><?=date("d.m.Y - H:i:s", strtotime($v["time"]))?></td>
+                <td><?=$v["count"]?></td>
                 <td></td>
                 <td>
 

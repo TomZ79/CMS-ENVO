@@ -19,7 +19,7 @@ $hid = array();
     <?php if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $v) {
       if ($pgh["hookid"] == $v["id"]) { ?>
 
-        <li id="widget-<?php echo $pgh["id"]; ?>" class="envowidget">
+        <li id="widget-<?=$pgh["id"]?>" class="envowidget">
           <div class="sidebar-widget">
             <div class="checkbox check-success">
 
@@ -54,7 +54,7 @@ $hid = array();
   if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $v) {
     if ((is_array($hid) && !in_array($v["id"], $hid)) || !isset($hid)) { ?>
 
-      <li id="widget-<?php echo $v["id"]; ?>" class="envowidget">
+      <li id="widget-<?=$v["id"]?>" class="envowidget">
         <div class="sidebar-widget">
           <div class="checkbox check-success">
 

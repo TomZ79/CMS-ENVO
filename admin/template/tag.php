@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -52,7 +52,7 @@
 
 <?php if (isset($ENVO_TAG_ALL) && is_array($ENVO_TAG_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -82,7 +82,7 @@
                 ?>
 
               </th>
-              <th><?php echo $tl["tag_box_table"]["tagtb1"]; ?></th>
+              <th><?=$tl["tag_box_table"]["tagtb1"]?></th>
               <th>
 
                 <?php
@@ -103,7 +103,7 @@
             </thead>
             <?php foreach ($ENVO_TAG_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -116,7 +116,7 @@
 
                   </div>
                 </td>
-                <td><?php echo $v["tag"]; ?></td>
+                <td><?=$v["tag"]?></td>
                 <td>
 
                   <?php
