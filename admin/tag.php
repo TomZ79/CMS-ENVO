@@ -282,69 +282,6 @@ switch ($page1) {
     }
 
     switch ($page1) {
-      case 'sort':
-        // SORT TAGS BY PLUGIN
-
-        if ($page2 == 'pluginid') {
-          $bu = 'pluginid';
-
-          $getTotal = envo_get_total($envotable, $page3, $bu, '');
-
-          // Paginator
-          if ($getTotal != 0) {
-
-            $tags                 = new ENVO_paginator;
-            $tags->items_total    = $getTotal;
-            $tags->mid_range      = $setting["adminpagemid"];
-            $tags->items_per_page = $setting["adminpageitem"];
-            $tags->envo_get_page   = $page4;
-            $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
-            $tags->paginate();
-            $ENVO_PAGINATE = $tags->display_pages();
-
-            $ENVO_TAG_ALL = envo_get_tag($tags->limit, $page3, $envoplugins->envoAdminTag(), FALSE);
-
-          }
-
-        } elseif ($page2 == 'tag') {
-
-          $getTotal = envo_get_total($envotable, '', '', '');
-
-          $sortoder = 'tag ASC';
-          if ($page3 == 'DESC') $sortoder = 'tag DESC';
-
-          // Paginator
-          if ($getTotal != 0) {
-
-            $tags                 = new ENVO_paginator;
-            $tags->items_total    = $getTotal;
-            $tags->mid_range      = $setting["adminpagemid"];
-            $tags->items_per_page = $setting["adminpageitem"];
-            $tags->envo_get_page   = $page4;
-            $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
-            $tags->paginate();
-            $ENVO_PAGINATE = $tags->display_pages();
-
-            $ENVO_TAG_ALL = envo_get_tag($tags->limit, FALSE, $envoplugins->envoAdminTag(), $sortoder);
-
-          }
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=tags');
-        }
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["tag_sec_title"]["tagt3"];
-        $SECTION_DESC  = $tl["tag_sec_desc"]["tagd3"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $template = 'tag.php';
-
-        break;
       case 'lock':
         // LIST OF TAGS - LOCK TAG IN DB
 

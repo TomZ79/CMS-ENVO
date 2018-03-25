@@ -74,7 +74,7 @@
             <thead>
             <tr>
               <th class="no-sort">#</th>
-              <th class="text-center no-sort">
+              <th class="no-sort">
                 <div class="checkbox-singel check-success">
 
                   <?php

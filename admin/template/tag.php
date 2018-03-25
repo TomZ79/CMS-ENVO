@@ -60,7 +60,7 @@
             <thead>
             <tr>
               <th class="no-sort" style="width:5%">#</th>
-              <th class="text-center no-sort" style="width:5%">
+              <th class="no-sort" style="width:4%">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -72,7 +72,7 @@
 
                 </div>
               </th>
-              <th style="width:40%"><?=$tl["tag_box_table"]["tagtb"]?></th>
+              <th style="width:41%"><?=$tl["tag_box_table"]["tagtb"]?></th>
               <th style="width:40%"><?=$tl["tag_box_table"]["tagtb1"]?></th>
               <th class="text-center no-sort" style="width:5%">
 

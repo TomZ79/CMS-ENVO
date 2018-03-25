@@ -4448,7 +4448,10 @@ div.mce-edit-area {
 }
 .fancy-checkbox label {
   position: relative;
-  top: -2px;
+  top: -1px;
+  padding-left: 20px;
+  line-height: 21px;
+  cursor: pointer;
 }
 .fancy-checkbox input[type="checkbox"] {
   display: none;

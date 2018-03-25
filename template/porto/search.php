@@ -6,8 +6,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-center">
-            <h1 class="large"><?php echo $tl["searching_error"]["ser1"]; ?></h1>
-            <p class="lead"><?php echo $tl["searching_error"]["ser"]; ?></p>
+            <h1 class="large"><?=$tl["searching_error"]["ser1"]?></h1>
+            <p class="lead"><?=$tl["searching_error"]["ser"]?></p>
           </div>
         </div>
       </div>
@@ -15,11 +15,11 @@
   </section>
 <?php } else { ?>
 
-  <form role="form" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">
+  <form role="form" action="<?=$P_SEAERCH_LINK?>" method="post">
     <div class="input-group">
       <input type="text" name="envoSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"]; if ($setting["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-default" name="search" id="JajaxSubmitSearch"><?php echo $tl["searching"]["stxt"]; ?></button>
+        <button type="submit" class="btn btn-default" name="search" id="JajaxSubmitSearch"><?=$tl["searching"]["stxt"]?></button>
       </span>
     </div>
     <?php if (isset($ENVO_HOOK_SEARCH_SIDEBAR) && is_array($ENVO_HOOK_SEARCH_SIDEBAR)) foreach ($ENVO_HOOK_SEARCH_SIDEBAR as $hss) {
@@ -41,7 +41,7 @@ if (isset($ENVO_SEARCH_USED)) { ?>
 
   <div class="col-md-12">
     <div class="col-md-6">
-      <h3><?php echo $tl["searching"]["stxt1"]; ?> <strong><?php echo $ENVO_SEARCH_WORD_RESULT; ?></strong></h3>
+      <h3><?=$tl["searching"]["stxt1"]?> <strong><?=$ENVO_SEARCH_WORD_RESULT?></strong></h3>
     </div>
     <div class="col-md-6">
       <?php
@@ -49,11 +49,11 @@ if (isset($ENVO_SEARCH_USED)) { ?>
       if (isset($ENVO_SEARCH_RESULT) && is_array($ENVO_SEARCH_RESULT)) foreach ($ENVO_SEARCH_RESULT as $v) $count++;
       if (isset($ENVO_SEARCH_RESULT_NEWS) && is_array($ENVO_SEARCH_RESULT_NEWS)) foreach ($ENVO_SEARCH_RESULT_NEWS as $n) $count++;
       if (isset($count)) { ?>
-        <p class="pull-right"><?php echo str_replace("%s", $count, $tl["searching"]["stxt2"]); ?></p>
+        <p class="pull-right"><?=str_replace("%s", $count, $tl["searching"]["stxt2"])?></p>
       <?php } else { ?>
 
         <div class="alert alert-danger">
-          <?php echo $tl["searching_error"]["ser2"]; ?>
+          <?=$tl["searching_error"]["ser2"]?>
         </div>
 
       <?php } ?>
@@ -69,9 +69,9 @@ if (isset($ENVO_SEARCH_USED)) { ?>
         <div class="service-wrapper">
           <i class="fa fa-file-text-o fa-4x"></i>
 
-          <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo $v["title"]; ?></a></h3>
+          <h3><a href="<?=$v["parseurl"]; ?>"><?=$v["title"]?></a></h3>
 
-          <p><?php echo $v["content"]; ?></p>
+          <p><?=$v["content"]?></p>
         </div>
         <hr>
       </div>
@@ -84,9 +84,9 @@ if (isset($ENVO_SEARCH_USED)) { ?>
         <div class="service-wrapper">
           <i class="fa fa-newspaper-o fa-4x"></i>
 
-          <h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo $n["title"]; ?></a></h3>
+          <h3><a href="<?=$n["parseurl"]?>"><?=$n["title"]?></a></h3>
 
-          <p><?php echo $n["content"]; ?></p>
+          <p><?=$n["content"]?></p>
         </div>
         <hr>
       </div>

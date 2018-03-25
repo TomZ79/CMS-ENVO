@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php echo $PAGE_CONTENT; ?>
+<?=$PAGE_CONTENT?>
 
 	<section class="pt-medium pb-medium">
 		<div class="container">
@@ -13,7 +13,7 @@
 							<?php foreach ($ENVO_CAT_SITE as $v) {
 					if ($v["catparent"] == '0') { ?>
 
-						<li><a href="<?php echo $v["varname"]; ?>"><?php echo $v["name"]; ?></a>
+						<li><a href="<?=$v["varname"]?>"><?=$v["name"]?></a>
 
 						<?php if (isset($v["catexist"])) { ?>
 
@@ -23,7 +23,7 @@
 
 									if ($z["catparent"] != '0' && $z["catparent2"] == '0' && $z["catparent"] == $v["id"]) { ?>
 
-										<li><a href="<?php echo $z["varname"]; ?>"><?php echo $z["name"]; ?></a>
+										<li><a href="<?=$z["varname"]?>"><?=$z["name"]?></a>
 
 											<?php if (isset($z["catexist2"])) { ?>
 
@@ -33,7 +33,7 @@
 
 														if ($o["catparent"] != '0' && $o["catparent2"] != '0' && $o["catparent"] == $v["id"] && $o["catparent2"] == $z["id"]) { ?>
 
-															<li><a href="<?php echo $o["varname"]; ?>"><?php echo $o["name"]; ?></a></li>
+															<li><a href="<?=$o["varname"]?>"><?=$o["name"]?></a></li>
 
 														<?php }
 													} ?>

@@ -6,51 +6,51 @@
 
     } ?>
     <div class="loginF">
-      <h3><?php echo $tl["general"]["g146"]; ?></h3>
+      <h3><?=$tl["general"]["g146"]?></h3>
       <?php if ($errorlo) { ?>
         <div class="alert bg-info">
-          <a class="lost-pwd" href="<?php echo $ENVO_FORGOT_PASS_LINK; ?>"><i
-              class="fa fa-share-alt"></i> <?php echo $tl["error"]["f"]; ?></a>
+          <a class="lost-pwd" href="<?=$ENVO_FORGOT_PASS_LINK?>"><i
+              class="fa fa-share-alt"></i> <?=$tl["error"]["f"]?></a>
         </div>
       <?php }
       if ($errorlo) { ?>
         <div class="alert bg-danger">
-          <?php echo $errorlo["e"]; ?>
+          <?=$errorlo["e"]?>
         </div>
       <?php } ?>
-      <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+      <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
         <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
-          <label class="control-label" for="username"><?php echo $tl["login"]["l1"]; ?></label>
-          <input type="text" name="envoU" id="username" class="form-control" value="<?php echo $_REQUEST["envoU"]; ?>"
-            placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
+          <label class="control-label" for="username"><?=$tl["login"]["l1"]?></label>
+          <input type="text" name="envoU" id="username" class="form-control" value="<?=$_REQUEST["envoU"]?>"
+            placeholder="<?=$tl["login"]["l1"]?>"/>
         </div>
         <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
-          <label class="control-label" for="password"><?php echo $tl["login"]["l2"]; ?></label>
+          <label class="control-label" for="password"><?=$tl["login"]["l2"]?></label>
           <input type="password" name="envoP" id="password" class="form-control" value=""
-            placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
+            placeholder="<?=$tl["login"]["l2"]?>"/>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n7"]; ?></label>
+          <label><input type="checkbox" name="lcookies" value="1"> <?=$tl["notification"]["n7"]?></label>
         </div>
         <button type="submit" name="login"
-          class="btn btn-success btn-block"><?php echo $tl["general"]["g146"]; ?></button>
+          class="btn btn-success btn-block"><?=$tl["general"]["g146"]?></button>
       </form>
     </div>
     <div class="forgotP">
-      <h3><?php echo $tl["title"]["t14"]; ?></h3>
+      <h3><?=$tl["title"]["t14"]?></h3>
       <div class="alert bg-warning">
-        <a class="lost-pwd" href="#"><i class="fa fa-lightbulb-o"></i> <?php echo $tl["title"]["t16"]; ?></a>
+        <a class="lost-pwd" href="#"><i class="fa fa-lightbulb-o"></i> <?=$tl["title"]["t16"]?></a>
       </div>
       <?php if ($errorfp) { ?>
-        <div class="alert bg-danger"><?php echo $errorfp["e"]; ?></div><?php } ?>
-      <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+        <div class="alert bg-danger"><?=$errorfp["e"]?></div><?php } ?>
+      <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
         <div class="form-group<?php if ($errorfp) echo " has-error"; ?>">
-          <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>
+          <label class="control-label" for="email"><?=$tl["login"]["l5"]?></label>
           <input type="text" name="envoE" id="email" class="form-control" value=""
-            placeholder="<?php echo $tl["login"]["l5"]; ?>"/>
+            placeholder="<?=$tl["login"]["l5"]?>"/>
         </div>
         <button type="submit" name="forgotP"
-          class="btn btn-info btn-block"><?php echo $tl["general"]["g178"]; ?></button>
+          class="btn btn-info btn-block"><?=$tl["general"]["g178"]?></button>
       </form>
     </div>
 
@@ -75,7 +75,7 @@
     </script>
 
   <?php } else { ?>
-    <h3><?php echo str_replace("%s", $ENVO_USERNAME, $tl["general"]["g8"]); ?></h3>
-    <p><a href="<?php echo $P_USR_LOGOUT; ?>" class="btn btn-danger btn-block"><?php echo $tl["title"]["t6"]; ?></a></p>
+    <h3><?=str_replace("%s", $ENVO_USERNAME, $tl["general"]["g8"])?></h3>
+    <p><a href="<?=$P_USR_LOGOUT?>" class="btn btn-danger btn-block"><?=$tl["title"]["t6"]?></a></p>
   <?php }
 } ?>

@@ -487,10 +487,10 @@ $(function () {
  ========================================================================*/
 $(function () {
   // Add value from Bootstrap Select to Bootstrap TagsInput
-  $('#selecttags1').on('changed.bs.select', function (e) {
+  $('#selecttags1').on('change', function (e) {
     $("input[name='envo_tags']").tagsinput('add', $(this).val());
   });
-  $('#selecttags2').on('changed.bs.select', function (e) {
+  $('#selecttags2').on('change', function (e) {
     $("input[name='envo_tags']").tagsinput('add', $(this).val());
   });
 

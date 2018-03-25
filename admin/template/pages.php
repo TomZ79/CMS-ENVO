@@ -70,7 +70,7 @@
             <thead>
             <tr>
               <th class="no-sort" style="width:5%">#</th>
-              <th class="text-center no-sort" style="width:4%">
+              <th class="no-sort" style="width:4%">
                 <div class="checkbox-singel check-success">
 
                   <?php
