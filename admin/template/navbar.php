@@ -20,7 +20,7 @@
       $classiconbg = 'bg-success';
     }
     ?>
-    <li class="<?php echo $classlogssection; ?>">
+    <li class="<?=$classlogssection?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -30,7 +30,7 @@
       ?>
 
       <ul class="sub-menu">
-        <li class="<?php echo ($page == 'logs') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'logs') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -40,7 +40,7 @@
           ?>
 
         </li>
-        <li class="<?php echo ($page == 'searchlog') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'searchlog') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -61,7 +61,7 @@
       $classbasiciconbg = 'bg-success';
     }
     ?>
-    <li class="<?php echo $classbasicsection; ?>">
+    <li class="<?=$classbasicsection?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -71,7 +71,7 @@
       ?>
 
       <ul class="sub-menu">
-        <li class="<?php echo ($page == 'site') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'site') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -81,7 +81,7 @@
           ?>
 
         </li>
-        <li class="<?php echo ($page == 'setting') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'setting') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -102,7 +102,7 @@
       $classgeneraliconbg = 'bg-success';
     }
     ?>
-    <li class="<?php echo $classgeneralsection; ?>">
+    <li class="<?=$classgeneralsection?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -114,7 +114,7 @@
       <ul class="sub-menu">
 
         <?php if (ENVO_SUPERADMINACCESS) { ?>
-          <li class="<?php echo ($page == 'plugins') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'plugins') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -124,7 +124,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == '') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'plugins' && $page1 == 'hooks' && $page2 == '') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -135,7 +135,7 @@
 
           </li>
           <?php if ($page1 == 'hooks' && $page2 == 'sorthooks') { ?>
-            <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'sorthooks') ? 'submenu-active' : ''; ?>">
+            <li class="<?=($page == 'plugins' && $page1 == 'hooks' && $page2 == 'sorthooks') ? 'submenu-active' : ''?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -147,7 +147,7 @@
             </li>
           <?php }
           if ($page1 == 'hooks' && $page2 == 'edit') { ?>
-            <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'edithook') ? 'submenu-active' : ''; ?>">
+            <li class="<?=($page == 'plugins' && $page1 == 'hooks' && $page2 == 'edithook') ? 'submenu-active' : ''?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -158,7 +158,7 @@
 
             </li>
           <?php } ?>
-          <li class="<?php echo ($page == 'plugins' && $page1 == 'hooks' && $page2 == 'newhook') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'plugins' && $page1 == 'hooks' && $page2 == 'newhook') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -170,7 +170,7 @@
           </li>
           <li class="list-divider"></li>
 
-          <li class="<?php echo ($page == 'template') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'template') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -180,7 +180,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'template' && $page1 == 'settings') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'template' && $page1 == 'settings') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -190,7 +190,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'template' && $page1 == 'edit-files') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'template' && $page1 == 'edit-files') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -200,7 +200,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'template' && $page1 == 'cssedit') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'template' && $page1 == 'cssedit') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -210,7 +210,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'template' && $page1 == 'langedit') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'template' && $page1 == 'langedit') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -222,7 +222,7 @@
           </li>
           <li class="list-divider"></li>
 
-          <li class="<?php echo ($page == 'maintenance') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'maintenance') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -256,7 +256,7 @@
       $classsocialiconbg  = 'bg-success';
     }
     ?>
-    <li class="<?php echo $classsocialsection; ?>">
+    <li class="<?=$classsocialsection?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -267,32 +267,32 @@
 
       <ul class="sub-menu">
         <li class="">
-          <a href="javascript:;"><?php echo $tl["submenu"]["sm40"]; ?><span class="arrow"></span></a>
-          <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm40"]); ?></span>
+          <a href="javascript:;"><?=$tl["submenu"]["sm40"]?><span class="arrow"></span></a>
+          <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm40"])?></span>
           <ul class="sub-menu">
             <li>
-              <a href="index.php?p=facebookgallery"><?php echo $tl["submenu"]["sm41"]; ?></a>
-              <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm41"]); ?></span>
+              <a href="index.php?p=facebookgallery"><?=$tl["submenu"]["sm41"]?></a>
+              <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm41"])?></span>
             </li>
             <li>
-              <a href="index.php?p=facebookgallery&amp;sp=newfacebook"><?php echo $tl["submenu"]["sm42"]; ?></a>
-              <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm42"]); ?></span>
+              <a href="index.php?p=facebookgallery&amp;sp=newfacebook"><?=$tl["submenu"]["sm42"]?></a>
+              <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm42"])?></span>
             </li>
             <?php if ($page == 'facebookgallery' && $page1 == 'edit') { ?>
               <li class="active">
-                <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $page2; ?>"><?php echo $tl["submenu"]["sm43"]; ?></a>
-                <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm43"]); ?></span>
+                <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?=$page2?>"><?=$tl["submenu"]["sm43"]?></a>
+                <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm43"])?></span>
               </li>
             <?php } ?>
             <li>
-              <a href="index.php?p=settingfacebook"><?php echo $tl["submenu"]["sm44"]; ?></a>
-              <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm44"]); ?></span>
+              <a href="index.php?p=settingfacebook"><?=$tl["submenu"]["sm44"]?></a>
+              <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm44"])?></span>
             </li>
           </ul>
         </li>
         <li class="">
-          <a href="javascript:;"><?php echo $tl["submenu"]["sm50"]; ?><span class="arrow"></span></a>
-          <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm50"]); ?></span>
+          <a href="javascript:;"><?=$tl["submenu"]["sm50"]?><span class="arrow"></span></a>
+          <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm50"])?></span>
           <ul class="sub-menu">
             <li>
               <a href="javascript:;">SubMenu</a>
@@ -305,8 +305,8 @@
           </ul>
         </li>
         <li class="">
-          <a href="javascript:;"><?php echo $tl["submenu"]["sm60"]; ?><span class="arrow"></span></a>
-          <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm60"]); ?></span>
+          <a href="javascript:;"><?=$tl["submenu"]["sm60"]?><span class="arrow"></span></a>
+          <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm60"])?></span>
           <ul class="sub-menu">
             <li>
               <a href="javascript:;">SubMenu</a>
@@ -319,8 +319,8 @@
           </ul>
         </li>
         <li class="">
-          <a href="javascript:;"><?php echo $tl["submenu"]["sm70"]; ?><span class="arrow"></span></a>
-          <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm70"]); ?></span>
+          <a href="javascript:;"><?=$tl["submenu"]["sm70"]?><span class="arrow"></span></a>
+          <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm70"])?></span>
           <ul class="sub-menu">
             <li>
               <a href="javascript:;">SubMenu</a>
@@ -333,8 +333,8 @@
           </ul>
         </li>
         <li class="">
-          <a href="index.php?p=mediasharing"><?php echo $tl["submenu"]["sm80"]; ?></a>
-          <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm80"]); ?></span>
+          <a href="index.php?p=mediasharing"><?=$tl["submenu"]["sm80"]?></a>
+          <span class="icon-thumbnail"><?=text_clipping_lower($tl["submenu"]["sm80"])?></span>
         </li>
       </ul>
     </li>
@@ -348,7 +348,7 @@
       $classiconbg = 'bg-success';
     }
     ?>
-    <li class="<?php echo $classsection; ?>">
+    <li class="<?=$classsection?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -359,7 +359,7 @@
 
       <ul class="sub-menu">
         <!-- USER -->
-        <li class="<?php echo ($page == 'users') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'users') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -369,7 +369,7 @@
           ?>
 
         </li>
-        <li class="<?php echo ($page == 'users' && $page1 == 'newuser') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'users' && $page1 == 'newuser') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -380,7 +380,7 @@
 
         </li>
         <?php if ($page == 'users' && $page1 == 'edituser') { ?>
-          <li class="<?php echo ($page == 'user' && $page1 == 'edituser') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'user' && $page1 == 'edituser') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -393,7 +393,7 @@
         <?php } ?>
         <li class="list-divider"></li>
         <!-- USERGROUP -->
-        <li class="<?php echo ($page == 'usergroup') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'usergroup') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -403,7 +403,7 @@
           ?>
 
         </li>
-        <li class="<?php echo ($page == 'usergroup' && $page1 == 'newgroup') ? 'submenu-active' : ''; ?>">
+        <li class="<?=($page == 'usergroup' && $page1 == 'newgroup') ? 'submenu-active' : ''?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -414,7 +414,7 @@
 
         </li>
         <?php if ($page == 'usergroup' && $page1 == 'edit') { ?>
-          <li class="<?php echo ($page == 'usergroup' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'usergroup' && $page1 == 'edit') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -428,7 +428,7 @@
         <li class="list-divider"></li>
         <!-- CATEGORIES -->
         <?php if ($ENVO_MODULEM) { ?>
-          <li class="<?php echo ($page == 'categories') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'categories') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -438,7 +438,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'categories' && $page1 == 'newcat') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'categories' && $page1 == 'newcat') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -449,7 +449,7 @@
 
           </li>
           <?php if ($page == 'categories' && $page1 == 'editcat') { ?>
-            <li class="<?php echo ($page == 'categories' && $page1 == 'editcat') ? 'submenu-active' : ''; ?>">
+            <li class="<?=($page == 'categories' && $page1 == 'editcat') ? 'submenu-active' : ''?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -462,7 +462,7 @@
           <?php } ?>
           <li class="list-divider"></li>
           <!-- PAGES -->
-          <li class="<?php echo ($page == 'page') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'page') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -472,7 +472,7 @@
             ?>
 
           </li>
-          <li class="<?php echo ($page == 'page' && $page1 == 'newpage') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'page' && $page1 == 'newpage') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -483,7 +483,7 @@
 
           </li>
           <?php if ($page == 'page' && $page1 == 'edit') { ?>
-            <li class="<?php echo ($page == 'page' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+            <li class="<?=($page == 'page' && $page1 == 'edit') ? 'submenu-active' : ''?>">
 
               <?php
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -496,7 +496,7 @@
           <?php } ?>
           <li class="list-divider"></li>
           <!-- SITEMAP -->
-          <li class="<?php echo ($page == 'sitemap') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'sitemap') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -507,7 +507,7 @@
 
           </li>
           <!-- SEARCHSETTING -->
-          <li class="<?php echo ($page == 'searchsetting') ? 'submenu-active' : ''; ?>">
+          <li class="<?=($page == 'searchsetting') ? 'submenu-active' : ''?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

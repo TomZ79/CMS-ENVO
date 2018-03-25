@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -45,7 +45,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
     <div class="btn-group">
 
       <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 130px;">
-        <?php echo $tl["button"]["btn4"]; ?>
+        <?=$tl["button"]["btn4"]?>
         <span class="caret"></span>
       </button>
       <div class="dropdown-menu livefilter">
@@ -60,8 +60,8 @@ if ($page2 == "e" || $page2 == "edn") { ?>
         <div class="list-to-filter">
           <ul class="list-unstyled overflow">
             <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
-              <li class="filter-item" data-filter="<?php echo $h; ?>">
-                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
+              <li class="filter-item" data-filter="<?=$h?>">
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;sssp=<?=$h?>"><?=$h?></a></li>
             <?php } ?>
           </ul>
           <div class="no-search-results">
@@ -78,7 +78,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
     </div>
   </div>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -98,9 +98,9 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
                 </div>
               </th>
-              <th style="width:40%"><?php echo $tl["hook_box_table"]["hooktb"]; ?></th>
-              <th style="width:29%"><?php echo $tl["hook_box_table"]["hooktb1"]; ?></th>
-              <th style="width:10%"><?php echo $tl["hook_box_table"]["hooktb2"]; ?></th>
+              <th style="width:40%"><?=$tl["hook_box_table"]["hooktb"]?></th>
+              <th style="width:29%"><?=$tl["hook_box_table"]["hooktb1"]?></th>
+              <th style="width:10%"><?=$tl["hook_box_table"]["hooktb2"]?></th>
               <th class="text-center no-sort" style="width:4%">
 
                 <?php
@@ -122,7 +122,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
             </thead>
             <?php if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success" style="margin: 0 auto;">
 

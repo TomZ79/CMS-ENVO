@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-  <form method="post" class="envo_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" class="envo_form" action="<?=$_SERVER['REQUEST_URI']?>">
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
@@ -16,7 +16,7 @@
           </div>
           <div class="box-body">
             <div class="col-sm-5" style="padding-top: 15px;padding-bottom: 15px;">
-              <img src="<?php echo $ENVO_FORM_DATA["pathoriginal"] . $ENVO_FORM_DATA["title"]; ?>" alt="" class="img-responsive" style="border: 8px solid #fff;outline: 8px solid #f9f9f9;max-height: 270px;margin: 0 auto;">
+              <img src="<?=$ENVO_FORM_DATA["pathoriginal"] . $ENVO_FORM_DATA["title"]?>" alt="" class="img-responsive" style="border: 8px solid #fff;outline: 8px solid #f9f9f9;max-height: 270px;margin: 0 auto;">
             </div>
             <div class="col-sm-7">
               <div class="block">
@@ -30,7 +30,7 @@
                       ?>
 
                     </div>
-                    <div class="col-sm-7"><?php echo $ENVO_FORM_DATA["title"]; ?></div>
+                    <div class="col-sm-7"><?=$ENVO_FORM_DATA["title"]?></div>
                   </div>
                   <div class="row-form">
                     <div class="col-sm-5">
@@ -41,7 +41,7 @@
                       ?>
 
                     </div>
-                    <div class="col-sm-7"><?php echo $ENVO_FORM_DATA["pathoriginal"]; ?></div>
+                    <div class="col-sm-7"><?=$ENVO_FORM_DATA["pathoriginal"]?></div>
                   </div>
                   <div class="row-form">
                     <div class="col-sm-5">
@@ -52,7 +52,7 @@
                       ?>
 
                     </div>
-                    <div class="col-sm-7"><?php echo $ENVO_FORM_DATA["paththumb"]; ?></div>
+                    <div class="col-sm-7"><?=$ENVO_FORM_DATA["paththumb"]?></div>
                   </div>
                   <div class="row-form">
                     <div class="col-sm-5">
@@ -63,7 +63,7 @@
                       ?>
 
                     </div>
-                    <div class="col-sm-7"><?php echo formatSizeUnits($ENVO_FORM_DATA["size"]); ?></div>
+                    <div class="col-sm-7"><?=formatSizeUnits($ENVO_FORM_DATA["size"])?></div>
                   </div>
                   <div class="row-form">
                     <div class="col-sm-5">
@@ -74,7 +74,7 @@
                       ?>
 
                     </div>
-                    <div class="col-sm-7"><?php echo $ENVO_FORM_DATA["width"] . ' x ' . $ENVO_FORM_DATA["height"]; ?></div>
+                    <div class="col-sm-7"><?=$ENVO_FORM_DATA["width"] . ' x ' . $ENVO_FORM_DATA["height"]?></div>
                   </div>
                   <div class="row-form">
                     <div class="col-sm-5">
@@ -85,7 +85,7 @@
                       ?>
 
                     </div>
-                    <div class="col-sm-7"><?php echo date("d.m.Y - H:i", strtotime($ENVO_FORM_DATA["time"])); ?></div>
+                    <div class="col-sm-7"><?=date("d.m.Y - H:i", strtotime($ENVO_FORM_DATA["time"]))?></div>
                   </div>
                 </div>
               </div>

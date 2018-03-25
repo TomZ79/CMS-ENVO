@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -48,7 +48,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form class="inline-form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form class="inline-form" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -65,27 +65,27 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tl["page_section_tab"]["pagetab"]; ?></span>
+          <span class="text"><?=$tl["page_section_tab"]["pagetab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tl["page_section_tab"]["pagetab1"]; ?></span>
+          <span class="text"><?=$tl["page_section_tab"]["pagetab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tl["page_section_tab"]["pagetab2"]; ?></span>
+          <span class="text"><?=$tl["page_section_tab"]["pagetab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tl["page_section_tab"]["pagetab3"]; ?></span>
+          <span class="text"><?=$tl["page_section_tab"]["pagetab3"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?php echo $tl["page_section_tab"]["pagetab4"]; ?></span>
+          <span class="text"><?=$tl["page_section_tab"]["pagetab4"]?></span>
         </a>
       </li>
     </ul>
@@ -581,10 +581,10 @@ if ($errors) { ?>
                         <div class="row-form">
                           <div class="col-sm-12">
                             <div class="form-group">
-                              <label><?php echo $tl["page_box_content"]["pagebc20"]; ?></label>
+                              <label><?=$tl["page_box_content"]["pagebc20"]?></label>
                               <span>Zaškrté tagy budou při uložení smazány</span>
                               <div class="controls">
-                                <?php echo $ENVO_TAGLIST; ?>
+                                <?=$ENVO_TAGLIST?>
                               </div>
                             </div>
                           </div>
@@ -714,7 +714,7 @@ if ($errors) { ?>
                       if ($pg["pluginid"] == '9999') { ?>
 
                         <li class="envocontent">
-                          <div class="text"><?php echo $tl["page_box_content"]["pagebc21"]; ?></div>
+                          <div class="text"><?=$tl["page_box_content"]["pagebc21"]?></div>
                           <div class="actions">
 
                             <?php
@@ -730,9 +730,9 @@ if ($errors) { ?>
                       if ($pg["pluginid"] == '9998') { ?>
 
                         <li class="envocontent">
-                          <div class="envocontent_header"><?php echo $tl["global_text"]["globaltxt19"]; ?></div>
+                          <div class="envocontent_header"><?=$tl["global_text"]["globaltxt19"]?></div>
                           <div class="form-group">
-                            <label><?php echo $tl["global_text"]["globaltxt9"]; ?></label>
+                            <label><?=$tl["global_text"]["globaltxt9"]?></label>
                             <div class="row">
                               <div class="col-sm-4">
                                 <select name="envo_shownewsorder" class="form-control selectpicker">
@@ -774,7 +774,7 @@ if ($errors) { ?>
                           </div>
 
                           <div class="form-group">
-                            <label><?php echo $tl["global_text"]["globaltxt12"]; ?></label>
+                            <label><?=$tl["global_text"]["globaltxt12"]?></label>
                             <select name="envo_shownews[]" multiple="multiple" class="form-control">
 
                               <?php

@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -31,7 +31,7 @@ if ($page1 == "e") { ?>
   </script>
 <?php } ?>
 
-<form method="post" class="envo_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<form method="post" class="envo_form" action="<?=$_SERVER['REQUEST_URI']?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton-small hidden-xs">
 

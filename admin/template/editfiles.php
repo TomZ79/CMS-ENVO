@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($ENVO_FILE_ERROR) { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror30"];?></div>'
+        message: '<?=$tl["general_error"]["generror30"]?></div>'
       }, {
         // settings
         type: 'danger',
@@ -54,7 +54,7 @@ if ($ENVO_FILE_ERROR) { ?>
     </div>
 
   <?php } else { ?>
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
       <div class="box box-success">
         <div class="box-header with-border">
 

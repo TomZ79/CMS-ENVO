@@ -6,14 +6,14 @@
       <!-- Small box -->
       <div class="dashboard-box bg-success">
         <div class="inner">
-          <h3><span class="counter" data-counterend="<?php echo $totalhits; ?>"><?php echo $totalhits; ?></span></h3>
-          <p><?php echo $tl["dashb_box_stats"]["dbbs1"]; ?></p>
+          <h3><span class="counter" data-counterend="<?=$totalhits?>"><?=$totalhits?></span></h3>
+          <p><?=$tl["dashb_box_stats"]["dbbs1"]?></p>
         </div>
         <div class="icon">
           <i class="fa fa-bar-chart"></i>
         </div>
         <a href="index.php?p=page" class="dashboard-box-footer">
-          <?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+          <?=$tl["dashb_box_stats"]["dbbs"]?>
           <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
@@ -23,14 +23,15 @@
       <div class="dashboard-box bg-complete-dark">
         <div class="inner">
           <h3>
-            <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["searchClog"]; ?>"><?php echo $ENVO_COUNTS["searchClog"]; ?></span>
+            <span class="counter" data-counterend="<?=$ENVO_COUNTS["searchClog"]?>"><?=$ENVO_COUNTS["searchClog"]?></span>
           </h3>
-          <p><?php echo $tl["dashb_box_stats"]["dbbs2"]; ?></p>
+          <p><?=$tl["dashb_box_stats"]["dbbs2"]?></p>
         </div>
         <div class="icon">
           <i class="fa fa-search"></i>
         </div>
-        <a href="index.php?p=searchlog" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+        <a href="index.php?p=searchlog" class="dashboard-box-footer">
+          <?=$tl["dashb_box_stats"]["dbbs"]?>
           <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
@@ -39,14 +40,15 @@
       <div class="dashboard-box bg-warning">
         <div class="inner">
           <h3>
-            <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["pluginCtotal"]; ?>"><?php echo $ENVO_COUNTS["pluginCtotal"]; ?></span>
+            <span class="counter" data-counterend="<?=$ENVO_COUNTS["pluginCtotal"]?>"><?=$ENVO_COUNTS["pluginCtotal"]?></span>
           </h3>
-          <p><?php echo $tl["dashb_box_stats"]["dbbs3"]; ?></p>
+          <p><?=$tl["dashb_box_stats"]["dbbs3"]?></p>
         </div>
         <div class="icon">
           <i class="fa fa-plug"></i>
         </div>
-        <a href="index.php?p=plugins" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+        <a href="index.php?p=plugins" class="dashboard-box-footer">
+          <?=$tl["dashb_box_stats"]["dbbs"]?>
           <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
@@ -56,28 +58,31 @@
         <div class="dashboard-box bg-danger">
           <div class="inner">
             <h3>
-              <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["tagsCtotal"]; ?>"><?php echo $ENVO_COUNTS["tagsCtotal"]; ?></span>
+              <span class="counter" data-counterend="<?=$ENVO_COUNTS["tagsCtotal"]?>">
+                <?=$ENVO_COUNTS["tagsCtotal"]?>
+              </span>
             </h3>
-            <p><?php echo $tl["dashb_box_stats"]["dbbs4"]; ?></p>
+            <p><?=$tl["dashb_box_stats"]["dbbs4"]?></p>
           </div>
           <div class="icon">
             <i class="fa fa-tags"></i>
           </div>
-          <a href="index.php?p=tags" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+          <a href="index.php?p=tags" class="dashboard-box-footer">
+            <?=$tl["dashb_box_stats"]["dbbs"]?>
             <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       <?php } else { ?>
         <div class="dashboard-box bg-info">
           <div class="inner">
             <h3>
-              <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["hookCtotal"]; ?>"><?php echo $ENVO_COUNTS["hookCtotal"]; ?></span>
+              <span class="counter" data-counterend="<?=$ENVO_COUNTS["hookCtotal"]?>"><?=$ENVO_COUNTS["hookCtotal"]?></span>
             </h3>
-            <p><?php echo $tl["dashb_box_stats"]["dbbs5"]; ?></p>
+            <p><?=$tl["dashb_box_stats"]["dbbs5"]?></p>
           </div>
           <div class="icon">
             <i class="fa fa-flash"></i>
           </div>
-          <a href="index.php?p=plugins&amp;sp=hooks" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+          <a href="index.php?p=plugins&amp;sp=hooks" class="dashboard-box-footer"><?=$tl["dashb_box_stats"]["dbbs"]?>
             <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       <?php } ?>
@@ -90,23 +95,23 @@
       <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
         <li class="nav-item">
           <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-            <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab"]; ?></span>
+            <span class="text"><?=$tl["dashb_section_tab"]["dashbtab"]?></span>
           </a>
         </li>
         <li class="nav-item next">
           <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-            <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab1"]; ?></span>
+            <span class="text"><?=$tl["dashb_section_tab"]["dashbtab1"]?></span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-            <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
+            <span class="text"><?=$tl["dashb_section_tab"]["dashbtab2"]?></span>
           </a>
         </li>
         <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
           <li class="nav-item">
             <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-              <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab3"]; ?></span>
+              <span class="text"><?=$tl["dashb_section_tab"]["dashbtab3"]?></span>
             </a>
           </li>
         <?php } ?>
@@ -243,12 +248,12 @@
       <div class="text-center">
         <p>
 
-          <span><strong><?php echo $tl["dashb_box_content"]["dbbc"]; ?> : </strong><?php echo $WEBS; ?> | </span>
-          <span><strong><?php echo $tl["dashb_box_content"]["dbbc1"]; ?> : </strong><?php echo $PHPV; ?> | </span>
-          <span><strong><?php echo $tl["dashb_box_content"]["dbbc2"]; ?> : </strong><?php echo $POSTM; ?> | </span>
-          <span><strong><?php echo $tl["dashb_box_content"]["dbbc3"]; ?> : </strong><?php echo $MEML; ?> | </span>
-          <span><strong><?php echo $tl["dashb_box_content"]["dbbc4"]; ?> : </strong><?php echo $MYV; ?> | </span>
-          <span><strong><?php echo $tl["dashb_box_content"]["dbbc5"]; ?> : </strong><?php echo $SRVIP; ?></span>
+          <span><strong><?=$tl["dashb_box_content"]["dbbc"]?> : </strong><?=$WEBS?> | </span>
+          <span><strong><?=$tl["dashb_box_content"]["dbbc1"]?> : </strong><?=$PHPV?> | </span>
+          <span><strong><?=$tl["dashb_box_content"]["dbbc2"]?> : </strong><?=$POSTM?> | </span>
+          <span><strong><?=$tl["dashb_box_content"]["dbbc3"]?> : </strong><?=$MEML?> | </span>
+          <span><strong><?=$tl["dashb_box_content"]["dbbc4"]?> : </strong><?=$MYV?> | </span>
+          <span><strong><?=$tl["dashb_box_content"]["dbbc5"]?> : </strong><?=$SRVIP?></span>
 
         </p>
         <div class="clearfix"></div>

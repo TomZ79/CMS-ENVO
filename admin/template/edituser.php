@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -51,7 +51,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -247,7 +247,7 @@ if ($errors) { ?>
                   <div class="col-sm-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                        <img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_FORM_DATA["picture"]; ?>" alt="avatar" class=""/>
+                        <img src="<?=BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_FORM_DATA["picture"]?>" alt="avatar" class=""/>
                       </div>
                       <div>
                         <span class="btn btn-default btn-file">
@@ -460,7 +460,7 @@ if ($errors) { ?>
               <div class="block">
                 <div class="block-content">
 
-                  <?php echo $extrafields; ?>
+                  <?=$extrafields?>
 
                 </div>
               </div>

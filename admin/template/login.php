@@ -31,7 +31,7 @@
           echo $Html->addTag('h4', $tl["log_in"]["login"], '');
           ?>
 
-          <form id="form-login" class="p-t-15" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+          <form id="form-login" class="p-t-15" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
             <div class="row justify-content-center">
               <div class="col-sm-12 col-12 no-padding">
                 <div class="form-group form-group-default">
@@ -106,7 +106,7 @@
           echo $Html->addTag('h4', $tl["log_in"]["login6"], '');
           ?>
 
-          <form id="form-email" class="p-t-15" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+          <form id="form-email" class="p-t-15" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
             <div class="row justify-content-center">
               <div class="col-sm-12 col-12 no-padding">
                 <div class="form-group form-group-default">

@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -40,7 +40,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -52,7 +52,7 @@
 
 <?php if (isset($ENVO_LOGINLOG_ALL) && is_array($ENVO_LOGINLOG_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -72,12 +72,12 @@
 
                 </div>
               </th>
-              <th><?php echo $tl["logs_box_table"]["logstb"]; ?></th>
-              <th><?php echo $tl["logs_box_table"]["logstb1"]; ?></th>
-              <th><?php echo $tl["logs_box_table"]["logstb2"]; ?></th>
-              <th><?php echo $tl["logs_box_table"]["logstb3"]; ?></th>
-              <th><?php echo $tl["logs_box_table"]["logstb4"]; ?></th>
-              <th class="text-center"><?php echo $tl["logs_box_table"]["logstb5"]; ?></th>
+              <th><?=$tl["logs_box_table"]["logstb"]?></th>
+              <th><?=$tl["logs_box_table"]["logstb1"]?></th>
+              <th><?=$tl["logs_box_table"]["logstb2"]?></th>
+              <th><?=$tl["logs_box_table"]["logstb3"]?></th>
+              <th><?=$tl["logs_box_table"]["logstb4"]?></th>
+              <th class="text-center"><?=$tl["logs_box_table"]["logstb5"]?></th>
               <th>
 
                 <?php
@@ -98,7 +98,7 @@
             </thead>
             <?php foreach ($ENVO_LOGINLOG_ALL as $v) { ?>
               <tr>
-                <td><?php echo $v["id"]; ?></td>
+                <td><?=$v["id"]?></td>
                 <td>
                   <div class="checkbox-singel check-success">
 
@@ -111,11 +111,11 @@
 
                   </div>
                 </td>
-                <td><?php echo envo_cut_text($v["name"], 8, '...'); ?></td>
-                <td><?php echo $v["fromwhere"]; ?></td>
-                <td><?php echo $v["ip"]; ?></td>
-                <td><?php echo envo_cut_text($v["usragent"], 20, '...'); ?></td>
-                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
+                <td><?=envo_cut_text($v["name"], 8, '...')?></td>
+                <td><?=$v["fromwhere"]?></td>
+                <td><?=$v["ip"]?></td>
+                <td><?=envo_cut_text($v["usragent"], 20, '...')?></td>
+                <td><?=date("d.m.Y - H:i:s", strtotime($v["time"]))?></td>
                 <td class="text-center">
 
                   <?php
@@ -148,13 +148,13 @@
                           <tr>
                             <!-- Name of user -->
                             <td style="border: none;">
-                              <strong><?php echo $tl["logs_box_table"]["logstb"]; ?> : </strong>
-                              <?php echo $v["name"]; ?>
+                              <strong><?=$tl["logs_box_table"]["logstb"]?> : </strong>
+                              <?=$v["name"]?>
                             </td>
                             <!-- Login page -->
                             <td style="border: none;">
-                              <strong><?php echo $tl["logs_box_table"]["logstb1"]; ?> : </strong>
-                              <?php echo rtrim(BASE_URL_ORIG, "/") . $v["fromwhere"]; ?>
+                              <strong><?=$tl["logs_box_table"]["logstb1"]?> : </strong>
+                              <?=rtrim(BASE_URL_ORIG, "/") . $v["fromwhere"]?>
                             </td>
                           </tr>
                         </table>
@@ -163,8 +163,8 @@
                     <!-- User Agent -->
                     <tr>
                       <td style="padding: 5px;">
-                        <strong><?php echo $tl["logs_box_table"]["logstb3"]; ?> : </strong>
-                        <?php echo $v["usragent"]; ?>
+                        <strong><?=$tl["logs_box_table"]["logstb3"]?> : </strong>
+                        <?=$v["usragent"]?>
                       </td>
                     </tr>
                     </tbody>

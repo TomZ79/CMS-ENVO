@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
+        message: '<?=$tl["notification"]["n7"]?>'
       }, {
         // settings
         type: 'success',
@@ -23,7 +23,7 @@
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
+        message: '<?=$tl["notification"]["n2"]?>'
       }, {
         // settings
         type: 'info',
@@ -59,7 +59,7 @@
 
 <?php if (isset($ENVO_GALLERY_ALL) && is_array($ENVO_GALLERY_ALL) && !empty($ENVO_GALLERY_ALL)) { ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Form Content - Grid view -->
     <div id="gridview" class="row toggle visible">
       <div class="col-sm-12">
@@ -67,23 +67,23 @@
           <div class="col-sm-3">
             <div class="hovereffect gridview">
               <div class="center-cropped">
-                <img src="<?php echo $v["paththumb"] . 'thumb_' . $v["title"]; ?>"/>
+                <img src="<?=$v["paththumb"] . 'thumb_' . $v["title"]?>"/>
               </div>
               <div class="caption">
-                <h4><?php echo envo_cut_text(pathinfo($v["title"], PATHINFO_FILENAME), 18, ' ...'); ?></h4>
+                <h4><?=envo_cut_text(pathinfo($v["title"], PATHINFO_FILENAME), 18, ' ...')?></h4>
                 <div class="col-sm-12 col-3">
-                  <p><strong>Format: </strong><?php echo pathinfo($v["title"], PATHINFO_EXTENSION); ?></p>
+                  <p><strong>Format: </strong><?=pathinfo($v["title"], PATHINFO_EXTENSION)?></p>
                 </div>
                 <div class="col-sm-12 col-4">
-                  <p><strong>Size: </strong><?php echo formatSizeUnits($v["size"]); ?></p>
+                  <p><strong>Size: </strong><?=formatSizeUnits($v["size"])?></p>
                 </div>
                 <div class="col-sm-12 col-5">
-                  <p><strong>Resolution: </strong><?php echo $v["width"] . ' x ' . $v["height"]; ?></p>
+                  <p><strong>Resolution: </strong><?=$v["width"] . ' x ' . $v["height"]?></p>
                 </div>
                 <div class="col-sm-12">
                   <div class="pull-right">
-                    <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="btn btn-primary btn-xs">Info</a>
-                    <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["fb_notification"]["del"], $v["title"]); ?>">Delete</a>
+                    <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?=$v["id"]?>" class="btn btn-primary btn-xs">Info</a>
+                    <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?=$v["id"]?>" class="btn btn-default btn-xs" data-confirm="<?=sprintf($tl["fb_notification"]["del"], $v["title"])?>">Delete</a>
                   </div>
                 </div>
               </div>
@@ -102,9 +102,9 @@
               <table class="table image-list">
                 <thead>
                 <tr>
-                  <th><span><?php echo $tl["fb_box_table"]["fbtb"]; ?></span></th>
-                  <th><span><?php echo $tl["fb_box_table"]["fbtb1"]; ?></span></th>
-                  <th><span><?php echo $tl["fb_box_table"]["fbtb2"]; ?></span></th>
+                  <th><span><?=$tl["fb_box_table"]["fbtb"]?></span></th>
+                  <th><span><?=$tl["fb_box_table"]["fbtb1"]?></span></th>
+                  <th><span><?=$tl["fb_box_table"]["fbtb2"]?></span></th>
                   <th>&nbsp;</th>
                   <th>&nbsp;</th>
                 </tr>
@@ -113,21 +113,21 @@
                 <?php foreach ($ENVO_GALLERY_ALL as $v) { ?>
                   <tr>
                     <td>
-                      <img src="<?php echo $v["paththumb"] . 'thumb_' . $v["title"]; ?>" alt="">
-                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="image-link"><?php echo $v["title"]; ?></a>
-                      <span class="text-subhead">ID: <?php echo $v["id"]; ?></span>
+                      <img src="<?=$v["paththumb"] . 'thumb_' . $v["title"]?>" alt="">
+                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?=$v["id"]?>" class="image-link"><?=$v["title"]?></a>
+                      <span class="text-subhead">ID: <?=$v["id"]?></span>
                     </td>
-                    <td><?php echo date("d.m.Y - H:i", strtotime($v["time"])); ?></td>
+                    <td><?=date("d.m.Y - H:i", strtotime($v["time"]))?></td>
                     <td>
-                      <?php echo formatSizeUnits($v["size"]); ?>
+                      <?=formatSizeUnits($v["size"])?>
                     </td>
                     <td style="width: 10%;">
-                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                      <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?=$v["id"]?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i2"]?>">
                         <i class="fa fa-edit"></i>
                       </a>
                     </td>
                     <td style="width: 10%;">
-                      <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tl["facebook"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                      <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?=$v["id"]?>" class="btn btn-default btn-xs" data-confirm="<?=sprintf($tl["facebook"]["del"], $v["title"])?>" data-toggle="tooltip" data-placement="bottom" title="<?=$tl["icons"]["i1"]?>">
                         <i class="fa fa-trash-o"></i>
                       </a>
                     </td>

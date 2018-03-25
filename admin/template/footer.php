@@ -7,12 +7,12 @@
     <div class="container-fluid container-fixed-lg footer">
       <div class="copyright sm-text-center">
         <p class="small m-0 pull-left sm-pull-reset">
-          <span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by </span>
+          <span class="hint-text"><?=$tl["hf_text"]["hftxt1"]?> - <?=date('Y')?> by </span>
           <span><strong><a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
           <span class="hint-text">All rights reserved.</span>
         </p>
         <p class="small m-0 pull-right sm-pull-reset">
-          <?php echo sprintf($tl["hf_text"]["hftxt"], $setting["version"]); ?>
+          <?=sprintf($tl["hf_text"]["hftxt"], $setting["version"])?>
           <span class="hint-text">&amp; Made with Love</span>
         </p>
         <div class="clearfix"></div>
@@ -40,19 +40,19 @@
       <!-- END Overlay Header !-->
       <div class="container-fluid">
         <!-- BEGIN Overlay Controls !-->
-        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="<?php echo $tl["search_overlay"]["so1"]; ?>" autocomplete="off" spellcheck="false">
+        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="<?=$tl["search_overlay"]["so1"]?>" autocomplete="off" spellcheck="false">
         <br>
         <!-- END Overlay Controls !-->
       </div>
       <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
       <div class="container-fluid p-t-10">
         <span>
-          <strong><?php echo $tl["search_overlay"]["so2"]; ?></strong>
+          <strong><?=$tl["search_overlay"]["so2"]?></strong>
         </span>
         <span id="overlay-suggestions"></span>
         <br>
         <div class="search-results m-t-30">
-          <p class="bold"><?php echo $tl["search_overlay"]["so3"]; ?></p>
+          <p class="bold"><?=$tl["search_overlay"]["so3"]?></p>
           <div class="results-container">
             <!-- Results are appended here -->
           </div>
@@ -205,14 +205,14 @@ if ($page == 'template' && $page1 == 'settings') {
   <script>
     $.notify({
       // Options
-      title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $ENVO_WELCOME_NAME; ?>!',
-      message: '<?php echo $_SESSION["loginmsg"];?>'
+      title: '<?=$tl["hf_text"]["hftxt6"] . ' , ' . $ENVO_WELCOME_NAME?>!',
+      message: '<?=$_SESSION["loginmsg"]?>'
     }, {
       // Settings
       timer: 8000,
       template: '<div data-notify="container" class="col-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
-      '<div style="float: left;margin-right: 20px;"><img src="<?php echo '../' . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
+      '<div style="float: left;margin-right: 20px;"><img src="<?='../' . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser->getVar("picture")?>" alt="" style="width: 40px;"></div>' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +
       '</div>' +
@@ -223,28 +223,28 @@ if ($page == 'template' && $page1 == 'settings') {
 if (isset($_SESSION["infomsg"])) { ?>
   <script>$.notify({
       icon: 'fa fa-info-circle',
-      message: '<?php echo $_SESSION["infomsg"];?>'
+      message: '<?=$_SESSION["infomsg"]?>'
     }, {type: 'info'});
   </script>
 <?php }
 if (isset($_SESSION["successmsg"])) { ?>
   <script>$.notify({
       icon: 'fa fa-check-square-o',
-      message: '<?php echo $_SESSION["successmsg"];?>'
+      message: '<?=$_SESSION["successmsg"]?>'
     }, {type: 'success'});
   </script>
 <?php }
 if (isset($_SESSION["errormsg"])) { ?>
   <script>$.notify({
       icon: 'fa fa-exclamation-triangle',
-      message: '<?php echo $_SESSION["errormsg"];?>'
+      message: '<?=$_SESSION["errormsg"]?>'
     }, {type: 'danger'});
   </script>
 <?php }
 if (isset($_SESSION["warningmsg"])) { ?>
   <script>$.notify({
       icon: 'fa fa-exclamation-triangle',
-      message: '<?php echo $_SESSION["warningmsg"];?>'
+      message: '<?=$_SESSION["warningmsg"]?>'
     }, {type: 'warning'});
   </script>
 <?php }
@@ -254,7 +254,7 @@ if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
     $.notify({
       // options
       icon: 'fa fa-exclamation-triangle fa-lg',
-      message: '<?php echo $tl["general_error"]["generror6"];?>'
+      message: '<?=$tl["general_error"]["generror6"]?>'
     }, {
       // settings
       type: 'danger',

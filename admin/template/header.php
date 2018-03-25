@@ -2,7 +2,7 @@
 echo $Html->addDoctype('html5');
 ?>
 
-<html lang="<?php echo $site_language; ?>">
+<html lang="<?=$site_language?>">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <meta charset="utf-8"/>
@@ -184,7 +184,7 @@ echo $Html->addDoctype('html5');
     <div class="pull-left sm-table hidden-xs hidden-sm">
       <div class="header-inner">
         <div class="brand inline">
-          <a href="<?php echo BASE_URL_ORIG ?>" target="_blank">
+          <a href="<?=BASE_URL_ORIG?>" target="_blank">
             <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
           </a>
         </div>
@@ -305,7 +305,7 @@ echo $Html->addDoctype('html5');
           <!-- END QUICK LIST -->
           <a href="#" class="search-link" data-toggle="search">
             <i class="pg-search"></i>
-            <?php echo $tl["hf_text"]["hftxt7"]; ?>
+            <?=$tl["hf_text"]["hftxt7"]?>
           </a>
         </div>
       </div>
@@ -314,22 +314,22 @@ echo $Html->addDoctype('html5');
       <!-- START USER INFO -->
       <div class="visible-lg visible-md">
         <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-          <span class="bold"><?php echo $ENVO_WELCOME_NAME; ?></span>
+          <span class="bold"><?=$ENVO_WELCOME_NAME?></span>
         </div>
         <div class="dropdown pull-right">
           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="thumbnail-wrapper d32 circular inline m-t-5">
-              <img src="<?php echo '../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture"); ?>" alt="" data-src="<?php echo '../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture"); ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+              <img src="<?='../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture")?>" alt="" data-src="<?='../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture")?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-            <a href="index.php?p=users&amp;sp=edituser&amp;id=<?php echo ENVO_USERID; ?>" class="dropdown-item">
-              <i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
+            <a href="index.php?p=users&amp;sp=edituser&amp;id=<?=ENVO_USERID?>" class="dropdown-item">
+              <i class="pg-settings_small"></i> <?=$tl["hf_text"]["hftxt4"]?>
             </a>
-            <a href="<?php echo BASE_URL_ADMIN; ?>template/help.php" class="dropdown-item contentHelp"><i class="fa fa-info"></i> <?php echo $tl["hf_text"]["hftxt5"]; ?>
+            <a href="<?=BASE_URL_ADMIN?>template/help.php" class="dropdown-item contentHelp"><i class="fa fa-info"></i> <?=$tl["hf_text"]["hftxt5"]?>
             </a>
-            <a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["log_out"]["logout1"]; ?>" class="clearfix bg-master-lighter dropdown-item">
-              <span class="pull-left"><?php echo $tl["log_out"]["logout"]; ?></span>
+            <a href="index.php?p=logout" data-confirm-logout="<?=$tl["log_out"]["logout1"]?>" class="clearfix bg-master-lighter dropdown-item">
+              <span class="pull-left"><?=$tl["log_out"]["logout"]?></span>
               <span class="pull-right"><i class="pg-power"></i></span>
             </a>
           </div>
@@ -351,8 +351,8 @@ echo $Html->addDoctype('html5');
           <div class="inner">
             <!-- START BREADCRUMB -->
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><h5 class="title bold" style="margin: 0;line-height: 24px;"><?php echo $SECTION_TITLE; ?></h5></li>
-              <li class="breadcrumb-item" style="position: relative;top: 1px;"><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
+              <li class="breadcrumb-item"><h5 class="title bold" style="margin: 0;line-height: 24px;"><?=$SECTION_TITLE?></h5></li>
+              <li class="breadcrumb-item" style="position: relative;top: 1px;"><span class="desc"><?=$SECTION_DESC?></span></li>
             </ol>
             <!-- END BREADCRUMB -->
           </div>

@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>'
+        message: '<?=$tl["general_error"]["generror1"]?>'
       }, {
         // settings
         type: 'danger',
@@ -33,7 +33,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -50,27 +50,27 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?php echo $tl["news_section_tab"]["newstab4"]; ?></span>
+          <span class="text"><?=$tl["news_section_tab"]["newstab4"]?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?php echo $tl["news_section_tab"]["newstab5"]; ?></span>
+          <span class="text"><?=$tl["news_section_tab"]["newstab5"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?php echo $tl["news_section_tab"]["newstab1"]; ?></span>
+          <span class="text"><?=$tl["news_section_tab"]["newstab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?php echo $tl["news_section_tab"]["newstab2"]; ?></span>
+          <span class="text"><?=$tl["news_section_tab"]["newstab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?php echo $tl["news_section_tab"]["newstab3"]; ?></span>
+          <span class="text"><?=$tl["news_section_tab"]["newstab3"]?></span>
         </a>
       </li>
     </ul>
@@ -671,7 +671,7 @@ if ($errors) { ?>
                 <ul class="envo_content_move">
 
                   <li class="envocontent">
-                    <div class="text"><?php echo $tl["news_box_content"]["newsbc28"]; ?></div>
+                    <div class="text"><?=$tl["news_box_content"]["newsbc28"]?></div>
                     <div class="actions">
 
                       <?php
