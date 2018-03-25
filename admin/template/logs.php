@@ -98,8 +98,8 @@
             </thead>
             <?php foreach ($ENVO_LOGINLOG_ALL as $v) { ?>
               <tr>
-                <td><?=$v["id"]?></td>
-                <td>
+                <td class="align-middle"><?=$v["id"]?></td>
+                <td class="align-middle">
                   <div class="checkbox-singel check-success">
 
                     <?php
@@ -111,12 +111,12 @@
 
                   </div>
                 </td>
-                <td><?=envo_cut_text($v["name"], 8, '...')?></td>
-                <td><?=$v["fromwhere"]?></td>
-                <td><?=$v["ip"]?></td>
-                <td><?=envo_cut_text($v["usragent"], 20, '...')?></td>
-                <td><?=date("d.m.Y - H:i:s", strtotime($v["time"]))?></td>
-                <td class="text-center">
+                <td class="align-middle"><?=envo_cut_text($v["name"], 8, '...')?></td>
+                <td class="align-middle"><?=$v["fromwhere"]?></td>
+                <td class="align-middle"><?=$v["ip"]?></td>
+                <td class="align-middle"><?=envo_cut_text($v["usragent"], 20, '...')?></td>
+                <td class="align-middle"><?=date("d.m.Y - H:i:s", strtotime($v["time"]))?></td>
+                <td class="align-middle text-center">
 
                   <?php
                   if ($v["access"] == '1') {
@@ -127,8 +127,8 @@
                   ?>
 
                 </td>
-                <td></td>
-                <td class="call-button">
+                <td class="align-middle"></td>
+                <td class="align-middle call-button">
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
