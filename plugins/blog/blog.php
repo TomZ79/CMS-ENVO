@@ -182,13 +182,6 @@ switch ($page1) {
           $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["blogdateformat"], $setting["blogtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
-          // Display contact form if whish so and do the caching
-          $ENVO_SHOW_C_FORM = FALSE;
-          if ($row['showcontact'] != 0) {
-            $ENVO_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-            $ENVO_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
-          }
-
           // Get the url session
           $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
 

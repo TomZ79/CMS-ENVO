@@ -87,11 +87,6 @@
         echo $PAGE_CONTENT;
       }
 
-      // Show Contact form
-      if ($pg["pluginid"] == '9997' && $ENVO_SHOW_C_FORM) {
-        include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-      }
-
       // Load News
       if ($pg["pluginid"] == '9998' && $ENVO_NEWS_IN_CONTENT) {
         if (isset($ENVO_NEWS_IN_CONTENT) && is_array($ENVO_NEWS_IN_CONTENT)) { ?>

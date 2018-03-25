@@ -5,8 +5,8 @@
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    03/2018
  *
  * @param $limit
  * @param $order
@@ -30,7 +30,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showcontact, t1.showdate, t1.time, t1.hits, t1.previmg, t1.previmgdesc FROM ' . DB_PREFIX . 'blog AS t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories AS t2 ON (t2.id IN(t1.catid)) WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showdate, t1.time, t1.hits, t1.previmg, t1.previmgdesc FROM ' . DB_PREFIX . 'blog AS t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories AS t2 ON (t2.id IN(t1.catid)) WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
 
   while ($row = $result->fetch_assoc()) {
 
@@ -54,7 +54,6 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
       'content' => envo_secure_site($row['content']),
       'contentshort' => $shortmsg,
       'showtitle' => $row['showtitle'],
-      'showcontact' => $row['showcontact'],
       'showdate' => $row['showdate'],
       'created' => $getTime,
       'hits' => $row['hits'],

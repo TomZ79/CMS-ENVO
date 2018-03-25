@@ -1038,16 +1038,16 @@ jQuery.fn.autoGrow = function () {
     })
   }
 
-  var old = $.fn.liveFilter
+  var old = $.fn.liveFilter;
 
-  $.fn.liveFilter = Plugin
-  $.fn.liveFilter.Constructor = Filter
+  $.fn.liveFilter = Plugin;
+  $.fn.liveFilter.Constructor = Filter;
 
   // FILTER NO CONFLICT
   // ========================
 
   $.fn.toggle.noConflict = function () {
-    $.fn.liveFilter = old
+    $.fn.liveFilter = old;
     return this
   }
 

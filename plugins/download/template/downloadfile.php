@@ -175,10 +175,6 @@ if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash'
     </div>
   <?php } ?>
 
-  <?php if ($ENVO_SHOW_C_FORM) {
-    include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-  } ?>
-
   <!-- Show Social Buttons -->
   <?php if ($SHOWSOCIALBUTTON) { ?>
     <div class="col-md-12">

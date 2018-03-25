@@ -3,7 +3,7 @@
 // EN: Error reporting
 // CZ: Chybové hlášení
 error_reporting(E_ALL & ~E_NOTICE & ~E_USER_NOTICE);     // Web development (Vývoj webu)
-//error_reporting(~E_ALL & ~E_NOTICE & ~E_USER_NOTICE); // Sharp web traffic (Ostrý  webový provoz)
+//error_reporting(~E_ALL & ~E_NOTICE & ~E_USER_NOTICE);       // Sharp web traffic (Ostrý  webový provoz)
 
 // EN: The DB connections data
 // CZ: Data pro připojení do DB

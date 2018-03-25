@@ -35,37 +35,6 @@ $envodb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
 (4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1),
 (5, 'EU-cookies', 'eu-cookies', NULL, NULL, NULL, NULL, NULL,0, 0, 2, 0, 2, 0, 1, 0)");
 
-$envodb->query("CREATE TABLE " . DB_PREFIX . "contactform (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `content` text,
-  `email` varchar(255) DEFAULT NULL,
-  `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `active` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
-
-$envodb->query("INSERT INTO " . DB_PREFIX . "contactform VALUES
-(1, 'Standard Contact Form', '<p>Thank you very much, you enquiry has been sent. We will return to you as soon as possible.</p>', NULL, 1, 1, NOW())");
-
-$envodb->query("CREATE TABLE " . DB_PREFIX . "contactoptions (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `formid` int(11) unsigned NOT NULL DEFAULT 0,
-  `name` varchar(255) DEFAULT NULL,
-  `typeid` smallint(2) unsigned NOT NULL DEFAULT 1,
-  `options` mediumtext,
-  `mandatory` smallint(1) NOT NULL DEFAULT 0,
-  `forder` int(11) unsigned NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
-
-$envodb->query("INSERT INTO " . DB_PREFIX . "contactoptions VALUES
-(1, 1, 'Name', 1, '', 1, 1),
-(2, 1, 'Email', 1, '', 3, 2),
-(3, 1, 'Phone', 1, '', 2, 3),
-(4, 1, 'Message', 2, '', 1, 4)");
-
 $envodb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
@@ -100,7 +69,6 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "news (
   `newsorder` int(11) unsigned NOT NULL,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 0,
   `active` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
   `showhits` smallint(1) unsigned NOT NULL DEFAULT 0,
   `shownews` smallint(1) unsigned NOT NULL DEFAULT 0,
@@ -126,7 +94,6 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "pages (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `shownav` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `showfooter` tinyint(1) unsigned NOT NULL DEFAULT 1,
-  `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `shownews` varchar(100) DEFAULT NULL,
   `showdate` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `showtags` tinyint(1) unsigned NOT NULL DEFAULT 1,
@@ -159,11 +126,8 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
 $envodb->query("INSERT INTO " . DB_PREFIX . "pagesgrid VALUES
 (1, 1, 0, 9999, 0, 0, 0, 1),
 (2, 1, 0, 9998, 0, 0, 0, 2),
-(3, 1, 0, 9997, 0, 0, 0, 3),
-(4, 0, 1, 9997, 0, 0, 0, 4),
 (5, 2, 0, 9999, 0, 0, 0, 1),
-(6, 2, 0, 9998, 0, 0, 0, 2),
-(7, 2, 0, 9997, 0, 0, 0, 3)");
+(6, 2, 0, 9998, 0, 0, 0, 2)");
 
 $envodb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -254,7 +218,6 @@ $envodb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('timeformat', 'setting', NULL , NULL , 'input', 'free', 'cms'),
 ('time_ago_show', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('searchform', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
-('contactform', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('sitestyle', 'setting', '', '', 'select', 'free', 'cms'),
 ('adminpagemid', 'setting', '5', '5', 'input', 'number', 'cms'),
 ('adminpageitem', 'setting', '15', '10', 'input', 'number', 'cms'),

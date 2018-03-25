@@ -435,8 +435,8 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`, ADD `faqpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpost`, ADD `faqpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqrate`');
 
       // Pages/News alter Table
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER showcontact');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showfaq varchar(100) DEFAULT NULL AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD faqid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
       // EN: Insert data to table 'categories' (create category)
@@ -453,7 +453,6 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
   `previmg` varchar(255) DEFAULT NULL,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
   `showcat` smallint(1) unsigned NOT NULL DEFAULT 0,
   `showhits` smallint(1) unsigned NOT NULL DEFAULT 0,

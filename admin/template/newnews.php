@@ -268,7 +268,7 @@ if ($errors) { ?>
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
                             ?>
 
 													</span>
@@ -290,7 +290,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', '', $tl["news_box_content"]["newsbc30"],'', 'form-control', array('disabled' => 'disabled'));
+                        echo $Html->addInput('text', '', $tl["news_box_content"]["newsbc30"], '', 'form-control', array('disabled' => 'disabled'));
                         ?>
 
                       </div>
@@ -593,7 +593,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -631,7 +631,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -683,50 +683,13 @@ if ($errors) { ?>
                     </div>
                   </li>
 
-                  <?php if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) { ?>
-
-                    <li class="envocontent">
-                      <div class="form-group">
-
-                        <?php
-                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["news_box_content"]["newsbc27"]);
-                        ?>
-
-                        <select name="envo_showcontact" class="form-control selectpicker">
-
-                          <?php
-                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_showcontact"]) && ($_REQUEST["envo_showcontact"] == '0')) || !isset($_REQUEST["envo_showcontact"])) ? TRUE : FALSE;
-
-                          echo $Html->addOption('0', $tl["news_box_content"]["newsbc25"], $selected);
-                          if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) foreach ($ENVO_CONTACT_FORMS as $cf) {
-
-                            echo $Html->addOption($cf["id"], $cf["title"], ($cf["id"] == $_REQUEST["envo_showcontact"]) ? TRUE : FALSE);
-
-                          }
-                          ?>
-
-
-                        </select>
-                      </div>
-                      <div class="actions">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('hidden', 'corder_new[]', '1', '', 'corder');
-                        echo $Html->addInput('hidden', 'real_plugin_id[]', '9997');
-                        ?>
-
-                      </div>
-                    </li>
-
-                  <?php }
+                  <?php
                   if (isset($ENVO_HOOK_ADMIN_PAGE_NEW) && is_array($ENVO_HOOK_ADMIN_PAGE_NEW)) {
                     foreach ($ENVO_HOOK_ADMIN_PAGE_NEW as $hspn) {
                       include_once APP_PATH . $hspn["phpcode"];
                     }
-                  } ?>
+                  }
+                  ?>
 
                 </ul>
 

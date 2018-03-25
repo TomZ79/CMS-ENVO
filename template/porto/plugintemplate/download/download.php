@@ -16,7 +16,6 @@
  * $v["content"]				text			- Celý popis souboru
  * $v["contentshort"]		text			- Zkrácený popis souboru
  * $v["showtitle"]			ano/ne		- Zobrazení nadpisu
- * $v["showcontact"]		ano/ne
  * $v["showdate"]				ano/ne
  * $v["created"]				datum			- Datum vytvoření
  * $v["comments"]

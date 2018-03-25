@@ -1,1 +1,0 @@
-<?php echo $ENVO_FORM_DATA["content"]; ?>

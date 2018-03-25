@@ -727,44 +727,6 @@ if ($errors) { ?>
                         </li>
 
                       <?php }
-                      if ($pg["pluginid"] == '9997' && $ENVO_CONTACT_FORM) { ?>
-
-                        <li class="envocontent">
-                          <div class="envocontent_header"><?php echo $tl["global_text"]["globaltxt20"]; ?></div>
-                          <div class="form-group">
-                            <?php
-                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('', $tl["global_text"]["globaltxt14"]);
-                            ?>
-
-                            <select name="envo_showcontact" class="form-control selectpicker">
-
-                              <?php
-                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              $selected = (isset($ENVO_FORM_DATA["showcontact"]) && $ENVO_FORM_DATA["showcontact"] == '0') ? TRUE : FALSE;
-
-                              echo $Html->addOption('0', $tl["news_box_content"]["newsbc25"], $selected);
-                              if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) foreach ($ENVO_CONTACT_FORMS as $cf) {
-
-                                echo $Html->addOption($cf["id"], $cf["title"], (isset($ENVO_FORM_DATA["showcontact"]) && $cf["id"] == $ENVO_FORM_DATA["showcontact"]) ? TRUE : FALSE);
-
-                              }
-                              ?>
-
-                            </select>
-                          </div>
-                          <div class="actions">
-
-                            <?php
-                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('hidden', 'corder[]', $pg["orderid"], '', 'corder');
-                            echo $Html->addInput('hidden', 'real_id[]', $pg["id"]);
-                            ?>
-
-                          </div>
-                        </li>
-
-                      <?php }
                       if ($pg["pluginid"] == '9998') { ?>
 
                         <li class="envocontent">

@@ -103,11 +103,6 @@ if ($setting["printme"]) $printme = 1;
     END FAQ SECTION
     ============================== -->
 
-    <!-- Show Contact form -->
-    <?php if ($ENVO_SHOW_C_FORM) {
-      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-    } ?>
-
   </div>
   <!-- End Print Post -->
 

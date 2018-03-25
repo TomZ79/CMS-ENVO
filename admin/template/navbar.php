@@ -342,7 +342,7 @@
 
     <!-- START MANAGE SECTION -->
     <?php
-    if ($page == 'users' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site-editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping') {
+    if ($page == 'users' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'poll' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site-editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping') {
 
       $classsection = 'open active';
       $classiconbg = 'bg-success';
@@ -490,40 +490,6 @@
               echo $Html->addAnchor('index.php?p=page&amp;sp=edit&amp;id=' . $page2, $tl["submenu"]["sm122"]);
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm122"]), 'icon-thumbnail');
-              ?>
-
-            </li>
-          <?php } ?>
-          <li class="list-divider"></li>
-          <!-- CONTACTFORM -->
-          <li class="<?php echo ($page == 'contactform') ? 'submenu-active' : ''; ?>">
-
-            <?php
-            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=contactform', $tl["submenu"]["sm130"]);
-            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm130"]), 'icon-thumbnail');
-            ?>
-
-          </li>
-          <li class="<?php echo ($page == 'contactform' && $page1 == 'newcontact') ? 'submenu-active' : ''; ?>">
-
-            <?php
-            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=contactform&amp;sp=newcontact', $tl["submenu"]["sm131"]);
-            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm131"]), 'icon-thumbnail');
-            ?>
-
-          </li>
-          <?php if ($page == 'contactform' && $page1 == 'editcontact') { ?>
-            <li class="<?php echo ($page == 'contactform' && $page1 == 'editcontact') ? 'submenu-active' : ''; ?>">
-
-              <?php
-              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('index.php?p=contactform&amp;sp=editcontact&amp;id=' . $page2, $tl["submenu"]["sm132"]);
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm132"]), 'icon-thumbnail');
               ?>
 
             </li>

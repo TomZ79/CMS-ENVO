@@ -7,7 +7,6 @@
  * $content					text			- Celý popis souboru
  * $contentshort		text			- Zkrácený popis souboru
  * $showtitle				ano/ne		- Zobrazení nadpisu
- * $showcontact			ano/ne
  * $showdate				ano/ne
  * $created					datum			- Datum vytvoření
  * $hits						číslo			- Počet zobrazení

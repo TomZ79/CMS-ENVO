@@ -467,57 +467,6 @@ if ($success) { ?>
 
                 <?php
                 // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt2"], 'box-title');
-                ?>
-
-              </div>
-              <div class="box-body">
-                <div class="block">
-                  <div class="block-content">
-                    <div class="row-form">
-                      <div class="col-sm-6">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc15"]);
-                        ?>
-
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_contact', '1', ($ENVO_SETTING_VAL["contactform"] == '1') ? TRUE : FALSE, 'envo_contact1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_contact1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_contact', '0', ($ENVO_SETTING_VAL["contactform"] == '0') ? TRUE : FALSE, 'envo_contact2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_contact2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="box-footer">
-
-                <?php
-                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-                ?>
-
-              </div>
-            </div>
-            <div class="box box-success">
-              <div class="box-header with-border">
-
-                <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                 echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt3"], 'box-title');
                 ?>
 

@@ -16,7 +16,6 @@
  * $c["content"]				text			- Celý popis souboru
  * $c["contentshort"]		text			- Zkrácený popis souboru
  * $c["showtitle"]			ano/ne		- Zobrazení nadpisu
- * $c["showcontact"]		ano/ne
  * $c["showdate"]				ano/ne
  * $c["created"]				datum			- Datum vytvoření
  * $c["hits"]						číslo			- Počet zobrazení

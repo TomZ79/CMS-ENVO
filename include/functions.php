@@ -623,8 +623,8 @@ function envo_get_id_name($envovar, $envovar1, $envovar2)
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    03/2018
  *
  * @param $envovar
  * @param $where
@@ -666,7 +666,7 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base::envoTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base::envoCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
+    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base::envoTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base::envoCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
 
   }
 

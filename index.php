@@ -121,9 +121,6 @@ include_once 'include/loginpass.php';
 // Current session for template
 define('CUR_SESSION', session_id());
 
-// Include contact post file if needed.
-if ($setting["contactform"]) include_once 'include/contact.php';
-
 if ($setting["robots"] == 0) {
   $jk_robots = 'index, nofollow';
 } else {
@@ -133,7 +130,6 @@ if ($setting["robots"] == 0) {
 // Define other constant
 define('ENVO_TEMPLATE', $setting["sitestyle"]);
 define('ENVO_SEARCH', $setting["searchform"]);
-define('ENVO_CONTACT_FORM', $setting["contactform"]);
 
 // Get all the active categories available in the db
 $envocategories = ENVO_base::envoGetallcategories();

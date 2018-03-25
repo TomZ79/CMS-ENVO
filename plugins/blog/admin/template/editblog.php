@@ -166,36 +166,6 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
-                    <?php if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) { ?>
-                      <div class="row-form">
-                        <div class="col-sm-5">
-
-                          <?php
-                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc26"]);
-                          ?>
-
-                        </div>
-                        <div class="col-sm-7">
-                          <select name="envo_showcontact" class="form-control selectpicker">
-
-                            <?php
-                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            $selected = ($ENVO_FORM_DATA["showcontact"] == '0') ? TRUE : FALSE;
-
-                            echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc27"], $selected);
-                            if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) foreach ($ENVO_CONTACT_FORMS as $cf) {
-
-                              $selected = ($cf["id"] == $ENVO_FORM_DATA["showcontact"]) ? TRUE : FALSE;
-                              echo $Html->addOption($cf["id"], $cf["title"], $selected);
-
-                            }
-                            ?>
-
-                          </select>
-                        </div>
-                      </div>
-                    <?php } ?>
                     <div class="row-form">
                       <div class="col-sm-5">
 

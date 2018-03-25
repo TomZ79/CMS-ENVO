@@ -56,13 +56,6 @@ if ($row['shownav'] == 0) $ENVO_SHOW_NAVBAR = FALSE;
 // We do not show the footer
 if ($row['showfooter'] == 0) $ENVO_SHOW_FOOTER = FALSE;
 
-// Display contact form if whish so and do the caching
-$ENVO_SHOW_C_FORM = FALSE;
-if ($row['showcontact'] != 0) {
-  $ENVO_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-  $ENVO_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
-}
-
 // Get news if news id is > 0
 $ENVO_NEWS_IN_CONTENT = FALSE;
 if (!empty($row['shownews'])) {

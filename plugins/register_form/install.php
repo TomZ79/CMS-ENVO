@@ -352,8 +352,8 @@ if (!$result) {
       $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Edit Profile", "edit-profile", NULL, 1, 0, 5, 0, 0, "2,3,4", 1, "' . $rows['id'] . '")');
 
       // Prepare the tables
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER shownews');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER shownews');
       $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 0 WHERE id = 3');
 
       // EN: Create table for plugin

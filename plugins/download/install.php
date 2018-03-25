@@ -475,8 +475,8 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`');
 
       // Pages/News alter Table
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER shownews');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showdownload varchar(100) DEFAULT NULL AFTER shownews');
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD fileid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
       // EN: Insert data to table 'categories' (create category)
@@ -502,7 +502,6 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   `previmgfblg` varchar(255) DEFAULT NULL,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
   `ftshare` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,

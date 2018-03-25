@@ -103,7 +103,7 @@ echo $Html->addScript('assets/plugins/imagesloaded/4.1.3/imagesloaded.pkgd.min.j
 echo $Html->addScript('assets/plugins/jquery-actual/1.0.19/jquery.actual.min.js?=v1.0.19');
 echo $Html->addScript('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.min.js?=v0.2.11');
 // Plugin DataTable
-if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'contactform' || $page == 'users') {
+if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users') {
   echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
 }
 ?>
@@ -159,7 +159,7 @@ $notify =
 if (!empty($page)) {
   // EN: Insert javascript files for page in array $ap'
   // CZ: Vložení javascript souborů pro stránky jejichž jména jsou v poli '$ap'
-  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "users", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
+  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "users", "usergroup", "categories", "page", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
   if (in_array($page, $ap)) {
     $jscodeFile = 'assets/js/script.' . $page . '.php';

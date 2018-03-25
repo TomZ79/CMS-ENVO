@@ -67,11 +67,6 @@ if (!$PAGE_ACTIVE) {
         echo $PAGE_CONTENT;
       }
 
-      // SHOW -  Contact form
-      if ($pg["pluginid"] == '9997' && $ENVO_SHOW_C_FORM) {
-        include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-      }
-
       // SHOW - News Grid for page
       if (($pg["pluginid"] == '9998') && isset($ENVO_NEWS_IN_CONTENT) && is_array($ENVO_NEWS_IN_CONTENT)) {
 
@@ -166,6 +161,7 @@ if (!$PAGE_ACTIVE) {
       if (isset($ENVO_HOOK_PAGE_GRID) && is_array($ENVO_HOOK_PAGE_GRID)) foreach ($ENVO_HOOK_PAGE_GRID as $hpagegrid) {
         eval($hpagegrid["phpcode"]);
       }
+
     }
 
     // SHOW - Login form

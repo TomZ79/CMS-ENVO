@@ -26,9 +26,6 @@ if ($setting["printme"]) $printme = 1; ?>
       <?php echo $PAGE_CONTENT; ?>
       <!-- <img src="<?php echo BASE_URL . $SHOWIMG; ?>" alt="envo-preview" class="post-image img-responsive"> -->
     </div>
-    <?php if ($ENVO_SHOW_C_FORM) {
-      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-    } ?>
 
   </div>
   <!-- End Print Post -->

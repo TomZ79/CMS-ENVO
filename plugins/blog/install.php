@@ -447,8 +447,8 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
       // Pages/News alter Table
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER shownews');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showblog varchar(100) DEFAULT NULL AFTER shownews');
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
       // Backup content from blog
@@ -473,7 +473,6 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
   `previmgdesc` mediumtext,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,

@@ -5,8 +5,8 @@
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    03/2018
  *
  * @param $limit
  * @param $order
@@ -50,7 +50,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
+    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showdate' => $row['showdate'], 'created' => $getTime, 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
 
   return $envodata;

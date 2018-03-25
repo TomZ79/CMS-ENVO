@@ -43,7 +43,6 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 }
 
 // We need the template folder, title, author and lang as template variable
-$ENVO_CONTACT_FORM = $setting["contactform"];
 define('ENVO_PAGINATE_ADMIN', 1);
 
 // Define other constant
@@ -297,12 +296,6 @@ if ($page == 'categories') {
 }
 if ($page == 'page') {
   require_once 'page.php';
-  $ENVO_PROVED       = 1;
-  $ENVO_PAGE_ACTIVE1 = 1;
-  $checkp           = 1;
-}
-if ($page == 'contactform') {
-  require_once 'contactform.php';
   $ENVO_PROVED       = 1;
   $ENVO_PAGE_ACTIVE1 = 1;
   $checkp           = 1;

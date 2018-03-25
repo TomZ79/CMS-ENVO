@@ -70,16 +70,6 @@ if ($setting["printme"]) $printme = 1;
       </div>
     <?php } ?>
 
-    <!-- Show Contact form -->
-    <?php if ($ENVO_SHOW_C_FORM) { ?>
-      <div class="row">
-        <div class="col-md-12">
-          <hr class="dashed tall mt-lg mb-lg">
-          <div class="alert bg-danger text-dark mb-none">The contact form is not available in this template</div>
-        </div>
-      </div>
-    <?php } ?>
-
   </div>
   <!-- End Print Post -->
 

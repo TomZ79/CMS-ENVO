@@ -50,11 +50,6 @@ if (ENVO_ASACCESS) {
 
           if (isset($ENVO_PAGE_GRID) && is_array($ENVO_PAGE_GRID)) foreach ($ENVO_PAGE_GRID as $pg) {
 
-            // Load contact form
-            if ($pg["pluginid"] == '9997' && $ENVO_SHOW_C_FORM) {
-              include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
-            }
-
             // Load News Grid
             if (isset($ENVO_HOOK_NEWS_GRID) && is_array($ENVO_HOOK_NEWS_GRID)) foreach ($ENVO_HOOK_NEWS_GRID as $hpagegrid) {
               eval($hpagegrid["phpcode"]);

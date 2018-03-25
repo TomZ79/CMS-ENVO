@@ -614,46 +614,6 @@ if ($errors) { ?>
                     </div>
                   </li>
 
-                  <?php if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) { ?>
-
-                    <li class="envocontent">
-                      <div class="envocontent_header"><?php echo $tl["global_text"]["globaltxt20"]; ?></div>
-                      <div class="form-group">
-
-                        <?php
-                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["global_text"]["globaltxt14"]);
-                        ?>
-
-                        <select name="envo_showcontact" class="form-control selectpicker">
-
-                          <?php
-                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_showcontact"]) && ($_REQUEST["envo_showcontact"] == '0')) || !isset($_REQUEST["envo_showcontact"])) ? TRUE : FALSE;
-
-                          echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
-                          if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) foreach ($ENVO_CONTACT_FORMS as $cf) {
-
-                            echo $Html->addOption($cf["id"], $cf["title"], ($cf["id"] == $_REQUEST["envo_showcontact"]) ? TRUE : FALSE);
-
-                          }
-                          ?>
-
-                        </select>
-                      </div>
-                      <div class="actions">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('hidden', 'corder_new[]', '2', '', 'corder');
-                        echo $Html->addInput('hidden', 'real_plugin_id[]', '9997');
-                        ?>
-
-                      </div>
-                    </li>
-
-                  <?php } ?>
-
                   <li class="envocontent">
                     <div class="envocontent_header"><?php echo $tl["global_text"]["globaltxt19"]; ?></div>
                     <div class="form-group">

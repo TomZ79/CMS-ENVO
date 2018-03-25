@@ -155,36 +155,6 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
-                    <?php if ($ENVO_CONTACT_FORM) { ?>
-                      <div class="row-form">
-                        <div class="col-sm-5">
-
-                          <?php
-                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tlf["faq_box_content"]["faqbc25"]);
-                          ?>
-
-                        </div>
-                        <div class="col-sm-7">
-                          <select name="envo_showcontact" class="form-control selectpicker">
-
-                            <?php
-                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            $selected = ($ENVO_FORM_DATA["showcontact"] == '0') ? TRUE : FALSE;
-
-                            echo $Html->addOption('0', $tlf["faq_box_content"]["faqbc26"], $selected);
-                            if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) foreach ($ENVO_CONTACT_FORMS as $cf) {
-
-                              $selected = ($cf["id"] == $ENVO_FORM_DATA["showcontact"]) ? TRUE : FALSE;
-                              echo $Html->addOption($cf["id"], $cf["title"], $selected);
-
-                            }
-                            ?>
-
-                          </select>
-                        </div>
-                      </div>
-                    <?php } ?>
                     <div class="row-form">
                       <div class="col-sm-5">
 
