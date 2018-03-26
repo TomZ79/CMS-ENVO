@@ -164,11 +164,6 @@ if (!$PAGE_ACTIVE) {
 
     }
 
-    // SHOW - Login form
-    if ($PAGE_LOGIN_FORM) {
-      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/loginpage.php';
-    }
-
     // SHOW - Date, social buttons and tag list
     if ($SHOWDATE || $SHOWSOCIALBUTTON || ($ENVO_TAGLIST && $SHOWTAGS)) { ?>
       <section class="pt-small pb-small">

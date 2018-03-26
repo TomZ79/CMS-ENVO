@@ -9,7 +9,7 @@ require_once('../../php/php-mailer/PHPMailerAutoload.php');
 // Step 1 - Enter your email address below.
 $email = 'obchod@bluesat.cz';
 
-$subject = 'Zpráva z webového formuláře Bluesat';
+$subject = 'Zpráva z webového formuláře Bluesat.cz';
 
 if($email) {
 	$fields = array(
@@ -64,7 +64,7 @@ if($email) {
 
 	$mail->From = $_POST['email'];														// Email odesílatele
 	$mail->FromName = $_POST['name'];													// Jméno odesílatele
-	$mail->AddAddress($email);								  							// Add a recipient
+	$mail->AddAddress($email);								  							// Email příjemce
 	$mail->AddReplyTo($_POST['email'], $name);
 
 	$mail->IsHTML(true);                                  		// Set email format to HTML

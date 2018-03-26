@@ -3021,11 +3021,6 @@ h6 .inverted {
 	display: block !important;
 }
 
-/* No Borders */
-.no-borders {
-	border: none !important;
-}
-
 /* Clearfix */
 .clearfix:after {
 	content: ".";

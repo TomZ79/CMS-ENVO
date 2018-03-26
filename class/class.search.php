@@ -32,7 +32,7 @@ class ENVO_search
 
   function envoSetTable($table, $on)
   {
-    // Set the table to search trhu but also check if there is more then one!
+    // Set the table to search but also check if there is more then one!
     if (is_array($table)) {
       foreach ($table as $k => $t) {
         $tablearray[] = DB_PREFIX . $t . ' AS t' . $k . '';

@@ -19,7 +19,7 @@
  * 08. PORTO MODIFICATION - COLORS
  * 09. PORTO MODIFICATION - FONTS
  * 10. PORTO MODIFICATION - BUTTONS
- * 11. PORTO MODIFICATION - INPUT
+ * 11. PORTO MODIFICATION - INPUT, CHECKBOX
  * 12. PORTO MODIFICATION - PANEL ACCORDION
  * 13. PORTO MODIFICATION - SECTION
  * 14. PAGINATION
@@ -362,8 +362,8 @@
   }
 }
 
-/** border ***/
-.no-border {
+/** Border ***/
+.no-borders {
   border: none !important;
 }
 
@@ -373,6 +373,11 @@
 
 .bb-color-1 {
   border-bottom-color: #1B6D85;
+}
+
+/** Border radius ***/
+.no-radius {
+  border-radius: 0 !important;
 }
 
 /** Bootstrap **/
@@ -871,14 +876,19 @@
   border-right: 1px solid #2D323A;
 }
 
-/* 11. PORTO MODIFICATION - INPUT
+/* 11. PORTO MODIFICATION - INPUT, CHECKBOX
 ========================================================================*/
 /* Outline fix */
-input {
+input:focus {
   outline: none !important;
-  -webkit-outline-radius: 0 !important;
-  -moz-outline-radius: 0 !important;
-  outline-radius: 0 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus  {
+  background: #FFF !important;
+  -webkit-box-shadow: inset 0 0 0 9999px #FFF !important;
 }
 
 /* Custom style for "Send phone button" */
@@ -888,6 +898,56 @@ input {
 
 .sendphone button {
   border-radius: 0 !important;
+}
+
+/* Singel checkbox
+ *
+ * How to use - example:
+ * --------------------------
+ * <input type="checkbox" id="" name="" class="css-checkbox">
+ * <label for="" class="css-label">Text of label</label>
+ */
+input[type=checkbox].css-checkbox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+  padding-left: 30px;
+  height: 20px;
+  display: inline-block;
+  line-height: 20px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type=checkbox].css-checkbox:hover + label.css-label {
+  background-position: 0 -20px;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+  background-position: 0 -40px;
+}
+
+label.css-label {
+  background-image: url(/template/porto/img/checkbox/csscheckbox_blue.jpg);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* 12. PORTO MODIFICATION - PANEL ACCORDION
@@ -1772,7 +1832,6 @@ article.blog-article-preview .thumb-info:hover .thumb-info-wrapper::after {
 /* Fixed box */
 #box-fixed-request {
   position: fixed;
-  z-index: 100;
   bottom: 10%;
   right: 0;
   background: url(/_files/bluesat/box-fixed-bg-1.png) repeat-x;

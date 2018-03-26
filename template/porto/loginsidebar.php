@@ -1,66 +1,46 @@
-<?php if ($setting["showloginside"]) { ?>
+<aside class="nav-sidebar hidden-xs">
 
-  <aside class="nav-sidebar hidden-xs">
-    <?php if (!ENVO_USERID) { ?>
-      <?php if (isset($_SESSION['password_recover'])) {
+  <?php if (!ENVO_USERID) { ?>
 
-        echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
+    <div>
+      <h4><?=$tl["lform_text"]["lformt"]?></h4>
 
-      } ?>
-      <div class="loginF">
-        <h4><?=$tl["general"]["g146"]?></h4>
-        <?php if ($errorlo) { ?>
-          <div class="alert bg-danger">
-            <?php if (isset($errorlo["e"])) echo $errorlo["e"]; ?>
-          </div>
-        <?php } ?>
-        <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
-          <div class="form-group<?php if (isset($errorlo["e"])) echo " has-error"; ?>">
-            <label class="control-label" for="username"><?=$tl["login"]["l1"]?></label>
-            <input type="text" class="form-control" name="envoU" id="username"
-              value="<?php if (isset($_REQUEST["envoU"])) echo $_REQUEST["envoU"]; ?>"
-              placeholder="<?=$tl["login"]["l1"]?>"/>
-          </div>
-          <div class="form-group<?php if (isset($errorlo["e"])) echo " has-error"; ?>">
-            <label class="control-label" for="password"><?=$tl["login"]["l2"]?></label>
-            <input type="password" class="form-control" name="envoP" id="password"
-              placeholder="<?=$tl["login"]["l2"]?>"/>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="lcookies" value="1"> <?=$tl["notification"]["n7"]?>
-            </label>
-          </div>
-          <button type="submit" name="login"
-            class="btn btn-success btn-block"><?=$tl["general"]["g146"]?></button>
-        </form>
-      </div>
+      <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
 
-      <h4><?=$tl["title"]["t14"]?></h4>
-      <div class="forgotP">
-        <?php if ($errorfp) { ?>
-          <div class="alert bg-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"]; ?></div><?php } ?>
-        <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
-          <div class="form-group<?php if (isset($errorfp["e"])) echo " error"; ?>">
-            <label class="control-label" for="email"><?=$tl["login"]["l5"]?></label>
-            <input type="email" class="form-control" name="envoE" id="email" class="form-control"
-              placeholder="<?=$tl["login"]["l5"]?>"/>
-          </div>
-          <button type="submit" name="forgotP"
-            class="btn btn-warning btn-block"><?=$tl["general"]["g178"]?></button>
-          <div class="clearfix"></div>
-        </form>
-      </div>
+        <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
+          <label><?=$tl["lform_text"]["lformt1"]?></label>
+          <input type="text" class="form-control no-radius" name="loginusername" id="loginusername" value="<?php if (isset($_REQUEST["loginusername"])) echo $_REQUEST["loginusername"]; ?>" placeholder="<?=$tl["placeholder"]["plc3"]?>" data-msg-required="Zadejte uživatelské jméno" required/>
+        </div>
 
-    <?php } else { ?>
-      <h5><?= sprintf($tl["general"]["g8"], $ENVO_USERNAME)?></h5>
+        <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
+          <label class="control-label" for="password"><?= $tl["login"]["l2"] ?></label>
+          <input type="password" class="form-control no-radius" name="loginpassword" id="loginpassword" placeholder="<?=$tl["placeholder"]["plc4"]?>" data-msg-required="Zadejte heslo" required>
+        </div>
 
-      <div class="clearfix">
-        <a href="<?=$P_USR_LOGOUT?>" class="btn btn-info btn-sm pull-right"><?=$tl["title"]["t6"]?></a>
-      </div>
+        <div class="checkbox mb-md">
+          <input type="checkbox" id="rememberme" name="rememberme" class="css-checkbox">
+          <label for="rememberme" class="css-label">
+            <?=$tl["lform_text"]["lformt3"]?>
+          </label>
+        </div>
 
-      <hr>
-    <?php } ?>
-  </aside>
+        <button type="submit" id="login" name="login" class="btn btn-primary btn-block"><?= $tl["button"]["btn8"] ?></button>
 
-<?php } ?>
+      </form>
+    </div>
+
+  <?php } else { ?>
+
+    <h5><?=str_replace("%s", $ENVO_USERNAME, $tl["lpage_text"]["lpaget"])?></h5>
+
+    <div>
+      <a href="<?=$P_USR_LOGOUT?>" class="btn btn-danger btn-block" data-loading-text="Odesílání...">
+        <?=$tl["button"]["btn9"]?>
+      </a>
+    </div>
+
+    <hr>
+
+  <?php } ?>
+
+</aside>

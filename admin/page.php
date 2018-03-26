@@ -101,7 +101,6 @@ switch ($page1) {
                     shownews = "' . smartsql($news) . '",
                     showdate = "' . smartsql($defaults['envo_showdate']) . '",
                     showtags = "' . smartsql($defaults['envo_showtags']) . '",
-                    showlogin = "' . smartsql($defaults['envo_showlogin']) . '",
                     socialbutton = "' . smartsql($defaults['envo_social']) . '",
                     ' . $insert . '
                     time = NOW()');
@@ -311,7 +310,6 @@ switch ($page1) {
                         shownews = "' . smartsql($news) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",
                         showtags = "' . smartsql($defaults['envo_showtags']) . '",
-                        showlogin = "' . smartsql($defaults['envo_showlogin']) . '",
                         ' . $insert . '
                         socialbutton = "' . smartsql($defaults['envo_social']) . '"
                         WHERE id = "' . smartsql($pageID) . '"');

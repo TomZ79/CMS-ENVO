@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
   $username = smartsql($_POST['loginusername']);
   $userpass = smartsql($_POST['loginpassword']);
   $cookies  = FALSE;
-  if (isset($_POST['lcookies'])) $cookies = TRUE;
+  if (isset($_POST['rememberme'])) $cookies = TRUE;
 
   // Security fix
   $valid_agent = filter_var($_SERVER['HTTP_USER_AGENT'], FILTER_SANITIZE_STRING);

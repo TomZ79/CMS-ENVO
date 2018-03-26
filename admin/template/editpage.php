@@ -321,33 +321,6 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["page_box_content"]["pagebc14"]);
-                        ?>
-
-                      </div>
-                      <div class="col-sm-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_showlogin', '1', ($ENVO_FORM_DATA["showlogin"] == '1') ? TRUE : FALSE, 'envo_showlogin1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_showlogin1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_showlogin', '0', ($ENVO_FORM_DATA["showlogin"] == '0') ? TRUE : FALSE, 'envo_showlogin2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_showlogin2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-sm-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["page_box_content"]["pagebc15"]);
                         echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["page_help"]["pageh1"], 'data-original-title' => $tl["page_help"]["pageh"]));
                         ?>

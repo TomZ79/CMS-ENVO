@@ -9,7 +9,7 @@ require_once('php-mailer/PHPMailerAutoload.php');
 // Step 1 - Enter your email address below.
 $email = 'obchod@bluesat.cz';
 
-$subject = 'Zpráva z webového formuláře Bluesat';
+$subject = 'Zpráva z webového formuláře Bluesat.cz';
 
 if($email) {
   $fields = array(

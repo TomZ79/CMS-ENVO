@@ -9,7 +9,7 @@ require_once('../../php/php-mailer/PHPMailerAutoload.php');
 // Step 1 - Enter your email address below.
 $email = 'obchod@bluesat.cz';
 
-$subject = 'Zpráva z webového formuláře Bluesat';
+$subject = 'Zpráva z webového formuláře Bluesat.cz';
 
 if($email) {
 	$fields = array(
@@ -17,7 +17,11 @@ if($email) {
 			'text' => 'Telefon',
 			'val' => $_POST['phone']
 		),
-		1 => array(
+    1 => array(
+      'text' => 'Předmět zprávy',
+      'val' => 'Bluesat.cz - žádost o zpětné zavolání'
+    ),
+		2 => array(
 			'text' => 'Zpráva',
 			'val' => $_POST['message']
 		)
@@ -27,13 +31,10 @@ if($email) {
 
   // SEND TEST EMAIL
   // Retrieve the email template required
-  $message = file_get_contents('../../php/php-mailer-template/contact-form.html');
+  $message = file_get_contents('send-phone-template.html');
 
   // Replace the % with the actual information
-  $message = str_replace('%title%', BASE_URL, $message);
-  $message = str_replace('%subject%', $subject, $message);
-  $message = str_replace('%phone%', '<strong>Phone : </strong>' . $_POST['phone'], $message);
-  $message = str_replace('%message%', '<strong>Message : </strong>' . $_POST['message'], $message);
+  $message = str_replace('%phone%', $_POST['phone'], $message);
   $message = str_replace('%phonelink%', $_POST['phone'], $message);
 
 	$mail = new PHPMailer;
@@ -47,10 +48,9 @@ if($email) {
 	//$mail->Password = 'secret';                         		// SMTP password
 	//$mail->SMTPSecure = 'tls';                          		// Enable encryption, 'ssl' also accepted
 
-	$mail->From = $_POST['email'];														// Email odesílatele
-	$mail->FromName = $_POST['name'];													// Jméno odesílatele
-	$mail->AddAddress($email);								  							// Add a recipient
-	$mail->AddReplyTo($_POST['email'], $name);
+	$mail->From = '';														              // Email odesílatele
+	$mail->FromName = 'Bluesat.cz - webový formulář';			  	// Jméno odesílatele
+	$mail->AddAddress($email);								  							// Email příjemce
 
 	$mail->IsHTML(true);                                  		// Set email format to HTML
 

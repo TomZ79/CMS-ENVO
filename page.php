@@ -40,7 +40,6 @@ $ENVO_HEADER_CSS              = $row['page_css'];
 $ENVO_FOOTER_JAVASCRIPT       = $row['page_javascript'];
 $setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
-$PAGE_LOGIN_FORM = $row['showlogin'];
 $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["dateformat"], $setting["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 

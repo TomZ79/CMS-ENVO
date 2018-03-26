@@ -1089,33 +1089,6 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc50"]);
-                        ?>
-
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_loginside', '1', ($ENVO_SETTING_VAL["showloginside"] == '1') ? TRUE : FALSE, 'envo_loginside1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_loginside1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_loginside', '0', ($ENVO_SETTING_VAL["showloginside"] == '0') ? TRUE : FALSE, 'envo_loginside2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_loginside2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-sm-6">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc51"]);
                         ?>
 

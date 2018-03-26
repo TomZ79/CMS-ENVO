@@ -6,8 +6,22 @@ if ($PAGE_ACTIVE) {
   echo '<div class="alert alert-danger">' . $tl["general_error"]["generror2"] . '</div>';
 }
 
-echo $PAGE_CONTENT;
-
-include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php';
-
 ?>
+
+  <!-- =========================
+    START ERROR SECTION
+    ============================== -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2><?= $PAGE_CONTENT ?></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+  END ERROR SECTION
+  ============================== -->
+
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

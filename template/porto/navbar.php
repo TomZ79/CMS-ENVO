@@ -3,15 +3,16 @@
 /**
  * build_menu_metrics($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
  *
- * @param   $parent           -                                       | value: string         | e.g.: 0
- * @param   $menu             - array                                 |                       | e.g.: $mheader - $mfooter
- * @param   $active           - name of active page                   | value: string         | e.g.: $page
- * @param   $mainclass        - main class for 'ul'                   | value: text           | e.g.: nav navbar-nav
- * @param   $dropdown         - class for 'li' which have submenu     | value: text           | e.g.: mainsubcategory
- * @param   $dropdownclass    - class for 'li a' which have submenu   | value: text           | e.g.: has-sub-menu
- * @param   $dropclass        - class for 'ul' as submenu             | value: text           | e.g.: sub-menu
- * @param   $subclass         - class for 'ul li' as submenu          | value: text           | e.g.: sub-menu-li
- * @param   $admin            - admin acces                           | value: string         | e.g.: TRUE - FALSE - ENVO_ASACCESS
+ * @param   $parent        -                                       | value: string         | e.g.: 0
+ * @param   $menu          - array                                 |                       | e.g.: $mheader - $mfooter
+ * @param   $active        - name of active page                   | value: string         | e.g.: $page
+ * @param   $mainclass     - main class for 'ul'                   | value: text           | e.g.: nav navbar-nav
+ * @param   $dropdown      - class for 'li' which have submenu     | value: text           | e.g.: mainsubcategory
+ * @param   $dropdownclass - class for 'li a' which have submenu   | value: text           | e.g.: has-sub-menu
+ * @param   $dropclass     - class for 'ul' as submenu             | value: text           | e.g.: sub-menu
+ * @param   $subclass      - class for 'ul li' as submenu          | value: text           | e.g.: sub-menu-li
+ * @param   $admin         - admin acces                           | value: string         | e.g.: TRUE - FALSE -
+ *                         ENVO_ASACCESS
  *
  * @return  UL list
  *

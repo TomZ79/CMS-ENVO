@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Forpsi - Bluesat">
+  <component name="PublishConfigData" serverName="Active24 - Bluesat">
     <serverData>
-      <paths name="Forpsi - Bluesat">
+      <paths name="Active24 - Bluesat">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="Savana - Anteny KV">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="Savana - TV Nova Role">
+      <paths name="Freesat-karlovarsko">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
