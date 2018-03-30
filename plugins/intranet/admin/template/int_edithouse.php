@@ -78,66 +78,68 @@ if ($errors) { ?>
   </div>
 
   <!-- Form Content -->
-  <ul class="nav nav-tabs nav-tabs-fillup js-tabs-example">
-    <li class="nav-item active">
-      <a href="#cmsPage1" data-toggle="tab">
+  <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <li class="nav-item">
+      <a href="#cmsPage1" class="active" data-toggle="tab">
         <span class="text"><?= $tlint["int_section_tab"]["inttab"] ?></span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage2" class="" data-toggle="tab">
+      <a href="#cmsPage2" data-toggle="tab">
         <span class="text">Fakturace</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage3" class="" data-toggle="tab">
+      <a href="#cmsPage3" data-toggle="tab">
         <span class="text">Úkoly</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage4" class="" data-toggle="tab">
+      <a href="#cmsPage4" data-toggle="tab">
         <span class="text">Hlavní kontakty</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage5" class="" data-toggle="tab">
+      <a href="#cmsPage5" data-toggle="tab">
         <span class="text">Vchody - Byty</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage6" class="" data-toggle="tab">
+      <a href="#cmsPage6" data-toggle="tab">
         <span class="text">Nájemníci</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage7" class="" data-toggle="tab">
+      <a href="#cmsPage7" data-toggle="tab">
         <span class="text">Stav Techniky</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage8" class="" data-toggle="tab">
+      <a href="#cmsPage8" data-toggle="tab">
         <span class="text">Servisy</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage9" class="" data-toggle="tab">
+      <a href="#cmsPage9" data-toggle="tab">
         <span class="text">Dokumenty</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage10" class="" data-toggle="tab">
+      <a href="#cmsPage10" data-toggle="tab">
         <span class="text">Fotogalerie</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#cmsPage11" class="" data-toggle="tab">
+      <a href="#cmsPage11" data-toggle="tab">
         <span class="text">Videogalerie</span>
       </a>
     </li>
-    <li class="nav-item">
-      <a href="#cmsPage12" class="" data-toggle="tab">
-        <span class="text">XXX</span>
+    <li class='nav-item dropdown collapsed-menu'>
+      <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+        ... <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
+      <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+      </div>
     </li>
   </ul>
 

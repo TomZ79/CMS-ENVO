@@ -5927,6 +5927,11 @@ body > .pgn-wrapper {
   padding-left: 0;
   padding-right: 0;
 }
+.nav-tabs > li > a.active {
+  border-color: #e6e6e6;
+  color: #626262;
+  background-color: #e6e6e6;
+}
 .nav-tabs > li > a.active:hover,
 .nav-tabs > li > a.active:focus {
   border-color: #e6e6e6;
@@ -5957,6 +5962,22 @@ body > .pgn-wrapper {
 }
 .nav-tabs > li > a .tab-icon {
   margin-right: 6px;
+}
+.nav-tabs > li > .dropdown-menu {
+  padding: 0;
+}
+.nav-tabs > li > .dropdown-menu > .dropdown-item {
+  border-radius: 0;
+}
+.nav-tabs > li > .dropdown-menu > .dropdown-item:first-child {
+  padding-top: 0;
+}
+.nav-tabs > li > .dropdown-menu > .dropdown-item:last-child {
+  padding-bottom: 0;
+}
+.nav-tabs > li > .dropdown-menu > .dropdown-item:active {
+  color: #626262;
+  background-color: #e6e6e6;
 }
 .nav-tabs ~ .tab-content {
   overflow: hidden;

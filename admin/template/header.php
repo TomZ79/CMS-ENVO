@@ -350,10 +350,12 @@ echo $Html->addDoctype('html5');
       <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20 p-t-10 p-b-10">
           <div class="inner">
             <!-- START BREADCRUMB -->
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><h5 class="title bold" style="margin: 0;line-height: 24px;"><?=$SECTION_TITLE?></h5></li>
-              <li class="breadcrumb-item" style="position: relative;top: 1px;"><span class="desc"><?=$SECTION_DESC?></span></li>
-            </ol>
+            <nav class="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><h5 class="title bold" style="margin: 0;line-height: 24px;"><?=$SECTION_TITLE?></h5></li>
+                <li class="breadcrumb-item" style="position: relative;top: 1px;"><span class="desc"><?=$SECTION_DESC?></span></li>
+              </ol>
+            </nav>
             <!-- END BREADCRUMB -->
           </div>
       </div>

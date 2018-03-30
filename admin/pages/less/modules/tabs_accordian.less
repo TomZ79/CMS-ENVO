@@ -11,6 +11,9 @@
 		padding-left: 0;
 		padding-right: 0;
 		& > a.active {
+			border-color: @color-master-light;
+			color: @color-master;
+			background-color: @color-master-light;
 			&:hover,
 			&:focus {
 				border-color: @color-master-light;
@@ -26,8 +29,7 @@
 			font-family: 'Montserrat';
 			font-weight: 500;
 			letter-spacing: 0.06em;
-			color: fade(@color-master,
-			70%);
+			color: fade(@color-master, 70%);
 			font-size: 10.5px;
 			min-width: 70px;
 			text-transform: uppercase;
@@ -42,6 +44,22 @@
 			}
 			.tab-icon {
 				.margin-right(6px);
+			}
+		}
+		& > .dropdown-menu {
+			padding: 0;
+			& > .dropdown-item {
+				border-radius: 0;
+				&:first-child {
+					padding-top: 0;
+				}
+				&:last-child {
+					padding-bottom: 0;
+				}
+				&:active {
+					color: @color-master;
+					background-color: @color-master-light;
+				}
 			}
 		}
 	}

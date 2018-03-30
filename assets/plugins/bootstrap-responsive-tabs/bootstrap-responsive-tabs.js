@@ -1,118 +1,68 @@
-(function( $ ) {
+var TabManager = {
+  initialize: function(parent) {
+    var tabs = parent;
+    var tabsHeight = tabs.innerHeight();
 
-  function storeTabs($tabs, $destination) {
-    // measure width
-    $tabs.each(function() {
-      var width = $(this).outerWidth(true);
-      $(this).data('width', width);
-    });
-    $tabs.prependTo($destination);
-  }
+    if (tabsHeight >= 50) {
+      while(tabsHeight > 50) {
+        var children = tabs.children('li:not(:last-child)');
+        var count = children.length;
 
-  function makeTabsResponsive($element) {
+        // Create the new menu item.
+        var item = $(children[count-1]);
+        var newMenuItem = '<a class="dropdown-item" href="' + item.children('a').attr('href') + '" data-toggle="tab">' + item.text() + '</a>';
 
-    var $tabs = $element.find('li');
-    var $firstTab = $tabs.first();
+        // Append the new menu item to the collapsed menu list.
+        tabs.find('.collapsed-tabs').prepend(newMenuItem);
 
-    var individualTabHeight = $firstTab.outerHeight();
-    var tabsHeight = $element.outerHeight();
+        // Remove the menu item from the main tab area.
+        item.remove();
 
-    if(tabsHeight > individualTabHeight) {
+        tabsHeight = tabs.innerHeight();
+      }
+    }
+    else {
+      var count = 0;
+      while(tabsHeight < 50 && (tabs.children('li').length > 0) && count++ < 20) {
+        var collapsed = tabs.find('.collapsed-tabs').children('a');
+        var count = collapsed.length;
+        if (count) {
+          // Create the new tab item.
+          var item = $(collapsed[0]);
+          var newMenuItem = "<li class='nav-item'>\n<a href='" + item.attr('href') + "' data-toggle='tab'>" + item.text() + "</a>\n</li>";
 
-      // get y pos of first tab
-      var firstTabPos = $firstTab.offset();
+          // Insert the new tab item into the main tab area.
+          tabs.children('li.collapsed-menu').before(newMenuItem);
 
-      var thisTabPos;
-      $tabs.each(function() {
+          // Remove the tab item from the collapsed menu list.
+          item.remove();
 
-        var $thisTab = $(this);
-
-        thisTabPos = $thisTab.offset();
-
-        if(thisTabPos.top > firstTabPos.top) {
-
-          var $dropdown = $element.find('.responsivetabs-more');
-
-          if(!$dropdown.length) {
-            var dropdownMarkup = '<li class="dropdown responsivetabs-more">'
-              + '<a href="#" class="dropdown-toggle" data-toggle="dropdown">...</a>'
-              + '<ul class="dropdown-menu dropdown-menu-right">'
-              + '</ul>';
-            $dropdown = $(dropdownMarkup);
-            $element.append($dropdown);
-
-          }
-
-          var $previousTab = $thisTab.prev();
-          var $followingTabs = $thisTab.nextAll().not('.dropdown');
-
-          var $destination = $('.dropdown-menu', $dropdown);
-
-          if(!$thisTab.hasClass('dropdown')) {
-            storeTabs($followingTabs, $destination);
-            storeTabs($thisTab, $destination);
-          }
-          storeTabs($previousTab, $destination);
-
-          return;
-
+          tabsHeight = tabs.innerHeight();
         }
-
-      });
-
-    } else {
-
-
-
-      // check if enough space to move a menu item back out of "..."
-
-
-      // get parent width
-      var parentWidth = $element.parent().width();
-      var tabSetWidth = 0;
-      var xPxAvailable;
-
-      // calculate total width of tab set (can't just use width of ul because it is 100% by default)
-      $element.children('li').each(function() {
-        tabSetWidth += $(this).outerWidth(true);
-      });
-
-      // calculate available horizontal space
-      xPxAvailable = parentWidth - tabSetWidth;
-
-
-
-      $element.find('.dropdown-menu li').each(function() {
-        if($(this).data('width') <= xPxAvailable) {
-          $(this).insertBefore($element.find('.responsivetabs-more'));
-          xPxAvailable -= $(this).data('width');
-        } else {
-          return false;
+        else {
+          break;
         }
-      });
-
-      // if no menu items left, remove "..."
-      if(!$element.find('.dropdown-menu li').length) {
-        $element.find('.responsivetabs-more').remove();
+      }
+      if (tabsHeight > 50) {
+        // Double chk height again.
+        TabManager.initialize(parent);
       }
     }
 
-
+    // Hide the collapsed menu list if no items are present.
+    if (!tabs.find('.collapsed-tabs').children('a').length) {
+      tabs.find('.collapsed-menu').hide();
+    }
+    else {
+      tabs.find('.collapsed-menu').show();
+    }
   }
+};
 
+$(function() {
+  TabManager.initialize($('.nav-tabs'));
 
-  $.fn.responsiveTabs = function() {
-
-    this.each(function() {
-      var tabs = $(this);
-      makeTabsResponsive(tabs);
-      $(window).resize(function() {
-        makeTabsResponsive(tabs);
-      });
-    });
-
-    return this;
-
-  };
-
-})( jQuery );
+  $(window).resize(function() {
+    TabManager.initialize($('.nav-tabs'))
+  });
+})

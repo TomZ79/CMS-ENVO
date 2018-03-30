@@ -1284,7 +1284,7 @@ $(function () {
     };
   }
 
-  $('a[data-target="#cmsPage10"]').on('shown.bs.tab', function (e) {
+  $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
 
