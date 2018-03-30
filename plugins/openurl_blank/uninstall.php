@@ -39,7 +39,7 @@ if (file_exists(APP_PATH . 'plugins/openurl_blank/admin/lang/' . $site_language 
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.0', '', array('class' => 'main-stylesheet'));
+  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
