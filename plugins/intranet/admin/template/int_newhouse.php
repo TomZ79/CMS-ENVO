@@ -45,7 +45,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton hidden-xs">
 
@@ -59,10 +59,10 @@ if ($errors) { ?>
   </div>
 
   <!-- Form Content -->
-  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
     <li class="nav-item">
       <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?=$tlint["int_section_tab"]["inttab"]?></span>
+        <span class="text"><?= $tlint["int_section_tab"]["inttab"] ?></span>
       </a>
     </li>
     <li class="nav-item next">
@@ -458,7 +458,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Název');
+                          echo $Html->addTag('strong', 'Název');
                           ?>
 
                         </div>

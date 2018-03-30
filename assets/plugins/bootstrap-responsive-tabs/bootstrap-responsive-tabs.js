@@ -1,3 +1,7 @@
+/**
+ * Responsive Tabs for Bootstrap 4
+ * @type {{initialize: TabManager.initialize}}
+ */
 var TabManager = {
   initialize: function(parent) {
     var tabs = parent;
@@ -60,9 +64,9 @@ var TabManager = {
 };
 
 $(function() {
-  TabManager.initialize($('.nav-tabs'));
+  TabManager.initialize($('.nav-tabs-responsive'));
 
   $(window).resize(function() {
-    TabManager.initialize($('.nav-tabs'))
+    TabManager.initialize($('.nav-tabs-responsive'))
   });
 })

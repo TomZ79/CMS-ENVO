@@ -51,7 +51,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
           <span class="text"><?=$tlbh["bh_section_tab"]["bhtab"]?></span>

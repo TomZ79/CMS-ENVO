@@ -31,7 +31,7 @@ if ($page1 == "e") { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -43,16 +43,23 @@ if ($page1 == "e") { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tl["sm_section_tab"]["smtab"]?></span>
+        <a href="#cmsPage1" class="active" data-toggle="tab">
+          <span class="text"><?= $tl["sm_section_tab"]["smtab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tl["sm_section_tab"]["smtab1"]?></span>
+        <a href="#cmsPage2" class="" data-toggle="tab">
+          <span class="text"><?= $tl["sm_section_tab"]["smtab1"] ?></span>
         </a>
+      </li>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
       </li>
     </ul>
 

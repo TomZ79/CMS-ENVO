@@ -84,44 +84,51 @@ if ($success) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
+        <a href="#cmsPage1" class="active" data-toggle="tab">
           <span class="text"><?=$tl["gs_section_tab"]["gstab"]?></span>
         </a>
       </li>
       <li class="nav-item next">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
+        <a href="#cmsPage2" class="" data-toggle="tab">
           <span class="text"><?=$tl["gs_section_tab"]["gstab1"]?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
+        <a href="#cmsPage3" class="" data-toggle="tab">
           <span class="text"><?=$tl["gs_section_tab"]["gstab2"]?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
+        <a href="#cmsPage4" class="" data-toggle="tab">
           <span class="text"><?=$tl["gs_section_tab"]["gstab3"]?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
+        <a href="#cmsPage5" class="" data-toggle="tab">
           <span class="text"><?=$tl["gs_section_tab"]["gstab4"]?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage6" role="tab">
+        <a href="#cmsPage6" class="" data-toggle="tab">
           <span class="text"><?=$tl["gs_section_tab"]["gstab6"]?></span>
         </a>
       </li>
       <?php if (isset($ENVO_HOOK_ADMIN_SETTING_EDIT)) { ?>
         <li class="nav-item">
-          <a href="#" class="" data-toggle="tab" data-target="#cmsPage7" role="tab">
+          <a href="#cmsPage7" class="" data-toggle="tab">
             <span class="text"><?=$tl["gs_section_tab"]["gstab5"]?></span>
           </a>
         </li>
       <?php } ?>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
+      </li>
     </ul>
 
     <div class="tab-content">

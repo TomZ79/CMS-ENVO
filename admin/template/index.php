@@ -92,7 +92,7 @@
   <!-- Content -->
   <div class="row">
     <div class="col-sm-12">
-      <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+      <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
         <li class="nav-item">
           <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
             <span class="text"><?=$tl["dashb_section_tab"]["dashbtab"]?></span>

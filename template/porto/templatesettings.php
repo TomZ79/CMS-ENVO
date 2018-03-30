@@ -1,4 +1,4 @@
-<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton-small hidden-xs">
 
@@ -10,30 +10,30 @@
   </div>
 
   <!-- Form Content -->
-  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
     <li class="nav-item">
       <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?=$tlporto["tplset_section_tab"]["tplsettab"]?></span>
+        <span class="text"><?= $tlporto["tplset_section_tab"]["tplsettab"] ?></span>
       </a>
     </li>
     <li class="nav-item next">
       <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-        <span class="text"><?=$tlporto["tplset_section_tab"]["tplsettab1"]?></span>
+        <span class="text"><?= $tlporto["tplset_section_tab"]["tplsettab1"] ?></span>
       </a>
     </li>
     <li class="nav-item">
       <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-        <span class="text"><?=$tlporto["tplset_section_tab"]["tplsettab2"]?></span>
+        <span class="text"><?= $tlporto["tplset_section_tab"]["tplsettab2"] ?></span>
       </a>
     </li>
     <li class="nav-item">
       <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-        <span class="text"><?=$tlporto["tplset_section_tab"]["tplsettab3"]?></span>
+        <span class="text"><?= $tlporto["tplset_section_tab"]["tplsettab3"] ?></span>
       </a>
     </li>
     <li class="nav-item">
       <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-        <span class="text"><?=$tlporto["tplset_section_tab"]["tplsettab4"]?></span>
+        <span class="text"><?= $tlporto["tplset_section_tab"]["tplsettab4"] ?></span>
       </a>
     </li>
   </ul>
@@ -56,44 +56,44 @@
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5"><strong><?=$tlporto["sb_box_content"]["sbbc"]?></strong></div>
+                    <div class="col-md-5"><strong><?= $tlporto["sb_box_content"]["sbbc"] ?></strong></div>
                     <div class="col-md-7">
                       <select name="skinporto" class="form-control selectpicker">
 
                         <?php
                         // Option list
                         $skinlist = array(
-                          'skin-app-landing' => 'App Landing',
-                          'skin-bluesat' => 'Bluesat Company',
+                          'skin-app-landing'         => 'App Landing',
+                          'skin-bluesat'             => 'Bluesat Company',
                           'skin-business-consulting' => 'Business Consulting',
-                          'skin-church' => 'Church',
-                          'skin-construction' => 'Construction',
-                          'skin-corporate-3' => 'Corporate 3',
-                          'skin-corporate-4' => 'Corporate 4',
-                          'skin-corporate-5' => 'Corporate 5',
-                          'skin-corporate-6' => 'Corporate 6',
-                          'skin-corporate-7' => 'Corporate 7',
-                          'skin-corporate-8' => 'Corporate 8',
-                          'skin-corporate-hosting' => 'Corporate Hosting',
-                          'skin-digital-agency' => 'Digital Agency',
-                          'skin-event' => 'Event',
-                          'skin-finance' => 'Finanace',
-                          'skin-gym' => 'Gym',
-                          'skin-hotel' => 'Hotel',
-                          'skin-law-firm' => 'Law Firm',
-                          'skin-medical' => 'Medical',
-                          'skin-photography' => 'Photography',
-                          'skin-real-estate' => 'Real Estate',
-                          'skin-restaurant' => 'Restaurant',
-                          'skin-resume' => 'Resume',
-                          'skin-wedding' => 'Wedding'
+                          'skin-church'              => 'Church',
+                          'skin-construction'        => 'Construction',
+                          'skin-corporate-3'         => 'Corporate 3',
+                          'skin-corporate-4'         => 'Corporate 4',
+                          'skin-corporate-5'         => 'Corporate 5',
+                          'skin-corporate-6'         => 'Corporate 6',
+                          'skin-corporate-7'         => 'Corporate 7',
+                          'skin-corporate-8'         => 'Corporate 8',
+                          'skin-corporate-hosting'   => 'Corporate Hosting',
+                          'skin-digital-agency'      => 'Digital Agency',
+                          'skin-event'               => 'Event',
+                          'skin-finance'             => 'Finanace',
+                          'skin-gym'                 => 'Gym',
+                          'skin-hotel'               => 'Hotel',
+                          'skin-law-firm'            => 'Law Firm',
+                          'skin-medical'             => 'Medical',
+                          'skin-photography'         => 'Photography',
+                          'skin-real-estate'         => 'Real Estate',
+                          'skin-restaurant'          => 'Restaurant',
+                          'skin-resume'              => 'Resume',
+                          'skin-wedding'             => 'Wedding'
                         );
 
                         asort($skinlist);
                         reset($skinlist);
-                        echo $jktpl["skin_porto_tpl"] == 'default' ? '<option value="default" selected="selected">Default</option>' : '<option value="default">Default</option>'; ;
+                        echo $jktpl["skin_porto_tpl"] == 'default' ? '<option value="default" selected="selected">Default</option>' : '<option value="default">Default</option>';;
                         foreach ($skinlist as $v => $k):
-                          echo $jktpl["skin_porto_tpl"] == $v ? '<option value="' . $v . '" selected="selected">' . $k . '</option>' : '<option value="' . $v . '">' . $k . '</option>'; ;
+                          echo $jktpl["skin_porto_tpl"] == $v ? '<option value="' . $v . '" selected="selected">' . $k . '</option>' : '<option value="' . $v . '">' . $k . '</option>';;
                         endforeach;
                         ?>
 
@@ -127,7 +127,7 @@
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5"><strong><?=$tlporto["sb_box_content"]["sbbc1"]?></strong></div>
+                    <div class="col-md-5"><strong><?= $tlporto["sb_box_content"]["sbbc1"] ?></strong></div>
                     <div class="col-md-7">
                       <select name="headerporto" class="form-control selectpicker">
                         <option value="header-area navbar-fixed-top"<?php if ($jktpl["header_porto_tpl"] == 'header-area navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 1</option>
@@ -168,23 +168,23 @@
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5"><strong><?=$tlporto["sb_box_content"]["sbbc2"]?></strong></div>
+                    <div class="col-md-5"><strong><?= $tlporto["sb_box_content"]["sbbc2"] ?></strong></div>
                     <div class="col-md-7">
                       <select name="naviporto" class="form-control selectpicker">
 
                         <?php
                         // Option list
                         $navilist = array(
-                          'header-mobile-nav-only header-flex, header-nav-stripe, header-nav-main-square header-nav-main-effect-1 ' => 'Stripe',
-                          'header-mobile-nav-only header-flex, header-nav-top-line, header-nav-nonav header-nav-main-effect-1' => 'Top Line',
+                          'header-mobile-nav-only header-flex, header-nav-stripe, header-nav-main-square header-nav-main-effect-1 '                     => 'Stripe',
+                          'header-mobile-nav-only header-flex, header-nav-top-line, header-nav-nonav header-nav-main-effect-1'                          => 'Top Line',
                           'header-mobile-nav-only header-flex, header-nav-top-line header-nav-dark-dropdown, header-nav-nonav header-nav-main-effect-3' => 'Top Line + Dark Dropdown'
                         );
 
                         asort($navilist);
                         reset($navilist);
-                        echo $jktpl["navi_porto_tpl"] == '' ? '<option value="" selected="selected">Default</option>' : '<option value="">Default</option>'; ;
+                        echo $jktpl["navi_porto_tpl"] == '' ? '<option value="" selected="selected">Default</option>' : '<option value="">Default</option>';;
                         foreach ($navilist as $v => $k):
-                          echo $jktpl["navi_porto_tpl"] == $v ? '<option value="' . $v . '" selected="selected">' . $k . '</option>' : '<option value="' . $v . '">' . $k . '</option>'; ;
+                          echo $jktpl["navi_porto_tpl"] == $v ? '<option value="' . $v . '" selected="selected">' . $k . '</option>' : '<option value="' . $v . '">' . $k . '</option>';;
                         endforeach;
                         ?>
 
@@ -243,28 +243,28 @@
                       <div class="radio radio-success">
 
                         <input type="radio" id="sitemapShow1" name="sitemapShow" value="1" <?php if ($jktpl["sitemapShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="sitemapShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="sitemapShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="sitemapShow2" name="sitemapShow" value="0" <?php if ($jktpl["sitemapShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="sitemapShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="sitemapShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-1"><?=$tlporto["sh_box_content"]["shbc9"]?></div>
+                    <div class="col-md-1"><?= $tlporto["sh_box_content"]["shbc9"] ?></div>
                     <div class="col-md-4">
-                      <input type="text" name="sitemapLinks" class="form-control" value="<?=$jktpl["sitemapLinks_porto_tpl"]?>"/>
+                      <input type="text" name="sitemapLinks" class="form-control" value="<?= $jktpl["sitemapLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-3"><strong><?=$tlporto["sh_box_content"]["shbc1"]?></strong></div>
+                    <div class="col-md-3"><strong><?= $tlporto["sh_box_content"]["shbc1"] ?></strong></div>
                     <div class="col-md-9">
                       <div class="radio radio-success">
 
                         <input type="radio" id="loginShow1" name="loginShow" value="1" <?php if ($jktpl["loginShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="loginShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="loginShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="loginShow2" name="loginShow" value="0" <?php if ($jktpl["loginShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="loginShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="loginShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
@@ -296,10 +296,10 @@
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5"><strong><?=$tlporto["sh_box_content"]["shbc2"]?></strong></div>
+                    <div class="col-md-5"><strong><?= $tlporto["sh_box_content"]["shbc2"] ?></strong></div>
                     <div class="col-md-7">
                       <div class="input-group">
-                        <input type="text" name="standardlogo1" id="sclogo1" class="form-control" value="<?=$jktpl["logo1_porto_tpl"]?>"/>
+                        <input type="text" name="standardlogo1" id="sclogo1" class="form-control" value="<?= $jktpl["logo1_porto_tpl"] ?>"/>
                         <span class="input-group-btn">
 
 													<?php
@@ -340,111 +340,111 @@
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sh_box_content"]["shbc3"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sh_box_content"]["shbc3"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="facebookheaderShow1" name="facebookheaderShow1" value="1" <?php if ($jktpl["facebookheaderShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="facebookheaderShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="facebookheaderShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="facebookheaderShow2" name="facebookheaderShow1" value="0" <?php if ($jktpl["facebookheaderShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="facebookheaderShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="facebookheaderShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sh_box_content"]["shbc9"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sh_box_content"]["shbc9"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="facebookheaderLinks1" class="form-control" value="<?=$jktpl["facebookheaderLinks_porto_tpl"]?>"/>
+                      <input type="text" name="facebookheaderLinks1" class="form-control" value="<?= $jktpl["facebookheaderLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sh_box_content"]["shbc4"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sh_box_content"]["shbc4"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="twitterheaderShow1" name="twitterheaderShow1" value="1" <?php if ($jktpl["twitterheaderShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="twitterheaderShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="twitterheaderShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="twitterheaderShow2" name="twitterheaderShow1" value="0" <?php if ($jktpl["twitterheaderShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="twitterheaderShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="twitterheaderShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sh_box_content"]["shbc9"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sh_box_content"]["shbc9"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="twitterheaderLinks1" class="form-control" value="<?=$jktpl["twitterheaderLinks_porto_tpl"]?>"/>
+                      <input type="text" name="twitterheaderLinks1" class="form-control" value="<?= $jktpl["twitterheaderLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sh_box_content"]["shbc5"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sh_box_content"]["shbc5"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="googleheaderShow1" name="googleheaderShow1" value="1" <?php if ($jktpl["googleheaderShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="googleheaderShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="googleheaderShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="googleheaderShow2" name="googleheaderShow1" value="0" <?php if ($jktpl["googleheaderShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="googleheaderShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="googleheaderShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sh_box_content"]["shbc9"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sh_box_content"]["shbc9"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="googleheaderLinks1" class="form-control" value="<?=$jktpl["googleheaderLinks_porto_tpl"]?>"/>
+                      <input type="text" name="googleheaderLinks1" class="form-control" value="<?= $jktpl["googleheaderLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sh_box_content"]["shbc6"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sh_box_content"]["shbc6"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="instagramheaderShow1" name="instagramheaderShow1" value="1" <?php if ($jktpl["instagramheaderShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="instagramheaderShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="instagramheaderShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="instagramheaderShow2" name="instagramheaderShow1" value="0" <?php if ($jktpl["instagramheaderShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="instagramheaderShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="instagramheaderShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sh_box_content"]["shbc9"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sh_box_content"]["shbc9"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="instagramheaderLinks1" class="form-control" value="<?=$jktpl["instagramheaderLinks_porto_tpl"]?>"/>
+                      <input type="text" name="instagramheaderLinks1" class="form-control" value="<?= $jktpl["instagramheaderLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sh_box_content"]["shbc7"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sh_box_content"]["shbc7"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="phoneheaderShow1" name="phoneheaderShow1" value="1" <?php if ($jktpl["phoneheaderShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="phoneheaderShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="phoneheaderShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="phoneheaderShow2" name="phoneheaderShow1" value="0" <?php if ($jktpl["phoneheaderShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="phoneheaderShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="phoneheaderShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sh_box_content"]["shbc10"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sh_box_content"]["shbc10"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="phoneheaderLinks1" class="form-control" value="<?=$jktpl["phoneheaderLinks_porto_tpl"]?>"/>
+                      <input type="text" name="phoneheaderLinks1" class="form-control" value="<?= $jktpl["phoneheaderLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sh_box_content"]["shbc8"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sh_box_content"]["shbc8"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="emailheaderShow1" name="emailheaderShow1" value="1" <?php if ($jktpl["emailheaderShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="emailheaderShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="emailheaderShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="emailheaderShow2" name="emailheaderShow1" value="0" <?php if ($jktpl["emailheaderShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="emailheaderShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="emailheaderShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sh_box_content"]["shbc11"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sh_box_content"]["shbc11"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="emailheaderLinks1" class="form-control" value="<?=$jktpl["emailheaderLinks_porto_tpl"]?>"/>
+                      <input type="text" name="emailheaderLinks1" class="form-control" value="<?= $jktpl["emailheaderLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                 </div>
@@ -483,19 +483,19 @@
                   } ?>">
                     <div class="col-md-12">
                       <h4>
-                        <?=$tlporto["sl_box_title"]["slbt1"]?>
-                        <small><strong><?=$ENVO_FILEURL1?></strong></small>
+                        <?= $tlporto["sl_box_title"]["slbt1"] ?>
+                        <small><strong><?= $ENVO_FILEURL1 ?></strong></small>
                       </h4>
                       <hr>
-                      <p><?=$tlporto["sl_box_title"]["slbt3"]?></p>
+                      <p><?= $tlporto["sl_box_title"]["slbt3"] ?></p>
                     </div>
                   </div>
                   <?php if ($ENVO_FILECONTENT1) { ?>
                     <div class="row-form">
                       <div class="col-md-12">
-                        <label for="envo_filecontent2"><?=$tlporto["sl_box_title"]["slbt2"]?></label>
+                        <label for="envo_filecontent2"><?= $tlporto["sl_box_title"]["slbt2"] ?></label>
                         <div id="htmleditor2"></div>
-                        <textarea name="envo_filecontent2" id="envo_filecontent2" class="form-control hidden"><?=$ENVO_FILECONTENT1?></textarea>
+                        <textarea name="envo_filecontent2" id="envo_filecontent2" class="form-control hidden"><?= $ENVO_FILECONTENT1 ?></textarea>
                       </div>
                     </div>
                   <?php } ?>
@@ -512,7 +512,7 @@
             </div>
           </div>
 
-          <input type="hidden" name="envo_file2" value="<?=$ENVO_FILEURL1?>"/>
+          <input type="hidden" name="envo_file2" value="<?= $ENVO_FILEURL1 ?>"/>
 
         </div>
       </div>
@@ -571,10 +571,10 @@
               <div class="block">
                 <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-5"><strong><?=$tlporto["sf_box_content"]["sfbc8"]?></strong></div>
+                    <div class="col-md-5"><strong><?= $tlporto["sf_box_content"]["sfbc8"] ?></strong></div>
                     <div class="col-md-7">
                       <div class="input-group">
-                        <input type="text" name="standardlogo2" id="sclogo2" class="form-control" value="<?=$jktpl["logo2_porto_tpl"]?>"/>
+                        <input type="text" name="standardlogo2" id="sclogo2" class="form-control" value="<?= $jktpl["logo2_porto_tpl"] ?>"/>
                         <span class="input-group-btn">
 
 													<?php
@@ -587,81 +587,81 @@
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sf_box_content"]["sfbc2"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sf_box_content"]["sfbc2"] ?></strong></div>
                     <div class="col-md-10">
-                      <input type="text" name="socialfooterText" class="form-control" value="<?=$jktpl["socialfooterText_porto_tpl"]?>"/>
+                      <input type="text" name="socialfooterText" class="form-control" value="<?= $jktpl["socialfooterText_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sf_box_content"]["sfbc3"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sf_box_content"]["sfbc3"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="facebookfooterShow1" name="facebookfooterShow" value="1" <?php if ($jktpl["facebookfooterShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="facebookfooterShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="facebookfooterShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="facebookfooterShow2" name="facebookfooterShow" value="0" <?php if ($jktpl["facebookfooterShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="facebookfooterShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="facebookfooterShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sf_box_content"]["sfbc7"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sf_box_content"]["sfbc7"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="facebookfooterLinks" class="form-control" value="<?=$jktpl["facebookfooterLinks_porto_tpl"]?>"/>
+                      <input type="text" name="facebookfooterLinks" class="form-control" value="<?= $jktpl["facebookfooterLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sf_box_content"]["sfbc4"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sf_box_content"]["sfbc4"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="twitterfooterShow1" name="twitterfooterShow" value="1" <?php if ($jktpl["twitterfooterShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="twitterfooterShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="twitterfooterShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="twitterfooterShow2" name="twitterfooterShow" value="0" <?php if ($jktpl["twitterfooterShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="twitterfooterShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="twitterfooterShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sf_box_content"]["sfbc7"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sf_box_content"]["sfbc7"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="twitterfooterLinks" class="form-control" value="<?=$jktpl["twitterfooterLinks_porto_tpl"]?>"/>
+                      <input type="text" name="twitterfooterLinks" class="form-control" value="<?= $jktpl["twitterfooterLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sf_box_content"]["sfbc5"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sf_box_content"]["sfbc5"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="googlefooterShow1" name="googlefooterShow" value="1" <?php if ($jktpl["googlefooterShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="googlefooterShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="googlefooterShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="googlefooterShow2" name="googlefooterShow" value="0" <?php if ($jktpl["googlefooterShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="googlefooterShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="googlefooterShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sf_box_content"]["sfbc7"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sf_box_content"]["sfbc7"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="googlefooterLinks" class="form-control" value="<?=$jktpl["googlefooterLinks_porto_tpl"]?>"/>
+                      <input type="text" name="googlefooterLinks" class="form-control" value="<?= $jktpl["googlefooterLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-2"><strong><?=$tlporto["sf_box_content"]["sfbc6"]?></strong></div>
+                    <div class="col-md-2"><strong><?= $tlporto["sf_box_content"]["sfbc6"] ?></strong></div>
                     <div class="col-md-3">
                       <div class="radio radio-success">
 
                         <input type="radio" id="instagramfooterShow1" name="instagramfooterShow" value="1" <?php if ($jktpl["instagramfooterShow_porto_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-                        <label for="instagramfooterShow1"><?=$tlporto["checkbox"]["chk2"]?></label>
+                        <label for="instagramfooterShow1"><?= $tlporto["checkbox"]["chk2"] ?></label>
 
                         <input type="radio" id="instagramfooterShow2" name="instagramfooterShow" value="0" <?php if ($jktpl["instagramfooterShow_porto_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-                        <label for="instagramfooterShow2"><?=$tlporto["checkbox"]["chk3"]?></label>
+                        <label for="instagramfooterShow2"><?= $tlporto["checkbox"]["chk3"] ?></label>
 
                       </div>
                     </div>
-                    <div class="col-md-2"><?=$tlporto["sf_box_content"]["sfbc7"]?></div>
+                    <div class="col-md-2"><?= $tlporto["sf_box_content"]["sfbc7"] ?></div>
                     <div class="col-md-5">
-                      <input type="text" name="instagramfooterLinks" class="form-control" value="<?=$jktpl["instagramfooterLinks_porto_tpl"]?>"/>
+                      <input type="text" name="instagramfooterLinks" class="form-control" value="<?= $jktpl["instagramfooterLinks_porto_tpl"] ?>"/>
                     </div>
                   </div>
                 </div>
@@ -700,17 +700,17 @@
                   } ?>">
                     <div class="col-md-12">
                       <h4>
-                        <?=$tlporto["sl_box_title"]["slbt1"]?>
-                        <small><strong><?=$ENVO_FILEURL?></strong></small>
+                        <?= $tlporto["sl_box_title"]["slbt1"] ?>
+                        <small><strong><?= $ENVO_FILEURL ?></strong></small>
                       </h4>
                     </div>
                   </div>
                   <?php if ($ENVO_FILECONTENT) { ?>
                     <div class="row-form">
                       <div class="col-md-12">
-                        <label for="envo_filecontent"><?=$tlporto["sl_box_title"]["slbt2"]?></label>
+                        <label for="envo_filecontent"><?= $tlporto["sl_box_title"]["slbt2"] ?></label>
                         <div id="htmleditor"></div>
-                        <textarea name="envo_filecontent" id="envo_filecontent" class="form-control hidden"><?=$ENVO_FILECONTENT?></textarea>
+                        <textarea name="envo_filecontent" id="envo_filecontent" class="form-control hidden"><?= $ENVO_FILECONTENT ?></textarea>
                       </div>
                     </div>
                   <?php } ?>
@@ -727,7 +727,7 @@
             </div>
           </div>
 
-          <input type="hidden" name="envo_file" value="<?=$ENVO_FILEURL?>"/>
+          <input type="hidden" name="envo_file" value="<?= $ENVO_FILEURL ?>"/>
 
         </div>
       </div>

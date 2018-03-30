@@ -59,7 +59,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -73,20 +73,20 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tlf["faq_section_tab"]["faqtab"]?></span>
+          <span class="text"><?= $tlf["faq_section_tab"]["faqtab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tlf["faq_section_tab"]["faqtab2"]?></span>
+          <span class="text"><?= $tlf["faq_section_tab"]["faqtab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tlf["faq_section_tab"]["faqtab1"]?></span>
+          <span class="text"><?= $tlf["faq_section_tab"]["faqtab1"] ?></span>
         </a>
       </li>
     </ul>
@@ -284,7 +284,7 @@ if ($errors) { ?>
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
                             ?>
 
                           </span>
@@ -486,9 +486,9 @@ if ($errors) { ?>
                         <div class="row-form">
                           <div class="col-sm-12">
                             <div class="form-group">
-                              <label for="tags"><?=$tlf["faq_box_content"]["faqbc37"]?></label>
+                              <label for="tags"><?= $tlf["faq_box_content"]["faqbc37"] ?></label>
                               <div class="controls">
-                                <?=$ENVO_TAGLIST?>
+                                <?= $ENVO_TAGLIST ?>
                               </div>
                             </div>
                           </div>

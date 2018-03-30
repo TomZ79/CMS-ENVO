@@ -33,7 +33,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -47,31 +47,38 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tl["page_section_tab"]["pagetab"]?></span>
+        <a href="#cmsPage1" class="active" data-toggle="tab">
+          <span class="text"><?= $tl["page_section_tab"]["pagetab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tl["page_section_tab"]["pagetab1"]?></span>
+        <a href="#cmsPage2" class="" data-toggle="tab">
+          <span class="text"><?= $tl["page_section_tab"]["pagetab1"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tl["page_section_tab"]["pagetab2"]?></span>
+        <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tl["page_section_tab"]["pagetab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?=$tl["page_section_tab"]["pagetab3"]?></span>
+        <a href="#cmsPage4" class="" data-toggle="tab">
+          <span class="text"><?= $tl["page_section_tab"]["pagetab3"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?=$tl["page_section_tab"]["pagetab4"]?></span>
+        <a href="#cmsPage5" class="" data-toggle="tab">
+          <span class="text"><?= $tl["page_section_tab"]["pagetab4"] ?></span>
         </a>
+      </li>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
       </li>
     </ul>
 
@@ -498,7 +505,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -536,7 +543,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -575,7 +582,7 @@ if ($errors) { ?>
                 <ul class="envo_content_move">
 
                   <li class="envocontent">
-                    <div class="text"><?=$tl["page_box_content"]["pagebc21"]?></div>
+                    <div class="text"><?= $tl["page_box_content"]["pagebc21"] ?></div>
                     <div class="actions">
 
                       <?php
@@ -588,9 +595,9 @@ if ($errors) { ?>
                   </li>
 
                   <li class="envocontent">
-                    <div class="envocontent_header"><?=$tl["global_text"]["globaltxt19"]?></div>
+                    <div class="envocontent_header"><?= $tl["global_text"]["globaltxt19"] ?></div>
                     <div class="form-group">
-                      <label><?=$tl["global_text"]["globaltxt9"]?></label>
+                      <label><?= $tl["global_text"]["globaltxt9"] ?></label>
                       <div class="row">
                         <div class="col-sm-4">
                           <select name="envo_shownewsorder" class="form-control selectpicker">
@@ -632,7 +639,7 @@ if ($errors) { ?>
                     </div>
 
                     <div class="form-group">
-                      <label><?=$tl["global_text"]["globaltxt12"]?></label>
+                      <label><?= $tl["global_text"]["globaltxt12"] ?></label>
                       <select name="envo_shownews[]" multiple="multiple" class="form-control">
 
                         <?php

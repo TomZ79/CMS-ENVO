@@ -61,7 +61,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php if (array_filter($ENVO_IDENT_ALL) && is_array($ENVO_IDENT_ALL)) { ?>
 
-  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
     <li class="nav-item">
       <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
         <span class="text">Service ID</span>
@@ -104,9 +104,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_SIDTV_ALL as $sidtv) { ?>
 
                     <tr>
-                      <td><?=$sidtv["id"]?></td>
+                      <td><?= $sidtv["id"] ?></td>
                       <td>
-                        <?=$sidtv["sid"]?>
+                        <?= $sidtv["sid"] ?>
                       </td>
                       <td>
 
@@ -117,7 +117,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?=date('d.m.Y', strtotime($sidtv["time"]))?>
+                        <?= date('d.m.Y', strtotime($sidtv["time"])) ?>
                       </td>
                       <td class="text-center">
 
@@ -175,9 +175,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_SIDR_ALL as $sidr) { ?>
 
                     <tr>
-                      <td><?=$sidr["id"]?></td>
+                      <td><?= $sidr["id"] ?></td>
                       <td>
-                        <?=$sidr["sid"]?>
+                        <?= $sidr["sid"] ?>
                       </td>
                       <td>
 
@@ -188,7 +188,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?=date('d.m.Y', strtotime($sidr["time"]))?>
+                        <?= date('d.m.Y', strtotime($sidr["time"])) ?>
                       </td>
                       <td class="text-center">
 
@@ -243,8 +243,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_SIDS_ALL as $sids) { ?>
 
                     <tr>
-                      <td><?=$sids["id"]?></td>
-                      <td><?=$sids["sid"]?></td>
+                      <td><?= $sids["id"] ?></td>
+                      <td><?= $sids["sid"] ?></td>
                       <td>
 
                         <?php
@@ -254,7 +254,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                       </td>
                       <td>
-                        <?=date('d.m.Y', strtotime($sids["time"]))?>
+                        <?= date('d.m.Y', strtotime($sids["time"])) ?>
                       </td>
                       <td class="text-center">
 
@@ -314,8 +314,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_ONID_ALL as $onid) { ?>
 
                     <tr>
-                      <td><?=$onid["id"]?></td>
-                      <td><?=$onid["onid"]?></td>
+                      <td><?= $onid["id"] ?></td>
+                      <td><?= $onid["onid"] ?></td>
                       <td>
 
                         <?php
@@ -370,8 +370,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   foreach ($ENVO_NID_ALL as $nid) { ?>
 
                     <tr>
-                      <td><?=$nid["id"]?></td>
-                      <td><?=$nid["site"]?></td>
+                      <td><?= $nid["id"] ?></td>
+                      <td><?= $nid["site"] ?></td>
                       <td>
 
                         <?php

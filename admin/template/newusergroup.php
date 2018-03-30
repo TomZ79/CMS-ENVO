@@ -72,19 +72,26 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
+        <a href="#cmsPage1" class="active" data-toggle="tab">
           <span class="text"><?=$tl["userg_section_tab"]["usergtab"]?></span>
         </a>
       </li>
       <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
         <li class="nav-item next">
-          <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
+          <a href="#cmsPage2" class="" data-toggle="tab">
             <span class="text"><?=$tl["userg_section_tab"]["usergtab1"]?></span>
           </a>
         </li>
       <?php } ?>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
+      </li>
     </ul>
 
     <div class="tab-content">

@@ -57,7 +57,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -71,7 +71,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
           <span class="text">Nastavení</span>
@@ -214,21 +214,21 @@ if ($errors) { ?>
                           ?>
 
                         </select>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="box-footer">
+                <div class="box-footer">
 
-                <?php
-                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
-                ?>
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
       <div class="tab-pane fade" id="cmsPage2" role="tabpanel">

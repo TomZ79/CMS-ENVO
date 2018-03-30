@@ -31,7 +31,7 @@ if ($ENVO_FILE_ERROR) { ?>
   </script>
 <?php } ?>
 
-<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton-small hidden-xs">
 
@@ -43,21 +43,28 @@ if ($ENVO_FILE_ERROR) { ?>
   </div>
 
   <!-- Form Content -->
-  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
     <li class="nav-item">
-      <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?=$tl["fb_section_tab"]["fbtab"]?></span>
+      <a href="#cmsPage1" class="active" data-toggle="tab">
+        <span class="text"><?= $tl["fb_section_tab"]["fbtab"] ?></span>
       </a>
     </li>
     <li class="nav-item next">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-        <span class="text"><?=$tl["fb_section_tab"]["fbtab1"]?></span>
+      <a href="#cmsPage2" class="" data-toggle="tab">
+        <span class="text"><?= $tl["fb_section_tab"]["fbtab1"] ?></span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-        <span class="text"><?=$tl["fb_section_tab"]["fbtab2"]?></span>
+      <a href="#cmsPage3" class="" data-toggle="tab">
+        <span class="text"><?= $tl["fb_section_tab"]["fbtab2"] ?></span>
       </a>
+    </li>
+    <li class='nav-item dropdown collapsed-menu'>
+      <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+        ... <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+      </div>
     </li>
   </ul>
 
@@ -80,11 +87,11 @@ if ($ENVO_FILE_ERROR) { ?>
                   <div class="row-form">
                     <div class="col-sm-12 margin-bottom-20">
                       <blockquote>
-                        <p><?=$tl["fb_box_content"]["fbbc6"]?></p>
+                        <p><?= $tl["fb_box_content"]["fbbc6"] ?></p>
                       </blockquote>
-                      <p><?=$tl["fb_box_content"]["fbbc7"]?></p>
+                      <p><?= $tl["fb_box_content"]["fbbc7"] ?></p>
                       <ul>
-                        <li><?=$tl["fb_box_content"]["fbbc8"]?></li>
+                        <li><?= $tl["fb_box_content"]["fbbc8"] ?></li>
                       </ul>
                     </div>
                   </div>

@@ -60,7 +60,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -72,25 +72,25 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tlint["int_section_tab"]["inttab"]?></span>
+          <span class="text"><?= $tlint["int_section_tab"]["inttab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tlint["int_section_tab"]["inttab1"]?></span>
+          <span class="text"><?= $tlint["int_section_tab"]["inttab1"] ?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tlint["int_section_tab"]["inttab2"]?></span>
+          <span class="text"><?= $tlint["int_section_tab"]["inttab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?=$tlint["int_section_tab"]["inttab3"]?></span>
+          <span class="text"><?= $tlint["int_section_tab"]["inttab3"] ?></span>
         </a>
       </li>
     </ul>
@@ -177,7 +177,7 @@ if ($errors) { ?>
                             echo $Html->addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['intranettimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
-                            <optgroup label="<?=$tl["selection"]["sel111"]?>">
+                            <optgroup label="<?= $tl["selection"]["sel111"] ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -188,7 +188,7 @@ if ($errors) { ?>
                               ?>
 
                             </optgroup>
-                            <optgroup label="<?=$tl["selection"]["sel112"]?>">
+                            <optgroup label="<?= $tl["selection"]["sel112"] ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -291,28 +291,30 @@ if ($errors) { ?>
                     <div class="clearfix m-b-20"></div>
                     <div id="contentTower">
 
-                      <?php if (!empty($ENVO_TOWER_ALL) && is_array($ENVO_TOWER_ALL)) { foreach ($ENVO_TOWER_ALL as $t) { ?>
+                      <?php if (!empty($ENVO_TOWER_ALL) && is_array($ENVO_TOWER_ALL)) {
+                        foreach ($ENVO_TOWER_ALL as $t) { ?>
 
-                        <div class="row-form">
-                          <div class="col-sm-5">
+                          <div class="row-form">
+                            <div class="col-sm-5">
 
-                            <?php
-                            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                            echo $Html->addTag('strong', str_replace("%s", $t["id"], $tlint["int_box_content"]["intbc4"]));
-                            ?>
+                              <?php
+                              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                              echo $Html->addTag('strong', str_replace("%s", $t["id"], $tlint["int_box_content"]["intbc4"]));
+                              ?>
 
+                            </div>
+                            <div class="col-sm-7">
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html->addInput('text', 'envo_towername[' . $t["id"] . ']', $t["name"], '', 'form-control', array('data-id' => $t["id"]));
+                              ?>
+
+                            </div>
                           </div>
-                          <div class="col-sm-7">
 
-                            <?php
-                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_towername[' . $t["id"] . ']', $t["name"], '', 'form-control', array('data-id' => $t["id"]));
-                            ?>
-
-                          </div>
-                        </div>
-
-                      <?php } } else {
+                        <?php }
+                      } else {
 
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                         echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
@@ -357,47 +359,49 @@ if ($errors) { ?>
                     <div class="clearfix m-b-20"></div>
                     <div id="contentChannel">
 
-                      <?php if (!empty($ENVO_CHANNEL_ALL) && is_array($ENVO_CHANNEL_ALL)) { foreach ($ENVO_CHANNEL_ALL as $c) { ?>
+                      <?php if (!empty($ENVO_CHANNEL_ALL) && is_array($ENVO_CHANNEL_ALL)) {
+                        foreach ($ENVO_CHANNEL_ALL as $c) { ?>
 
-                        <div class="row-form">
-                          <div class="col-sm-4">
-
-                            <?php
-                            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                            echo $Html->addTag('strong', str_replace("%s", $c["id"], $tlint["int_box_content"]["intbc5"]));
-                            ?>
-
-                          </div>
-                          <div class="col-sm-4">
-                            <select name="envo_tower" class="form-control selectpicker">
+                          <div class="row-form">
+                            <div class="col-sm-4">
 
                               <?php
-                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              $selected = ($c["towerid"] == '0') ? TRUE : FALSE;
-
-                              echo $Html->addOption('0', 'Žádný', $selected);
-
-                              if (isset($ENVO_TOWER_ALL) && is_array($ENVO_TOWER_ALL)) foreach ($ENVO_TOWER_ALL as $t) {
-
-                                $selected = (in_array($t["id"], explode(',', $c["towerid"]))) ? TRUE : FALSE;
-                                echo $Html->addOption($t["id"], $t["name"], $selected);
-
-                              }
+                              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                              echo $Html->addTag('strong', str_replace("%s", $c["id"], $tlint["int_box_content"]["intbc5"]));
                               ?>
 
-                            </select>
+                            </div>
+                            <div class="col-sm-4">
+                              <select name="envo_tower" class="form-control selectpicker">
+
+                                <?php
+                                // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                                $selected = ($c["towerid"] == '0') ? TRUE : FALSE;
+
+                                echo $Html->addOption('0', 'Žádný', $selected);
+
+                                if (isset($ENVO_TOWER_ALL) && is_array($ENVO_TOWER_ALL)) foreach ($ENVO_TOWER_ALL as $t) {
+
+                                  $selected = (in_array($t["id"], explode(',', $c["towerid"]))) ? TRUE : FALSE;
+                                  echo $Html->addOption($t["id"], $t["name"], $selected);
+
+                                }
+                                ?>
+
+                              </select>
+                            </div>
+                            <div class="col-sm-4">
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html->addInput('text', 'envo_channelname[]', $c["number"], '', 'form-control');
+                              ?>
+
+                            </div>
                           </div>
-                          <div class="col-sm-4">
 
-                            <?php
-                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_channelname[]', $c["number"], '', 'form-control');
-                            ?>
-
-                          </div>
-                        </div>
-
-                      <?php } } else {
+                        <?php }
+                      } else {
 
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                         echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
