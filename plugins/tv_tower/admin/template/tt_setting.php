@@ -114,7 +114,7 @@ if ($page2 == "e") { ?>
 
                       </div>
                       <div class="col-sm-7">
-                        <div class="form-group no-margin">
+                        <div class="form-group m-0">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -164,7 +164,7 @@ if ($page2 == "e") { ?>
 
                       </div>
                       <div class="col-sm-7">
-                        <div class="form-group no-margin">
+                        <div class="form-group m-0">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -214,7 +214,7 @@ if ($page2 == "e") { ?>
 
                       </div>
                       <div class="col-sm-7">
-                        <div class="form-group no-margin">
+                        <div class="form-group m-0">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -264,7 +264,7 @@ if ($page2 == "e") { ?>
 
                       </div>
                       <div class="col-sm-7">
-                        <div class="form-group no-margin">
+                        <div class="form-group m-0">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)

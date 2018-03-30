@@ -118,7 +118,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-7">
-                  <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="form-group m-0<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -138,7 +138,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-7">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -158,7 +158,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-7">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -204,7 +204,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-7">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -268,7 +268,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-7">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -288,7 +288,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-7">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
