@@ -38,7 +38,7 @@ if ($page2 == "e") { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -52,24 +52,31 @@ if ($page2 == "e") { ?>
     <!-- Form Content -->
     <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tlbp["bp_section_tab"]["bptab"]?></span>
+        <a href="#cmsPage1" class="active" data-toggle="tab">
+          <span class="text"><?= $tlbp["bp_section_tab"]["bptab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tlbp["bp_section_tab"]["bptab1"]?></span>
+        <a href="#cmsPage2" class="" data-toggle="tab">
+          <span class="text"><?= $tlbp["bp_section_tab"]["bptab1"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tlbp["bp_section_tab"]["bptab2"]?></span>
+        <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlbp["bp_section_tab"]["bptab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?=$tlbp["bp_section_tab"]["bptab3"]?></span>
+        <a href="#cmsPage4" class="" data-toggle="tab">
+          <span class="text"><?= $tlbp["bp_section_tab"]["bptab3"] ?></span>
         </a>
+      </li>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
       </li>
     </ul>
 

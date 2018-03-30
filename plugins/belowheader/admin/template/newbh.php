@@ -37,7 +37,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -53,19 +53,26 @@ if ($errors) { ?>
     <!-- Form Content -->
     <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tlbh["bh_section_tab"]["bhtab"]?></span>
+        <a href="#cmsPage1" class="active" data-toggle="tab">
+          <span class="text"><?= $tlbh["bh_section_tab"]["bhtab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tlbh["bh_section_tab"]["bhtab1"]?></span>
+        <a href="#cmsPage2" class="" data-toggle="tab">
+          <span class="text"><?= $tlbh["bh_section_tab"]["bhtab1"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tlbh["bh_section_tab"]["bhtab2"]?></span>
+        <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlbh["bh_section_tab"]["bhtab2"] ?></span>
         </a>
+      </li>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
       </li>
     </ul>
 
@@ -492,7 +499,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array('title' => 'Show Filemanager'));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array('title' => 'Show Filemanager'));
                             ?>
 
                           </div>
