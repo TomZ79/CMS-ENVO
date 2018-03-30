@@ -4,7 +4,7 @@
   <title>Help for Editor - Content</title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
-  <link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+  <link href="/admin/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
   <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN Pages CSS-->
   <link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
@@ -31,7 +31,7 @@
   </style>
   <!-- BEGIN VENDOR JS -->
   <script src="/assets/plugins/jquery/jquery-2.1.1.min.js"></script>
-  <script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js"></script>
+  <script src="/admin/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js"></script>
   <!-- Code-prettify -->
   <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
   <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>

@@ -758,7 +758,7 @@ if ($errors) { ?>
                   <div class="container-fluid">
                     <div class="table-responsive">
                       <table class="table table-task">
-                        <thead>
+                        <thead class="thead-dark">
                         <tr>
                           <th>Titulek</th>
                           <th>Priorita</th>

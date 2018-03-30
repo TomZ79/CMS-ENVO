@@ -122,7 +122,7 @@ if (DB_USER && DB_PASS) {
 
   <!-- Basic CSS and Bootstrap CSS -->
   <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0" type="text/css" media="screen"/>
   <link rel="stylesheet" href="include/style.css" type="text/css" media="screen"/>
 
   <!-- Web Fonts -->

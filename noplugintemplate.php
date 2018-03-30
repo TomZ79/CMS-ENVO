@@ -8,12 +8,26 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <!-- CSS STYLE ================================================================================================ -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css">
-  <!-- Theme style -->
-  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-  <link class="main-stylesheet" href="/admin/pages/css/pages.css" rel="stylesheet" type="text/css"/>
-  <link href="/admin/assets/css/style.css" rel="stylesheet" type="text/css">
+  <!-- BEGIN Vendor CSS-->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  // Bootstrap
+  echo $Html->addStylesheet('../assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  // Font Awesomemin
+  echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  ?>
+
+  <!-- BEGIN Pages CSS-->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.0', '', array('class' => 'main-stylesheet'));
+  ?>
+
+  <!-- BEGIN General Stylesheet with custom modifications -->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('/admin/assets/css/style.min.css');
+  ?>
 
   <!-- JQUERY SCRIPT and PLUGINS ================================================================================ -->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
