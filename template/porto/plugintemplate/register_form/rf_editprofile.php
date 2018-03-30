@@ -21,15 +21,21 @@
 
   <div class="col-md-12">
     <div class="tabs tabs-bottom tabs-center tabs-simple">
-      <ul class="nav nav-tabs nav-tabs-responsive">
+      <ul class="nav nav-tabs">
         <li class="active">
-          <a href="#tabsNavigationSimple1" data-toggle="tab"><span class="text"><?=$tlrf["rf_frontend"]["rf11"]?></span></a>
+          <a href="#tabsNavigationSimple1" data-toggle="tab">
+            <span class="text"><?= $tlrf["rf_frontend"]["rf11"] ?></span>
+          </a>
         </li>
         <li class="next">
-          <a href="#tabsNavigationSimple2" data-toggle="tab"><span class="text">v$tlrf["rf_frontend"]["rf12"]?></span></a>
+          <a href="#tabsNavigationSimple2" data-toggle="tab">
+            <span class="text">v$tlrf["rf_frontend"]["rf12"]?></span>
+          </a>
         </li>
         <li>
-          <a href="#tabsNavigationSimple3" data-toggle="tab"><span class="text"><?=$tlrf["rf_frontend"]["rf13"]?></span></a>
+          <a href="#tabsNavigationSimple3" data-toggle="tab">
+            <span class="text"><?= $tlrf["rf_frontend"]["rf13"] ?></span>
+          </a>
         </li>
       </ul>
       <div class="tab-content">
@@ -38,14 +44,14 @@
             <div class="featured-box featured-box-primary align-left mt-xlg">
               <div class="box-content">
                 <h4 class="heading-primary text-uppercase mb-md">
-                  <?=$tlrf["rf_frontend"]["rf1"]?>
+                  <?= $tlrf["rf_frontend"]["rf1"] ?>
                 </h4>
-                <form method="post" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
+                <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>" enctype="multipart/form-data">
                   <div class="row">
                     <div class="form-group">
                       <div class="col-md-12">
-                        <label><?=$tlrf["rf_frontend"]["rf2"]?></label>
-                        <input type="text" class="form-control input-lg" value="<?=$envouser->getVar("name")?>" name="name" id="name" placeholder="<?=$tlrf["rf_frontend_plc"]["rfplc"]?>">
+                        <label><?= $tlrf["rf_frontend"]["rf2"] ?></label>
+                        <input type="text" class="form-control input-lg" value="<?= $envouser->getVar("name") ?>" name="name" id="name" placeholder="<?= $tlrf["rf_frontend_plc"]["rfplc"] ?>">
                       </div>
                     </div>
                   </div>
@@ -53,10 +59,10 @@
                     <div class="form-group <?php if (isset($errors_rfs["e1"])) echo " has-error"; ?>">
                       <div class="col-md-12">
                         <label>
-                          <?=$tlrf["rf_frontend"]["rf4"]?>
+                          <?= $tlrf["rf_frontend"]["rf4"] ?>
                           <span class="text-color-secondary ml-sm">*</span>
                         </label>
-                        <input type="email" class="form-control input-lg" value="<?=$envouser->getVar("email")?>" name="email" id="email" placeholder="<?=$tlrf["rf_frontend_plc"]["rfplc2"]?>">
+                        <input type="email" class="form-control input-lg" value="<?= $envouser->getVar("email") ?>" name="email" id="email" placeholder="<?= $tlrf["rf_frontend_plc"]["rfplc2"] ?>">
                       </div>
                     </div>
                   </div>
@@ -64,9 +70,9 @@
                     <div class="form-group">
                       <div class="col-md-12">
                         <label>
-                          <?=$tlrf["rf_frontend"]["rf15"]?>
+                          <?= $tlrf["rf_frontend"]["rf15"] ?>
                         </label>
-                        <input type="text" class="form-control input-lg" value="<?=$envouser->getVar("phone")?>" name="phone" id="phone" placeholder="<?=$tlrf["rf_frontend_plc"]["rfplc6"]?>">
+                        <input type="text" class="form-control input-lg" value="<?= $envouser->getVar("phone") ?>" name="phone" id="phone" placeholder="<?= $tlrf["rf_frontend_plc"]["rfplc6"] ?>">
                       </div>
                     </div>
                   </div>
@@ -80,7 +86,7 @@
 
                     </div>
                     <div class="col-md-4">
-                      <input type="submit" value="<?=$tlrf["rf_frontend_button"]["btn"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="stuffR" name="stuffR">
+                      <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="stuffR" name="stuffR">
                     </div>
                   </div>
                 </form>
@@ -93,30 +99,30 @@
             <div class="featured-box featured-box-primary align-left mt-xlg">
               <div class="box-content">
                 <h4 class="heading-primary text-uppercase mb-md">
-                  <?=$tlrf["rf_frontend"]["rf5"]?>
+                  <?= $tlrf["rf_frontend"]["rf5"] ?>
                 </h4>
-                <form method="post" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
+                <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>" enctype="multipart/form-data">
                   <div class="row">
                     <div class="form-group<?php if (isset($errors_rfp["e5"])) echo " has-error"; ?>">
                       <div class="col-md-12">
-                        <label><?=$tlrf["rf_frontend"]["rf6"]?></label>
-                        <input type="password" class="form-control input-lg" value="" name="passold" id="passold" placeholder="<?=$tlrf["rf_frontend_plc"]["rfplc3"]?>">
+                        <label><?= $tlrf["rf_frontend"]["rf6"] ?></label>
+                        <input type="password" class="form-control input-lg" value="" name="passold" id="passold" placeholder="<?= $tlrf["rf_frontend_plc"]["rfplc3"] ?>">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group <?php if (isset($errors_rfp["e1"])) echo " has-error"; ?>">
                       <div class="col-md-12">
-                        <label><?=$tlrf["rf_frontend"]["rf7"]?></label>
-                        <input type="password" class="form-control input-lg" value="" name="passnew" id="check_password" placeholder="<?=$tlrf["rf_frontend_plc"]["rfplc4"]?>">
+                        <label><?= $tlrf["rf_frontend"]["rf7"] ?></label>
+                        <input type="password" class="form-control input-lg" value="" name="passnew" id="check_password" placeholder="<?= $tlrf["rf_frontend_plc"]["rfplc4"] ?>">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group <?php if (isset($errors_rfp["e1"])) echo " has-error"; ?>">
                       <div class="col-md-12">
-                        <label><?=$tlrf["rf_frontend"]["rf8"]?></label>
-                        <input type="password" class="form-control input-lg" value="" name="passnewc" id="passnewc" placeholder="<?=$tlrf["rf_frontend_plc"]["rfplc5"]?>">
+                        <label><?= $tlrf["rf_frontend"]["rf8"] ?></label>
+                        <input type="password" class="form-control input-lg" value="" name="passnewc" id="passnewc" placeholder="<?= $tlrf["rf_frontend_plc"]["rfplc5"] ?>">
                       </div>
                     </div>
                   </div>
@@ -129,7 +135,7 @@
 
                     </div>
                     <div class="col-md-4">
-                      <input type="submit" value="<?=$tlrf["rf_frontend_button"]["btn"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="email_passR" name="email_passR">
+                      <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="email_passR" name="email_passR">
                     </div>
                   </div>
                 </form>
@@ -142,33 +148,33 @@
             <div class="featured-box featured-box-primary align-left mt-xlg">
               <div class="box-content">
                 <h4 class="heading-primary text-uppercase mb-md">
-                  <?=$tlrf["rf_frontend"]["rf9"]?>
+                  <?= $tlrf["rf_frontend"]["rf9"] ?>
                 </h4>
-                <form method="post" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
+                <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>" enctype="multipart/form-data">
                   <div class="row">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                        <img src="<?=BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser->getVar("picture")?>"
+                        <img src="<?= BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser->getVar("picture") ?>"
                           alt="avatar">
                       </div>
                       <div>
-            <span class="btn btn-default btn-file"><span class="fileinput-new"><?=$tl["login"]["l12"]?></span><span
-                class="fileinput-exists"><?=$tl["general"]["g180"]?></span><input type="file" name="uploadpp"
+            <span class="btn btn-default btn-file"><span class="fileinput-new"><?= $tl["login"]["l12"] ?></span><span
+                class="fileinput-exists"><?= $tl["general"]["g180"] ?></span><input type="file" name="uploadpp"
                 accept="image/*"></span>
                         <a href="#" class="btn btn-default fileinput-exists"
-                          data-dismiss="fileinput"><?=$tl["general"]["g179"]?></a>
+                          data-dismiss="fileinput"><?= $tl["general"]["g179"] ?></a>
                       </div>
                     </div>
 
-                    <input type="submit" value="<?=$tlrf["rf_frontend_button"]["btn"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="avatarR" name="avatarR">
+                    <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="avatarR" name="avatarR">
                   </div>
                   <div class="row">
                     <h4 class="heading-primary text-uppercase mb-md">
-                      <?=$tlrf["rf_frontend"]["rf14"]?>
+                      <?= $tlrf["rf_frontend"]["rf14"] ?>
                     </h4>
                     <div class="row text-center">
                       <div class="col-xs-2">
-                        <img src="../<?=ENVO_FILES_DIRECTORY?>/userfiles/standard.png" class="img-responsive" alt="standard avatar"/>
+                        <img src="../<?= ENVO_FILES_DIRECTORY ?>/userfiles/standard.png" class="img-responsive" alt="standard avatar"/>
                         <div class="radio">
                           <label>
                             <input type="radio" name="avatar" value="/standard.png"<?php if ($envouser->getVar("picture") == "/standard.png") { ?> checked="checked"<?php } ?> />
@@ -176,7 +182,7 @@
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?=ENVO_FILES_DIRECTORY?>/userfiles/avatar.png" class="img-responsive" alt="avatar"/>
+                        <img src="../<?= ENVO_FILES_DIRECTORY ?>/userfiles/avatar.png" class="img-responsive" alt="avatar"/>
                         <div class="radio">
                           <label>
                             <input type="radio" name="avatar" value="/avatar.png"<?php if ($envouser->getVar("picture") == "/avatar.png") { ?> checked="checked"<?php } ?> />
@@ -184,7 +190,7 @@
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?=ENVO_FILES_DIRECTORY?>/userfiles/avatar2.png" class="img-responsive" alt="avatar2"/>
+                        <img src="../<?= ENVO_FILES_DIRECTORY ?>/userfiles/avatar2.png" class="img-responsive" alt="avatar2"/>
                         <div class="radio">
                           <label>
                             <input type="radio" name="avatar" value="/avatar2.png"<?php if ($envouser->getVar("picture") == "/avatar2.png") { ?> checked="checked"<?php } ?> />
@@ -192,7 +198,7 @@
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?=ENVO_FILES_DIRECTORY?>/userfiles/avatar3.png" class="img-responsive" alt="avatar3"/>
+                        <img src="../<?= ENVO_FILES_DIRECTORY ?>/userfiles/avatar3.png" class="img-responsive" alt="avatar3"/>
                         <div class="radio">
                           <label>
                             <input type="radio" name="avatar" value="/avatar3.png"<?php if ($envouser->getVar("picture") == "/avatar3.png") { ?> checked="checked"<?php } ?> />
@@ -200,7 +206,7 @@
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?=ENVO_FILES_DIRECTORY?>/userfiles/avatar4.png" class="img-responsive" alt="avatar4"/>
+                        <img src="../<?= ENVO_FILES_DIRECTORY ?>/userfiles/avatar4.png" class="img-responsive" alt="avatar4"/>
                         <div class="radio">
                           <label>
                             <input type="radio" name="avatar" value="/avatar4.png"<?php if ($envouser->getVar("picture") == "/avatar4.png") { ?> checked="checked"<?php } ?> />
@@ -209,7 +215,7 @@
                       </div>
                     </div>
 
-                    <input type="submit" value="<?=$tlrf["rf_frontend_button"]["btn"]?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="avatarS" name="avatarS">
+                    <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="avatarS" name="avatarS">
                   </div>
                 </form>
               </div>

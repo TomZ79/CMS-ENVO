@@ -60,7 +60,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
@@ -76,29 +76,36 @@ if ($errors) { ?>
     <!-- Form Content -->
     <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
       <li class="nav-item">
-        <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab"]?></span>
+        <a href="#cmsPage1" class="active" data-toggle="tab">
+          <span class="text"><?= $tlblog["blog_section_tab"]["blogtab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab4"]?></span>
+        <a href="#cmsPage2" class="" data-toggle="tab">
+          <span class="text"><?= $tlblog["blog_section_tab"]["blogtab4"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab1"]?></span>
+        <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlblog["blog_section_tab"]["blogtab1"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab2"]?></span>
+        <a href="#cmsPage4" class="" data-toggle="tab">
+          <span class="text"><?= $tlblog["blog_section_tab"]["blogtab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
-          <span class="text"><?=$tlblog["blog_section_tab"]["blogtab3"]?></span>
+        <a href="#cmsPage5" class="" data-toggle="tab">
+          <span class="text"><?= $tlblog["blog_section_tab"]["blogtab3"] ?></span>
         </a>
+      </li>
+      <li class='nav-item dropdown collapsed-menu'>
+        <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
+          ... <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
+        </div>
       </li>
     </ul>
 
@@ -270,7 +277,7 @@ if ($errors) { ?>
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
                             ?>
 
                           </span>
@@ -595,9 +602,9 @@ if ($errors) { ?>
                         <div class="row-form">
                           <div class="col-sm-12">
                             <div class="form-group">
-                              <label for="tags"><?=$tlblog["blog_box_content"]["blogbc42"]?></label>
+                              <label for="tags"><?= $tlblog["blog_box_content"]["blogbc42"] ?></label>
                               <div class="controls">
-                                <?=$ENVO_TAGLIST?>
+                                <?= $ENVO_TAGLIST ?>
                               </div>
                             </div>
                           </div>
@@ -642,7 +649,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -680,7 +687,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
