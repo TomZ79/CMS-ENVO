@@ -43,7 +43,7 @@ $envodata .= '
           <strong>Priorita</strong>
         </div>
         <div class="col-sm-6">
-          <div class="form-group no-margin">
+          <div class="form-group m-0">
             <select name="envo_edittaskpriority" class="form-control selectpicker">
               <option value="0" ' . ($row["priority"] == 0 ? "selected" : "") . '>Nedůležitá</option>
               <option value="1" ' . ($row["priority"] == 1 ? "selected" : "") . '>Nízká priorita</option>
@@ -59,7 +59,7 @@ $envodata .= '
           <strong>Status</strong>
         </div>
         <div class="col-sm-6">
-          <div class="form-group no-margin">
+          <div class="form-group m-0">
             <select name="envo_edittaskstatus" class="form-control selectpicker"
               <option value="0" ' . ($row["status"] == 0 ? "selected" : "") . '>Žádný status</option>
               <option value="1" ' . ($row["status"] == 1 ? "selected" : "") . '>Zápis</option>
