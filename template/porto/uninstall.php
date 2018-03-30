@@ -32,7 +32,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   <title><?=$tl["uninstalltemplate"]["unitpl"] . ' - PORTO Template'?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
-  <link href="/assets/plugins/bootstrapv4/css/bootstrap.min.css?=v4.0.0alpha6" rel="stylesheet" type="text/css"/>
+  <link href="/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0" rel="stylesheet" type="text/css"/>
   <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN Pages CSS-->
   <link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
@@ -56,8 +56,9 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/assets/plugins/tether/js/tether.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrapv4/js/bootstrap.min.js?=v4.0.0alpha6');
+  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js?=v4.0.0');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
