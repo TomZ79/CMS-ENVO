@@ -102,6 +102,9 @@ echo $Html->addScript('assets/plugins/jquery-bez/1.0.11/jquery.bez.min.js?=v1.0.
 echo $Html->addScript('assets/plugins/imagesloaded/4.1.3/imagesloaded.pkgd.min.js?=v4.1.3');
 echo $Html->addScript('assets/plugins/jquery-actual/1.0.19/jquery.actual.min.js?=v1.0.19');
 echo $Html->addScript('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.min.js?=v0.2.11');
+
+echo $Html->addScript('../assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.js');
+echo $Html->addStylesheet('../assets/plugins/bootstrap-responsive-tabs/main.css');
 // Plugin DataTable
 if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users' || $page == 'usergroup' || $page == 'tags') {
   echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');

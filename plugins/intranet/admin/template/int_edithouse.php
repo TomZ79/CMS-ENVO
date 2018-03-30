@@ -64,7 +64,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-<form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
   <!-- Fixed Button for save form -->
   <div class="savebutton hidden-xs">
 
@@ -78,60 +78,65 @@ if ($errors) { ?>
   </div>
 
   <!-- Form Content -->
-  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
-    <li class="nav-item">
-      <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-        <span class="text"><?=$tlint["int_section_tab"]["inttab"]?></span>
+  <ul class="nav nav-tabs nav-tabs-fillup js-tabs-example">
+    <li class="nav-item active">
+      <a href="#cmsPage1" data-toggle="tab">
+        <span class="text"><?= $tlint["int_section_tab"]["inttab"] ?></span>
       </a>
     </li>
-    <li class="nav-item next">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
+    <li class="nav-item">
+      <a href="#cmsPage2" class="" data-toggle="tab">
         <span class="text">Fakturace</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
+      <a href="#cmsPage3" class="" data-toggle="tab">
         <span class="text">Úkoly</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
+      <a href="#cmsPage4" class="" data-toggle="tab">
         <span class="text">Hlavní kontakty</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage5" role="tab">
+      <a href="#cmsPage5" class="" data-toggle="tab">
         <span class="text">Vchody - Byty</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage6" role="tab">
+      <a href="#cmsPage6" class="" data-toggle="tab">
         <span class="text">Nájemníci</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage7" role="tab">
+      <a href="#cmsPage7" class="" data-toggle="tab">
         <span class="text">Stav Techniky</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage8" role="tab">
+      <a href="#cmsPage8" class="" data-toggle="tab">
         <span class="text">Servisy</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage9" role="tab">
+      <a href="#cmsPage9" class="" data-toggle="tab">
         <span class="text">Dokumenty</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage10" role="tab">
+      <a href="#cmsPage10" class="" data-toggle="tab">
         <span class="text">Fotogalerie</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="" data-toggle="tab" data-target="#cmsPage11" role="tab">
+      <a href="#cmsPage11" class="" data-toggle="tab">
         <span class="text">Videogalerie</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#cmsPage12" class="" data-toggle="tab">
+        <span class="text">XXX</span>
       </a>
     </li>
   </ul>
@@ -476,14 +481,14 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array ('readonly' => 'readonly'));
+                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array('readonly' => 'readonly'));
                             ?>
 
                             <span class="input-group-btn">
 
                               <?php
                               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
                               ?>
 
                             </span>
@@ -504,14 +509,14 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array ('readonly' => 'readonly'));
+                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array('readonly' => 'readonly'));
                             ?>
 
                             <span class="input-group-btn">
 
                               <?php
                               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
                               ?>
 
                             </span>
@@ -532,14 +537,14 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/videos', '', 'form-control', array ('readonly' => 'readonly'));
+                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/videos', '', 'form-control', array('readonly' => 'readonly'));
                             ?>
 
                             <span class="input-group-btn">
 
                               <?php
                               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
                               ?>
 
                             </span>
@@ -646,7 +651,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefcity',  $ENVO_FORM_DATA["housefcity"], '', 'form-control');
+                            echo $Html->addInput('text', 'envo_housefcity', $ENVO_FORM_DATA["housefcity"], '', 'form-control');
                             ?>
 
                           </div>
@@ -736,10 +741,10 @@ if ($errors) { ?>
         <div class="col-sm-12 p-l-15 p-r-15">
           <div class="float-right-sm float-right-md float-right-lg">
 
-          <?php
-          // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-          echo $Html->addButton('button', '', 'Přidat nový úkol', '', 'addTask', 'btn btn-info', array('data-dialog' => 'taskDialogAdd', 'style' => 'width: 100%;'));
-          ?>
+            <?php
+            // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+            echo $Html->addButton('button', '', 'Přidat nový úkol', '', 'addTask', 'btn btn-info', array('data-dialog' => 'taskDialogAdd', 'style' => 'width: 100%;'));
+            ?>
 
           </div>
         </div>
@@ -749,9 +754,9 @@ if ($errors) { ?>
           <div id="tasklist">
 
             <?php if (!empty($ENVO_FORM_DATA_TASK) && is_array($ENVO_FORM_DATA_TASK)) foreach ($ENVO_FORM_DATA_TASK as $t) { ?>
-              <div id="task_<?=$t["id"]?>" class="task_<?=$t["id"]?>">
+              <div id="task_<?= $t["id"] ?>" class="task_<?= $t["id"] ?>">
                 <div class="taskheader">
-                  <span>Task ID <?=$t["id"]?></span>
+                  <span>Task ID <?= $t["id"] ?></span>
                   <span class="float-right collapsetask">+</span>
                 </div>
                 <div class="taskinfo">
@@ -770,11 +775,11 @@ if ($errors) { ?>
                         </thead>
                         <tbody>
                         <tr>
-                          <td><?=$t["title"]?></td>
-                          <td><?=$t["priority"]?></td>
-                          <td><?=$t["status"]?></td>
-                          <td><?=$t["time"]?></td>
-                          <td><?=$t["reminder"]?></td>
+                          <td><?= $t["title"] ?></td>
+                          <td><?= $t["priority"] ?></td>
+                          <td><?= $t["status"] ?></td>
+                          <td><?= $t["time"] ?></td>
+                          <td><?= $t["reminder"] ?></td>
                           <td class="text-center">
 
                             <?php
@@ -793,9 +798,9 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="taskcontent">
-                  <p><strong >Popis Úkolu:</strong></p>
+                  <p><strong>Popis Úkolu:</strong></p>
                   <div class="taskdescription">
-                    <?=$t["description"]?>
+                    <?= $t["description"] ?>
                   </div>
                 </div>
               </div>
@@ -974,13 +979,13 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15 ">
-          <div class="form-inline float-right-sm float-right-md float-right-lg">
+          <div class="form-inline float-lg-right float-md-right float-sm-right">
             <div class="form-group">
               <label for="name">Jméno: </label>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'addRowCont', (isset($_REQUEST["addRowCont"])) ? $_REQUEST["addRowCont"] : '', '', 'form-control', array('style' => 'height: 35px;', 'placeholder' => 'Celé jméno'));
+              echo $Html->addInput('text', 'addRowCont', (isset($_REQUEST["addRowCont"])) ? $_REQUEST["addRowCont"] : '', '', 'form-control ml-2', array('style' => 'height: 35px;', 'placeholder' => 'Celé jméno'));
               ?>
 
             </div>
@@ -988,7 +993,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový kontakt', '', 'addRowCont', 'btn btn-info', array('style' => 'width: 100%;'));
+              echo $Html->addButton('button', '', 'Přidat nový kontakt', '', 'addRowCont', 'btn btn-info ml-2', array('style' => 'width: 100%;'));
               ?>
 
             </div>
@@ -1016,11 +1021,11 @@ if ($errors) { ?>
                   <?php if (!empty($ENVO_FORM_DATA_CONT) && is_array($ENVO_FORM_DATA_CONT)) foreach ($ENVO_FORM_DATA_CONT as $c) { ?>
 
                     <tr>
-                      <td><?=$c["id"]?></td>
-                      <td><?=$c["name"]?></td>
-                      <td><?=$c["address"]?></td>
-                      <td><?=$c["phone"]?></td>
-                      <td><?=$c["email"]?></td>
+                      <td><?= $c["id"] ?></td>
+                      <td><?= $c["name"] ?></td>
+                      <td><?= $c["address"] ?></td>
+                      <td><?= $c["phone"] ?></td>
+                      <td><?= $c["email"] ?></td>
                       <td>
 
                         <?php
@@ -1057,13 +1062,13 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage5" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15 ">
-          <div class="form-inline float-right-sm float-right-md float-right-lg">
+          <div class="form-inline float-lg-right float-md-right float-sm-right">
             <div class="form-group">
               <label for="name">Číslo vchodu: </label>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', '', 'form-control', array('style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu'));
+              echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', '', 'form-control ml-2', array('style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu'));
               ?>
 
             </div>
@@ -1071,7 +1076,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový vchod', '', 'addRowEnt', 'btn btn-info', array('style' => 'width: 100%;'));
+              echo $Html->addButton('button', '', 'Přidat nový vchod', '', 'addRowEnt', 'btn btn-info ml-2', array('style' => 'width: 100%;'));
               ?>
 
             </div>
@@ -1098,10 +1103,10 @@ if ($errors) { ?>
                   <?php if (!empty($ENVO_FORM_DATA_ENT) && is_array($ENVO_FORM_DATA_ENT)) foreach ($ENVO_FORM_DATA_ENT as $e) { ?>
 
                     <tr>
-                      <td><?=$e["id"]?></td>
-                      <td><?=$e["entrance"]?></td>
-                      <td><?=$e["countapartment"]?></td>
-                      <td><?=$e["countetage"]?></td>
+                      <td><?= $e["id"] ?></td>
+                      <td><?= $e["entrance"] ?></td>
+                      <td><?= $e["countapartment"] ?></td>
+                      <td><?= $e["countetage"] ?></td>
                       <td>
 
                         <?php
@@ -1137,21 +1142,19 @@ if ($errors) { ?>
       <?php if (!empty($ENVO_FORM_DATA_ENT) && is_array($ENVO_FORM_DATA_ENT)) {
         foreach ($ENVO_FORM_DATA_ENT as $e) { ?>
 
-          <div class="row">
-            <div class="col-sm-12 m-b-20">
-              <div class="col-sm-6">
-                <h5 style="margin: 2px;">Číslo vchodu:
-                  <strong><?php echo($e["entrance"] ? $e["entrance"] : '0'); ?></strong>
-                </h5>
-              </div>
-              <div class="col-sm-6">
+          <div class="row m-b-20">
+            <div class="col-sm-6">
+              <h5 style="margin: 2px;">Číslo vchodu:
+                <strong><?php echo($e["entrance"] ? $e["entrance"] : '0'); ?></strong>
+              </h5>
+            </div>
+            <div class="col-sm-6">
 
-                <?php
-                // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                echo $Html->addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info float-right addRowApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
-                ?>
+              <?php
+              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+              echo $Html->addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info float-right addRowApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
+              ?>
 
-              </div>
             </div>
           </div>
           <div class="row">
@@ -1381,7 +1384,7 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage8" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15 ">
-          <div class="form-inline float-right-sm float-right-md float-right-lg">
+          <div class="form-inline float-lg-right float-md-right float-sm-right">
             <div class="form-group">
 
               <?php
@@ -1413,11 +1416,11 @@ if ($errors) { ?>
                   <?php if (!empty($ENVO_FORM_DATA_SERV) && is_array($ENVO_FORM_DATA_SERV)) foreach ($ENVO_FORM_DATA_SERV as $s) { ?>
 
                     <tr>
-                      <td><?=$s["id"]?></td>
-                      <td><?=$s["description"]?></td>
-                      <td><?=$s["timedefault"]?></td>
-                      <td><?=$s["timestart"]?></td>
-                      <td><?=$s["timeend"]?></td>
+                      <td><?= $s["id"] ?></td>
+                      <td><?= $s["description"] ?></td>
+                      <td><?= $s["timedefault"] ?></td>
+                      <td><?= $s["timestart"] ?></td>
+                      <td><?= $s["timeend"] ?></td>
                     </tr>
 
                   <?php } else {
@@ -1521,9 +1524,9 @@ if ($errors) { ?>
                       <?php if (!empty($ENVO_FORM_DATA_DOCU) && is_array($ENVO_FORM_DATA_DOCU)) foreach ($ENVO_FORM_DATA_DOCU as $d) { ?>
 
                         <tr>
-                          <td><?=$d["id"]?></td>
-                          <td><?=envo_extension_icon($d["filename"])?></td>
-                          <td><?=$d["description"]?></td>
+                          <td><?= $d["id"] ?></td>
+                          <td><?= envo_extension_icon($d["filename"]) ?></td>
+                          <td><?= $d["description"] ?></td>
                           <td>
 
                             <?php
@@ -1734,8 +1737,8 @@ if ($errors) { ?>
                       </button>
                     </div>
                   </div>
+                </div>
               </div>
-            </div>
             </div>
             <div class="box-footer">
 
@@ -1948,7 +1951,7 @@ if ($errors) { ?>
     </div>
   </div>
 
-  <input type="hidden" name="folderpath" value="<?=$ENVO_FORM_DATA["folder"]?>">
+  <input type="hidden" name="folderpath" value="<?= $ENVO_FORM_DATA["folder"] ?>">
 </form>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>
