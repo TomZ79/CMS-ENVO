@@ -56,7 +56,7 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
               </div>
               <div class="preview-title">
                 <h5>
-                  <a href="<?= $v["parseurl"] ?>"><?= envo_cut_text($v["title"], 100, "...") ?></a>
+                  <a href="<?= $v["parseurl"] ?>"><?= envo_cut_text($v["title"], 60, "...") ?></a>
                 </h5>
               </div>
               <div class="preview-content">

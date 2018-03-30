@@ -28,17 +28,17 @@ if (!$PAGE_ACTIVE) {
         <div class="row">
           <div class="col-md-12">
             <div class="text-center">
-              <h1><?=$tl["global_text"]["gtxt1"]?></h1>
-              <p><?=$tl["global_text"]["gtxt2"]?></p>
-              <form class="form-inline pt-small" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+              <h1><?= $tl["global_text"]["gtxt1"] ?></h1>
+              <p><?= $tl["global_text"]["gtxt2"] ?></p>
+              <form class="form-inline pt-small" method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
 
                 <div class="input-group">
-                  <input type="password" name="pagepass" class="form-control" value="" placeholder="<?=$tl["placeholder"]["plc2"]?>"/>
+                  <input type="password" name="pagepass" class="form-control" value="" placeholder="<?= $tl["placeholder"]["plc2"] ?>"/>
                   <span class="input-group-btn">
-										<button class="btn btn-primary btn-lg" name="pageprotect" type="submit"><?=$tl["button"]["btn4"]?></button>
+										<button class="btn btn-primary btn-lg" name="pageprotect" type="submit"><?= $tl["button"]["btn4"] ?></button>
 									</span>
                 </div>
-                <input type="hidden" name="pagesec" value="<?=$PAGE_ID?>"/>
+                <input type="hidden" name="pagesec" value="<?= $PAGE_ID ?>"/>
 
               </form>
             </div>
@@ -74,7 +74,7 @@ if (!$PAGE_ACTIVE) {
 
         <section class="news-content-area-new">
           <div class="container">
-            <h2><?=$setting["newstitle"]?></h2>
+            <h2><?= $setting["newstitle"] ?></h2>
             <div id="owl-carousel" class="owl-carousel all-carousel owl-theme">
 
               <?php
@@ -86,7 +86,7 @@ if (!$PAGE_ACTIVE) {
                   <div class="preview-img">
                     <div class="preview-img-container">
                       <div class="preview-img-item">
-                        <a href="<?=$n["parseurl"]?>">
+                        <a href="<?= $n["parseurl"] ?>">
 
                           <?php
                           // Image is available so display it or go standard image
@@ -95,10 +95,10 @@ if (!$PAGE_ACTIVE) {
                           } else { ?>
 
                             <div class="thumb-news text-center">
-                              <img src="<?='/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg'?>" alt="<?=$n["title"] . ' | ' . $setting["title"]?>" class="img-responsive">
+                              <img src="<?= '/template/' . ENVO_TEMPLATE . '/img/news/news-feature.jpg' ?>" alt="<?= $n["title"] . ' | ' . $setting["title"] ?>" class="img-responsive">
                               <div class="caption text-center">
-                                <span class="color1"><?=$tlporto["news_text"]["newst"]?></span>
-                                <span class="color2"><?=$tlporto["news_text"]["newst1"]?></span>
+                                <span class="color1"><?= $tlporto["news_text"]["newst"] ?></span>
+                                <span class="color2"><?= $tlporto["news_text"]["newst1"] ?></span>
                               </div>
                             </div>
 
@@ -119,29 +119,29 @@ if (!$PAGE_ACTIVE) {
                   </div>
                   <div class="preview-title">
                     <h5>
-                      <a href="<?=$n["parseurl"]?>"><?=$n["title"]?></a>
+                      <a href="<?= $n["parseurl"] ?>"><?= envo_cut_text($n["title"], 60, "...") ?></a>
                     </h5>
                   </div>
                   <div class="preview-content">
                     <div class="preview-box-content">
-                      <p><?=$n["contentshort"]?></p>
+                      <p><?= $n["contentshort"] ?></p>
 
                       <?php
                       // SYSTEM ICONS - Edit and Quick Edit
                       if (ENVO_ASACCESS) { ?>
                         <div class="system-icons clearfix">
                           <div class="pull-right hidden-xs">
-                            <a class="btn btn-filled btn-primary btn-xs" href="<?=BASE_URL?>admin/index.php?p=news&amp;sp=edit&amp;id=<?=$n["id"]?>" title="<?=$tl["button"]["btn1"]?>">
-                              <?=$tl["button"]["btn1"]?>
+                            <a class="btn btn-filled btn-primary btn-xs" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">
+                              <?= $tl["button"]["btn1"] ?>
                             </a>
-                            <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?=BASE_URL?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?=$n["id"]?>" title="<?=$tl["button"]["btn2"]?>">
-                              <?=$tl["button"]["btn2"]?>
+                            <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn2"] ?>">
+                              <?= $tl["button"]["btn2"] ?>
                             </a>
                           </div>
                         </div>
                       <?php } ?>
 
-                      <a href="<?=$n["parseurl"]?>" class="btn btn-borders btn-default btn-block"><?=$tl["global_text"]["gtxt10"]?></a>
+                      <a href="<?= $n["parseurl"] ?>" class="btn btn-borders btn-default btn-block"><?= $tl["global_text"]["gtxt10"] ?></a>
                     </div>
                   </div>
                 </div>
@@ -174,19 +174,19 @@ if (!$PAGE_ACTIVE) {
               <?php if ($SHOWDATE) { ?>
                 <div class="col-md-3">
                   <i class="icon-clock-1"></i>
-                  <time datetime="<?=$PAGE_TIME_HTML5?>"><?=$PAGE_TIME?></time>
+                  <time datetime="<?= $PAGE_TIME_HTML5 ?>"><?= $PAGE_TIME ?></time>
                 </div>
               <?php }
               if ($ENVO_TAGLIST && $SHOWTAGS) { ?>
                 <div class="col-md-5">
-                  <i class="icon-tags"></i> <?=$ENVO_TAGLIST?>
+                  <i class="icon-tags"></i> <?= $ENVO_TAGLIST ?>
                 </div>
               <?php }
               if ($SHOWSOCIALBUTTON) { ?>
                 <div class="pull-right">
                   <div style="display: table;">
                     <div style="display: table-cell;vertical-align: middle;padding-right: 20px;">
-                      <strong><?=$tl["share"]["share"] . ' '?></strong>
+                      <strong><?= $tl["share"]["share"] . ' ' ?></strong>
                     </div>
                     <div id="sollist-sharing"></div>
                   </div>

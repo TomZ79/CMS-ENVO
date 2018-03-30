@@ -163,7 +163,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                      <div class="form-group m-0<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -183,7 +183,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -203,7 +203,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -223,7 +223,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -243,7 +243,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -263,7 +263,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -283,7 +283,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -303,7 +303,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -352,7 +352,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-4">
-                          <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                          <div class="form-group m-0<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -373,7 +373,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-4">
-                          <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+                          <div class="form-group m-0<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -602,7 +602,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-10">
-                          <div class="form-group no-margin">
+                          <div class="form-group m-0">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -622,7 +622,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-10">
-                          <div class="form-group no-margin">
+                          <div class="form-group m-0">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -642,7 +642,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-10">
-                          <div class="form-group no-margin">
+                          <div class="form-group m-0">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -662,7 +662,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-10">
-                          <div class="form-group no-margin">
+                          <div class="form-group m-0">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -684,7 +684,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-10">
-                          <div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+                          <div class="form-group m-0<?php if (isset($errors["e7"])) echo " has-error"; ?>">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -704,7 +704,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-sm-10">
-                          <div class="form-group no-margin">
+                          <div class="form-group m-0">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -843,7 +843,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-sm-6">
-                        <div class="form-group no-margin">
+                        <div class="form-group m-0">
                           <select name="envo_addtaskpriority" class="form-control selectpicker">
 
                             <?php
@@ -869,7 +869,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-sm-6">
-                        <div class="form-group no-margin">
+                        <div class="form-group m-0">
                           <select name="envo_addtaskstatus" class="form-control selectpicker">
 
                             <?php
@@ -1272,7 +1272,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-7">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -1292,7 +1292,7 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-7">
-                      <div class="form-group no-margin">
+                      <div class="form-group m-0">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -1571,7 +1571,7 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-sm-3 m-t-10">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
                     <select name="envo_imgcategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
 
                       <?php
@@ -1759,7 +1759,7 @@ if ($errors) { ?>
             <div class="box-body">
               <div class="row">
                 <div class="col-sm-2 m-t-10">
-                  <div class="form-group no-margin">
+                  <div class="form-group m-0">
                     <select name="envo_videocategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
 
                       <?php
