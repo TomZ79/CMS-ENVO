@@ -83,7 +83,7 @@ $(function () {
     // Show entries
     //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
     // Design Table items
-    "dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>"
+    "dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'float-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>"
   });
 
 });

@@ -138,7 +138,7 @@ class ENVO_todo
 
     // The string we return is outputted by the echo statement
 
-    $actionB = '<div class="pull-right actions">';
+    $actionB = '<div class="float-right actions">';
 
     if ($this->data['adminid'] == ENVO_USERID) {
 

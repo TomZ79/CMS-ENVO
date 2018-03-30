@@ -270,7 +270,7 @@ if ($errors) { ?>
 
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-success pull-right">
+            <button type="submit" name="save" class="btn btn-success float-right">
               <i class="fa fa-save margin-right-5"></i>
               <?=$tl["button"]["btn1"]?>
             </button>

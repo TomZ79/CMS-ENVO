@@ -107,7 +107,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu-plugin', array('data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success float-right save-menu-plugin', array('data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"]));
       ?>
 
     </div>

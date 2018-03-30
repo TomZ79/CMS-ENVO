@@ -52,7 +52,7 @@ if ($page3 == "ene") { ?>
         </div>
         <div class="card-block">
           <p style="height: 60px">Unikátní identifikátor společný pro všechny sítě v rámci konkrétní země.</p>
-          <div class="m-t-15 pull-right">
+          <div class="m-t-15 float-right">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -73,7 +73,7 @@ if ($page3 == "ene") { ?>
         </div>
         <div class="card-block">
           <p style="height: 60px">Unikátní identifikátor konkrétní sítě.</p>
-          <div class="m-t-15 pull-right">
+          <div class="m-t-15 float-right">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

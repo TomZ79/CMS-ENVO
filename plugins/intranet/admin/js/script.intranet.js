@@ -2389,7 +2389,7 @@ $(function () {
                 dataID = data["id"];
 
                 divdata += '<div id="task_' + data["id"] + '" class="task_' + data["id"] + '">' +
-                  '<div class="taskheader"><span>Task ID ' + data["id"] + '</span><span class="pull-right collapsetask">+</span></div>' +
+                  '<div class="taskheader"><span>Task ID ' + data["id"] + '</span><span class="float-right collapsetask">+</span></div>' +
                   '<div class="taskinfo">' +
                   '<div class="container-fluid">' +
                   '<div class="table-responsive">' +
@@ -2528,7 +2528,7 @@ $(function () {
 
                 dataID = data["id"];
 
-                divdata += '<div class="taskheader"><span>Task ID ' + data["id"] + '</span><span class="pull-right collapsetask">+</span></div>' +
+                divdata += '<div class="taskheader"><span>Task ID ' + data["id"] + '</span><span class="float-right collapsetask">+</span></div>' +
                   '<div class="taskinfo">' +
                   '<div class="container-fluid">' +
                   '<div class="table-responsive">' +

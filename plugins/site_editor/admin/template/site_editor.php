@@ -40,14 +40,14 @@
             </div>
           </div>
           <div class="box-footer">
-            <div class="pull-right">
+            <div class="float-right">
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
               echo $Html->addButton('button', '', $tl["button"]["btn12"], '', 'editfile', 'btn btn-primary', array('style' => 'margin-right: 10px'));
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
               echo $Html->addButtonSubmit('reset', $tl["button"]["btn11"], '', 'btn btn-primary hidden', array('style' => 'margin-right: 10px'));
-              echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('disabled' => 'disabled'));
+              echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success float-right', array('disabled' => 'disabled'));
               ?>
 
             </div>

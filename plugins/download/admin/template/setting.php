@@ -63,7 +63,7 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -78,22 +78,22 @@ if ($errors) { ?>
     <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li class="nav-item">
         <a href="#" class="active" data-toggle="tab" data-target="#cmsPage1" role="tab">
-          <span class="text"><?=$tld["downl_section_tab"]["downltab"]?></span>
+          <span class="text"><?= $tld["downl_section_tab"]["downltab"] ?></span>
         </a>
       </li>
       <li class="nav-item next">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage2" role="tab">
-          <span class="text"><?=$tld["downl_section_tab"]["downltab1"]?></span>
+          <span class="text"><?= $tld["downl_section_tab"]["downltab1"] ?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage3" role="tab">
-          <span class="text"><?=$tld["downl_section_tab"]["downltab2"]?></span>
+          <span class="text"><?= $tld["downl_section_tab"]["downltab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="" data-toggle="tab" data-target="#cmsPage4" role="tab">
-          <span class="text"><?=$tld["downl_section_tab"]["downltab3"]?></span>
+          <span class="text"><?= $tld["downl_section_tab"]["downltab3"] ?></span>
         </a>
       </li>
     </ul>
@@ -237,7 +237,7 @@ if ($errors) { ?>
                             echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['downloadtimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
-                            <optgroup label="<?=$tl["selection"]["sel111"]?>">
+                            <optgroup label="<?= $tl["selection"]["sel111"] ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -248,7 +248,7 @@ if ($errors) { ?>
                               ?>
 
                             </optgroup>
-                            <optgroup label="<?=$tl["selection"]["sel112"]?>">
+                            <optgroup label="<?= $tl["selection"]["sel112"] ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -416,7 +416,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -490,7 +490,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -514,7 +514,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -528,7 +528,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -552,7 +552,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -566,7 +566,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -593,7 +593,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
