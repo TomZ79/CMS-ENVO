@@ -81,7 +81,7 @@
                   <p><strong>Resolution: </strong><?=$v["width"] . ' x ' . $v["height"]?></p>
                 </div>
                 <div class="col-sm-12">
-                  <div class="pull-right">
+                  <div class="float-right">
                     <a href="index.php?p=facebookgallery&amp;sp=edit&amp;id=<?=$v["id"]?>" class="btn btn-primary btn-xs">Info</a>
                     <a href="index.php?p=facebookgallery&amp;sp=delete&amp;id=<?=$v["id"]?>" class="btn btn-default btn-xs" data-confirm="<?=sprintf($tl["fb_notification"]["del"], $v["title"])?>">Delete</a>
                   </div>

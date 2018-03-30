@@ -246,7 +246,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
                 <dl class="dl-horizontal">
                   <dt>Basic template - Pages</dt>
                   <dd>Pages is carefully well thought UI frame work that is built on top of Bootstrap 3, Its hand crafted components look great on all devices and works super fast even on mobile
-                    <a href="http://pages.revox.io/dashboard/" class="pull-right" target="_blank">Preview
+                    <a href="http://pages.revox.io/dashboard/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
                 </dl>
@@ -256,49 +256,49 @@ http://99webtools.com/blog/php-simple-captcha-script/
                 <dl class="dl-horizontal">
                   <dt>TinyMCE Editor</dt>
                   <dd>TinyMCE enables you to convert HTML textarea fields or other HTML elements to editor instances.
-                    <a href="https://www.tinymce.com/" class="pull-right" target="_blank">Preview
+                    <a href="https://www.tinymce.com/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>ACE Editor</dt>
                   <dd>Ace is an embeddable code editor written in JavaScript.
-                    <a href="https://ace.c9.io/" class="pull-right" target="_blank">Preview
+                    <a href="https://ace.c9.io/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Sollist - Share social media plugin</dt>
                   <dd>jQuery plugin builds easy customisable lists of social links.
-                    <a href="http://88z.github.io/sollist/" class="pull-right" target="_blank">Preview
+                    <a href="http://88z.github.io/sollist/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Bootstrap</dt>
                   <dd>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
-                    <a href="http://getbootstrap.com/" class="pull-right" target="_blank">Preview
+                    <a href="http://getbootstrap.com/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Bootstrap Select</dt>
                   <dd>Bootstrap-select is a jQuery plugin that utilizes Bootstrap's dropdown.js to style and bring additional functionality to standard select elements.
-                    <a href="http://silviomoreto.github.io/bootstrap-select/" class="pull-right" target="_blank">Preview
+                    <a href="http://silviomoreto.github.io/bootstrap-select/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Bootstrap DateTimePicker</dt>
                   <dd>A date/time picker component designed to work with Bootstrap 3 and Momentjs.
-                    <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" class="pull-right" target="_blank">Preview
+                    <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Bootstrap Tags Input</dt>
                   <dd>jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
-                    <a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" class="pull-right" target="_blank">Preview
+                    <a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Bootbox</dt>
                   <dd>Bootstrap modals made easy.
-                    <a href="http://bootboxjs.com/" class="pull-right" target="_blank">Preview
+                    <a href="http://bootboxjs.com/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
                 </dl>
@@ -308,38 +308,38 @@ http://99webtools.com/blog/php-simple-captcha-script/
                 <dl class="dl-horizontal">
                   <dt>FontAwesome</dt>
                   <dd>Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
-                    <a href="https://fortawesome.github.io/Font-Awesome/" class="pull-right" target="_blank">Preview
+                    <a href="https://fortawesome.github.io/Font-Awesome/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Font Awesome Icon Picker</dt>
                   <dd>Font Awesome Icon Picker is a fully customizable plugin for Twitter Bootstrap, with a powerful base API,
                     based on Bootstrap Popover Picker.
-                    <a href="https://itsjavi.com/fontawesome-iconpicker/" class="pull-right" target="_blank">Preview
+                    <a href="https://itsjavi.com/fontawesome-iconpicker/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Simple PHP Auto-Update System</dt>
                   <dd>
-                    <a href="http://maxmorgandesign.com/simple_php_auto_update_system/" class="pull-right" target="_blank">Preview
+                    <a href="http://maxmorgandesign.com/simple_php_auto_update_system/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>AJAX-ed Todo List With PHP</dt>
                   <dd>
-                    <a href="http://tutorialzine.com/2010/03/ajax-todo-list-jquery-php-mysql-css/" class="pull-right" target="_blank">Preview
+                    <a href="http://tutorialzine.com/2010/03/ajax-todo-list-jquery-php-mysql-css/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>PHP XML Sitemap generator</dt>
                   <dd>
-                    <a href="http://www.alanmiller.com/blog/article/php-xml-sitemap-generator" class="pull-right" target="_blank">Preview
+                    <a href="http://www.alanmiller.com/blog/article/php-xml-sitemap-generator" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
 
                   <dt>Animate.css</dt>
                   <dd>
-                    <a href="https://daneden.github.io/animate.css/" class="pull-right" target="_blank">Preview
+                    <a href="https://daneden.github.io/animate.css/" class="float-right" target="_blank">Preview
                       <i class="pg-arrow_right"></i></a>
                   </dd>
                 </dl>
@@ -362,24 +362,24 @@ http://99webtools.com/blog/php-simple-captcha-script/
             <div class="category-content no-padding">
               <ul class="nav navigation">
                 <li class="navigation-header">
-                  <i class="icon-history pull-right"></i> Version history
+                  <i class="icon-history float-right"></i> Version history
                 </li>
                 <li>
                   <a href="#v_1_2_1">Version 1.2.1
-                    <span class="text-muted text-regular pull-right">XX.XX.2017</span></a>
+                    <span class="text-muted text-regular float-right">XX.XX.2017</span></a>
                 </li>
                 <li>
                   <a href="#v_1_2">Version 1.2
-                    <span class="text-muted text-regular pull-right">09.27.2016</span></a>
+                    <span class="text-muted text-regular float-right">09.27.2016</span></a>
                 </li>
-                <li><a href="#v_1_1">Version 1.1 <span class="text-muted text-regular pull-right">06.8.2015</span></a>
+                <li><a href="#v_1_1">Version 1.1 <span class="text-muted text-regular float-right">06.8.2015</span></a>
                 </li>
                 <li>
                   <a href="#release">Initial release
-                    <span class="text-muted text-regular pull-right">05.8.2015</span></a>
+                    <span class="text-muted text-regular float-right">05.8.2015</span></a>
                 </li>
                 <li class="navigation-divider"></li>
-                <li class="navigation-header"><i class="icon-gear pull-right"></i> Extras</li>
+                <li class="navigation-header"><i class="icon-gear float-right"></i> Extras</li>
                 <li><a href="#properties"><i class="fa fa-tasks"></i> Support</a></li>
               </ul>
             </div>

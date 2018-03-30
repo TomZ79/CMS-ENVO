@@ -627,7 +627,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Master color</p>
-            <p class="small m-0 pull-right">#626262</p>
+            <p class="small m-0 float-right">#626262</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -636,7 +636,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-primary b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left">Primary color</p>
-            <p class="small m-0 pull-right">#6D5CAE</p>
+            <p class="small m-0 float-right">#6D5CAE</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -645,7 +645,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-complete b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Complete color</p>
-            <p class="small m-0 pull-right">#48B0F7</p>
+            <p class="small m-0 float-right">#48B0F7</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -654,7 +654,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-success b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Success color</p>
-            <p class="small m-0 pull-right">#10CFBD</p>
+            <p class="small m-0 float-right">#10CFBD</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -665,7 +665,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-menu b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Menu color</p>
-            <p class="small m-0 pull-right">#202328</p>
+            <p class="small m-0 float-right">#202328</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -674,7 +674,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-info b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Info color</p>
-            <p class="small m-0 pull-right">#3B4752</p>
+            <p class="small m-0 float-right">#3B4752</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -683,7 +683,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-danger b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Danger color</p>
-            <p class="small m-0 pull-right">#F55753</p>
+            <p class="small m-0 float-right">#F55753</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -692,7 +692,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-warning b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left">Warning color</p>
-            <p class="small m-0 pull-right">#F8D053</p>
+            <p class="small m-0 float-right">#F8D053</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -705,7 +705,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master-darkest b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master-darkest</p>
-            <p class="small m-0 pull-right hint-text">#000000</p>
+            <p class="small m-0 float-right hint-text">#000000</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -715,7 +715,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master-darker</p>
-            <p class="small m-0 pull-right hint-text">#1A1A1A</p>
+            <p class="small m-0 float-right hint-text">#1A1A1A</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -725,7 +725,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master-dark</p>
-            <p class="small m-0 pull-right hint-text">#2C2C2C</p>
+            <p class="small m-0 float-right hint-text">#2C2C2C</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -735,7 +735,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master</p>
-            <p class="small m-0 pull-right hint-text">#626262</p>
+            <p class="small m-0 float-right hint-text">#626262</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -747,7 +747,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master-light</p>
-            <p class="small m-0 pull-right hint-text">#000000</p>
+            <p class="small m-0 float-right hint-text">#000000</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -757,7 +757,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master-lighter</p>
-            <p class="small m-0 pull-right hint-text">#1A1A1A</p>
+            <p class="small m-0 float-right hint-text">#1A1A1A</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -767,7 +767,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-master-lightest b-a b-grey">
           <div class="bg-white m-t-45 padding-10">
             <p class="small m-0 pull-left hint-text">.bg-master-lightest</p>
-            <p class="small m-0 pull-right hint-text">#2C2C2C</p>
+            <p class="small m-0 float-right hint-text">#2C2C2C</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -780,7 +780,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-primary-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-primary-darker</p>
-            <p class="small m-0 pull-right hint-text">#413768</p>
+            <p class="small m-0 float-right hint-text">#413768</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -790,7 +790,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-primary-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-primary-dark</p>
-            <p class="small m-0 pull-right hint-text">#5B4D91</p>
+            <p class="small m-0 float-right hint-text">#5B4D91</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -800,7 +800,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-primary b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-primary</p>
-            <p class="small m-0 pull-right hint-text">#6D5CAE</p>
+            <p class="small m-0 float-right hint-text">#6D5CAE</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -810,7 +810,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-primary-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-primary-light</p>
-            <p class="small m-0 pull-right hint-text">#8A7DBE</p>
+            <p class="small m-0 float-right hint-text">#8A7DBE</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -822,7 +822,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-primary-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-primary-lighter</p>
-            <p class="small m-0 pull-right hint-text">#E2DEEF</p>
+            <p class="small m-0 float-right hint-text">#E2DEEF</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -835,7 +835,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-complete-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-complete-darker</p>
-            <p class="small m-0 pull-right hint-text">#2B6A94</p>
+            <p class="small m-0 float-right hint-text">#2B6A94</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -845,7 +845,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-complete-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-complete-dark</p>
-            <p class="small m-0 pull-right hint-text">#3C93CE</p>
+            <p class="small m-0 float-right hint-text">#3C93CE</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -855,7 +855,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-complete b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-complete</p>
-            <p class="small m-0 pull-right hint-text">#48B0F7</p>
+            <p class="small m-0 float-right hint-text">#48B0F7</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -865,7 +865,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-complete-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-complete-light</p>
-            <p class="small m-0 pull-right hint-text">#6DC0F9</p>
+            <p class="small m-0 float-right hint-text">#6DC0F9</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -877,7 +877,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-complete-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-complete-lighter</p>
-            <p class="small m-0 pull-right hint-text">#DAEFFD</p>
+            <p class="small m-0 float-right hint-text">#DAEFFD</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -890,7 +890,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-success-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-success-darker</p>
-            <p class="small m-0 pull-right hint-text">#0A7C71</p>
+            <p class="small m-0 float-right hint-text">#0A7C71</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -900,7 +900,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-success-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-success-dark</p>
-            <p class="small m-0 pull-right hint-text">#0DAD9E</p>
+            <p class="small m-0 float-right hint-text">#0DAD9E</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -910,7 +910,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-success b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-success</p>
-            <p class="small m-0 pull-right hint-text">#10CFBD</p>
+            <p class="small m-0 float-right hint-text">#10CFBD</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -920,7 +920,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-success-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-success-light</p>
-            <p class="small m-0 pull-right hint-text">#40D9CA</p>
+            <p class="small m-0 float-right hint-text">#40D9CA</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -932,7 +932,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-success-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-success-lighter</p>
-            <p class="small m-0 pull-right hint-text">#CFF5F2</p>
+            <p class="small m-0 float-right hint-text">#CFF5F2</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -945,7 +945,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-warning-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-warning-darker</p>
-            <p class="small m-0 pull-right hint-text">#957D32</p>
+            <p class="small m-0 float-right hint-text">#957D32</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -955,7 +955,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-warning-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-warning-dark</p>
-            <p class="small m-0 pull-right hint-text">#CFAE45</p>
+            <p class="small m-0 float-right hint-text">#CFAE45</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -965,7 +965,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-warning b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-warning</p>
-            <p class="small m-0 pull-right hint-text">#F8D053</p>
+            <p class="small m-0 float-right hint-text">#F8D053</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -975,7 +975,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-warning-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-warning-light</p>
-            <p class="small m-0 pull-right hint-text">#F9D975</p>
+            <p class="small m-0 float-right hint-text">#F9D975</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -987,7 +987,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-warning-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-warning-lighter</p>
-            <p class="small m-0 pull-right hint-text">#FEF6DD</p>
+            <p class="small m-0 float-right hint-text">#FEF6DD</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1000,7 +1000,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-danger-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-danger-darker</p>
-            <p class="small m-0 pull-right hint-text">#933432</p>
+            <p class="small m-0 float-right hint-text">#933432</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1010,7 +1010,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-danger-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-danger-dark</p>
-            <p class="small m-0 pull-right hint-text">#CD4945</p>
+            <p class="small m-0 float-right hint-text">#CD4945</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1020,7 +1020,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-danger b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-danger</p>
-            <p class="small m-0 pull-right hint-text">#F55753</p>
+            <p class="small m-0 float-right hint-text">#F55753</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1030,7 +1030,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-danger-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-danger-light</p>
-            <p class="small m-0 pull-right hint-text">#F77975</p>
+            <p class="small m-0 float-right hint-text">#F77975</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1042,7 +1042,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-danger-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-danger-lighter</p>
-            <p class="small m-0 pull-right hint-text">#FDDDDD</p>
+            <p class="small m-0 float-right hint-text">#FDDDDD</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1055,7 +1055,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-info-darker b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-info-darker</p>
-            <p class="small m-0 pull-right hint-text">#232B31</p>
+            <p class="small m-0 float-right hint-text">#232B31</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1065,7 +1065,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-info-dark b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-info-dark</p>
-            <p class="small m-0 pull-right hint-text">#313B44</p>
+            <p class="small m-0 float-right hint-text">#313B44</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1075,7 +1075,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-info b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-info</p>
-            <p class="small m-0 pull-right hint-text">#3B4752</p>
+            <p class="small m-0 float-right hint-text">#3B4752</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1085,7 +1085,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-info-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-info-light</p>
-            <p class="small m-0 pull-right hint-text">#626C75</p>
+            <p class="small m-0 float-right hint-text">#626C75</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1097,7 +1097,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-info-lighter b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-info-lighter</p>
-            <p class="small m-0 pull-right hint-text">#D8DADC</p>
+            <p class="small m-0 float-right hint-text">#D8DADC</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1110,7 +1110,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-menu-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-menu-light</p>
-            <p class="small m-0 pull-right hint-text">#191B1F</p>
+            <p class="small m-0 float-right hint-text">#191B1F</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1120,7 +1120,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-menu b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-menu</p>
-            <p class="small m-0 pull-right hint-text">#202328</p>
+            <p class="small m-0 float-right hint-text">#202328</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1130,7 +1130,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-menu-light b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-menu-dark</p>
-            <p class="small m-0 pull-right hint-text">#646972</p>
+            <p class="small m-0 float-right hint-text">#646972</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1143,7 +1143,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-white b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-white</p>
-            <p class="small m-0 pull-right hint-text">#ffffff</p>
+            <p class="small m-0 float-right hint-text">#ffffff</p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1153,7 +1153,7 @@ Header set Cache-Control "max-age=604800, public"
         <div class="bg-transparent b-a b-grey">
           <div class="bg-white m-t-45 padding-10 text-master">
             <p class="small m-0 pull-left hint-text">.bg-transparent</p>
-            <p class="small m-0 pull-right hint-text"></p>
+            <p class="small m-0 float-right hint-text"></p>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -1182,7 +1182,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left">
                 .text-black
               </p>
-              <p class="small text-right v-align-middle pull-right">
+              <p class="small text-right v-align-middle float-right">
                 #2c2c2c
               </p>
             </div>
@@ -1199,7 +1199,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left m-0">
                 Default
               </p>
-              <p class="small text-right v-align-middle pull-right m-0">
+              <p class="small text-right v-align-middle float-right m-0">
                 #626262
               </p>
             </div>
@@ -1216,7 +1216,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left m-0">
                 .hint-text
               </p>
-              <p class="small text-right v-align-middle pull-right m-0">
+              <p class="small text-right v-align-middle float-right m-0">
                 #2c2c2c
               </p>
             </div>
@@ -1252,7 +1252,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left m-0">
                 .text-success
               </p>
-              <p class="small text-right v-align-middle pull-right m-0">
+              <p class="small text-right v-align-middle float-right m-0">
                 #4aa9e9
               </p>
             </div>
@@ -1269,7 +1269,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left m-0">
                 .text-complete
               </p>
-              <p class="small text-right v-align-middle pull-right m-0">
+              <p class="small text-right v-align-middle float-right m-0">
                 #23b9a9
               </p>
             </div>
@@ -1286,7 +1286,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left m-0">
                 .text-danger
               </p>
-              <p class="small text-right v-align-middle pull-right m-0">
+              <p class="small text-right v-align-middle float-right m-0">
                 #ce4e4d
               </p>
             </div>
@@ -1303,7 +1303,7 @@ Header set Cache-Control "max-age=604800, public"
               <p class="small v-align-middle pull-left m-0">
                 .text-warning
               </p>
-              <p class="small text-right v-align-middle pull-right m-0">
+              <p class="small text-right v-align-middle float-right m-0">
                 #eac459
               </p>
             </div>
@@ -1385,7 +1385,7 @@ Header set Cache-Control "max-age=604800, public"
 </pre>
 
     <div class="well bs-ref m-t-50 clearfix">
-      <span class="pull-left">For native Bootstrap typography classes </span><a href="http://getbootstrap.com/css/#type" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
+      <span class="pull-left">For native Bootstrap typography classes </span><a href="http://getbootstrap.com/css/#type" target="_blank" class="btn btn-primary float-right ">Bootstrap Documentation</a>
     </div>
   </section>
 
@@ -1717,7 +1717,7 @@ Header set Cache-Control "max-age=604800, public"
 </pre>
 
     <div class="well bs-ref m-t-50 clearfix">
-      <span class="pull-left">For native Bootstrap button classes </span><a href="http://getbootstrap.com/css/#buttons" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
+      <span class="pull-left">For native Bootstrap button classes </span><a href="http://getbootstrap.com/css/#buttons" target="_blank" class="btn btn-primary float-right ">Bootstrap Documentation</a>
     </div>
 
   </section>

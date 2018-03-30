@@ -320,7 +320,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -390,7 +390,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -441,7 +441,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -565,7 +565,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -723,7 +723,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -734,7 +734,7 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15">
-          <div class="pull-right-sm pull-right-md pull-right-lg">
+          <div class="float-right-sm float-right-md float-right-lg">
 
           <?php
           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
@@ -752,13 +752,13 @@ if ($errors) { ?>
               <div id="task_<?=$t["id"]?>" class="task_<?=$t["id"]?>">
                 <div class="taskheader">
                   <span>Task ID <?=$t["id"]?></span>
-                  <span class="pull-right collapsetask">+</span>
+                  <span class="float-right collapsetask">+</span>
                 </div>
                 <div class="taskinfo">
                   <div class="container-fluid">
                     <div class="table-responsive">
                       <table class="table table-task">
-                        <thead class="thead-dark">
+                        <thead>
                         <tr>
                           <th>Titulek</th>
                           <th>Priorita</th>
@@ -775,7 +775,7 @@ if ($errors) { ?>
                           <td><?=$t["status"]?></td>
                           <td><?=$t["time"]?></td>
                           <td><?=$t["reminder"]?></td>
-                          <td>
+                          <td class="text-center">
 
                             <?php
                             // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
@@ -940,10 +940,10 @@ if ($errors) { ?>
           </div>
           <div class="dialog__footer">
             <div class="col-sm-12 p-l-20 p-r-20">
-              <button id="saveTask" class="btn btn-success m-t-20 m-l-20 pull-right" type="button">
+              <button id="saveTask" class="btn btn-success m-t-20 m-l-20 float-right" type="button">
                 Uložit
               </button>
-              <button class="btn btn-info m-t-20 pull-right action" type="button" data-dialog-close>
+              <button class="btn btn-info m-t-20 float-right action" type="button" data-dialog-close>
                 Zavřít
               </button>
             </div>
@@ -960,10 +960,10 @@ if ($errors) { ?>
           </div>
           <div class="dialog__footer">
             <div class="col-sm-12 p-l-20 p-r-20">
-              <button id="udpateTask" class="btn btn-success m-t-20 m-l-20 pull-right" type="button">
+              <button id="udpateTask" class="btn btn-success m-t-20 m-l-20 float-right" type="button">
                 Uložit
               </button>
-              <button class="btn btn-info m-t-20 pull-right action" type="button" data-dialog-close>
+              <button class="btn btn-info m-t-20 float-right action" type="button" data-dialog-close>
                 Zavřít
               </button>
             </div>
@@ -974,7 +974,7 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15 ">
-          <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
+          <div class="form-inline float-right-sm float-right-md float-right-lg">
             <div class="form-group">
               <label for="name">Jméno: </label>
 
@@ -1057,7 +1057,7 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage5" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15 ">
-          <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
+          <div class="form-inline float-right-sm float-right-md float-right-lg">
             <div class="form-group">
               <label for="name">Číslo vchodu: </label>
 
@@ -1148,7 +1148,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                echo $Html->addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info pull-right addRowApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
+                echo $Html->addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info float-right addRowApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
                 ?>
 
               </div>
@@ -1338,7 +1338,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -1370,7 +1370,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
               ?>
 
             </div>
@@ -1381,7 +1381,7 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage8" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15 ">
-          <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
+          <div class="form-inline float-right-sm float-right-md float-right-lg">
             <div class="form-group">
 
               <?php

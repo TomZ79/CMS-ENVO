@@ -11,7 +11,7 @@
           <span><strong><a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
           <span class="hint-text">All rights reserved.</span>
         </p>
-        <p class="small m-0 pull-right sm-pull-reset">
+        <p class="small m-0 float-right sm-pull-reset">
           <?=sprintf($tl["hf_text"]["hftxt"], $setting["version"])?>
           <span class="hint-text">&amp; Made with Love</span>
         </p>

@@ -110,7 +110,7 @@
 
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-          echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"]));
+          echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success float-right save-menu', array('data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"]));
           ?>
 
         </div>
@@ -154,7 +154,7 @@
 
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-          echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mfooter', 'data-loading-text' => $tl["button"]["btn41"]));
+          echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success float-right save-menu', array('data-menu' => 'mfooter', 'data-loading-text' => $tl["button"]["btn41"]));
           ?>
 
         </div>

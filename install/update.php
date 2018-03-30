@@ -450,7 +450,7 @@ $succesfully = 0;
           <form name="company" method="post" action="update.php?step=2" enctype="multipart/form-data">
 
             <div class="form-actions">
-              <button type="submit" name="update" class="btn btn-primary pull-right">Update Database</button>
+              <button type="submit" name="update" class="btn btn-primary float-right">Update Database</button>
             </div>
 
           </form>
