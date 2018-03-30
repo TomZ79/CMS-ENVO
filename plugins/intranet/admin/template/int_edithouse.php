@@ -741,7 +741,7 @@ if ($errors) { ?>
     <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
       <div class="row m-b-20">
         <div class="col-sm-12 p-l-15 p-r-15">
-          <div class="float-right-sm float-right-md float-right-lg">
+          <div class="float-lg-right float-md-right float-sm-right">
 
             <?php
             // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
@@ -1167,12 +1167,12 @@ if ($errors) { ?>
                     <table id="tableapartment_<?php echo($e["entrance"] ? $e["entrance"] : '0'); ?>" class="table">
                       <thead>
                       <tr>
-                        <th class="col-sm-1">#</th>
-                        <th class="col-sm-1">Číslo bytu</th>
-                        <th class="col-sm-1">Patro</th>
-                        <th class="col-sm-2">Jméno</th>
-                        <th class="col-sm-2">Telefon</th>
-                        <th class="col-sm-2">Výbor</th>
+                        <th>#</th>
+                        <th>Číslo bytu</th>
+                        <th>Patro</th>
+                        <th>Jméno</th>
+                        <th>Telefon</th>
+                        <th>Výbor</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -1406,26 +1406,47 @@ if ($errors) { ?>
                 <table id="tableservice" class="table table-hover">
                   <thead>
                   <tr>
-                    <th class="col-sm-1">Id</th>
-                    <th class="col-sm-5">Popis</th>
-                    <th class="col-sm-2">Datum Zadání</th>
-                    <th class="col-sm-2">Datum Nahlášení</th>
-                    <th class="col-sm-2">Datum Ukončení</th>
+                    <th>Id</th>
+                    <th>Popis</th>
+                    <th>Datum Zadání</th>
+                    <th>Datum Nahlášení</th>
+                    <th>Datum Ukončení</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <?php if (!empty($ENVO_FORM_DATA_SERV) && is_array($ENVO_FORM_DATA_SERV)) foreach ($ENVO_FORM_DATA_SERV as $s) { ?>
+                  <?php
 
-                    <tr>
-                      <td><?= $s["id"] ?></td>
-                      <td><?= $s["description"] ?></td>
-                      <td><?= $s["timedefault"] ?></td>
-                      <td><?= $s["timestart"] ?></td>
-                      <td><?= $s["timeend"] ?></td>
-                    </tr>
+                  if (!empty($ENVO_FORM_DATA_SERV) && is_array($ENVO_FORM_DATA_SERV)) foreach ($ENVO_FORM_DATA_SERV as $s) {
 
-                  <?php } else {
+                    if ($s["deleted"] == 0) {
+
+                      // Records - active
+
+                      echo '<tr>';
+                      echo '<td>' .  $s["id"] . '</td>';
+                      echo '<td>' .  $s["description"] . '</td>';
+                      echo '<td>' .  $s["timedefault"] . '</td>';
+                      echo '<td>' .  $s["timestart"] . '</td>';
+                      echo '<td>' .  $s["timeend"] . '</td>';
+                      echo '</tr>';
+
+                    } else {
+
+                      // Records - deleted
+
+                      echo '<tr class="strikeout noedit">';
+                      echo '<td>' .  $s["id"] . '</td>';
+                      echo '<td>' .  $s["description"] . '</td>';
+                      echo '<td>' .  $s["timedefault"] . '</td>';
+                      echo '<td>' .  $s["timestart"] . '</td>';
+                      echo '<td>' .  $s["timeend"] . '</td>';
+                      echo '</tr>';
+
+                    }
+
+
+                  } else {
                     echo '<tr class="noedit" style="height: 49px"><td colspan="5">Nenalezen žádný záznam</td></tr>';
                   } ?>
 
@@ -1515,10 +1536,10 @@ if ($errors) { ?>
                     <table id="tabledocu" class="table">
                       <thead>
                       <tr>
-                        <th class="col-sm-1">#</th>
-                        <th class="col-sm-2">Typ souboru</th>
-                        <th class="col-sm-7">Popis</th>
-                        <th class="col-sm-2">Soubor</th>
+                        <th>#</th>
+                        <th>Typ souboru</th>
+                        <th>Popis</th>
+                        <th>Soubor</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -1952,6 +1973,8 @@ if ($errors) { ?>
       </div>
     </div>
   </div>
+
+  <div id="pickercontainer" style="position: relative;"></div>
 
   <input type="hidden" name="folderpath" value="<?= $ENVO_FORM_DATA["folder"] ?>">
 </form>

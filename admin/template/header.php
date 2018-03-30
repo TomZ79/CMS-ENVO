@@ -2,89 +2,89 @@
 echo $Html->addDoctype('html5');
 ?>
 
-<html lang="<?=$site_language?>">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-  <meta charset="utf-8"/>
-  <title>ENVO - Admin Dashboard</title>
-  <link rel="apple-touch-icon" href="pages/ico/60.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-  <?php
-  // Add Html Element -> endTag (Arguments: name, content)
-  $meta = array(
-    array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'),
-    array('name' => 'apple-mobile-web-app-capable', 'content' => 'yes'),
-    array('name' => 'apple-touch-fullscreen', 'content' => 'yes'),
-    array('name' => 'apple-mobile-web-app-status-bar-style', 'content' => 'default'),
-    array('name' => 'description', 'content' => ''),
-    array('name' => 'author', 'content' => ''),
-  );
-  echo $Html->addMeta($meta);
-  ?>
+<html lang="<?= $site_language ?>">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <title>ENVO - Admin Dashboard</title>
+    <link rel="apple-touch-icon" href="pages/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
+    <?php
+    // Add Html Element -> endTag (Arguments: name, content)
+    $meta = array(
+      array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'),
+      array('name' => 'apple-mobile-web-app-capable', 'content' => 'yes'),
+      array('name' => 'apple-touch-fullscreen', 'content' => 'yes'),
+      array('name' => 'apple-mobile-web-app-status-bar-style', 'content' => 'default'),
+      array('name' => 'description', 'content' => ''),
+      array('name' => 'author', 'content' => ''),
+    );
+    echo $Html->addMeta($meta);
+    ?>
 
-  <!-- BEGIN Vendor CSS-->
-  <?php
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Pace preloader
-  echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.min.css');
-  // Bootstrap
-  echo $Html->addStylesheet('../assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
-  // Font Awesomemin
-  echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css');
-  // Scrollbar
-  echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.css?=v0.2.11', 'screen');
-  //FileInput
-  echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css?=v4.3.7', 'screen');
-  // Bootstrap Select
-  echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
-  // Bootstrap TagsInput
-  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css?=v0.8.0', 'screen');
-  // Bootstrap DateTimePicker
-  echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.47');
-  // Bootstrap IconPicker
-  echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css?=v1.7.0');
-  // Bootstrap GlyphIcons
-  echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
-  // Animate
-  echo $Html->addStylesheet('assets/css/animate.min.css');
-  // Plugin DataTable
-  if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users' || $page == 'usergroup' || $page == 'tags') {
-    echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
-  }
-  ?>
-
-  <!-- BEGIN Pages CSS-->
-  <?php
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('pages/css/pages-icons.css');
-  echo $Html->addStylesheet('pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
-  ?>
-
-  <!-- BEGIN General Stylesheet with custom modifications -->
-  <?php
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('assets/css/style.min.css');
-  ?>
-
-  <!--[if lte IE 9]>
-  <link href="pages/css/ie9.css" rel="stylesheet" type="text/css"/>
-  <![endif]-->
-  <script>
-    window.onload = function () {
-      // fix for windows 8
-      if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
-        document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
+    <!-- BEGIN Vendor CSS-->
+    <?php
+    // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+    // Pace preloader
+    echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.min.css');
+    // Bootstrap
+    echo $Html->addStylesheet('../assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+    // Font Awesomemin
+    echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css');
+    // Scrollbar
+    echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.css?=v0.2.11', 'screen');
+    //FileInput
+    echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css?=v4.3.7', 'screen');
+    // Bootstrap Select
+    echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
+    // Bootstrap TagsInput
+    echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css?=v0.8.0', 'screen');
+    // Bootstrap DateTimePicker
+    echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=v4.17.47');
+    // Bootstrap IconPicker
+    echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css?=v1.7.0');
+    // Bootstrap GlyphIcons
+    echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
+    // Animate
+    echo $Html->addStylesheet('assets/css/animate.min.css');
+    // Plugin DataTable
+    if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users' || $page == 'usergroup' || $page == 'tags') {
+      echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
     }
-  </script>
+    ?>
 
-  <!-- BEGIN HOOKS - HEADER -->
-  <?php if (isset($ENVO_HOOK_HEAD_ADMIN) && is_array($ENVO_HOOK_HEAD_ADMIN)) foreach ($ENVO_HOOK_HEAD_ADMIN as $headt) {
-    include_once APP_PATH . $headt['phpcode'];
-  } ?>
+    <!-- BEGIN Pages CSS-->
+    <?php
+    // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+    echo $Html->addStylesheet('pages/css/pages-icons.css');
+    echo $Html->addStylesheet('pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+    ?>
 
-</head>
+    <!-- BEGIN General Stylesheet with custom modifications -->
+    <?php
+    // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+    echo $Html->addStylesheet('assets/css/style.min.css');
+    ?>
+
+    <!--[if lte IE 9]>
+    <link href="pages/css/ie9.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <script>
+      window.onload = function () {
+        // fix for windows 8
+        if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
+          document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
+      }
+    </script>
+
+    <!-- BEGIN HOOKS - HEADER -->
+    <?php if (isset($ENVO_HOOK_HEAD_ADMIN) && is_array($ENVO_HOOK_HEAD_ADMIN)) foreach ($ENVO_HOOK_HEAD_ADMIN as $headt) {
+      include_once APP_PATH . $headt['phpcode'];
+    } ?>
+
+  </head>
 <body class="fixed-header has-detached-right overlay-disabled">
   <!-- PACE PRELOADER -->
   <div id="pace" class="active"></div>
@@ -136,7 +136,7 @@ echo $Html->addDoctype('html5');
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
         echo $Html->addAnchor('index.php?p=changelog', $tl["submenu"]["sm4"]);
-        echo (' | ');
+        echo(' | ');
         echo $Html->addAnchor('index.php?p=cmshelp', 'CMS Help');
         ?>
 
@@ -178,13 +178,13 @@ echo $Html->addDoctype('html5');
   <!-- START HEADER -->
   <div class="header ">
     <!-- START MOBILE SIDEBAR TOGGLE -->
-    <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar"></a>
+    <a href="#" class="btn-link toggle-sidebar d-lg-none pg pg-menu" data-toggle="sidebar"></a>
     <!-- END MOBILE SIDEBAR TOGGLE -->
 
-    <div class="pull-left sm-table hidden-xs hidden-sm">
+    <div class="float-left sm-table hidden-xs hidden-sm">
       <div class="header-inner">
         <div class="brand inline">
-          <a href="<?=BASE_URL_ORIG?>" target="_blank">
+          <a href="<?= BASE_URL_ORIG ?>" target="_blank">
             <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
           </a>
         </div>
@@ -305,7 +305,7 @@ echo $Html->addDoctype('html5');
           <!-- END QUICK LIST -->
           <a href="#" class="search-link" data-toggle="search">
             <i class="pg-search"></i>
-            <?=$tl["hf_text"]["hftxt7"]?>
+            <?= $tl["hf_text"]["hftxt7"] ?>
           </a>
         </div>
       </div>
@@ -313,23 +313,23 @@ echo $Html->addDoctype('html5');
     <div class=" float-right">
       <!-- START USER INFO -->
       <div class="visible-lg visible-md">
-        <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-          <span class="bold"><?=$ENVO_WELCOME_NAME?></span>
+        <div class="float-left p-r-10 p-t-10 fs-16 font-heading">
+          <span class="bold"><?= $ENVO_WELCOME_NAME ?></span>
         </div>
         <div class="dropdown float-right">
           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="thumbnail-wrapper d32 circular inline m-t-5">
-              <img src="<?='../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture")?>" alt="" data-src="<?='../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture")?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+              <img src="<?= '../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture") ?>" alt="" data-src="<?= '../' . basename(ENVO_FILES_DIRECTORY) . '/userfiles' . $envouser->getVar("picture") ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-            <a href="index.php?p=users&amp;sp=edituser&amp;id=<?=ENVO_USERID?>" class="dropdown-item">
-              <i class="pg-settings_small"></i> <?=$tl["hf_text"]["hftxt4"]?>
+            <a href="index.php?p=users&amp;sp=edituser&amp;id=<?= ENVO_USERID ?>" class="dropdown-item">
+              <i class="pg-settings_small"></i> <?= $tl["hf_text"]["hftxt4"] ?>
             </a>
-            <a href="<?=BASE_URL_ADMIN?>template/help.php" class="dropdown-item contentHelp"><i class="fa fa-info"></i> <?=$tl["hf_text"]["hftxt5"]?>
+            <a href="<?= BASE_URL_ADMIN ?>template/help.php" class="dropdown-item contentHelp"><i class="fa fa-info"></i> <?= $tl["hf_text"]["hftxt5"] ?>
             </a>
-            <a href="index.php?p=logout" data-confirm-logout="<?=$tl["log_out"]["logout1"]?>" class="clearfix bg-master-lighter dropdown-item">
-              <span class="pull-left"><?=$tl["log_out"]["logout"]?></span>
+            <a href="index.php?p=logout" data-confirm-logout="<?= $tl["log_out"]["logout1"] ?>" class="clearfix bg-master-lighter dropdown-item">
+              <span class="float-left"><?= $tl["log_out"]["logout"] ?></span>
               <span class="float-right"><i class="pg-power"></i></span>
             </a>
           </div>
@@ -348,16 +348,18 @@ echo $Html->addDoctype('html5');
   <?php if ($page != 'cmshelp' && $page != '404' && !empty($page)) { ?>
     <div class="jumbotron" data-pages="parallax">
       <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20 p-t-10 p-b-10">
-          <div class="inner">
-            <!-- START BREADCRUMB -->
-            <nav class="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><h5 class="title bold" style="margin: 0;line-height: 24px;"><?=$SECTION_TITLE?></h5></li>
-                <li class="breadcrumb-item" style="position: relative;top: 1px;"><span class="desc"><?=$SECTION_DESC?></span></li>
-              </ol>
-            </nav>
-            <!-- END BREADCRUMB -->
-          </div>
+        <div class="inner">
+          <!-- START BREADCRUMB -->
+          <ol class="breadcrumb d-flex">
+            <li class="breadcrumb-item align-items-center">
+              <h5 class="title bold" style="margin: 0;line-height: 24px;"><?= $SECTION_TITLE ?></h5>
+            </li>
+            <li class="breadcrumb-item" style="position: relative;top: 1px;">
+              <span class="desc"><?= $SECTION_DESC ?></span>
+            </li>
+          </ol>
+          <!-- END BREADCRUMB -->
+        </div>
       </div>
     </div>
   <?php } ?>

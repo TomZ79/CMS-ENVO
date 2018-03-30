@@ -44,7 +44,7 @@ if ($page == 'intranet') {
   //
   echo $Html->addScript('assets/js/global_js/gallery.min.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.min.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.js');
 
   echo PHP_EOL . '<!-- End JS Intranet -->' . PHP_EOL;
 

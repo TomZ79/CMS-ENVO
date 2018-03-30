@@ -82,18 +82,27 @@ if ($input['action'] === 'edit') {
   $result = $envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET deleted = "0" WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
+    $data_array[] = array(
+      'id'     => $input["id"],
+      'action' => $input["action"],
+    );
+
     // Data for JSON
     $envodata = array(
       'status'     => 'restore_success',
       'status_msg' => 'Restore the record in DB was successful',
-      'data'       => $input
+      'data'       => $data_array
     );
   } else {
+    $data_array[] = array(
+      'id'     => $input["id"]
+    );
+
     // Data for JSON
     $envodata = array(
       'status'     => 'restore_error_E01',
       'status_msg' => 'Restore the record in DB was incorrect',
-      'data'       => ''
+      'data'       => $data_array
     );
   }
 }

@@ -11,10 +11,30 @@
  *
  */
 
+/* XX. Strikeout TR in Table
+======================================================================== */
+td {
+  position: relative;
+}
+
+.table tbody tr.strikeout td {
+  color: #CCC !important;
+  height: 47px;
+}
+
+tr.strikeout td:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 2px solid #CCC;
+  width: 100%;
+}
+
 /* XX. Tasks
 ======================================================================== */
 /* Table */
-.table-task  {
+.table-task {
   margin: 0 !important;
 }
 
@@ -100,7 +120,8 @@ div[class^="task_"] .taskheader {
   cursor: pointer;
   font-weight: bold;
 }
-div[class^="task_"] .taskheader .collapsetask{
+
+div[class^="task_"] .taskheader .collapsetask {
   font-weight: bold;
   font-size: 27px;
   position: relative;
@@ -118,7 +139,7 @@ div[class^="task_"] .taskcontent {
   border-top: 1px solid #D3D3D3;
 }
 
-div[class^="task_"] .taskcontent .taskdescription{
+div[class^="task_"] .taskcontent .taskdescription {
   padding: 10px;
   background: #FFF;;
 }

@@ -33,7 +33,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Bootstrap
-  echo $Html->addStylesheet('/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
+  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Fontawesome icon
   echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0');
   // Scrollbar

@@ -12,7 +12,7 @@
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4');
 echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js');
-echo $Html->addScript('/assets/plugins/bootstrapv3/js/bootstrap.min.js');
+echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js?=v3.3.7');
 echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.js');
 echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-numberAnimate/jquery.animateNumbers.min.js');
 ?>

@@ -6,7 +6,7 @@
   <?php if ($page != 'cmshelp') { ?>
     <div class="container-fluid container-fixed-lg footer">
       <div class="copyright sm-text-center">
-        <p class="small m-0 pull-left sm-pull-reset">
+        <p class="small m-0 float-left sm-pull-reset">
           <span class="hint-text"><?=$tl["hf_text"]["hftxt1"]?> - <?=date('Y')?> by </span>
           <span><strong><a href="https://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
           <span class="hint-text">All rights reserved.</span>

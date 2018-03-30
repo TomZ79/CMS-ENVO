@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="col-sm-6 col-6 no-padding">
-                <div class="checkbox check-success" style="margin-left: -15px;">
+                <div class="checkbox check-success">
 
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)

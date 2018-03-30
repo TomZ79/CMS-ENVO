@@ -1332,7 +1332,7 @@ function is_ajax()
  */
 function sort_array_mutlidim(array $array, $order_by)
 {
-  //TODO -c flexibility -o tufanbarisyildirim : this error can be deleted if you want to sort as sql like  "NULL LAST/FIRST" behavior.
+  // TODO -c flexibility -o tufanbarisyildirim : this error can be deleted if you want to sort as sql like  "NULL LAST/FIRST" behavior.
   if (!is_array($array[0]))
     throw new Exception('$array must be a multidimensional array!', E_USER_ERROR);
   $columns = explode(',', $order_by);
@@ -1343,7 +1343,7 @@ function sort_array_mutlidim(array $array, $order_by)
     else
       $sorts[trim($matches[1])] = 'SORT_' . strtoupper(trim($matches[3]));
   }
-  //TODO -c optimization -o tufanbarisyildirim : use array_* functions.
+  // TODO -c optimization -o tufanbarisyildirim : use array_* functions.
   $colarr = array();
   foreach ($sorts as $col => $order) {
     $colarr[$col] = array();
@@ -1351,13 +1351,13 @@ function sort_array_mutlidim(array $array, $order_by)
       $colarr[$col]['_' . $k] = strtolower($row[$col]);
     }
   }
-  //TODO -c suggestion -o tufanbarisyildirim : call_user_func_array can be used here .
+  // TODO -c suggestion -o tufanbarisyildirim : call_user_func_array can be used here .
   $runIt = 'array_multisort(';
   foreach ($sorts as $col => $order) {
     $runIt .= '$colarr[\'' . $col . '\'],' . $order . ',';
   }
   $runIt = substr($runIt, 0, -1) . ');';
-  //TODO -c nothing -o tufanbarisyildirim :  eval is evil.
+  // TODO -c nothing -o tufanbarisyildirim :  eval is evil.
   eval($runIt);
   $sorted_array = array();
   foreach ($colarr as $col => $arr) {

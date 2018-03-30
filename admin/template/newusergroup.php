@@ -35,6 +35,8 @@ if ($errors) { ?>
 
   <div class="col-sm-12 m-b-20">
     <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+
+
       <div class="form-group">
         <label for="groupbase"><?=$tl["userg_box_content"]["usergbc"]?></label>
         <div class="input-group">
@@ -50,10 +52,11 @@ if ($errors) { ?>
             ?>
 
           </select>
-          <span class="input-group-btn">
-		    	<button class="btn btn-info" name="create" type="submit"><?=$tl["button"]["btn1"]?></button>
-		    </span>
+          <div class="input-group-append">
+            <button class="btn btn-info" name="create" type="submit"><?=$tl["button"]["btn1"]?></button>
+          </div>
         </div>
+
       </div>
     </form>
   </div>

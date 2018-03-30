@@ -2076,7 +2076,6 @@ $(function () {
     $('#tableservice').Tabledit({
       url: '/plugins/intranet/admin/ajax/int_table_update_serv.php',
       inputClass: 'form-control',
-      restoreButton: true,
       lang: 'cz',
       mutedClass: 'text-muted warning',
       debug: false,
@@ -2088,12 +2087,61 @@ $(function () {
           [4, 'timeend', 'input']
         ]
       },
-      onSuccess: function (data) {
-        if (data.status == 'delete_success') {
-          // Remove row in table
-          $('#' + data.data[0].id).fadeOut(300, function () {
-            $(this).remove();
+      onDraw: function() {
+        // Select all inputs of second column and apply datetimepicker each of them
+        var picker = $('#tableservice input[name="timestart"], #tableservice input[name="timeend"]');
+
+        picker.each(function() {
+          $(this).datetimepicker({
+            widgetParent: '#pickercontainer',
+            // Language
+            locale: envoWeb.envo_lang,
+            // Date-Time format
+            format: 'YYYY-MM-DD HH:mm:ss',
+            // Icons
+            icons: $.AdminEnvo.DateTimepicker.icons(),
+            // Tooltips
+            tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
+            // Show Button
+            showTodayButton: true,
+            showClear: true,
+            // Other
+            calendarWeeks: true,
+            ignoreReadonly: true
           });
+        });
+      },
+      onSuccess: function (data) {
+        if (data.status == 'update_success') {
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+        } else if (data.status == 'delete_success') {
+          // Remove row in table
+          $('#' + data.data[0].id).addClass('strikeout');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+        } else if (data.status == 'restore_success') {
+          // Remove row in table
+          $('#' + data.data[0].id).removeClass('strikeout');
 
           // Notification
           setTimeout(function () {
@@ -2411,7 +2459,7 @@ $(function () {
                   '<td>' + data["status"] + '</td>' +
                   '<td>' + data["time"] + '</td>' +
                   '<td>' + data["reminder"] + '</td>' +
-                  '<td><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-original-title="Editovat" data-id="' + data["id"] + '"><i class="fa fa-edit"></i></button>' +
+                  '<td ><button type="button" id="editTask" class="btn btn-default btn-xs m-r-20 editTask" data-toggle="tooltipEnvo" title="" data-dialog="taskDialogEdit" data-original-title="Editovat" data-id="' + data["id"] + '"><i class="fa fa-edit"></i></button>' +
                   '<button type="button" class="btn btn-danger btn-xs deleteTask" data-confirm-deltask="Jste si jistý, že chcete odstranit úkol <strong>' + data["title"] + '</strong>" data-toggle="tooltipEnvo" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i></button></td>' +
                   '</tr>' +
                   '</tbody>' +
