@@ -2701,3 +2701,57 @@ $(function () {
   });
 
 });
+
+/** 00. Show iFrame in modal - help
+ ========================================================================*/
+
+$(function () {
+
+  $('#houseSelect').on('click', function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    $('#ENVOModalPlugin').modal('show');
+  });
+
+  $('.xxxx').click(function (event) {
+    event.preventDefault();
+
+    var valID = $(this).attr("data-value");
+
+    $.ajax({
+      url: "../plugins/intranet/admin/ajax/int_houseselect_process.php",
+      type: "POST",
+      datatype: 'json',
+      data: {
+        valID: valID
+      },
+      success: function (data) {
+
+        var res = $.parseJSON(data);
+
+        $('input[name="envo_housename"]').val(res.name);
+        $('input[name="envo_housestreet"]').val(res.street);
+        $('input[name="envo_housecity"]').val(res.city);
+        $('input[name="envo_housecityarea"]').val(res.cityarea);
+        $('input[name="envo_housepsc"]').val(res.psc);
+        $('input[name="envo_houseic"]').val(res.ic);
+        $('input[name="envo_housestate"]').val(res.state);
+        $('input[name="envo_housedescription"]').val(res.description);
+        $('input[name="envo_housecontact1"]').val(res.contact1);
+        $('input[name="envo_housecontact2"]').val(res.contact2);
+        $('input[name="envo_housecontact3"]').val(res.contact3);
+        $('input[name="envo_housecontact4"]').val(res.contact4);
+        $('input[name="envo_housecontact5"]').val(res.contact5);
+        $('input[name="envo_housecontact6"]').val(res.contact6);
+
+        $("#ENVOModalPlugin").modal('hide');
+      },
+      error: function () {
+        alert("failure");
+      }
+    });
+
+  });
+
+});

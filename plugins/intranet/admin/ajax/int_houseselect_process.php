@@ -1,0 +1,41 @@
+<?php
+
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/tt_selectprogram_process.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
+
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
+
+// EN: Get value from ajax
+// CZ: Získání dat z ajax
+$id = $_POST['valID'];
+
+$house_array = array();
+
+// EN: Get data of TV Tower
+// CZ: Získání dat o televizních vysílačích
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouselist WHERE id IN (' . $id . ')');
+
+while ($row = $result->fetch_assoc()) {
+
+  $house_array['name'] = $row['name'];
+  $house_array['street'] = $row['street'];
+  $house_array['city'] = $row['city'];
+  $house_array['cityarea'] = $row['cityarea'];
+  $house_array['psc'] = $row['psc'];
+  $house_array['ic'] = $row['ic'];
+  $house_array['state'] = $row['state'];
+  $house_array['description'] = $row['description'];
+  $house_array['contact1'] = $row['contact1'];
+  $house_array['contact2'] = $row['contact2'];
+  $house_array['contact3'] = $row['contact3'];
+  $house_array['contact4'] = $row['contact4'];
+  $house_array['contact5'] = $row['contact5'];
+  $house_array['contact6'] = $row['contact6'];
+
+}
+
+echo json_encode($house_array);
+
+?>

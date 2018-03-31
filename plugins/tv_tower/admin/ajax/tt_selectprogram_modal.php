@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fullscreen fade" id="ENVOModalPlugin" tabindex="-1" role="dialog" aria-labelledby="ENVOModalPlugin" aria-hidden="true">
+<div class="modal fade" id="ENVOModalPlugin" tabindex="-1" role="dialog" aria-labelledby="ENVOModalPlugin" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
