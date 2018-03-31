@@ -31,6 +31,7 @@ $envotable9 = DB_PREFIX . 'intranethousetower';
 $envotable10 = DB_PREFIX . 'intranethousechannel';
 $envotable11 = DB_PREFIX . 'intranethousetasks';
 $envotable12 = DB_PREFIX . 'intranethousevideo';
+$envotable13 = DB_PREFIX . 'intranethouselist';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -47,6 +48,7 @@ $ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'house':
+    // HOUSE IN ADMINISTRATION
 
     switch ($page2) {
       case 'newhouse':
@@ -421,7 +423,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
         break;
       default:
-        // LIST OF HOUSE
+        // LIST OF HOUSE IN ADMINISTRATION
 
         // EN: Getting the data about the Houses
         // CZ: Získání dat o bytových domech
@@ -439,7 +441,217 @@ IČ:       ' . $defaults['envo_housefic'] . '
     }
 
     break;
+  case 'houselist':
+    // HOUSE LIST
+
+    switch ($page2) {
+      case 'newhouse':
+        // ADD NEW HOUSE TO DB
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
+          $defaults = $_POST;
+
+          if (isset($_POST['btnSave'])) {
+
+            // EN: Check if name of house isn't empty
+            // CZ: Kontrola jestli je zadáný název domu
+            if (empty($defaults['envo_housename'])) {
+              $errors['e1'] = $tlint['int_error']['interror'] . '<br>';
+            }
+
+            // EN: Check if ic of house isn't empty
+            // CZ: Kontrola jestli je zadáné ič
+            if (empty($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
+              $errors['e2'] = $tlint['int_error']['interror8'] . '<br>';
+            }
+
+            // EN: All checks are OK without Errors - Start the form processing
+            // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+            if (count($errors) == 0) {
+
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+              */
+              $result = $envodb->query('INSERT INTO ' . $envotable13 . ' SET 
+                        name = "' . smartsql($defaults['envo_housename']) . '",
+                        varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
+                        street = "' . smartsql($defaults['envo_housestreet']) . '",
+                        city = "' . smartsql($defaults['envo_housecity']) . '",
+                        cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
+                        psc = "' . smartsql($defaults['envo_housepsc']) . '",
+                        state = "' . smartsql($defaults['envo_housestate']) . '",
+                        ic = "' . smartsql($defaults['envo_houseic']) . '",
+                        latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
+                        longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        description = "' . smartsql($defaults['envo_housedescription']) . '",
+                        contact1 = "' . smartsql($defaults['envo_housecontact1']) . '",
+                        contact2 = "' . smartsql($defaults['envo_housecontact2']) . '",
+                        contact3 = "' . smartsql($defaults['envo_housecontact3']) . '",
+                        contact4 = "' . smartsql($defaults['envo_housecontact4']) . '",
+                        contact5 = "' . smartsql($defaults['envo_housecontact5']) . '",
+                        contact6 = "' . smartsql($defaults['envo_housecontact6']) . '"');
+
+              $rowid = $envodb->envo_last_id();
+
+              if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
+                envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&ssp=newhouse&status=e');
+              } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
+                envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&ssp=edithouse&id=' . $rowid . '&status=s');
+              }
+
+            } else {
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
+              $errors      = $errors;
+            }
+          }
+        }
+
+        // EN: Getting the data about the Houses
+        // CZ: Získání dat o bytových domech
+        $ENVO_HOUSE_ALL = envo_get_house_info($envotable13);
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tlint["int_sec_title"]["intt8"];
+        $SECTION_DESC  = $tlint["int_sec_desc"]["intd8"];
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_newhouselist.php';
+
+        break;
+      case 'edithouse':
+        // EDIT HOUSE
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
+            $defaults = $_POST;
+
+            if (isset($_POST['btnSave'])) {
+
+              // EN: Check if name of house isn't empty
+              // CZ: Kontrola jestli je zadáný název domu
+              if (empty($defaults['envo_housename'])) {
+                $errors['e1'] = $tlint['int_error']['interror'] . '<br>';
+              }
+
+              // EN: Check if ic of house isn't empty
+              // CZ: Kontrola jestli je zadáné ič
+              if (empty($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
+                $errors['e2'] = $tlint['int_error']['interror8'] . '<br>';
+              }
+
+
+              // EN: All checks are OK without Errors - Start the form processing
+              // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+              if (count($errors) == 0) {
+
+                /* EN: Convert value
+                 * smartsql - secure method to insert form data into a MySQL DB
+                 * url_slug  - friendly URL slug from a string
+                 * ------------------
+                 * CZ: Převod hodnot
+                 * smartsql - secure method to insert form data into a MySQL DB
+                 * url_slug  - friendly URL slug from a string
+                */
+                $result = $envodb->query('UPDATE ' . $envotable13 . ' SET
+                        name = "' . smartsql($defaults['envo_housename']) . '",
+                        varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
+                        street = "' . smartsql($defaults['envo_housestreet']) . '",
+                        city = "' . smartsql($defaults['envo_housecity']) . '",
+                        cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
+                        psc = "' . smartsql($defaults['envo_housepsc']) . '",
+                        state = "' . smartsql($defaults['envo_housestate']) . '",
+                        ic = "' . smartsql($defaults['envo_houseic']) . '",
+                        latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
+                        longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        description = "' . smartsql($defaults['envo_housedescription']) . '",
+                        contact1 = "' . smartsql($defaults['envo_housecontact1']) . '",
+                        contact2 = "' . smartsql($defaults['envo_housecontact2']) . '",
+                        contact3 = "' . smartsql($defaults['envo_housecontact3']) . '",
+                        contact4 = "' . smartsql($defaults['envo_housecontact4']) . '",
+                        contact5 = "' . smartsql($defaults['envo_housecontact5']) . '",
+                        contact6 = "' . smartsql($defaults['envo_housecontact6']) . '"
+                        WHERE id = "' . smartsql($pageID) . '"');
+
+                if (!$result) {
+                  // EN: Redirect page
+                  // CZ: Přesměrování stránky
+                  envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&ssp=edithouse&id=' . $pageID . '&status=e');
+                } else {
+                  // EN: Redirect page
+                  // CZ: Přesměrování stránky
+                  envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&ssp=edithouse&id=' . $pageID . '&status=s');
+                }
+
+              } else {
+                $errors['e'] = $tl['general_error']['generror'] . '<br>';
+                $errors      = $errors;
+              }
+
+            }
+
+          }
+
+          // EN: Get all the data for the form - house
+          // CZ: Získání všech dat pro formulář - bytový dům
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable13);
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = $tlint["int_sec_title"]["intt9"];
+          $SECTION_DESC  = $tlint["int_sec_desc"]["intd9"] . ' <strong>' . $ENVO_FORM_DATA['name'] . '</strong>';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_edithouselist.php';
+
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=ene');
+        }
+
+        break;
+      default:
+        // LIST OF HOUSE
+
+        // EN: Getting the data about the Houses
+        // CZ: Získání dat o bytových domech
+        $ENVO_HOUSE_ALL = envo_get_house_info($envotable13);
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tlint["int_sec_title"]["intt7"];
+        $SECTION_DESC  = $tlint["int_sec_desc"]["intd7"];
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist.php';
+
+    }
+
+    break;
   case 'notification':
+    // INTRANET NOTIFICATION
 
     switch ($page2) {
       case 'newnotification':

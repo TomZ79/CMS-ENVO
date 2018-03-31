@@ -277,8 +277,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-        // EN: Create table for plugin (House)
-        // CZ: Vytvoření tabulky pro plugin (Bytový dům)
+        // EN: Create table for plugin (House in administration)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům ve správě)
         $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouse (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
@@ -302,6 +302,30 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
   `countapartment` int(10) unsigned NOT NULL DEFAULT 0,
   `folder` varchar(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House in administration)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům ve správě)
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouselist (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
+  `street` varchar(255) NULL DEFAULT NULL,
+  `city` varchar(255) NULL DEFAULT NULL,
+  `cityarea` varchar(255) NULL DEFAULT NULL,
+  `psc` varchar(100) NULL DEFAULT NULL,
+  `ic` varchar(100) NULL DEFAULT NULL,
+  `state` varchar(255) NULL DEFAULT NULL,
+  `latitude` varchar(255) NULL DEFAULT NULL,
+  `longitude` varchar(255) NULL DEFAULT NULL,
+  `description` text NULL DEFAULT NULL,
+  `contact1` varchar(255) NULL DEFAULT NULL,
+  `contact2` varchar(255) NULL DEFAULT NULL,
+  `contact3` varchar(255) NULL DEFAULT NULL,
+  `contact4` varchar(255) NULL DEFAULT NULL,
+  `contact5` varchar(255) NULL DEFAULT NULL,
+  `contact6` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

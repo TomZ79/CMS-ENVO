@@ -59,7 +59,7 @@ class ENVO_user
   function envoModuleAccess($userid, $accessids)
   {
     $useridarray = explode(',', $accessids);
-    // check if user is superadmin
+    // Check if user is superadmin
     if (ENVO_SUPERADMINACCESS) {
       return TRUE;
     } else if (in_array($userid, $useridarray)) {

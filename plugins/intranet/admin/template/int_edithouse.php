@@ -1357,7 +1357,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Popis', 'box-title');
+              echo $Html->addTag('h3', 'Popis technického stavu domu', 'box-title');
               ?>
 
             </div>

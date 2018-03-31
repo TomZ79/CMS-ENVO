@@ -47,7 +47,9 @@ $envodata .= '
   <div class="row m-b-10">
     <div class="col-sm-12">
       <p><strong>Krátky Popis</strong></p>
-      <p><input type="text" class="form-control" value="' . $row["shortdescription"] . '" readonly></p>
+      <p>
+         <input type="text" class="form-control" value="' . $row["shortdescription"] . '" readonly>
+      </p>
     </div>
   </div>
   <div class="row">
@@ -70,7 +72,10 @@ $envodata .= '
   </div>
   <div class="row m-b-10">
     <div class="col-sm-12">
-      <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" class="btn btn-info pull-right" download>Stáhnout Obrázek</a>
+      <div class="pull-right">
+        <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenameoriginal"] . '" class="btn btn-success m-r-15" download>Stáhnout Originál</a>
+        <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" class="btn btn-info" download>Stáhnout Náhled</a>
+      </div>
     </div>
   </div>
 </div>

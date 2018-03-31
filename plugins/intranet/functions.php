@@ -515,31 +515,31 @@ function envo_extension_icon($filename)
 
   switch ($extension) {
     case ('doc'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      return '<i class="far fa-file-word fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('docx'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      return '<i class="far fa-file-word fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('docm'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      return '<i class="far fa-file-word fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('xls'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      return '<i class="far fa-file-excel fa-2x" style="color:#1E7145;"></i>';
       break;
     case ('xlsx'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      return '<i class="far fa-file-excel fa-2x" style="color:#1E7145;"></i>';
       break;
     case ('xlsm'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      return '<i class="far fa-file-excel fa-2x" style="color:#1E7145;"></i>';
       break;
     case 'pdf':
-      return '<i class="fa fa-file-pdf-o fa-2x m-l-30" style="color:#EE3226;"></i>';
+      return '<i class="far fa-file-pdf fa-2x" style="color:#EE3226;"></i>';
       break;
     case ('jpg'):
-      return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;"></i>';
+      return '<i class="far fa-file-image fa-2x" style="color:#000;"></i>';
       break;
     case ('ai'):
-      return '<i class="techicon-adobe-ai fa-2x m-l-30"></i>';
+      return '<i class="techicon-adobe-ai fa-2x"></i>';
       break;
     default:
       return FALSE;

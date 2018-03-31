@@ -9,8 +9,9 @@ $CHECK_USR_SESSION = session_id();
 // -------- DATA FOR ALL FRONTEND PAGES --------
 // -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
 
-// Show content in template only the user have access
-$ENVO_MODULES = $envouser->envoModuleAccess(ENVO_USERID, "1,2");
+// EN: Show content in template only the user have access (SuperAdmin always has access)
+// CZ:
+$ENVO_MODULES_ACCESS = $envouser->envoModuleAccess(ENVO_USERID, '1,2');
 
 // EN: Set base plugin folder - template
 // CZ: Nastavení základní složky pluginu - šablony
@@ -27,17 +28,18 @@ $PAGE_TITLE = $setting["intranettitle"];
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$envotable  = DB_PREFIX . 'intranethouse';
-$envotable1 = DB_PREFIX . 'intranethousecontact';
-$envotable2 = DB_PREFIX . 'intranethouseserv';
-$envotable3 = DB_PREFIX . 'intranethouseimg';
-$envotable4 = DB_PREFIX . 'intranethousenotifications';
-$envotable5 = DB_PREFIX . 'intranethousenotificationug';
-$envotable6 = DB_PREFIX . 'intranethousedocu';
-$envotable7 = DB_PREFIX . 'intranethouseent';
-$envotable8 = DB_PREFIX . 'intranethouseapt';
-$envotable9 = DB_PREFIX . 'intranethousetasks';
+$envotable   = DB_PREFIX . 'intranethouse';
+$envotable1  = DB_PREFIX . 'intranethousecontact';
+$envotable2  = DB_PREFIX . 'intranethouseserv';
+$envotable3  = DB_PREFIX . 'intranethouseimg';
+$envotable4  = DB_PREFIX . 'intranethousenotifications';
+$envotable5  = DB_PREFIX . 'intranethousenotificationug';
+$envotable6  = DB_PREFIX . 'intranethousedocu';
+$envotable7  = DB_PREFIX . 'intranethouseent';
+$envotable8  = DB_PREFIX . 'intranethouseapt';
+$envotable9  = DB_PREFIX . 'intranethousetasks';
 $envotable10 = DB_PREFIX . 'intranethousevideo';
+$envotable11 = DB_PREFIX . 'intranethouselist';
 
 // Parse links once if needed a lot of time
 $backtoblog = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -170,6 +172,15 @@ switch ($page1) {
 
             }
 
+            // EN: Get the data of house technic
+            // CZ: Získání dat o technickém stavu domu
+            $result = $envodb->query('SELECT housedesctech FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSE_TECH = $row['housedesctech'];
+            }
+
             // EN: Get the data of main contacts
             // CZ: Získání dat o hlavních kontaktech
             $result = $envodb->query('SELECT * FROM ' . $envotable1 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
@@ -239,8 +250,8 @@ switch ($page1) {
 
             // EN: Title and Description
             // CZ: Titulek a Popis
-            $SECTION_TITLE = 'Bytové domy';
-            $SECTION_DESC  = 'Detail bytového domu <strong>' . $envo_house_name . '</strong>';
+            $SECTION_TITLE = 'Domy ve správě';
+            $SECTION_DESC  = 'Detail bytového domu ve správě <strong>' . $envo_house_name . '</strong>';
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
@@ -277,8 +288,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = 'Bytové domy';
-          $SECTION_DESC  = 'Vyhledání bytových domů <strong>s přípravou DVB-T2</strong>';
+          $SECTION_TITLE = 'Domy ve správě';
+          $SECTION_DESC  = 'Vyhledání bytových domů ve správě <strong>s přípravou DVB-T2</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -302,8 +313,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = 'Bytové domy';
-          $SECTION_DESC  = 'Vyhledání bytových domů <strong>bez přípravy DVB-T2</strong>';
+          $SECTION_TITLE = 'Domy ve správě';
+          $SECTION_DESC  = 'Vyhledání bytových domů ve správě <strong>bez přípravy DVB-T2</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -338,12 +349,55 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = 'Bytové domy';
-        $SECTION_DESC  = 'Seznam bytových domů';
+        $SECTION_TITLE = 'Domy ve správě';
+        $SECTION_DESC  = 'Seznam bytových domů ve správě';
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
         $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
+
+    }
+
+    break;
+  case 'houselist':
+    // HOUSE LIST
+
+    switch ($page2) {
+      case 'xxx':
+
+        break;
+      default:
+
+        // ----------- ERROR: REDIRECT PAGE ------------
+        // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+        // EN: If not exist value in 'case', redirect page to 404
+        // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+        if (!empty($page2)) {
+          if ($page2 != 'xxx') {
+            envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+          }
+        }
+
+        // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+        // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
+
+        // EN: Getting the data about the Houses by usergroupid
+        // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
+        $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID);
+
+        // EN: Breadcrumbs activation
+        // CZ: Aktivace Breadcrumbs
+        $BREADCRUMBS = TRUE;
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = 'Seznam domů';
+        $SECTION_DESC  = 'Seznam bytových domů v Karlovarské kraji (nejsou ve správě)';
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist.php';
 
     }
 
@@ -501,7 +555,7 @@ switch ($page1) {
       // CZ: Pokud je uživatelská skupiny přihlášeného uživatele 'Administrator'
 
       /* =====================================================
-       *  HOUSE STATISTIC - STATISTIKA DOMŮ
+       *  HOUSE STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
        * ===================================================== */
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
@@ -539,7 +593,7 @@ switch ($page1) {
       // CZ: Ostatní uživatelské skupiny přihlášených uživatelů
 
       /* =====================================================
-       *  HOUSE STATISTIC - STATISTIKA DOMŮ
+       *  HOUSE STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
        * ===================================================== */
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
@@ -608,6 +662,31 @@ switch ($page1) {
 
     }
 
+    /* ================================================================
+     *  HOUSE STATISTIC - STATISTIKA SEZNAMU DOMŮ (nejsou ve správě)
+     * ================================================================ */
+    // EN: Getting count of all records in DB
+    // CZ: Získání počtu všech záznamů v DB
+    $result    = $envodb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable11);
+    $rowCtotal = $result->fetch_assoc();
+
+    // Count of all records by usergroup
+    $ENVO_COUNTS_LIST = $rowCtotal['houseCtotal'];
+    // Percentage - records by usergroup / all records
+    $ENVO_PERCENT_LIST = ($rowCtotal['houseCtotal'] * 100) . '%';
+
+    // ------------------------
+    // EN: Getting count of all records in DB
+    // CZ: Získání počtu všech záznamů v DB
+    $result    = $envodb->query('SELECT ic, COUNT(*) FROM ' . $envotable11 . ' GROUP BY ic');
+    // EN: Determine the number of rows in the result from DB
+    // CZ: Určení počtu řádků ve výsledku z DB
+    $rowCnt = $result->num_rows;
+
+    // Count of all records by usergroup
+    $ENVO_COUNTS_LIST1 = $rowCnt;
+
+    // ------------------------
     // EN: Breadcrumbs activation
     // CZ: Aktivace Breadcrumbs
     $BREADCRUMBS = FALSE;
