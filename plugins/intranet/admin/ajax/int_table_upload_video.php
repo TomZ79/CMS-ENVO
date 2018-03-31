@@ -24,41 +24,63 @@ header('Content-Type: application/json;charset=utf-8');
 $data_array = array();
 
 // Valid the valid file extensions
-$valid_extensions = array('wmv', 'mp4', 'mpg' , 'avi');
+$valid_videoextensions = array('wmv', 'mp4', 'mpg', 'avi');
 
 // Upload image, creating thumbnails and insert data to DB
-if (isset($_FILES['file'])) {
-  // Get the name of the file
-  $name = $_FILES['file']['name'];
-  // Get the temp name of the file
-  $tmp_name = $_FILES['file']['tmp_name'];
+if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
+  // Get the name of the videofile
+  $videoname = $_FILES['file']['name'];
+  // Get the name of the videofile thumbnail
+  $videothumbname = $_FILES['filethumb']['name'];
+  // Get the temp name of the videofile
+  $tmp_videoname = $_FILES['file']['tmp_name'];
+  // Get the temp name of the videofile thubnail
+  $tmp_videothumbname = $_FILES['filethumb']['tmp_name'];
   // Get the size of the file
   $size = $_FILES['file']['size'];
-
-  // Get uploaded file's extension and name
-  $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-  $filename = pathinfo($name, PATHINFO_FILENAME);
-  // Can upload same videso using rand function
-  $rand          = rand(1000, 1000000);
-  $name_original = strtolower($rand . '_' . $filename . '.' .  $ext);
   // Setting main video folder
   $mainfolder = $_REQUEST['folderpath'] . '/videos/';
+
+  // -------- VIDEO ----------
+  // Get uploaded file's extension and name
+  $extvideo      = strtolower(pathinfo($videoname, PATHINFO_EXTENSION));
+  $filevideoname = pathinfo($videoname, PATHINFO_FILENAME);
+  // Can upload same videos using rand function
+  $rand          = rand(1000, 1000000);
+  $videoname = strtolower($rand . '_' . $filevideoname . '.' . $extvideo);
   // Setting video path
-  $pathimg_original = $mainfolder . $name_original;
-  // Set Upload directory
-  $pathimgfull_original = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_original;
+  $pathvideo = $mainfolder . $videoname;
+  // Set Upload Video directory
+  $pathivideofull = APP_PATH . ENVO_FILES_DIRECTORY . $pathvideo;
 
+  // -------- IMAGE ----------
+  $extthumb      = strtolower(pathinfo($videothumbname, PATHINFO_EXTENSION));
+  $filevideothumbname = pathinfo($videoname, PATHINFO_FILENAME);
+  // Can upload same videos thumbnail using rand function
+  $rand          = rand(1000, 1000000);
+  $videothumbname = strtolower($rand . '_' . $filevideothumbname . '.' . $extthumb);
+  // Setting video thumbnail path
+  $pathvideothumb = $mainfolder . $videothumbname;
+  // Set Upload Video thumbnail directory
+  $pathivideothumbfull = APP_PATH . ENVO_FILES_DIRECTORY . $pathvideothumb;
+
+  // -------- UPLOAD ----------
   // Check's valid format
-  if (in_array($ext, $valid_extensions)) {
+  if (in_array($extvideo, $valid_videoextensions)) {
 
-    if (move_uploaded_file($tmp_name, $pathimgfull_original)) {
+    if (move_uploaded_file($tmp_videoname, $pathivideofull) && move_uploaded_file($tmp_videothumbname, $pathivideothumbfull)) {
       // UPLOAD VIDEOS TO SERVER
 
       // Insert info about image into DB
-      $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousevideo SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filename = "' . $name_original . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['videoCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW()');
+      $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousevideo SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filename = "' . $videoname . '", filenamethumb = "' . $videothumbname . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['videoCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW()');
 
       // Get last row ID from DB
       $rowid = $envodb->envo_last_id();
+
+      $data_array[] = array(
+        'tmp_name'       => $tmp_videoname,
+        'tmp_name_thumb' => $tmp_videothumbname
+      );
 
       // Data for JSON
       $envodata = array(
@@ -79,7 +101,7 @@ if (isset($_FILES['file'])) {
     // Data for JSON
     $envodata = array(
       'status'     => 'upload_error_E02',
-      'status_msg' => 'Please upload only valid images ' . implode(", ", $valid_extensions) . '.'
+      'status_msg' => 'Please upload only valid images ' . implode(", ", $valid_videoextensions) . '.'
     );
   }
 } else {

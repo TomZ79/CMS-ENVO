@@ -35,7 +35,7 @@ if ($page == 'intranet') {
   // Plugin Tabledit
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.min.js');
   // Plugin Fancybox
-  echo $Html->addScript('/assets/plugins/fancybox/3.1.25/js/jquery.fancybox.min.js');
+  echo $Html->addScript('/assets/plugins/fancybox/3.2.5/js/jquery.fancybox.min.js');
   // Plugin DialogFX
   echo $Html->addScript('assets/plugins/classie/classie.js');
   echo $Html->addScript('assets/plugins/codrops-dialogFx/dialogFx.min.js');

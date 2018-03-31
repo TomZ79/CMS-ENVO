@@ -447,6 +447,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `shortdescription` varchar(255) NULL DEFAULT NULL,
   `description` varchar(255) NULL DEFAULT NULL,
   `filename` varchar(255) NULL DEFAULT NULL,
+  `filenamethumb` varchar(255) NULL DEFAULT NULL,
   `mainfolder` varchar(255) NULL DEFAULT NULL,
   `category` varchar(255) NULL DEFAULT NULL,
   `subcategory` varchar(255) NULL DEFAULT NULL,

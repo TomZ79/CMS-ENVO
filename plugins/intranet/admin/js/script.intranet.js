@@ -1245,7 +1245,7 @@ $(function () {
     }
   });
 
-  $('.filters').on('click', '.filter', function (event) {
+  $('#imagefilters').on('click', '.filter', function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
@@ -1262,8 +1262,8 @@ $(function () {
   }));
 
   // change is-checked class on buttons
-  $('.filter').on('click', function () {
-    $('.filters').find('.active').removeClass('active');
+  $('#imagefilters .filter').on('click', function () {
+    $('#imagefilters').find('.active').removeClass('active');
     $(this).addClass('active');
   });
 
@@ -1286,6 +1286,82 @@ $(function () {
 
   $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
+  });
+
+});
+
+/* 00. ISOTOPE VIDEO GALLERY
+ ========================================================================*/
+$(function () {
+
+  /* GRID
+   -------------------------------------------------------------*/
+
+  /* Apply Isotope plugin - isotope.metafizzy.co
+   ========================================= */
+
+  // quick search regex
+  var qsRegexVideo;
+  var filtersVideo;
+
+  // init Isotope
+  var $videogallery = $('#videogallery_envo');
+  $videogallery.isotope({
+    itemSelector: 'div[class^="gallery-item-"]',
+    masonry: {
+      columnWidth: 280,
+      gutter: 10,         // The horizontal space between item elements
+      isFitWidth: true
+    },
+    filter: function () {
+      var $this = $(this);
+      var searchResultVideo = qsRegexVideo ? $this.text().match(qsRegexVideo) : true;
+      var buttonResultVideo = filtersVideo ? $this.is(filtersVideo) : true;
+      return searchResultVideo && buttonResultVideo;
+    }
+  });
+
+  $('#videofilters').on('click', '.filter', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    var $this = $(this);
+    // set filter for group
+    filtersVideo = $(this).attr('data-filter');
+    $videogallery.isotope();
+  });
+
+  // use value of search field to filter
+  var $quicksearch = $('#videoquicksearch').keyup(debounceVideo(function () {
+    qsRegexVideo = new RegExp($quicksearch.val(), 'gi');
+    $videogallery.isotope();
+  }));
+
+  // change is-checked class on buttons
+  $('#videofilters .filter').on('click', function () {
+    $('#videofilters').find('.active').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  // debounceVideo so filtering doesn't happen every millisecond
+  function debounceVideo(fn, threshold) {
+    var timeout;
+    return function debounceVideo() {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+
+      setTimeout(delayed, threshold || 100);
+    };
+  }
+
+  $('a[href="#cmsPage11"]').on('shown.bs.tab', function (e) {
+    $videogallery.isotope('layout');
   });
 
 });
@@ -1653,6 +1729,7 @@ $(function () {
 
     // Get Data - properties of file from file field
     var file_data = $('#fileinput_video').prop('files')[0];
+    var file_datathumb = $('#fileinput_videothumb').prop('files')[0];
     // Get Data - value of folder from file field
     var folder_path = $('input[name="folderpath"]').val();
     // Get Video category
@@ -1661,6 +1738,7 @@ $(function () {
     var form_data = new FormData();
     // Appending parameter named file with properties of file_field to form_data
     form_data.append('file', file_data);
+    form_data.append('filethumb', file_datathumb);
     // Adding extra parameters to form_data
     form_data.append('folderpath', folder_path);
     form_data.append('houseID', pageID);
@@ -2757,4 +2835,10 @@ $(function () {
 
   });
 
+});
+
+$(function () {
+  $('a.video').fancybox({
+    type: 'iframe'
+  });
 });

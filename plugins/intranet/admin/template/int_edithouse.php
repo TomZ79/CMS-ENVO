@@ -1602,7 +1602,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      echo $Html->addOption('', 'Bez kategorie');
+                      echo $Html->addOption('*', 'Bez kategorie');
                       echo $Html->addOption('service', 'Servisy');
                       echo $Html->addOption('reconstruction', 'Rekonstrukce');
                       echo $Html->addOption('installation', 'Instalace');
@@ -1676,7 +1676,7 @@ if ($errors) { ?>
                   echo $Html->addTag('h5', 'Kategorie', 'bold');
                   ?>
 
-                  <ul class="filters">
+                  <ul id="imagefilters">
                     <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
                     <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
                     <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
@@ -1800,47 +1800,55 @@ if ($errors) { ?>
                     </select>
                   </div>
                 </div>
-                <div class="col-sm-10 m-t-10">
+                <div class="col-sm-10">
                   <!-- Upload Files -->
                   <div class="form-group">
                     <div class="row">
-                      <div class="col-xs-12 col-sm-5 col-lg-5">
-                        <div id="upload_video" class="input-group" style="width: 100%;">
-                          <span class="input-group-btn" style="width: 1%;">
-                            <!-- File-clear button -->
-                            <button type="button" class="btn btn-default file-clear" style="display:none;">
-                              <span class="fa fa-remove"></span> Smazat
-                            </button>
-                            <!-- File-input button-->
-                            <div class="btn btn-default file-input">
-                              <span class="fa fa-folder-open"></span>
-                              <span class="file-input-title">Vybrat Soubor</span>
-                              <input type="file" name="input-file" id="fileinput_video" accept="video/wmv, video/x-m4v, video/avi"/>
-                            </div>
-                          </span>
-                          <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
-                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".wmv, .mp4, .mpg, .avi"><i class="glyphicon glyphicon-facetime-video"></i></span>
+                      <div class="col-xs-12 col-sm-4 col-lg-5 m-t-10">
+                        <div id="upload_video" class="input-group">
+                        <span class="input-group-addon" style="padding: 0;border: 0;display: block;">
+
+                          <!-- File-clear button -->
+                          <button type="button" class="btn btn-default file-clear" style="display:none; float: left;border-radius: 3px 0 0 3px;border-color: #ccc;margin-right: -1px;">
+                            <i class="fa fa-remove"></i> Smazat
+                          </button>
+
+                          <!-- File-input button-->
+                          <div class="btn btn-default file-input" style="border-radius: 3px 0 0 3px;">
+                            <i class="fa fa-folder-open"></i>
+                            <span class="file-input-title">Vybrat Soubor</span>
+                            <input type="file" name="input-file" id="fileinput_video" accept="video/mp4,video/x-m4v,video/*"/>
+                          </div>
+
+                        </span>
+                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".wmv, .mp4, .mpg, .avi"><i class="glyphicons glyphicons-facetime-video"></i></span>
                         </div>
+
                       </div>
-                      <div class="col-xs-12 col-sm-5 col-lg-5">
-                        <div id="upload_videothumb" class="input-group" style="width: 100%;">
-                          <span class="input-group-btn" style="width: 1%;">
+                      <div class="col-xs-12 col-sm-4 col-lg-5 m-t-10">
+                        <div id="upload_videothumb" class="input-group">
+                          <span class="input-group-addon" style="padding: 0;border: 0;display: block;">
+
                             <!-- File-clear button -->
-                            <button type="button" class="btn btn-default file-clear" style="display:none;">
-                              <span class="fa fa-remove"></span> Smazat
+                            <button type="button" class="btn btn-default file-clear" style="display:none; float: left;border-radius: 3px 0 0 3px;border-color: #ccc;margin-right: -1px;">
+                              <i class="fa fa-remove"></i> Smazat
                             </button>
+
                             <!-- File-input button-->
-                            <div class="btn btn-default file-input">
-                              <span class="fa fa-folder-open"></span>
+                            <div class="btn btn-default file-input" style="border-radius: 3px 0 0 3px;">
+                              <i class="fa fa-folder-open"></i>
                               <span class="file-input-title">Vybrat Soubor</span>
                               <input type="file" name="input-file" id="fileinput_videothumb" accept="image/*"/>
                             </div>
+
                           </span>
-                          <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
-                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif"><i class="glyphicon glyphicon-picture"></i></span>
+                            <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;" disabled>
+                            <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif"><i class="glyphicons glyphicons-file"></i></span>
                         </div>
+
                       </div>
-                      <div class="col-xs-12 col-sm-2 col-lg-2">
+                      <div class="col-xs-12 col-sm-4 col-lg-2 m-t-10">
                         <div class="form-group">
 
                           <?php
@@ -1870,6 +1878,7 @@ if ($errors) { ?>
                   </div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-sm-3 padding-20">
 
@@ -1878,7 +1887,7 @@ if ($errors) { ?>
                   echo $Html->addTag('h5', 'Kategorie', 'bold');
                   ?>
 
-                  <ul class="videofilters">
+                  <ul id="videofilters">
                     <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
                     <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
                     <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
@@ -1910,17 +1919,17 @@ if ($errors) { ?>
 
                         echo '<div id="' . $video["id"] . '" class="gallery-item-' . $video["id"] . ' ' . $video["category"] . '" data-width="1" data-height="1">';
 
-                        echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" alt=""></div>';
+                        echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filenamethumb"] . '" alt=""></div>';
 
 
                         echo '<div class="overlays">
-                                <div class="col-sm-12 full-height">
-                                  <div class="col-xs-5 full-height">
+                                <div class="row full-height">
+                                  <div class="col-5 full-height">
                                     <div class="text font-montserrat">' . strtoupper(pathinfo($video["filename"], PATHINFO_EXTENSION)) . '</div>
                                   </div>
-                                  <div class="col-xs-7 full-height">
+                                  <div class="col-7 full-height">
                                     <div class="text">
-                                      <a href="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" alt="">
+                                      <a class="video" href="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" alt="">
                                         <button class="btn btn-info btn-xs btn-mini fs-14" type="button">
                                          <i class="pg-video"></i>
                                         </button>

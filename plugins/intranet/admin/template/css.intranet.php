@@ -25,7 +25,7 @@ if ($page == 'intranet') {
   // Plugin DataTable
   echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
   // Plugin Fancybox
-  echo $Html->addStylesheet('/assets/plugins/fancybox/3.1.25/css/jquery.fancybox.min.css');
+  echo $Html->addStylesheet('/assets/plugins/fancybox/3.2.5/css/jquery.fancybox.min.css');
   // Plugin DialogFX
   echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog.min.css');
   echo $Html->addStylesheet('assets/plugins/codrops-dialogFx/dialog-sandra.min.css');

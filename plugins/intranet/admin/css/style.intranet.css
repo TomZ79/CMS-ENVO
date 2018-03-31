@@ -318,7 +318,7 @@ div[class^="gallery-item-"] .shortdesc {
   word-wrap: break-word;
 }
 
-ul.filters li a.active {
+a.filter.active {
   color: #F55753;
 }
 
