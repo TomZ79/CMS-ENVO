@@ -19,7 +19,7 @@
               <p><strong>Datum zadání: </strong><i><?=$n["created"]?></i></p>
               <p><?=envo_cut_text($n["content"], 400, '...')?></p>
               <div class="pull-right">
-                <a href="<?=$n["parseurl"]?>">Přečíst notifikaci <i class="fa fa-angle-double-right"></i></a>
+                <a href="<?=$n["parseurl"]?>">Přečíst notifikaci <i class="fas fa-angle-double-right"></i></a>
               </div>
             </div>
           </div>

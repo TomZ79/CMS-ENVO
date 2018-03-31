@@ -26,7 +26,7 @@
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Bootstrap
-  echo $Html->addStylesheet('/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
+  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Google Fonts
   echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // Animate
@@ -63,7 +63,7 @@
 
       </div>
       <div class="tiles grey p-t-20 p-b-20 no-margin text-black tab-content">
-        <form class="animated fadeIn validate" id="" name="" method="post" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
+        <form class="animated fadeIn validate" id="" name="" method="post" action="<?= $_SERVER['REQUEST_URI'] ?>" enctype="multipart/form-data">
           <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
             <div class="col-md-6 col-sm-6">
               <input class="form-control" id="loginusername" name="loginusername" placeholder="Uživatelské jméno" type="name" required>
@@ -90,7 +90,7 @@
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4');
 echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js');
-echo $Html->addScript('/assets/plugins/bootstrapv3/js/bootstrap.min.js');
+echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js?=v3.3.7');
 ?>
 
 <!-- END CORE JS DEPENDECENCIES-->

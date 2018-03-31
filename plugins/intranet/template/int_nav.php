@@ -16,6 +16,11 @@
     <ul class="sub-menu">
       <li>
         <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'house', '', '', '')?>">
+          <span>Domy ve správě</span>
+        </a>
+      </li>
+      <li>
+        <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'houselist', '', '', '')?>">
           <span>Seznam domů</span>
         </a>
       </li>

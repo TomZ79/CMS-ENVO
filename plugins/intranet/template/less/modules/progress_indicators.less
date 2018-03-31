@@ -1,0 +1,77 @@
+/*------------------------------------------------------------------
+[28. Progress Indicators]
+*/
+
+/* Circular Progress : indeterminate
+------------------------------------
+*/
+.progress-circle-indeterminate {
+	background: url('@{base-img-url}/progress/progress-circle-master.svg') no-repeat top left;
+	width: 50px;
+	height: 50px;
+	background-size: 100% auto;
+	margin: 0 auto;
+	&.progress-circle-warning {
+		background-image: url('@{base-img-url}/progress/progress-circle-warning.svg');
+	}
+	&.progress-circle-danger {
+		background-image: url('@{base-img-url}/progress/progress-circle-danger.svg');
+	}
+	&.progress-circle-info {
+		background-image: url('@{base-img-url}/progress/progress-circle-info.svg');
+	}
+	&.progress-circle-primary {
+		background-image: url('@{base-img-url}/progress/progress-circle-primary.svg');
+	}
+	&.progress-circle-success {
+		background-image: url('@{base-img-url}/progress/progress-circle-success.svg');
+	}
+	&.progress-circle-complete {
+		background-image: url('@{base-img-url}/progress/progress-circle-complete.svg');
+	}
+}
+
+/* Circular Progress
+------------------------------------
+*/
+.progress-circle {
+	@size: 45px;
+	@border: 3px;
+	display: block;
+	height: @size;
+	margin: 0 auto;
+	position: relative;
+	width: @size;
+	-webkit-backface-visibility: hidden;
+	&.progress-circle-warning {
+		.pie .half-circle {
+			border-color: @color-warning;
+		}
+	}
+	&.progress-circle-danger {
+		.pie .half-circle {
+			border-color: @color-danger;
+		}
+	}
+	&.progress-circle-info {
+		.pie .half-circle {
+			border-color: @color-info;
+		}
+	}
+	&.progress-circle-primary {
+		.pie .half-circle {
+			border-color: @color-primary;
+		}
+	}
+	&.progress-circle-success {
+		.pie .half-circle {
+			border-color: @color-success;
+		}
+	}
+	&.progress-circle-thick {
+		.pie .half-circle, .shadow {
+			border-width: 5px;
+		}
+	}
+	
+}

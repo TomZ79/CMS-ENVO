@@ -4,17 +4,35 @@
 
     <div class="row 2col">
       <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-        <div class="tiles blue added-margin">
+        <div class="tiles purple added-margin">
           <div class="tiles-body">
-            <div class="tiles-title"> BYTOVÉ DOMY V DATABÁZI</div>
+            <div class="tiles-title"> BYTOVÉ DOMY V SEZNAMU</div>
             <div class="heading">
-              <span class="animate-number" data-value="<?=$ENVO_COUNTS?>" data-animation-duration="1200">0</span>
+              <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet domů" >0</span>
+              <span>/</span>
+              <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST1 ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet SVJ">0</span>
             </div>
             <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?=$ENVO_PERCENT?>"></div>
+              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_PERCENT_LIST ?>"></div>
             </div>
             <div class="description">
-              <span class="text-white mini-description ">Počet domů <span class="blend">uložených v databázi</span></span>
+              <span class="text-white mini-description ">Počet domů <span class="blend">uložených v databázi</span> <br>NEJSOU ve správě</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+        <div class="tiles blue added-margin">
+          <div class="tiles-body">
+            <div class="tiles-title"> BYTOVÉ DOMY VE SPRÁVĚ</div>
+            <div class="heading">
+              <span class="animate-number" data-value="<?= $ENVO_COUNTS ?>" data-animation-duration="1200">0</span>
+            </div>
+            <div class="progress transparent progress-small no-radius">
+              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_PERCENT ?>"></div>
+            </div>
+            <div class="description">
+              <span class="text-white mini-description ">Počet domů <span class="blend">ve správě</span> <br>JSOU ve správě</span>
             </div>
           </div>
         </div>
@@ -24,13 +42,13 @@
           <div class="tiles-body">
             <div class="tiles-title">AKTIVNÍ ÚKOLY</div>
             <div class="heading">
-              <span class="animate-number" data-value="<?=$ENVO_TASK_COUNTS?>" data-animation-duration="1200">0</span>
+              <span class="animate-number" data-value="<?= $ENVO_TASK_COUNTS ?>" data-animation-duration="1200">0</span>
             </div>
             <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?=$ENVO_TASK_PERCENT?>"></div>
+              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_TASK_PERCENT ?>"></div>
             </div>
             <div class="description">
-              <span class="text-white mini-description ">Počet aktivních <span class="blend">úkolů</span></span>
+              <span class="text-white mini-description ">Počet aktivních <span class="blend">úkolů</span> <br>Úkoly v termínu</span>
             </div>
           </div>
         </div>
@@ -40,13 +58,13 @@
           <div class="tiles-body">
             <div class="tiles-title">OPOŽDĚNÉ ÚKOLY</div>
             <div class="heading">
-              <span class="animate-number" data-value="<?=$ENVO_TASK_DELAY_COUNTS?>" data-animation-duration="1200">0</span>
+              <span class="animate-number" data-value="<?= $ENVO_TASK_DELAY_COUNTS ?>" data-animation-duration="1200">0</span>
             </div>
             <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?=$ENVO_TASK_DELAY_PERCENT?>"></div>
+              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_TASK_DELAY_PERCENT ?>"></div>
             </div>
             <div class="description">
-              <span class="text-white mini-description ">Počet opožděných <span class="blend">úkolů</span></span>
+              <span class="text-white mini-description ">Počet opožděných <span class="blend">úkolů</span> <br>Úkoly po termínu</span>
             </div>
           </div>
         </div>
@@ -57,7 +75,7 @@
       <div class="col-sm-12">
         <div class="grid simple transparent-color" style="position: static; zoom: 1;">
           <div class="grid-title">
-            <h4><i class="fa fa-tasks"></i> Seznam <strong>OPOŽDĚNÝCH</strong> úkolů</h4>
+            <h4><i class="fas fa-tasks"></i> Seznam <strong>OPOŽDĚNÝCH</strong> úkolů</h4>
             <div class="tools">
               <a href="javascript:;" class="collapse"></a>
               <a href="javascript:;" class="remove"></a>
@@ -72,9 +90,9 @@
                   <?php
                   // Loop Array at second item
                   foreach (array_slice($ENVO_HOUSE_TASK_DELAY, 1) as $htaskdelay) { ?>
-                    <div class="task_<?=$htaskdelay["id"]?>">
+                    <div class="task_<?= $htaskdelay["id"] ?>">
                       <div class="taskheader">
-                        <span>Task ID <?=$htaskdelay["id"]?></span>
+                        <span>Task ID <?= $htaskdelay["id"] ?></span>
                         <span class="pull-right collapsetask">+</span>
                       </div>
                       <div class="taskinfo">
@@ -84,7 +102,7 @@
                               <strong>Bytový dům: </strong>
                             </div>
                             <div class="col-sm-10">
-                              <a href="<?=$htaskdelay["houseparseurl"]?>" class="all-caps"><?=$htaskdelay["housename"]?></a>
+                              <a href="<?= $htaskdelay["houseparseurl"] ?>" class="all-caps"><?= $htaskdelay["housename"] ?></a>
                             </div>
                           </div>
                           <div class="row">
@@ -99,11 +117,11 @@
                                     <td class="col-sm-2"><strong>Datum Připomenutí: </strong></td>
                                   </tr>
                                   <tr>
-                                    <td><?=$htaskdelay["title"]?></td>
-                                    <td><?=$htaskdelay["priority"]?></td>
-                                    <td><?=$htaskdelay["status"]?></td>
-                                    <td><?=$htaskdelay["time"]?></td>
-                                    <td><?=$htaskdelay["reminder"]?></td>
+                                    <td><?= $htaskdelay["title"] ?></td>
+                                    <td><?= $htaskdelay["priority"] ?></td>
+                                    <td><?= $htaskdelay["status"] ?></td>
+                                    <td><?= $htaskdelay["time"] ?></td>
+                                    <td><?= $htaskdelay["reminder"] ?></td>
                                   </tr>
                                 </table>
                               </div>
@@ -114,7 +132,7 @@
                       <div class="taskcontent">
                         <p><strong>Popis Úkolu:</strong></p>
                         <div class="taskdescription">
-                          <?=$htaskdelay["description"]?>
+                          <?= $htaskdelay["description"] ?>
                         </div>
                       </div>
                     </div>
@@ -144,7 +162,7 @@
       <div class="col-sm-12">
         <div class="grid simple transparent-color" style="position: static; zoom: 1;">
           <div class="grid-title">
-            <h4><i class="fa fa-tasks"></i> Seznam <strong>AKTIVNÍCH</strong> úkolů</h4>
+            <h4><i class="fas fa-tasks"></i> Seznam <strong>AKTIVNÍCH</strong> úkolů</h4>
             <div class="tools">
               <a href="javascript:;" class="collapse"></a>
               <a href="javascript:;" class="remove"></a>
@@ -159,9 +177,9 @@
                   <?php
                   // Loop Array at second item
                   foreach (array_slice($ENVO_HOUSE_TASK, 1) as $htask) { ?>
-                    <div class="task_<?=$htask["id"]?>">
+                    <div class="task_<?= $htask["id"] ?>">
                       <div class="taskheader">
-                        <span>Task ID <?=$htask["id"]?></span>
+                        <span>Task ID <?= $htask["id"] ?></span>
                         <span class="pull-right collapsetask">+</span>
                       </div>
                       <div class="taskinfo">
@@ -171,7 +189,7 @@
                               <strong>Bytový dům: </strong>
                             </div>
                             <div class="col-sm-10">
-                              <a href="<?=$htask["houseparseurl"]?>" class="all-caps"><?=$htask["housename"]?></a>
+                              <a href="<?= $htask["houseparseurl"] ?>" class="all-caps"><?= $htask["housename"] ?></a>
                             </div>
                           </div>
                           <div class="row">
@@ -186,11 +204,11 @@
                                     <td class="col-sm-2"><strong>Datum Připomenutí: </strong></td>
                                   </tr>
                                   <tr>
-                                    <td><?=$htask["title"]?></td>
-                                    <td><?=$htask["priority"]?></td>
-                                    <td><?=$htask["status"]?></td>
-                                    <td><?=$htask["time"]?></td>
-                                    <td><?=$htask["reminder"]?></td>
+                                    <td><?= $htask["title"] ?></td>
+                                    <td><?= $htask["priority"] ?></td>
+                                    <td><?= $htask["status"] ?></td>
+                                    <td><?= $htask["time"] ?></td>
+                                    <td><?= $htask["reminder"] ?></td>
                                   </tr>
                                 </table>
                               </div>
@@ -201,7 +219,7 @@
                       <div class="taskcontent">
                         <p><strong>Popis Úkolu:</strong></p>
                         <div class="taskdescription">
-                          <?=$htask["description"]?>
+                          <?= $htask["description"] ?>
                         </div>
                       </div>
                     </div>
@@ -227,7 +245,7 @@
       </div>
     </div>
 
-    <?php if ($ENVO_MODULES) { ?>
+    <?php if ($ENVO_MODULES_ACCESS) { ?>
 
 
     <?php } ?>

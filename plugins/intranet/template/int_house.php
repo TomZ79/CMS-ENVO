@@ -60,7 +60,7 @@
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                   // EDIT
-                  echo $Html->addAnchor($h["parseurl"], '<i class="fa fa-eye"></i>', '', 'btn btn-info btn-mini', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tlint["int_frontend_icons"]["intficon"]));
+                  echo $Html->addAnchor($h["parseurl"], '<i class="fas fa-eye"></i>', '', 'btn btn-info btn-mini', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tlint["int_frontend_icons"]["intficon"]));
                   ?>
 
                 </td>

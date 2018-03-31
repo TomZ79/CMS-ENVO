@@ -32,14 +32,14 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  // Google Fonts
+  echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // Bootstrap
   echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Fontawesome icon
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0');
+  echo $Html->addStylesheet('/assets/plugins/font-awesome/5.0.9/web-fonts-with-css/css/fontawesome-all.min.css?=v5.0.9');
   // Scrollbar
   echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.css');
-  // Google Fonts
-  echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // DataTables (Stylesheet only for pages which contains 'table')
   if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2')) echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
   // Icon technology fonts

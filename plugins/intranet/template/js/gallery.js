@@ -146,7 +146,7 @@ $(function () {
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
- * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
+ * <button class="dialog-open-info" type="button" data-dialog="itemDetails"></button>
  *
  *  <div id="itemDetails" class="dialog item-details">
  *    <div class="dialog__overlay"></div>
@@ -165,7 +165,7 @@ $(function () {
 
 $(function () {
 
-  $('.dialog-open').on('click', function(){
+  $('.dialog-open-info').on('click', function(){
     // Get Data-Dialog
     thisDataDialog = $(this).attr('data-dialog');
     // Get ID of image
