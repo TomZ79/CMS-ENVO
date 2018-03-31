@@ -2711,6 +2711,9 @@ $(function () {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
+    var altura = $(window).height() - 155; //value corresponding to the modal heading + footer
+    $('#ENVOModalPlugin .modal-body').css({"height":altura,"overflow-y":"auto"});
+
     $('#ENVOModalPlugin').modal('show');
   });
 
