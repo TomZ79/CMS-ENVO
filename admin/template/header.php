@@ -28,7 +28,7 @@ echo $Html->addDoctype('html5');
     <?php
     // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
     // Pace preloader
-    echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.min.css');
+    echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-flash.min.css');
     // Bootstrap
     echo $Html->addStylesheet('../assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
     // Font Awesomemin

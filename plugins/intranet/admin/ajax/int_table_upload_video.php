@@ -46,7 +46,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
   $extvideo      = strtolower(pathinfo($videoname, PATHINFO_EXTENSION));
   $filevideoname = pathinfo($videoname, PATHINFO_FILENAME);
   // Can upload same videos using rand function
-  $rand          = rand(1000, 1000000);
+  $rand      = rand(1000, 1000000);
   $videoname = strtolower($rand . '_' . $filevideoname . '.' . $extvideo);
   // Setting video path
   $pathvideo = $mainfolder . $videoname;
@@ -54,10 +54,10 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
   $pathivideofull = APP_PATH . ENVO_FILES_DIRECTORY . $pathvideo;
 
   // -------- IMAGE ----------
-  $extthumb      = strtolower(pathinfo($videothumbname, PATHINFO_EXTENSION));
+  $extthumb           = strtolower(pathinfo($videothumbname, PATHINFO_EXTENSION));
   $filevideothumbname = pathinfo($videoname, PATHINFO_FILENAME);
   // Can upload same videos thumbnail using rand function
-  $rand          = rand(1000, 1000000);
+  $rand           = rand(1000, 1000000);
   $videothumbname = strtolower($rand . '_' . $filevideothumbname . '.' . $extthumb);
   // Setting video thumbnail path
   $pathvideothumb = $mainfolder . $videothumbname;
@@ -77,9 +77,21 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
       // Get last row ID from DB
       $rowid = $envodb->envo_last_id();
 
+      // Getting info uploaded image from DB
+      $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $rowid . '"');
+      $row1    = $result1->fetch_assoc();
+
       $data_array[] = array(
-        'tmp_name'       => $tmp_videoname,
-        'tmp_name_thumb' => $tmp_videothumbname
+        'id'               => $row1["id"],
+        'shortdescription' => $row1["shortdescription"],
+        'description'      => $row1["description"],
+        'filename'         => $row1["filename"],
+        'filenamethumb'    => $row1["filenamethumb"],
+        'filepath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filename"],
+        'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+        'category'         => $row1["category"],
+        'timedefault'      => $row1["timedefault"],
+        'timeedit'         => $row1["timeedit"],
       );
 
       // Data for JSON

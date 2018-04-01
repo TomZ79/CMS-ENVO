@@ -1229,16 +1229,20 @@ $('.cms-help').popover({
 
 /* 00. Counter trigger
  ======================================================================== */
-if ($('.counter').length) {
-  $('.counter').each(function (index, val) {
-    var $this = $(this);
-    if ($(window).width() > 1024) {
-      $this.html(0);
-      increment($this);
-    }
-  });
+// Run script after Pace is done
+Pace.on('done', function() {
+  if ($('.counter').length) {
+    $('.counter').each(function (index, val) {
+      var $this = $(this);
+      if ($(window).width() > 1024) {
+        $this.html(0);
+        increment($this);
+      }
+    });
 
-}
+  }
+});
+
 
 /* Counter Increment */
 function increment(obj) {

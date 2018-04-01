@@ -33,6 +33,7 @@ if ($page == '') {
   // Highcharts
   $str = <<<EOT
 <script>
+
 // Run script after Pace is done
 Pace.on('done', function() {
 

@@ -6,15 +6,14 @@
       <!-- Small box -->
       <div class="dashboard-box bg-success">
         <div class="inner">
-          <h3><span class="counter" data-counterend="<?=$totalhits?>"><?=$totalhits?></span></h3>
+          <h3><span class="counter" data-counterend="<?=$totalhits?>">0</span></h3>
           <p><?=$tl["dashb_box_stats"]["dbbs1"]?></p>
         </div>
         <div class="icon">
           <i class="fa fa-bar-chart"></i>
         </div>
         <a href="index.php?p=page" class="dashboard-box-footer">
-          <?=$tl["dashb_box_stats"]["dbbs"]?>
-          <i class="fa fa-arrow-circle-right"></i>
+          <?=$tl["dashb_box_stats"]["dbbs"]?> <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>
@@ -23,7 +22,7 @@
       <div class="dashboard-box bg-complete-dark">
         <div class="inner">
           <h3>
-            <span class="counter" data-counterend="<?=$ENVO_COUNTS["searchClog"]?>"><?=$ENVO_COUNTS["searchClog"]?></span>
+            <span class="counter" data-counterend="<?=$ENVO_COUNTS["searchClog"]?>">0</span>
           </h3>
           <p><?=$tl["dashb_box_stats"]["dbbs2"]?></p>
         </div>
@@ -31,8 +30,8 @@
           <i class="fa fa-search"></i>
         </div>
         <a href="index.php?p=searchlog" class="dashboard-box-footer">
-          <?=$tl["dashb_box_stats"]["dbbs"]?>
-          <i class="fa fa-arrow-circle-right"></i></a>
+          <?=$tl["dashb_box_stats"]["dbbs"]?> <i class="fa fa-arrow-circle-right"></i>
+        </a>
       </div>
     </div>
     <div class="col-lg-3 col-12">
@@ -40,7 +39,7 @@
       <div class="dashboard-box bg-warning">
         <div class="inner">
           <h3>
-            <span class="counter" data-counterend="<?=$ENVO_COUNTS["pluginCtotal"]?>"><?=$ENVO_COUNTS["pluginCtotal"]?></span>
+            <span class="counter" data-counterend="<?=$ENVO_COUNTS["pluginCtotal"]?>">0</span>
           </h3>
           <p><?=$tl["dashb_box_stats"]["dbbs3"]?></p>
         </div>
@@ -48,8 +47,8 @@
           <i class="fa fa-plug"></i>
         </div>
         <a href="index.php?p=plugins" class="dashboard-box-footer">
-          <?=$tl["dashb_box_stats"]["dbbs"]?>
-          <i class="fa fa-arrow-circle-right"></i></a>
+          <?=$tl["dashb_box_stats"]["dbbs"]?> <i class="fa fa-arrow-circle-right"></i>
+        </a>
       </div>
     </div>
     <div class="col-lg-3 col-12">
@@ -58,9 +57,7 @@
         <div class="dashboard-box bg-danger">
           <div class="inner">
             <h3>
-              <span class="counter" data-counterend="<?=$ENVO_COUNTS["tagsCtotal"]?>">
-                <?=$ENVO_COUNTS["tagsCtotal"]?>
-              </span>
+              <span class="counter" data-counterend="<?=$ENVO_COUNTS["tagsCtotal"]?>">0</span>
             </h3>
             <p><?=$tl["dashb_box_stats"]["dbbs4"]?></p>
           </div>
@@ -68,22 +65,23 @@
             <i class="fa fa-tags"></i>
           </div>
           <a href="index.php?p=tags" class="dashboard-box-footer">
-            <?=$tl["dashb_box_stats"]["dbbs"]?>
-            <i class="fa fa-arrow-circle-right"></i></a>
+            <?=$tl["dashb_box_stats"]["dbbs"]?> <i class="fa fa-arrow-circle-right"></i>
+          </a>
         </div>
       <?php } else { ?>
         <div class="dashboard-box bg-info">
           <div class="inner">
             <h3>
-              <span class="counter" data-counterend="<?=$ENVO_COUNTS["hookCtotal"]?>"><?=$ENVO_COUNTS["hookCtotal"]?></span>
+              <span class="counter" data-counterend="<?=$ENVO_COUNTS["hookCtotal"]?>">0</span>
             </h3>
             <p><?=$tl["dashb_box_stats"]["dbbs5"]?></p>
           </div>
           <div class="icon">
             <i class="fa fa-flash"></i>
           </div>
-          <a href="index.php?p=plugins&amp;sp=hooks" class="dashboard-box-footer"><?=$tl["dashb_box_stats"]["dbbs"]?>
-            <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="index.php?p=plugins&amp;sp=hooks" class="dashboard-box-footer">
+            <?=$tl["dashb_box_stats"]["dbbs"]?> <i class="fa fa-arrow-circle-right"></i>
+          </a>
         </div>
       <?php } ?>
     </div>

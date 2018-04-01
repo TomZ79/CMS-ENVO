@@ -25,49 +25,50 @@ $(function () {
    ========================================= */
 
   // Quick search regex
-  var qsRegex;
-  var filters;
+  var qsRegexImg;
+  var filtersImg;
 
   // Init Isotope
-  var $gallery = $('#gallery');
-  $gallery.isotope({
+  var $imggallery = $('#imggallery');
+  $imggallery.isotope({
     itemSelector: 'div[class^="gallery-item-"]',
     masonry: {
-      columnWidth: $gallery.width()/3,
+      columnWidth: $imggallery.width()/3,
       gutter: 15,         // The horizontal space between item elements
       fitWidth: true
     },
     filter: function () {
       var $this = $(this);
-      var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
-      var buttonResult = filters ? $this.is(filters) : true;
-      return searchResult && buttonResult;
+      var searchResultImg = qsRegexImg ? $this.text().match(qsRegexImg) : true;
+      var buttonResultImg = filtersImg ? $this.is(filtersImg) : true;
+      return searchResultImg && buttonResultImg;
     }
 
   });
 
-  $('.filters').on('click', '.filter', function (event) {
+  $('#imgfilters').on('click', '.filter', function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     var $this = $(this);
     // set filter for group
-    filters = $(this).attr('data-filter');
-    $gallery.isotope();
+    filtersImg = $(this).attr('data-filter');
+    $imggallery.isotope();
   });
 
   // Use value of search field to filter
   var $quicksearch = $('#quicksearch').keyup(debounce(function () {
-    qsRegex = new RegExp($quicksearch.val(), 'gi');
-    $gallery.isotope();
+    qsRegexImg = new RegExp($quicksearch.val(), 'gi');
+    $imggallery.isotope();
   }));
 
 
   // Change is-checked class on buttons
-  $('.filter').on('click', function () {
-    $('.filters').find('.active').removeClass('active');
+  $('#imgfilters .filter').on('click', function () {
+    $('#imgfilters').find('.active').removeClass('active');
     $(this).addClass('active');
   });
+
 
 
   // Debounce so filtering doesn't happen every millisecond
@@ -87,7 +88,87 @@ $(function () {
   }
 
   $('a[href="#tabs8"]').on('shown.bs.tab', function (e) {
-    $gallery.isotope('layout');
+    $imggallery.isotope('layout');
+  });
+
+});
+
+/** 00. ISOTOPE VIDEO GALLERY
+ * @require: Isotope Plugin
+ ========================================================================*/
+$(function () {
+
+  /* GRID
+   -------------------------------------------------------------*/
+
+  /* Apply Isotope plugin - isotope.metafizzy.co
+   ========================================= */
+
+  // Quick search regex
+  var qsRegexVideo;
+  var filtersVideo;
+
+  // Init Isotope
+  var $videogallery = $('#videogallery');
+  $videogallery.isotope({
+    itemSelector: 'div[class^="gallery-item-"]',
+    masonry: {
+      columnWidth: $videogallery.width()/3,
+      gutter: 15,         // The horizontal space between item elements
+      fitWidth: true
+    },
+    filter: function () {
+      var $this = $(this);
+      var searchResultVideo = qsRegexVideo ? $this.text().match(qsRegexVideo) : true;
+      var buttonResultVideo = filtersVideo ? $this.is(filtersVideo) : true;
+      return searchResultVideo && buttonResultVideo;
+    }
+
+  });
+
+  $('#videofilters').on('click', '.filter', function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    var $this = $(this);
+    // set filter for group
+    filtersVideo = $(this).attr('data-filter');
+    $videogallery.isotope();
+  });
+
+  // Use value of search field to filter
+  var $quicksearch = $('#quicksearch').keyup(debounce(function () {
+    qsRegexVideo = new RegExp($quicksearch.val(), 'gi');
+    $videogallery.isotope();
+  }));
+
+
+  // Change is-checked class on buttons
+  $('#videofilters .filter').on('click', function () {
+    $('#videofilters').find('.active').removeClass('active');
+    $(this).addClass('active');
+  });
+
+
+
+  // Debounce so filtering doesn't happen every millisecond
+  function debounce(fn, threshold) {
+    var timeout;
+    return function debounced() {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+
+      setTimeout(delayed, threshold || 100);
+    };
+  }
+
+  $('a[href="#tabs9"]').on('shown.bs.tab', function (e) {
+    $videogallery.isotope('layout');
   });
 
 });

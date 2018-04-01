@@ -1424,11 +1424,11 @@ if ($errors) { ?>
                       // Records - active
 
                       echo '<tr>';
-                      echo '<td>' .  $s["id"] . '</td>';
-                      echo '<td>' .  $s["description"] . '</td>';
-                      echo '<td>' .  $s["timedefault"] . '</td>';
-                      echo '<td>' .  $s["timestart"] . '</td>';
-                      echo '<td>' .  $s["timeend"] . '</td>';
+                      echo '<td>' . $s["id"] . '</td>';
+                      echo '<td>' . $s["description"] . '</td>';
+                      echo '<td>' . $s["timedefault"] . '</td>';
+                      echo '<td>' . $s["timestart"] . '</td>';
+                      echo '<td>' . $s["timeend"] . '</td>';
                       echo '</tr>';
 
                     } else {
@@ -1436,11 +1436,11 @@ if ($errors) { ?>
                       // Records - deleted
 
                       echo '<tr class="strikeout noedit">';
-                      echo '<td>' .  $s["id"] . '</td>';
-                      echo '<td>' .  $s["description"] . '</td>';
-                      echo '<td>' .  $s["timedefault"] . '</td>';
-                      echo '<td>' .  $s["timestart"] . '</td>';
-                      echo '<td>' .  $s["timeend"] . '</td>';
+                      echo '<td>' . $s["id"] . '</td>';
+                      echo '<td>' . $s["description"] . '</td>';
+                      echo '<td>' . $s["timedefault"] . '</td>';
+                      echo '<td>' . $s["timestart"] . '</td>';
+                      echo '<td>' . $s["timeend"] . '</td>';
                       echo '</tr>';
 
                     }
@@ -1471,11 +1471,14 @@ if ($errors) { ?>
 
             </div>
             <div class="box-body">
-              <div class="row">
+              <div class="row" style="padding: 12px 12px 0 12px; background-color: #FEF6DD;">
                 <div class="col-sm-6">
 
                 </div>
                 <div class="col-sm-6">
+                  <div class="bold">
+                    Výběr souboru
+                  </div>
                   <!-- Upload Files -->
                   <div class="form-group">
                     <div class="row">
@@ -1496,8 +1499,8 @@ if ($errors) { ?>
                           </div>
 
                         </span>
-                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;" disabled>
-                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai"><i class="glyphicons glyphicons-file"></i></span>
+                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-file"></i></span>
                         </div>
                       </div>
                       <div class="col-xs-12 col-sm-3 col-lg-3 m-t-10">
@@ -1528,6 +1531,11 @@ if ($errors) { ?>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <hr>
                 </div>
               </div>
               <div class="row">
@@ -1592,7 +1600,7 @@ if ($errors) { ?>
 
             </div>
             <div class="box-body">
-              <div class="row">
+              <div class="row" style="padding: 12px 12px 0 12px; background-color: #FEF6DD;">
                 <div class="col-sm-4 m-t-10">
 
                 </div>
@@ -1639,8 +1647,8 @@ if ($errors) { ?>
                           </div>
 
                         </span>
-                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;" disabled>
-                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif"><i class="glyphicons glyphicons-file"></i></span>
+                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-file"></i></span>
                         </div>
 
                       </div>
@@ -1737,7 +1745,7 @@ if ($errors) { ?>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails">
                                         <i class="fa fa-edit"></i>
                                       </button>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?">
                                         <i class="fa fa-trash"></i>
                                       </button>
                                     </div>
@@ -1794,7 +1802,7 @@ if ($errors) { ?>
 
             </div>
             <div class="box-body">
-              <div class="row">
+              <div class="row" style="padding: 12px 12px 0 12px; background-color: #FEF6DD;">
                 <div class="col-sm-2">
                   <div class="bold">
                     Výběr kategorie
@@ -1838,8 +1846,8 @@ if ($errors) { ?>
                           </div>
 
                         </span>
-                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;" disabled>
-                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".wmv, .mp4, .mpg, .avi"><i class="glyphicons glyphicons-facetime-video"></i></span>
+                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".wmv, .mp4, .mpg, .avi" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-facetime-video"></i></span>
                         </div>
 
                       </div>
@@ -1860,8 +1868,8 @@ if ($errors) { ?>
                             </div>
 
                           </span>
-                            <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;" disabled>
-                            <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif"><i class="glyphicons glyphicons-file"></i></span>
+                          <input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
+                          <span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-file"></i></span>
                         </div>
 
                       </div>
@@ -1958,7 +1966,7 @@ if ($errors) { ?>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="videoitemDetails">
                                         <i class="fa fa-edit"></i>
                                       </button>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $video["id"] . '">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' . $video["id"] . '" data-confirm-delvideo="Jste si jistý, že chcete odstranit video?">
                                         <i class="fa fa-trash"></i>
                                       </button>
                                     </div>

@@ -191,11 +191,11 @@ function openDialog(event) {
   dlg = new DialogFx(dialogEl, {
     onOpenDialog: function (instance) {
       // Open DialogFX
-      console.log('OPEN');
+      console.log('Open dialog - Image: OPEN');
     },
     onCloseDialog: function (instance) {
       // Close DialogFX
-      console.log('CLOSE');
+      console.log('Open dialog - Image: CLOSE');
     }
   });
   dlg.toggle(dlg);
@@ -285,11 +285,11 @@ function openDialogEditTask(event) {
   dlg = new DialogFx(dialogEl, {
     onOpenDialog: function (instance) {
       // Open DialogFX
-      console.log('OPEN');
+      console.log('Open dialog - Edit Task: OPEN');
     },
     onCloseDialog: function (instance) {
       // Close DialogFX
-      console.log('CLOSE');
+      console.log('Open dialog - Edit Task: CLOSE');
     }
   });
   dlg.toggle(dlg);
@@ -305,12 +305,9 @@ function openDialogEditTask(event) {
  * <button class="delete-img" type="button" data-id="id_of_image_in_DB"></button>
  *
  */
-function deleteImg(event) {
+function deleteImg(imageID) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
-
-  // Get ID of image
-  var imageID = $(this).attr('data-id');
 
   // Ajax
   $.ajax({
@@ -364,6 +361,144 @@ function deleteImg(event) {
     },
     error: function () {
 
+    }
+  });
+
+  return false;
+}
+
+function confirmdeleteImg(event) {
+// Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of Task
+  var imageID = $(this).attr('data-id');
+
+  // Show Message
+  bootbox.setLocale(envoWeb.envo_lang);
+  bootbox.confirm({
+    title: "Potvrzení o odstranění!",
+    message: $(this).attr('data-confirm-delimg'),
+    className: "bootbox-confirm-del",
+    animate: true,
+    buttons: {
+      confirm: {
+        className: 'btn-success'
+      },
+      cancel: {
+        className: 'btn-danger'
+      }
+    },
+    callback: function (result) {
+      if (result == true) {
+        console.log('Delete Image - ID: ' + imageID);
+        deleteImg(imageID);
+      }
+      console.log('Bootbox confirm dialog - Image: ' + result);
+    }
+  });
+
+  return false;
+}
+
+/**
+ * Jquery Function - Delete Video from DB
+ * @example
+ * Attribute 'data-id' in button => ID is id of image in DB
+ * -----------------
+ * <button class="delete-video" type="button" data-id="id_of_video_in_DB"></button>
+ *
+ */
+function deleteVideo(videoID) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_delete_video.php",
+    type: "POST",
+    datatype: 'json',
+    data: {
+      videoID: videoID
+    },
+    success: function (data) {
+
+      if (data.status == 'delete_success') {
+        // IF DATA SUCCESS
+
+        // Removes elements from the Isotope instance and DOM
+        $('#videogallery_envo').isotope('remove', $('#' + data.data[0].id))
+        // Layout remaining item elements
+          .isotope('layout');
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
+
+      } else {
+        // IF DATA ERROR
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+      }
+    },
+    complete: function () {
+
+    },
+    error: function () {
+
+    }
+  });
+
+  return false;
+}
+
+function confirmdeleteVideo(event) {
+// Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of Task
+  var videoID = $(this).attr('data-id');
+
+  // Show Message
+  bootbox.setLocale(envoWeb.envo_lang);
+  bootbox.confirm({
+    title: "Potvrzení o odstranění!",
+    message: $(this).attr('data-confirm-delvideo'),
+    className: "bootbox-confirm-del",
+    animate: true,
+    buttons: {
+      confirm: {
+        className: 'btn-success'
+      },
+      cancel: {
+        className: 'btn-danger'
+      }
+    },
+    callback: function (result) {
+      if (result == true) {
+        console.log('Delete Video - ID: ' + videoID);
+        deleteVideo(videoID);
+      }
+      console.log('Bootbox confirm dialog - Video: ' + result);
     }
   });
 
@@ -460,10 +595,10 @@ function confirmDeleteTask(event) {
     },
     callback: function (result) {
       if (result == true) {
-        console.log(taskID);
+        console.log('Delete Task - ID: ' + taskID);
         deleteTask(taskID);
       }
-      console.log('Bootbox confirm dialog: ' + result);
+      console.log('Bootbox confirm dialog - Task: ' + result);
     }
   });
 
@@ -1641,7 +1776,7 @@ $(function () {
                   '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
                   '</a>' +
                   '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="itemDetails"><i class="fa fa-edit"></i></button>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"><i class="fa fa-trash"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"  data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"><i class="fa fa-trash"></i></button>' +
                   '</div>' +
                   '</div>' +
                   '</div>' +
@@ -1661,7 +1796,7 @@ $(function () {
                 // Call dialogFX function for button
                 var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
                 elClass.find('.dialog-open').click(openDialog);
-                elClass.find('.delete-img').click(deleteImg);
+                elClass.find('.delete-img').click(confirmdeleteImg);
 
 
               });
@@ -1813,6 +1948,43 @@ $(function () {
                 // console.log('Description: ', data['description']);
                 // console.log('Filethumbpath: ', data['filethumbpath']);
 
+                // Create new Isotope item elements
+                var $isotopeContent = $('' +
+                  '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
+                  '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
+                  '<div class="overlays full-width">' +
+                  '<div class="row full-height">' +
+                  '<div class="col-5 full-height">' +
+                  '<div class="text font-montserrat">' + data["filename"].substring(data["filename"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
+                  '</div>' +
+                  '<div class="col-7 full-height">' +
+                  '<div class="text">' +
+                  '<a class="video" href="' + data["filepath"] + '" alt="">' +
+                  '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-video"></i></button>' +
+                  '</a>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="videoitemDetails"><i class="fa fa-edit"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' + data["id"] + '"  data-confirm-delvideo="Jste si jistý, že chcete odstranit video?"><i class="fa fa-trash"></i></button>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="full-width padding-10">' +
+                  '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                  '</div>' +
+                  '</div>');
+
+                // Isotope Plugin
+                // Adds and lays out newly prepended item elements at the beginning of layout
+                // Prepend items to gallery
+                $('#videogallery_envo').prepend($isotopeContent)
+                // Add and lay out newly prepended items
+                  .isotope('prepended', $isotopeContent);
+
+                // Call dialogFX function for button
+                var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
+                elClass.find('.dialog-open').click(openDialog);
+                elClass.find('.delete-video').click(confirmdeleteVideo);
+
 
               });
 
@@ -1883,9 +2055,11 @@ $(function () {
     return (bytes / 1000).toFixed(2) + ' KB';
   }
 
-  /* Delete Image
+  /* Delete Image and Video
    ========================================= */
-  $('.delete-img').click(deleteImg);
+  $('.delete-img').click(confirmdeleteImg);
+
+  $('.delete-video').click(confirmdeleteVideo);
 
 });
 
@@ -2453,11 +2627,11 @@ $(function () {
     dlg = new DialogFx(dialogEl, {
       onOpenDialog: function (instance) {
         // Open DialogFX
-        console.log('OPEN');
+        console.log('Open dialog - Task: OPEN');
       },
       onCloseDialog: function (instance) {
         // Close DialogFX
-        console.log('CLOSE');
+        console.log('Open dialog - Task: CLOSE');
         $('#saveTask').attr('disabled', false);
       }
     });

@@ -602,7 +602,7 @@
                     echo $Html->addTag('h5', 'Kategorie', 'bold');
                     ?>
 
-                    <ul class="filters">
+                    <ul id="imgfilters" class="filters">
                       <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
                       <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
                       <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
@@ -629,7 +629,7 @@
 
                     <?php if (!empty($ENVO_HOUSE_IMG) && is_array($ENVO_HOUSE_IMG)) { ?>
 
-                      <div id="gallery" class="gallery">
+                      <div id="imggallery" class="gallery">
 
                         <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
 
@@ -715,7 +715,7 @@
                     echo $Html->addTag('h5', 'Kategorie', 'bold');
                     ?>
 
-                    <ul class="filters">
+                    <ul id="videofilters" class="filters">
                       <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
                       <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
                       <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
@@ -742,17 +742,15 @@
 
                     <?php if (!empty($ENVO_HOUSE_VIDEO) && is_array($ENVO_HOUSE_VIDEO)) { ?>
 
-                      <div id="gallery" class="gallery">
+                      <div id="videogallery" class="gallery">
 
                         <?php foreach ($ENVO_HOUSE_VIDEO as $hvideo) { ?>
                           <div class="gallery-item-<?= $hvideo["id"] . ' ' . $hvideo["category"] ?>" data-width="1" data-height="1">
                             <div class="img_container">
                               <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="launch-modal" data-modal-id="modal-video">
-                                <span class="video-link-icon"><i class="fa fa-play"></i></span>
-                                <span class="video-link-text">Launch modal video</span>
+                                <img src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filenamethumb"] ?>" class="img-responsive" alt="">
                               </a>
                             </div>
-
                             <div class="overlays">
                               <div class="col-sm-12 full-height">
                                 <div class="col-xs-5 full-height">
@@ -760,7 +758,7 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="fancybox-2" href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>" alt="">
+                                    <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>" alt="">
                                       <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fas fa-image"></i>
                                       </button>
@@ -787,7 +785,7 @@
 
                         <?php
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('Nejsou dostupné žádné fotografie.', '', array('class' => 'alert'));
+                        echo $Html->addDiv('Nejsou dostupná žádná videa.', '', array('class' => 'alert'));
                         ?>
 
                       </div>
@@ -820,11 +818,16 @@
 
   <!-- MODAL -->
   <div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="width: 615px;">
+    <div class="modal-dialog modal-center" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="modal-body">
           <div class="modal-video">
-            <iframe width="585" height="400" src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" frameborder="0" allowfullscreen></iframe>
+            <iframe width="450" height="300" src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
