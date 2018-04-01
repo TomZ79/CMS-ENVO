@@ -1593,11 +1593,14 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
               <div class="row">
-                <div class="col-sm-3 m-t-10">
+                <div class="col-sm-4 m-t-10">
 
                 </div>
-                <div class="col-sm-3 m-t-10">
-                  <div class="form-group m-0">
+                <div class="col-sm-2">
+                  <div class="bold">
+                    Výběr kategorie
+                  </div>
+                  <div class="form-group  m-t-10">
                     <select name="envo_imgcategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
 
                       <?php
@@ -1613,6 +1616,9 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="col-sm-6">
+                  <div class="bold">
+                    Výběr souboru
+                  </div>
                   <!-- Upload Files -->
                   <div class="form-group">
                     <div class="row">
@@ -1666,6 +1672,11 @@ if ($errors) { ?>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <hr>
                 </div>
               </div>
               <div class="row">
@@ -1784,8 +1795,11 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
               <div class="row">
-                <div class="col-sm-2 m-t-10">
-                  <div class="form-group m-0">
+                <div class="col-sm-2">
+                  <div class="bold">
+                    Výběr kategorie
+                  </div>
+                  <div class="form-group m-t-10">
                     <select name="envo_videocategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
 
                       <?php
@@ -1801,6 +1815,9 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="col-sm-10">
+                  <div class="bold">
+                    Výběr video souboru a náhledového obrázku
+                  </div>
                   <!-- Upload Files -->
                   <div class="form-group">
                     <div class="row">
@@ -1878,7 +1895,11 @@ if ($errors) { ?>
                   </div>
                 </div>
               </div>
-
+              <div class="row">
+                <div class="col-sm-12">
+                  <hr>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-sm-3 padding-20">
 
