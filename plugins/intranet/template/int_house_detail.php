@@ -763,7 +763,7 @@
                                         <i class="fas fa-image"></i>
                                       </button>
                                     </a>
-                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails" data-id="<?= $hvideo["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails1" data-id="<?= $hvideo["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
                                       <i class="fas fa-info"></i>
                                     </button>
                                   </div>
@@ -805,13 +805,13 @@
   <div id="itemDetails" class="dialog item-details">
     <div class="dialog__overlay"></div>
     <div class="dialog__content">
-      <div class="container-fluid">
+      <div class="container-fluid" style="height: 90vh;">
         <div class="row dialog__overview">
           <!-- Data over AJAX  -->
         </div>
       </div>
       <button class="close action top-right" type="button" data-dialog-close>
-        <i class="fas fa-times fs-30"></i>
+        <i class="fas fa-times fa-lg"></i>
       </button>
     </div>
   </div>

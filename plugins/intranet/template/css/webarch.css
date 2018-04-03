@@ -8942,7 +8942,7 @@ ul.filters li a.active {
 /* 26. Dialog FX
  ========================================================================*/
 .item-details {
-  z-index: 1050;
+  z-index: 1080;
 }
 .item-details .dialog__content {
   width: 845px;
@@ -8952,7 +8952,8 @@ ul.filters li a.active {
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
 .item-details .dialog__content .dialog__overview {
-  height: 516px;
+  min-height: 516px;
+  height: 100%;
   position: relative;
 }
 .item-details .dialog__content .dialog__overview .buy-now {
@@ -10829,7 +10830,7 @@ div[class^="task_"] .taskcontent .taskdescription {
     position: relative;
     top: 0;
     display: inline-block;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     font-style: normal;
     font-weight: 400;
     line-height: 1;
@@ -10838,9 +10839,9 @@ div[class^="task_"] .taskcontent .taskdescription {
     transition: none !important;
   }
   .nav-tabs-responsive > li.prev > a:after {
-    content: "\f053";
+    content: "\f104";
   }
   .nav-tabs-responsive > li.next > a:after {
-    content: "\f054";
+    content: "\f105";
   }
 }

@@ -40,7 +40,7 @@ switch ($row["category"]) {
 $envodata .= '
 <div class="col-sm-4 no-padding full-height hidden-xs"> 
   <div class="full-height bg-master-lighter" style="overflow: hidden;">
-    <img src="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" alt="" class="img-responsive" style="object-fit: cover;width: 100%;height: 100%;">
+    <img src="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" alt="" style="object-fit: cover;width: 100%;height: 100%;">
   </div>
 </div>
 <div class="col-sm-8 p-r-50 p-t-50 p-l-50 full-height">
@@ -70,12 +70,12 @@ $envodata .= '
       <p>' . $row["timeedit"] . '</p>
     </div>
   </div>
-  <div class="row m-b-10">
-    <div class="col-sm-12">
-      <div class="pull-right">
-        <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenameoriginal"] . '" class="btn btn-success m-r-15" download>Stáhnout Originál</a>
-        <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" class="btn btn-info" download>Stáhnout Náhled</a>
-      </div>
+  <div class="row m-b-20">
+    <div class="col-sm-6 col-xs-12">
+      <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenameoriginal"] . '" class="btn btn-success btn-block m-r-15" download>Stáhnout Originál</a>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" class="btn btn-info btn-block" download>Stáhnout Náhled</a>
     </div>
   </div>
 </div>
