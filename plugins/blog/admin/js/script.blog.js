@@ -24,7 +24,7 @@
  * Initialisation of ACE Editor
  * @require: ACE Editor Plugin
  *
- * Set variable in php file as array (script.tv-tower.php)
+ * Set variable in php file as array
  * @param: 'aceEditor.acetheme' from generated_admin_js.php
  * @param: 'aceEditor.acewraplimit' from generated_admin_js.php
  * @param: 'aceEditor.acetabSize' from generated_admin_js.php
@@ -48,7 +48,7 @@ $wrapLimitRange = {
 if ($('#htmleditor').length) {
   var htmlACE = ace.edit('htmleditor');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
   htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE.setOptions({
     // session options
@@ -73,7 +73,7 @@ if ($('#htmleditor').length) {
 if ($('#csseditor').length) {
   var cssACE = ace.edit("csseditor");
   cssACE.setTheme("ace/theme/chrome");
-  cssACE.session.setMode("ace/mode/html");
+  cssACE.session.setMode("ace/mode/css");
   textcss = $("#envo_css").val();
   cssACE.session.setValue(textcss);
   cssACE.$blockScrolling = Infinity;
@@ -82,7 +82,7 @@ if ($('#csseditor').length) {
 if ($('#javaeditor').length) {
   var jsACE = ace.edit("javaeditor");
   jsACE.setTheme("ace/theme/chrome");
-  jsACE.session.setMode("ace/mode/html");
+  jsACE.session.setMode("ace/mode/javascript");
   textjs = $("#envo_javascript").val();
   jsACE.session.setValue(textjs);
   jsACE.$blockScrolling = Infinity;

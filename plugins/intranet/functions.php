@@ -57,6 +57,62 @@ function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 }
 
 /**
+ * EN: Getting the data about the Houses without limit by usergroupid
+ * CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    04/2018
+ *
+ * @param $table
+ * @param $ext_seo
+ * @param $usergroupid
+ * @return array
+ */
+function envo_get_houselist_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
+{
+  global $envodb;
+  $envodata = array();
+
+  $sql = '';
+  if ($filter1) $sql = ' WHERE ' . $filter1;
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
+  $result = $envodb->query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
+
+  while ($row = $result->fetch_assoc()) {
+
+    // Array of strings with permission of each house
+    $usergrouparray = explode(',', $row['permission']);
+
+    // Check if 'usergroupid' is in permission array or if is 'usergroupid' = 3 (administrator group) or permission is 0
+    if (in_array($usergroupid, $usergrouparray) || $usergroupid == 3 || $row['permission'] == 0) {
+
+      // There should be always a varname in categories and check if seo is valid
+      $seo = '';
+      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
+      $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/houselist', 'h', $row['id'], $seo);
+
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = array(
+        'id'       => $row['id'],
+        'name'     => $row['name'],
+        'street'   => $row['street'],
+        'city'     => $row['city'],
+        'parseurl' => $parseurl,
+      );
+    }
+
+  }
+
+  // EN: Returning values from function
+  // CZ: Vrácení hodnot z funkce
+  if (isset($envodata)) return $envodata;
+}
+
+/**
  * EN: Getting the data about active Tasks without limit by usergroupid
  * CZ: Získání dat o aktivních Úkolech bez limitu podle 'id' uživatelské skupiny
  *

@@ -1,6 +1,8 @@
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_header.php'; ?>
 
-  <div class="col-md-6 text-center error-page">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="error-page">
 
     <?php
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -17,6 +19,8 @@
     echo $Html->endTag('div');
     ?>
 
+      </div>
+    </div>
   </div>
 
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_footer.php'; ?>

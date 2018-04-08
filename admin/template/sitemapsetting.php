@@ -112,7 +112,7 @@ if ($page1 == "e") { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["sitemapdesc"]), '5', '', array('id' => 'envoEditor', 'class' => 'envoEditorLight form-control', 'style' => 'width:100%;'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["sitemapdesc"]), '5', '', array('id' => 'envoEditor', 'class' => 'form-control', 'style' => 'width:100%;'));
                         ?>
 
                       </div>

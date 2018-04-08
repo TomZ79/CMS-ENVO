@@ -15,7 +15,8 @@ $(function () {
    http://tympanus.net/Development/DialogEffects/
    */
 
-  $('.dialog-open').click(openDialog);
+  $('.dialog-open-img').click(openDialogImg);
+  $('.dialog-open-video').click(openDialogVideo);
 
   $('.close').click(function(event){
     event.stopPropagation();

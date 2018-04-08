@@ -193,6 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   WHEN "acetabSize" THEN "' . smartsql($defaults['envo_acetabSize']) . '"
                   WHEN "acegutter" THEN "' . smartsql($defaults['envo_acegutter']) . '"
                   WHEN "aceinvisible" THEN "' . smartsql($defaults['envo_aceinvisible']) . '"
+                  WHEN "aceactivewrap" THEN "' . smartsql($defaults['envo_activewrap']) . '"
                   WHEN "acewraplimit" THEN "' . smartsql($defaults['envo_acewraplimit']) . '"
                   WHEN "acefontsize" THEN "' . smartsql($defaults['envo_acefontsize']) . '"
                   WHEN "aceactiveline" THEN "' . smartsql($defaults['envo_aceactiveline']) . '"
@@ -212,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   WHEN "eucookie_link" THEN "' . smartsql($defaults['envo_eucookie_link']) . '"
                   WHEN "eucookie_href" THEN "' . smartsql($defaults['envo_eucookie_href']) . '"
                 END
-                  WHERE varname IN ("email","sitehttps","lang","locale","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","acefontsize","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
+                  WHERE varname IN ("email","sitehttps","lang","locale","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","aceactivewrap","acewraplimit","acefontsize","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
 
       if (!$result) {
         // EN: Redirect page

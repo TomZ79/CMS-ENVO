@@ -811,6 +811,7 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
+
       <div id="taskDialogAdd" class="dialog task-details">
         <div class="dialog__overlay"></div>
         <div class="dialog__content">
@@ -1742,7 +1743,7 @@ if ($errors) { ?>
                                          <i class="pg-image"></i>
                                         </button>
                                       </a>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgitemDetails">
                                         <i class="fa fa-edit"></i>
                                       </button>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?">
@@ -1766,7 +1767,7 @@ if ($errors) { ?>
 
                   </div>
 
-                  <div id="itemDetails" class="dialog item-details">
+                  <div id="imgitemDetails" class="dialog item-details">
                     <div class="dialog__overlay"></div>
                     <div class="dialog__content">
                       <div class="container-fluid">
@@ -1779,6 +1780,7 @@ if ($errors) { ?>
                       </button>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -1958,12 +1960,12 @@ if ($errors) { ?>
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a class="video" href="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" alt="">
+                                      <a class="video" data-fancybox-video data-type="iframe" data-src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" href="javascript:;">
                                         <button class="btn btn-info btn-xs btn-mini fs-14" type="button">
                                          <i class="pg-video"></i>
                                         </button>
                                       </a>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="videoitemDetails">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video" type="button" data-dialog="videoitemDetails">
                                         <i class="fa fa-edit"></i>
                                       </button>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' . $video["id"] . '" data-confirm-delvideo="Jste si jistý, že chcete odstranit video?">
@@ -2000,6 +2002,7 @@ if ($errors) { ?>
                       </button>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

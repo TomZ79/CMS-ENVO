@@ -8,7 +8,7 @@
           <div class="tiles-body">
             <div class="tiles-title"> BYTOVÉ DOMY V SEZNAMU</div>
             <div class="heading">
-              <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet domů" >0</span>
+              <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet domů">0</span>
               <span>/</span>
               <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST1 ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet SVJ">0</span>
             </div>
@@ -96,35 +96,33 @@
                         <span class="pull-right collapsetask">+</span>
                       </div>
                       <div class="taskinfo">
-                        <div class="container-fluid">
-                          <div class="row m-b-10">
-                            <div class="col-sm-2">
-                              <strong>Bytový dům: </strong>
-                            </div>
-                            <div class="col-sm-10">
-                              <a href="<?= $htaskdelay["houseparseurl"] ?>" class="all-caps"><?= $htaskdelay["housename"] ?></a>
-                            </div>
+                        <div class="row m-b-10">
+                          <div class="col-sm-2">
+                            <strong>Bytový dům: </strong>
                           </div>
-                          <div class="row">
-                            <div class="col-sm-12">
-                              <div class="table-responsive">
-                                <table class="table table-task">
-                                  <tr>
-                                    <td class="col-sm-4"><strong>Titulek: </strong></td>
-                                    <td class="col-sm-2"><strong>Priorita: </strong></td>
-                                    <td class="col-sm-2"><strong>Status: </strong></td>
-                                    <td class="col-sm-2"><strong>Datum Úkolu: </strong></td>
-                                    <td class="col-sm-2"><strong>Datum Připomenutí: </strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td><?= $htaskdelay["title"] ?></td>
-                                    <td><?= $htaskdelay["priority"] ?></td>
-                                    <td><?= $htaskdelay["status"] ?></td>
-                                    <td><?= $htaskdelay["time"] ?></td>
-                                    <td><?= $htaskdelay["reminder"] ?></td>
-                                  </tr>
-                                </table>
-                              </div>
+                          <div class="col-sm-10">
+                            <a href="<?= $htaskdelay["houseparseurl"] ?>" class="all-caps"><?= $htaskdelay["housename"] ?></a>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="table-responsive">
+                              <table class="table table-task">
+                                <tr>
+                                  <td class="col-sm-4"><strong>Titulek: </strong></td>
+                                  <td class="col-sm-2"><strong>Priorita: </strong></td>
+                                  <td class="col-sm-2"><strong>Status: </strong></td>
+                                  <td class="col-sm-2"><strong>Datum Úkolu: </strong></td>
+                                  <td class="col-sm-2"><strong>Datum Připomenutí: </strong></td>
+                                </tr>
+                                <tr>
+                                  <td><?= $htaskdelay["title"] ?></td>
+                                  <td><?= $htaskdelay["priority"] ?></td>
+                                  <td><?= $htaskdelay["status"] ?></td>
+                                  <td><?= $htaskdelay["time"] ?></td>
+                                  <td><?= $htaskdelay["reminder"] ?></td>
+                                </tr>
+                              </table>
                             </div>
                           </div>
                         </div>

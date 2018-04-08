@@ -18,7 +18,7 @@
  * Initialisation of ACE Editor
  * @require: ACE Editor Plugin
  *
- * Set variable in php file as array (script.tv-tower.php)
+ * Set variable in php file as array
  * @param: 'aceEditor.acetheme' from generated_admin_js.php
  * @param: 'aceEditor.acewraplimit' from generated_admin_js.php
  * @param: 'aceEditor.acetabSize' from generated_admin_js.php
@@ -42,7 +42,7 @@ $wrapLimitRange = {
 if ($('#htmleditor').length) {
   var htmlACE = ace.edit('htmleditor');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
   htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE.setOptions({
     // session options
@@ -116,9 +116,9 @@ var page2 = $.urlParam('ssp');
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
- * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
+ * <button class="dialog-open" type="button" data-dialog="imgitemDetails"></button>
  *
- *  <div id="itemDetails" class="dialog item-details">
+ *  <div id="imgitemDetails" class="dialog item-details">
  *    <div class="dialog__overlay"></div>
  *    <div class="dialog__content">
  *      <div class="container-fluid">
@@ -132,7 +132,7 @@ var page2 = $.urlParam('ssp');
  *    </div>
  *  </div>
  */
-function openDialog(event) {
+function openDialogImg(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -152,14 +152,14 @@ function openDialog(event) {
     beforeSend: function () {
 
       // Show progress circle
-      $('#itemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+      $('#imgitemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
 
     },
     success: function (data) {
 
       setTimeout(function () {
         // Add html data to 'div'
-        $('#itemDetails .dialog__overview').hide().html(data).fadeIn(900);
+        $('#imgitemDetails .dialog__overview').hide().html(data).fadeIn(900);
 
         // Init Select2 plugin
         $('#info1 .selectpicker').select2({
@@ -169,14 +169,89 @@ function openDialog(event) {
         });
 
         // Call function for edit description - textarea
-        $('#editdesc').click(editDesc);
-        $('#closedesc').click(closeDesc);
-        $('#savedesc').click(saveDesc);
+        $('#editimgdesc').click(editImgDesc);
+        $('#closeimgdesc').click(closeImgDesc);
+        $('#saveimgdesc').click(saveImgDesc);
 
         // Call function for edit description - textarea
-        $('#editcat').click(editCat);
-        $('#closecat').click(closeCat);
-        $('#savecat').click(saveCat);
+        $('#editimgcat').click(editImgCat);
+        $('#closeimgcat').click(closeImgCat);
+        $('#saveimgcat').click(saveImgCat);
+
+      }, 1000);
+
+    },
+    error: function () {
+
+    }
+  });
+
+  // Open DialogFX
+  dialogEl = document.getElementById(thisDataDialog);
+  dlg = new DialogFx(dialogEl, {
+    onOpenDialog: function (instance) {
+      // Open DialogFX
+      console.log('Open dialog - Image: OPEN');
+    },
+    onCloseDialog: function (instance) {
+      // Close DialogFX
+      console.log('Open dialog - Image: CLOSE');
+    }
+  });
+  dlg.toggle(dlg);
+
+  return false;
+}
+
+/**
+ * Jquery Function - DialogFX Open - Video
+ * @example
+ * Attribute 'data-dialog' in button => ID of dialog 'div' block
+ * -----------------
+ * <button class="dialog-open" type="button" data-dialog="videoitemDetails"></button>
+ *
+ *  <div id="videoitemDetails" class="dialog item-details">
+ *    <div class="dialog__overlay"></div>
+ *    <div class="dialog__content">
+ *      <div class="container-fluid">
+ *        <div class="row dialog__overview">
+ *          <!-- Data over AJAX  -->
+ *        </div>
+ *      </div>
+ *      <button class="close action top-right" type="button" data-dialog-close>
+ *        <i class="pg-close fs-14"></i>
+ *      </button>
+ *    </div>
+ *  </div>
+ */
+function openDialogVideo(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get Data-Dialog
+  thisDataDialog = $(this).attr('data-dialog');
+  // Get ID of Video
+  var videoID = $(this).parents(":eq(4)").attr('id');
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_dialog_video.php",
+    type: "POST",
+    datatype: 'html',
+    data: {
+      videoID: videoID
+    },
+    beforeSend: function () {
+
+      // Show progress circle
+      $('#videoitemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+    },
+    success: function (data) {
+
+      setTimeout(function () {
+        // Add html data to 'div'
+        $('#videoitemDetails .dialog__overview').hide().html(data).fadeIn(900);
 
       }, 1000);
 
@@ -208,9 +283,9 @@ function openDialog(event) {
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
- * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
+ * <button class="dialog-open" type="button" data-dialog="taskDialogEdit"></button>
  *
- *  <div id="itemDetails" class="dialog item-details">
+ *  <div id="taskDialogEdit" class="dialog item-details">
  *    <div class="dialog__overlay"></div>
  *    <div class="dialog__content">
  *      <div class="container-fluid">
@@ -475,7 +550,7 @@ function confirmdeleteVideo(event) {
 // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
-  // Get ID of Task
+  // Get ID of Video
   var videoID = $(this).attr('data-id');
 
   // Show Message
@@ -606,16 +681,16 @@ function confirmDeleteTask(event) {
 }
 
 /**
- * Jquery Function - Edit Description
+ * Jquery Function - Edit Image Description
  * Remove attribute 'disabled' from textarea and hide Edit button, show Save-Close button
  * @example
  * -----------------
  * <textarea id="desc" disabled>' . $text . '</textarea>
- * <button id="editdesc" type="button">Edit Description</button>
- * <button id="savedesc" style="display:none;" data-id="' . $id . '" type="button">Save</button>
- * <button id="closedesc" style="display:none;" type="button">Close</button>
+ * <button id="editimgdesc" type="button">Edit Description</button>
+ * <button id="saveimgdesc" style="display:none;" data-id="' . $id . '" type="button">Save</button>
+ * <button id="closeimgdesc" style="display:none;" type="button">Close</button>
  */
-function editDesc(event) {
+function editImgDesc(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -625,8 +700,8 @@ function editDesc(event) {
   // Hide click (this) element
   $(this).hide();
   // Show Save and Close button
-  $('#savedesc').show();
-  $('#closedesc').show();
+  $('#saveimgdesc').show();
+  $('#closeimgdesc').show();
 
   return false;
 }
@@ -637,10 +712,10 @@ function editDesc(event) {
  * @example
  * -----------------
  * <textarea id="desc">' . $text . '</textarea>
- * <button id="savedesc"  data-id="' . $id . '" type="button">Save</button>
- * <button id="closedesc" type="button">Close</button>
+ * <button id="saveimgdesc"  data-id="' . $id . '" type="button">Save</button>
+ * <button id="closeimgdesc" type="button">Close</button>
  */
-function saveDesc(event) {
+function saveImgDesc(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -672,10 +747,10 @@ function saveDesc(event) {
         $('#desc').attr('readonly', true);
         $('#shortdesc').attr('readonly', true);
         // Hide Save and Close button
-        $('#savedesc').hide();
-        $('#closedesc').hide();
+        $('#saveimgdesc').hide();
+        $('#closeimgdesc').hide();
         // Show Edit button
-        $('#editdesc').show();
+        $('#editimgdesc').show();
 
         // Add data.shortdescription to Isotop item
         var elClass = $('#' + data.data[0].id + '.gallery-item-' + data.data[0].id);
@@ -706,11 +781,11 @@ function saveDesc(event) {
  * @example
  * -----------------
  * <textarea id="desc">' . $text . '</textarea>
- * <button id="editdesc" type="button" style="display:none;">Edit Description</button>
- * <button id="savedesc" type="button"  data-id="' . $id . '">Save</button>
- * <button id="closedesc" type="button">Close</button>
+ * <button id="editimgdesc" type="button" style="display:none;">Edit Description</button>
+ * <button id="saveimgdesc" type="button"  data-id="' . $id . '">Save</button>
+ * <button id="closeimgdesc" type="button">Close</button>
  */
-function closeDesc(event) {
+function closeImgDesc(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -720,8 +795,8 @@ function closeDesc(event) {
   // Hide click (this) element and hide Save button
   $(this).hide();
   // Show Edit button
-  $('#savedesc').hide();
-  $('#editdesc').show();
+  $('#saveimgdesc').hide();
+  $('#editimgdesc').show();
 
   return false;
 }
@@ -729,7 +804,7 @@ function closeDesc(event) {
 /**
  * Jquery Function - Edit Category
  */
-function editCat(event) {
+function editImgCat(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -738,8 +813,8 @@ function editCat(event) {
   // Hide click (this) element
   $(this).hide();
   // Show Save and Close button
-  $('#savecat').show();
-  $('#closecat').show();
+  $('#saveimgcat').show();
+  $('#closeimgcat').show();
 
   return false;
 }
@@ -747,7 +822,7 @@ function editCat(event) {
 /**
  * Jquery Function - Save Category
  */
-function saveCat(event) {
+function saveImgCat(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -776,10 +851,10 @@ function saveCat(event) {
         // Add attribute to select
         $('#info1 .selectpicker').attr('disabled', true);
         // Hide Save and Close button
-        $('#savecat').hide();
-        $('#closecat').hide();
+        $('#saveimgcat').hide();
+        $('#closeimgcat').hide();
         // Show Edit button
-        $('#editcat').show();
+        $('#editimgcat').show();
 
         // Add data.category to Isotop item
         var elClass = $('#' + data.data[0].id).attr('class').split(" ")[0];
@@ -807,7 +882,7 @@ function saveCat(event) {
 /**
  * Jquery Function - Close Category
  */
-function closeCat(event) {
+function closeImgCat(event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
@@ -816,8 +891,8 @@ function closeCat(event) {
   // Hide click (this) element and hide Save button
   $(this).hide();
   // Show Edit button
-  $('#savecat').hide();
-  $('#editcat').show();
+  $('#saveimgcat').hide();
+  $('#editimgcat').show();
 
   return false;
 }
@@ -1795,7 +1870,7 @@ $(function () {
 
                 // Call dialogFX function for button
                 var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
-                elClass.find('.dialog-open').click(openDialog);
+                elClass.find('.dialog-open').click(openDialogImg);
                 elClass.find('.delete-img').click(confirmdeleteImg);
 
 
@@ -1959,10 +2034,10 @@ $(function () {
                   '</div>' +
                   '<div class="col-7 full-height">' +
                   '<div class="text">' +
-                  '<a class="video" href="' + data["filepath"] + '" alt="">' +
+                  '<a class="video" data-fancybox-video data-type="iframe" data-src="' + data["filepath"] + '" href="javascript:;">' +
                   '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-video"></i></button>' +
                   '</a>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="videoitemDetails"><i class="fa fa-edit"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video mr-1" type="button" data-dialog="videoitemDetails"><i class="fa fa-edit"></i></button>' +
                   '<button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' + data["id"] + '"  data-confirm-delvideo="Jste si jistý, že chcete odstranit video?"><i class="fa fa-trash"></i></button>' +
                   '</div>' +
                   '</div>' +
@@ -1982,9 +2057,24 @@ $(function () {
 
                 // Call dialogFX function for button
                 var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
-                elClass.find('.dialog-open').click(openDialog);
+                elClass.find('.dialog-open-video').click(openDialogVideo);
                 elClass.find('.delete-video').click(confirmdeleteVideo);
+                elClass.find('[data-fancybox-video]').fancybox({
+                  afterShow: function(){
+                    ($('.fancybox-iframe').contents().find('body').css('background-color', 'transparent'));
+                  },
+                  iframe : {
+                    preload : false,
+                    css : {
+                      width  : 'auto'
+                    }
+                  },
+                  buttons: [
+                    "zoom",
+                    "close"
+                  ]
 
+                });
 
               });
 
@@ -2794,8 +2884,8 @@ $(function () {
     console.log(priority);
     // Ajax
     $.ajax({
-      type: "POST",
-      url: "/plugins/intranet/admin/ajax/int_table_update_task.php",
+      type: 'POST',
+      url: '/plugins/intranet/admin/ajax/int_table_update_task.php',
       datatype: 'json',
       data: {
         taskID: taskID,
@@ -2959,24 +3049,15 @@ $(function () {
 
 $(function () {
 
-  $('#houseSelect').on('click', function (e) {
+  function selecthouse(event) {
     // Stop, the default action of the event will not be triggered
-    e.preventDefault();
-
-    var altura = $(window).height() - 155; //value corresponding to the modal heading + footer
-    $('#ENVOModalPlugin .modal-body').css({"height":altura,"overflow-y":"auto"});
-
-    $('#ENVOModalPlugin').modal('show');
-  });
-
-  $('.xxxx').click(function (event) {
     event.preventDefault();
 
     var valID = $(this).attr("data-value");
 
     $.ajax({
-      url: "../plugins/intranet/admin/ajax/int_houseselect_process.php",
-      type: "POST",
+      url: '/plugins/intranet/admin/ajax/int_houseselect_process.php',
+      type: 'POST',
       datatype: 'json',
       data: {
         valID: valID
@@ -3007,12 +3088,93 @@ $(function () {
       }
     });
 
+    return false;
+  }
+
+  $('#houseSelect').on('click', function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    var altura = $(window).height() - 155; //value corresponding to the modal heading + footer
+    $('#ENVOModalPlugin .modal-body').css({"height":altura,"overflow-y":"auto"});
+
+    // AJAX request
+    $.ajax({
+      url: '/plugins/intranet/admin/ajax/int_houseselect_modal.php',
+      type: 'POST',
+      dataType: 'html',
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#ENVOModalPlugin .modal-body').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+        // Display Modal
+        $('#ENVOModalPlugin').modal('show');
+
+      },
+      success: function(data){
+
+        setTimeout(function () {
+
+          // Add response in Modal body
+          $('#ENVOModalPlugin .modal-body').hide().html(data).fadeIn(900);
+
+          //
+          $('.xxxx').click(selecthouse);
+
+          // Init Datatable plugin
+          $('#int_table').dataTable({
+            // Language
+            "language": {
+              "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+            },
+            "order": [],
+            "columnDefs": [{
+              "targets": 'no-sort',
+              "orderable": false
+            }],
+            // Page lenght
+            "pageLength": dataTablesSettings.pageLenght,
+            // Show entries
+            //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
+            // Design Table items
+            "dom": "<'row'<'col-sm-6'<'float-left m-b-20'f>><'col-sm-6'<'float-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row '<'col-sm-7'i><'float-right col-sm-5'p>>"
+          });
+
+        }, 1000);
+
+      },
+      error: function () {
+
+      }
+    });
+
   });
 
 });
 
+
+/** Play Video in popup
+ * Initialisation of Fancybox 3
+ * @require: Fancybox 3 Plugin
+ ========================================================================*/
+
 $(function () {
-  $('a.video').fancybox({
-    type: 'iframe'
+
+  $('[data-fancybox-video]').fancybox({
+    afterShow: function(){
+      ($('.fancybox-iframe').contents().find('body').css('background-color', 'transparent'));
+    },
+    iframe : {
+      preload : false,
+      css : {
+        width  : 'auto'
+      }
+    },
+    buttons: [
+      "zoom",
+      "close"
+    ]
+
   });
 });

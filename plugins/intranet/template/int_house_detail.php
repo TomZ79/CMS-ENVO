@@ -587,9 +587,11 @@
 
                 <?php if ($ENVO_MODULES_ACCESS) { ?>
                   <div class="row m-b-20">
-                    <div class="col-sm-12 text-center">
-                      <h2>Nahrávání fotek pouze pro administrátory</h2>
-                      <p><a href="https://innostudio.de/fileuploader/">https://innostudio.de/fileuploader/</a></p>
+                    <div class="col-sm-12">
+                      <form action="php/form_upload.php" method="post" enctype="multipart/form-data">
+                        <input type="file" name="files">
+                        <input type="submit" class="btn btn-info pull-right" value="Upload">
+                      </form>
                     </div>
                   </div>
                 <?php } ?>
@@ -747,7 +749,7 @@
                         <?php foreach ($ENVO_HOUSE_VIDEO as $hvideo) { ?>
                           <div class="gallery-item-<?= $hvideo["id"] . ' ' . $hvideo["category"] ?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="launch-modal" data-modal-id="modal-video">
+                              <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>">
                                 <img src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filenamethumb"] ?>" class="img-responsive" alt="">
                               </a>
                             </div>

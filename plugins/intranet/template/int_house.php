@@ -2,12 +2,12 @@
 
   <div class="row-fluid">
     <div class="col-sm-8 col-sm-offset-2">
-      <form role="form" method="post" action="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'house', 'searchdvbt2')?>">
+      <form role="form" method="post" action="<?= ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'house', 'searchdvbt2') ?>">
         <div class="col-sm-6 m-b-20">
-          <button class="btn <?=($ACTIVEBUTTON_CLASS1 ? $ACTIVEBUTTON_CLASS1 : 'btn-info')?>" name="searchdvbt2_yes" type="submit" style="width:100%;">Vyhledat domy s přípravou DVB-T2</button>
+          <button class="btn <?= ($ACTIVEBUTTON_CLASS1 ? $ACTIVEBUTTON_CLASS1 : 'btn-info') ?>" name="searchdvbt2_yes" type="submit" style="width:100%;">Vyhledat domy s přípravou DVB-T2</button>
         </div>
         <div class="col-sm-6 m-b-20">
-          <button class="btn <?=($ACTIVEBUTTON_CLASS2 ? $ACTIVEBUTTON_CLASS2 : 'btn-info')?>" name="searchdvbt2_no" type="submit" style="width:100%;">Vyhledat domy bez přípravy DVB-T2</button>
+          <button class="btn <?= ($ACTIVEBUTTON_CLASS2 ? $ACTIVEBUTTON_CLASS2 : 'btn-info') ?>" name="searchdvbt2_no" type="submit" style="width:100%;">Vyhledat domy bez přípravy DVB-T2</button>
         </div>
       </form>
     </div>
@@ -40,7 +40,7 @@
 
             <?php foreach ($ENVO_HOUSE_ALL as $h) { ?>
               <tr>
-                <td><?=$h["id"]?></td>
+                <td><?= $h["id"] ?></td>
                 <td>
 
                   <?php
@@ -50,10 +50,10 @@
 
                 </td>
                 <td>
-                  <?=$h["street"]?>
+                  <?= $h["street"] ?>
                 </td>
                 <td>
-                  <?=$h["city"]?>
+                  <?= $h["city"] ?>
                 </td>
                 <td class="text-center">
 

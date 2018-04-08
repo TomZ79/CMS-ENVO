@@ -724,7 +724,35 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc30"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="radio radio-success">
+
+                          <?php
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html->addRadio('envo_activewrap', '1', ($ENVO_SETTING_VAL["aceactivewrap"] == '1') ? TRUE : FALSE, 'envo_activewrap1');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('envo_activewrap1', $tl["checkbox"]["chk"]);
+
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html->addRadio('envo_activewrap', '0', ($ENVO_SETTING_VAL["aceactivewrap"] == '0') ? TRUE : FALSE, 'envo_activewrap2');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('envo_activewrap2', $tl["checkbox"]["chk1"]);
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc25"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["gs_help"]["gsh3"], 'data-original-title' => $tl["gs_help"]["gsh"]));
                         ?>
 
                       </div>
@@ -875,7 +903,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc30"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc40"]);
                         ?>
 
                       </div>
@@ -886,12 +914,12 @@ if ($success) { ?>
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                           echo $Html->addRadio('envo_smpt', '0', ($ENVO_SETTING_VAL["smtp_or_mail"] == '0') ? TRUE : FALSE, 'envo_smpt1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_smpt1', $tl["gs_box_content"]["gsbc39"]);
+                          echo $Html->addLabel('envo_smpt1', $tl["gs_box_content"]["gsbc49"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                           echo $Html->addRadio('envo_smpt', '1', ($ENVO_SETTING_VAL["smtp_or_mail"] == '1') ? TRUE : FALSE, 'envo_smpt2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('envo_smpt2', $tl["gs_box_content"]["gsbc40"]);
+                          echo $Html->addLabel('envo_smpt2', $tl["gs_box_content"]["gsbc50"]);
                           ?>
 
                         </div>
@@ -903,7 +931,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc31"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc41"]);
                           ?>
 
                         </div>
@@ -921,7 +949,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc32"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc42"]);
                           ?>
 
                         </div>
@@ -939,7 +967,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc33"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc43"]);
                           ?>
 
                         </div>
@@ -966,7 +994,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc34"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc44"]);
                           ?>
 
                         </div>
@@ -993,7 +1021,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc35"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc45"]);
                           ?>
 
                         </div>
@@ -1011,7 +1039,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc36"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc46"]);
                           ?>
 
                         </div>
@@ -1029,7 +1057,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc37"]);
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc47"]);
                           ?>
 
                         </div>
@@ -1048,7 +1076,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc38"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc48"]);
                         ?>
 
                       </div>
@@ -1096,7 +1124,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc51"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc61"]);
                         ?>
 
                       </div>
@@ -1123,7 +1151,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc53"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc63"]);
                         ?>
 
                       </div>
@@ -1179,7 +1207,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc54"]);
+                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc64"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('ip_block', $ENVO_SETTING_VAL["ip_block"], '5', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
                         ?>
@@ -1191,7 +1219,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc55"]);
+                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc65"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('email_block', $ENVO_SETTING_VAL["email_block"], '4', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
                         ?>
@@ -1203,7 +1231,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc56"]);
+                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc66"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('username_block', $ENVO_SETTING_VAL["username_block"], '3', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
                         ?>
@@ -1285,7 +1313,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc60"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc70"]);
                         ?>
 
                       </div>
@@ -1312,7 +1340,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc61"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc71"]);
                         ?>
 
                       </div>
@@ -1333,8 +1361,8 @@ if ($success) { ?>
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc62"]);
-                        echo $Html->addTag('span', '&nbsp;' . $tl["gs_box_content"]["gsbc70"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc72"]);
+                        echo $Html->addTag('span', '&nbsp;' . $tl["gs_box_content"]["gsbc80"]);
                         echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["gs_help"]["gsh1"], 'data-original-title' => $tl["gs_help"]["gsh"]));
                         ?>
 
@@ -1381,7 +1409,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc63"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc73"]);
                         ?>
 
                       </div>
@@ -1406,7 +1434,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc69"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc79"]);
                         ?>
 
                       </div>
@@ -1529,7 +1557,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc64"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc74"]);
                         ?>
 
                       </div>
@@ -1577,7 +1605,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc65"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc75"]);
                         ?>
 
                       </div>
@@ -1597,7 +1625,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc66"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc76"]);
                         ?>
 
                       </div>
@@ -1617,7 +1645,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc67"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc77"]);
                         ?>
 
                       </div>
@@ -1637,7 +1665,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc68"]);
+                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc78"]);
                         ?>
 
                       </div>

@@ -20,7 +20,7 @@
  * Initialisation of ACE Editor
  * @require: ACE Editor Plugin
  *
- * Set variable in php file as array (script.tv-tower.php)
+ * Set variable in php file as array
  * @param: 'aceEditor.acetheme' from generated_admin_js.php
  * @param: 'aceEditor.acewraplimit' from generated_admin_js.php
  * @param: 'aceEditor.acetabSize' from generated_admin_js.php
@@ -45,7 +45,7 @@ $wrapLimitRange = {
 if ($('#htmleditorlight').length > 0) {
   var htmlACE = ace.edit('htmleditorlight');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
   htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE.setOptions({
     // session options
@@ -69,7 +69,7 @@ if ($('#htmleditorlight').length > 0) {
 if ($('#htmleditorlight1').length > 0) {
   var htmlACE1 = ace.edit("htmleditorlight1");
   htmlACE1.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE1.session.setUseWrapMode(true);
+  htmlACE1.session.setUseWrapMode(aceEditor.aceactivewrap);
   htmlACE1.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE1.setOptions({
     // session options

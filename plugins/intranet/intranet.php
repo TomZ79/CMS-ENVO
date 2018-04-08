@@ -363,7 +363,71 @@ switch ($page1) {
     // HOUSE LIST
 
     switch ($page2) {
-      case 'xxx':
+      case 'h':
+        // INFO ABOUT HOUSE
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+          // EN: Check if user has permission to see it - usergroup 'Administrator' have permission to all data automatically
+          // Cz: Kontrola jestli má uživatel přístup k datům - Uživatelská skupina 'Administrátor' má přístup ke všem datům automaticky
+          if (envo_row_permission($pageID, $envotable, ENVO_USERGROUPID)) {
+            // USER HAVE PERMISSION
+
+            // EN: Get the data of house
+            // CZ: Získání dat o domu
+            $result = $envodb->query('SELECT name, street, city, cityarea, psc, ic, latitude, longitude, description FROM ' . $envotable11 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSELIST_DETAIL[] = $row;
+              $ENVO_HOUSELIST_DESC     = $row['description'];
+              $envo_house_name         = $row['name'];
+              $envo_house_latitude     = $row['latitude'];
+              $envo_house_longitude    = $row['longitude'];
+            }
+
+            // EN: Get the data of main contacts
+            // CZ: Získání dat o hlavních kontaktech
+            $result = $envodb->query('SELECT contact1, contact2, contact3, contact4, contact5, contact6 FROM ' . $envotable11 . ' WHERE id = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_HOUSELIST_CONT  = $row;
+              $ENVO_HOUSELIST_CONT1 = $row['contact1'];
+              $ENVO_HOUSELIST_CONT2 = $row['contact2'];
+              $ENVO_HOUSELIST_CONT3 = $row['contact3'];
+              $ENVO_HOUSELIST_CONT4 = $row['contact4'];
+              $ENVO_HOUSELIST_CONT5 = $row['contact5'];
+              $ENVO_HOUSELIST_CONT6 = $row['contact6'];
+            }
+
+            // EN: Breadcrumbs activation
+            // CZ: Aktivace Breadcrumbs
+            $BREADCRUMBS = TRUE;
+
+            // EN: Title and Description
+            // CZ: Titulek a Popis
+            $SECTION_TITLE = 'Seznam domů';
+            $SECTION_DESC  = 'Detail bytového domu <strong>' . $envo_house_name . '</strong> v Karlovarské kraji (není ve správě)';
+
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist_detail.php';
+
+          } else {
+            // USER HAVE NOT PERMISSION
+
+            envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+
+          }
+
+        } else {
+          envo_redirect($backtoblog);
+        }
 
         break;
       default:
@@ -374,7 +438,7 @@ switch ($page1) {
         // EN: If not exist value in 'case', redirect page to 404
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
-          if ($page2 != 'xxx') {
+          if ($page2 != 'h') {
             envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
@@ -384,7 +448,7 @@ switch ($page1) {
 
         // EN: Getting the data about the Houses by usergroupid
         // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
-        $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID);
+        $ENVO_HOUSE_ALL_LIST = envo_get_houselist_info($envotable11, FALSE, ENVO_USERGROUPID);
 
         // EN: Breadcrumbs activation
         // CZ: Aktivace Breadcrumbs
@@ -678,7 +742,7 @@ switch ($page1) {
     // ------------------------
     // EN: Getting count of all records in DB
     // CZ: Získání počtu všech záznamů v DB
-    $result    = $envodb->query('SELECT ic, COUNT(*) FROM ' . $envotable11 . ' GROUP BY ic');
+    $result = $envodb->query('SELECT ic, COUNT(*) FROM ' . $envotable11 . ' GROUP BY ic');
     // EN: Determine the number of rows in the result from DB
     // CZ: Určení počtu řádků ve výsledku z DB
     $rowCnt = $result->num_rows;

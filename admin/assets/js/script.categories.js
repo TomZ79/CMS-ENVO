@@ -59,6 +59,7 @@ $(function () {
 });
 
 /** 02. Slug
+ * @require: Slug Plugin
  ========================================================================*/
 
 $(function () {
@@ -71,6 +72,7 @@ $(function () {
 });
 
 /** 03. Copy description
+ * @require: without external plugin
  ========================================================================*/
 
 $(function () {

@@ -328,7 +328,7 @@ if ($errors) { ?>
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('', '<strong>Popis</strong>');
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('envo_housedescription', (isset($_REQUEST["envo_housedescription"]) ? $_REQUEST["envo_housedescription"] : ''), '10', '', array('class' => 'form-control'));
+                          echo $Html->addTextarea('envo_housedescription', (isset($_REQUEST["envo_housedescription"]) ? $_REQUEST["envo_housedescription"] : ''), '10', '', array('class' => 'form-control envoEditorLarge'));
                           ?>
 
                         </div>
@@ -508,7 +508,22 @@ if ($errors) { ?>
 
 </form>
 
+<!-- Modal -->
+<div class="modal modal-fullscreen fade" id="ENVOModalPlugin" tabindex="-1" role="dialog" aria-labelledby="ENVOModalPlugin" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="ENVOModalPluginLabel">Výběr domu</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal"><?= $tl["button"]["btn19"] ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php
-include_once APP_PATH . 'plugins/intranet/admin/ajax/int_houseselect_modal.php';
 include_once APP_PATH . 'admin/template/footer.php';
 ?>

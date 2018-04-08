@@ -12,7 +12,8 @@
  *
  */
 
-/** 01. Initialisation of Sollist Plugin
+/** 01. Initialisation of Sollist
+ * @require: Sollist Plugin
  ========================================================================*/
 
 $(function () {

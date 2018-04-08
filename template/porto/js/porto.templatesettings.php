@@ -5,7 +5,7 @@
   if ($('#htmleditor2').length) {
     var htmlefACE2 = ace.edit("htmleditor2");
     htmlefACE2.setTheme("ace/theme/<?=$setting["acetheme"]?>");
-    htmlefACE2.session.setUseWrapMode(true);
+    htmlefACE2.session.setUseWrapMode(<?=$setting["aceactivewrap"]?>);
     htmlefACE2.session.setWrapLimitRange(<?=$setting["acewraplimit"] . ',' . $setting["acewraplimit"]?>);
     htmlefACE2.setOptions({
       // session options

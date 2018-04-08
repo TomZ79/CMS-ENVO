@@ -54,6 +54,7 @@ $(function () {
 
 
 /** 02. Toggle list and grid view
+ * @require: without external plugin
  ========================================================================*/
 
 $(function () {

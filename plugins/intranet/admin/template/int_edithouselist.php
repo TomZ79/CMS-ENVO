@@ -346,7 +346,7 @@ if ($errors) { ?>
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('', '<strong>Popis</strong>');
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('envo_housedescription', $ENVO_FORM_DATA["description"], '10', '', array('class' => 'form-control'));
+                          echo $Html->addTextarea('envo_housedescription', $ENVO_FORM_DATA["description"], '10', '', array('class' => 'form-control envoEditorLarge'));
                           ?>
 
                         </div>

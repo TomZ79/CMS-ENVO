@@ -13,6 +13,7 @@
  */
 
 /** 01. Basic config for plugin's administration
+ * @require: without external plugin
  ========================================================================*/
 
 $(function () {

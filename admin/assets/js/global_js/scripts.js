@@ -8,12 +8,13 @@
  * =======================================================================
  * INDEX:
  *
- * 01. PACE.js config
+ * 01. Automatic page load progress bar
  * 02. Basic admin ENVO config
  *
  */
 
-/* 01. PACE.js config
+/** 01. Automatic page load progress bar
+ * @require: Pace.js Plugin
  ========================================================================*/
 
 $(function () {
@@ -56,7 +57,7 @@ $.AdminEnvo.options = {
 $(function () {
   "use strict";
 
-  //Easy access to options
+  // Easy access to options
   var o = $.AdminEnvo.options;
 
   /* Activate Bootstrap tooltip
@@ -246,7 +247,8 @@ $(function () {
 
 });
 
-/* 00. DATA LOADING TEXT IN BUTTON
+/** 00. Data loading text in button
+ * @require: without external plugin
  ========================================================================*/
 $(function () {
   // Button 'Save'
@@ -277,7 +279,8 @@ $(function () {
 
 });
 
-/* 00. INITIALIZES SEARCH OVERLAY PLUGIN
+/** 00. Intitializes search overlay plugin
+ * @require: without external plugin
  ========================================================================*/
 (function ($) {
 
@@ -327,7 +330,8 @@ $(function () {
   });
 })(window.jQuery);
 
-/* 00. Show iFrame in modal - Filemanger and Search overlay
+/** 00. Show iFrame in modal - Filemanger and Search overlay
+ * @require: Bootstrap modal Plugin
  ========================================================================*/
 $(function () {
 
@@ -371,7 +375,8 @@ $(function () {
 
 });
 
-/* 00. FUNCTION - INSERT BLOCK and RESTORE CONTENT
+/** 00. FUNCTION - Insert block and restore content
+ * @require: without external plugin
  ========================================================================*/
 
 function insert_javascript() {
@@ -430,34 +435,38 @@ function restoreContent(fieldname, backupid, id) {
   });
 }
 
-/* 00. MODIFICATION - BOOTSTRAP-EXPAND table rows
- ========================================================================*/
-(function ($) {
-  $(function () {
-    $('.table-expandable').each(function () {
-      var table = $(this);
-      table.children('thead').children('tr').append('<th></th>');
-      table.children('tbody').children('tr').filter(':odd').hide();
-      table.children('tbody').children('tr').filter(':even').click(function (e) {
-        var element = $(this);
-        // Show detail without TD with buttons
-        if (!$(e.target).closest('.call-button').length) {
-          element.toggleClass('active');
-          element.next('tr').toggle();
-          element.find(".table-expandable-arrow").toggleClass("up");
-        }
-      });
-      table.children('tbody').children('tr').filter(':even').each(function () {
-        var element = $(this);
-        element.append('<td><div class="table-expandable-arrow"></div></td>');
-      });
-    });
-  });
-})(jQuery);
-
-/* 00. BOOSTRAP TABS - keep current tab after page reload
+/** 00. BOOTSTRAP-EXPAND table rows
+ * @require: without external plugin
  ========================================================================*/
 $(function () {
+
+  $('.table-expandable').each(function () {
+    var table = $(this);
+    table.children('thead').children('tr').append('<th></th>');
+    table.children('tbody').children('tr').filter(':odd').hide();
+    table.children('tbody').children('tr').filter(':even').click(function (e) {
+      var element = $(this);
+      // Show detail without TD with buttons
+      if (!$(e.target).closest('.call-button').length) {
+        element.toggleClass('active');
+        element.next('tr').toggle();
+        element.find(".table-expandable-arrow").toggleClass("up");
+      }
+    });
+    table.children('tbody').children('tr').filter(':even').each(function () {
+      var element = $(this);
+      element.append('<td><div class="table-expandable-arrow"></div></td>');
+    });
+  });
+
+});
+
+
+/** 00. BOOSTRAP TABS - keep current tab after page reload
+ * @require: Bootstrap Tabs Plugin
+ ========================================================================*/
+$(function () {
+
   // For bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
   // Uses:
   // Add ' id="cmsTabNAMEOFTABS" in ul of bootstrap tabs
@@ -480,12 +489,15 @@ $(function () {
     }
 
   }
+
 });
 
 
-/* 00. MODIFICATION - INIT and CONFIG BOOTSTRAP TAGSINPUT PLUGIN
+/** 00. MODIFICATION - INIT and CONFIG BOOTSTRAP TAGSINPUT PLUGIN
+ * * @require: Bootstrap Tagsinput Plugin
  ========================================================================*/
 $(function () {
+
   // Add value from Bootstrap Select to Bootstrap TagsInput
   $('#selecttags1').on('change', function (e) {
     $("input[name='envo_tags']").tagsinput('add', $(this).val());
@@ -523,6 +535,7 @@ $(function () {
     tagClass: 'label label-default ext',
     confirmKeys: [13, 44, 32]
   });
+
 });
 
 /* 00. JQUERY PASSY - Generating and analazing passwords, realtime.
@@ -786,7 +799,7 @@ jQuery.fn.autoGrow = function () {
     };
     var sendContentToMirror = function (textarea) {
       mirror.innerHTML = String(textarea.value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br />") + ".<br/>.";
-      if (jQuery(textarea).height() != jQuery(mirror).height())jQuery(textarea).height(jQuery(mirror).height())
+      if (jQuery(textarea).height() != jQuery(mirror).height()) jQuery(textarea).height(jQuery(mirror).height())
     };
     var growTextarea = function () {
       sendContentToMirror(this)
@@ -1029,7 +1042,7 @@ jQuery.fn.autoGrow = function () {
         if (data[method]) {
           method = data[method];
           arg = Array.prototype.slice.call(arg, 1);
-          if (arg != null || arg != undefined || arg != [])  method.apply(data, arg);
+          if (arg != null || arg != undefined || arg != []) method.apply(data, arg);
         } else {
           $.error('Method ' + method + ' does not exist on jQuery.Filter');
           return this;
@@ -1218,19 +1231,15 @@ $.fn.timedDisable = function (time) {
 $('.cms-help').popover({
   container: 'body',
   placement: 'top',
-  trigger: 'focus',
   html: true,
-  template: '<div class="popover style-1">' +
-  '<div class="popover-arrow"></div>' +
-  '<h3 class="popover-title"></h3>' +
-  '<div class="popover-content"></div>' +
-  '</div>'
+  trigger: 'focus',
+  template: '<div class="popover" role="tooltip"><div class="arrow"></div><h5 class="popover-header bg-info-lighter m-0"></h5><div class="popover-body"></div></div>'
 });
 
 /* 00. Counter trigger
  ======================================================================== */
 // Run script after Pace is done
-Pace.on('done', function() {
+Pace.on('done', function () {
   if ($('.counter').length) {
     $('.counter').each(function (index, val) {
       var $this = $(this);
@@ -1242,7 +1251,6 @@ Pace.on('done', function() {
 
   }
 });
-
 
 /* Counter Increment */
 function increment(obj) {

@@ -517,10 +517,6 @@ IČ:       ' . $defaults['envo_housefic'] . '
           }
         }
 
-        // EN: Getting the data about the Houses
-        // CZ: Získání dat o bytových domech
-        $ENVO_HOUSE_ALL = envo_get_house_info($envotable13);
-
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt8"];

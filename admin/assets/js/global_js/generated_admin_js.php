@@ -55,6 +55,7 @@ envoWeb.envo_template = '{$ENVO_TEMPLATE}';
 // ACE Editor options
 var aceEditor = {
   acetheme: '{$setting["acetheme"]}',
+  aceactivewrap: '{$setting["aceactivewrap"]}',
   acewraplimit: '{$setting["acewraplimit"]}',
   acetabSize: '{$setting["acetabSize"]}',
   aceactiveline: '{$setting["aceactiveline"]}',
@@ -81,7 +82,7 @@ var globalSettings = {
 
 // DataTables settings
 var dataTablesSettings = {
-  pageLenght: '{$setting["adminpageitem"]}',
+  pageLenght: {$setting["adminpageitem"]},
 };
 EOT;
 

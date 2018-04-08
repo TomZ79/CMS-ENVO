@@ -130,7 +130,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["searchdesc"]), '4', '', array('id' => 'envoEditor', 'class' => 'envoEditorLight form-control'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["searchdesc"]), '4', '', array('id' => 'envoEditor', 'class' => 'form-control'));
                         ?>
 
                       </div>

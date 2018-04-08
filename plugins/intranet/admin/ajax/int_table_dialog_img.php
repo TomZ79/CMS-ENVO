@@ -72,9 +72,9 @@ $envodata .= '
           <p><strong>Popis</strong></p>
           <p><textarea id="desc" style="width: 100%;height: 100px;padding: 10px;" readonly>' . $row["description"] . '</textarea></p>
           <div class="float-right">
-            <button id="editdesc" class="btn btn-info btn-xs" type="button">Editace popisů</button>
-            <button id="savedesc" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Uložit a Zavřít</button>
-            <button id="closedesc" class="btn btn-info btn-xs" type="button" style="display:none;">Zavřít</button>
+            <button id="editimgdesc" class="btn btn-info btn-xs" type="button">Editace popisů</button>
+            <button id="saveimgdesc" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Uložit a Zavřít</button>
+            <button id="closeimgdesc" class="btn btn-info btn-xs" type="button" style="display:none;">Zavřít</button>
           </div>
         </div>
       </div>
@@ -97,9 +97,9 @@ $envodata .= '
         </div>
         <div class="col-sm-6">
           <div class="float-right">
-            <button id="editcat" class="btn btn-info btn-xs" type="button">Editace kategorie</button>
-            <button id="savecat" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Uložit a Zavřít</button>
-            <button id="closecat" class="btn btn-info btn-xs" type="button" style="display:none;">Zavřít</button>
+            <button id="editimgcat" class="btn btn-info btn-xs" type="button">Editace kategorie</button>
+            <button id="saveimgcat" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Uložit a Zavřít</button>
+            <button id="closeimgcat" class="btn btn-info btn-xs" type="button" style="display:none;">Zavřít</button>
           </div>
         </div>
       </div>

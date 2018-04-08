@@ -23,7 +23,19 @@ header('Content-Type: application/json;charset=utf-8');
 // Define basic variable
 $data_array = array();
 
-// Valid the valid file extensions
+// Set basic value
+
+// Max dimensions of video thumbnail
+$maxDimens = 800;
+
+// Compress quality of video thumbnail
+// Ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file)
+$compress = 70;
+
+// Valid the valid video thumbs file extensions
+$valid_imgextensions = array('jpg', 'jpeg', 'png', 'gif');
+
+// Valid the valid video file extensions
 $valid_videoextensions = array('wmv', 'mp4', 'mpg', 'avi');
 
 // Upload image, creating thumbnails and insert data to DB
@@ -47,7 +59,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
   $filevideoname = pathinfo($videoname, PATHINFO_FILENAME);
   // Can upload same videos using rand function
   $rand      = rand(1000, 1000000);
-  $videoname = strtolower($rand . '_' . $filevideoname . '.' . $extvideo);
+  $videoname = strtolower($rand . '_' . $filevideoname . '_video.' . $extvideo);
   // Setting video path
   $pathvideo = $mainfolder . $videoname;
   // Set Upload Video directory
@@ -57,55 +69,162 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
   $extthumb           = strtolower(pathinfo($videothumbname, PATHINFO_EXTENSION));
   $filevideothumbname = pathinfo($videoname, PATHINFO_FILENAME);
   // Can upload same videos thumbnail using rand function
-  $rand           = rand(1000, 1000000);
-  $videothumbname = strtolower($rand . '_' . $filevideothumbname . '.' . $extthumb);
+  $videothumbname = strtolower($filevideothumbname . '_thumbs');
   // Setting video thumbnail path
-  $pathvideothumb = $mainfolder . $videothumbname;
+  $pathvideothumb = $mainfolder . $videothumbname . '.' . $extthumb;
   // Set Upload Video thumbnail directory
   $pathivideothumbfull = APP_PATH . ENVO_FILES_DIRECTORY . $pathvideothumb;
+  //  The dimensions with the file type and a height/width - video thumbs
+  list($width_o, $height_o, $type, $attr) = getimagesize($tmp_videothumbname);
+  $ratio = $width_o / $height_o;
 
-  // -------- UPLOAD ----------
-  // Check's valid format
+
+// -------- UPLOAD ----------
+// Check's valid format
   if (in_array($extvideo, $valid_videoextensions)) {
 
-    if (move_uploaded_file($tmp_videoname, $pathivideofull) && move_uploaded_file($tmp_videothumbname, $pathivideothumbfull)) {
-      // UPLOAD VIDEOS TO SERVER
+    // Check's valid video thumbs format
+    if (in_array($extthumb, $valid_imgextensions)) {
 
-      // Insert info about image into DB
-      $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousevideo SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filename = "' . $videoname . '", filenamethumb = "' . $videothumbname . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['videoCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW()');
+      // Set image new dimensions
+      if ($width_o > $maxDimens || $height_o > $maxDimens) {
 
-      // Get last row ID from DB
-      $rowid = $envodb->envo_last_id();
+        if ($ratio > 1) {
+          // widht > height
+          if ($width_o > $height_o) {
+            // Landscape (Na šířku)
+            $width_n  = $maxDimens;
+            $height_n = $maxDimens / $ratio;
+          }
+        } else if ($ratio < 1) {
+          // width < height
+          if ($width_o < $height_o) {
+            // Portrait (Na výšku)
+            $width_n  = $maxDimens * $ratio;
+            $height_n = $maxDimens;
+          }
+        } else {
+          // width == height
+          $width_n  = $maxDimens;
+          $height_n = $maxDimens;
+        }
 
-      // Getting info uploaded image from DB
-      $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $rowid . '"');
-      $row1    = $result1->fetch_assoc();
+      } else {
+        if ($ratio > 1) {
+          // widht > height
+          if ($width_o > $height_o) {
+            // Landscape (Na šířku)
+            $width_n  = $maxDimens;
+            $height_n = $maxDimens / $ratio;
+          }
+        } else if ($ratio < 1) {
+          // width < height
+          if ($width_o < $height_o) {
+            // Portrait (Na výšku)
+            $width_n  = $maxDimens * $ratio;
+            $height_n = $maxDimens;
+          }
+        } else {
+          // width == height
+          $width_n  = $width_o;
+          $height_n = $height_o;
+        }
 
-      $data_array[] = array(
-        'id'               => $row1["id"],
-        'shortdescription' => $row1["shortdescription"],
-        'description'      => $row1["description"],
-        'filename'         => $row1["filename"],
-        'filenamethumb'    => $row1["filenamethumb"],
-        'filepath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filename"],
-        'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
-        'category'         => $row1["category"],
-        'timedefault'      => $row1["timedefault"],
-        'timeedit'         => $row1["timeedit"],
-      );
+      }
 
-      // Data for JSON
-      $envodata = array(
-        'status'     => 'upload_success',
-        'status_msg' => 'Video upload was successful.',
-        'data'       => $data_array
-      );
+      // Resize output image file from the given image
+      switch ($extthumb) {
+        case 'jpg':
+        case 'jpeg':
+
+          // Fix for JPEG warnings for PHP smaller than 7.1.0 - Invalid SOS parameters for sequential JPEG
+          // For PHP 7.1.0 - The default of gd.jpeg_ignore_warning has been changed from 0 to 1.
+          ini_set('gd.jpeg_ignore_warning', 1);
+
+          // Get image from file
+          $src = imagecreatefromjpeg($tmp_videothumbname);
+
+
+          break;
+        case 'png':
+
+          // Get image from file
+          $src = imagecreatefrompng($tmp_videothumbname);
+
+          break;
+        case 'gif':
+
+          // Get image from file
+          $src = imagecreatefromgif($tmp_videothumbname);
+
+          break;
+      }
+
+      // CREATE THUMBNAIL - COVNERT IMAGE TO JPG
+
+      // Fix for JPEG warnings for PHP smaller than 7.1.0 - Invalid SOS parameters for sequential JPEG
+      // For PHP 7.1.0 - The default of gd.jpeg_ignore_warning has been changed from 0 to 1.
+      ini_set('gd.jpeg_ignore_warning', 1);
+
+      // Create a new thumbnail image
+      $tmp = imagecreatetruecolor($width_n, $height_n);
+
+      // Copy and resize part of an image with resampling
+      imagecopyresampled($tmp, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
+
+      // Output the image - imagejpeg( $resource_image, $destination, $quality )
+      imagejpeg($tmp, APP_PATH . ENVO_FILES_DIRECTORY . $mainfolder . $videothumbname . '.jpg', $compress);
+
+      // Free memory - destroy an image
+      imagedestroy($src);
+      imagedestroy($tmp);
+
+      if (move_uploaded_file($tmp_videoname, $pathivideofull)) {
+        // UPLOAD VIDEOS TO SERVER
+
+        // Insert info about image into DB
+        $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousevideo SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filename = "' . $videoname . '", filenamethumb = "' . $videothumbname . '.jpg", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['videoCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW()');
+
+        // Get last row ID from DB
+        $rowid = $envodb->envo_last_id();
+
+        // Getting info uploaded image from DB
+        $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $rowid . '"');
+        $row1    = $result1->fetch_assoc();
+
+        $data_array[] = array(
+          'id'               => $row1["id"],
+          'shortdescription' => $row1["shortdescription"],
+          'description'      => $row1["description"],
+          'filename'         => $row1["filename"],
+          'filenamethumb'    => $row1["filenamethumb"],
+          'filepath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filename"],
+          'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+          'category'         => $row1["category"],
+          'timedefault'      => $row1["timedefault"],
+          'timeedit'         => $row1["timeedit"],
+        );
+
+        // Data for JSON
+        $envodata = array(
+          'status'     => 'upload_success',
+          'status_msg' => 'Video upload was successful.',
+          'data'       => $data_array
+        );
+
+      } else {
+        // Data for JSON
+        $envodata = array(
+          'status'     => 'upload_error_E03',
+          'status_msg' => 'Unable to move video.'
+        );
+      }
 
     } else {
       // Data for JSON
       $envodata = array(
-        'status'     => 'upload_error_E03',
-        'status_msg' => 'Unable to move video.'
+        'status'     => 'upload_error_E04',
+        'status_msg' => 'Please upload only valid video thumbnails ' . implode(", ", $valid_imgextensions) . '.'
       );
     }
 
@@ -113,14 +232,14 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
     // Data for JSON
     $envodata = array(
       'status'     => 'upload_error_E02',
-      'status_msg' => 'Please upload only valid images ' . implode(", ", $valid_videoextensions) . '.'
+      'status_msg' => 'Please upload only valid video ' . implode(", ", $valid_videoextensions) . '.'
     );
   }
 } else {
   // Data for JSON
   $envodata = array(
     'status'     => 'upload_error_E01',
-    'status_msg' => 'The uploaded video does not exist.'
+    'status_msg' => 'The uploaded video or thubnails does not exist.'
   );
 }
 

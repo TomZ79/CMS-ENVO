@@ -1,14 +1,24 @@
-<!-- Modal -->
-<div class="modal modal-fullscreen fade" id="ENVOModalPlugin" tabindex="-1" role="dialog" aria-labelledby="ENVOModalPlugin" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="ENVOModalPluginLabel">Výběr domu</h4>
-      </div>
-      <div class="modal-body">
-        <div>
-          <table id="int_table" class="table table-striped table-hover">
+<?php
+
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_addnew_apt.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
+
+// EN: Detecting AJAX Requests
+// CZ: Detekce AJAX Požadavku
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
+
+// PHP CODE and DB
+//-------------------------
+
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouselist ORDER BY id ASC');
+
+// Reset
+$envodata = '';
+
+// Create HTML Output
+$envodata .= '<table id="int_table" class="table table-striped table-hover">
             <thead>
             <tr>
               <th class="no-sort">Název domu</th>
@@ -17,30 +27,24 @@
               <th class="no-sort">IČ</th>
             </tr>
             </thead>
+            <tbody>';
 
-            <?php
+while ($row = $result->fetch_assoc()) {
 
-            if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) {
-              foreach ($ENVO_HOUSE_ALL as $house) {
+  $envodata .= '<tr>  
+                   <td>' . $row["name"] . '</td>  
+                   <td>' . $row["city"] . '</td>  
+                   <td>' . $row["street"] . '</td>  
+                   <td>' . $Html->addAnchor('', $row["ic"], '', 'xxxx', array('data-value' => $row["id"])) . '</td>  
+                </tr>  
+               ';
 
-                echo '<tr>';
-                echo '<td>' . $house["name"] . '</td>';
-                echo '<td>' . $house["city"] . '</td>';
-                echo '<td>' . $house["street"] . '</td>';
-                echo '<td>' . $Html->addAnchor('', $house["ic"], '', 'xxxx', array('data-value' => $house["id"])) . '</td>';
-                echo '</tr>';
+}
 
-              }
-            }
+$envodata .= '</tbody></table>';
 
-            ?>
+// RETURN HTML OUTPUT
+//-------------------------
+echo $envodata;
 
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><?= $tl["button"]["btn19"] ?></button>
-      </div>
-    </div>
-  </div>
-</div>
+?>

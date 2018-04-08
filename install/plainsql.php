@@ -280,6 +280,7 @@ $envodb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('acetabSize', 'setting', '2', '2', 'input', 'free', 'cms'),
 ('acegutter', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('aceinvisible', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
+('aceactivewrap', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('acewraplimit', 'setting', '100', '100', 'input', 'free', 'cms'),
 ('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('acefontsize', 'setting', '12px', '12px', 'input', 'free', 'cms'),
