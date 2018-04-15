@@ -196,8 +196,11 @@ if (typeof jQuery === 'undefined') {
 
         result = settings.onAjax(action, serialize);
 
+        // In onAjax() it is possible to modify the document sent in ajax request, e.g. adding additional information required by server, or do formatting / restructing of document to be sent.
         if (result === false) {
           return false;
+        } else {
+          serialize = result;
         }
 
         settings.method = settings[action + 'method'];
@@ -1040,12 +1043,12 @@ if (typeof jQuery === 'undefined') {
     buttons: {
       edit: {
         class: 'btn btn-sm btn-default',
-        html: '<span class="glyphicons glyphicons-pencil"></span>',
+        html: '<span class="glyphicon glyphicon-pencil"></span>',
         action: 'edit'
       },
       delete: {
         class: 'btn btn-sm btn-default',
-        html: '<span class="glyphicons glyphicons-remove-circle"></span>',
+        html: '<span class="glyphicon glyphicon-trash"></span>',
         action: 'delete'
       },
       save: {
