@@ -1,5 +1,9 @@
 <?php
 
+// EN: Start a PHP Session
+// CZ: Start PHP Session
+session_start();
+
 // EN: Set template dir
 // CZ: Nastavení složky šablony
 $templatedir = '/template/' . $row['value'];
@@ -134,7 +138,8 @@ if (file_exists ($jsfile)) {
 
 // EN: Set ACE Editor mode
 // CZ: Nastavení módu ACE Editoru
-$acemode2 = 'html';
-$acemode3 = 'html';
+$_SESSION['acemode']='ini';
+$_SESSION['acemode2']='javascript';
+$_SESSION['acemode3']='html';
 
 ?>

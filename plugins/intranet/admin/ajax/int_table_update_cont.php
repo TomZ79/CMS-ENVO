@@ -35,7 +35,21 @@ if ($input['action'] === 'edit') {
 
   $envodb->query('UPDATE ' . DB_PREFIX . 'intranethousecontact SET name = "' . $input['name'] . '", address = "' . $input['address'] . '", phone = "' . $input['phone'] . '", email = "' . $input['email'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
 
-  $envodata = $input;
+  if ($result) {
+    // Data for JSON
+    $envodata = array(
+      'status'     => 'update_success',
+      'status_msg' => 'Update the record in DB was successful',
+      'data'       => $input
+    );
+  } else {
+    // Data for JSON
+    $envodata = array(
+      'status'     => 'update_error_E01',
+      'status_msg' => 'Update the record in DB was incorrect',
+      'data'       => ''
+    );
+  }
 
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE

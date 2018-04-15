@@ -380,4 +380,5 @@ unset($_SESSION["loginmsg"]);
 // EN: Finally close all db connections
 // CZ: Uzavření spojení do databáze
 $envodb->envo_close();
+
 ?>

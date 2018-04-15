@@ -2310,7 +2310,19 @@ $(function () {
         ]
       },
       onSuccess: function (data) {
-        if (data.status == 'delete_success') {
+        if (data.status == 'update_success') {
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+        } else if (data.status == 'delete_success') {
           // Remove row in table
           $('#' + data.data[0].id).fadeOut(300, function () {
             $(this).remove();
@@ -2708,6 +2720,9 @@ $(function () {
   $('#addTask').on('click', function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
+
+    // Clear form
+    $("#taskDialogAdd").find('input[type=text], textarea').val('');
 
     // Get Data-Dialog
     thisDataDialog = $(this).attr('data-dialog');

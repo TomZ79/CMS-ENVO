@@ -5,6 +5,10 @@
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/generated_admin_js.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
+// EN: Start a PHP Session
+// CZ: Start PHP Session
+session_start();
+
 // Standard Language
 $site_language = $setting["lang"];
 
@@ -22,6 +26,7 @@ $BASE_URL_ORIG  = BASE_URL_ORIG;
 $BASE_URL_ADMIN = BASE_URL_ADMIN;
 $BASE_PATH_ORIG = BASE_PATH_ORIG;
 $ENVO_TEMPLATE  = $setting["sitestyle"];
+$acemode = $_SESSION['acemode'];
 
 // GENERATED JAVASCRIPT FILE
 //---------------------------
@@ -61,14 +66,15 @@ var aceEditor = {
   aceactiveline: '{$setting["aceactiveline"]}',
   fontSize: '{$setting["acefontsize"]}',
   aceinvisible: '{$setting["aceinvisible"]}',
-  acegutter: '{$setting["acegutter"]}'
+  acegutter: '{$setting["acegutter"]}',
+  acemode: '{$acemode}'
 };
 
 // Icon Picker options
 var iconPicker = {
   searchText: '{$tl["placeholder"]["p4"]}',
   labelFooter: '{$tl["global_text"]["globaltxt18"]}'
-};
+}; 
 
 // Notification
 var notification = {

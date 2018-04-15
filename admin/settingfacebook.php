@@ -120,8 +120,9 @@ if (file_exists(APP_PATH . $facebookDescFile)) {
 $SECTION_TITLE = $tl["fb_sec_title"]["fbt"];
 $SECTION_DESC  = $tl["fb_sec_desc"]["fbd"];
 
-// EN: Ace Mode
-$acemode = 'plain_text';
+// EN: Set ACE Editor mode
+// CZ: Nastavení módu ACE Editoru
+$_SESSION['acemode']='plain_text';
 
 // EN: Load the php template
 // CZ: Načtení php template (šablony)

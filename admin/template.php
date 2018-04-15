@@ -8,6 +8,10 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!ENVO_USERID || !ENVO_SUPERADMINACCESS) envo_redirect(BASE_URL);
 
+// EN: Start a PHP Session
+// CZ: Start PHP Session
+session_start();
+
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
 
@@ -195,8 +199,9 @@ switch ($page1) {
     $SECTION_TITLE = $tl["tpl_sec_title"]["tplt3"];
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld3"];
 
-    // EN: Ace Mode
-    $acemode = 'css';
+    // EN: Set ACE Editor mode
+    // CZ: Nastavení módu ACE Editoru
+    $_SESSION['acemode']='css';
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -266,8 +271,9 @@ switch ($page1) {
     $SECTION_TITLE = $tl["tpl_sec_title"]["tplt4"];
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld4"];
 
-    // EN: Ace Mode
-    $acemode = 'ini';
+    // EN: Set ACE Editor mode
+    // CZ: Nastavení módu ACE Editoru
+    $_SESSION['acemode']='ini';
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -337,8 +343,9 @@ switch ($page1) {
     $SECTION_TITLE = $tl["tpl_sec_title"]["tplt2"];
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld2"];
 
-    // EN: Ace Mode
-    $acemode = 'php';
+    // EN: Set ACE Editor mode
+    // CZ: Nastavení módu ACE Editoru
+    $_SESSION['acemode']='php';
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -408,4 +415,5 @@ switch ($page1) {
     // CZ: Načtení php template (šablony)
     $template = 'template.php';
 }
+
 ?>

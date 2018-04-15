@@ -1,3 +1,9 @@
+<?php
+// EN: Start a PHP Session
+// CZ: Start PHP Session
+session_start();
+?>
+
 <script>
 
   /* ACE Editor
@@ -9,7 +15,7 @@
     htmlefACE2.session.setWrapLimitRange(<?=$setting["acewraplimit"] . ',' . $setting["acewraplimit"]?>);
     htmlefACE2.setOptions({
       // session options
-      mode: "ace/mode/javascript",
+      mode: "ace/mode/<?=$_SESSION['acemode2']?>",
       tabSize: <?=$setting["acetabSize"]?>,
       useSoftTabs: true,
       highlightActiveLine: <?=$setting["aceactiveline"]?>,
@@ -33,7 +39,7 @@
     htmlefACE3.session.setWrapLimitRange(<?=$setting["acewraplimit"] . ',' . $setting["acewraplimit"]?>);
     htmlefACE3.setOptions({
       // session options
-      mode: "ace/mode/<?=$acemode3?>",
+      mode: "ace/mode/<?=$_SESSION['acemode3']?>",
       tabSize: <?=$setting["acetabSize"]?>,
       useSoftTabs: true,
       highlightActiveLine: <?=$setting["aceactiveline"]?>,

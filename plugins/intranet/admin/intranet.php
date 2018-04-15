@@ -534,7 +534,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // CZ: Hlavní proměnné
         $pageID = $page3;
 
-        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable13)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
