@@ -39,7 +39,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -197,7 +197,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
       $insertphpcode = 'if (isset($defaults[\'envo_faq\'])) {
-	$insert .= \'faq = \"\'.$defaults[\'envo_faq\'].\'\", faqpost = \"\'.$defaults[\'envo_faqpost\'].\'\", faqpostapprove = \"\'.$defaults[\'envo_faqpostapprove\'].\'\", faqpostdelete = \"\'.$defaults[\'envo_faqpostdelete\'].\'\", faqrate = \"\'.$defaults[\'envo_faqrate\'].\'\", faqmoderate = \"\'.$defaults[\'envo_faqmoderate\'].\'\",\'; }';
+	$insert .= \'faq = \"\'.$defaults[\'envo_faq\'].\'\"\'; }';
 
       // EN: Set admin lang of plugin
       // CZ: Nastavení jazyka pro administrační rozhraní pluginu
@@ -434,7 +434,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 
       // EN: Insert data to table 'usergroup'
       // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`, ADD `faqpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpost`, ADD `faqpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqrate`');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`');
 
       // Pages/News alter Table
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');

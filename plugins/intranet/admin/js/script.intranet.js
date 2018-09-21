@@ -398,7 +398,7 @@ function deleteImg(imageID) {
         // IF DATA SUCCESS
 
         // Removes elements from the Isotope instance and DOM
-        $('#gallery_envo').isotope('remove', $('#' + data.data[0].id))
+        $('#gallery_envo1').isotope('remove', $('#' + data.data[0].id))
         // Layout remaining item elements
           .isotope('layout');
 
@@ -776,7 +776,7 @@ function saveImgDesc(event) {
 }
 
 /**
- * Jquery Function - Save Description
+ * Jquery Function - Close Description
  * Close editing description
  * @example
  * -----------------
@@ -986,7 +986,7 @@ function addRowCont() {
           }, 1000);
 
         }
-
+        houseSelect
       },
       error: function () {
 
@@ -1439,7 +1439,7 @@ $(function () {
   var filters;
 
   // init Isotope
-  var $gallery = $('#gallery_envo');
+  var $gallery = $('#gallery_envo1');
   $gallery.isotope({
     itemSelector: 'div[class^="gallery-item-"]',
     masonry: {
@@ -1497,6 +1497,27 @@ $(function () {
   $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
+
+  $('#showPhotoList').on('click', (function (e) {
+
+    $(this).removeClass('btn-info').addClass('btn-complete');
+    $('#showFiltrPhoto').removeClass('btn-complete').addClass('btn-info');
+    $('#list_photo').fadeIn(500);
+    $('#isotope_photo').fadeOut(500);
+
+  }));
+
+  $('#showFiltrPhoto').on('click', (function (e) {
+
+    $(this).removeClass('btn-info').addClass('btn-complete');
+    $('#showPhotoList').removeClass('btn-complete').addClass('btn-info');
+    $('#isotope_photo').fadeIn(500);
+    $('#list_photo').fadeOut(500);
+    setTimeout(function () {
+      $gallery.isotope('layout');
+    }, 500);
+
+  }));
 
 });
 
@@ -1579,6 +1600,168 @@ $(function () {
 /* 00. UPLOAD FILE TO SERVER AND DELETE FILES FROM SERVER
  ========================================================================*/
 $(function () {
+
+  /* Upload Files for House list
+   ========================================= */
+
+  $("#uploadListBtnDocu").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Hide output
+    $('#listdocuoutput').hide();
+    // Show progress info
+    $('#listdocuprogress').show();
+    // Reset
+    $("#listdocupercent").html('0%');
+
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_doclist').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpathlist"]').val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('houseID', pageID);
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet/admin/ajax/int_list_table_upload_docu.php",
+      type: "POST",
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+
+      },
+      xhr: function () {
+        // Create a new XMLHttpRequest
+        var xhr = new window.XMLHttpRequest();
+        //Upload progress bar
+        xhr.upload.addEventListener("progress", function (evt) {
+          // Make sure we can compute the length
+          if (evt.lengthComputable) {
+
+            var loaded = evt.loaded;
+            var total = evt.total;
+
+            // Append progress percentage
+            var percent = (loaded / total) * 100;
+            var percentComplete = percent.toFixed(2) + '%';
+
+            // Bytes received
+            var byteRec = formatFileSize(loaded);
+
+            // Total bytes
+            var totalByte = formatFileSize(total);
+
+            // Progress output
+            $('#listdocuprogressbar').css('width', percentComplete);
+            $('#listdocupercent').html(percentComplete);
+            $('#listdocubyterec').html(byteRec);
+            $('#listdocubytetotal').html(totalByte);
+
+          }
+        }, false);
+
+        return xhr;
+      },
+      success: function (data) {
+
+        if (data.status == 'upload_success') {
+          // IF DATA SUCCESS
+
+          $('#listdocuoutput').html('<div class="alert alert-success" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Success: </strong>' + data.status_msg +
+            '</div>');
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var tabledata = '';
+
+          $.each(result, function (key, data) {
+            //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                // console.log('ID: ', data['id']);
+                // console.log('File Icon: ', data['fileicon']);
+                // console.log('Description: ', data['description']);
+                // console.log('Filepath: ', data['fullpath']);
+
+                tabledata += '<tr>' +
+                  '<td>' + data["id"] + '</td>' +
+                  '<td>' + data["fileicon"] + '</td>' +
+                  '<td>' + data["description"] + '</td>' +
+                  '<td><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
+                  '</tr>';
+
+              })
+
+            }
+
+          });
+
+          // Put data to table
+          $('#listtabledocu tbody').html(tabledata);
+
+          // Update Jquery Tabledit Plugin
+          $('#listtabledocu').Tabledit('update', ({})
+          );
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else if (data.status.indexOf('upload_error') != -1) {
+          // IF DATA ERROR
+
+          $('#listdocuoutput').html('<div class="alert alert-danger" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+            '</div>');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
+
+        }
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        $('#listdocuprogress').hide();
+        $('#listdocuprogressbar').css('width', '');
+        $('#listdocuoutput').show();
+      }
+    });
+  }));
+
 
   /* Upload Files
    ========================================= */
@@ -1850,7 +2033,7 @@ $(function () {
                   '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '" alt="">' +
                   '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
                   '</a>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="itemDetails"><i class="fa fa-edit"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="imgitemDetails"><i class="fa fa-edit"></i></button>' +
                   '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"  data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"><i class="fa fa-trash"></i></button>' +
                   '</div>' +
                   '</div>' +
@@ -1864,7 +2047,7 @@ $(function () {
                 // Isotope Plugin
                 // Adds and lays out newly prepended item elements at the beginning of layout
                 // Prepend items to gallery
-                $('#gallery_envo').prepend($isotopeContent)
+                $('#gallery_envo1').prepend($isotopeContent)
                 // Add and lay out newly prepended items
                   .isotope('prepended', $isotopeContent);
 
@@ -2060,13 +2243,13 @@ $(function () {
                 elClass.find('.dialog-open-video').click(openDialogVideo);
                 elClass.find('.delete-video').click(confirmdeleteVideo);
                 elClass.find('[data-fancybox-video]').fancybox({
-                  afterShow: function(){
+                  afterShow: function () {
                     ($('.fancybox-iframe').contents().find('body').css('background-color', 'transparent'));
                   },
-                  iframe : {
-                    preload : false,
-                    css : {
-                      width  : 'auto'
+                  iframe: {
+                    preload: false,
+                    css: {
+                      width: 'auto'
                     }
                   },
                   buttons: [
@@ -2441,11 +2624,11 @@ $(function () {
           [4, 'timeend', 'input']
         ]
       },
-      onDraw: function() {
+      onDraw: function () {
         // Select all inputs of second column and apply datetimepicker each of them
         var picker = $('#tableservice input[name="timestart"], #tableservice input[name="timeend"]');
 
-        picker.each(function() {
+        picker.each(function () {
           $(this).datetimepicker({
             widgetParent: '#pickercontainer',
             // Language
@@ -2548,7 +2731,88 @@ $(function () {
         ]
       },
       onSuccess: function (data) {
-        if (data.status == 'delete_success') {
+        if (data.status == 'update_success') {
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+        } else if (data.status == 'delete_success') {
+          // Remove row in table
+          $('#' + data.data[0].id).fadeOut(300, function () {
+            $(this).remove();
+          });
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+        } else {
+          // IF DATA ERROR
+
+          // Fix for plugin
+          $('#' + data.data[0].id).removeClass();
+          $('#' + data.data[0].id + ' button').prop('disabled', false);
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+        }
+      }
+    });
+  }
+
+  // If exist 'table' -> init Plugin Jquery-Tabledit
+  if ($('#listtabledocu').length > 0) {
+    // Tabledit init config
+    $('#listtabledocu').Tabledit({
+      url: '/plugins/intranet/admin/ajax/int_list_table_update_docu.php',
+      inputClass: 'form-control',
+      restoreButton: false,
+      lang: 'cz',
+      mutedClass: 'text-muted warning',
+      columns: {
+        identifier: [0, 'id'],
+        editable: [
+          [2, 'description', 'input']
+        ]
+      },
+      onSuccess: function (data) {
+        if (data.status == 'update_success') {
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+        } else if (data.status == 'delete_success') {
           // Remove row in table
           $('#' + data.data[0].id).fadeOut(300, function () {
             $(this).remove();
@@ -2723,6 +2987,7 @@ $(function () {
 
     // Clear form
     $("#taskDialogAdd").find('input[type=text], textarea').val('');
+    $("#taskDialogAdd").find('.selectpicker').select2("val", "");
 
     // Get Data-Dialog
     thisDataDialog = $(this).attr('data-dialog');
@@ -3023,6 +3288,7 @@ $(function () {
 
   $('.taskheader').click(clickTaskHeader);
 
+  // Init DateTimePicker
   initializeDateTimePicker('input[name=envo_addtasktime]');
   initializeDateTimePicker('input[name=envo_addtaskreminder]');
 });
@@ -3038,7 +3304,7 @@ $(function () {
     if (checkedStatus) {
       $('#button_delete').prop('disabled', false);
     } else {
-      $('#button_delete').attr('disabled',true);
+      $('#button_delete').attr('disabled', true);
     }
     $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
@@ -3050,9 +3316,9 @@ $(function () {
     if (this.checked) {
       $('#button_delete').prop('disabled', false);
     } else {
-      if ($('.highlight').filter(':checked').length < 1){
+      if ($('.highlight').filter(':checked').length < 1) {
         $('#envo_delete_all').prop('checked', false);
-        $('#button_delete').attr('disabled',true);
+        $('#button_delete').attr('disabled', true);
       }
     }
   });
@@ -3083,19 +3349,56 @@ $(function () {
 
         $('input[name="envo_housename"]').val(res.name);
         $('input[name="envo_housestreet"]').val(res.street);
-        $('input[name="envo_housecity"]').val(res.city);
-        $('input[name="envo_housecityarea"]').val(res.cityarea);
+        $('select[name="envo_housecity"]').val(res.city);
+        $('select[name="envo_housecityarea"]').val(res.cityarea);
         $('input[name="envo_housepsc"]').val(res.psc);
         $('input[name="envo_houseic"]').val(res.ic);
         $('input[name="envo_housestate"]').val(res.state);
+        $('input[name="envo_housejustice"]').val(res.justice);
+        $('textarea[name="envo_housejusticelaw"]').val(res.housejusticelaw);
         $('input[name="envo_housedescription"]').val(res.description);
         $('input[name="envo_housecontact1"]').val(res.contact1);
+        $('input[name="envo_housecontactphone1"]').val(res.contactphone1);
+        $('input[name="envo_housecontactmail1"]').val(res.contactmail1);
+        $('input[name="envo_housecontactdate1"]').val(res.contactdate1);
+        $('input[name="envo_housecontactaddress1"]').val(res.contactaddress1);
         $('input[name="envo_housecontact2"]').val(res.contact2);
+        $('input[name="envo_housecontactphone2"]').val(res.contactphone2);
+        $('input[name="envo_housecontactmail2"]').val(res.contactmail2);
+        $('input[name="envo_housecontactdate2"]').val(res.contactdate2);
+        $('input[name="envo_housecontactaddress2"]').val(res.contactaddress2);
         $('input[name="envo_housecontact3"]').val(res.contact3);
+        $('input[name="envo_housecontactphone3"]').val(res.contactphone3);
+        $('input[name="envo_housecontactmail3"]').val(res.contactmail3);
+        $('input[name="envo_housecontactdate3"]').val(res.contactdate3);
+        $('input[name="envo_housecontactaddress3"]').val(res.contactaddress3);
         $('input[name="envo_housecontact4"]').val(res.contact4);
+        $('input[name="envo_housecontactphone4"]').val(res.contactphone4);
+        $('input[name="envo_housecontactmail4"]').val(res.contactmail4);
+        $('input[name="envo_housecontactdate4"]').val(res.contactdate4);
+        $('input[name="envo_housecontactaddress4"]').val(res.contactaddress4);
         $('input[name="envo_housecontact5"]').val(res.contact5);
+        $('input[name="envo_housecontactphone5"]').val(res.contactphone5);
+        $('input[name="envo_housecontactmail5"]').val(res.contactmail5);
+        $('input[name="envo_housecontactdate5"]').val(res.contactdate5);
+        $('input[name="envo_housecontactaddress5"]').val(res.contactaddress5);
         $('input[name="envo_housecontact6"]').val(res.contact6);
+        $('input[name="envo_housecontactphone6"]').val(res.contactphone6);
+        $('input[name="envo_housecontactmail6"]').val(res.contactmail6);
+        $('input[name="envo_housecontactdate6"]').val(res.contactdate6);
+        $('input[name="envo_housecontactaddress6"]').val(res.contactaddress6);
+        $('input[name="envo_housecontact7"]').val(res.contact7);
+        $('input[name="envo_housecontact8"]').val(res.contact8);
+        $('input[name="envo_housecontact9"]').val(res.contact9);
+        $('input[name="envo_housecontact10"]').val(res.contact10);
+        $('input[name="envo_housecontact11"]').val(res.contact11);
+        $('input[name="envo_housecontact12"]').val(res.contact12);
 
+        // ReInit Select2 plugin
+        $('select[name=envo_housecity]').trigger('change');
+        $('select[name=envo_housecityarea]').trigger('change');
+
+        // Hide modal
         $("#ENVOModalPlugin").modal('hide');
       },
       error: function () {
@@ -3111,7 +3414,7 @@ $(function () {
     e.preventDefault();
 
     var altura = $(window).height() - 155; //value corresponding to the modal heading + footer
-    $('#ENVOModalPlugin .modal-body').css({"height":altura,"overflow-y":"auto"});
+    $('#ENVOModalPlugin .modal-body').css({"height": altura, "overflow-y": "auto"});
 
     // AJAX request
     $.ajax({
@@ -3127,7 +3430,7 @@ $(function () {
         $('#ENVOModalPlugin').modal('show');
 
       },
-      success: function(data){
+      success: function (data) {
 
         setTimeout(function () {
 
@@ -3166,10 +3469,23 @@ $(function () {
 
   });
 
+  // Select text in houselist (Edit & New)
+  $('#textSelect').on('click', function (e) {
+    e.preventDefault();
+    $('#ENVOModalPlugin1').modal('show');
+  });
+
+  $('.definetext').click(function (event) {
+    event.preventDefault();
+
+    $('#housejusticelaw').val('');
+    $('#housejusticelaw').val($(this).text());
+
+  });
+
 });
 
-
-/** Play Video in popup
+/** 00. Play Video in popup
  * Initialisation of Fancybox 3
  * @require: Fancybox 3 Plugin
  ========================================================================*/
@@ -3177,13 +3493,13 @@ $(function () {
 $(function () {
 
   $('[data-fancybox-video]').fancybox({
-    afterShow: function(){
+    afterShow: function () {
       ($('.fancybox-iframe').contents().find('body').css('background-color', 'transparent'));
     },
-    iframe : {
-      preload : false,
-      css : {
-        width  : 'auto'
+    iframe: {
+      preload: false,
+      css: {
+        width: 'auto'
       }
     },
     buttons: [
@@ -3192,4 +3508,30 @@ $(function () {
     ]
 
   });
+});
+
+/** 00. DateTimePicker
+ * @require: DateTimePicker Plugin
+ ========================================================================*/
+
+$(function () {
+
+  // Init DateTimePicker
+  $('input[name=envo_contactcontrol]').datetimepicker({
+    // Language
+    locale: envoWeb.envo_lang,
+    // Date-Time format
+    format: 'YYYY-MM-DD HH:mm:ss',
+    // Icons
+    icons: $.AdminEnvo.DateTimepicker.icons(),
+    // Tooltips
+    tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
+    // Show Button
+    showTodayButton: true,
+    showClear: true,
+    // Other
+    calendarWeeks: true,
+    ignoreReadonly: true
+  });
+
 });

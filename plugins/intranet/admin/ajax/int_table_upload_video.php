@@ -21,7 +21,7 @@ header('Content-Type: application/json;charset=utf-8');
 //-------------------------
 
 // Define basic variable
-$data_array = array();
+$data_array = array ();
 
 // Set basic value
 
@@ -33,10 +33,10 @@ $maxDimens = 800;
 $compress = 70;
 
 // Valid the valid video thumbs file extensions
-$valid_imgextensions = array('jpg', 'jpeg', 'png', 'gif');
+$valid_imgextensions = array ( 'jpg', 'jpeg', 'png', 'gif' );
 
 // Valid the valid video file extensions
-$valid_videoextensions = array('wmv', 'mp4', 'mpg', 'avi');
+$valid_videoextensions = array ( 'wmv', 'mp4', 'mpg', 'avi' );
 
 // Upload image, creating thumbnails and insert data to DB
 if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
@@ -55,10 +55,10 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 
   // -------- VIDEO ----------
   // Get uploaded file's extension and name
-  $extvideo      = strtolower(pathinfo($videoname, PATHINFO_EXTENSION));
+  $extvideo = strtolower(pathinfo($videoname, PATHINFO_EXTENSION));
   $filevideoname = pathinfo($videoname, PATHINFO_FILENAME);
   // Can upload same videos using rand function
-  $rand      = rand(1000, 1000000);
+  $rand = rand(1000, 1000000);
   $videoname = strtolower($rand . '_' . $filevideoname . '_video.' . $extvideo);
   // Setting video path
   $pathvideo = $mainfolder . $videoname;
@@ -66,7 +66,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
   $pathivideofull = APP_PATH . ENVO_FILES_DIRECTORY . $pathvideo;
 
   // -------- IMAGE ----------
-  $extthumb           = strtolower(pathinfo($videothumbname, PATHINFO_EXTENSION));
+  $extthumb = strtolower(pathinfo($videothumbname, PATHINFO_EXTENSION));
   $filevideothumbname = pathinfo($videoname, PATHINFO_FILENAME);
   // Can upload same videos thumbnail using rand function
   $videothumbname = strtolower($filevideothumbname . '_thumbs');
@@ -93,19 +93,19 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
           // widht > height
           if ($width_o > $height_o) {
             // Landscape (Na šířku)
-            $width_n  = $maxDimens;
+            $width_n = $maxDimens;
             $height_n = $maxDimens / $ratio;
           }
         } else if ($ratio < 1) {
           // width < height
           if ($width_o < $height_o) {
             // Portrait (Na výšku)
-            $width_n  = $maxDimens * $ratio;
+            $width_n = $maxDimens * $ratio;
             $height_n = $maxDimens;
           }
         } else {
           // width == height
-          $width_n  = $maxDimens;
+          $width_n = $maxDimens;
           $height_n = $maxDimens;
         }
 
@@ -114,19 +114,19 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
           // widht > height
           if ($width_o > $height_o) {
             // Landscape (Na šířku)
-            $width_n  = $maxDimens;
+            $width_n = $maxDimens;
             $height_n = $maxDimens / $ratio;
           }
         } else if ($ratio < 1) {
           // width < height
           if ($width_o < $height_o) {
             // Portrait (Na výšku)
-            $width_n  = $maxDimens * $ratio;
+            $width_n = $maxDimens * $ratio;
             $height_n = $maxDimens;
           }
         } else {
           // width == height
-          $width_n  = $width_o;
+          $width_n = $width_o;
           $height_n = $height_o;
         }
 
@@ -183,16 +183,16 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
         // UPLOAD VIDEOS TO SERVER
 
         // Insert info about image into DB
-        $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousevideo SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filename = "' . $videoname . '", filenamethumb = "' . $videothumbname . '.jpg", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['videoCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW()');
+        $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int_housevideo SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filename = "' . $videoname . '", filenamethumb = "' . $videothumbname . '.jpg", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['videoCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW()');
 
         // Get last row ID from DB
-        $rowid = $envodb->envo_last_id();
+        $rowid = $envodb -> envo_last_id();
 
         // Getting info uploaded image from DB
-        $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $rowid . '"');
-        $row1    = $result1->fetch_assoc();
+        $result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_housevideo WHERE id = "' . $rowid . '"');
+        $row1 = $result1 -> fetch_assoc();
 
-        $data_array[] = array(
+        $data_array[] = array (
           'id'               => $row1["id"],
           'shortdescription' => $row1["shortdescription"],
           'description'      => $row1["description"],
@@ -206,7 +206,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
         );
 
         // Data for JSON
-        $envodata = array(
+        $envodata = array (
           'status'     => 'upload_success',
           'status_msg' => 'Video upload was successful.',
           'data'       => $data_array
@@ -214,7 +214,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 
       } else {
         // Data for JSON
-        $envodata = array(
+        $envodata = array (
           'status'     => 'upload_error_E03',
           'status_msg' => 'Unable to move video.'
         );
@@ -222,7 +222,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 
     } else {
       // Data for JSON
-      $envodata = array(
+      $envodata = array (
         'status'     => 'upload_error_E04',
         'status_msg' => 'Please upload only valid video thumbnails ' . implode(", ", $valid_imgextensions) . '.'
       );
@@ -230,14 +230,14 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 
   } else {
     // Data for JSON
-    $envodata = array(
+    $envodata = array (
       'status'     => 'upload_error_E02',
       'status_msg' => 'Please upload only valid video ' . implode(", ", $valid_videoextensions) . '.'
     );
   }
 } else {
   // Data for JSON
-  $envodata = array(
+  $envodata = array (
     'status'     => 'upload_error_E01',
     'status_msg' => 'The uploaded video or thubnails does not exist.'
   );

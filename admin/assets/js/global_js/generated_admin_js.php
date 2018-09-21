@@ -22,9 +22,10 @@ if ($setting["lang"] != $site_language && file_exists(ROOT_ADMIN . 'lang/' . $si
 }
 
 // Set define variable
-$BASE_URL_ORIG  = BASE_URL_ORIG;
-$BASE_URL_ADMIN = BASE_URL_ADMIN;
-$BASE_PATH_ORIG = BASE_PATH_ORIG;
+$BASE_URL_ORIG  = $_SERVER['HTTP_HOST'];
+$BASE_URL_ADMIN = $_SERVER['HTTP_HOST'] . '/admin/';
+$BASE_PATH_ORIG = $_SERVER['DOCUMENT_ROOT'];
+$BASE_PATH_ADMIN = $_SERVER['DOCUMENT_ROOT'] . '/admin/';
 $ENVO_TEMPLATE  = $setting["sitestyle"];
 $acemode = $_SESSION['acemode'];
 
@@ -34,9 +35,8 @@ $acemode = $_SESSION['acemode'];
 // Set content type header
 header('Content-Type: application/x-javascript;charset=utf-8');
 
-echo $page2;
 echo <<<EOT
-
+ 
 /*
  * CMS ENVO
  * PHP Generated javascript file with variable for external js files  - ADMIN
@@ -53,7 +53,7 @@ echo <<<EOT
 // Global options
 envoWeb.envo_url_orig = '{$BASE_URL_ORIG}';
 envoWeb.envo_url = '{$BASE_URL_ADMIN}';
-envoWeb.envo_path = '{$BASE_PATH_ORIG}';
+envoWeb.envo_path = '{$BASE_PATH_ADMIN}';
 envoWeb.envo_lang = '{$site_language}';
 envoWeb.envo_template = '{$ENVO_TEMPLATE}';
 

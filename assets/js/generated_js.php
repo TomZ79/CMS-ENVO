@@ -20,7 +20,6 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site
 // Set define variable
 $BASE_URL_ORIG  = BASE_URL;
 $BASE_URL       = BASE_URL;
-$BASE_PATH_ORIG = BASE_PATH_ORIG;
 $ENVO_TEMPLATE  = $setting["sitestyle"];
 $REQUEST_URI    = ENVO_PARSE_REQUEST;
 $FORGOT_LOGIN   = (isset($errorfp) && !empty($errorfp) ? '1' : '0');

@@ -212,7 +212,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc4"] . '</strong>');
+                    echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc4"] . '</strong>', array('class' => 'm-b-10'));
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                     echo $Html->addTextarea('envo_description', $setting["metadesc"], '3', '', array('id' => 'metadesc', 'class' => 'form-control'));
                     ?>
@@ -224,7 +224,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc5"] . '</strong>');
+                    echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc5"] . '</strong>', array('class' => 'm-b-10'));
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                     echo $Html->addInput('text', 'envo_keywords', $setting["metakey"], 'metakey', 'form-control');
                     ?>

@@ -6,19 +6,19 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
 
 // PLUGIN CONFIG
 // New plugin version after update
-$pluginversion = '1.1';
-$nameofplugin  = 'Intranet';
+$pluginversion = '1.2';
+$nameofplugin = 'Intranet';
 
 ?>
 
@@ -30,14 +30,14 @@ $nameofplugin  = 'Intranet';
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -95,13 +95,13 @@ $nameofplugin  = 'Intranet';
       </div>
       <hr>
       <div class="m-b-30">
-        <h4 class="semi-bold">Intranet Plugin - info about update to version <?=$pluginversion?></h4>
+        <h4 class="semi-bold">Intranet Plugin - info about update to version <?= $pluginversion ?></h4>
       </div>
       <hr>
 
       <!-- Check if the plugin is already installed -->
-      <?php $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
-      if ($envodb->affected_rows == 0) {
+      <?php $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
+      if ($envodb -> affected_rows == 0) {
         $succesfully = 1; ?>
 
         <div class="alert bg-danger text-white">Plugin is not installed!!!</div>
@@ -109,11 +109,11 @@ $nameofplugin  = 'Intranet';
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
 
-        <?php $result = $envodb->query('SELECT id, pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
-        $row          = $result->fetch_assoc();
+        <?php $result = $envodb -> query('SELECT id, pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
+        $row = $result -> fetch_assoc();
         if ($row['pluginversion'] == $pluginversion) {
           $succesfully = 1;
-          $envodb->query('UPDATE ' . DB_PREFIX . 'plugins SET time = NOW() WHERE name = "' . $nameofplugin . '"'); ?>
+          $envodb -> query('UPDATE ' . DB_PREFIX . 'plugins SET time = NOW() WHERE name = "' . $nameofplugin . '"'); ?>
 
           <div class="alert bg-info text-white">Plugin is already up to date!</div>
 
@@ -128,14 +128,11 @@ $nameofplugin  = 'Intranet';
             // --------------------------------------------
 
 
-
-
-
             // --------------------------------------------
             //  END PLUGIN UPDATE PROCESS
             // --------------------------------------------
 
-            $envodb->query('UPDATE ' . DB_PREFIX . 'plugins SET pluginversion = "' . $pluginversion . '", time = NOW() WHERE name = "' . $nameofplugin . '"');
+            $envodb -> query('UPDATE ' . DB_PREFIX . 'plugins SET pluginversion = "' . $pluginversion . '", time = NOW() WHERE name = "' . $nameofplugin . '"');
 
             $succesfully = 1;
 

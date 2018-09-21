@@ -147,6 +147,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $eucookie_btxt = '#1ab2ff';
     }
 
+    if ($defaults['envo_eucookie_theme'] == 'eucookie_theme10') {
+      $eucookie_pbck = '#000';
+      $eucookie_ptxt = '#FFF';
+      $eucookie_bbck = '#D81517';
+      $eucookie_btxt = '#FFF';
+    }
+
     // EN: Write data to MySQL DB
     // CZ: Zápis dat do databáze MySQL a vyhodnocení výsledku zápisu
     if (count($errors) == 0) {

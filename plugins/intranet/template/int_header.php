@@ -6,7 +6,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="<?=$site_language?>">
+<html lang="<?= $site_language ?>">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <meta charset="utf-8"/>
@@ -33,27 +33,28 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Google Fonts
-  echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
-  // Bootstrap
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
+  echo $Html -> addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // Fontawesome icon
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/5.0.9/web-fonts-with-css/css/fontawesome-all.min.css?=v5.0.9');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/5.3.1/css/solid.css?=v5.3.1');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/5.3.1/css/fontawesome.css?=v5.3.1');
+  // Bootstrap
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Scrollbar
-  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.css');
+  echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.css');
   // DataTables (Stylesheet only for pages which contains 'table')
-  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2')  || ($page1 == 'houselist' && empty($page2))) echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
+  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2') || ($page1 == 'houselist' && empty($page2))) echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
   // Icon technology fonts
-  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'fonts/fonts.css');
+  echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'fonts/fonts.css');
   //
   if ($page1 == 'house' && !empty($page2)) {
     // Plugin Fancybox
-    echo $Html->addStylesheet('/assets/plugins/fancybox/3.1.25/css/jquery.fancybox.min.css');
+    echo $Html -> addStylesheet('/assets/plugins/fancybox/3.4.1/css/jquery.fancybox.min.css');
     // Plugin DialogFX
-    echo $Html->addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
-    echo $Html->addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
+    echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
+    echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
     // Plugin Fileuploader
-    echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/jquery.fileuploader.min.css');
-    echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/theme/jquery.fileuploader-theme-thumbnails.css');
+    echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/jquery.fileuploader.min.css');
+    echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/theme/jquery.fileuploader-theme-thumbnails.css');
   }
   ?>
 
@@ -63,16 +64,16 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Main StyleSheet
-  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.css');
+  echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.min.css');
   ?>
 
   <!-- END CORE CSS FRAMEWORK -->
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="page-loading">
+<body class="page-loading" style="overflow: hidden;">
 <!-- BEGIN PAGE PRELOADER -->
-<div class="pageload">
+<div class="pageload" style="width: 100%;height: 100%;position: fixed;top: 0;background-color: rgba(255,255,255,0.99);z-index: 99999;display: table;">
   <div class="pageload-inner">
     <div class="sk-cube-grid">
       <div class="sk-cube sk-cube1"></div>
@@ -101,13 +102,13 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
         </li>
       </ul>
       <!-- BEGIN LOGO -->
-      <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
+      <a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '') ?>">
         <img src="/plugins/intranet/template/img/logo.png" class="logo" alt="" width="106" height="21"/>
       </a>
       <!-- END LOGO -->
       <ul class="nav pull-right notifcation-center">
         <li class="dropdown hidden-xs hidden-sm">
-          <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '')?>" class="dropdown-toggle">
+          <a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '') ?>" class="dropdown-toggle">
             <i class="material-icons">dashboard</i>
           </a>
         </li>
@@ -130,12 +131,12 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
             <a href="#" class="" id="my-task-list" data-placement="bottom" data-content='' data-toggle="dropdown" data-original-title="Notifikace">
               <i class="material-icons">email</i>
 
-                <?php
-                if ($notifCount > 0) {
-                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('span', $notifCount, 'badge badge-important animated bounceIn');
-                }
-                ?>
+              <?php
+              if ($notifCount > 0) {
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('span', $notifCount, 'badge badge-important animated bounceIn');
+              }
+              ?>
 
             </a>
           </li>
@@ -152,7 +153,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 
               // EN: Start foreach loop on array at the second item - First item is info obout count of notifications
               // CZ: Spuštění foreach smyčky na pole u druhé položky - První položka je informace o počtu oznámení
-              foreach (array_slice($ENVO_NOTIFICATION, 1)  as $en) {
+              foreach (array_slice($ENVO_NOTIFICATION, 1) as $en) {
 
                 // Start - Notification
                 echo '<div class="notification-messages ' . $en["type"] . '">';
@@ -198,7 +199,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
       <div class="pull-right">
         <div class="chat-toggler sm">
           <div class="profile-pic">
-            <img src="<?='/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR?>" alt="" width="35" height="35"/>
+            <img src="<?= '/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR ?>" alt="" width="35" height="35"/>
             <div class="availability-bubble online"></div>
           </div>
         </div>
@@ -209,12 +210,12 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
               <li>
-                <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'notification', '', '', '')?>"> Notifikace
+                <a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'notification', '', '', '') ?>"> Notifikace
 
                   <?php
                   if ($notifCount > 0) {
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('span', $notifCount, 'badge badge-important animated bounceIn');
+                    echo $Html -> addTag('span', $notifCount, 'badge badge-important animated bounceIn');
                   }
                   ?>
 
@@ -222,10 +223,10 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
               </li>
               <li class="divider"></li>
               <li>
-                <a href="<?=BASE_URL?>">Zpět na web</a>
+                <a href="<?= BASE_URL ?>">Zpět na web</a>
               </li>
               <li>
-                <a href="<?=$P_USR_LOGOUT?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Odhlásit</a>
+                <a href="<?= $P_USR_LOGOUT ?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Odhlásit</a>
               </li>
             </ul>
           </li>
@@ -246,12 +247,12 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
       <div class="user-info-wrapper sm">
         <div class="profile-wrapper sm">
-          <img src="<?='/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR?>" alt="" width="69" height="69"/>
+          <img src="<?= '/' . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_USER_AVATAR ?>" alt="" width="69" height="69"/>
           <div class="availability-bubble online"></div>
         </div>
         <div class="user-info sm">
-          <div class="username"><?=$ENVO_USER_NAME?></div>
-          <div class="status"><?=$ENVO_USER_GROUP?> ...</div>
+          <div class="username"><?= $ENVO_USER_NAME ?></div>
+          <div class="status"><?= $ENVO_USER_GROUP ?> ...</div>
         </div>
       </div>
       <!-- END MINI-PROFILE -->
@@ -266,7 +267,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 
   <div class="footer-widget">
     <div class="text-center">
-      <span>Intranet verze <?=get_pluginversion('Intranet')?></span>
+      <span>Intranet verze <?= get_pluginversion('Intranet') ?></span>
     </div>
   </div>
 
@@ -276,12 +277,12 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
     <div class="content ">
 
       <?php if ($BREADCRUMBS) { ?>
-      <!-- BEGIN PAGE BREADCRUMBS AND TITLE-->
-      <ul class="breadcrumb">
-        <li><span class="title"><?=$SECTION_TITLE?></span></li>
-        <li><span class="description"><?=$SECTION_DESC?></span></li>
-      </ul>
-      <!-- END PAGE BREADCRUMBS AND TITLE -->
+        <!-- BEGIN PAGE BREADCRUMBS AND TITLE-->
+        <ul class="breadcrumb">
+          <li><span class="title"><?= $SECTION_TITLE ?></span></li>
+          <li><span class="description"><?= $SECTION_DESC ?></span></li>
+        </ul>
+        <!-- END PAGE BREADCRUMBS AND TITLE -->
       <?php } ?>
 
       <!-- START PAGE -->

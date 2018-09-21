@@ -22,7 +22,7 @@
     <div class="col-sm-6">
       <form role="form" method="post" action="<?=$_SERVER['REQUEST_URI']?>">
         <div class="input-group">
-          <span class="input-group-btn">
+          <span class="input-group-prepend">
               <button class="btn btn-info" name="search" type="submit"><?=$tl["button"]["btn21"]?></button>
           </span>
           <input type="text" name="envoSH" class="form-control" placeholder="<?=$tl["placeholder"]["p2"]?>">
@@ -45,9 +45,9 @@
             ?>
 
           </select>
-          <span class="input-group-btn">
-          <button type="submit" name="move" class="btn btn-warning"><?=$tl["button"]["btn20"]?></button>
-        </span>
+          <span class="input-group-append">
+            <button type="submit" name="move" class="btn btn-warning"><?=$tl["button"]["btn20"]?></button>
+          </span>
         </div>
       </div>
   </div>

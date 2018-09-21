@@ -57,7 +57,7 @@
         if ($('body').hasClass('page-loaded')) {
           return;
         }
-        $('body').addClass('page-loaded').removeClass('page-loading');
+        $('body').addClass('page-loaded').removeClass('page-loading').removeAttr('style');
         $('body > .pageload').fadeOut();
       }
     });

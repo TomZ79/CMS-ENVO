@@ -211,7 +211,7 @@ if ($errors) { ?>
                     echo $Html->addInput('text', 'envo_programname', $ENVO_FORM_DATA["name"], 'envo_programname', 'form-control');
                     ?>
 
-                    <span class="input-group-btn">
+                    <span class="input-group-append">
 
                       <?php
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -240,7 +240,7 @@ if ($errors) { ?>
                     echo $Html->addInput('text', 'envo_programicons', $ENVO_FORM_DATA["icon"], 'envo_programicons', 'form-control');
                     ?>
 
-                    <span class="input-group-btn">
+                    <span class="input-group-append">
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

@@ -28,29 +28,48 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $envodb->query('UPDATE ' . DB_PREFIX . 'intranethousedocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'int_housedocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
 
-  $envodata = $input;
+  $data_array[] = array(
+    'id'     => $input["id"],
+    'action' => $input["action"],
+  );
+
+  if ($result) {
+    // Data for JSON
+    $envodata = array(
+      'status'     => 'update_success',
+      'status_msg' => 'Update the record in DB was successful',
+      'data'       => $data_array
+    );
+  } else {
+    // Data for JSON
+    $envodata = array(
+      'status'     => 'update_error_E01',
+      'status_msg' => 'Update the record in DB was incorrect',
+      'data'       => $data_array
+    );
+  }
 
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE
 
   // Delete file from folder
-  $result = $envodb->query('SELECT fullpath FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('SELECT fullpath FROM ' . DB_PREFIX . 'int_housedocu WHERE id = "' . $input['id'] . '"');
   $row    = $result->fetch_assoc();
 
   $fullpath = APP_PATH . ENVO_FILES_DIRECTORY . $row['fullpath'];
   unlink($fullpath);
 
   // Delete row in DB
-  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_housedocu WHERE id = "' . $input['id'] . '"');
+
+  $data_array[] = array(
+    'id'     => $input["id"],
+    'action' => $input["action"],
+  );
 
   if ($result) {
-    $data_array[] = array(
-      'id'     => $input["id"],
-      'action' => $input["action"],
-    );
-
     // Data for JSON
     $envodata = array(
       'status'     => 'delete_success',
@@ -58,10 +77,6 @@ if ($input['action'] === 'edit') {
       'data'       => $data_array
     );
   } else {
-    $data_array[] = array(
-      'id'     => $input["id"]
-    );
-
     // Data for JSON
     $envodata = array(
       'status'     => 'delete_error',

@@ -342,7 +342,7 @@ if (DB_USER && DB_PASS) {
               $result_php = '<strong style="color:red">You need a higher version of PHP (min. PHP 5.3)!</strong>';
             } else {
 
-              if (version_compare($php_version, '7.1.0') > 0) $php_big = '<br /><strong style="color:red">The software has not been tested on your php version yet, but it should work.</strong>';
+              if (version_compare($php_version, '7.2.9') > 0) $php_big = '<br /><strong style="color:red">The software has not been tested on your php version yet, but it should work.</strong>';
 
               // We also give feedback on whether we're running in safe mode
               $result_safe = '<strong style="color:green">PHP Version: ' . $php_version . '</strong>';

@@ -26,11 +26,11 @@
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Bootstrap
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Google Fonts
-  echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
+  echo $Html -> addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // Animate
-  echo $Html->addStylesheet('/assets/plugins/animate/animate.min.css');
+  echo $Html -> addStylesheet('/assets/plugins/animate/animate.min.css');
   ?>
 
   <!-- END PLUGIN CSS -->
@@ -39,7 +39,7 @@
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Main StyleSheet
-  echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.min.css');
+  echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/webarch.min.css');
   ?>
 
   <!-- END CORE CSS FRAMEWORK -->
@@ -88,9 +88,9 @@
 
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4');
-echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js');
-echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js?=v3.3.7');
+echo $Html -> addScript('/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4');
+echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js');
+echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js?=v3.3.7');
 ?>
 
 <!-- END CORE JS DEPENDECENCIES-->
@@ -103,7 +103,7 @@ echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js
 </script>
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/webarch.min.js');
+echo $Html -> addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/webarch.min.js');
 ?>
 
 <!-- END CORE TEMPLATE JS -->

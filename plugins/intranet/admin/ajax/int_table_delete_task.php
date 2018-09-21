@@ -24,7 +24,7 @@ $taskID = $_POST['taskID'];
 $data_array = array();
 
 // Delete row in DB
-$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethousetasks WHERE id = "' . $taskID . '"');
+$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_housetasks WHERE id = "' . $taskID . '"');
 
 if ($result) {
   $data_array[] = array(

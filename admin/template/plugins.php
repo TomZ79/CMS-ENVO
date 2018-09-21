@@ -224,7 +224,7 @@ if ($page1 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-sm-3 col-sm-6">
+                      <div class="col-sm-3">
 
                         <?php
                         echo $tl["plug_box_content"]["plugbc1"] . ' : ';
@@ -233,7 +233,7 @@ if ($page1 == "e") { ?>
                         ?>
 
                       </div>
-                      <div class="col-sm-9 col-sm-6">
+                      <div class="col-sm-9">
 
                         <?php
                         echo $tl["plug_box_content"]["plugbc2"] . ' : ';

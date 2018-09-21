@@ -29,14 +29,14 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseapt SET number = "' . $input['number'] . '", etage = "' . $input['etage'] . '", name = "' . $input['name'] . '", phone = "' . $input['phone'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
+  $envodb->query('UPDATE ' . DB_PREFIX . 'int_houseapt SET number = "' . $input['number'] . '", etage = "' . $input['etage'] . '", name = "' . $input['name'] . '", phone = "' . $input['phone'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
 
   $envodata = $input;
 
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE
 
-  $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethouseapt WHERE id = "' . $input['id'] . '"');
+  $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_houseapt WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
     $data_array[] = array(

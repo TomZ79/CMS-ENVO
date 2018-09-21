@@ -25,14 +25,6 @@ if (ENVO_USERID && $envouser->envoSuperAdminAccess(ENVO_USERID)) {
   define('ENVO_SUPERADMINACCESS', FALSE);
 }
 
-// EN: Import the language file
-// CZ: Import jazykových souborů
-if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site_language . '.ini')) {
-  $tl = parse_ini_file(APP_PATH . 'lang/' . $site_language . '.ini', TRUE);
-} else {
-  $tl = parse_ini_file(APP_PATH . 'lang/' . $setting["lang"] . '.ini', TRUE);
-}
-
 // If Referer Zero go to the session url
 if (!isset($_SERVER['HTTP_REFERER'])) {
   if (isset($_SESSION['envo_lastURL'])) {
@@ -127,10 +119,6 @@ if ($setting["robots"] == 0) {
 } else {
   $jk_robots = 'index, follow';
 }
-
-// Define other constant
-define('ENVO_TEMPLATE', $setting["sitestyle"]);
-define('ENVO_SEARCH', $setting["searchform"]);
 
 // Get all the active categories available in the db
 $envocategories = ENVO_base::envoGetallcategories();
@@ -277,7 +265,7 @@ foreach ($envocategories as $ca) {
 
 // Get the PLUGIN categories available in the db
 // Plugin Register Form
-if (is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
+if (defined(ENVO_TEMPLATE) && is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
   $result        = $envodb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . ENVO_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
   $PLUGIN_RF_CAT = $result->fetch_assoc();
 }

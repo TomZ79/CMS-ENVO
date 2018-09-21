@@ -70,7 +70,7 @@
     <div class="col-sm-6">
       <form role="form" method="post" action="/admin/index.php?p=users&amp;sp=search&amp;ssp=go">
         <div class="input-group">
-          <span class="input-group-btn">
+          <span class="input-group-prepend">
             <button class="btn btn-info" name="search" type="submit"><?=$tl["button"]["btn21"]?></button>
           </span>
           <input type="text" name="envoSH" class="form-control" placeholder="<?=$tl["placeholder"]["p2"]?>">
@@ -80,19 +80,21 @@
     <div class="col-sm-6">
     <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
       <div class="input-group">
-        <select name="envo_group" class="form-control selectpicker">
+        <div class="w-75">
+          <select name="envo_group" class="form-control selectpicker">
 
-          <?php
-          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-          if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
-            if ($z["id"] != "1") {
-              echo $Html->addOption($z["id"], $z["name"]);
+            <?php
+            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+            if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
+              if ($z["id"] != "1") {
+                echo $Html->addOption($z["id"], $z["name"]);
+              }
             }
-          }
-          ?>
+            ?>
 
-        </select>
-        <span class="input-group-btn">
+          </select>
+        </div>
+        <span class="input-group-append">
 
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)

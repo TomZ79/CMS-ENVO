@@ -32,7 +32,7 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor($hl["parseurl"], $hl["name"]);
+                  echo $Html -> addAnchor($hl["parseurl"], $hl["name"]);
                   ?>
 
                 </td>
@@ -47,7 +47,7 @@
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                   // EDIT
-                  echo $Html->addAnchor($hl["parseurl"], '<i class="fas fa-eye"></i>', '', 'btn btn-info btn-mini', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tlint["int_frontend_icons"]["intficon"]));
+                  echo $Html -> addAnchor($hl["parseurl"], '<i class="fas fa-eye"></i>', '', 'btn btn-info btn-mini', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tlint["int_frontend_icons"]["intficon"] ));
                   ?>
 
                 </td>
@@ -67,7 +67,7 @@
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-    echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+    echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
     ?>
 
   </div>

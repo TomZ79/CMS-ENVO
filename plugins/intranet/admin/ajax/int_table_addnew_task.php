@@ -32,7 +32,7 @@ $envo_setting_val = envo_get_setting_val('intranet');
 $dateformat = $envo_setting_val['intranetdateformat'];
 
 // Insert info about service into DB
-$result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousetasks SET 
+$result = $envodb->query('INSERT ' . DB_PREFIX . 'int_housetasks SET 
                           houseid = "' . $houseID . '",  
                           priority = "' . $priority . '", 
                           status = "' . $status . '", 
@@ -46,7 +46,7 @@ $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethousetasks SET
 $rowid = $envodb->envo_last_id();
 
 // Getting info uploaded Task from DB
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousetasks WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_housetasks WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
 $row    = $result->fetch_assoc();
 
 // EN: Change number to string

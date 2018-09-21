@@ -1,57 +1,57 @@
 /* 11. Todos List styles
  ========================================================================*/
 ul.todoList {
-	padding: 0;
-	margin: 0 auto;
-	width: 100%;
-	position: relative;
-	li {
-		background-color: #F9F9F9;
-		border: 1px solid #EEE;
-		list-style: none;
-		margin: 6px 0;
-		padding: 6px 9px;
-		position: relative;
-		cursor: move;
-		&:hover {
-			border-color: #10D5C2;
-			/* CSS3 glow effect: */
-			-moz-box-shadow: 0 0 5px #DBF0EE;
-			-webkit-box-shadow: 0 0 5px #DBF0EE;
-			box-shadow: 0 0 5px #DBF0EE;
-		}
-		&.todo {
-			.text {
-				width: 80%;
-			}
-			.ip_xs {
-				width: 100%;
-			}
-			.actions {
-				a {
-					margin: 0 5px;
-					&.done {
-						color: #00BD29 !important;
-					}
-					&.notdone {
-						color: #F3B10B !important;
-					}
-				}
-			}
-			.editTodo {
-				a {
-					&.saveChanges {
-						color: #00BD29 !important;
-					}
-					&.discardChanges {
-						color: #FE0B0B !important;
-					}
-				}
-			}
-		}
-	}
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  li {
+    background-color: #F9F9F9;
+    border: 1px solid #EEE;
+    list-style: none;
+    margin: 6px 0;
+    padding: 6px 9px;
+    position: relative;
+    cursor: move;
+    &:hover {
+      border-color: #10D5C2;
+      /* CSS3 glow effect: */
+      -moz-box-shadow: 0 0 5px #DBF0EE;
+      -webkit-box-shadow: 0 0 5px #DBF0EE;
+      box-shadow: 0 0 5px #DBF0EE;
+    }
+    &.todo {
+      .text {
+        width: 80%;
+      }
+      .ip_xs {
+        width: 100%;
+      }
+      .actions {
+        a {
+          margin: 0 5px;
+          &.done {
+            color: #00BD29 !important;
+          }
+          &.notdone {
+            color: #F3B10B !important;
+          }
+        }
+      }
+      .editTodo {
+        a {
+          &.saveChanges {
+            color: #00BD29 !important;
+          }
+          &.discardChanges {
+            color: #FE0B0B !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 .addtodo {
-	min-width: 120px;
+  min-width: 120px;
 }

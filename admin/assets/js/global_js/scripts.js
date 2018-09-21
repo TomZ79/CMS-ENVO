@@ -159,6 +159,45 @@ $(function () {
     });
   });
 
+  // Bootbox - Confirm dialog for Delete button with control code
+  $('[data-confirm-control]').click(function (e) {
+    // Init
+    var links = $(this).attr("href");
+    e.preventDefault();
+    // Show Message
+    bootbox.setLocale(o.BootboxLang);
+    bootbox.confirm({
+      title: "Potvrzení o odstranění!",
+      message: $(this).attr('data-confirm-control') + "<p class='m-t-15'>Z důvodu ochrany opište následující text</p><p>OPRAVDU CHCI ODSTRANIT ZÁZNAM Z DATABÁZE</p><input type='text' id='text-control' name='text-control' class='m-t-15' style='width:100%;padding:5px;' >",
+      className: "bootbox-confirm-del",
+      animate: true,
+      buttons: {
+        confirm: {
+          className: 'btn-success'
+        },
+        cancel: {
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result == true) {
+          var text = 'OPRAVDU CHCI ODSTRANIT ZÁZNAM Z DATABÁZE';
+          var controltext = $('#text-control').val();
+
+          if (text == controltext) {
+            console.log('Bootbox - confirm: Control code is OK');
+            window.location = links;
+          } else {
+            console.log('Bootbox - confirm: Control code is not ready');
+            $('#text-control').css("border", "2px solid #B94A48").attr("placeholder", "Chybný kontrolní text");
+            // returning false does not keep the modal open, it closes still
+            return false;
+          }
+        }
+      }
+    });
+  });
+
   // Bootbox - Confirm dialog for Delete All button
   $('#button_delete').on("click", function (e) {
     // Init
@@ -403,7 +442,7 @@ function restoreContent(fieldname, backupid, id) {
 
   $.ajax({
     type: "POST",
-    url: envoWeb.envo_url + 'ajax/loadcontent.php',
+    url: 'ajax/loadcontent.php',
     data: "backupid=" + backupid + "&contentid=" + id + "&eid=1&fid=" + fieldname,
     dataType: 'json',
     beforeSend: function (x) {
@@ -1230,7 +1269,19 @@ $.fn.timedDisable = function (time) {
  ======================================================================== */
 $('.cms-help').popover({
   container: 'body',
-  placement: 'top',
+  placement: function (context, source) {
+    var position = $(source).position();
+
+    if (position.left < 280) {
+      return "right";
+    }
+    if (position.top < 280) {
+      return "bottom";
+    }
+    else {
+      return "left";
+    }
+  },
   html: true,
   trigger: 'focus',
   template: '<div class="popover" role="tooltip"><div class="arrow"></div><h5 class="popover-header bg-info-lighter m-0"></h5><div class="popover-body"></div></div>'

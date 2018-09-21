@@ -39,7 +39,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -159,7 +159,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
             $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
             $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "faq"');
             $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "faq"');
-            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `faq`, DROP `faqpost`, DROP `faqpostdelete`, DROP `faqpostapprove`, DROP `faqrate`, DROP `faqmoderate`');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `faq`');
 
             $envodb->query('DROP TABLE ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories');
             $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');

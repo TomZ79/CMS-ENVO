@@ -3,7 +3,7 @@
  * CSS Template - Admin Pages
  * Copyright (c) 2016 - 2018 Bluesat.cz
  * -----------------------------------------------------------------------
- * Css Template: Pages v3.0.1
+ * Css Template: Pages v3.0.2
  * Theme : Default
  * Author: Revox and BluesatKV
  * Email: bluesatkv@gmail.com
@@ -5668,13 +5668,16 @@ body > .pgn-wrapper {
 .modal .modal-header {
   text-align: center;
   border-bottom: 0;
-  padding: 25px 25px 0 25px;
+  padding: 15px 25px;
   position: relative;
   flex-direction: column;
   align-items: flex-start;
 }
 .modal .modal-header p {
   color: #8B91A0;
+}
+.modal .modal-header .modal-title {
+  margin: 0;
 }
 .modal .modal-body {
   box-shadow: none;
@@ -5686,8 +5689,7 @@ body > .pgn-wrapper {
   border-top: none;
   box-shadow: none;
   margin-top: 0;
-  padding: 25px;
-  padding-top: 0;
+  padding: 15px 25px;
 }
 .modal .drop-shadow {
   box-shadow: 0 0 9px rgba(191, 191, 191, 0.36) !important;

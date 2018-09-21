@@ -17,9 +17,9 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 $houseID = $_POST['houseID'];
 $entrance = $_POST['entrance'];
 
-$envodb->query('INSERT ' . DB_PREFIX . 'intranethouseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
+$envodb->query('INSERT ' . DB_PREFIX . 'int_houseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
 
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseapt WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houseapt WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
 
 while ($row = $result->fetch_assoc()) {
 

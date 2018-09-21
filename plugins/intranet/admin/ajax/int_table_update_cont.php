@@ -23,45 +23,46 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 // PHP CODE and DB
 //-------------------------
 
-// EN: Get value from ajax
-// CZ: Získání dat z ajax
-$imageID  = $_POST['imageID'];
-
 // Define basic variable
 $data_array = array();
 
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $envodb->query('UPDATE ' . DB_PREFIX . 'intranethousecontact SET name = "' . $input['name'] . '", address = "' . $input['address'] . '", phone = "' . $input['phone'] . '", email = "' . $input['email'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'int_housecontact SET name = "' . $input['name'] . '", address = "' . $input['address'] . '", phone = "' . $input['phone'] . '", email = "' . $input['email'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
+
+  $data_array[] = array(
+    'id'     => $input["id"],
+    'action' => $input["action"],
+  );
 
   if ($result) {
     // Data for JSON
     $envodata = array(
       'status'     => 'update_success',
       'status_msg' => 'Update the record in DB was successful',
-      'data'       => $input
+      'data'       => $data_array
     );
   } else {
     // Data for JSON
     $envodata = array(
       'status'     => 'update_error_E01',
       'status_msg' => 'Update the record in DB was incorrect',
-      'data'       => ''
+      'data'       => $data_array
     );
   }
 
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE
 
-  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethousecontact WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_housecontact WHERE id = "' . $input['id'] . '"');
+
+  $data_array[] = array(
+    'id'     => $input["id"],
+    'action' => $input["action"],
+  );
 
   if ($result) {
-    $data_array[] = array(
-      'id'     => $input["id"],
-      'action' => $input["action"],
-    );
-
     // Data for JSON
     $envodata = array(
       'status'     => 'delete_success',
@@ -69,10 +70,6 @@ if ($input['action'] === 'edit') {
       'data'       => $data_array
     );
   } else {
-    $data_array[] = array(
-      'id'     => $input["id"]
-    );
-
     // Data for JSON
     $envodata = array(
       'status'     => 'delete_error_E01',

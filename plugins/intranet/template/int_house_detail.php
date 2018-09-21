@@ -54,7 +54,7 @@
       <div id="tabs1" class="tab-pane fade in active">
         <div class="row">
 
-          <?php if (!empty($ENVO_HOUSE_DETAIL) && is_array($ENVO_HOUSE_DETAIL)) foreach ($ENVO_HOUSE_DETAIL as $hdetail) { ?>
+          <?php if (!empty($ENVO_HOUSE_DETAIL) && is_array($ENVO_HOUSE_DETAIL)) { ?>
 
             <div class="col-md-6">
               <div class="grid simple transparent">
@@ -70,25 +70,25 @@
                     <div class="form-group">
                       <label class="form-label">Název Domu</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hdetail["name"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["name"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Ulice</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hdetail["street"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["street"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Město</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hdetail["city"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["city"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">PSČ</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hdetail["psc"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["psc"] ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -106,12 +106,12 @@
                 </div>
                 <div class="grid-body no-border">
                   <div class="row">
-                    <div id="google-container-map" style="height: 350px;position: relative;background-color: #EEE;">
+                    <div id="maps-container" style="height: 350px;position: relative;background-color: #EEE;">
 
                       <?php
                       if (empty($envo_house_latitude) || empty($envo_house_longitude)) {
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('Mapa není k dispozici', 'txteditor', array('style' => 'position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);font-size: 1.5em;'));
+                        echo $Html -> addDiv('Mapa není k dispozici', 'maps', array ( 'style' => 'position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);font-size: 1.5em;' ));
                       }
                       ?>
 
@@ -149,7 +149,7 @@
                             <span class="pull-right collapsetask">+</span>
                           </div>
                           <div class="taskinfo">
-                            <div class="container-fluid">
+                            <div class="container-fluid p-xs-0">
                               <div class="table-responsive">
                                 <table class="table table-task">
                                   <tr>
@@ -186,7 +186,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -223,7 +223,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -302,7 +302,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -363,7 +363,9 @@
                                     <th style="width:20%;">Výbor</th>
                                   </tr>
                                   <tr class="warning no-result">
-                                    <td colspan="6"><i class="fas fa-exclamation-triangle"></i> Žádné záznamy nebyly nalezeny</td>
+                                    <td colspan="6">
+                                      <i class="fas fa-exclamation-triangle"></i> Žádné záznamy nebyly nalezeny
+                                    </td>
                                   </tr>
                                   </thead>
                                   <tbody>
@@ -371,7 +373,7 @@
                                   <?php
 
                                   if (isset($ENVO_HOUSE_APT) && is_array($ENVO_HOUSE_APT)) {
-                                    $foundApt = array();
+                                    $foundApt = array ();
                                     foreach ($ENVO_HOUSE_APT as $a) {
                                       if ($a["entrance"] == $e["entrance"]) {
                                         $foundApt[] = $a;
@@ -435,7 +437,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -494,7 +496,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -559,7 +561,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -597,11 +599,82 @@
                 <?php } ?>
 
                 <div class="row">
+                  <div class="col-sm-12">
+                    <hr>
+                    <button type="button" id="showPhotoList" class="btn btn-success btn-cons">
+                      <span>Seznam</span>
+                    </button>
+
+                    <button type="button" id="showFiltrPhoto" class="btn btn-info btn-cons">
+                      <span>Filtr</span>
+                    </button>
+                    <hr>
+                  </div>
+                </div>
+
+                <div id="list_photo" class="row">
+                  <div class="col-sm-12">
+                    <div id="imggallery0" class="gallery">
+
+                      <?php
+
+                      if (!empty($ENVO_HOUSE_IMG_LIST) && is_array($ENVO_HOUSE_IMG_LIST)) {
+
+                        foreach ($ENVO_HOUSE_IMG_LIST as $subarray) {
+
+                          // Get first value 'timedefault'
+                          echo '<div class="dateblock_' . uniqid() . ' m-b-20 clearfix">';
+                          echo '<div class="padding-10 m-b-20" style="background:gray;color:white;font-weight:700;">' . reset($subarray) . '</div>';
+
+                          // Loop photos array
+                          foreach ($subarray['photos'] as $himg_list) {
+
+                            echo '<div id="' . $himg_list["id"] . '" class="gallery-item-' . $himg_list["id"] . ' ' . $himg_list["category"] . ' float-left margin-gallery" data-width="1" data-height="1">';
+
+                            echo '<div class="img_container"><a data-fancybox="fancybox-1" href="' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" alt=""></a></div>';
+
+                            echo '<div class="overlays">
+                                <div class="col-sm-12  full-height">
+                                  <div class="col-xs-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($himg_list["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
+                                  </div>
+                                  <div class="col-xs-7 full-height">
+                                    <div class="text">
+                                      <a data-fancybox="gallery0" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '">
+                                        <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+                                         <i class="fas fa-image"></i>
+                                        </button>
+                                      </a>
+                                      <button class="btn btn-success btn-xs btn-mini dialog-open-info" type="button" data-dialog="itemDetails" data-id="' . $himg_list["id"] . '" data-toggle="tooltipEnvo" title="Informace">
+                                      <i class="fas fa-info"></i>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>';
+
+                            echo '<div class="full-width padding-10">';
+                            echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $himg_list["shortdescription"] . '</p>';
+                            echo '</div>';
+                            echo '</div>';
+                          }
+
+                          echo '</div>';
+                        }
+
+                      }
+
+                      ?>
+
+                    </div>
+                  </div>
+                </div>
+                <div id="isotope_photo" class="row" style="display: none;">
                   <div class="col-sm-3">
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('h5', 'Kategorie', 'bold');
+                    echo $Html -> addTag('h5', 'Kategorie', 'bold');
                     ?>
 
                     <ul id="imgfilters" class="filters">
@@ -614,14 +687,14 @@
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                    echo $Html -> addTag('h5', 'Vyhledat', 'bold');
                     ?>
 
                     <p>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
+                      echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
                       ?>
 
                     </p>
@@ -629,16 +702,16 @@
                   </div>
                   <div class="col-sm-9">
 
-                    <?php if (!empty($ENVO_HOUSE_IMG) && is_array($ENVO_HOUSE_IMG)) { ?>
+                    <?php if (!empty($ENVO_HOUSE_IMG_ISO) && is_array($ENVO_HOUSE_IMG_ISO)) { ?>
 
-                      <div id="imggallery" class="gallery">
+                      <div id="imggallery1" class="gallery">
 
-                        <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
+                        <?php foreach ($ENVO_HOUSE_IMG_ISO as $himg_iso) { ?>
 
-                          <div class="gallery-item-<?= $himg["id"] . ' ' . $himg["category"] ?>" data-width="1" data-height="1">
+                          <div class="gallery-item-<?= $himg_iso["id"] . ' ' . $himg_iso["category"] ?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a data-fancybox="fancybox-1" href="<?= '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"] ?>">
-                                <img src="<?= '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"] ?>" class="img-responsive" alt="">
+                              <a data-fancybox="fancybox-1" href="<?= '/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] ?>" data-caption="<?= ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") ?>">
+                                <img src="<?= '/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] ?>" class="img-responsive" alt="">
                               </a>
                             </div>
                             <div class="overlays">
@@ -648,28 +721,21 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="fancybox-2" href="<?= '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"] ?>" data-caption="<?= $himg["shortdescription"] . ' | ' . $himg["description"] ?>" alt="">
+                                    <a data-fancybox="fancybox-2" href="<?= '/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] ?>" data-caption="<?= $himg_iso["shortdescription"] . ' | ' . $himg_iso["description"] ?>">
                                       <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fas fa-image"></i>
                                       </button>
                                     </a>
-                                    <button class="btn btn-success btn-xs btn-mini dialog-open-info" type="button" data-dialog="itemDetails" data-id="<?= $himg["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open-info" type="button" data-dialog="itemDetails" data-id="<?= $himg_iso["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
                                       <i class="fas fa-info"></i>
                                     </button>
-
-                                    <?php if ($ENVO_MODULES_ACCESS) { ?>
-                                      <button class="btn btn-success btn-xs btn-mini dialog-open-edit" type="button" data-dialog="itemDetails" data-id="<?= $himg["id"] ?>" data-toggle="tooltipEnvo" title="Editace informací">
-                                        <i class="fas fa-pencil-alt"></i>
-                                      </button>
-                                    <?php } ?>
-
                                   </div>
                                 </div>
                               </div>
                             </div>
                             <div class="full-width padding-10">
                               <p class="bold">Krátký Popis</p>
-                              <p class="shortdesc"><?= $himg["shortdescription"] ?></p>
+                              <p class="shortdesc"><?= $himg_iso["shortdescription"] ?></p>
                             </div>
                           </div>
 
@@ -683,7 +749,7 @@
 
                         <?php
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('Nejsou dostupné žádné fotografie.', '', array('class' => 'alert'));
+                        echo $Html -> addDiv('Nejsou dostupné žádné fotografie.', '', array ( 'class' => 'alert' ));
                         ?>
 
                       </div>
@@ -714,7 +780,7 @@
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('h5', 'Kategorie', 'bold');
+                    echo $Html -> addTag('h5', 'Kategorie', 'bold');
                     ?>
 
                     <ul id="videofilters" class="filters">
@@ -727,14 +793,14 @@
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                    echo $Html -> addTag('h5', 'Vyhledat', 'bold');
                     ?>
 
                     <p>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
+                      echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
                       ?>
 
                     </p>
@@ -749,7 +815,7 @@
                         <?php foreach ($ENVO_HOUSE_VIDEO as $hvideo) { ?>
                           <div class="gallery-item-<?= $hvideo["id"] . ' ' . $hvideo["category"] ?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>">
+                              <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" download>
                                 <img src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filenamethumb"] ?>" class="img-responsive" alt="">
                               </a>
                             </div>
@@ -760,7 +826,7 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>" alt="">
+                                    <a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>" download>
                                       <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
                                         <i class="fas fa-image"></i>
                                       </button>
@@ -787,7 +853,7 @@
 
                         <?php
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('Nejsou dostupná žádná videa.', '', array('class' => 'alert'));
+                        echo $Html -> addDiv('Nejsou dostupná žádná videa.', '', array ( 'class' => 'alert' ));
                         ?>
 
                       </div>
@@ -829,7 +895,7 @@
         </div>
         <div class="modal-body">
           <div class="modal-video">
-            <iframe width="450" height="300" src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" frameborder="0" allowfullscreen></iframe>
+            <iframe width="450" height="300" src="" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>

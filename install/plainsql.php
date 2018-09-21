@@ -32,8 +32,8 @@ $envodb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
 (1, 'Home', 'home', NULL, NULL, NULL, NULL, NULL, 1, 0, 1, 0, 1, 0, 1, 0),
 (2, 'Sitemap', 'sitemap', NULL, NULL, NULL, NULL, NULL, 0, 1, 3, 0, 0, 0, 1, 2),
 (3, 'Tags', 'tag', NULL, NULL, NULL, NULL, NULL, 0, 0, 4, 0, 0, 0, 1, 3),
-(4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1),
-(5, 'EU-cookies', 'eu-cookies', NULL, NULL, NULL, NULL, NULL,0, 0, 2, 0, 2, 0, 1, 0)");
+(4, 'News', 'news', NULL, NULL, NULL, NULL, NULL, 1, 0, 2, 0, 0, 0, 1, 1),
+(5, 'EU-cookies', 'eu-cookies', NULL, NULL, NULL, NULL, NULL, 0, 0, 2, 0, 2, 0, 1, 0)");
 
 $envodb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -106,8 +106,8 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "pages (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
 $envodb->query("INSERT INTO " . DB_PREFIX . "pages VALUES
-(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NULL, 1, NOW()),
-(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NULL, 1, NOW())");
+(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NOW()),
+(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NOW())");
 
 $envodb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `id` int(11) NOT NULL AUTO_INCREMENT,

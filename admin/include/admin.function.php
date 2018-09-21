@@ -700,7 +700,7 @@ function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3,
           			' . ($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
           			
           			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=editcat&amp;id=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="#" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
           		</span>
           		</div>';
         $html .= envo_build_menu_admin($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);

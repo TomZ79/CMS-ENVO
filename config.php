@@ -90,8 +90,9 @@ $tempp4 = $getURL->envoGetseg(4);
 $tempp5 = $getURL->envoGetseg(5);
 $tempp6 = $getURL->envoGetseg(6);
 
-// Call the languages
-$lang_files = envo_get_lang_files();
+// -----------------------------------------------------------------------
+// DEFINE LANG, LOCALE and import language file
+// -----------------------------------------------------------------------
 
 // Get the general settings out the database
 $result = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting');
@@ -106,22 +107,6 @@ while ($row = $result->fetch_assoc()) {
   $setting[$row['varname']] = $defvar;
 }
 
-// EN: Get hooks and plugins
-// CZ: Získání hooks a pluginů
-$envohooks   = new ENVO_hooks(1);
-$envoplugins = new ENVO_plugins(1);
-
-// Get the template config file
-if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
-
-// Timezone from server
-date_default_timezone_set($setting["timezoneserver"]);
-$envodb->query('SET time_zone = "' . date("P") . '"');
-
-// Set the last activity and session into cookies
-setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
-setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
-
 // Standard Language
 $site_language = $setting["lang"];
 
@@ -134,6 +119,43 @@ if ($site_language == 'en') {
 } else {
   $managerlang = 'cs_CZ';
 }
+
+// EN: Import the language file
+// CZ: Import jazykových souborů
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site_language . '.ini')) {
+  $tl = parse_ini_file(APP_PATH . 'lang/' . $site_language . '.ini', TRUE);
+} else {
+  $tl = parse_ini_file(APP_PATH . 'lang/' . $setting["lang"] . '.ini', TRUE);
+}
+
+// Call the languages
+$lang_files = envo_get_lang_files();
+
+// -----------------------------------------------------------------------
+// DEFINE OTHER
+// -----------------------------------------------------------------------
+
+// Define other constant
+define('ENVO_TEMPLATE', $setting["sitestyle"]);
+define('ENVO_SEARCH', $setting["searchform"]);
+
+// EN: Get hooks and plugins
+// CZ: Získání hooks a pluginů
+$envohooks   = new ENVO_hooks(1);
+$envoplugins = new ENVO_plugins(1);
+
+// Get the template config file
+if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) {
+  include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
+}
+
+// Timezone from server
+date_default_timezone_set($setting["timezoneserver"]);
+$envodb->query('SET time_zone = "' . date("P") . '"');
+
+// Set the last activity and session into cookies
+setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
+setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
 
 // Check if user is logged in
 $envouserlogin = new ENVO_userlogin();

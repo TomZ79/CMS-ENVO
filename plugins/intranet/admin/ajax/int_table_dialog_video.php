@@ -16,7 +16,7 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 // CZ: Získání dat z ajax
 $videoID = $_POST['videoID'];
 
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $videoID . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_housevideo WHERE id = "' . $videoID . '"');
 $row    = $result->fetch_assoc();
 
 $envodata .= '

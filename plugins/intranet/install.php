@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -27,19 +27,19 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tlint["int_install"]["intinst"]?></title>
+  <title><?= $tlint["int_install"]["intinst"] ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -89,15 +89,15 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   <!-- BEGIN VENDOR JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js?=v4.0.0');
+  echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js?=v4.0.0');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  echo $Html -> addScript('/admin/pages/js/pages.min.js');
   ?>
 </head>
 <body>
@@ -107,17 +107,17 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
     <div class="col-sm-12">
       <div class="col-sm-12 m-t-20">
         <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-          <h3 class="semi-bold text-white"><?=$tlint["int_install"]["intinst"]?></h3>
+          <h3 class="semi-bold text-white"><?= $tlint["int_install"]["intinst"] ?></h3>
         </div>
         <hr>
         <div id="notificationcontainer"></div>
         <div class="m-b-30">
 
-          <h4 class="semi-bold"><?=$tlint["int_install"]["intinst1"]?></h4>
+          <h4 class="semi-bold"><?= $tlint["int_install"]["intinst1"] ?></h4>
 
           <div data-pages="card" class="card card-transparent" id="card-basic">
             <div class="card-header separator">
-              <div class="card-title"><?=$tlint["int_install"]["intinst2"]?></div>
+              <div class="card-title"><?= $tlint["int_install"]["intinst2"] ?></div>
               <div class="card-controls">
                 <ul>
                   <li>
@@ -150,8 +150,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
          * Kontrola zda je plugin instalován
          * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
         */
-        $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "intranet"');
-        if ($envodb->affected_rows > 0) { ?>
+        $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "intranet"');
+        if ($envodb -> affected_rows > 0) { ?>
 
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
           </button>
@@ -181,16 +181,16 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Intranet", "Intranet.", 1, ' . ENVO_USERID . ', 1, "intranet", "require_once APP_PATH.\'plugins/intranet/intranet.php\';", "if ($page == \'intranet\') {
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Intranet", "Intranet.", 1, ' . ENVO_USERID . ', 1, "intranet", "require_once APP_PATH.\'plugins/intranet/intranet.php\';", "if ($page == \'intranet\') {
         require_once APP_PATH.\'plugins/intranet/admin/intranet.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/intranet/admin/template/int_nav.php", "intranet", "uninstall.php", "1.1", NOW())');
+        }", "../plugins/intranet/admin/template/int_nav.php", "intranet", "uninstall.php", "1.2", NOW())');
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-        $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
-        $rows    = $results->fetch_assoc();
+        $results = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+        $rows = $results -> fetch_assoc();
 
         if ($rows['id']) {
         // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -223,7 +223,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Intranet Admin Language", "' . $adminlang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Intranet Site Language", "' . $sitelang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Intranet Admin CSS", "plugins/intranet/admin/template/css.intranet.php", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -234,7 +234,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("intranettitle", "intranet", "Intranet", "Intranet", "input", "free", "intranet"),
 ("intranetskin", "intranet", "", "", "select", "free", "intranet"),
 ("intranetdateformat", "intranet", "d.m.Y", "d.m.Y", "input", "free", "intranet"),
@@ -242,16 +242,16 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
-        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `intranet` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `intranet` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
         // EN: Insert data to table 'categories' (Create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (Vytvoření kategorie)
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Intranet", "intranet", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
         // EN: Create table for plugin (Settings - TV Tower)
         // CZ: Vytvoření tabulky pro plugin (Nastavení - TV Vysílače)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousetower (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housetower (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -260,7 +260,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (Settings - TV Channel)
         // CZ: Vytvoření tabulky pro plugin (Nastavení - TV Kanály)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousechannel (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housechannel (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `towerid` varchar(255) NULL DEFAULT NULL,
   `number` varchar(255) NULL DEFAULT NULL,
@@ -269,7 +269,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (Settings - TV Channel on TV Tower)
         // CZ: Vytvoření tabulky pro plugin (Nastavení - TV Kanály na TV Vysílači)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousechanneltower (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housechanneltower (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `towerids` varchar(255) NULL DEFAULT NULL,
   `numbers` varchar(255) NULL DEFAULT NULL,
@@ -277,9 +277,20 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+        // EN: Create table for plugin (Settings - House List)
+        // CZ: Vytvoření tabulky pro plugin (Nastavení - Seznam Domů)
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houselistregion (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `region` varchar(255) NULL DEFAULT NULL,
+  `district` varchar(255) NULL DEFAULT NULL,
+  `city` varchar(255) NULL DEFAULT NULL,
+  `city_area` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
         // EN: Create table for plugin (House in administration)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům ve správě)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouse (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_house (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -305,9 +316,9 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-        // EN: Create table for plugin (House in administration)
-        // CZ: Vytvoření tabulky pro plugin (Bytový dům ve správě)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouselist (
+        // EN: Create table for plugin (House without administration)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům není správě)
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houselist (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -319,19 +330,61 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `state` varchar(255) NULL DEFAULT NULL,
   `latitude` varchar(255) NULL DEFAULT NULL,
   `longitude` varchar(255) NULL DEFAULT NULL,
+  `justice` varchar(255) NULL DEFAULT NULL,
+  `housejusticelaw` text NULL DEFAULT NULL,
   `description` text NULL DEFAULT NULL,
   `contact1` varchar(255) NULL DEFAULT NULL,
+  `contactphone1` varchar(255) NULL DEFAULT NULL,
+  `contactmail1` varchar(255) NULL DEFAULT NULL,
+  `contactdate1` varchar(255) NULL DEFAULT NULL,
+  `contactaddress1` varchar(255) NULL DEFAULT NULL,
+  `contactfacebook1` varchar(255) NULL DEFAULT NULL,
   `contact2` varchar(255) NULL DEFAULT NULL,
+  `contactphone2` varchar(255) NULL DEFAULT NULL,
+  `contactmail2` varchar(255) NULL DEFAULT NULL,
+  `contactdate2` varchar(255) NULL DEFAULT NULL,
+  `contactaddress2` varchar(255) NULL DEFAULT NULL,
+  `contactfacebook2` varchar(255) NULL DEFAULT NULL,
   `contact3` varchar(255) NULL DEFAULT NULL,
+  `contactphone3` varchar(255) NULL DEFAULT NULL,
+  `contactmail3` varchar(255) NULL DEFAULT NULL,
+  `contactdate3` varchar(255) NULL DEFAULT NULL,
+  `contactaddress3` varchar(255) NULL DEFAULT NULL,
+  `contactfacebook3` varchar(255) NULL DEFAULT NULL,
   `contact4` varchar(255) NULL DEFAULT NULL,
+  `contactphone4` varchar(255) NULL DEFAULT NULL,
+  `contactmail4` varchar(255) NULL DEFAULT NULL,
+  `contactdate4` varchar(255) NULL DEFAULT NULL,
+  `contactaddress4` varchar(255) NULL DEFAULT NULL,
+  `contactfacebook4` varchar(255) NULL DEFAULT NULL,
   `contact5` varchar(255) NULL DEFAULT NULL,
+  `contactphone5` varchar(255) NULL DEFAULT NULL,
+  `contactmail5` varchar(255) NULL DEFAULT NULL,
+  `contactdate5` varchar(255) NULL DEFAULT NULL,
+  `contactaddress5` varchar(255) NULL DEFAULT NULL,
+  `contactfacebook5` varchar(255) NULL DEFAULT NULL,
   `contact6` varchar(255) NULL DEFAULT NULL,
+  `contactphone6` varchar(255) NULL DEFAULT NULL,
+  `contactmail6` varchar(255) NULL DEFAULT NULL,
+  `contactdate6` varchar(255) NULL DEFAULT NULL,
+  `contactaddress6` varchar(255) NULL DEFAULT NULL,
+  `contactfacebook6` varchar(255) NULL DEFAULT NULL,
+  `contact7` varchar(255) NULL DEFAULT NULL,
+  `contact8` varchar(255) NULL DEFAULT NULL,
+  `contact9` varchar(255) NULL DEFAULT NULL,
+  `contact10` varchar(255) NULL DEFAULT NULL,
+  `contact11` varchar(255) NULL DEFAULT NULL,
+  `contact12` varchar(255) NULL DEFAULT NULL,
+  `contactcontrol` DATETIME DEFAULT NULL,
+  `folder` varchar(100) NULL DEFAULT NULL,
+  `created` TIMESTAMP NULL DEFAULT NULL,
+  `updated` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
         // EN: Create table for plugin (House - Tasks list)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Úkoly)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousetasks (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housetasks (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) DEFAULT NULL,
   `priority` varchar(255) NULL DEFAULT NULL,
@@ -347,7 +400,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Main Contacts)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Hlavní kontakty)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousecontact (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housecontact (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `name` varchar(100) NULL DEFAULT NULL,
@@ -360,7 +413,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Entrance)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Vchody)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseent (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houseent (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `entrance` varchar(100) NULL DEFAULT NULL,
@@ -372,7 +425,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Appartements)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseapt (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houseapt (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `entrance` varchar(255) NULL DEFAULT NULL,
@@ -386,7 +439,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Services)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Servis)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseserv (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houseserv (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `description` varchar(255) NULL DEFAULT NULL,
@@ -400,7 +453,20 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Documents)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Dokumentace)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedocu (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housedocu (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `description` varchar(255) NULL DEFAULT NULL,
+  `filename` varchar(255) NULL DEFAULT NULL,
+  `fullpath` varchar(255) NULL DEFAULT NULL,
+  `timedefault` DATETIME DEFAULT NULL,
+  `timeedit` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Documents)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Dokumentace)
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houselistdocu (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `description` varchar(255) NULL DEFAULT NULL,
@@ -413,7 +479,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Photo Gallery)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Foto Galerie)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseimg (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_houseimg (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `shortdescription` varchar(255) NULL DEFAULT NULL,
@@ -441,7 +507,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Video Gallery)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Video Galerie)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousevideo (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housevideo (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `shortdescription` varchar(255) NULL DEFAULT NULL,
@@ -458,7 +524,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Notification)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotifications (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housenotifications (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -472,7 +538,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Notification)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
-        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotificationug (
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housenotificationug (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `notification_id` varchar(100) NOT NULL DEFAULT 0,
   `usergroup_id` varchar(100) NOT NULL DEFAULT 0,
@@ -507,14 +573,14 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         // EN: If plugin have 'id' (plugin is not installed), uninstall
         // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-        $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+        $result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
 
         ?>
 
-          <div class="alert bg-danger"><?=$tlint["int_install"]["intinst5"]?></div>
+          <div class="alert bg-danger"><?= $tlint["int_install"]["intinst5"] ?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
             <button type="submit" name="redirect" class="btn btn-danger btn-block">
-              <?=$tlint["int_install"]["intinst6"]?>
+              <?= $tlint["int_install"]["intinst6"] ?>
             </button>
           </form>
 
@@ -523,7 +589,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php">
             <button type="submit" name="install" class="btn btn-complete btn-block">
-              <?=$tlint["int_install"]["intinst7"]?>
+              <?= $tlint["int_install"]["intinst7"] ?>
             </button>
           </form>
         <?php }

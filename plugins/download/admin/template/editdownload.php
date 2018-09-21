@@ -99,7 +99,7 @@ if ($errors) { ?>
           <span class="text"><?= $tld["downl_section_tab"]["downltab3"] ?></span>
         </a>
       </li>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
@@ -299,7 +299,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img', $ENVO_FORM_DATA["previmg"], 'envo_img', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -440,7 +440,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img_facebooksm', $ENVO_FORM_DATA["previmgfbsm"], 'envo_img_facebooksm', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -470,7 +470,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img_facebooklg', $ENVO_FORM_DATA["previmgfblg"], 'envo_img_facebooklg', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -686,7 +686,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_extfile', $ENVO_FORM_DATA["extfile"], 'ext_file', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

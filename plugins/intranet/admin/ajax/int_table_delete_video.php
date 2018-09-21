@@ -24,7 +24,7 @@ $videoID = $_POST['videoID'];
 $data_array = array();
 
 // Delete file from folder
-$result = $envodb->query('SELECT filename, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $videoID . '"');
+$result = $envodb->query('SELECT filename, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'int_housevideo WHERE id = "' . $videoID . '"');
 $row    = $result->fetch_assoc();
 
 $deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filename'];
@@ -34,7 +34,7 @@ foreach ($deletefiles as $files) {
 }
 
 // Delete row in DB
-$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethousevideo WHERE id = "' . $videoID . '"');
+$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_housevideo WHERE id = "' . $videoID . '"');
 
 if ($result) {
   $data_array[] = array(

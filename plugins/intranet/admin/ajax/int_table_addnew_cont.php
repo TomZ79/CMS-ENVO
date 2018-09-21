@@ -21,7 +21,7 @@ $houseID = $_POST['houseID'];
 $contact = $_POST['contact'];
 
 // Check if Entrance not exist
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousecontact WHERE houseid = "' . $houseID . '" AND name = "' . $contact . '" ORDER BY id ASC');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_housecontact WHERE houseid = "' . $houseID . '" AND name = "' . $contact . '" ORDER BY id ASC');
 $row    = $result->fetch_assoc();
 
 // EN: Determine the number of rows in the result from DB
@@ -44,10 +44,10 @@ if ($row_cnt > 0) {
   // Count of Contact NOT exists
 
   // Insert new Entrance
-  $envodb->query('INSERT ' . DB_PREFIX . 'intranethousecontact SET id = NULL, houseid = "' . $houseID . '", name = "' . $contact . '", address = "", phone = "", email = "", commission = "0"');
+  $envodb->query('INSERT ' . DB_PREFIX . 'int_housecontact SET id = NULL, houseid = "' . $houseID . '", name = "' . $contact . '", address = "", phone = "", email = "", commission = "0"');
 
   // Get all Entrance for House
-  $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousecontact WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
+  $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_housecontact WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
 
   $data_array = array();
 

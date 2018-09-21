@@ -6,32 +6,34 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSINTRANET)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESSINTRANET)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
 
 // EN: Set base plugin folder - template
 // CZ: Nastavení základní složky pluginu - šablony
-$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/intranet/admin/template/';
+$BASE_PLUGIN_URL_TEMPLATE = APP_PATH . 'plugins/intranet/admin/template/';
 $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/intranet/admin/template/';
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$envotable  = DB_PREFIX . 'intranethouse';
-$envotable1 = DB_PREFIX . 'intranethouseent';
-$envotable2 = DB_PREFIX . 'intranethouseapt';
-$envotable3 = DB_PREFIX . 'intranethousecontact';
-$envotable4 = DB_PREFIX . 'intranethousedocu';
-$envotable5 = DB_PREFIX . 'intranethouseimg';
-$envotable6 = DB_PREFIX . 'intranethouseserv';
-$envotable7 = DB_PREFIX . 'intranethousenotifications';
-$envotable8 = DB_PREFIX . 'intranethousenotificationug';
-$envotable9 = DB_PREFIX . 'intranethousetower';
-$envotable10 = DB_PREFIX . 'intranethousechannel';
-$envotable11 = DB_PREFIX . 'intranethousetasks';
-$envotable12 = DB_PREFIX . 'intranethousevideo';
-$envotable13 = DB_PREFIX . 'intranethouselist';
+$envotable = DB_PREFIX . 'int_house';
+$envotable1 = DB_PREFIX . 'int_houseent';
+$envotable2 = DB_PREFIX . 'int_houseapt';
+$envotable3 = DB_PREFIX . 'int_housecontact';
+$envotable4 = DB_PREFIX . 'int_housedocu';
+$envotable5 = DB_PREFIX . 'int_houseimg';
+$envotable6 = DB_PREFIX . 'int_houseserv';
+$envotable7 = DB_PREFIX . 'int_housenotifications';
+$envotable8 = DB_PREFIX . 'int_housenotificationug';
+$envotable9 = DB_PREFIX . 'int_housetower';
+$envotable10 = DB_PREFIX . 'int_housechannel';
+$envotable11 = DB_PREFIX . 'int_housetasks';
+$envotable12 = DB_PREFIX . 'int_housevideo';
+$envotable13 = DB_PREFIX . 'int_houselist';
+$envotable14 = DB_PREFIX . 'int_houselistdocu';
+$envotable15 = DB_PREFIX . 'int_houselistregion';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -162,9 +164,9 @@ IČ:       ' . $defaults['envo_housefic'] . '
                * smartsql - secure method to insert form data into a MySQL DB
                * url_slug  - friendly URL slug from a string
               */
-              $result = $envodb->query('INSERT INTO ' . $envotable . ' SET 
+              $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET 
                         name = "' . smartsql($defaults['envo_housename']) . '",
-                        varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
+                        varname = "' . url_slug($defaults['envo_housename'], array ( 'transliterate' => TRUE )) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
@@ -183,7 +185,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         permission = "' . smartsql($permission) . '",
                         folder = "' . $pathfolder . '"');
 
-              $rowid = $envodb->envo_last_id();
+              $rowid = $envodb -> envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -197,7 +199,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
             } else {
               $errors['e'] = $tl['general_error']['generror'] . '<br>';
-              $errors      = $errors;
+              $errors = $errors;
             }
           }
         }
@@ -208,7 +210,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt2"];
-        $SECTION_DESC  = $tlint["int_sec_desc"]["intd2"];
+        $SECTION_DESC = $tlint["int_sec_desc"]["intd2"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -288,9 +290,9 @@ IČ:       ' . $defaults['envo_housefic'] . '
                  * smartsql - secure method to insert form data into a MySQL DB
                  * url_slug  - friendly URL slug from a string
                 */
-                $result = $envodb->query('UPDATE ' . $envotable . ' SET
+                $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         name = "' . smartsql($defaults['envo_housename']) . '",
-                        varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
+                        varname = "' . url_slug($defaults['envo_housename'], array ( 'transliterate' => TRUE )) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
@@ -323,7 +325,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
               } else {
                 $errors['e'] = $tl['general_error']['generror'] . '<br>';
-                $errors      = $errors;
+                $errors = $errors;
               }
 
             }
@@ -356,9 +358,35 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // CZ: Získání všech dat pro formulář - dokumenty
           $ENVO_FORM_DATA_DOCU = envo_get_house_documents($pageID, $envotable4);
 
-          // EN: Get all the data for the form - images
-          // CZ: Získání všech dat pro formulář - obrázky
+          // EN: Get all the data for the Photogallery - isotope photo
+          // CZ: Získání všech dat pro Fotogalerii - isotope photo
           $ENVO_FORM_DATA_IMG = envo_get_house_image($pageID, $envotable5);
+
+
+          // EN: Get all the data for the Photogallery - list photo
+          // CZ: Získání všech dat pro Fotogalerii - list photo
+
+          // EN: Setlocale
+          $envodb -> query('SET lc_time_names = "' . $setting["locale"] . '"');
+          // EN: Get 'timedefault'
+          $result = $envodb -> query('SELECT distinct(DATE_FORMAT(timedefault, "%Y - %M")) as d FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+          // EN: Get all photo by date for house
+          while ($row = $result -> fetch_assoc()) {
+
+            $date = $row['d'];
+            $dateFormat = ucwords(strtolower($date), '\'- ');;
+
+            $test0_array[$date]['timedefault'] = $dateFormat;
+
+            //
+            $result1 = $envodb -> query('SELECT * FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(timedefault,"%Y - %M") = "' . $date . '"');
+
+            while ($row1 = $result1 -> fetch_assoc()) {
+
+              $test0_array[$date]['photos'][] = $row1;
+
+            }
+          }
 
           // EN: Get all the data for the form - videos
           // CZ: Získání všech dat pro formulář - videa
@@ -371,7 +399,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tlint["int_sec_title"]["intt3"];
-          $SECTION_DESC  = $tlint["int_sec_desc"]["intd3"] . ' <strong>' . $ENVO_FORM_DATA['name'] . '</strong>';
+          $SECTION_DESC = $tlint["int_sec_desc"]["intd3"] . ' <strong>' . $ENVO_FORM_DATA['name'] . '</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -396,7 +424,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tlint["int_sec_title"]["intt1"];
-          $SECTION_DESC  = $tlint["int_sec_desc"]["intd1"];
+          $SECTION_DESC = $tlint["int_sec_desc"]["intd1"];
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -413,7 +441,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tlint["int_sec_title"]["intt1"];
-          $SECTION_DESC  = $tlint["int_sec_desc"]["intd1"];
+          $SECTION_DESC = $tlint["int_sec_desc"]["intd1"];
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -432,7 +460,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt1"];
-        $SECTION_DESC  = $tlint["int_sec_desc"]["intd1"];
+        $SECTION_DESC = $tlint["int_sec_desc"]["intd1"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -471,6 +499,44 @@ IČ:       ' . $defaults['envo_housefic'] . '
             // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
             if (count($errors) == 0) {
 
+              // EN: New folder of house for documents, images and other ...
+              // CZ: Nová složka domu pro dokumenty, obrázky a další ...
+              // -----------------
+              //The name of the directory that we need to create
+              $uniqfolder = uniqid('houselist_');
+              $pathfolder = '/intranet/houseslist/' . $uniqfolder;
+              //Check if the directory already exists.
+              if (!is_dir(APP_PATH . $pathfolder)) {
+                //Directory does not exist, so lets create it.
+
+                // Main folder
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder, 0755, TRUE);
+                // Document folder
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
+                // Fotogallery folder
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
+                // Videogallery folder
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/videos/', 0755, TRUE);
+                // Create '*.txt' info file
+                $data = '
+HOUSE NAME - ' . $defaults['envo_housename'] . '
+-----------------------------------------------
+House created: ' . date('Y-m-d H:i:s') . '
+Format date: Y-m-d H:i:s
+
+INFO ABOUT HOUSE
+-----------------------------------------------
+Name:     ' . $defaults['envo_housename'] . '
+Street:   ' . $defaults['envo_housestreet'] . '
+City:     ' . $defaults['envo_housecity'] . '
+IČ:       ' . $defaults['envo_houseic'] . '
+Folder:   ' . $pathfolder . '
+                        ';
+                $data = iconv(mb_detect_encoding($data, mb_detect_order(), true), 'UTF-8', $data);
+                file_put_contents(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/house_info.txt', $data);
+
+              }
+
               /* EN: Convert value
                * smartsql - secure method to insert form data into a MySQL DB
                * url_slug  - friendly URL slug from a string
@@ -479,9 +545,9 @@ IČ:       ' . $defaults['envo_housefic'] . '
                * smartsql - secure method to insert form data into a MySQL DB
                * url_slug  - friendly URL slug from a string
               */
-              $result = $envodb->query('INSERT INTO ' . $envotable13 . ' SET 
+              $result = $envodb -> query('INSERT INTO ' . $envotable13 . ' SET 
                         name = "' . smartsql($defaults['envo_housename']) . '",
-                        varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
+                        varname = "' . url_slug($defaults['envo_housename'], array ( 'transliterate' => TRUE )) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
@@ -490,15 +556,52 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        justice = "' . smartsql($defaults['envo_housejustice']) . '",
+                        housejusticelaw = "' . smartsql($defaults['envo_housejusticelaw']) . '",
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
                         contact1 = "' . smartsql($defaults['envo_housecontact1']) . '",
+                        contactphone1 = "' . smartsql($defaults['envo_housecontactphone1']) . '",
+                        contactmail1 = "' . smartsql($defaults['envo_housecontactmail1']) . '",
+                        contactdate1 = "' . smartsql($defaults['envo_housecontactdate1']) . '",
+                        contactaddress1 = "' . smartsql($defaults['envo_housecontactaddress1']) . '",
                         contact2 = "' . smartsql($defaults['envo_housecontact2']) . '",
+                        contactphone2 = "' . smartsql($defaults['envo_housecontactphone2']) . '",
+                        contactmail2 = "' . smartsql($defaults['envo_housecontactmail2']) . '",
+                        contactdate2 = "' . smartsql($defaults['envo_housecontactdate2']) . '",
+                        contactaddress2 = "' . smartsql($defaults['envo_housecontactaddress2']) . '",
                         contact3 = "' . smartsql($defaults['envo_housecontact3']) . '",
+                        contactphone3 = "' . smartsql($defaults['envo_housecontactphone3']) . '",
+                        contactmail3 = "' . smartsql($defaults['envo_housecontactmail3']) . '",
+                        contactdate3 = "' . smartsql($defaults['envo_housecontactdate3']) . '",
+                        contactaddress3 = "' . smartsql($defaults['envo_housecontactaddress3']) . '",
+                        contactfacebook3 = "' . smartsql($defaults['envo_housecontactfacebook3']) . '",
                         contact4 = "' . smartsql($defaults['envo_housecontact4']) . '",
+                        contactphone4 = "' . smartsql($defaults['envo_housecontactphone4']) . '",
+                        contactmail4 = "' . smartsql($defaults['envo_housecontactmail4']) . '",
+                        contactdate4 = "' . smartsql($defaults['envo_housecontactdate4']) . '",
+                        contactaddress4 = "' . smartsql($defaults['envo_housecontactaddress4']) . '",
                         contact5 = "' . smartsql($defaults['envo_housecontact5']) . '",
-                        contact6 = "' . smartsql($defaults['envo_housecontact6']) . '"');
+                        contactphone5 = "' . smartsql($defaults['envo_housecontactphone5']) . '",
+                        contactmail5 = "' . smartsql($defaults['envo_housecontactmail5']) . '",
+                        contactdate5 = "' . smartsql($defaults['envo_housecontactdate5']) . '",
+                        contactaddress5 = "' . smartsql($defaults['envo_housecontactaddress5']) . '",
+                        contact6 = "' . smartsql($defaults['envo_housecontact6']) . '",
+                        contactphone6 = "' . smartsql($defaults['envo_housecontactphone6']) . '",
+                        contactmail6 = "' . smartsql($defaults['envo_housecontactmail6']) . '",
+                        contactdate6 = "' . smartsql($defaults['envo_housecontactdate6']) . '",
+                        contactaddress6 = "' . smartsql($defaults['envo_housecontactaddress6']) . '",
+                        contact7 = "' . smartsql($defaults['envo_housecontact7']) . '",
+                        contact8 = "' . smartsql($defaults['envo_housecontact8']) . '",
+                        contact9 = "' . smartsql($defaults['envo_housecontact9']) . '",
+                        contact10 = "' . smartsql($defaults['envo_housecontact10']) . '",
+                        contact11 = "' . smartsql($defaults['envo_housecontact11']) . '",
+                        contact12 = "' . smartsql($defaults['envo_housecontact12']) . '",
+                        contactcontrol = "' . smartsql($defaults['envo_contactcontrol']) . '",
+                        folder = "' . $pathfolder . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = "' . smartsql($defaults['envo_created']) . '"');
 
-              $rowid = $envodb->envo_last_id();
+              $rowid = $envodb -> envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -512,15 +615,39 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
             } else {
               $errors['e'] = $tl['general_error']['generror'] . '<br>';
-              $errors      = $errors;
+              $errors = $errors;
             }
+          }
+        }
+
+        // EN: Getting the data about the city in region - House list
+        // CZ: Získání dat o městech v regionu - Seznam domů
+        $envoregion = envo_get_region('', 'city', $envotable15, 1);
+
+        // Convert multidimensional array into single array
+        $ENVO_REGION = [];
+        foreach ($envoregion as $array) {
+          foreach ($array as $v) {
+            $ENVO_REGION[] = $v;
+          }
+        }
+
+        // EN: Getting the data about the city in region - House list
+        // CZ: Získání dat o městech v regionu - Seznam domů
+        $envoregioncity = envo_get_region('', 'city_area', $envotable15, 1);
+
+        // Convert multidimensional array into single array
+        $ENVO_REGION_AREA = [];
+        foreach ($envoregioncity as $array) {
+          foreach ($array as $v) {
+            $ENVO_REGION_AREA[] = $v;
           }
         }
 
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt8"];
-        $SECTION_DESC  = $tlint["int_sec_desc"]["intd8"];
+        $SECTION_DESC = $tlint["int_sec_desc"]["intd8"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -568,9 +695,9 @@ IČ:       ' . $defaults['envo_housefic'] . '
                  * smartsql - secure method to insert form data into a MySQL DB
                  * url_slug  - friendly URL slug from a string
                 */
-                $result = $envodb->query('UPDATE ' . $envotable13 . ' SET
+                $result = $envodb -> query('UPDATE ' . $envotable13 . ' SET
                         name = "' . smartsql($defaults['envo_housename']) . '",
-                        varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
+                        varname = "' . url_slug($defaults['envo_housename'], array ( 'transliterate' => TRUE )) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
@@ -579,13 +706,49 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        justice = "' . smartsql($defaults['envo_housejustice']) . '",
+                        housejusticelaw = "' . smartsql($defaults['envo_housejusticelaw']) . '",
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
                         contact1 = "' . smartsql($defaults['envo_housecontact1']) . '",
+                        contactphone1 = "' . smartsql($defaults['envo_housecontactphone1']) . '",
+                        contactmail1 = "' . smartsql($defaults['envo_housecontactmail1']) . '",
+                        contactdate1 = "' . smartsql($defaults['envo_housecontactdate1']) . '",
+                        contactaddress1 = "' . smartsql($defaults['envo_housecontactaddress1']) . '",
                         contact2 = "' . smartsql($defaults['envo_housecontact2']) . '",
+                        contactphone2 = "' . smartsql($defaults['envo_housecontactphone2']) . '",
+                        contactmail2 = "' . smartsql($defaults['envo_housecontactmail2']) . '",
+                        contactdate2 = "' . smartsql($defaults['envo_housecontactdate2']) . '",
+                        contactaddress2 = "' . smartsql($defaults['envo_housecontactaddress2']) . '",
                         contact3 = "' . smartsql($defaults['envo_housecontact3']) . '",
+                        contactphone3 = "' . smartsql($defaults['envo_housecontactphone3']) . '",
+                        contactmail3 = "' . smartsql($defaults['envo_housecontactmail3']) . '",
+                        contactdate3 = "' . smartsql($defaults['envo_housecontactdate3']) . '",
+                        contactaddress3 = "' . smartsql($defaults['envo_housecontactaddress3']) . '",
+                        contactfacebook3 = "' . smartsql($defaults['envo_housecontactfacebook3']) . '",
                         contact4 = "' . smartsql($defaults['envo_housecontact4']) . '",
+                        contactphone4 = "' . smartsql($defaults['envo_housecontactphone4']) . '",
+                        contactmail4 = "' . smartsql($defaults['envo_housecontactmail4']) . '",
+                        contactdate4 = "' . smartsql($defaults['envo_housecontactdate4']) . '",
+                        contactaddress4 = "' . smartsql($defaults['envo_housecontactaddress4']) . '",
                         contact5 = "' . smartsql($defaults['envo_housecontact5']) . '",
-                        contact6 = "' . smartsql($defaults['envo_housecontact6']) . '"
+                        contactphone5 = "' . smartsql($defaults['envo_housecontactphone5']) . '",
+                        contactmail5 = "' . smartsql($defaults['envo_housecontactmail5']) . '",
+                        contactdate5 = "' . smartsql($defaults['envo_housecontactdate5']) . '",
+                        contactaddress5 = "' . smartsql($defaults['envo_housecontactaddress5']) . '",
+                        contact6 = "' . smartsql($defaults['envo_housecontact6']) . '",
+                        contactphone6 = "' . smartsql($defaults['envo_housecontactphone6']) . '",
+                        contactmail6 = "' . smartsql($defaults['envo_housecontactmail6']) . '",
+                        contactdate6 = "' . smartsql($defaults['envo_housecontactdate6']) . '",
+                        contactaddress6 = "' . smartsql($defaults['envo_housecontactaddress6']) . '",
+                        contact7 = "' . smartsql($defaults['envo_housecontact7']) . '",
+                        contact8 = "' . smartsql($defaults['envo_housecontact8']) . '",
+                        contact9 = "' . smartsql($defaults['envo_housecontact9']) . '",
+                        contact10 = "' . smartsql($defaults['envo_housecontact10']) . '",
+                        contact11 = "' . smartsql($defaults['envo_housecontact11']) . '",
+                        contact12 = "' . smartsql($defaults['envo_housecontact12']) . '",
+                        contactcontrol = "' . smartsql($defaults['envo_contactcontrol']) . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = NOW()
                         WHERE id = "' . smartsql($pageID) . '"');
 
                 if (!$result) {
@@ -600,7 +763,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
               } else {
                 $errors['e'] = $tl['general_error']['generror'] . '<br>';
-                $errors      = $errors;
+                $errors = $errors;
               }
 
             }
@@ -611,14 +774,86 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // CZ: Získání všech dat pro formulář - bytový dům
           $ENVO_FORM_DATA = envo_get_data($pageID, $envotable13);
 
+          // EN: Get all the data for the form - documents
+          // CZ: Získání všech dat pro formulář - dokumenty
+          $ENVO_FORM_DATA_DOCU = envo_get_house_documents($pageID, $envotable14);
+
+          // EN: Getting the data about the city in region - House list
+          // CZ: Získání dat o městech v regionu - Seznam domů
+          $envoregion = envo_get_region('', 'city', $envotable15, 1);
+
+          // Convert multidimensional array into single array
+          $ENVO_REGION = [];
+          foreach ($envoregion as $array) {
+            foreach ($array as $v) {
+              $ENVO_REGION[] = $v;
+            }
+          }
+
+          // EN: Getting the data about the city in region - House list
+          // CZ: Získání dat o městech v regionu - Seznam domů
+          $envoregioncity = envo_get_region('', 'city_area', $envotable15, 1);
+
+          // Convert multidimensional array into single array
+          $ENVO_REGION_AREA = [];
+          foreach ($envoregioncity as $array) {
+            foreach ($array as $v) {
+              $ENVO_REGION_AREA[] = $v;
+            }
+          }
+
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tlint["int_sec_title"]["intt9"];
-          $SECTION_DESC  = $tlint["int_sec_desc"]["intd9"] . ' <strong>' . $ENVO_FORM_DATA['name'] . '</strong>';
+          $SECTION_DESC = $tlint["int_sec_desc"]["intd9"] . ' <strong>' . $ENVO_FORM_DATA['name'] . '</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
           $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_edithouselist.php';
+
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=ene');
+        }
+
+        break;
+      case 'delete':
+        // DELETE ROW FROM DB IN HOUSELIST
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable13)) {
+
+          // EN: Get pathfolder and delete files, folder
+          // CZ: Získání složky a odstranění souborů a složek
+          $result = $envodb -> query('SELECT folder FROM ' . $envotable13 . ' WHERE id = "' . smartsql($pageID) . '"');
+          $row = $result -> fetch_assoc();
+
+          $pathfolder = APP_PATH . ENVO_FILES_DIRECTORY . $row['folder'];
+          delete_files($pathfolder);
+
+          // EN: Delete row in DB
+          // CZ: Odstranění záznamu z DB
+          $result = $envodb -> query('DELETE FROM ' . $envotable13 . ' WHERE id = "' . smartsql($pageID) . '"');
+
+          if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=e');
+          } else {
+
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
+            */
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=s&status1=s1');
+          }
 
         } else {
           // EN: Redirect page
@@ -637,7 +872,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt7"];
-        $SECTION_DESC  = $tlint["int_sec_desc"]["intd7"];
+        $SECTION_DESC = $tlint["int_sec_desc"]["intd7"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -687,16 +922,16 @@ IČ:       ' . $defaults['envo_housefic'] . '
                * smartsql - secure method to insert form data into a MySQL DB
                * url_slug  - friendly URL slug from a string
               */
-              $result = $envodb->query('INSERT INTO ' . $envotable7 . ' SET 
+              $result = $envodb -> query('INSERT INTO ' . $envotable7 . ' SET 
                         name = "' . smartsql($defaults['envo_title']) . '",
-                        varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
                         shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
                         content = "' . smartsql($defaults['envo_content']) . '",
                         permission = "' . smartsql($permission) . '",
                         created = NOW()');
 
-              $rowid = $envodb->envo_last_id();
+              $rowid = $envodb -> envo_last_id();
 
               // EN: User group access for notification
               // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
@@ -704,7 +939,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                 // EN: Usergroup not exists
                 // CZ: Uživatelská skupina neexistuje
 
-                $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
+                $envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -714,7 +949,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                 // EN: Usergroup exists, selection contains '0' value
                 // CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
 
-                $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
+                $envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -725,7 +960,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                 // CZ: Uživatelská skupina existuje, výběr obsahuje pole
 
                 foreach ($defaults['envo_permission'] as $permission) {
-                  $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
+                  $envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "' . $permission . '",
                         unread = "0",
@@ -746,7 +981,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
             } else {
               $errors['e'] = $tl['general_error']['generror'] . '<br>';
-              $errors      = $errors;
+              $errors = $errors;
             }
           }
         }
@@ -757,7 +992,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt5"];
-        $SECTION_DESC  = $tlint["int_sec_desc"]["intd5"];
+        $SECTION_DESC = $tlint["int_sec_desc"]["intd5"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -807,9 +1042,9 @@ IČ:       ' . $defaults['envo_housefic'] . '
                  * smartsql - secure method to insert form data into a MySQL DB
                  * url_slug  - friendly URL slug from a string
                 */
-                $result = $envodb->query('UPDATE ' . $envotable7 . ' SET
+                $result = $envodb -> query('UPDATE ' . $envotable7 . ' SET
                         name = "' . smartsql($defaults['envo_title']) . '",
-                        varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
                         shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
                         content = "' . smartsql($defaults['envo_content']) . '",
@@ -818,7 +1053,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
                 // EN: Delete user group acces for notification by 'id'
                 // CZ: Odstranění přístupu uživatelské skupiny pro notifikaci podle 'id'
-                $envodb->query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
+                $envodb -> query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
 
                 // EN: User group access for notification
                 // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
@@ -826,7 +1061,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                   // EN: Usergroup not exists
                   // CZ: Uživatelská skupina neexistuje
 
-                  $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
+                  $envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -836,7 +1071,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                   // EN: Usergroup exists, selection contains '0' value
                   // CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
 
-                  $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
+                  $envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -847,7 +1082,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                   // CZ: Uživatelská skupina existuje, výběr obsahuje pole
 
                   foreach ($defaults['envo_permission'] as $permission) {
-                    $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
+                    $envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "' . $permission . '",
                         unread = "0",
@@ -868,7 +1103,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
 
               } else {
                 $errors['e'] = $tl['general_error']['generror'] . '<br>';
-                $errors      = $errors;
+                $errors = $errors;
               }
 
             }
@@ -884,7 +1119,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tlint["int_sec_title"]["intt6"];
-          $SECTION_DESC  = $tlint["int_sec_desc"]["intd6"];
+          $SECTION_DESC = $tlint["int_sec_desc"]["intd6"];
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -907,7 +1142,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
 
           // Delete the Content
-          $result = $envodb->query('DELETE FROM ' . $envotable7 . ' WHERE id = "' . smartsql($pageID) . '"');
+          $result = $envodb -> query('DELETE FROM ' . $envotable7 . ' WHERE id = "' . smartsql($pageID) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -940,7 +1175,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt4"];
-        $SECTION_DESC  = $tlint["int_sec_desc"]["intd4"];
+        $SECTION_DESC = $tlint["int_sec_desc"]["intd4"];
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -973,7 +1208,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                                   WHEN "intranettitle" THEN "' . smartsql($defaults['envo_title']) . '"
                                   WHEN "intranetdateformat" THEN "' . smartsql($defaults['envo_date']) . '"
                                   WHEN "intranettimeformat" THEN "' . smartsql($defaults['envo_time']) . '"
@@ -982,36 +1217,64 @@ IČ:       ' . $defaults['envo_housefic'] . '
                                 WHERE varname IN ("intranettitle", "intranetdateformat", "intranettimeformat", "intranetskin")');
 
 
-        // CZ: Odstranění vysílačů z DB
-        $result1 = $envodb->query('TRUNCATE TABLE ' . $envotable9);
+        // CZ: Odstranění měst z DB
+        $result1 = $envodb -> query('TRUNCATE TABLE ' . $envotable15);
 
         // CZ: Zápis vysílačů do DB
-        $countname = $defaults['envo_towername'];
+        $countregion = $defaults['envo_1'];
 
-        for($i = 0, $j = count($countname); $i < $j ; $i++) {
-          $name = $countname[$i];
+        for ($i = 0, $j = count($countregion); $i < $j; $i++) {
+          $region = $countregion[$i];
 
-          if (!empty($name)) {
+          if (!empty($region)) {
 
-            $result = $envodb->query('INSERT INTO ' . $envotable9 . ' SET 
-                        name = "' . smartsql($name) . '",
-                        varname = "' . url_slug($name, array('transliterate' => TRUE)) . '"');
+            // EN: Insert new row and update row if exists in DB
+            // CZ: Vložení nového záznamu a update záznamu, který je již v DB
+            $result = $envodb -> query('INSERT INTO ' . $envotable15 . ' SET
+                        id = "' . smartsql($defaults['envo_0'][$i]) . '",
+                        region = "' . trim(smartsql($defaults['envo_1'][$i])) . '",
+                        district = "' . trim(smartsql($defaults['envo_2'][$i])) . '",
+                        city = "' . trim(smartsql($defaults['envo_3'][$i])) . '",
+                        city_area = "' . trim(smartsql($defaults['envo_4'][$i])) . '"
+                        ON DUPLICATE KEY UPDATE 
+                        region = "' . trim(smartsql($defaults['envo_1'][$i])) . '",
+                        district = "' . trim(smartsql($defaults['envo_2'][$i])) . '",
+                        city = "' . trim(smartsql($defaults['envo_3'][$i])) . '",
+                        city_area = "' . trim(smartsql($defaults['envo_4'][$i])) . '"');
           }
 
         }
 
         // CZ: Odstranění vysílačů z DB
-        $result2 = $envodb->query('TRUNCATE TABLE ' . $envotable10);
+        $result1 = $envodb -> query('TRUNCATE TABLE ' . $envotable9);
+
+        // CZ: Zápis vysílačů do DB
+        $countname = $defaults['envo_towername'];
+
+        for ($i = 0, $j = count($countname); $i < $j; $i++) {
+          $name = $countname[$i];
+
+          if (!empty($name)) {
+
+            $result = $envodb -> query('INSERT INTO ' . $envotable9 . ' SET 
+                        name = "' . smartsql($name) . '",
+                        varname = "' . url_slug($name, array ( 'transliterate' => TRUE )) . '"');
+          }
+
+        }
+
+        // CZ: Odstranění vysílačů z DB
+        $result2 = $envodb -> query('TRUNCATE TABLE ' . $envotable10);
 
         // CZ: Zápis vysílačů do DB
         $countnumber = $defaults['envo_channelname'];
 
-        for($i = 0, $j = count($countnumber); $i < $j ; $i++) {
+        for ($i = 0, $j = count($countnumber); $i < $j; $i++) {
           $number = $countnumber[$i];
 
           if (!empty($number)) {
 
-            $result = $envodb->query('INSERT INTO ' . $envotable10 . ' SET 
+            $result = $envodb -> query('INSERT INTO ' . $envotable10 . ' SET 
                         towerid = "",
                         number = "' . smartsql($number) . '"');
           }
@@ -1029,13 +1292,17 @@ IČ:       ' . $defaults['envo_housefic'] . '
         }
       } else {
         $errors['e'] = $tl['general_error']['generror'] . '<br>';
-        $errors      = $errors;
+        $errors = $errors;
       }
     }
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
     $ENVO_SETTING = envo_get_setting('intranet');
+
+    // EN: Getting the data about the city in region - House list
+    // CZ: Získání dat o městech v regionu - Seznam domů
+    $ENVO_REGION = envo_get_region('', '', $envotable15);
 
     // EN: Getting the data about the TV Tower
     // CZ: Získání dat o televizním vysílači
@@ -1048,7 +1315,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tlint["int_sec_title"]["intt"];
-    $SECTION_DESC  = $tlint["int_sec_desc"]["intd"];
+    $SECTION_DESC = $tlint["int_sec_desc"]["intd"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

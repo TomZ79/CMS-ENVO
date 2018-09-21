@@ -81,7 +81,7 @@ if ($errors) { ?>
           <span class="text"><?= $tld["downl_section_tab"]["downltab3"] ?></span>
         </a>
       </li>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
@@ -281,7 +281,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img', (isset($_REQUEST["envo_img"])) ? $_REQUEST["envo_img"] : '', 'envo_img', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -353,7 +353,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img_facebooksm', (isset($_REQUEST["envo_img_facebooksm"])) ? $_REQUEST["envo_img_facebooksm"] : '', 'envo_img_facebooksm', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -383,7 +383,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img_facebooklg', (isset($_REQUEST["envo_img_facebooklg"])) ? $_REQUEST["envo_img_facebooklg"] : '', 'envo_img_facebooklg', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -617,7 +617,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_extfile', (isset($_REQUEST["envo_extfile"])) ? $_REQUEST["envo_extfile"] : '', 'ext_file', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

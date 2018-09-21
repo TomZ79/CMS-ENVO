@@ -70,9 +70,9 @@ if ($errors) { ?>
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=intranet&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
+    echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -134,7 +134,7 @@ if ($errors) { ?>
         <span class="text">Videogalerie</span>
       </a>
     </li>
-    <li class='nav-item dropdown collapsed-menu'>
+    <li class='nav-item dropdown collapsed-menu hidden'>
       <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
         ... <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
@@ -152,7 +152,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Obecná nastavení', 'box-title');
+              echo $Html -> addTag('h3', 'Obecná nastavení', 'box-title');
               ?>
 
             </div>
@@ -164,8 +164,8 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Název Domu');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      echo $Html -> addTag('strong', 'Název Domu');
+                      echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                       ?>
 
                     </div>
@@ -174,7 +174,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housename', $ENVO_FORM_DATA["name"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housename', $ENVO_FORM_DATA["name"], '', 'form-control');
                         ?>
 
                       </div>
@@ -185,7 +185,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Ulice');
+                      echo $Html -> addTag('strong', 'Ulice');
                       ?>
 
                     </div>
@@ -194,7 +194,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housestreet', $ENVO_FORM_DATA["street"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housestreet', $ENVO_FORM_DATA["street"], '', 'form-control');
                         ?>
 
                       </div>
@@ -205,7 +205,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Město');
+                      echo $Html -> addTag('strong', 'Město');
                       ?>
 
                     </div>
@@ -214,7 +214,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housecity', $ENVO_FORM_DATA["city"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housecity', $ENVO_FORM_DATA["city"], '', 'form-control');
                         ?>
 
                       </div>
@@ -225,7 +225,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'PSC');
+                      echo $Html -> addTag('strong', 'PSC');
                       ?>
 
                     </div>
@@ -234,7 +234,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housepsc', $ENVO_FORM_DATA["psc"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housepsc', $ENVO_FORM_DATA["psc"], '', 'form-control');
                         ?>
 
                       </div>
@@ -245,7 +245,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Stát');
+                      echo $Html -> addTag('strong', 'Stát');
                       ?>
 
                     </div>
@@ -254,7 +254,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housestate', $ENVO_FORM_DATA["state"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housestate', $ENVO_FORM_DATA["state"], '', 'form-control');
                         ?>
 
                       </div>
@@ -265,7 +265,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'GPS - Koordináty');
+                      echo $Html -> addTag('strong', 'GPS - Koordináty');
                       ?>
 
                     </div>
@@ -274,7 +274,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('https://www.gps-coordinates.net/', 'Získat GPS pozici', '', '', array('target' => '_blank'));
+                        echo $Html -> addAnchor('https://www.gps-coordinates.net/', 'Získat GPS pozici', '', '', array ( 'target' => '_blank' ));
                         ?>
 
                       </div>
@@ -285,7 +285,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'GPS - Latitude');
+                      echo $Html -> addTag('strong', 'GPS - Latitude');
                       ?>
 
                     </div>
@@ -294,7 +294,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housegpslat', $ENVO_FORM_DATA["latitude"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housegpslat', $ENVO_FORM_DATA["latitude"], '', 'form-control');
                         ?>
 
                       </div>
@@ -305,7 +305,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'GPS - Longitude');
+                      echo $Html -> addTag('strong', 'GPS - Longitude');
                       ?>
 
                     </div>
@@ -314,7 +314,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housegpslng', $ENVO_FORM_DATA["longitude"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housegpslng', $ENVO_FORM_DATA["longitude"], '', 'form-control');
                         ?>
 
                       </div>
@@ -327,7 +327,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -341,7 +341,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('h3', 'Vchody a Byty', 'box-title');
+                  echo $Html -> addTag('h3', 'Vchody a Byty', 'box-title');
                   ?>
 
                 </div>
@@ -353,8 +353,8 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Celkový Počet Vchodů');
-                          echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                          echo $Html -> addTag('strong', 'Celkový Počet Vchodů');
+                          echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                           ?>
 
                         </div>
@@ -363,7 +363,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
                             ?>
 
                           </div>
@@ -374,8 +374,8 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Celkový Počet Bytů');
-                          echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                          echo $Html -> addTag('strong', 'Celkový Počet Bytů');
+                          echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                           ?>
 
                         </div>
@@ -384,7 +384,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
                             ?>
 
                           </div>
@@ -397,7 +397,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
                   ?>
 
                 </div>
@@ -409,12 +409,12 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                  echo $Html->startTag('h3', array('class' => 'box-title'));
+                  echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
                   echo $tl["cat_box_title"]["catbt3"];
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                  echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"] ));
                   // Add Html Element -> endTag (Arguments: tag)
-                  echo $Html->endTag('h3');
+                  echo $Html -> endTag('h3');
                   ?>
 
                 </div>
@@ -429,11 +429,11 @@ if ($errors) { ?>
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                             $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
 
-                            echo $Html->addOption('0', 'Všechny skupiny', $selected);
+                            echo $Html -> addOption('0', 'Všechny skupiny', $selected);
                             if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                               $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
-                              echo $Html->addOption($v["id"], $v["name"], $selected);
+                              echo $Html -> addOption($v["id"], $v["name"], $selected);
 
                             }
                             ?>
@@ -448,7 +448,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
                   ?>
 
                 </div>
@@ -462,7 +462,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('h3', 'Popis a složky domu', 'box-title');
+                  echo $Html -> addTag('h3', 'Popis a složky domu', 'box-title');
                   ?>
 
                 </div>
@@ -474,7 +474,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Složka dokumentů');
+                          echo $Html -> addTag('strong', 'Složka dokumentů');
                           ?>
 
                         </div>
@@ -483,14 +483,14 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array('readonly' => 'readonly'));
+                            echo $Html -> addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array ( 'readonly' => 'readonly' ));
                             ?>
 
-                            <span class="input-group-btn">
+                            <span class="input-group-append">
 
                               <?php
                               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array ( 'type' => 'button' ));
                               ?>
 
                             </span>
@@ -502,7 +502,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Složka obrázků');
+                          echo $Html -> addTag('strong', 'Složka obrázků');
                           ?>
 
                         </div>
@@ -511,14 +511,14 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array('readonly' => 'readonly'));
+                            echo $Html -> addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array ( 'readonly' => 'readonly' ));
                             ?>
 
-                            <span class="input-group-btn">
+                            <span class="input-group-append">
 
                               <?php
                               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array ( 'type' => 'button' ));
                               ?>
 
                             </span>
@@ -530,7 +530,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Složka video');
+                          echo $Html -> addTag('strong', 'Složka video');
                           ?>
 
                         </div>
@@ -539,14 +539,14 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/videos', '', 'form-control', array('readonly' => 'readonly'));
+                            echo $Html -> addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/videos', '', 'form-control', array ( 'readonly' => 'readonly' ));
                             ?>
 
-                            <span class="input-group-btn">
+                            <span class="input-group-append">
 
                               <?php
                               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array ( 'type' => 'button' ));
                               ?>
 
                             </span>
@@ -558,9 +558,9 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('', '<strong>Popis</strong>');
+                          echo $Html -> addLabel('', '<strong>Popis</strong>');
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('envo_housedescription', $ENVO_FORM_DATA["description"], '4', '', array('class' => 'form-control'));
+                          echo $Html -> addTextarea('envo_housedescription', $ENVO_FORM_DATA["description"], '4', '', array ( 'class' => 'form-control' ));
                           ?>
 
                         </div>
@@ -572,7 +572,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
                   ?>
 
                 </div>
@@ -590,7 +590,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Nastavení Fakturace', 'box-title');
+              echo $Html -> addTag('h3', 'Nastavení Fakturace', 'box-title');
               ?>
 
             </div>
@@ -604,7 +604,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Název');
+                          echo $Html -> addTag('strong', 'Název');
                           ?>
 
                         </div>
@@ -613,7 +613,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefname', $ENVO_FORM_DATA["housefname"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefname', $ENVO_FORM_DATA["housefname"], '', 'form-control');
                             ?>
 
                           </div>
@@ -624,7 +624,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Ulice');
+                          echo $Html -> addTag('strong', 'Ulice');
                           ?>
 
                         </div>
@@ -633,7 +633,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefstreet', $ENVO_FORM_DATA["housefstreet"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefstreet', $ENVO_FORM_DATA["housefstreet"], '', 'form-control');
                             ?>
 
                           </div>
@@ -644,7 +644,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Město');
+                          echo $Html -> addTag('strong', 'Město');
                           ?>
 
                         </div>
@@ -653,7 +653,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefcity', $ENVO_FORM_DATA["housefcity"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefcity', $ENVO_FORM_DATA["housefcity"], '', 'form-control');
                             ?>
 
                           </div>
@@ -664,7 +664,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'PSČ');
+                          echo $Html -> addTag('strong', 'PSČ');
                           ?>
 
                         </div>
@@ -673,7 +673,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefpsc', $ENVO_FORM_DATA["housefpsc"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefpsc', $ENVO_FORM_DATA["housefpsc"], '', 'form-control');
                             ?>
 
                           </div>
@@ -686,7 +686,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'IČ');
+                          echo $Html -> addTag('strong', 'IČ');
                           ?>
 
                         </div>
@@ -695,7 +695,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefic', $ENVO_FORM_DATA["housefic"], '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefic', $ENVO_FORM_DATA["housefic"], '', 'form-control');
                             ?>
 
                           </div>
@@ -706,7 +706,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'DIČ');
+                          echo $Html -> addTag('strong', 'DIČ');
                           ?>
 
                         </div>
@@ -715,7 +715,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'housefdic', $ENVO_FORM_DATA["housefdic"], '', 'form-control');
+                            echo $Html -> addInput('text', 'housefdic', $ENVO_FORM_DATA["housefdic"], '', 'form-control');
                             ?>
 
                           </div>
@@ -730,7 +730,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -745,7 +745,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-            echo $Html->addButton('button', '', 'Přidat nový úkol', '', 'addTask', 'btn btn-info', array('data-dialog' => 'taskDialogAdd', 'style' => 'width: 100%;'));
+            echo $Html -> addButton('button', '', 'Přidat nový úkol', '', 'addTask', 'btn btn-info', array ( 'data-dialog' => 'taskDialogAdd', 'style' => 'width: 100%;' ));
             ?>
 
           </div>
@@ -787,9 +787,9 @@ if ($errors) { ?>
                             <?php
                             // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
                             // EDIT
-                            echo $Html->addButton('button', '', '<i class="fa fa-edit"></i>', '', 'editTask', 'btn btn-default btn-xs m-r-20 editTask', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"], 'data-dialog' => 'taskDialogEdit', 'data-id' => $t["id"]));
+                            echo $Html -> addButton('button', '', '<i class="fa fa-edit"></i>', '', 'editTask', 'btn btn-default btn-xs m-r-20 editTask', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"], 'data-dialog' => 'taskDialogEdit', 'data-id' => $t["id"] ));
                             // DELETE
-                            echo $Html->addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteTask', array('data-confirm-deltask' => sprintf('Jste si jistý, že chcete odstranit úkol <strong>%s</strong>', $t["title"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"], 'data-id' => $t["id"]));
+                            echo $Html -> addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteTask', array ( 'data-confirm-deltask' => sprintf('Jste si jistý, že chcete odstranit úkol <strong>%s</strong>', $t["title"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"], 'data-id' => $t["id"] ));
                             ?>
 
                           </td>
@@ -828,7 +828,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Titulek');
+                        echo $Html -> addTag('strong', 'Titulek');
                         ?>
 
                       </div>
@@ -836,7 +836,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_addtasktitle', '', '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_addtasktitle', '', '', 'form-control');
                         ?>
 
                       </div>
@@ -846,7 +846,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Priorita');
+                        echo $Html -> addTag('strong', 'Priorita');
                         ?>
 
                       </div>
@@ -856,11 +856,11 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('0', 'Nedůležitá');
-                            echo $Html->addOption('1', 'Nízká priorita');
-                            echo $Html->addOption('2', 'Střední priorita');
-                            echo $Html->addOption('3', 'Vysoká priorita');
-                            echo $Html->addOption('4', 'Nejvyšší priorita');
+                            echo $Html -> addOption('0', 'Nedůležitá');
+                            echo $Html -> addOption('1', 'Nízká priorita');
+                            echo $Html -> addOption('2', 'Střední priorita');
+                            echo $Html -> addOption('3', 'Vysoká priorita');
+                            echo $Html -> addOption('4', 'Nejvyšší priorita');
                             ?>
 
                           </select>
@@ -872,7 +872,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Status');
+                        echo $Html -> addTag('strong', 'Status');
                         ?>
 
                       </div>
@@ -882,11 +882,11 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('0', 'Žádný status');
-                            echo $Html->addOption('1', 'Zápis');
-                            echo $Html->addOption('2', 'V řešení');
-                            echo $Html->addOption('3', 'Vyřešeno - Uzavřeno');
-                            echo $Html->addOption('4', 'Stornováno');
+                            echo $Html -> addOption('0', 'Žádný status');
+                            echo $Html -> addOption('1', 'Zápis');
+                            echo $Html -> addOption('2', 'V řešení');
+                            echo $Html -> addOption('3', 'Vyřešeno - Uzavřeno');
+                            echo $Html -> addOption('4', 'Stornováno');
                             ?>
 
                           </select>
@@ -898,7 +898,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Datum Úkolu');
+                        echo $Html -> addTag('strong', 'Datum Úkolu');
                         ?>
 
                       </div>
@@ -906,7 +906,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_addtasktime', '', '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_addtasktime', '', '', 'form-control');
                         ?>
 
                       </div>
@@ -916,7 +916,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Datum Připomenutí');
+                        echo $Html -> addTag('strong', 'Datum Připomenutí');
                         ?>
 
                       </div>
@@ -924,7 +924,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_addtaskreminder', '', '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_addtaskreminder', '', '', 'form-control');
                         ?>
 
                       </div>
@@ -934,9 +934,9 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', '<strong>Popis</strong>');
+                        echo $Html -> addLabel('', '<strong>Popis</strong>');
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('envo_addtaskdescription', '', '10', '', array('id' => 'envoEditorSmall', 'class' => 'form-control envoEditorSmall'));
+                        echo $Html -> addTextarea('envo_addtaskdescription', '', '10', '', array ( 'id' => 'envoEditorSmall', 'class' => 'form-control envoEditorSmall' ));
                         ?>
 
                       </div>
@@ -988,7 +988,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'addRowCont', (isset($_REQUEST["addRowCont"])) ? $_REQUEST["addRowCont"] : '', '', 'form-control ml-2', array('style' => 'height: 35px;', 'placeholder' => 'Celé jméno'));
+              echo $Html -> addInput('text', 'addRowCont', (isset($_REQUEST["addRowCont"])) ? $_REQUEST["addRowCont"] : '', '', 'form-control ml-2', array ( 'style' => 'height: 35px;', 'placeholder' => 'Celé jméno' ));
               ?>
 
             </div>
@@ -996,7 +996,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový kontakt', '', 'addRowCont', 'btn btn-info ml-2', array('style' => 'width: 100%;'));
+              echo $Html -> addButton('button', '', 'Přidat nový kontakt', '', 'addRowCont', 'btn btn-info ml-2', array ( 'style' => 'width: 100%;' ));
               ?>
 
             </div>
@@ -1032,7 +1032,7 @@ if ($errors) { ?>
                       <td>
 
                         <?php
-                        switch ($foundApt["commission"]) {
+                        switch ($c["commission"]) {
                           case '0':
                             echo 'Není ve Výboru';
                             break;
@@ -1071,7 +1071,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', '', 'form-control ml-2', array('style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu'));
+              echo $Html -> addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', '', 'form-control ml-2', array ( 'style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu' ));
               ?>
 
             </div>
@@ -1079,7 +1079,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový vchod', '', 'addRowEnt', 'btn btn-info ml-2', array('style' => 'width: 100%;'));
+              echo $Html -> addButton('button', '', 'Přidat nový vchod', '', 'addRowEnt', 'btn btn-info ml-2', array ( 'style' => 'width: 100%;' ));
               ?>
 
             </div>
@@ -1155,7 +1155,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info float-right addRowApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
+              echo $Html -> addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info float-right addRowApt', array ( 'data-entrance' => ($e["entrance"] ? $e["entrance"] : '0') ));
               ?>
 
             </div>
@@ -1181,7 +1181,7 @@ if ($errors) { ?>
                       <?php
 
                       if (isset($ENVO_FORM_DATA_APT) && is_array($ENVO_FORM_DATA_APT)) {
-                        $foundApt = array();
+                        $foundApt = array ();
                         foreach ($ENVO_FORM_DATA_APT as $a) {
                           if ($a["entrance"] == $e["entrance"]) {
                             $foundApt[] = $a;
@@ -1245,7 +1245,7 @@ if ($errors) { ?>
 
           <?php
           // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-          echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+          echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
           ?>
 
         </div>
@@ -1261,7 +1261,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Obecné Informace', 'box-title');
+              echo $Html -> addTag('h3', 'Obecné Informace', 'box-title');
               ?>
 
             </div>
@@ -1273,7 +1273,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Přijímané kanály');
+                      echo $Html -> addTag('strong', 'Přijímané kanály');
                       ?>
 
                     </div>
@@ -1282,7 +1282,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housechannels', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housechannels', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
                         ?>
 
                       </div>
@@ -1293,7 +1293,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Přijímané vysílače');
+                      echo $Html -> addTag('strong', 'Přijímané vysílače');
                       ?>
 
                     </div>
@@ -1302,7 +1302,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housetowers', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housetowers', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
                         ?>
 
                       </div>
@@ -1314,8 +1314,8 @@ if ($errors) { ?>
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Příprava na DVB-T2');
-                      echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => 'Bytový dům je připraven na příjem DVB-T2', 'data-original-title' => 'Nápověda'));
+                      echo $Html -> addTag('strong', 'Příprava na DVB-T2');
+                      echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => 'Bytový dům je připraven na příjem DVB-T2', 'data-original-title' => 'Nápověda' ));
                       ?>
 
                     </div>
@@ -1324,14 +1324,14 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('envo_housedvbt2', '1', ($ENVO_FORM_DATA["preparationdvb"] == '1') ? TRUE : FALSE, 'envo_housedvbt2_1');
+                        echo $Html -> addRadio('envo_housedvbt2', '1', ($ENVO_FORM_DATA["preparationdvb"] == '1') ? TRUE : FALSE, 'envo_housedvbt2_1');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('envo_housedvbt2_1', $tl["checkbox"]["chk"]);
+                        echo $Html -> addLabel('envo_housedvbt2_1', $tl["checkbox"]["chk"]);
 
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('envo_housedvbt2', '0', ($ENVO_FORM_DATA["preparationdvb"] == '0') ? TRUE : FALSE, 'envo_housedvbt2_2');
+                        echo $Html -> addRadio('envo_housedvbt2', '0', ($ENVO_FORM_DATA["preparationdvb"] == '0') ? TRUE : FALSE, 'envo_housedvbt2_2');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('envo_housedvbt2_2', $tl["checkbox"]["chk1"]);
+                        echo $Html -> addLabel('envo_housedvbt2_2', $tl["checkbox"]["chk1"]);
                         ?>
 
                       </div>
@@ -1344,7 +1344,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -1358,7 +1358,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Popis technického stavu domu', 'box-title');
+              echo $Html -> addTag('h3', 'Popis technického stavu domu', 'box-title');
               ?>
 
             </div>
@@ -1367,7 +1367,7 @@ if ($errors) { ?>
               <?php
 
               // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-              echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'envoEditorLarge', 'class' => 'form-control envoEditorLarge'));
+              echo $Html -> addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array ( 'id' => 'envoEditorLarge', 'class' => 'form-control envoEditorLarge' ));
 
               ?>
 
@@ -1376,7 +1376,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -1392,7 +1392,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový servis', '', 'addRowServ', 'btn btn-info', array('style' => 'width: 100%;'));
+              echo $Html -> addButton('button', '', 'Přidat nový servis', '', 'addRowServ', 'btn btn-info', array ( 'style' => 'width: 100%;' ));
               ?>
 
             </div>
@@ -1467,7 +1467,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Seznam dokumentů', 'box-title');
+              echo $Html -> addTag('h3', 'Seznam dokumentů', 'box-title');
               ?>
 
             </div>
@@ -1509,7 +1509,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnDocu', 'btn btn-info', array('style' => 'width: 100%;'));
+                          echo $Html -> addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnDocu', 'btn btn-info', array ( 'style' => 'width: 100%;' ));
                           ?>
 
                         </div>
@@ -1545,10 +1545,11 @@ if ($errors) { ?>
                     <table id="tabledocu" class="table">
                       <thead>
                       <tr>
-                        <th>#</th>
-                        <th>Typ souboru</th>
-                        <th>Popis</th>
-                        <th>Soubor</th>
+                        <th class="text-center" style="width: 5%;">#</th>
+                        <th class="text-center" style="width: 15%;">Typ souboru</th>
+                        <th style="width: 40%;">Popis</th>
+                        <th class="text-center" style="width: 20%;">Soubor</th>
+                        <!-- Last 'th' is generated by Jquery plugin Tabledit -->
                       </tr>
                       </thead>
                       <tbody>
@@ -1556,10 +1557,10 @@ if ($errors) { ?>
                       <?php if (!empty($ENVO_FORM_DATA_DOCU) && is_array($ENVO_FORM_DATA_DOCU)) foreach ($ENVO_FORM_DATA_DOCU as $d) { ?>
 
                         <tr>
-                          <td><?= $d["id"] ?></td>
-                          <td><?= envo_extension_icon($d["filename"]) ?></td>
+                          <td class="text-center"><?= $d["id"] ?></td>
+                          <td class="text-center"><?= envo_extension_icon($d["filename"]) ?></td>
                           <td><?= $d["description"] ?></td>
-                          <td>
+                          <td class="text-center">
 
                             <?php
                             echo '<a href="/' . ENVO_FILES_DIRECTORY . $d["fullpath"] . '" target="_blank">Zobrazit</a>';
@@ -1568,6 +1569,7 @@ if ($errors) { ?>
                             ?>
 
                           </td>
+                          <!-- Last 'td' is generated by Jquery plugin Tabledit -->
                         </tr>
 
                       <?php } else {
@@ -1596,7 +1598,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Fotogalerie', 'box-title');
+              echo $Html -> addTag('h3', 'Fotogalerie', 'box-title');
               ?>
 
             </div>
@@ -1614,11 +1616,11 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      echo $Html->addOption('*', 'Bez kategorie');
-                      echo $Html->addOption('service', 'Servisy');
-                      echo $Html->addOption('reconstruction', 'Rekonstrukce');
-                      echo $Html->addOption('installation', 'Instalace');
-                      echo $Html->addOption('complaint', 'Reklamace');
+                      echo $Html -> addOption('*', 'Bez kategorie');
+                      echo $Html -> addOption('service', 'Servisy');
+                      echo $Html -> addOption('reconstruction', 'Rekonstrukce');
+                      echo $Html -> addOption('installation', 'Instalace');
+                      echo $Html -> addOption('complaint', 'Reklamace');
                       ?>
 
                     </select>
@@ -1658,7 +1660,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
+                          echo $Html -> addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array ( 'style' => 'width: 100%;' ));
                           ?>
 
                         </div>
@@ -1682,18 +1684,84 @@ if ($errors) { ?>
                     </div>
                   </div>
                 </div>
+                <hr>
               </div>
               <div class="row">
                 <div class="col-sm-12">
                   <hr>
+                  <button type="button" id="showPhotoList" class="btn btn-complete btn-cons">
+                    <span>Seznam</span>
+                  </button>
+
+                  <button type="button" id="showFiltrPhoto" class="btn btn-info btn-cons">
+                    <span>Filtr / Editace</span>
+                  </button>
+                  <hr>
                 </div>
               </div>
-              <div class="row">
+              <div id="list_photo" class="row">
+                <div class="col-sm-12">
+                  <div id="gallery_envo0" class="gallery_envo">
+
+                    <?php
+
+                    if (!empty($test0_array) && is_array($test0_array)) {
+
+                      foreach ($test0_array as $subarray) {
+
+                        // Get first value 'timedefault'
+                        echo '<div class="dateblock_' . uniqid() .' m-b-20 clearfix">';
+                        echo '<div class="padding-10 m-b-20" style="background:gray;color:white;font-weight:700;">' . reset($subarray) . '</div>';
+
+                        // Loop photos array
+                        foreach ($subarray['photos'] as $imgarray) {
+
+                          echo '<div id="' . $imgarray["id"] . '" class="gallery-item-' . $imgarray["id"] . ' ' . $imgarray["category"] . '" data-width="1" data-height="1" style="float: left;margin: 10px;">';
+
+                          echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" alt=""></div>';
+
+                          echo '<div class="overlays">
+                                <div class="row full-height">
+                                  <div class="col-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($imgarray["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
+                                  </div>
+                                  <div class="col-7 full-height">
+                                    <div class="text">
+                                      <a data-fancybox="gallery0" href="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" data-caption="' . ($imgarray["shortdescription"] ? $imgarray["shortdescription"] : "NO SHORT DESCRIPTION") . ($imgarray["description"] ? " - " . $imgarray["description"] : "") . '">
+                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+                                         <i class="pg-image"></i>
+                                        </button>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>';
+
+                          echo '<div class="full-width padding-10">';
+
+                          echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $imgarray["shortdescription"] . '</p>';
+
+                          echo '</div>';
+
+                          echo '</div>';
+                        }
+
+                        echo '</div>';
+                      }
+
+                    }
+
+                    ?>
+
+                  </div>
+                </div>
+              </div>
+              <div id="isotope_photo" class="row" style="display: none;">
                 <div class="col-sm-3 padding-20">
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('h5', 'Kategorie', 'bold');
+                  echo $Html -> addTag('h5', 'Kategorie', 'bold');
                   ?>
 
                   <ul id="imagefilters">
@@ -1706,20 +1774,20 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                  echo $Html -> addTag('h5', 'Vyhledat', 'bold');
                   ?>
 
                   <p>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
+                    echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
                     ?>
 
                   </p>
                 </div>
                 <div class="col-sm-9">
-                  <div id="gallery_envo" class="gallery_envo">
+                  <div id="gallery_envo1" class="gallery_envo">
 
                     <?php
                     if (!empty($ENVO_FORM_DATA_IMG) && is_array($ENVO_FORM_DATA_IMG)) {
@@ -1738,15 +1806,15 @@ if ($errors) { ?>
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt="">
-                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button">
+                                      <a data-fancybox="gallery1" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" data-caption="' . ($img["shortdescription"] ? $img["shortdescription"] : "NO SHORT DESCRIPTION") . ($img["description"] ? " - " . $img["description"] : "") . '">
+                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
                                          <i class="pg-image"></i>
                                         </button>
                                       </a>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgitemDetails">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgitemDetails" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace Informací">
                                         <i class="fa fa-edit"></i>
                                       </button>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit">
                                         <i class="fa fa-trash"></i>
                                       </button>
                                     </div>
@@ -1799,7 +1867,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Videogalerie', 'box-title');
+              echo $Html -> addTag('h3', 'Videogalerie', 'box-title');
               ?>
 
             </div>
@@ -1814,11 +1882,11 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      echo $Html->addOption('*', 'Bez kategorie');
-                      echo $Html->addOption('service', 'Servisy');
-                      echo $Html->addOption('reconstruction', 'Rekonstrukce');
-                      echo $Html->addOption('installation', 'Instalace');
-                      echo $Html->addOption('complaint', 'Reklamace');
+                      echo $Html -> addOption('*', 'Bez kategorie');
+                      echo $Html -> addOption('service', 'Servisy');
+                      echo $Html -> addOption('reconstruction', 'Rekonstrukce');
+                      echo $Html -> addOption('installation', 'Instalace');
+                      echo $Html -> addOption('complaint', 'Reklamace');
                       ?>
 
                     </select>
@@ -1880,7 +1948,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnVideo', 'btn btn-info', array('style' => 'width: 100%;'));
+                          echo $Html -> addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnVideo', 'btn btn-info', array ( 'style' => 'width: 100%;' ));
                           ?>
 
                         </div>
@@ -1915,7 +1983,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('h5', 'Kategorie', 'bold');
+                  echo $Html -> addTag('h5', 'Kategorie', 'bold');
                   ?>
 
                   <ul id="videofilters">
@@ -1928,14 +1996,14 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                  echo $Html -> addTag('h5', 'Vyhledat', 'bold');
                   ?>
 
                   <p>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'videoquicksearch', '', 'videoquicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
+                    echo $Html -> addInput('text', 'videoquicksearch', '', 'videoquicksearch', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
                     ?>
 
                   </p>

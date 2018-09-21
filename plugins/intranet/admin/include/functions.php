@@ -1,6 +1,51 @@
 <?php
 
 /**
+ * EN: Getting the data about the city in region - House list
+ * CZ: Získání dat o městech v regionu - Seznam domů
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2018
+ *
+ * @param $limit
+ * @param $colname
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_region($limit, $colname = NULL, $table, $distinct = NULL)
+{
+
+  global $envodb;
+  $envodata = array ();
+  $colname = (empty($colname) ? '*' : $colname);
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
+  if ($distinct == '1') {
+    // if $distinct = 1 , then select values by group from DB
+    $result = $envodb -> query('SELECT DISTINCT ' . $colname . ' FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+    while ($row = $result -> fetch_assoc()) {
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = $row;
+    }
+  } else {
+    // select all values with duplicated values
+    $result = $envodb -> query('SELECT ' . $colname . ' FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+    while ($row = $result -> fetch_assoc()) {
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = $row;
+    }
+  }
+
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
  * EN: Getting all the data about the TV Tower with limit
  * CZ: Získání všech dat o televizním vysílači s limitem
  *
@@ -17,12 +62,12 @@ function envo_get_tvtower($limit, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -48,12 +93,12 @@ function envo_get_tvchannel($limit, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -77,15 +122,15 @@ function envo_get_tvchannel($limit, $table)
 function envo_get_house_info($table, $filter1 = NULL)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   $sql = '';
   if ($filter1) $sql = ' WHERE ' . $filter1;
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -111,12 +156,12 @@ function envo_get_house_contact($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -142,13 +187,13 @@ function envo_get_house_task($id, $table, $dateformat)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
     // EN: Change number to string
     // CZ: Změna čísla na text
     switch ($row['priority']) {
@@ -174,7 +219,7 @@ function envo_get_house_task($id, $table, $dateformat)
         $status = 'Žádný status';
         break;
       case '1':
-         $status = 'Zápis';
+        $status = 'Zápis';
         break;
       case '2':
         $status = 'V řešení';
@@ -189,15 +234,15 @@ function envo_get_house_task($id, $table, $dateformat)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array(
-      'id'            => $row['id'],
-      'houseid'       => $row['houseid'],
-      'priority'      => $priority,
-      'status'        => $status,
-      'title'         => $row['title'],
-      'description'   => $row['description'],
-      'reminder'      => date($dateformat, strtotime($row['reminder'])),
-      'time'          => date($dateformat, strtotime($row['time'])),
+    $envodata[] = array (
+      'id'          => $row['id'],
+      'houseid'     => $row['houseid'],
+      'priority'    => $priority,
+      'status'      => $status,
+      'title'       => $row['title'],
+      'description' => $row['description'],
+      'reminder'    => date($dateformat, strtotime($row['reminder'])),
+      'time'        => date($dateformat, strtotime($row['time'])),
     );
   }
 
@@ -220,12 +265,12 @@ function envo_get_house_entrance($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -250,12 +295,12 @@ function envo_get_house_apartment($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -281,12 +326,12 @@ function envo_get_house_services($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -312,12 +357,12 @@ function envo_get_house_documents($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -343,12 +388,12 @@ function envo_get_house_image($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -374,12 +419,12 @@ function envo_get_house_video($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -407,8 +452,8 @@ function envo_house_exist($ic, $table)
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE housefic = "' . smartsql($ic) . '" LIMIT 1');
-  if ($result->affected_rows === 1) {
+  $result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE housefic = "' . smartsql($ic) . '" LIMIT 1');
+  if ($result -> affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -430,15 +475,15 @@ function envo_house_exist($ic, $table)
 function envo_get_notification_info($table)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'name' => $row['name'], 'type' => $row['type'], 'shortdescription' => $row['shortdescription'], 'content' => $row['content'], 'permission' => $row['permission'], 'created' => date("d.m.Y", strtotime($row["created"])));
+    $envodata[] = array ( 'id' => $row['id'], 'name' => $row['name'], 'type' => $row['type'], 'shortdescription' => $row['shortdescription'], 'content' => $row['content'], 'permission' => $row['permission'], 'created' => date("d.m.Y", strtotime($row["created"])) );
   }
 
   if (isset($envodata)) return $envodata;
@@ -454,28 +499,28 @@ function envo_get_notification_info($table)
  *
  * @param $table          string
  * @param $column1        string
- * @param null $column2   string
+ * @param null $column2 string
  * @return array
  *
  */
 function envo_plugin_usergroup_all($table, $column1, $column2 = NULL)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   if (!empty($column1)) $sqlwhere = ' WHERE ' . $column1 . ' = 1';
   if (!empty($column1) && !empty($column2)) $sqlwhere = ' WHERE ' . $column1 . ' = 1 AND ' . $column2 . ' = 1';
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('
+  $result = $envodb -> query('
             SELECT id, name, description 
             FROM ' . DB_PREFIX . $table . '
             ' . $sqlwhere . '
             ORDER BY id ASC
             ');
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -489,8 +534,8 @@ function envo_plugin_usergroup_all($table, $column1, $column2 = NULL)
  * CZ: Získání FontAwesome ikon podle typu souboru
  *
  * @author  BluesatKV
- * @version 1.0.1
- * @date    12/2017
+ * @version 1.0.2
+ * @date    09/2018
  *
  * @param $filename       string    | name of file
  * @return bool|string
@@ -501,34 +546,61 @@ function envo_extension_icon($filename)
 
   switch ($extension) {
     case ('doc'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      return '<i class="fa fa-file-word-o fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('docx'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      return '<i class="fa fa-file-word-o fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('docm'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      return '<i class="fa fa-file-word-o fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('xls'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      return '<i class="fa fa-file-excel-o fa-2x" style="color:#1E7145;"></i>';
       break;
     case ('xlsx'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      return '<i class="fa fa-file-excel-o fa-2x" style="color:#1E7145;"></i>';
       break;
     case ('xlsm'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      return '<i class="fa fa-file-excel-o fa-2x" style="color:#1E7145;"></i>';
       break;
     case 'pdf':
-      return '<i class="fa fa-file-pdf-o fa-2x m-l-30" style="color:#EE3226;"></i>';
+      return '<i class="fa fa-file-pdf-o fa-2x" style="color:#EE3226;"></i>';
       break;
     case ('jpg'):
-      return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;"></i>';
+      return '<i class="fa fa-file-image-o fa-2x" style="color:#000;"></i>';
       break;
     case ('ai'):
-      return '<i class="techicon-adobe-ai fa-2x m-l-30"></i>';
+      return '<i class="techicon-adobe-ai fa-2x"></i>';
       break;
     default:
       return FALSE;
+  }
+}
+
+/**
+ * EN: Delete function that deals with directories recursively
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    9/2018
+ *
+ * @param $target       string    | name of file
+ *
+ * @example delete_files('/path/for/the/directory/');
+ */
+function delete_files($target)
+{
+  if (is_dir($target)) {
+    $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+
+    foreach ($files as $file) {
+      delete_files($file);
+    }
+
+    rmdir($target);
+  } elseif (is_file($target)) {
+    unlink($target);
   }
 }
 

@@ -4,7 +4,7 @@
  * Override Pages default styles or create your own styles here
  * Copyright (c) 2016 - 2018 Bluesat.cz
  * -----------------------------------------------------------------------
- * Css Template: Pages v3.0.1
+ * Css Template: Pages v3.0.2
  * Theme : Default
  * Author: Revox and BluesatKV
  * Email: bluesatkv@gmail.com
@@ -449,6 +449,8 @@
   .row-form .row {
     display: flex;
     align-items: center;
+    flex-flow: row wrap;
+    justify-content: left;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -656,7 +658,7 @@
   line-height: 30px;
   height: 30px;
   display: block;
-  color: #697a7a;
+  color: #697A7A;
 }
 .stacked a:hover i {
   color: #FFF;
@@ -672,12 +674,12 @@
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   background-color: transparent;
-  color: #584b8d;
+  color: #584B8D;
 }
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
   background-color: transparent;
-  color: #584b8d;
+  color: #584B8D;
 }
 .pagination > li > a,
 .pagination > li > span {
@@ -917,6 +919,12 @@ select[disabled] {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
+}
+/* Disabled button */
+a.btn.disabled,
+fieldset:disabled a.btn {
+  cursor: not-allowed;
+  pointer-events: auto;
 }
 /* -----------------------------------------------------------------------
  *  # Checkbox  - modification
@@ -1179,6 +1187,8 @@ div.dataTables_wrapper div.dataTables_paginate {
 .bootbox.modal .modal-content {
   border: none;
   border-radius: 0;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
 }
 .bootbox.modal .modal-content .modal-header {
   text-align: left;
@@ -1186,6 +1196,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 }
 .bootbox.modal .modal-content .modal-body .bootbox-body {
   font-size: 14px;
+  text-align: center;
 }
 /* Bootbox Buttons - Delete */
 .bootbox-confirm-del .modal-header {
@@ -1273,7 +1284,7 @@ div.dataTables_wrapper div.dataTables_paginate {
  * -----------------------------------------------------------------------*/
 .select2-container .select2-selection {
   border-radius: 0 !important;
-  border: 1px solid #ccc !important;
+  border: 1px solid #CCC !important;
 }
 .select2-results .select2-results__option--highlighted {
   background-color: #CFF5F2 !important;
@@ -4398,14 +4409,14 @@ div.mce-edit-area {
   position: fixed;
   top: 0;
   left: 0;
-  background: #f4f4f4;
+  background: #F4F4F4;
   z-index: 1050;
   width: 100%;
   height: 100%;
   padding: 40px;
 }
 .cover-header {
-  background: #ddd;
+  background: #DDD;
   padding: 10px;
   margin-bottom: 10px;
 }

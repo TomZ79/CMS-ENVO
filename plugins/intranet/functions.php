@@ -16,16 +16,16 @@
 function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   $sql = '';
   if ($filter1) $sql = ' WHERE ' . $filter1;
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
+  $result = $envodb -> query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
 
     // Array of strings with permission of each house
     $usergrouparray = explode(',', $row['permission']);
@@ -35,12 +35,12 @@ function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 
       // There should be always a varname in categories and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['id'], $seo);
+      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['id'], $seo);
 
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $envodata[] = array(
+      $envodata[] = array (
         'id'       => $row['id'],
         'name'     => $row['name'],
         'street'   => $row['street'],
@@ -72,16 +72,16 @@ function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 function envo_get_houselist_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   $sql = '';
   if ($filter1) $sql = ' WHERE ' . $filter1;
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
+  $result = $envodb -> query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
 
     // Array of strings with permission of each house
     $usergrouparray = explode(',', $row['permission']);
@@ -91,12 +91,12 @@ function envo_get_houselist_info($table, $ext_seo, $usergroupid, $filter1 = NULL
 
       // There should be always a varname in categories and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/houselist', 'h', $row['id'], $seo);
+      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/houselist', 'h', $row['id'], $seo);
 
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $envodata[] = array(
+      $envodata[] = array (
         'id'       => $row['id'],
         'name'     => $row['name'],
         'street'   => $row['street'],
@@ -129,43 +129,43 @@ function envo_get_houselist_info($table, $ext_seo, $usergroupid, $filter1 = NULL
 function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL settings for all user groups without 'Administrator'
   // CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
   if ($usergroupid != 3) {
     $sql = 'WHERE 
-            FIND_IN_SET(0, ' . DB_PREFIX . 'intranethouse.permission) <> 0
+            FIND_IN_SET(0, ' . DB_PREFIX . 'int_house.permission) <> 0
             OR
-            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'intranethouse.permission) <> 0';
+            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int_house.permission) <> 0';
   }
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('
+  $result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'intranethousetasks.*, ' . DB_PREFIX . 'intranethouse.name, ' . DB_PREFIX . 'intranethouse.varname
+            ' . DB_PREFIX . 'int_housetasks.*, ' . DB_PREFIX . 'int_house.name, ' . DB_PREFIX . 'int_house.varname
             
             FROM 
-            ' . DB_PREFIX . 'intranethousetasks
+            ' . DB_PREFIX . 'int_housetasks
             
             INNER JOIN
-            ' . DB_PREFIX . 'intranethouse
+            ' . DB_PREFIX . 'int_house
             
             ON
-            ' . DB_PREFIX . 'intranethousetasks.houseid = ' . DB_PREFIX . 'intranethouse.id
+            ' . DB_PREFIX . 'int_housetasks.houseid = ' . DB_PREFIX . 'int_house.id
             
             ' . $sql . '
             
             AND 
-            ' . DB_PREFIX . 'intranethousetasks.reminder < NOW()
+            ' . DB_PREFIX . 'int_housetasks.reminder < NOW()
             
             AND 
-            ' . DB_PREFIX . 'intranethousetasks.time > NOW()
+            ' . DB_PREFIX . 'int_housetasks.time > NOW()
             
             AND
-            ' . DB_PREFIX . 'intranethousetasks.status < 3
+            ' . DB_PREFIX . 'int_housetasks.status < 3
             
             ORDER BY priority DESC, id DESC 
             
@@ -173,16 +173,16 @@ function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
 
   // EN: Determine the number of rows in the result from DB
   // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt                   = $result->num_rows;
+  $row_cnt = $result -> num_rows;
   $envodata['count_of_task'] = $row_cnt;
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
 
     // EN: URL parsing
     // CZ: Parsování URL adresy
     $seo = '';
-    if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
-    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
+    if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+    $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
 
     // EN: Change number to string
     // CZ: Změna čísla na text
@@ -224,7 +224,7 @@ function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array(
+    $envodata[] = array (
       'id'            => $row['id'],
       'houseid'       => $row['houseid'],
       'housename'     => $row['name'],
@@ -263,40 +263,40 @@ function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
 function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL settings for all user groups without 'Administrator'
   // CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
   if ($usergroupid != 3) {
     $sql = 'WHERE 
-            FIND_IN_SET(0, ' . DB_PREFIX . 'intranethouse.permission) <> 0
+            FIND_IN_SET(0, ' . DB_PREFIX . 'int_house.permission) <> 0
             OR
-            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'intranethouse.permission) <> 0';
+            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int_house.permission) <> 0';
   }
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('
+  $result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'intranethousetasks.*, ' . DB_PREFIX . 'intranethouse.name, ' . DB_PREFIX . 'intranethouse.varname
+            ' . DB_PREFIX . 'int_housetasks.*, ' . DB_PREFIX . 'int_house.name, ' . DB_PREFIX . 'int_house.varname
             
             FROM 
-            ' . DB_PREFIX . 'intranethousetasks
+            ' . DB_PREFIX . 'int_housetasks
             
             INNER JOIN
-            ' . DB_PREFIX . 'intranethouse
+            ' . DB_PREFIX . 'int_house
             
             ON
-            ' . DB_PREFIX . 'intranethousetasks.houseid = ' . DB_PREFIX . 'intranethouse.id
+            ' . DB_PREFIX . 'int_housetasks.houseid = ' . DB_PREFIX . 'int_house.id
             
             ' . $sql . '
             
             AND 
-            ' . DB_PREFIX . 'intranethousetasks.time < NOW()
+            ' . DB_PREFIX . 'int_housetasks.time < NOW()
             
             AND
-            ' . DB_PREFIX . 'intranethousetasks.status < 3
+            ' . DB_PREFIX . 'int_housetasks.status < 3
             
             ORDER BY priority DESC, id DESC 
             
@@ -304,16 +304,16 @@ function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
 
   // EN: Determine the number of rows in the result from DB
   // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt                   = $result->num_rows;
+  $row_cnt = $result -> num_rows;
   $envodata['count_of_task'] = $row_cnt;
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
 
     // EN: URL parsing
     // CZ: Parsování URL adresy
     $seo = '';
-    if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
-    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
+    if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+    $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
 
     // EN: Change number to string
     // CZ: Změna čísla na text
@@ -355,7 +355,7 @@ function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array(
+    $envodata[] = array (
       'id'            => $row['id'],
       'houseid'       => $row['houseid'],
       'housename'     => $row['name'],
@@ -415,29 +415,29 @@ function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
 function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('
+  $result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'intranethousenotifications.*
+            ' . DB_PREFIX . 'int_housenotifications.*
             
             FROM 
-            ' . DB_PREFIX . 'intranethousenotifications
+            ' . DB_PREFIX . 'int_housenotifications
             
             INNER JOIN
-            ' . DB_PREFIX . 'intranethousenotificationug
+            ' . DB_PREFIX . 'int_housenotificationug
             
             ON
-            ' . DB_PREFIX . 'intranethousenotificationug.notification_id = ' . DB_PREFIX . 'intranethousenotifications.id
+            ' . DB_PREFIX . 'int_housenotificationug.notification_id = ' . DB_PREFIX . 'int_housenotifications.id
             
             WHERE
-            ' . DB_PREFIX . 'intranethousenotificationug.usergroup_id = ' . $usergroupid . '
+            ' . DB_PREFIX . 'int_housenotificationug.usergroup_id = ' . $usergroupid . '
             
             AND
-            ' . DB_PREFIX . 'intranethousenotificationug.unread = 0
+            ' . DB_PREFIX . 'int_housenotificationug.unread = 0
             
             ORDER BY id DESC
             
@@ -445,24 +445,24 @@ function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $time
 
   // EN: Determine the number of rows in the result from DB
   // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result->num_rows;
+  $row_cnt = $result -> num_rows;
 
   // Add count to array
-  $envodata[] = array(
+  $envodata[] = array (
     'count'     => $row_cnt,
     'count_msg' => ''
   );
 
   if ($row_cnt > 0) {
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result -> fetch_assoc()) {
       // There should be always a varname in notification and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
+      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
 
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $envodata[] = array(
+      $envodata[] = array (
         'id'               => $row['id'],
         'name'             => $row['name'],
         'varname'          => $row['varname'],
@@ -499,26 +499,26 @@ function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $time
 function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
   global $envodb;
-  $envodata = array();
+  $envodata = array ();
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb->query('
+  $result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'intranethousenotifications.*
+            ' . DB_PREFIX . 'int_housenotifications.*
             
             FROM 
-            ' . DB_PREFIX . 'intranethousenotifications
+            ' . DB_PREFIX . 'int_housenotifications
             
             INNER JOIN
-            ' . DB_PREFIX . 'intranethousenotificationug
+            ' . DB_PREFIX . 'int_housenotificationug
             
             ON
-            ' . DB_PREFIX . 'intranethousenotificationug.notification_id = ' . DB_PREFIX . 'intranethousenotifications.id
+            ' . DB_PREFIX . 'int_housenotificationug.notification_id = ' . DB_PREFIX . 'int_housenotifications.id
             
             WHERE
-            ' . DB_PREFIX . 'intranethousenotificationug.usergroup_id = ' . $usergroupid . '
+            ' . DB_PREFIX . 'int_housenotificationug.usergroup_id = ' . $usergroupid . '
             
             ORDER BY id DESC
             
@@ -526,18 +526,18 @@ function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timefor
 
   // EN: Determine the number of rows in the result from DB
   // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result->num_rows;
+  $row_cnt = $result -> num_rows;
 
   if ($row_cnt > 0) {
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result -> fetch_assoc()) {
       // There should be always a varname in notification and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
+      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
 
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $envodata[] = array(
+      $envodata[] = array (
         'name'     => $row['name'],
         'type'     => $row['type'],
         'content'  => $row['content'],
@@ -571,28 +571,28 @@ function envo_extension_icon($filename)
 
   switch ($extension) {
     case ('doc'):
-      return '<i class="far fa-file-word fa-2x" style="color:#2B5796;"></i>';
+      return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('docx'):
-      return '<i class="far fa-file-word fa-2x" style="color:#2B5796;"></i>';
+      return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('docm'):
-      return '<i class="far fa-file-word fa-2x" style="color:#2B5796;"></i>';
+      return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
       break;
     case ('xls'):
-      return '<i class="far fa-file-excel fa-2x" style="color:#1E7145;"></i>';
+      return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
       break;
     case ('xlsx'):
-      return '<i class="far fa-file-excel fa-2x" style="color:#1E7145;"></i>';
+      return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
       break;
     case ('xlsm'):
-      return '<i class="far fa-file-excel fa-2x" style="color:#1E7145;"></i>';
+      return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
       break;
     case 'pdf':
-      return '<i class="far fa-file-pdf fa-2x" style="color:#EE3226;"></i>';
+      return '<i class="fa fa-file-pdf fa-2x" style="color:#EE3226;"></i>';
       break;
     case ('jpg'):
-      return '<i class="far fa-file-image fa-2x" style="color:#000;"></i>';
+      return '<i class="fa fa-file-image fa-2x" style="color:#000;"></i>';
       break;
     case ('ai'):
       return '<i class="techicon-adobe-ai fa-2x"></i>';

@@ -33,32 +33,36 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <div class="col-sm-12 m-b-20">
-    <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <div class="row">
+    <div class="col-sm-12 m-b-20">
+      <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
 
 
-      <div class="form-group">
-        <label for="groupbase"><?=$tl["userg_box_content"]["usergbc"]?></label>
-        <div class="input-group">
-          <select name="envo_groupbase" id="groupbase" class="form-control selectpicker">
+        <div class="form-group">
+          <label for="groupbase" class="m-b-10"><?=$tl["userg_box_content"]["usergbc"]?></label>
+          <div class="input-group">
+            <div class="w-50">
+              <select name="envo_groupbase" id="groupbase" class="form-control selectpicker">
 
-            <?php
-            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-            if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
-              if ($z["id"] != "1") {
-                echo $Html->addOption($z["id"], $z["name"], ($z["id"] == $_REQUEST["envo_groupbase"]) ? TRUE : FALSE);
-              }
-            }
-            ?>
+                <?php
+                // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
+                  if ($z["id"] != "1") {
+                    echo $Html->addOption($z["id"], $z["name"], ($z["id"] == $_REQUEST["envo_groupbase"]) ? TRUE : FALSE);
+                  }
+                }
+                ?>
 
-          </select>
-          <div class="input-group-append">
-            <button class="btn btn-info" name="create" type="submit"><?=$tl["button"]["btn1"]?></button>
+              </select>
+            </div>
+            <div class="input-group-append">
+              <button class="btn btn-info" name="create" type="submit"><?=$tl["button"]["btn1"]?></button>
+            </div>
           </div>
-        </div>
 
-      </div>
-    </form>
+        </div>
+      </form>
+    </div>
   </div>
 
   <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
@@ -88,7 +92,7 @@ if ($errors) { ?>
           </a>
         </li>
       <?php } ?>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>

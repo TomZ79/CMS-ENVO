@@ -21,7 +21,7 @@ header('Content-Type: application/json;charset=utf-8');
 //-------------------------
 
 // Define basic variable
-$data_array = array();
+$data_array = array ();
 
 // Set basic value
 
@@ -36,7 +36,7 @@ $maxDimens = 1200;
 $compress = 80;
 
 // Valid the valid file extensions
-$valid_extensions = array('jpg', 'jpeg', 'png', 'gif');
+$valid_extensions = array ( 'jpg', 'jpeg', 'png', 'gif' );
 
 // Upload image, creating thumbnails and insert data to DB
 if (isset($_FILES['file'])) {
@@ -48,20 +48,20 @@ if (isset($_FILES['file'])) {
   $size = $_FILES['file']['size'];
 
   // Get uploaded file's extension and name
-  $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+  $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
   $filename = pathinfo($name, PATHINFO_FILENAME);
   // Can upload same image using rand function for original image and thumbs
-  $rand          = rand(1000, 1000000);
+  $rand = rand(1000, 1000000);
   $name_original = strtolower($rand . '_' . $filename . '_original.' . $ext);
-  $name_thumbs   = strtolower($rand . '_' . $filename . '_thumbs.' . $ext);
+  $name_thumbs = strtolower($rand . '_' . $filename . '_thumbs.' . $ext);
   // Setting main image folder
   $mainfolder = $_REQUEST['folderpath'] . '/images/';
   // Setting image path - original and thumbs
   $pathimg_original = $mainfolder . $name_original;
-  $pathimg_thumbs   = $mainfolder . $name_thumbs;
+  $pathimg_thumbs = $mainfolder . $name_thumbs;
   // Set Upload directory - original and thumbs
   $pathimgfull_original = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_original;
-  $pathimgfull_thumbs   = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_thumbs;
+  $pathimgfull_thumbs = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_thumbs;
   //  The dimensions with the file type and a height/width - thumbs
   list($width_o, $height_o, $type, $attr) = getimagesize($tmp_name);
 
@@ -76,7 +76,7 @@ if (isset($_FILES['file'])) {
 
         // Set variable, get images size
         // The getimagesize() function is used to find the size of any given image file and return the dimensions along with the file type
-        $thumbs_file   = $pathimgfull_thumbs;
+        $thumbs_file = $pathimgfull_thumbs;
         $original_file = $pathimgfull_original;
         list($width_o, $height_o) = getimagesize($original_file);
         $ratio = $width_o / $height_o;
@@ -84,13 +84,13 @@ if (isset($_FILES['file'])) {
         // If image have EXIF data
         $exifData = @exif_read_data($original_file);
         // Exif data for DB
-        $exifmake        = $exifData['Make'];
-        $exifmodel       = $exifData['Model'];
-        $exifsoftware    = $exifData['Software'];
-        $exifimagewidth  = $exifData['ExifImageWidth'];
+        $exifmake = $exifData['Make'];
+        $exifmodel = $exifData['Model'];
+        $exifsoftware = $exifData['Software'];
+        $exifimagewidth = $exifData['ExifImageWidth'];
         $exifimageheight = $exifData['ExifImageLength'];
         $exiforientation = $exifData['Orientation'];
-        $exifcreatedate  = $exifData['DateTimeOriginal'];
+        $exifcreatedate = $exifData['DateTimeOriginal'];
         // Fix Orientation Function
         function rotateExif($imagesource, $orientation)
         {
@@ -143,19 +143,19 @@ if (isset($_FILES['file'])) {
             // widht > height
             if ($width_o > $height_o) {
               // Landscape (Na šířku)
-              $width_n  = $maxDimens;
+              $width_n = $maxDimens;
               $height_n = $maxDimens / $ratio;
             }
           } else if ($ratio < 1) {
             // width < height
             if ($width_o < $height_o) {
               // Portrait (Na výšku)
-              $width_n  = $maxDimens * $ratio;
+              $width_n = $maxDimens * $ratio;
               $height_n = $maxDimens;
             }
           } else {
             // width == height
-            $width_n  = $maxDimens;
+            $width_n = $maxDimens;
             $height_n = $maxDimens;
           }
 
@@ -164,19 +164,19 @@ if (isset($_FILES['file'])) {
             // widht > height
             if ($width_o > $height_o) {
               // Landscape (Na šířku)
-              $width_n  = $maxDimens;
+              $width_n = $maxDimens;
               $height_n = $maxDimens / $ratio;
             }
           } else if ($ratio < 1) {
             // width < height
             if ($width_o < $height_o) {
               // Portrait (Na výšku)
-              $width_n  = $maxDimens * $ratio;
+              $width_n = $maxDimens * $ratio;
               $height_n = $maxDimens;
             }
           } else {
             // width == height
-            $width_n  = $width_o;
+            $width_n = $width_o;
             $height_n = $height_o;
           }
 
@@ -189,7 +189,7 @@ if (isset($_FILES['file'])) {
 
             // Fix for JPEG warnings for PHP smaller than 7.1.0 - Invalid SOS parameters for sequential JPEG
             // For PHP 7.1.0 - The default of gd.jpeg_ignore_warning has been changed from 0 to 1.
-            ini_set ('gd.jpeg_ignore_warning', 1);
+            ini_set('gd.jpeg_ignore_warning', 1);
 
             // Get image from file
             $src = imagecreatefromjpeg($original_file);
@@ -256,35 +256,35 @@ if (isset($_FILES['file'])) {
         imagedestroy($dst);
 
         // Insert info about image into DB
-        $result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethouseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
+        $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int_houseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
 
         // Get last row ID from DB
-        $rowid = $envodb->envo_last_id();
+        $rowid = $envodb -> envo_last_id();
 
         // Getting info uploaded image from DB
-        $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $rowid . '"');
-        $row1    = $result1->fetch_assoc();
+        $result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houseimg WHERE id = "' . $rowid . '"');
+        $row1 = $result1 -> fetch_assoc();
 
-        $data_array[] = array(
-          'id'              => $row1["id"],
-          'shortdescription'     => $row1["shortdescription"],
-          'description'     => $row1["description"],
-          'filenamethumb'   => $row1["filenamethumb"],
-          'filethumbpath'   => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
-          'category'        => $row1["category"],
-          'exifmake'        => $row1["exifmake"],
-          'exifmodel'       => $row1["exifmodel"],
-          'exifsoftware'    => $row1["exifsoftware"],
-          'exifimagewidth'  => $row1["exifimagewidth"],
-          'exifimageheight' => $row1["exifimageheight"],
-          'exiforientation' => $row1["exiforientation"],
-          'exifcreatedate'  => $row1["exifcreatedate"],
-          'timedefault'     => $row1["timedefault"],
-          'timeedit'        => $row1["timeedit"],
+        $data_array[] = array (
+          'id'               => $row1["id"],
+          'shortdescription' => $row1["shortdescription"],
+          'description'      => $row1["description"],
+          'filenamethumb'    => $row1["filenamethumb"],
+          'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+          'category'         => $row1["category"],
+          'exifmake'         => $row1["exifmake"],
+          'exifmodel'        => $row1["exifmodel"],
+          'exifsoftware'     => $row1["exifsoftware"],
+          'exifimagewidth'   => $row1["exifimagewidth"],
+          'exifimageheight'  => $row1["exifimageheight"],
+          'exiforientation'  => $row1["exiforientation"],
+          'exifcreatedate'   => $row1["exifcreatedate"],
+          'timedefault'      => $row1["timedefault"],
+          'timeedit'         => $row1["timeedit"],
         );
 
         // Data for JSON
-        $envodata = array(
+        $envodata = array (
           'status'     => 'upload_success',
           'status_msg' => 'Image upload was successful.',
           'data'       => $data_array
@@ -292,7 +292,7 @@ if (isset($_FILES['file'])) {
 
       } else {
         // Data for JSON
-        $envodata = array(
+        $envodata = array (
           'status'     => 'upload_error_E04',
           'status_msg' => 'Unable to move image.'
         );
@@ -300,7 +300,7 @@ if (isset($_FILES['file'])) {
 
     } else {
       // Data for JSON
-      $envodata = array(
+      $envodata = array (
         'status'     => 'upload_error_E03',
         'status_msg' => 'Please upload only valid images ' . implode(", ", $valid_extensions) . '.'
       );
@@ -308,14 +308,14 @@ if (isset($_FILES['file'])) {
 
   } else {
     // Data for JSON
-    $envodata = array(
+    $envodata = array (
       'status'     => 'upload_error_E02',
       'status_msg' => 'Minimum image dimensions is ' . $minDimens . ' px'
     );
   }
 } else {
   // Data for JSON
-  $envodata = array(
+  $envodata = array (
     'status'     => 'upload_error_E01',
     'status_msg' => 'The uploaded image does not exist.'
   );

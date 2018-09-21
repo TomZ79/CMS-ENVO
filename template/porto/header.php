@@ -2,7 +2,7 @@
 
 // EN: Include the config file of template ...
 // CZ: Vložení konfiguračního souboru šablony ...
-if (!file_exists(APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php')) die('[index.php] config.php not found');
+if (!file_exists(APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php')) die('[' . __DIR__ . '/index.php] config.php not found');
 require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
 ?>
@@ -185,7 +185,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                 <?php
                 // Show links for Register Form Plugin
                 // Check if plugin exist throught PluginID
-                if (is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
+                if (defined(ENVO_TEMPLATE) && is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
                   echo '<li><a href="/' . $PLUGIN_RF_CAT["varname"] . '">' . $PLUGIN_RF_CAT["name"] . '</a></li>';
                 }
                 ?>

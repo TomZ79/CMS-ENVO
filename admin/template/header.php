@@ -59,7 +59,7 @@ echo $Html->addDoctype('html5');
     <?php
     // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
     echo $Html->addStylesheet('pages/css/pages-icons.css');
-    echo $Html->addStylesheet('pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+    echo $Html->addStylesheet('pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
     ?>
 
     <!-- BEGIN General Stylesheet with custom modifications -->

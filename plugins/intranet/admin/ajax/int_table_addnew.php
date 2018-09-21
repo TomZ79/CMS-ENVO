@@ -17,41 +17,41 @@ header('Content-Type: application/json;charset=utf-8');
 
 // EN: Get value from ajax
 // CZ: Získání dat z ajax
-$houseID  = $_POST['houseID'];
+$houseID = $_POST['houseID'];
 $entrance = $_POST['entrance'];
 
 // Check if Entrance not exist
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
-$row = $result->fetch_assoc();
+$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houseent WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
+$row = $result -> fetch_assoc();
 
 // EN: Determine the number of rows in the result from DB
 // CZ: Určení počtu řádků ve výsledku z DB
-$row_cnt = $result->num_rows;
+$row_cnt = $result -> num_rows;
 
 if ($row_cnt > 0) {
   // Number of Entrance exists
 
   // Data for JSON
-  $envodata = array(
+  $envodata = array (
     'status'     => 'error',
     'status_msg' => 'Entrance Exist. Count of rows in DB: ' . $row_cnt,
-    'data'       => array(
-                      'id' => $row["id"]
-                    )
+    'data'       => array (
+      'id' => $row["id"]
+    )
   );
 
 } else {
   // Number of Entrance NOT exists
 
   // Insert new Entrance
-  $envodb->query('INSERT ' . DB_PREFIX . 'intranethouseent SET id = NULL, houseid = "' . $houseID . '", entrance = "' . $entrance . '", countapartment = "", countetage = "", elevator = "0"');
+  $envodb -> query('INSERT ' . DB_PREFIX . 'int_houseent SET id = NULL, houseid = "' . $houseID . '", entrance = "' . $entrance . '", countapartment = "", countetage = "", elevator = "0"');
 
   // Get all Entrance for House
-  $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
+  $result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houseent WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
 
-  $data_array = array();
+  $data_array = array ();
 
-  while ($row1 = $result1->fetch_assoc()) {
+  while ($row1 = $result1 -> fetch_assoc()) {
     switch ($row1["elevator"]) {
       case '0':
         $elevator = 'Není známo';
@@ -64,7 +64,7 @@ if ($row_cnt > 0) {
         break;
     }
 
-    $data_array[] = array(
+    $data_array[] = array (
       'id'             => $row1["id"],
       'entrance'       => $row1["entrance"],
       'countapartment' => $row1["countapartment"],
@@ -75,7 +75,7 @@ if ($row_cnt > 0) {
   }
 
   // Data for JSON
-  $envodata = array(
+  $envodata = array (
     'status'     => 'success',
     'status_msg' => 'New row insert do DB',
     'data'       => $data_array
@@ -84,7 +84,7 @@ if ($row_cnt > 0) {
 }
 
 
-// $envodb->query('INSERT ' . DB_PREFIX . 'intranethouseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
+// $envodb->query('INSERT ' . DB_PREFIX . 'int_houseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
 
 // RETURN JSON OUTPUT
 //-------------------------

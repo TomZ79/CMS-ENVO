@@ -189,7 +189,7 @@ if ($errors) { ?>
                   </div>
                   <div class="col-sm-7">
                     <div class="input-group">
-                      <span class="input-group-btn">
+                      <span class="input-group-prepend">
                         <button class="btn btn-default iconpicker" data-placement="top"></button>
                       </span>
 
@@ -198,7 +198,7 @@ if ($errors) { ?>
                       echo $Html->addInput('text', 'envo_img', $ENVO_FORM_DATA["catimg"], 'envo_img', 'form-control text-center');
                       ?>
 
-                      <span class="input-group-btn">
+                      <span class="input-group-append">
                         <button class="btn btn-default iconpicker1" data-placement="top"></button>
                       </span>
                     </div>

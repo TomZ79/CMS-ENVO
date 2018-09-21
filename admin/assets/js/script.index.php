@@ -24,7 +24,7 @@ if ($page == '') {
   //
   echo $Html->addScript('assets/js/global_js/todo.min.js');
   //
-  echo $Html->addScript('assets/plugins/highcharts/v5.0.14/highcharts.js');
+  echo $Html->addScript('assets/plugins/highcharts/v6.1.1/highcharts.js');
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.index.min.js');
 

@@ -1,55 +1,55 @@
 /* 03. Sidebar modification
  ========================================================================*/
 .page-sidebar {
-	.sidebar-overlay-slide {
-		.sidebar-footer {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			height: 35px;
-			line-height: 35px;
-			width: 100%;
-			background-color: #272B35;
-			border-top: 1px solid #232730;
-			padding: 0 20px;
-			clear: both;
-			a:hover,
-			a:focus {
-				color: #FFF !important;
-			}
-		}
-	}
-	.sidebar-menu {
-		/* Correction for basic setting in pages.js */
-		height: ~"calc(100% - 85px)";
-		.menu-items {
-			height: ~"calc(100% - 0px)";
-			& > li ul.sub-menu > li.list-divider {
-				margin: 1px 20px 6px 40px;
-				height: 1px;
-				background-image: -o-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
-				background-image: -webkit-gradient(linear, left center, transparent, rgba(0, 0, 0, 0.2), transparent);
-				background-image: -ms-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
-				background-image: -moz-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
-				background-image: -webkit-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
-				background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-			}
-			& li > a {
-				width: 75% !important;
-				& > .arrow {
-					float: right;
-					right: 10px;
-					position: relative;
-				}
-			}
-		}
-		li.submenu-active {
-			& > a,
-			li.submenu-active > .icon-thumbnail {
-				color: #FFF !important;
-			}
-		}
-	}
+  .sidebar-overlay-slide {
+    .sidebar-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 35px;
+      line-height: 35px;
+      width: 100%;
+      background-color: #272B35;
+      border-top: 1px solid #232730;
+      padding: 0 20px;
+      clear: both;
+      a:hover,
+      a:focus {
+        color: #FFF !important;
+      }
+    }
+  }
+  .sidebar-menu {
+    /* Correction for basic setting in pages.js */
+    height: ~"calc(100% - 85px)";
+    .menu-items {
+      height: ~"calc(100% - 0px)";
+      & > li ul.sub-menu > li.list-divider {
+        margin: 1px 20px 6px 40px;
+        height: 1px;
+        background-image: -o-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
+        background-image: -webkit-gradient(linear, left center, transparent, rgba(0, 0, 0, 0.2), transparent);
+        background-image: -ms-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
+        background-image: -moz-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
+        background-image: -webkit-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.2), transparent);
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+      }
+      & li > a {
+        width: 75% !important;
+        & > .arrow {
+          float: right;
+          right: 10px;
+          position: relative;
+        }
+      }
+    }
+    li.submenu-active {
+      & > a,
+      li.submenu-active > .icon-thumbnail {
+        color: #FFF !important;
+      }
+    }
+  }
 }
 
 

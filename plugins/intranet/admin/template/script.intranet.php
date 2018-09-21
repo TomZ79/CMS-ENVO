@@ -24,27 +24,27 @@ if ($page == 'intranet') {
   // Load 'ace.js'  - only for selected pages
   if ($setting["adv_editor"] && !empty($page2)) {
     // Plugin ACE Editor
-    echo $Html->addScript('assets/plugins/ace/ace.js');
+    echo $Html -> addScript('assets/plugins/ace/ace.js');
   }
   // TinyMCE Plugin
   if (!empty($page2)) {
-    echo $Html->addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
+    echo $Html -> addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
   }
   // Plugin DataTable
-  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+  echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Tabledit
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.min.js');
+  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.min.js');
   // Plugin Fancybox
-  echo $Html->addScript('/assets/plugins/fancybox/3.2.5/js/jquery.fancybox.min.js');
+  echo $Html -> addScript('/assets/plugins/fancybox/3.2.5/js/jquery.fancybox.min.js');
   // Plugin DialogFX
-  echo $Html->addScript('assets/plugins/classie/classie.js');
-  echo $Html->addScript('assets/plugins/codrops-dialogFx/dialogFx.min.js');
+  echo $Html -> addScript('assets/plugins/classie/classie.js');
+  echo $Html -> addScript('assets/plugins/codrops-dialogFx/dialogFx.min.js');
   // Plugin Isotope
-  echo $Html->addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
+  echo $Html -> addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
   //
-  echo $Html->addScript('assets/js/global_js/gallery.min.js');
+  echo $Html -> addScript('assets/js/global_js/gallery.min.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.js');
+  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.min.js');
 
   echo PHP_EOL . '<!-- End JS Intranet -->' . PHP_EOL;
 
@@ -53,3 +53,50 @@ if ($page == 'intranet') {
 // New line in source code
 echo PHP_EOL;
 ?>
+
+<script>
+  $(document).ready(function () {
+    $('#addRow1').click(function (e) {
+      e.preventDefault();
+
+      var tabledata = '';
+      var max = 0;
+      var nextmax = '';
+
+      $('.rowid').each(function () {
+        $this = parseInt($(this).val());
+        if ($this > max) max = $this;
+        nextmax = max + 1;
+      });
+
+      tabledata += '<tr>' +
+        '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_0[]" class="rowid" value="' + nextmax + '"/></td>' +
+        '<td><input type="text" name="envo_1[]" class="form-control"></td>' +
+        '<td><input type="text" name="envo_2[]" class="form-control"></td>' +
+        '<td><input type="text" name="envo_3[]" class="form-control"></td>' +
+        '<td><input type="text" name="envo_4[]" class="form-control"></td>' +
+        '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow"><i class="fa fa-trash-o"></i></button></td>' +
+        '</tr>';
+
+      //
+      if ($('#nodata').length) {
+        $('#nodata').remove();
+      }
+
+      // Put data to table
+      $('#setting_table_1 tbody').prepend(tabledata);
+
+      // Update Jquery Function
+      $('.deleteRow').bind("click", DeleteRow);
+
+    });
+
+    function DeleteRow() {
+      var par = $(this).closest('tr'); // TR
+      par.remove();
+    }
+
+    $('.deleteRow').bind("click", DeleteRow);
+
+  });
+</script>

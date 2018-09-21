@@ -71,7 +71,7 @@ if ($ENVO_FILE_ERROR) { ?>
 
                 <?php
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addLabel('envo_file_edit', $tl["tpl_box_content"]["tplbc4"]);
+                echo $Html->addLabel('envo_file_edit', '<strong>' . $tl["tpl_box_content"]["tplbc4"] . '</strong>', array('class' => 'm-b-10'));
                 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
                 echo $Html->startTag('select', array('id' => 'envo_file_edit', 'class' => 'form-control selectpicker', 'name' => 'envo_file_edit', 'data-search-select2' => 'true'));
 

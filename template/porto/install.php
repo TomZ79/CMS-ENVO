@@ -36,7 +36,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN Pages CSS-->
   <link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
-  <link class="main-stylesheet" href="/admin/pages/css/pages.min.css?=v3.0.1" rel="stylesheet" type="text/css"/>
+  <link class="main-stylesheet" href="/admin/pages/css/pages.min.css?=v3.0.2" rel="stylesheet" type="text/css"/>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
     /* Fix 'jumping scrollbar' issue */

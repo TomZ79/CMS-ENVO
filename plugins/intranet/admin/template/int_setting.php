@@ -80,20 +80,20 @@ if ($errors) { ?>
       </li>
       <li class="nav-item next">
         <a href="#cmsPage2" class="" data-toggle="tab">
-          <span class="text"><?= $tlint["int_section_tab"]["inttab1"] ?></span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#cmsPage3" class="" data-toggle="tab">
           <span class="text"><?= $tlint["int_section_tab"]["inttab2"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#cmsPage4" class="" data-toggle="tab">
+        <a href="#cmsPage3" class="" data-toggle="tab">
           <span class="text"><?= $tlint["int_section_tab"]["inttab3"] ?></span>
         </a>
       </li>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class="nav-item">
+        <a href="#cmsPage4" class="" data-toggle="tab">
+          <span class="text"><?= $tlint["int_section_tab"]["inttab1"] ?></span>
+        </a>
+      </li>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
@@ -274,6 +274,130 @@ if ($errors) { ?>
       </div>
       <div class="tab-pane fade" id="cmsPage2" role="tabpanel">
         <div class="row">
+
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlint["int_box_title"]["intbt4"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="float-right">
+
+                      <?php
+                      // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                      echo $Html->addButtonSubmit('addRowTower', 'Přidat město', 'addRow1', 'btn btn-info btn-sm');
+                      ?>
+
+                    </div>
+                    <div class="clearfix m-b-20"></div>
+
+                    <table id="setting_table_1" class="table">
+                      <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Kraj</th>
+                        <th>Okres</th>
+                        <th>Město</th>
+                        <th>Oblast/Čtvrť</th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      <?php if (!empty($ENVO_REGION) && is_array($ENVO_REGION)) {
+                        foreach ($ENVO_REGION as $r) { ?>
+
+                          <tr>
+                            <td class="text-center">
+                              <?= $r["id"] ?>
+                              <input type="hidden" name="envo_0[]" class="rowid" value="<?= $r["id"] ?>"/>
+                            </td>
+                            <td>
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html->addInput('text', 'envo_1[]', $r["region"], '', 'form-control');
+                              ?>
+
+                            </td>
+                            <td>
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html->addInput('text', 'envo_2[]', $r["district"], '', 'form-control');
+                              ?>
+
+                            </td>
+                            <td>
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html->addInput('text', 'envo_3[]', $r["city"], '', 'form-control');
+                              ?>
+
+                            </td>
+                            <td>
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html->addInput('text', 'envo_4[]', $r["city_area"], '', 'form-control');
+                              ?>
+
+                            </td>
+                            <td class="text-center">
+
+                              <?php
+                              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                              echo $Html->addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteRow');
+
+                              ?>
+
+                            </td>
+                          </tr>
+
+                        <?php }
+                      } else {
+
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo '<tr id="nodata">';
+                        echo '<td colspan="5">';
+                        echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+                        echo '</td>';
+                        echo '</tr>';
+
+                      } ?>
+
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
+        <div class="row">
           <div class="col-sm-6">
             <div class="box box-success">
               <div class="box-header with-border">
@@ -429,16 +553,6 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
-        <div class="row">
-
-        </div>
-      </div>
-      <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
-        <div class="row">
-
         </div>
       </div>
     </div>

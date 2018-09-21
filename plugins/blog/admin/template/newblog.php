@@ -81,7 +81,7 @@ if ($errors) { ?>
           <span class="text"><?=$tlblog["blog_section_tab"]["blogtab3"]?></span>
         </a>
       </li>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
@@ -254,7 +254,7 @@ if ($errors) { ?>
                           echo $Html->addInput('text', 'envo_img', (isset($_REQUEST["envo_img"])) ? $_REQUEST["envo_img"] : '', 'envo_img', 'form-control');
                           ?>
 
-                          <span class="input-group-btn">
+                          <span class="input-group-append">
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

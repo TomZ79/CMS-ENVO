@@ -21,7 +21,7 @@ $taskID = $_POST['taskID'];
 $envo_setting_val = envo_get_setting_val('intranet');
 $dateformat = $envo_setting_val['intranetdateformat'];
 
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousetasks WHERE id = "' . $taskID . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_housetasks WHERE id = "' . $taskID . '"');
 $row    = $result->fetch_assoc();
 
 $envodata .= '

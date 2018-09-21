@@ -10,7 +10,7 @@ $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!!
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -27,19 +27,19 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tlint["int_uninstall"]["intuninst"]?></title>
+  <title><?= $tlint["int_uninstall"]["intuninst"] ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.1', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -89,15 +89,15 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   <!-- BEGIN VENDOR JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  echo $Html -> addScript('/admin/pages/js/pages.min.js');
   ?>
 </head>
 <body>
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?=$tlint["int_uninstall"]["intuninst"]?></h3>
+        <h3 class="semi-bold text-white"><?= $tlint["int_uninstall"]["intuninst"] ?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?=$tlint["int_uninstall"]["intuninst1"]?></h4>
+        <h4 class="semi-bold"><?= $tlint["int_uninstall"]["intuninst1"] ?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?=$tlint["int_uninstall"]["intuninst2"]?></div>
+            <div class="card-title"><?= $tlint["int_uninstall"]["intuninst2"] ?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -149,31 +149,31 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
-          $rows    = $results->fetch_assoc();
+          $results = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+          $rows = $results -> fetch_assoc();
 
           if ($rows) {
 
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "intranet"');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "intranet"');
-            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "intranet"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "intranet"');
+            $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
             /* Remove tables with data */
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousetasks');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseent');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseapt');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousecontact');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedocu');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseimg');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotifications');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotificationug');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousetower');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechannel');
-            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousechanneltower');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_house');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housetasks');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_houseent');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_houseapt');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housecontact');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housedocu');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_houseimg');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_houseserv');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housenotifications');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housenotificationug');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housetower');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housechannel');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'int_housechanneltower');
           }
 
           $succesfully = 1;
@@ -197,7 +197,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
           </script>
         <?php } else { ?>
           <div>
-            <h5 class="text-danger bold"><?=$tlint["int_uninstall"]["intuninst4"]?></h5>
+            <h5 class="text-danger bold"><?= $tlint["int_uninstall"]["intuninst4"] ?></h5>
           </div>
           <script>
             $(document).ready(function () {
@@ -219,12 +219,12 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
       if (!$succesfully) { ?>
         <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
           <div class="form-group form-inline">
-            <label for="text"><?=$tlint["int_uninstall"]["intuninst5"]?></label>
+            <label for="text"><?= $tlint["int_uninstall"]["intuninst5"] ?></label>
             <input type="text" name="captcha" class="form-control m-l-10" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
           <button type="submit" name="uninstall" class="btn btn-complete btn-block">
-            <?=$tlint["int_uninstall"]["intuninst6"]?>
+            <?= $tlint["int_uninstall"]["intuninst6"] ?>
           </button>
         </form>
       <?php } ?>

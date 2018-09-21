@@ -98,6 +98,7 @@ if (isset($ENVO_SEARCH_USED)) { ?>
       eval($hs["phpcode"]);
     } ?>
   </div>
+
 <?php } ?>
 
   <script>

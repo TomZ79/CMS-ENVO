@@ -72,7 +72,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
         <span class="text">Original Network ID / Network ID</span>
       </a>
     </li>
-    <li class='nav-item dropdown collapsed-menu'>
+    <li class='nav-item dropdown collapsed-menu hidden'>
       <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
         ... <span class="glyphicon glyphicon-chevron-right"></span>
       </a>

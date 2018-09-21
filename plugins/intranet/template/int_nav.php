@@ -1,7 +1,7 @@
 <ul>
   <!-- Dashboard -->
   <li>
-    <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
+    <a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '') ?>">
       <i class="material-icons">dashboard</i>
       <span class="title">Dashboard</span>
     </a>
@@ -15,12 +15,12 @@
     </a>
     <ul class="sub-menu">
       <li>
-        <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'house', '', '', '')?>">
+        <a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'house', '', '', '') ?>">
           <span>Domy ve správě</span>
         </a>
       </li>
       <li>
-        <a href="<?=ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'houselist', '', '', '')?>">
+        <a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, 'houselist', '', '', '') ?>">
           <span>Seznam domů</span>
         </a>
       </li>

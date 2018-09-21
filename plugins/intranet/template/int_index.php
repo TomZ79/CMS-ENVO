@@ -143,7 +143,7 @@
 
                   <?php
                   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                  echo $Html->addDiv('Nejsou dostupné žádné opožděné úkoly.', '', array('class' => 'alert'));
+                  echo $Html -> addDiv('Nejsou dostupné žádné opožděné úkoly.', '', array ( 'class' => 'alert' ));
                   ?>
 
                 </div>
@@ -230,7 +230,7 @@
 
                   <?php
                   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                  echo $Html->addDiv('Nejsou dostupné žádné aktivní úkoly.', '', array('class' => 'alert'));
+                  echo $Html -> addDiv('Nejsou dostupné žádné aktivní úkoly.', '', array ( 'class' => 'alert' ));
                   ?>
 
                 </div>

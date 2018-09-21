@@ -7,6 +7,7 @@ var TabManager = {
     var tabs = parent;
     var tabsHeight = tabs.innerHeight();
 
+    //
     if (tabsHeight >= 50) {
       while(tabsHeight > 50) {
         var children = tabs.children('li:not(:last-child)');
@@ -55,9 +56,11 @@ var TabManager = {
 
     // Hide the collapsed menu list if no items are present.
     if (!tabs.find('.collapsed-tabs').children('a').length) {
+      tabs.find('.collapsed-menu').addClass('hidden');
       tabs.find('.collapsed-menu').hide();
     }
     else {
+      tabs.find('.collapsed-menu').removeClass('hidden');
       tabs.find('.collapsed-menu').show();
     }
   }

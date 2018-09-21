@@ -8,29 +8,29 @@
 }
 
 .breadcrumb li .desc {
-	text-transform: initial;
+  text-transform: initial;
 }
 
 @media (min-width: 768px) {
-	.breadcrumb > li + li:before {
-		padding: 0 5px;
-		color: #515050;
-		content: " - ";
-		font-weight: bold;
-	}
+  .breadcrumb > li + li:before {
+    padding: 0 5px;
+    color: #515050;
+    content: " - ";
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 768px) {
-	.breadcrumb {
-		text-align: center;
-	}
-	
-	.breadcrumb > li + li {
-		width: 90%;
-	}
-	
-	.breadcrumb > li + li:before {
-		padding: 0;
-		content: "";
-	}
+  .breadcrumb {
+    text-align: center;
+  }
+
+  .breadcrumb > li + li {
+    width: 90%;
+  }
+
+  .breadcrumb > li + li:before {
+    padding: 0;
+    content: "";
+  }
 }

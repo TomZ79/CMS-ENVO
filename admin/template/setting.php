@@ -122,7 +122,7 @@ if ($success) { ?>
           </a>
         </li>
       <?php } ?>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
@@ -1207,7 +1207,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc64"]);
+                        echo $Html->addLabel('', '<strong>' . $tl["gs_box_content"]["gsbc64"] . '</strong>', array('class' => 'm-b-10'));
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('ip_block', $ENVO_SETTING_VAL["ip_block"], '5', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
                         ?>
@@ -1219,7 +1219,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc65"]);
+                        echo $Html->addLabel('', '<strong>' . $tl["gs_box_content"]["gsbc65"] . '</strong>', array('class' => 'm-b-10'));
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('email_block', $ENVO_SETTING_VAL["email_block"], '4', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
                         ?>
@@ -1231,7 +1231,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('', $tl["gs_box_content"]["gsbc66"]);
+                        echo $Html->addLabel('', '<strong>' . $tl["gs_box_content"]["gsbc66"] . '</strong>', array('class' => 'm-b-10'));
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('username_block', $ENVO_SETTING_VAL["username_block"], '3', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
                         ?>
@@ -1545,6 +1545,13 @@ if ($success) { ?>
                           <label for="theme6-colour">
                             <div class="theme-preview-container" style="background:#EDEFF5;">
                               <div class="theme-preview-button" style="background:#4B81E8;"></div>
+                            </div>
+                          </label>
+
+                          <input name="envo_eucookie_theme" id="theme10-colour" class="input-hidden" value="eucookie_theme10" <?=($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme10') ? 'checked="checked"' : ''?> type="radio">
+                          <label for="theme10-colour">
+                            <div class="theme-preview-container" style="background:#000;">
+                              <div class="theme-preview-button" style="background:#D81517;"></div>
                             </div>
                           </label>
 

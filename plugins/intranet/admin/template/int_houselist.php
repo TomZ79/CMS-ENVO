@@ -1,21 +1,61 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
+// EN: Checking of some page was successful
+// CZ: Kontrola některé stránky byla úspěšná
+if ($page2 == "s") { ?>
+  <script>
+      // Notification
+      setTimeout(function () {
+          $.notify({
+              // options
+              message: '<?=$tl["notification"]["n7"]?>'
+          }, {
+              // settings
+              type: 'success',
+              delay: 5000
+          });
+      }, 1000);
+  </script>
+<?php } ?>
+
+<?php
+// EN: Remove records from DB was successful
+// CZ: Odstranění záznamu z DB bylo úspěšné
+if ($page3 == "s1") { ?>
+  <script>
+      // Notification
+      setTimeout(function () {
+          $.notify({
+              // options
+              icon: 'fa fa-info-circle',
+              message: '<?=$tl["notification"]["n2"]?>'
+          }, {
+              // settings
+              type: 'info',
+              delay: 5000,
+              timer: 3000
+          });
+      }, 2000);
+  </script>
+<?php } ?>
+
+<?php
 // EN: Checking of some page was unsuccessful
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "ene") { ?>
   <script>
-    // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-      }, {
-        // settings
-        type: 'success',
-        delay: 5000
-      });
-    }, 1000);
+      // Notification
+      setTimeout(function () {
+          $.notify({
+              // options
+              message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+          }, {
+              // settings
+              type: 'success',
+              delay: 5000
+          });
+      }, 1000);
   </script>
 <?php } ?>
 
@@ -51,10 +91,11 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               </div>
             </th>
             <th style="width:31%">Název</th>
-            <th style="width:20%">Ulice</th>
+            <th style="width:17%">Ulice</th>
             <th style="width:10%">Město</th>
             <th style="width:15%">Město - Čtvrť</th>
-            <th class="no-sort" style="width:10%">IČ</th>
+            <th class="no-sort" style="width:8%">IČ</th>
+            <th class="no-sort" style="width:5%"></th>
             <th class="no-sort" style="width:5%"></th>
           </tr>
           </thead>
@@ -100,6 +141,14 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // EDIT
                 echo $Html->addAnchor('index.php?p=intranet&amp;sp=houselist&amp;ssp=edithouse&amp;id=' . $h["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                ?>
+
+              </td>
+              <td class="text-center">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('index.php?p=intranet&amp;sp=houselist&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>

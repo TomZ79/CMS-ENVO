@@ -6,14 +6,14 @@
  * -----------------------------------------------------------------------*/
 /* Span - stars */
 .star-item {
-	font-size: 14px;
-	font-weight: 700;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 /* Span - ID of items in list */
 .textid {
-	float: left;
-	width: 60px;
+  float: left;
+  width: 60px;
 }
 
 /* -----------------------------------------------------------------------
@@ -21,8 +21,8 @@
  * -----------------------------------------------------------------------*/
 /* Global settings for input */
 input {
-	border-radius: 0 !important;
-	outline: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
 }
 
 /* Different setting for input */
@@ -32,14 +32,14 @@ input[type="number"], input[type="tel"],
 input[type="time"], input[type="url"],
 textarea, textarea.form-control,
 .select {
-	background-color: #FFF;
-	border: 1px solid #DFDFDF;
-	box-shadow: none;
-	color: #384343;
+  background-color: #FFF;
+  border: 1px solid #DFDFDF;
+  box-shadow: none;
+  color: #384343;
 }
 
 textarea.form-control {
-	height: auto;
+  height: auto;
 }
 
 input[type="text"]:focus, input[type="password"]:focus,
@@ -47,10 +47,10 @@ input[type="date"]:focus, input[type="email"]:focus,
 input[type="number"]:focus, input[type="tel"]:focus,
 input[type="time"]:focus, input[type="url"]:focus,
 textarea:focus, textarea:focus.form-control {
-	/* background: #FAFAFA; */
-	border-color: #C6C6C6;
-	box-shadow: none;
-	color: #384343;
+  /* background: #FAFAFA; */
+  border-color: #C6C6C6;
+  box-shadow: none;
+  color: #384343;
 }
 
 input[type="text"]:hover, input[type="password"]:hover,
@@ -58,9 +58,9 @@ input[type="date"]:hover, input[type="email"]:hover,
 input[type="number"]:hover, input[type="tel"]:hover,
 input[type="time"]:hover, input[type="url"]:hover,
 textarea:hover, textarea:hover.form-control {
-	/* background: #FAFAFA; */
-	border-color: #C6C6C6;
-	color: #384343;
+  /* background: #FAFAFA; */
+  border-color: #C6C6C6;
+  color: #384343;
 }
 
 input[type="text"][disabled], input[type="password"][disabled],
@@ -69,10 +69,10 @@ input[type="number"][disabled], input[type="tel"][disabled],
 input[type="time"][disabled], input[type="url"][disabled],
 textarea[disabled], textarea.form-control[disabled],
 select[disabled] {
-	background-color: #E6E6E6;
-	border: 0;
-	color: #637575;
-	-webkit-text-fill-color: #637575
+  background-color: #E6E6E6;
+  border: 0;
+  color: #637575;
+  -webkit-text-fill-color: #637575
 }
 
 /* -----------------------------------------------------------------------
@@ -81,42 +81,48 @@ select[disabled] {
 /* Button for global Save form */
 .savebutton,
 .actionbutton {
-	position: fixed;
-	right: 0;
-	top: 71px;
-	z-index: 690;
-	background: #F0F0F0;
-	width: 220px;
-	height: 50px;
+  position: fixed;
+  right: 0;
+  top: 71px;
+  z-index: 690;
+  background: #F0F0F0;
+  width: 220px;
+  height: 50px;
 }
 
 .savebutton-small {
-	position: fixed;
-	right: 0;
-	top: 71px;
-	z-index: 690;
-	background: #F0F0F0;
-	width: 114px;
-	height: 50px;
+  position: fixed;
+  right: 0;
+  top: 71px;
+  z-index: 690;
+  background: #F0F0F0;
+  width: 114px;
+  height: 50px;
 }
 
 .savebutton-medium {
-	position: fixed;
-	right: 0;
-	top: 71px;
-	z-index: 690;
-	background: #F0F0F0;
-	width: 145px;
-	height: 50px;
+  position: fixed;
+  right: 0;
+  top: 71px;
+  z-index: 690;
+  background: #F0F0F0;
+  width: 145px;
+  height: 50px;
 }
 
 .savebutton .btn,
 .savebutton-small .btn,
 .savebutton-medium .btn {
-	margin: 10px 17px;
-	padding: 5px 10px;
-	font-size: 12px;
-	line-height: 1.5;
+  margin: 10px 17px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Disabled button */
+a.btn.disabled, fieldset:disabled a.btn {
+  cursor: not-allowed;
+  pointer-events: auto;
 }
 
 /* -----------------------------------------------------------------------
@@ -126,103 +132,103 @@ select[disabled] {
  * Pretty Checkbox Inputs with Bootstrap and awesome-bootstrap-checkbox
  */
 .checkbox-singel {
-	margin-bottom: 0;
-	margin-top: 0;
-	padding-left: 0;
-	width: 17px;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+  width: 17px;
 }
 
 .checkbox-singel label {
-	display: inline-block;
-	cursor: pointer;
-	position: relative;
-	width: 17px;
-	height: 17px;
-	font-size: 13px;
-	margin: 0;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  width: 17px;
+  height: 17px;
+  font-size: 13px;
+  margin: 0;
 }
 
 .checkbox-singel label:before {
-	content: "";
-	display: inline-block;
-	width: 17px;
-	height: 17px;
-	position: absolute;
-	left: 0;
-	background-color: #FFF;
-	border: 1px solid #D0D0D0;
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 0;
+  background-color: #FFF;
+  border: 1px solid #D0D0D0;
 }
 
 .checkbox-singel label {
-	transition: border 0.2s linear 0s, color 0.2s linear 0s;
-	white-space: nowrap;
+  transition: border 0.2s linear 0s, color 0.2s linear 0s;
+  white-space: nowrap;
 }
 
 .checkbox-singel label:before {
-	top: 1.4px;
-	border-radius: 3px;
-	transition: border 0.2s linear 0s, color 0.2s linear 0s;
+  top: 1.4px;
+  border-radius: 3px;
+  transition: border 0.2s linear 0s, color 0.2s linear 0s;
 }
 
 .checkbox-singel label::after {
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	left: 3.2px;
-	top: 0px;
-	font-size: 11px;
-	transition: border 0.2s linear 0s, color 0.2s linear 0s;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 3.2px;
+  top: 0px;
+  font-size: 11px;
+  transition: border 0.2s linear 0s, color 0.2s linear 0s;
 }
 
 .checkbox-singel label:after {
-	border-radius: 3px;
+  border-radius: 3px;
 }
 
 .checkbox-singel input[type=checkbox] {
-	display: none;
+  display: none;
 }
 
 .checkbox-singel input[type=checkbox]:checked + label:before {
-	border-width: 8.5px;
+  border-width: 8.5px;
 }
 
 .checkbox-singel input[type=checkbox]:checked + label::after {
-	font-family: 'FontAwesome';
-	content: "\F00C";
-	color: #FFF;
+  font-family: 'FontAwesome';
+  content: "\F00C";
+  color: #FFF;
 }
 
 .checkbox-singel input[type="checkbox"]:focus + label {
-	color: #2C2C2C;
+  color: #2C2C2C;
 }
 
 .checkbox-singel input[type="checkbox"]:focus + label:before {
-	background-color: #E6E6E6;
+  background-color: #E6E6E6;
 }
 
 .checkbox-singel.check-success input[type=checkbox]:checked + label:before {
-	border-color: #10CFBD;
+  border-color: #10CFBD;
 }
 
 .checkbox-singel.check-primary input[type=checkbox]:checked + label:before {
-	border-color: #6D5CAE;
+  border-color: #6D5CAE;
 }
 
 .checkbox-singel.check-complete input[type=checkbox]:checked + label:before {
-	border-color: #48B0F7;
+  border-color: #48B0F7;
 }
 
 .checkbox-singel.check-warning input[type=checkbox]:checked + label:before {
-	border-color: #F8D053;
+  border-color: #F8D053;
 }
 
 .checkbox-singel.check-danger input[type=checkbox]:checked + label:before {
-	border-color: #F55753;
+  border-color: #F55753;
 }
 
 .checkbox-singel.check-info input[type=checkbox]:checked + label:before {
-	border-color: #3B4752;
+  border-color: #3B4752;
 }
 
 .checkbox-singel.check-success input[type=checkbox]:checked + label::after,
@@ -231,7 +237,7 @@ select[disabled] {
 .checkbox-singel.check-warning input[type=checkbox]:checked + label::after,
 .checkbox-singel.check-danger input[type=checkbox]:checked + label::after,
 .checkbox-singel.check-info input[type=checkbox]:checked + label::after {
-	color: #FFF;
+  color: #FFF;
 }
 
 /* -----------------------------------------------------------------------
@@ -239,5 +245,5 @@ select[disabled] {
  * -----------------------------------------------------------------------*/
 /* Prettify syntax highlight */
 pre[class*="language-"] {
-	border-left-color: #2B6A94;
+  border-left-color: #2B6A94;
 }

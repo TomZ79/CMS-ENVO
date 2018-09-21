@@ -17,14 +17,28 @@
           <span class="text">Kontakty</span>
         </a>
       </li>
-
+      <li>
+        <a href="#tabs4" data-toggle="tab">
+          <span class="text">Anténní systém</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tabs5" data-toggle="tab">
+          <span class="text">Dokumenty</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tabs6" data-toggle="tab">
+          <span class="text">Fotogalerie</span>
+        </a>
+      </li>
     </ul>
 
     <div class="tab-content" style="padding-top: 20px;">
       <div id="tabs1" class="tab-pane fade in active">
         <div class="row">
 
-          <?php if (!empty($ENVO_HOUSELIST_DETAIL) && is_array($ENVO_HOUSELIST_DETAIL)) foreach ($ENVO_HOUSELIST_DETAIL as $hlistdetail) { ?>
+          <?php if (!empty($ENVO_HOUSELIST_DETAIL) && is_array($ENVO_HOUSELIST_DETAIL)) { ?>
 
             <div class="col-md-6">
               <div class="grid simple transparent">
@@ -40,31 +54,49 @@
                     <div class="form-group">
                       <label class="form-label">Název Domu</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hlistdetail["name"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_DETAIL["name"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Ulice</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hlistdetail["street"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_DETAIL["street"] ?>"
+                          readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Město</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hlistdetail["city"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_DETAIL["city"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">PSČ</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hlistdetail["psc"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_DETAIL["psc"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">IČ</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?= $hlistdetail["ic"] ?>" readonly>
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_DETAIL["ic"] ?>" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Databáze - justice.cz</label>
+                      <div class="controls">
+
+                        <?php if (!empty($ENVO_HOUSELIST_DETAIL["justice"])) { ?>
+
+                          <a href="<?= $ENVO_HOUSELIST_DETAIL["justice"] ?>" target="_blank" style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Zobrazit
+                            platný výpis</a>
+
+                        <?php } else { ?>
+
+                          <span style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Odkaz na výpis neexistuje</span>
+
+                        <?php } ?>
+
                       </div>
                     </div>
                   </div>
@@ -82,12 +114,12 @@
                 </div>
                 <div class="grid-body no-border">
                   <div class="row">
-                    <div id="google-container-map" style="height: 350px;position: relative;background-color: #EEE;">
+                    <div id="maps-container" style="height: 350px;position: relative;background-color: #EEE;">
 
                       <?php
                       if (empty($envo_house_latitude) || empty($envo_house_longitude)) {
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('Mapa není k dispozici', 'txteditor', array('style' => 'position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);font-size: 1.5em;'));
+                        echo $Html -> addDiv('Mapa není k dispozici', 'maps', array ( 'style' => 'position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);font-size: 1.5em;' ));
                       }
                       ?>
 
@@ -115,9 +147,9 @@
               <div class="grid-body no-border">
                 <div class="row">
 
-                  <?php if (!empty($ENVO_HOUSELIST_DESC)) {
+                  <?php if (!empty($ENVO_HOUSELIST_DETAIL['description'])) {
 
-                    echo '<div>' . $ENVO_HOUSELIST_DESC . '</div>';
+                    echo '<div>' . $ENVO_HOUSELIST_DETAIL['description'] . '</div>';
 
                   } else { ?>
 
@@ -125,7 +157,7 @@
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
@@ -143,7 +175,301 @@
           <div class="col-md-12">
             <div class="grid simple transparent">
               <div class="grid-title no-border">
-                <h4>Hlavní Kontakty</h4>
+                <h4>Kontakty - Statutární orgán</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+
+                <?php if (!empty($ENVO_HOUSELIST_DETAIL['housejusticelaw'])) { ?>
+
+                  <div class="row">
+                    <div class="well well-small">
+                      <p class="clearfix">
+                        <span class="pull-left"><strong>Způsob jednání statutárního orgánu</strong></span>
+                        <span class="pull-right"><strong>Datum poslední online kontroly:</strong> <?= $ENVO_HOUSELIST_DETAIL['contactcontrol'] ?></span>
+                      </p>
+                      <p><?= $ENVO_HOUSELIST_DETAIL['housejusticelaw'] ?></p>
+                    </div>
+                  </div>
+
+                <?php } ?>
+
+                <div class="row">
+
+                  <?php if (!empty($ENVO_HOUSELIST_CONT) && is_array($ENVO_HOUSELIST_CONT) && (!empty($ENVO_HOUSELIST_CONT['contact1']) || !empty($ENVO_HOUSELIST_CONT['contact2']) || !empty($ENVO_HOUSELIST_CONT['contact3']) || !empty($ENVO_HOUSELIST_CONT['contact4']) || !empty($ENVO_HOUSELIST_CONT['contact5']) || !empty($ENVO_HOUSELIST_CONT['contact6']))) { ?>
+
+                    <?php if (!empty($ENVO_HOUSELIST_CONT['contact1'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Předseda / Pověřený vlastník</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Celé jméno</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact1'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-8 form-group pl-sm-0 pr-sm-0 p-xs-0">
+                            <label class="form-label">Adresa</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactaddress1'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Telefon</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactphone1'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Email</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactmail1'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Datum narození</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactdate1'] ?>" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact2'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Místopředseda / Člen výboru 1</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Celé jméno</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact2'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-8 form-group pl-sm-0 pr-sm-0 p-xs-0">
+                            <label class="form-label">Adresa</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactaddress2'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Telefon</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactphone2'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Email</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactmail2'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Datum narození</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactdate2'] ?>" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact3'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Člen výboru 2</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Celé jméno</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact3'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-8 form-group pl-sm-0 pr-sm-0 p-xs-0">
+                            <label class="form-label">Adresa</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactaddress3'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Telefon</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactphone3'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Email</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactmail3'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Datum narození</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactdate3'] ?>" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact4'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Člen výboru 3</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Celé jméno</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact4'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-8 form-group pl-sm-0 pr-sm-0 p-xs-0">
+                            <label class="form-label">Adresa</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactaddress4'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Telefon</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactphone4'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Email</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactmail4'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Datum narození</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactdate4'] ?>" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact5'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Člen výboru 4</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Celé jméno</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact5'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-8 form-group pl-sm-0 pr-sm-0 p-xs-0">
+                            <label class="form-label">Adresa</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactaddress5'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Telefon</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactphone5'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Email</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactmail5'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Datum narození</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactdate5'] ?>" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact6'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Člen výboru 5</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Celé jméno</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact6'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-8 form-group pl-sm-0 pr-sm-0 p-xs-0">
+                            <label class="form-label">Adresa</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactaddress6'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Telefon</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactphone6'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Email</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactmail6'] ?>" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 form-group pl-sm-0 p-xs-0">
+                            <label class="form-label">Datum narození</label>
+                            <div class="controls">
+                              <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contactdate6'] ?>" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php }
+                  } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
+                      ?>
+
+                    </div>
+
+                  <?php } ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple transparent">
+              <div class="grid-title no-border">
+                <h4>Kontakty - Ostatní</h4>
                 <div class="tools">
                   <a href="javascript:;" class="collapse"></a>
                   <a href="javascript:;" class="remove"></a>
@@ -152,57 +478,214 @@
               <div class="grid-body no-border">
                 <div class="row">
 
-                  <?php if (!empty($ENVO_HOUSELIST_CONT) && is_array($ENVO_HOUSELIST_CONT)) { ?>
+                  <?php if (!empty($ENVO_HOUSELIST_CONT) && is_array($ENVO_HOUSELIST_CONT) && (!empty($ENVO_HOUSELIST_CONT['contact7']) || !empty($ENVO_HOUSELIST_CONT['contact8']) || !empty($ENVO_HOUSELIST_CONT['contact9']) || !empty($ENVO_HOUSELIST_CONT['contact10']) || !empty($ENVO_HOUSELIST_CONT['contact11']) || !empty($ENVO_HOUSELIST_CONT['contact12']))) { ?>
 
-                    <div class="form-group">
-                      <label class="form-label">Předseda</label>
-                      <div class="controls">
-                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT1 ?>" readonly>
+                    <?php if (!empty($ENVO_HOUSELIST_CONT['contact7'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Kontakt 1</h4>
+                        </div>
+                        <div class="row">
+                          <label class="form-label">Informace o kontaktu</label>
+                          <div class="controls">
+                            <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact7'] ?>" readonly>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">Člen výboru 1</label>
-                      <div class="controls">
-                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT2 ?>" readonly>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact8'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Kontakt 2</h4>
+                        </div>
+                        <div class="row">
+                          <label class="form-label">Informace o kontaktu</label>
+                          <div class="controls">
+                            <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact8'] ?>" readonly>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">Člen výboru 2</label>
-                      <div class="controls">
-                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT3 ?>" readonly>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact9'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Kontakt 3</h4>
+                        </div>
+                        <div class="row">
+                          <label class="form-label">Informace o kontaktu</label>
+                          <div class="controls">
+                            <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact9'] ?>" readonly>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">Člen výboru 3</label>
-                      <div class="controls">
-                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT4 ?>" readonly>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact10'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Kontakt 4</h4>
+                        </div>
+                        <div class="row">
+                          <label class="form-label">Informace o kontaktu</label>
+                          <div class="controls">
+                            <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact10'] ?>" readonly>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">Člen výboru 4</label>
-                      <div class="controls">
-                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT5 ?>" readonly>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact11'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Kontakt 5</h4>
+                        </div>
+                        <div class="row">
+                          <label class="form-label">Informace o kontaktu</label>
+                          <div class="controls">
+                            <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact11'] ?>" readonly>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">Ostatní</label>
-                      <div class="controls">
-                        <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT6 ?>" readonly>
+
+                    <?php }
+                    if (!empty($ENVO_HOUSELIST_CONT['contact12'])) { ?>
+
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <h4 class="semi-bold">Kontakt 6</h4>
+                        </div>
+                        <div class="row">
+                          <label class="form-label">Informace o kontaktu</label>
+                          <div class="controls">
+                            <input class="form-control" type="text" value="<?= $ENVO_HOUSELIST_CONT['contact12'] ?>" readonly>
+                          </div>
+                        </div>
                       </div>
+
+                    <?php }
+                  } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
+                      ?>
+
                     </div>
 
+                  <?php } ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tabs4" class="tab-pane fade">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple transparent">
+              <div class="grid-title no-border">
+                <h4 class="bold">Informace o anténním systému</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tabs5" class="tab-pane fade">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple transparent">
+              <div class="grid-title no-border">
+                <h4>Dokumenty</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
+
+                  <?php if (!empty($ENVO_HOUSE_DOCU) && is_array($ENVO_HOUSE_DOCU)) { ?>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                          <th class="w-15 text-center">Typ Souboru</th>
+                          <th class="w-70">Popis</th>
+                          <th class="w-15 text-center">Soubor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php foreach ($ENVO_HOUSE_DOCU as $hdocu) { ?>
+                          <tr>
+                            <td class="text-center"><?= envo_extension_icon($hdocu["filename"]) ?></td>
+                            <td><?= $hdocu["description"] ?></td>
+                            <td class="text-center">
+
+                              <?php
+                              echo '<a href="/' . ENVO_FILES_DIRECTORY . $hdocu["fullpath"] . '" target="_blank">Zobrazit</a>';
+                              echo ' | ';
+                              echo '<a href="/' . ENVO_FILES_DIRECTORY . $hdocu["fullpath"] . '" download>Stáhnout</a>';
+                              ?>
+
+                            </td>
+                          </tr>
+                        <?php } ?>
+
+                        </tbody>
+                      </table>
+                    </div>
                   <?php } else { ?>
 
                     <div class="col-md-12">
 
                       <?php
                       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
                       ?>
 
                     </div>
 
                   <?php } ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tabs6" class="tab-pane fade">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple transparent">
+              <div class="grid-title no-border">
+                <h4 class="bold">Fotogalerie</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
 
                 </div>
               </div>

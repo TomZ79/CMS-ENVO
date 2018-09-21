@@ -1,7 +1,7 @@
 <?php
 
 /**
- * build_menu_metrics($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
+ * build_menu_porto($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
  *
  * @param   $parent        -                                       | value: string         | e.g.: 0
  * @param   $menu          - array                                 |                       | e.g.: $mheader - $mfooter

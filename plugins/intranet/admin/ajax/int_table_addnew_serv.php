@@ -21,13 +21,13 @@ header('Content-Type: application/json;charset=utf-8');
 $houseID = $_POST['houseID'];
 
 // Insert info about service into DB
-$result = $envodb->query('INSERT ' . DB_PREFIX . 'intranethouseserv SET id = NULL, houseid = "' . $houseID . '",  description = "", timedefault = NOW(), timestart = "", timeend = "", timeedit = "", deleted = ""');
+$result = $envodb->query('INSERT ' . DB_PREFIX . 'int_houseserv SET id = NULL, houseid = "' . $houseID . '",  description = "", timedefault = NOW(), timestart = "", timeend = "", timeedit = "", deleted = ""');
 
 // Get last row ID from DB
 $rowid = $envodb->envo_last_id();
 
 // Getting info uploaded image from DB
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseserv WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houseserv WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
 $row    = $result->fetch_assoc();
 
 $data_array[] = array(

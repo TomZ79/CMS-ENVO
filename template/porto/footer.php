@@ -56,7 +56,7 @@ switch ($section) {
 
             <?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-facebook">
-                <a href="v$setting[" facebookfooterLinks_porto_tpl"]?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="<?= $setting[" facebookfooterLinks_porto_tpl"]?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
               </li>
             <?php }
             if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
@@ -397,7 +397,7 @@ if ($SHOWSOCIALBUTTON) {
 </div>
 
 <!-- Search box -->
-<?php if (JAK_SEARCH && JAK_USER_SEARCH) { ?>
+<?php if (ENVO_SEARCH && ENVO_USER_SEARCH) { ?>
 
   <form action="<?= $P_SEAERCH_LINK ?>" id="search-inner" method="POST">
     <div class="input-data ">
@@ -437,7 +437,7 @@ if ($SHOWSOCIALBUTTON) {
 <?php if (isset($ENVO_FACEBOOK_SDK_CONNECTION)) echo $ENVO_FACEBOOK_SDK_CONNECTION; ?>
 
 <!-- Download plugins -->
-<?php if (ENVO_PLUGIN_DOWNLOAD && ENVO_DOWNLOADCAN) {
+<?php if (defined('ENVO_PLUGIN_DOWNLOAD')) {
   $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/downloadfile.php';
 
   if (file_exists($pluginsite_template)) {
@@ -449,7 +449,7 @@ if ($SHOWSOCIALBUTTON) {
 } ?>
 
 <!-- RegisterForm plugins -->
-<?php if (ENVO_PLUGIN_REGISTER_FORM && $page == $PLUGIN_RF_CAT["varname"]) {
+<?php if (defined('ENVO_PLUGIN_REGISTER_FORM') && $page == $PLUGIN_RF_CAT["varname"]) {
   $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/js/script.registerform.php';
 
   if (file_exists($pluginsite_template)) {

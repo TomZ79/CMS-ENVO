@@ -67,7 +67,7 @@ if ($errors) { ?>
           <span class="text"><?= $tlbh["bh_section_tab"]["bhtab2"] ?></span>
         </a>
       </li>
-      <li class='nav-item dropdown collapsed-menu'>
+      <li class='nav-item dropdown collapsed-menu hidden'>
         <a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
           ... <span class="glyphicon glyphicon-chevron-right"></span>
         </a>

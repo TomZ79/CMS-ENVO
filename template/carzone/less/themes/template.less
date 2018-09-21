@@ -1,0 +1,2865 @@
+// Color variables (appears count calculates by raw css)
+@color0: #FFF; // Appears 48 times
+@color1: #000; // Appears 20 times
+@color2: #D81416; // Appears 10 times
+@color3: #D81517; // Appears 6 times
+@color4: #F9F9F9; // Appears 5 times
+@color5: #DA1517; // Appears 4 times
+@color6: #E82527; // Appears 4 times
+@color7: #E9E9E9; // Appears 4 times
+@color8: #373F44; // Appears 4 times
+@color9: #B5B5B5; // Appears 4 times
+@color10: #C0C0C0; // Appears 3 times
+@color11: #282828; // Appears 3 times
+@color12: #F4F4F4; // Appears 2 times
+@color13: #E0E0E0; // Appears 2 times
+@color14: #DFDFDF; // Appears 2 times
+@color15: #B0B0B0; // Appears 2 times
+@color16: #191F23; // Appears 2 times
+@color17: #FDC716; // Appears 2 times
+@color18: #292929; // Appears 2 times
+@color19: #CCC; // Appears 2 times
+@color20: #E6E6E6; // Appears 2 times
+@color21: #1E252A; // Appears 2 times
+@color22: #A0A0A0; // Appears 2 times
+@color23: #333232; // Appears 2 times
+@color24: #303030; // Appears 2 times
+@color25: #F6F6F6; // Appears 2 times
+
+// Width variables (appears count calculates by raw css)
+@width2: 33.33%; // Appears 10 times
+@width11: 270px; // Appears 2 times
+@width12: 100px; // Appears 3 times
+@width14: 800px; // Appears 3 times
+@width23: 100%; // Appears 33 times
+@width24: 95px; // Appears 2 times
+@width25: 50px; // Appears 3 times
+@width26: 40px; // Appears 7 times
+@width27: 30px; // Appears 2 times
+@width28: 70px; // Appears 2 times
+@width31: 75px; // Appears 2 times
+@width32: 80px; // Appears 2 times
+@width33: 65px; // Appears 3 times
+@width35: 37px; // Appears 2 times
+@width38: 90%; // Appears 2 times
+@width39: 25%; // Appears 2 times
+@width41: 50%; // Appears 7 times
+@width42: 0; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height4: 50px; // Appears 2 times
+@height6: 43px; // Appears 2 times
+@height8: 55px; // Appears 2 times
+@height10: 75px; // Appears 2 times
+@height11: 37px; // Appears 2 times
+@height12: 80px; // Appears 3 times
+@height15: 30px; // Appears 2 times
+@height16: 40px; // Appears 9 times
+@height17: 100%; // Appears 15 times
+@height19: 50%; // Appears 2 times
+
+.h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: 28px;
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.h4 {
+  font-size: 30px;
+}
+
+.h5 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.h6 {
+  font-size: 24px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.font-roboto {
+  font-family: roboto;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.dis-block {
+  display: block;
+}
+
+.bg-img-fix {
+  background-size: cover;
+}
+
+.bg-secondry {
+  background-color: #2C4A6B;
+}
+
+.text-gray-dark {
+  color: #9A9A9A;
+}
+
+.main-slider {
+  position: relative;
+  .button-lg {
+    font-size: 14px;
+    padding: 15px 30px;
+    padding: 8px 10px;
+  }
+}
+
+.about-us {
+  min-height: 700px;
+  padding-top: 20px;
+  .dlab-tabs {
+    position: relative;
+    .nav-tabs {
+      -moz-transform-origin: left top 0;
+      -moz-transform: rotate(90deg);
+      -o-transform-origin: left top 0;
+      -o-transform: rotate(90deg);
+      -webkit-transform-origin: left top 0;
+      -webkit-transform: rotate(90deg);
+      background-color: @color25;
+      border: 0 none;
+      clear: both;
+      display: block;
+      left: 61px;
+      margin-left: 0;
+      position: absolute;
+      top: 0;
+      transform-origin: left top 0;
+      transform: rotate(90deg);
+      width: @width23;
+      width: auto;
+      li {
+        background-color: @color25;
+        border-right: 0;
+        border-right: 4px solid #E8E8E8;
+        display: inline-block;
+        float: left;
+        margin: 0;
+        text-align: center;
+        width: @width23;
+        a {
+          -moz-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          border: 0;
+          transform: rotate(180deg);
+          span {
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+        h4 {
+          color: #757575;
+          margin: 0;
+          text-transform: uppercase;
+        }
+      }
+      li.active {
+        border-right: 0;
+        a {
+          border: 0;
+          color: @color1;
+          h4 {
+            color: @color1;
+          }
+          span {
+            color: @color1;
+          }
+        }
+      }
+    }
+    .about-contant {
+      padding: 15px 15px 10px 15px;
+      padding: 30px 30px 10px 30px;
+    }
+    .tab-content {
+      border: 0;
+      clear: both;
+      display: block;
+      margin-left: 0;
+      margin-left: 60px;
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.owl-none {
+  .owl-nav {
+    display: none;
+  }
+}
+
+.service-head {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  margin-bottom: 20px;
+  margin-top: -46px;
+  padding: 15px 0;
+  position: relative;
+  z-index: 1;
+  &:after {
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    background: inherit;
+    content: "";
+    height: @height11;
+    left: -18px;
+    margin-top: -19px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-45deg);
+    width: @width35;
+    z-index: -1;
+  }
+  &:before {
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    background: inherit;
+    content: "";
+    height: @height11;
+    margin-top: -19px;
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: rotate(-45deg);
+    width: @width35;
+    z-index: -1;
+  }
+}
+
+.dlab-project-left {
+  padding-top: 30px;
+  position: relative;
+  &:after {
+    content: "";
+    height: @height17;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    right: 15px;
+    top: 0;
+    width: 1 @width42 @width42 @width42px;
+    z-index: -2;
+  }
+}
+
+.service-carousel {
+  .date {
+    color: @color1;
+    padding: 1px 5px;
+    position: absolute;
+    right: 0;
+    top: -22px;
+  }
+  .ow-entry-content {
+    border: 0;
+    position: relative;
+    text-align: center;
+    h4 {
+      margin-bottom: 5px;
+      margin-top: 0;
+    }
+  }
+  .owl-prev {
+    border: 0;
+    height: @height16;
+    line-height: @height16;
+    padding: 0;
+    width: @width26;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .owl-next {
+    border: 0;
+    height: @height16;
+    line-height: @height16;
+    padding: 0;
+    width: @width26;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.service-carousel.owl-theme {
+  .owl-nav {
+    margin-top: 0;
+    padding: 0 15px;
+    position: absolute;
+    position: unset;
+    right: 8.33333%;
+    text-align: center;
+    top: -80px;
+  }
+}
+
+.dlab-team {
+  .dlab-media {
+    border-bottom: 4px solid @color23;
+    border-top: 4px solid #DADADA;
+  }
+  .dlab-social-icon {
+    li {
+      a {
+        border: 0;
+        color: @color23;
+        font-size: 15px;
+        height: @height15;
+        line-height: @height15;
+        padding: 0;
+        width: @width27;
+      }
+    }
+  }
+  .dlab-img-overlay6 {
+    &:before {
+      background-color: rgba(0, 0, 0, 0);
+      background-image: url(../img/overlay/rrdiagonal-line.png);
+      opacity: 0.2;
+    }
+    &:after {
+      background-color: rgba(0, 0, 0, 0);
+      background-image: url(../img/overlay/rrdiagonal-line.png);
+      opacity: 0.2;
+    }
+  }
+}
+
+.client-logo {
+  padding: 0;
+  ul {
+    margin: 0 -10px;
+    li {
+      display: inline-block;
+      float: left;
+      margin-bottom: 20px;
+      padding: 0 10px;
+      width: @width2;
+    }
+  }
+  img {
+    width: @width23;
+  }
+}
+
+.testimonial-section {
+  color: @color0;
+  padding-top: 30px;
+  position: relative;
+  z-index: 1;
+  &:after {
+    background: #F2F2F2 none repeat scroll 0 0;
+    content: "";
+    content: none;
+    height: @height17;
+    left: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    width: @width23;
+    z-index: -1;
+  }
+  .col-md-6 {
+    padding-left: 15px;
+    padding-left: 30px;
+    padding-right: 15px;
+    padding-right: 30px;
+  }
+  .row {
+    margin-left: -15px;
+    margin-left: -30px;
+    margin-right: -15px;
+    margin-right: -30px;
+  }
+  .owl-nav {
+    margin-top: 20px;
+  }
+}
+
+.testimonial-7 {
+  .testimonial-text {
+    border: 2px solid @color20;
+    padding: 18px;
+    p {
+      font-size: 16px;
+      line-height: @height15;
+    }
+  }
+  .testimonial-detail {
+    margin-top: -35px;
+    padding: 0 0 0 20px;
+  }
+  .testimonial-pic {
+    box-shadow: 0 0 0 2px @color20;
+    height: 70px;
+    width: @width28;
+  }
+  .info {
+    p {
+      display: inline-block;
+      padding: 0 10px;
+      position: relative;
+      top: -10px;
+    }
+  }
+  .owl-nav {
+    .owl-nav {
+      bottom: 0;
+      margin-top: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .owl-prev {
+    background-color: @color19;
+    border: 0 none;
+  }
+  .owl-next {
+    background-color: @color19;
+    border: 0 none;
+  }
+}
+
+.bg-black-1 {
+  background-color: @color18;
+}
+
+.blog-info {
+  background-color: rgba(0, 0, 0, 0.9);
+  left: 0;
+  list-style: outside none none;
+  margin: 0;
+  padding: 7px 15px;
+  position: absolute;
+  top: -34px;
+  width: @width23;
+  li {
+    border-right: 1px solid;
+    display: inline-block;
+    line-height: 14px;
+    padding: 0 5px 0px 5px;
+    &:hover {
+      color: @color0;
+    }
+    a {
+      &:hover {
+        color: @color0;
+      }
+    }
+  }
+}
+
+.company-status {
+  .counter {
+    font-family: Roboto;
+    font-size: 60px;
+    font-weight: 300;
+  }
+}
+
+.testimonial-2 {
+  .testimonial-text.bg-primary {
+    &:after {
+        border-top-color: @color17;
+
+    }
+  }
+}
+
+.testimonial-text.bg-primary {
+  background: @color17;
+}
+
+.about-service {
+  margin-top: -150px;
+  .icon-bx-wraper {
+    border: none;
+    &:nth-child(2) {
+      margin-top: -40px;
+    }
+  }
+}
+
+.gallery-projects {
+  .dlab-gallery-box {
+    margin-bottom: 0;
+  }
+}
+
+@media {
+  only {
+    screen {
+      and {(max-width {
+        &:
+                1280px) {
+        .blog-info li {
+          font-size: 13px;
+        }
+        &:
+                991px) {
+        .about-img {
+          display: none;
+          .dlab-coming-soon.two-box, .dlab-coming-soon.two-box .dlab-coming-bx {
+            position: relative;
+            .dlab-new-work:after {
+              width: @width2;
+              .range-slider .price input {
+                width: 9 @width42px;
+                font-size: 13px;
+                width: @width23;
+              }
+              &:
+                      767px) {
+              -moz-transform: rotate(0deg);
+              -webkit-transform: rotate(0deg);
+              .about-us .dlab-tabs .nav-tabs, .about-us .dlab-tabs .nav-tabs li a {
+                -o-transform: rotate(0deg);
+                .content-area {
+                  padding-top: 30px;
+                  .dlab-book-now-content {
+                    margin-top: 10px;
+                    .dlab-new-work:after {
+                      height: @height19;
+                      .used-car-banner .input-group {
+                        margin-bottom: 15px;
+                        margin-bottom: 50px;
+                        position: unset;
+                        transform: rotate(0deg);
+                        width: @width23;
+                      }
+                      &:
+                              1024px) {
+                      .awesome-services .dlab-info-has {
+                        position: unset;
+                        .no-of-item h3 {
+                          font-size: 20px;
+                        }
+                        &:
+                                1200px) {
+                        .full-social-icon li a {
+                          font-size: 14px;
+                          min-height: @height16;
+                          padding: 10px 15px 8px 50px;
+                        }
+                        &:
+                                480px) {
+                        .blog-nav-list .media-body {
+                          display: none;
+                        }
+                        &:
+                                479px) {
+                        [class*="col-xs"] {
+                          width: @width23;
+                        }
+                        &:
+                                359px) {
+                        .form-find-area {
+                          padding: 0 20px 10px;
+                        }
+                      }
+                      }
+                      }
+                      }
+                      }
+                      .get-a-quote {
+                        padding-bottom: 20px;
+                        padding-top: 20px;
+                        text-align: center;
+                        .pull-right {
+                          padding: 10px 0;
+                          width: @width23;
+                        }
+                      }
+                      .dlab-tabs.vertical {
+                        .tab-pane {
+                          padding: 0;
+                        }
+                      }
+                      .dlab-service {
+                        padding: 30px 15px;
+                        .service-carousel {
+                          margin-top: 0;
+                        }
+                        .owl-stage-outer {
+                          margin-bottom: 30px;
+                        }
+                      }
+                      .footer-bottom {
+                        .text-left {
+                          text-align: center;
+                        }
+                        .text-right {
+                          text-align: center;
+                        }
+                      }
+                      .skew-content-box {
+                        display: inline;
+                        left: -1px;
+                        padding: 5px;
+                        padding: 5px 20px;
+                        position: absolute;
+                        top: -15px;
+                        width: auto;
+                        ul {
+                          li {
+                            a {
+                              color: @color0;
+                              font-size: 13px;
+                              font-size: 14px;
+                              line-height: 24px;
+                              margin-right: 3px;
+                              padding: 0px 10px;
+                              padding: 5px;
+                              width: auto;
+                            }
+                          }
+                        }
+                        &:after {
+                          background-color: inherit;
+                          content: "";
+                          height: @height17;
+                          position: absolute;
+                          right: -10px;
+                          top: 0;
+                          transform: skewX(20deg);
+                          width: 2 @width42px;
+                          z-index: 1;
+                        }
+                      }
+                      .countdown {
+                        .date {
+                          color: @color0;
+                          display: inline-block;
+                          max-width: @width25;
+                          min-width: 1 @width26;
+                          span {
+                            font-size: 45px;
+                            font-size: 80px;
+                            font-weight: bold;
+                          }
+                          text {
+                            border-radius: 20px;
+                            border: 1px solid;
+                            display: block;
+                            margin: 0 auto;
+                            padding: 5px 1px;
+                            width: @width12;
+                          }
+                        }
+                      }
+                      .coming-soon-content {
+                        h2 {
+                          font-size: 30px;
+                          font-size: 50px;
+                        }
+                        p {
+                          margin: 0px auto;
+                          max-width: @width14;
+                        }
+                      }
+                      .dlab-coming-soon {
+                        height: @height17;
+                        width: @width23;
+                        .container {
+                          position: relative;
+                        }
+                      }
+                      .dlab-coming-soon-full {
+                        overflow-y: scroll;
+                        position: fixed;
+                      }
+                      .dlab-coming-bx {
+                        margin-top: 13%;
+                        margin-top: 20px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        width: @width23;
+                      }
+                      .sidenav.coming-side-bar {
+                        background-color: rgba(0, 0, 0, 0.9);
+                      }
+                      .dlab-coming-soon.two-box {
+                        position: fixed;
+                        right: 0;
+                        width: @width41;
+                        .dlab-coming-bx {
+                          margin-bottom: 0;
+                          margin-top: 0;
+                          padding-bottom: 50px;
+                          padding-top: 50px;
+                          h2 {
+                            margin-top: 0;
+                          }
+                        }
+                      }
+                      .dlab-login {
+                        background-color: @color18;
+                        bottom: 0;
+                        display: table;
+                        height: @height17;
+                        left: 0;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: @width23;
+                      }
+                      .login-form {
+                        background: @color0;
+                        margin: 0px auto;
+                        max-width: 4 @width42 @width42px;
+                      }
+                      .dlab-form {
+                        .form-control {
+                          background: #DDE3EC;
+                          height: 44px;
+                        }
+                        .form-group {
+                          margin-bottom: 15px;
+                        }
+                      }
+                      .coming-side-bar {
+                        background: @color0;
+                      }
+                      .dlab-social-icon {
+                        margin: 0;
+                      }
+                      .request-a-quote {
+                        &:before {
+                          left: 0;
+                          transform: skewX(0deg);
+                        }
+                      }
+                      .header-style-4 {
+                        .slide-up {
+                          position: unset;
+                        }
+                      }
+                      .our-service {
+                        margin-top: 50px;
+                        .service-box {
+                          margin-bottom: 30px;
+                        }
+                      }
+                      .dlab-newsletter {
+                        padding: 15px;
+                      }
+                      .company-stats-worker {
+                        display: none;
+                      }
+                      .hidden-sm-down {
+                        display: none;
+                      }
+                      .dlab-hover {
+                        a {
+                          &:active {
+                            color: @color0;
+                          }
+                          &:hover {
+                            color: @color0;
+                          }
+                        }
+                      }
+                      .testimonial-6 {
+                        .quote-left {
+                          &:before {
+                            color: @color9;
+                            color: @color9;
+                            font-size: 18px;
+                            font-size: 18px;
+                            left: 15px;
+                            left: 15px;
+                          }
+                        }
+                        .quote-right {
+                          &:after {
+                            bottom: 20px;
+                            color: @color9;
+                            color: @color9;
+                            font-size: 18px;
+                            font-size: 18px;
+                            right: 15px;
+                            top: auto;
+                          }
+                        }
+                        .testimonial-text {
+                          padding: 25px 35px 70px 40px;
+                        }
+                        .testimonial-detail {
+                          padding: 10px 15px;
+                          position: relative;
+                          top: -30px;
+                          width: 85%;
+                          &:after {
+                            background-color: inherit;
+                            content: "";
+                            display: block;
+                            height: @height17;
+                            position: absolute;
+                            right: -23px;
+                            top: 0;
+                            transform: skewX(35deg);
+                            width: @width25;
+                            z-index: 1;
+                          }
+                        }
+                        .testimonial-pic {
+                          position: absolute;
+                          right: 20px;
+                          top: -50px;
+                          z-index: 2;
+                        }
+                      }
+                      .site-footer {
+                        .widget_getintuch {
+                          padding-top: 0;
+                        }
+                        .widget {
+                          margin-bottom: 25px;
+                        }
+                        .recent-posts-entry {
+                          .dlab-post-media {
+                            width: @width33;
+                          }
+                          .dlab-post-info {
+                            margin-left: 75px;
+                          }
+                        }
+                        .dlab-post-header {
+                          h5 {
+                            margin-top: 0;
+                          }
+                        }
+                      }
+                      .content-inner {
+                        padding-bottom: 40px;
+                        padding-top: 70px;
+                      }
+                      .content-inner-1 {
+                        padding-bottom: 70px;
+                        padding-top: 70px;
+                      }
+                      .content-inner-2 {
+                        padding-bottom: 0px;
+                        padding-top: 70px;
+                      }
+                      .testimonial-five {
+                        .owl-nav {
+                          margin-top: 0px;
+                        }
+                      }
+                      .dlab-newsletter.style1 {
+                        background-color: rgba(255, 255, 255, 0.05);
+                      }
+                      .inner-haed {
+                        margin-bottom: 25px;
+                      }
+                      .page-content {
+                        padding-bottom: 30px;
+                      }
+                      .footer-top {
+                        padding-top: 30px;
+                      }
+                      .section-full {
+                        &:last-child {
+                          margin-bottom: -30px;
+                        }
+                      }
+                      .section-head {
+                        margin-bottom: 25px;
+                        p {
+                          padding-top: 0;
+                        }
+                      }
+                      .side-bar {
+                        margin-bottom: 30px;
+                      }
+                      .dlab-post-title {
+                        .post-title {
+                          margin-top: 10px;
+                        }
+                      }
+                      .footer-info-box {
+                        .newsletter {
+                          margin-bottom: 10px;
+                        }
+                      }
+                      ol.commentlist {
+                        li {
+                          .star-rating {
+                            position: unset;
+                          }
+                        }
+                      }
+                      .comment-form[class*="comment-form"] {
+                        width: @width23;
+                      }
+                      .pricingtable-wrapper {
+                        margin-bottom: 30px;
+                      }
+                      .pricingtable-highlight {
+                        margin: 0;
+                      }
+                      .title-head {
+                        display: none;
+                      }
+                      .disnone-md {
+                        display: none;
+                      }
+                      footer {
+                        .footer-bottom {
+                          .fa-heart {
+                            animation: 2.5s ease 0s normal none infinite running animateHeart;
+                            font-size: 16px;
+                          }
+                        }
+                      }
+                      @keyframes {
+                        animateHeart {
+                          0% {
+                            transform: scale(1);
+                          }
+                        }
+                        5% {
+                          transform: scale(1.2);
+                        }
+                        10% {
+                          transform: scale(1.1);
+                        }
+                        15% {
+                          transform: scale(1.25);
+                        }
+                        50% {
+                          transform: scale(1);
+                        }
+                        100% {
+                          transform: scale(1);
+                        }
+                        .dlab-new-work {
+                          &:after {
+                            width: @width39;
+                          }
+                        }
+                        .no-of-item {
+                          padding: 30px;
+                          padding: 30px 30px 60px 30px;
+                          h2 {
+                            color: @color1;
+                            font-family: "Montserrat", sans-serif;
+                            font-size: 115px;
+                            font-size: 75px;
+                            font-weight: bold;
+                            line-height: 115px;
+                            line-height: @height10;
+                            margin: 0;
+                            opacity: 0.2;
+                          }
+                          h3 {
+                            color: @color1;
+                            font-size: 28px;
+                            font-weight: 500;
+                          }
+                        }
+                        .new-item {
+                          .owl-item {
+                            .dlab-info {
+                              background-color: rgba(255, 255, 255, 0.85);
+                              padding: 16px 20px;
+                              transition: all 0.5s ease 0s;
+                            }
+                            &:nth-child(2n+1) {
+                              .dlab-info {
+                                background-color: rgba(255, 255, 255, 0.95);
+                                transition: all 0.5s ease 0s;
+                              }
+                            }
+                          }
+                          .owl-nav {
+                            bottom: 35px;
+                            bottom: auto;
+                            height: @height16;
+                            left: -130px;
+                            left: 50%;
+                            margin-left: -50px;
+                            margin-top: 20px;
+                            position: absolute;
+                            text-align: center;
+                            top: -80px;
+                            transform-origin: calc(-50%) 50% 0;
+                            width: @width12;
+                          }
+                          .dlab-new-item {
+                            &:hover {
+                              .dlab-info {
+                                p {
+                                  color: @color0;
+                                  transition: all 0s ease 0s;
+                                }
+                                .dlab-title {
+                                  a {
+                                    color: @color0;
+                                    transition: all 0s ease 0s;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .dlab-new-item {
+                          .dlab-info {
+                            p {
+                              color: #636363;
+                              margin: 0;
+                            }
+                            .dlab-title {
+                              font-weight: 600;
+                              margin: 10px 0 0;
+                              text-transform: uppercase;
+                              a {
+                                color: @color1;
+                              }
+                            }
+                          }
+                        }
+                        .no-of-item-dtl {
+                          text-align: center;
+                          text-align: right;
+                        }
+                        .owl-btn-style-2 {
+                          .owl-nav {
+                            margin-top: 0;
+                            margin-top: 30px;
+                            position: absolute;
+                            position: relative;
+                            right: 11px;
+                            text-align: center;
+                            top: -85px;
+                            top: auto;
+                            .owl-prev {
+                              background-color: @color7;
+                              background-color: @color8;
+                              border: 0;
+                              color: @color1;
+                              font-size: 18px;
+                              height: @height16;
+                              line-height: @height16;
+                              padding: 0;
+                              width: @width26;
+                            }
+                            .owl-next {
+                              background-color: @color7;
+                              background-color: @color8;
+                              border: 0;
+                              color: @color1;
+                              font-size: 18px;
+                              height: @height16;
+                              line-height: @height16;
+                              padding: 0;
+                              width: @width26;
+                            }
+                          }
+                        }
+                        .owl-btn-style-1 {
+                          .owl-nav {
+                            .owl-prev {
+                              background-color: @color8;
+                              border: 0;
+                              font-size: 18px;
+                              height: @height16;
+                              line-height: @height16;
+                              padding: 0;
+                              width: @width26;
+                            }
+                            .owl-next {
+                              background-color: @color8;
+                              border: 0;
+                              font-size: 18px;
+                              height: @height16;
+                              line-height: @height16;
+                              padding: 0;
+                              width: @width26;
+                            }
+                          }
+                        }
+                      .owl-carousel.owl-btn-style-1 {
+                        .owl-nav {
+                          display: block;
+                        }
+                      }
+                      .owl-carousel.owl-btn-style-2 {
+                        .owl-nav {
+                          display: block;
+                        }
+                      }
+                      .head-1 h1, .head-1 h2, .head-1 h3, .head-1 h4, .head-1 h5, .head-1 h6 {
+                        color: @color1;
+                      }
+                      .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6 {
+                        color: @color0;
+                      }
+                      .head-1 {
+                        span {
+                          display: block;
+                          margin-bottom: 10px;
+                          width: @width23;
+                        }
+                        .dlab-separator {
+                          margin-bottom: 5px;
+                        }
+                      }
+                      .dlab-box-bg {
+                        background-size: cover;
+                        overflow: hidden;
+                        .glyph-icon {
+                          font-size: 50px;
+                        }
+                        .icon-bx-wraper {
+                          background-color: #F8F8F8;
+                        }
+                        .text-primary {
+                          transition: all 0.5s;
+                        }
+                        .icon-content {
+                          h4 {
+                            transition: all 0.5s;
+                          }
+                          p {
+                            transition: all 0.5s;
+                          }
+                        }
+                        .icon-box-btn {
+                          .site-button {
+                            margin-bottom: -5px;
+                            transition: all 0.5s;
+                          }
+                        }
+                      }
+                      .icon-box-btn {
+                        .site-button {
+                          background-color: #EEE;
+                          font-size: 15px;
+                          padding: 15px 20px;
+                          text-transform: uppercase;
+                        }
+                        ul {
+                          list-style: none;
+                          margin: 0;
+                          li {
+                            border-right: 1px solid @color14;
+                            display: inline-block;
+                            float: left;
+                            padding: 12px 5px;
+                            width: @width2;
+                            &:last-child {
+                              border-right: 0;
+                            }
+                          }
+                        }
+                      }
+                      .dlab-box-bg.active {
+                        .icon-bx-wraper {
+                          background-color: rgba(0, 0, 0, 0.70);
+                        }
+                        .text-primary {
+                          color: @color0;
+                          transition: all 0.5s;
+                        }
+                        .icon-content {
+                          h4 {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                          p {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                        }
+                        .icon-box-btn {
+                          .site-button {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                        }
+                      }
+                      .about-us-info {
+                      }
+                      .dlab-info-about {
+                        overflow: hidden;
+                        padding-bottom: 60px;
+                        padding-top: 40px;
+                      }
+                      .media-info {
+                        .media-left {
+                          padding: 3px;
+                          a {
+                            border-radius: 50px;
+                            box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.3);
+                            display: block;
+                            height: @height12;
+                            overflow: hidden;
+                            width: @width32;
+                          }
+                        }
+                      }
+                      .about-side-img {
+                        img {
+                          bottom: -50px;
+                          bottom: -70px;
+                          margin-bottom: -40px;
+                          margin-bottom: 0;
+                          max-width: none;
+                          position: relative;
+                          width: @width23;
+                          width: auto;
+                        }
+                      }
+                      .theme-tabs {
+                        border: 0;
+                        li {
+                          background-color: @color7;
+                          border-radius: 2px;
+                          display: inline-block;
+                          font-size: 15px;
+                          margin-bottom: 4px;
+                          a {
+                            color: @color1;
+                          }
+                        }
+                        li.active {
+                          background-color: @color3;
+                          border-radius: 2px;
+                          a {
+                            color: @color0;
+                            &:focus {
+                              background-color: @color3;
+                              border-radius: 2px;
+                            }
+                            &:hover {
+                              background-color: @color3;
+                              border-radius: 2px;
+                            }
+                            &:after {
+                              border-left: 5px solid rgba(0, 0, 0, 0);
+                              border-right: 5px solid rgba(0, 0, 0, 0);
+                              border-top: 5px solid @color2;
+                              bottom: -5px;
+                              content: "";
+                              left: 50%;
+                              margin-left: -2.5px;
+                              position: absolute;
+                            }
+                          }
+                          &:focus {
+                            background-color: @color3;
+                            border-radius: 2px;
+                          }
+                        }
+                      }
+                      .dlab-feed-list {
+                        .dlab-title {
+                          font-weight: 600;
+                          margin-top: 0;
+                          text-transform: uppercase;
+                        }
+                        .dlab-info {
+                          background-color: @color4;
+                          padding: 20px;
+                          text-align: center;
+                        }
+                        .dlab-price {
+                          margin-bottom: 0;
+                          span {
+                            color: @color1;
+                            font-family: open sans;
+                            font-size: 16px;
+                            font-weight: 600;
+                          }
+                          del {
+                            color: #868686;
+                            margin-right: 10px;
+                          }
+                        }
+                        .dlab-separator {
+                          height: 1px;
+                        }
+                        .icon-box-btn {
+                          background-color: @color12;
+                        }
+                        .dlab-media {
+                          &:after {
+                            background-color: @color2;
+                            content: "";
+                            height: @height17;
+                            left: 0;
+                            mix-blend-mode: saturation;
+                            opacity: 0;
+                            opacity: 0;
+                            position: absolute;
+                            top: 0;
+                            transition: all 1s ease 0s;
+                            width: @width23;
+                            z-index: 2;
+                          }
+                        }
+                        &:hover {
+                          .dlab-media {
+                            &:after {
+                              mix-blend-mode: saturation;
+                              opacity: 0.3;
+                              transition: all 1s ease 0s;
+                            }
+                          }
+                        }
+                        .dropdown {
+                          position: absolute;
+                          right: 2px;
+                          top: 2px;
+                          z-index: 3;
+                        }
+                        .dropdown > a {
+                          color: @color0;
+                          display: block;
+                          font-size: 18px;
+                          padding: 5px 15px;
+                        }
+                        .dropdown > ul {
+                          border: 0 none;
+                          margin-top: 0;
+                        }
+                      }
+                      .car-listing {
+                        .section-head {
+                          margin-bottom: 25px;
+                        }
+                      }
+                      .find-car {
+                        background-size: cover;
+                        .car-box {
+                          background-color: #F5F6F6;
+                          padding: 20px;
+                          padding: 30px;
+                          padding: 50px;
+                          text-align: center;
+                        }
+                        .site-button {
+                          border-color: inherit;
+                          color: @color5;
+                          font-size: 13px;
+                          text-transform: uppercase;
+                        }
+                        h2 {
+                          font-size: 22px;
+                          font-weight: 600;
+                          margin: 5px 0 10px;
+                        }
+                        span {
+                          font-weight: 600;
+                        }
+                        p {
+                          margin-bottom: 10px;
+                        }
+                      }
+                      .find-car.active {
+                        .car-box {
+                          background-color: rgba(216, 21, 23, 0.85);
+                          transition: all 1s;
+                          p {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                          span {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                          h2 {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                          .site-button {
+                            color: @color0;
+                            transition: all 0.5s;
+                          }
+                        }
+                      }
+                      .city-box {
+                        background-color: @color4;
+                        margin-bottom: 14px;
+                        overflow: hidden;
+                        position: relative;
+                        text-align: center;
+                        z-index: 2;
+                        .glyph-icon {
+                          font-size: 80px;
+                          line-height: @height12;
+                          margin-bottom: 20px;
+                          padding: 25px 15px 0;
+                        }
+                        span {
+                          color: #747474;
+                        }
+                        a {
+                          color: @color1;
+                          display: block;
+                          font-size: 15px;
+                          font-weight: 600;
+                          margin-bottom: 0;
+                          text-transform: uppercase;
+                        }
+                        .dlab-move {
+                          background-image: url("../img/blog/latest-blog/pic1.jpg");
+                          background-size: cover;
+                          height: @height17;
+                          position: absolute;
+                          transition: all 0.5s;
+                          transition: all 0.5s;
+                          width: @width23;
+                          z-index: -1;
+                          &:after {
+                            background: @color2 none repeat scroll 0 0;
+                            content: "";
+                            height: @height17;
+                            left: 0;
+                            opacity: 0.8;
+                            position: absolute;
+                            top: 0;
+                            transition: all 0.5s;
+                            width: @width23;
+                            z-index: -1;
+                          }
+                        }
+                        &:hover {
+                          a {
+                            color: @color0;
+                          }
+                          span {
+                            color: @color0;
+                          }
+                          .glyph-icon {
+                            color: @color0;
+                          }
+                        }
+                      }
+                      .city-info {
+                        padding: 0px 10px 15px 10px;
+                      }
+                      .testimonial-2.style-1 {
+                        .testimonial-detail {
+                          margin: 0 auto;
+                          max-width: 2 @width25;
+                          padding: 30px 10px 10px;
+                        }
+                        .testimonial-pic {
+                          border: 0;
+                          height: @height10;
+                          width: @width31;
+                        }
+                        .testimonial-text {
+                          color: @color1;
+                          &:after {
+                            border-top: 20px solid #F4F5F7;
+                            bottom: -20px;
+                            left: 50%;
+                            margin-left: -7px;
+                          }
+                          &:before {
+                            content: "\f10d";
+                            font-family: fontawesome;
+                            font-size: 130px;
+                            margin-top: -85px;
+                            opacity: 0.05;
+                            position: absolute;
+                            top: 50%;
+                          }
+                        }
+                        .testimonial-name {
+                          font-size: 18px;
+                          font-weight: 600;
+                          padding-top: 14px;
+                          text-transform: uppercase;
+                        }
+                        .testimonial-box {
+                          border-radius: 50px;
+                          border: 1px solid rgba(255, 255, 255, 0.5);
+                          height: 87px;
+                          overflow: hidden;
+                          padding: 5px;
+                          position: relative;
+                          &:after {
+                            color: @color1;
+                            content: "\f12a";
+                            content: "ď„Ş";
+                            font-family: Flaticon;
+                            font-size: 90px;
+                            opacity: 0.07;
+                            position: absolute;
+                            right: 2px;
+                            top: -15px;
+                          }
+                        }
+                      }
+                      .testimonial-2.style-1.testimonial-bg {
+                        .testimonial-text {
+                          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+                        }
+                      }
+                      .testimonial-center {
+                        .owl-item.active.center {
+                          opacity: 1;
+                          transition: all 1s;
+                        }
+                        .owl-item {
+                          opacity: 0.05;
+                          transition: all 1s;
+                        }
+                      }
+                      .testimonial-center.owl-btn-center-lr {
+                        .owl-nav {
+                          .owl-prev {
+                            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                            border: 0 none;
+                            bottom: 45px;
+                            font-size: 36px;
+                            opacity: 0.4;
+                            padding: 0;
+                            padding: 0 10%;
+                            top: 30%;
+                            top: auto;
+                            &:hover {
+                              opacity: 0.8;
+                            }
+                          }
+                          .owl-next {
+                            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                            border: 0 none;
+                            bottom: 45px;
+                            font-size: 36px;
+                            opacity: 0.4;
+                            padding: 0;
+                            padding: 0 10%;
+                            top: 30%;
+                            top: auto;
+                            &:hover {
+                              opacity: 0.8;
+                            }
+                          }
+                        }
+                      }
+                      .dlab-latest-blog {
+                        .ow-post-meta {
+                          background-color: @color12;
+                          height: 60px;
+                          margin-bottom: 0;
+                          .profile-user {
+                            padding: 6px 0px 6px 6px;
+                            img {
+                              border-radius: 50px;
+                              box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.4);
+                              height: @height10;
+                              margin-right: 5px;
+                              margin-top: -30px;
+                              object-fit: cover;
+                              position: relative;
+                              width: @width31;
+                            }
+                          }
+                          ul {
+                            margin: 0;
+                            padding: 0 15px;
+                            li {
+                              color: @color11;
+                              float: left;
+                              font-size: 15px;
+                              font-weight: normal;
+                              margin: 0;
+                              padding: 20px 12px;
+                              position: relative;
+                              i {
+                                color: @color11;
+                                font-size: 15px;
+                                font-weight: normal;
+                                margin: 0;
+                              }
+                              span {
+                                color: @color11;
+                                font-size: 15px;
+                                font-weight: normal;
+                                margin: 0;
+                              }
+                            }
+                          }
+                          li {
+                            &:first-child {
+                              after {
+                                content: none;
+                              }
+                            }
+                            &:after {
+                              background: @color1 none repeat scroll 0 0;
+                              content: "";
+                              height: @height15;
+                              margin-top: -15px;
+                              opacity: 0.1;
+                              position: absolute;
+                              right: 0;
+                              top: 50%;
+                              width: 1px;
+                            }
+                          }
+                        }
+                        .ow-post-info {
+                          background-color: #FBFBFB;
+                          border: 0;
+                        }
+                        .post-title {
+                          a {
+                            color: @color1;
+                            font-weight: 500;
+                          }
+                        }
+                        .ow-post-text {
+                          color: #8B8B8B;
+                        }
+                        .site-button-link {
+                          font-size: 16px;
+                          font-weight: 500;
+                        }
+                      }
+                      .blog-stories {
+                        margin: 0px auto;
+                        max-width: 8 @width25;
+                        .carousel-caption {
+                          background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%) repeat scroll 0 0;
+                          bottom: 0;
+                          left: 0;
+                          padding: 20px;
+                          right: 0;
+                          text-align: left;
+                          width: @width23;
+                          a {
+                            color: @color0;
+                          }
+                        }
+                        .dlab-tilte {
+                          font-size: 14px;
+                          font-weight: 500;
+                          line-height: 20px;
+                          line-height: 28px;
+                          margin: 0;
+                          opacity: 0.8;
+                        }
+                      }
+                      .blog-nav-list {
+                        .dlab-title {
+                          color: @color1;
+                          font-size: 14px;
+                          font-size: 16px;
+                          margin-bottom: 0;
+                          margin-top: 0;
+                          text-align: left;
+                        }
+                        .media-left {
+                          padding-right: 5px;
+                          img {
+                            max-width: @width23;
+                            max-width: @width24;
+                            max-width: @width33;
+                            width: @width23;
+                            width: @width24;
+                            width: @width33;
+                          }
+                        }
+                        li.active {
+                          border: 0 none;
+                          display: inline-block;
+                          float: left;
+                          margin: 0;
+                          overflow: unset;
+                          padding: 0 2px;
+                          width: @width2;
+                          a {
+                            background-color: @color5;
+                            border: 0;
+                            color: @color0;
+                            color: @color0;
+                            overflow: unset;
+                            position: relative;
+                            &:hover {
+                              background-color: @color5;
+                              color: @color0;
+                            }
+                            .dlab-title {
+                              color: @color0;
+                            }
+                            &:after {
+                              border-bottom: 17px solid @color5;
+                              border-left: 15px solid rgba(0, 0, 0, 0);
+                              border-right: 15px solid rgba(0, 0, 0, 0);
+                              bottom: auto;
+                              content: "";
+                              left: 20px;
+                              position: absolute;
+                              top: -15px;
+                              z-index: 5;
+                            }
+                          }
+                        }
+                        li {
+                          border: 0 none;
+                          display: inline-block;
+                          float: left;
+                          margin: 0;
+                          overflow: unset;
+                          padding: 0 2px;
+                          width: @width2;
+                          a {
+                            background-color: #F7F7F7;
+                            padding: 10px;
+                          }
+                        }
+                        li + li {
+                          border: 0 none;
+                          display: inline-block;
+                          float: left;
+                          margin: 0;
+                          overflow: unset;
+                          padding: 0 2px;
+                          width: @width2;
+                        }
+                        .media-body {
+                          padding-left: 0;
+                        }
+                      }
+                      .dlab-blog-cat-list {
+                        &:before {
+                          background-color: @color0;
+                          bottom: 0;
+                          content: "";
+                          height: @height19;
+                          position: absolute;
+                          width: @width23;
+                          z-index: 1;
+                        }
+                      }
+                      .dlab-contact-info {
+                        li {
+                          padding: 0 0px 10px 40px;
+                          position: relative;
+                          i {
+                            color: #C9C9C9;
+                            font-size: 25px;
+                            left: 0;
+                            position: absolute;
+                            top: 10px;
+                          }
+                        }
+                      }
+                      .dlab-subscribe-form {
+                        .form-control {
+                          background-color: @color21;
+                          border: 0;
+                          color: #86949C;
+                          padding-left: 15px;
+                        }
+                      }
+                      .full-social-icon {
+                        list-style: none;
+                        margin-bottom: 0;
+                        margin-left: -15px;
+                        margin-right: -15px;
+                        margin-top: 20px;
+                        padding: 0;
+                        li {
+                          a {
+                            background-color: @color21;
+                            color: @color7;
+                            display: block;
+                            font-size: 16px;
+                            font-weight: 500;
+                            min-height: @height8;
+                            padding: 16px 15px 16px 75px;
+                            position: relative;
+                            i {
+                              background-color: rgba(255, 255, 255, 0.05);
+                              color: @color0;
+                              display: block;
+                              font-size: 16px;
+                              font-size: 26px;
+                              font-weight: 100;
+                              height: @height16;
+                              height: @height17;
+                              left: 0;
+                              line-height: @height16;
+                              line-height: @height8;
+                              position: absolute;
+                              text-align: center;
+                              top: 0;
+                              vertical-align: middle;
+                              width: 55px;
+                              width: @width26;
+                            }
+                            &:hover {
+                              color: @color0;
+                            }
+                          }
+                          &:hover {
+                            a {
+                              i {
+                                background-color: rgba(255, 255, 255, 0.2);
+                              }
+                            }
+                          }
+                        }
+                        li.fb {
+                          &:hover {
+                            a {
+                              background-color: #4867AA;
+                            }
+                          }
+                        }
+                        li.tw {
+                          &:hover {
+                            a {
+                              background-color: #1DA1F2;
+                            }
+                          }
+                        }
+                        li.gplus {
+                          &:hover {
+                            a {
+                              background-color: #DC4A38;
+                            }
+                          }
+                        }
+                        li.linkd {
+                          &:hover {
+                            a {
+                              background-color: #007AB5;
+                            }
+                          }
+                        }
+                      }
+                      .search-car {
+                        background-color: rgba(255, 255, 255, 0.95);
+                        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+                        max-width: 36 @width42px;
+                        overflow: hidden;
+                        .theme-tabs {
+                          margin-bottom: 40px;
+                          li {
+                            border-radius: 0px;
+                            float: left;
+                            text-align: center;
+                            width: @width41;
+                            a {
+                              font-weight: 600;
+                            }
+                          }
+                        }
+                      }
+                      .form-head {
+                        background-color: @color2;
+                        margin-bottom: 20px;
+                        margin-bottom: 40px;
+                        position: relative;
+                        text-align: center;
+                        z-index: 1;
+                        h2 {
+                          color: @color0;
+                          font-size: 20px;
+                          margin: 0;
+                          padding: 15px 15px 5px 15px;
+                          padding: 5px;
+                          text-transform: uppercase;
+                        }
+                        &:after {
+                          background: @color2 none repeat scroll 0 0;
+                          border-radius: 100%;
+                          bottom: -20px;
+                          content: "";
+                          content: none;
+                          height: @height12;
+                          left: -10%;
+                          position: absolute;
+                          width: 12 @width42%;
+                          z-index: -1;
+                        }
+                      }
+                      .form-slide {
+                        bottom: 10%;
+                        position: absolute;
+                        width: @width23;
+                      }
+                      .form-find-area {
+                        padding: 0 40px 30px 40px;
+                        .input-group {
+                          margin-bottom: 10px;
+                          margin-bottom: 20px;
+                          &:last-child {
+                            margin-bottom: 0;
+                          }
+                        }
+                        .form-control {
+                          background-color: rgba(0, 0, 0, 0);
+                          border-radius: 2px !important;
+                          border: 1px solid @color10;
+                          font-weight: 600;
+                          height: 45px;
+                          .btn-default {
+                            background-color: transparent !important;
+                            border: 0px solid @color10 !important;
+                            height: @height6;
+                            padding: 10px 15px;
+                          }
+                        }
+                        .bootstrap-select.btn-group {
+                          .dropdown-toggle {
+                            .filter-option {
+                              font-weight: 600;
+                              text-transform: uppercase;
+                            }
+                            .caret {
+                              border: 0 none;
+                              &:after {
+                                border: 0 none;
+                                color: #9D9D9D;
+                                content: "\f107";
+                                display: block;
+                                font-family: "FontAwesome";
+                                font-size: 18px;
+                                height: 15px;
+                                position: absolute;
+                                right: 5px;
+                                top: -10px;
+                                width: 5px;
+                              }
+                            }
+                          }
+                        }
+                        .bootstrap-select {
+                          .dropdown-toggle {
+                            background-color: transparent !important;
+                            border: 0px solid @color10 !important;
+                            height: @height6;
+                            padding: 10px 15px;
+                          }
+                        }
+                        .site-button.button-lg {
+                          border-radius: 2px;
+                          font-size: 18px;
+                          font-weight: 600;
+                        }
+                      }
+                      .used_form_div {
+                        margin-bottom: 20px;
+                      }
+                      .new_form_div {
+                        margin-bottom: 20px;
+                      }
+                      input[type="checkbox"] + label {
+                        &:before {
+                          border: 2px solid @color2;
+                        }
+                        &:hover {
+                          before {
+                            border-color: @color2;
+                          }
+                        }
+                      }
+                      input[type="radio"] + label {
+                        &:before {
+                          border: 2px solid @color2;
+                        }
+                        &:hover {
+                          before {
+                            border-color: @color2;
+                          }
+                        }
+                      }
+                      input[type="radio"] {
+                        &:checked + label {
+                          before {
+                            border-color: @color2;
+                          }
+                        }
+                      }
+                      .check-nav > li {
+                        display: inline-block;
+                        padding: 0 5px;
+                      }
+                      .check-nav {
+                        label {
+                          color: #E51516;
+                        }
+                      }
+                      .nav.check-nav {
+                        margin-top: -20px;
+                      }
+                      .advanced-search {
+                        .acod-title {
+                          background: @color4;
+                          font-size: 14px;
+                          font-weight: 600;
+                        }
+                      }
+                      .range-slider {
+                        .price {
+                          input {
+                            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                            border: 0 none;
+                            color: @color24;
+                            display: inline-block;
+                            float: right;
+                            font-family: "Open Sans", sans-serif;
+                            font-size: 14px;
+                            font-weight: 600;
+                            height: inherit;
+                            margin-bottom: 0;
+                            padding: 2px 0;
+                            text-align: right;
+                            width: @width12;
+                          }
+                        }
+                        .ui-slider {
+                          margin-top: 15px;
+                        }
+                      }
+                      .product-brand {
+                        margin-top: 10px;
+                        .search-content {
+                          display: block;
+                          margin-bottom: 0px;
+                          padding: 10px 0;
+                          .search-content-area {
+                            margin-bottom: 0px;
+                          }
+                          &:last-child {
+                            display: block;
+                            margin-bottom: 0px;
+                          }
+                        }
+                      }
+                      .vehicle-type {
+                        .btn {
+                          background: @color0 none repeat scroll 0 0;
+                          border-color: rgba(0, 0, 0, 0.1);
+                          color: @color22;
+                          margin: 0px 0px 0px !important;
+                          padding: 0 0 5px 0;
+                          width: @width2;
+                          width: @width2;
+                          i {
+                            font-size: 40px;
+                            font-size: 50px;
+                            line-height: 45px;
+                            line-height: @height4;
+                          }
+                          h5 {
+                            font-size: 12px;
+                            margin: 0;
+                          }
+                        }
+                        .btn-group {
+                          display: block;
+                          width: @width23;
+                        }
+                        .btn.active {
+                          background: @color6;
+                          box-shadow: none;
+                          color: @color0;
+                          &:after {
+                            background-color: rgba(216, 21, 23, 0.7);
+                            content: "\f00c";
+                            content: "ď€Ś";
+                            font-family: "FontAwesome";
+                            font-size: 40px;
+                            font-size: 50px;
+                            height: @height17;
+                            left: 0;
+                            padding: 11px;
+                            padding: 20px 0;
+                            position: absolute;
+                            text-align: center;
+                            text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
+                            top: 0;
+                            vertical-align: middle;
+                            width: @width23;
+                          }
+                          h5 {
+                            color: @color0;
+                          }
+                        }
+                      }
+                      .transmission {
+                        .btn {
+                          padding: 10px 5px;
+                          width: @width41;
+                        }
+                        .btn.active {
+                          &:after {
+                            padding: 0;
+                          }
+                        }
+                      }
+                      .price-distance {
+                        .btn {
+                          h5 {
+                            color: @color24;
+                            font-family: open sans;
+                            font-size: 14px;
+                            font-weight: 600;
+                          }
+                          span {
+                            display: block;
+                            margin: 5px 0 3px 0;
+                            width: @width23;
+                          }
+                        }
+                        .btn.active {
+                          &:after {
+                            line-height: 88px;
+                          }
+                        }
+                      }
+                      .filter-bar {
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        padding: 15px;
+                        .theme-tabs {
+                          li {
+                            background: @color0;
+                            border-radius: 0;
+                            border: 1px solid rgba(0, 0, 0, 0.1);
+                            a {
+                              color: @color15;
+                            }
+                          }
+                          li.active {
+                            a {
+                              &:after {
+                                content: none;
+                              }
+                            }
+                          }
+                        }
+                        .bootstrap-select {
+                          max-width: 1 @width25;
+                        }
+                      }
+                      .filter-bar .theme-tabs li.active:focus, .filter-bar .theme-tabs li.active a:focus, .filter-bar .theme-tabs li.active a:hover, .filter-bar .theme-tabs li.active a, .filter-bar .theme-tabs li.active {
+                        background: @color0;
+                        border-color: @color6;
+                        border-radius: 0;
+                        color: @color6;
+                      }
+                      .list-view {
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        padding: 15px;
+                      }
+                      .blog-md {
+                        .dlab-post-media {
+                          width: 3 @width42 @width42px;
+                        }
+                      }
+                      .car-details {
+                        .modal-header {
+                          background-color: @color6;
+                          background-color: rgba(216, 21, 23, 0.8);
+                          border-radius: 0;
+                        }
+                        .modal-footer {
+                          border-top: 0;
+                          padding: 0;
+                        }
+                        .site-button-secondry {
+                          float: left;
+                          font-size: 15px;
+                          margin: 0;
+                          padding: 12px 10px;
+                          width: @width41;
+                        }
+                        .site-button {
+                          float: left;
+                          font-size: 15px;
+                          margin: 0;
+                          padding: 12px 10px;
+                          width: @width41;
+                        }
+                        .close {
+                          border-left: 1px solid rgba(255, 255, 255, 0.5);
+                          font-size: 50px;
+                          height: @height8;
+                          line-height: 34px;
+                          margin: 0;
+                          opacity: 1;
+                          position: absolute;
+                          right: 0;
+                          top: 0;
+                          width: @width25;
+                          span {
+                            color: @color0;
+                            font-family: "Raleway";
+                            font-weight: 100;
+                            position: relative;
+                            top: -3px;
+                          }
+                        }
+                        .table {
+                          border: 1px solid @color13;
+                        }
+                      }
+                      .used-car {
+                        .dlab-tabs {
+                          background-color: @color4;
+                          border-radius: 2px;
+                          margin-top: 15px;
+                          max-width: 7 @width42 @width42px;
+                          .tab-pane {
+                            padding: 20px;
+                          }
+                        }
+                        .theme-tabs {
+                          li {
+                            margin-right: 10px;
+                          }
+                        }
+                        .row {
+                          margin-left: -7.5px;
+                          margin-right: -7.5px;
+                        }
+                      }
+                      .used-car[class*="col-"] {
+                        padding-left: 7.5px;
+                        padding-right: 7.5px;
+                      }
+                      .used-car-banner {
+                        height: 600px;
+                      }
+                      .inner-section {
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        padding: 40px 20px 20px;
+                      }
+                      .used-car-info {
+                        .dlab-info {
+                          padding: 20px;
+                          text-align: left;
+                        }
+                        .dlab-title {
+                          font-weight: 500;
+                          text-transform: capitalize;
+                        }
+                        .dlab-price {
+                          font-family: open sans;
+                          font-size: 24px;
+                          font-weight: 400;
+                        }
+                        .icon-box-btn {
+                          ul {
+                            border: 1px solid #EAEAEA;
+                          }
+                        }
+                      }
+                      .view-seller-dtl {
+                        margin: 0 -20px -20px -20px;
+                        text-align: center;
+                        .site-button {
+                          padding: 15px;
+                        }
+                      }
+                      .lead-form-modal {
+                        .modal-content {
+                          background-color: rgba(0, 0, 0, 0);
+                          border: 0;
+                          box-shadow: none;
+                          &:before {
+                            background-image: url(../img/background/bg3.jpg);
+                            background-position: center;
+                            background-size: cover;
+                            box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
+                            content: "";
+                            content: none;
+                            height: @height17;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: @width11;
+                            z-index: 3;
+                          }
+                          &:after {
+                            background: #F00;
+                            content: "";
+                            content: none;
+                            height: @height17;
+                            left: 0;
+                            opacity: 0.7;
+                            position: absolute;
+                            top: 0;
+                            width: @width11;
+                            z-index: 4;
+                          }
+                        }
+                        .modal-dialog {
+                          background-color: rgba(0, 0, 0, 0);
+                          border: 0;
+                          box-shadow: none;
+                        }
+                        .modal-body {
+                          background-color: rgba(0, 0, 0, 0);
+                          padding: 0;
+                          position: relative;
+                          z-index: 2;
+                        }
+                        .lead-form {
+                          background-color: #EEF1F2;
+                          box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+                          float: right;
+                          max-width: 3 @width25;
+                          padding: 20px;
+                          padding: 30px 20px 30px 65px;
+                          text-align: center;
+                          width: @width23;
+                        }
+                        .form-group {
+                          margin-bottom: 15px;
+                        }
+                        .close {
+                          color: @color0;
+                          font-family: 'Raleway', sans-serif;
+                          font-size: 45px;
+                          font-weight: 100;
+                          opacity: 1;
+                          position: absolute;
+                          right: -20px;
+                          right: 0;
+                          top: -30px;
+                        }
+                      }
+                      .modal-backdrop.in {
+                        opacity: 0.8;
+                      }
+                      .lead-form > form {
+                        width: 2 @width33;
+                        width: @width23;
+                      }
+                      .used-car-dl-info {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        li {
+                          color: #707070;
+                          display: inline-block;
+                          margin-right: 10px;
+                        }
+                      }
+                      .used-car-features {
+                        margin-left: -2px;
+                        margin-right: -3px;
+                      }
+                      .car-features {
+                        float: left;
+                        margin-bottom: 10px;
+                        outline-offset: -3px;
+                        outline: 1px solid rgba(0, 0, 0, 0.1);
+                        padding: 10px;
+                        text-align: center;
+                        width: @width41;
+                        i {
+                          font-size: 28px;
+                        }
+                      }
+                      .car-dl-info {
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        padding: 30px;
+                        .price {
+                          background-color: #EFEFEF;
+                          margin: -30px -30px 20px;
+                          padding: 15px 30px;
+                          h2 {
+                            font-family: Open Sans;
+                          }
+                        }
+                      }
+                      .table-dl {
+                        display: table;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        width: @width23;
+                        li {
+                          display: table-row;
+                          div {
+                            border-bottom: 1px solid #F0F0F0;
+                            display: block;
+                            display: table-cell;
+                            padding: 10px 0;
+                            width: @width23;
+                            width: @width41;
+                          }
+                          .leftview {
+                            font-weight: 600;
+                          }
+                        }
+                      }
+                      .brand-logo-area {
+                        .brand-logo {
+                          border: 1px solid rgba(0, 0, 0, 0.1);
+                          display: inline-block;
+                          margin-bottom: 14px;
+                        }
+                      }
+                      .sale-car {
+                        .dlab-tabs {
+                          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+                          margin: 0 auto;
+                          max-width: @width14;
+                        }
+                        .input-group {
+                          margin-bottom: 20px;
+                        }
+                      }
+                      .site-button {
+                        overflow: hidden;
+                        position: relative;
+                        z-index: 1;
+                        &:hover {
+                          after {
+                            left: 5%;
+                            width: @width38;
+                          }
+                        }
+                        &:after {
+                          background-color: @color0;
+                          content: "";
+                          height: @height17;
+                          left: 0;
+                          opacity: 0.1;
+                          position: absolute;
+                          top: 0;
+                          transform: skewX(25deg);
+                          transition: all 0.5s ease 0s;
+                          width: @width42;
+                          z-index: -1;
+                        }
+                      }
+                      .site-button-secondry {
+                        overflow: hidden;
+                        position: relative;
+                        z-index: 1;
+                        &:hover {
+                          after {
+                            left: 5%;
+                            width: @width38;
+                          }
+                        }
+                        &:after {
+                          background-color: @color0;
+                          content: "";
+                          height: @height17;
+                          left: 0;
+                          opacity: 0.1;
+                          position: absolute;
+                          top: 0;
+                          transform: skewX(25deg);
+                          transition: all 0.5s ease 0s;
+                          width: @width42;
+                          z-index: -1;
+                        }
+                      }
+                      .latest-cars {
+                        .dlab-tabs {
+                          max-width: @width14;
+                        }
+                      }
+                      .client-logo-wg {
+                        ul {
+                          list-style: none;
+                          margin: 0;
+                          padding: 0;
+                          li {
+                            border: 1px solid #EBEBEB;
+                            display: inline-block;
+                            float: left;
+                            line-height: 100px;
+                            margin: 0 -1px -1px 0;
+                            width: @width2;
+                          }
+                        }
+                      }
+                      .dropdown.open > a {
+                        background-color: rgba(255, 255, 255, 0.95);
+                        color: @color1;
+                      }
+                      .upcoming-car {
+                        .dlab-info {
+                          text-align: left;
+                        }
+                        .launch-date {
+                          color: #8E8E8E;
+                          margin-bottom: 0;
+                          margin-top: 10px;
+                        }
+                      }
+                      .car-details-info {
+                        background-color: @color16;
+                        position: sticky;
+                        position: unset;
+                        top: 70px;
+                        z-index: 9;
+                        .nav {
+                          ul {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            li {
+                              display: inline-block;
+                              float: left;
+                              a {
+                                border-left: 1px solid rgba(255, 255, 255, 0.1);
+                                color: @color0;
+                                display: block;
+                                font-weight: 600;
+                                padding: 15px 20px;
+                              }
+                              &:last-child {
+                                a {
+                                  border-right: 1px solid rgba(255, 255, 255, 0.1);
+                                }
+                              }
+                            }
+                            li.active {
+                              a {
+                                background-color: @color3;
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .specifications.owl-carousel {
+                        .owl-nav.disabled {
+                          display: block;
+                          display: block;
+                        }
+                      }
+                      .used-car-features.grid2 {
+                        .car-features {
+                          width: 16.66%;
+                          width: @width2;
+                        }
+                      }
+                      .table-col4.table-dl > li > div {
+                        display: block;
+                        padding: 15px 20px;
+                        width: @width23;
+                        width: @width39;
+                      }
+                      .table-col4 {
+                        .table-head {
+                          div {
+                            color: @color0;
+                            font-weight: 700;
+                          }
+                        }
+                      }
+                      .table-col4.table-dl > li {
+                        &:nth-child(2n+1) {
+                          background: @color4 none repeat scroll 0 0;
+                          display: block;
+                          overflow: auto;
+                          width: @width23;
+                        }
+                      }
+                      .table-dl.table-col4 {
+                        li.table-head {
+                          background: @color16;
+                        }
+                      }
+                      .table-head {
+                        position: sticky;
+                        position: unset;
+                        top: 121px;
+                        .rightview {
+                          background-color: rgba(255, 255, 255, 0.2);
+                        }
+                      }
+                      .car-gallery {
+                        .card-container {
+                          box-sizing: border-box;
+                          padding: 5px;
+                        }
+                      }
+                      .dealer-info {
+                        .used-car-dl-info {
+                          li {
+                            color: #6E6E6E;
+                            display: inline-block;
+                            font-size: 15px;
+                            font-weight: 600;
+                            margin-right: 10px;
+                          }
+                        }
+                        .media-left {
+                          padding-right: 15px;
+                          vertical-align: top;
+                          img {
+                            max-width: unset;
+                            width: 115px;
+                            width: @width28;
+                          }
+                        }
+                      }
+                      .road-price {
+                        background: @color0 none repeat scroll 0 0;
+                        border-radius: 4px;
+                        box-shadow: 0 4px 10px -3px rgba(0, 0, 0, 0.25);
+                        margin: -66px auto 90px;
+                        max-width: 5 @width42 @width42px;
+                        overflow: hidden;
+                        padding: 30px;
+                        .input-group {
+                          margin-bottom: 20px;
+                        }
+                        textarea.form-control {
+                          height: 1 @height4;
+                        }
+                        .form-control {
+                          border: 2px solid rgba(0, 0, 0, 0.1);
+                          height: @height4;
+                          &:hover {
+                            border: 2px solid rgba(0, 0, 0, 0.3);
+                          }
+                          &:focus {
+                            border: 2px solid rgba(0, 0, 0, 0.3);
+                          }
+                        }
+                        .bootstrap-select {
+                          .dropdown-toggle {
+                            background-color: rgba(0, 0, 0, 0) !important;
+                            border: 0 solid #DDD !important;
+                            color: #808080;
+                            height: @height4;
+                          }
+                        }
+                        .form-head {
+                          margin: -30px -30px 50px;
+                          padding: 30px 10px 10px;
+                        }
+                      }
+                      .compare-car {
+                        .table-head {
+                          top: 70px;
+                        }
+                      }
+                      .review-star {
+                        display: inline-block;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        li {
+                          color: #F6D01C;
+                          display: inline-block;
+                        }
+                      }
+                      .review-star-box {
+                        background-image: url(../img/review-star.png);
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        color: @color0;
+                        font-size: 15px;
+                        font-weight: 700;
+                        height: @height12;
+                        line-height: @height12;
+                        vertical-align: middle;
+                        width: @width32;
+                      }
+                      .rating-bar {
+                        .media-right {
+                          font-family: open sans;
+                          vertical-align: middle;
+                          span {
+                          }
+                        }
+                        .media-left {
+                          font-family: open sans;
+                          vertical-align: middle;
+                          span {
+                            display: block;
+                            width: @width27;
+                            i {
+                              color: @color15;
+                            }
+                          }
+                        }
+                        .progress {
+                          background: @color13;
+                          border-radius: 2px;
+                          box-shadow: none;
+                          height: 5px;
+                          margin: 0;
+                        }
+                        .media-body {
+                          vertical-align: middle;
+                        }
+                      }
+                      .rating-bar.media {
+                        margin: 4px 0;
+                      }
+                      .counter-style-1 {
+                        .counter {
+                          font-size: 50px;
+                          font-weight: 500;
+                        }
+                        .icon {
+                          font-size: 45px;
+                          margin-right: 10px;
+                        }
+                      }
+                      .counter-style-2 {
+                        .counter {
+                          font-size: 50px;
+                          font-weight: 500;
+                        }
+                      }
+                      .counter-style-3 {
+                        .counter {
+                          font-size: 50px;
+                          font-weight: 500;
+                        }
+                      }
+                      .sticky-top {
+                        position: sticky;
+                        top: 100px;
+                      }
+                      .blog-sticky-right {
+                        position: sticky;
+                        top: 100px;
+                      }
+                      .blog-sticky-left {
+                        position: sticky;
+                        top: 100px;
+                      }
+                      .car-valuation {
+                        h2 {
+                          font-size: 30px;
+                          margin-bottom: 8px;
+                        }
+                        .icon-bx-wraper {
+                          border-right: 1px solid @color14;
+                          p {
+                            color: @color22;
+                            font-size: 16px;
+                            font-weight: 500;
+                          }
+                        }
+                      }
+                      .car-valuation[class*="col-"] {
+                        &:last-child {
+                          .icon-bx-wraper {
+                            border-right: 0;
+                          }
+                        }
+                      }
+                      .nav-pills {
+                        display: none;
+                      }
+                      .used-car-banner[class*="col-"] {
+                        &:last-child {
+                          .input-group {
+                            margin-bottom: 0;
+                          }
+                        }
+                      }
+                      .dlab-bnr-inr {
+                        .container {
+                          width: @width23;
+                        }
+                      }
+                      .table-col4. {
+                        .table-dl {
+                          display: block;
+                          li {
+                            display: block;
+                          }
+                        }
+                      }
+                      .slide-box-lg {
+                        .blog-title {
+                          font-size: 30px;
+                          font-weight: 800;
+                          letter-spacing: 0;
+                          line-height: 36px;
+                        }
+                      }
+                      .slide-box-md {
+                        .blog-title {
+                          font-size: 15px;
+                          font-weight: 600;
+                          letter-spacing: 0;
+                          line-height: 22px;
+                          margin-bottom: 10px;
+                        }
+                      }
+                      .blog-slider {
+                        .blog-title {
+                          a {
+                            &:hover {
+                              color: @color0;
+                              opacity: 0.7;
+                            }
+                          }
+                        }
+                        .dlab-info-has {
+                          background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 100%);
+                          background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 100%);
+                          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 100%);
+                          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color100', endColorstr='#a6000000', GradientType=0);
+                        }
+                        .dlab-post-meta {
+                          ul {
+                            li {
+                              font-size: 12px;
+                            }
+                          }
+                        }
+                      }
+                      .blog-title-head {
+                        .blog-title {
+                          border-bottom: 2px solid @color3;
+                          margin-bottom: 35px;
+                          span {
+                            display: inline-block;
+                            padding: 5px 15px;
+                          }
+                        }
+                      }
+                      .container.min {
+                        width: 10 @width28;
+                      }
+                      .recent-posts-entry.md {
+                        .dlab-post-media {
+                          margin-left: 125px;
+                          width: 11 @width42px;
+                        }
+                      }
