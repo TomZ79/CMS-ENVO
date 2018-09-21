@@ -599,7 +599,7 @@
                 <?php } ?>
 
                 <div class="row">
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 text-center">
                     <hr>
                     <button type="button" id="showPhotoList" class="btn btn-success btn-cons">
                       <span>Seznam</span>
@@ -614,33 +614,34 @@
 
                 <div id="list_photo" class="row">
                   <div class="col-sm-12">
-                    <div id="imggallery0" class="gallery">
 
-                      <?php
+                    <?php
 
-                      if (!empty($ENVO_HOUSE_IMG_LIST) && is_array($ENVO_HOUSE_IMG_LIST)) {
+                    if (!empty($ENVO_HOUSE_IMG_LIST) && is_array($ENVO_HOUSE_IMG_LIST)) {
 
-                        foreach ($ENVO_HOUSE_IMG_LIST as $subarray) {
+                      echo '<div id="imggallery0" class="gallery">';
 
-                          // Get first value 'timedefault'
-                          echo '<div class="dateblock_' . uniqid() . ' m-b-20 clearfix">';
-                          echo '<div class="padding-10 m-b-20" style="background:gray;color:white;font-weight:700;">' . reset($subarray) . '</div>';
+                      foreach ($ENVO_HOUSE_IMG_LIST as $subarray) {
 
-                          // Loop photos array
-                          foreach ($subarray['photos'] as $himg_list) {
+                        // Get first value 'timedefault'
+                        echo '<div class="dateblock_' . uniqid() . ' m-b-20 clearfix">';
+                        echo '<div class="padding-10 m-b-20" style="background:gray;color:white;font-weight:700;font-size:1.2em;">' . reset($subarray) . '</div>';
 
-                            echo '<div id="' . $himg_list["id"] . '" class="gallery-item-' . $himg_list["id"] . ' ' . $himg_list["category"] . ' float-left margin-gallery" data-width="1" data-height="1">';
+                        // Loop photos array
+                        foreach ($subarray['photos'] as $himg_list) {
 
-                            echo '<div class="img_container"><a data-fancybox="fancybox-1" href="' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" alt=""></a></div>';
+                          echo '<div class="gallery-item-' . $himg_list["id"] . ' ' . $himg_list["category"] . ' float-left margin-gallery" data-width="1" data-height="1">';
 
-                            echo '<div class="overlays">
-                                <div class="col-sm-12  full-height">
+                          echo '<div class="img_container"><a data-fancybox="fancybox-0" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" alt=""></a></div>';
+
+                          echo '<div class="overlays">
+                                <div class="col-sm-12 full-height">
                                   <div class="col-xs-5 full-height">
                                     <div class="text font-montserrat">' . strtoupper(pathinfo($himg_list["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
                                   </div>
                                   <div class="col-xs-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery0" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '">
+                                      <a data-fancybox="fancybox-0-1" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '">
                                         <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
                                          <i class="fas fa-image"></i>
                                         </button>
@@ -653,20 +654,24 @@
                                 </div>
                               </div>';
 
-                            echo '<div class="full-width padding-10">';
-                            echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $himg_list["shortdescription"] . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                          }
-
+                          echo '<div class="full-width padding-10">';
+                          echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $himg_list["shortdescription"] . '</p>';
+                          echo '</div>';
                           echo '</div>';
                         }
 
+                        echo '</div>';
                       }
 
-                      ?>
+                      echo '</div>';
 
-                    </div>
+                    } else {
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupné žádné fotografie.', '', array ( 'class' => 'alert' ));
+                    }
+
+                    ?>
+
                   </div>
                 </div>
                 <div id="isotope_photo" class="row" style="display: none;">
@@ -702,59 +707,52 @@
                   </div>
                   <div class="col-sm-9">
 
-                    <?php if (!empty($ENVO_HOUSE_IMG_ISO) && is_array($ENVO_HOUSE_IMG_ISO)) { ?>
+                    <?php
 
-                      <div id="imggallery1" class="gallery">
+                    if (!empty($ENVO_HOUSE_IMG_ISO) && is_array($ENVO_HOUSE_IMG_ISO)) {
 
-                        <?php foreach ($ENVO_HOUSE_IMG_ISO as $himg_iso) { ?>
+                      echo '<div id="imggallery1" class="gallery">';
 
-                          <div class="gallery-item-<?= $himg_iso["id"] . ' ' . $himg_iso["category"] ?>" data-width="1" data-height="1">
-                            <div class="img_container">
-                              <a data-fancybox="fancybox-1" href="<?= '/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] ?>" data-caption="<?= ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") ?>">
-                                <img src="<?= '/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] ?>" class="img-responsive" alt="">
-                              </a>
-                            </div>
-                            <div class="overlays">
-                              <div class="col-sm-12 full-height">
-                                <div class="col-xs-5 full-height">
-                                  <div class="text font-montserrat"></div>
-                                </div>
-                                <div class="col-xs-7 full-height">
-                                  <div class="text">
-                                    <a data-fancybox="fancybox-2" href="<?= '/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] ?>" data-caption="<?= $himg_iso["shortdescription"] . ' | ' . $himg_iso["description"] ?>">
-                                      <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" title="Zoom +">
-                                        <i class="fas fa-image"></i>
-                                      </button>
-                                    </a>
-                                    <button class="btn btn-success btn-xs btn-mini dialog-open-info" type="button" data-dialog="itemDetails" data-id="<?= $himg_iso["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
+                      foreach ($ENVO_HOUSE_IMG_ISO as $himg_iso) {
+
+                        echo '<div class="gallery-item-' . $himg_iso["id"] . ' ' . $himg_iso["category"] . '" data-width="1" data-height="1">';
+
+                        echo '<div class="img_container"><a data-fancybox="fancybox-1" href="' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" class="img-responsive" alt=""></a></div>';
+
+                        echo '<div class="overlays">
+                                <div class="col-sm-12 full-height">
+                                  <div class="col-xs-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($himg_list["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
+                                  </div>
+                                  <div class="col-xs-7 full-height">
+                                    <div class="text">
+                                      <a data-fancybox="fancybox-1-1" href="/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '">
+                                        <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+                                         <i class="fas fa-image"></i>
+                                        </button>
+                                      </a>
+                                      <button class="btn btn-success btn-xs btn-mini dialog-open-info" type="button" data-dialog="itemDetails" data-id="' . $himg_iso["id"] . '" data-toggle="tooltipEnvo" title="Informace">
                                       <i class="fas fa-info"></i>
                                     </button>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                            <div class="full-width padding-10">
-                              <p class="bold">Krátký Popis</p>
-                              <p class="shortdesc"><?= $himg_iso["shortdescription"] ?></p>
-                            </div>
-                          </div>
+                              </div>';
 
-                        <?php } ?>
+                        echo '<div class="full-width padding-10">';
+                        echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $himg_list["shortdescription"] . '</p>';
+                        echo '</div>';
+                        echo '</div>';
+                      }
 
-                      </div>
+                      echo '</div>';
 
-                    <?php } else { ?>
+                    } else {
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupné žádné fotografie.', '', array ( 'class' => 'alert' ));
+                    }
 
-                      <div class="col-md-12">
-
-                        <?php
-                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html -> addDiv('Nejsou dostupné žádné fotografie.', '', array ( 'class' => 'alert' ));
-                        ?>
-
-                      </div>
-
-                    <?php } ?>
+                    ?>
 
                   </div>
                 </div>

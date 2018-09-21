@@ -1439,7 +1439,7 @@ $(function () {
   var filters;
 
   // init Isotope
-  var $gallery = $('#gallery_envo1');
+  var $gallery = $('#gallery_envo_1');
   $gallery.isotope({
     itemSelector: 'div[class^="gallery-item-"]',
     masonry: {
@@ -2047,7 +2047,7 @@ $(function () {
                 // Isotope Plugin
                 // Adds and lays out newly prepended item elements at the beginning of layout
                 // Prepend items to gallery
-                $('#gallery_envo1').prepend($isotopeContent)
+                $('#gallery_envo_1').prepend($isotopeContent)
                 // Add and lay out newly prepended items
                   .isotope('prepended', $isotopeContent);
 

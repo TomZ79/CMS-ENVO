@@ -1701,7 +1701,7 @@ if ($errors) { ?>
               </div>
               <div id="list_photo" class="row">
                 <div class="col-sm-12">
-                  <div id="gallery_envo0" class="gallery_envo">
+                  <div id="gallery_envo_0" class="gallery_envo">
 
                     <?php
 
@@ -1727,7 +1727,7 @@ if ($errors) { ?>
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery0" href="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" data-caption="' . ($imgarray["shortdescription"] ? $imgarray["shortdescription"] : "NO SHORT DESCRIPTION") . ($imgarray["description"] ? " - " . $imgarray["description"] : "") . '">
+                                      <a data-fancybox="gallery-0" href="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" data-caption="' . ($imgarray["shortdescription"] ? $imgarray["shortdescription"] : "NO SHORT DESCRIPTION") . ($imgarray["description"] ? " - " . $imgarray["description"] : "") . '">
                                         <button class="btn btn-info btn-xs btn-mini fs-14" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
                                          <i class="pg-image"></i>
                                         </button>
@@ -1787,7 +1787,7 @@ if ($errors) { ?>
                   </p>
                 </div>
                 <div class="col-sm-9">
-                  <div id="gallery_envo1" class="gallery_envo">
+                  <div id="gallery_envo_1" class="gallery_envo">
 
                     <?php
                     if (!empty($ENVO_FORM_DATA_IMG) && is_array($ENVO_FORM_DATA_IMG)) {
@@ -1806,7 +1806,7 @@ if ($errors) { ?>
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery1" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" data-caption="' . ($img["shortdescription"] ? $img["shortdescription"] : "NO SHORT DESCRIPTION") . ($img["description"] ? " - " . $img["description"] : "") . '">
+                                      <a data-fancybox="gallery-1" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" data-caption="' . ($img["shortdescription"] ? $img["shortdescription"] : "NO SHORT DESCRIPTION") . ($img["description"] ? " - " . $img["description"] : "") . '">
                                         <button class="btn btn-info btn-xs btn-mini fs-14" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
                                          <i class="pg-image"></i>
                                         </button>

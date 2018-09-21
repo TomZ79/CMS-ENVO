@@ -250,7 +250,7 @@ switch ($page1) {
             // EN: Setlocale
             $envodb -> query('SET lc_time_names = "' . $setting["locale"] . '"');
             // EN: Get 'timedefault'
-            $result = $envodb -> query('SELECT distinct(DATE_FORMAT(timedefault, "%Y - %M")) as d FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+            $result = $envodb -> query('SELECT distinct(DATE_FORMAT(timedefault, "%Y - %M")) as d FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY timedefault DESC');
             // EN: Get all photo by date for house
             while ($row = $result -> fetch_assoc()) {
 
