@@ -22,13 +22,13 @@ if ($page == 'cmshelp') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Code-prettify CSS
-  echo $Html->addStylesheet('assets/plugins/code-prettify-master/themes/atelier_sulphurpool_light/atelier-sulphurpool-light.min.css');
+  echo $Html -> addStylesheet('assets/plugins/code-prettify-master/themes/atelier_sulphurpool_light/atelier-sulphurpool-light.min.css');
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Code-prettify JS
-  echo $Html->addScript('assets/plugins/code-prettify-master/src/prettify.js');
+  echo $Html -> addScript('assets/plugins/code-prettify-master/src/prettify.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.cmshelp.min.js');
+  echo $Html -> addScript('assets/js/script.cmshelp.min.js');
 
   ?>
 
@@ -36,6 +36,21 @@ if ($page == 'cmshelp') {
     // Init Code-Prettify
     window.onload = (function () {
       prettyPrint();
+    });
+
+    $(document).ready(function () {
+
+      // Add class for content (important for scrollbar)
+      $('.content.full-height').css({
+        'display': 'flex',
+        'justify-content': 'space-between'
+      });
+
+      // Scrollbar initialization
+      $('.secondary-sidebar').scrollbar({
+        ignoreOverlay: false
+      });
+
     });
   </script>
 
@@ -52,12 +67,13 @@ echo PHP_EOL;
 <style>
   /*  */
   .inner-content {
-    margin-left: 300px;
+    width: 75%;
+    margin-left: 0;
   }
+
   /*  */
   .secondary-sidebar {
-    height: calc(100% - 60px) !important;
-    overflow-y: auto;
+    float: inherit;
     width: 300px !important;
   }
 
@@ -82,7 +98,7 @@ echo PHP_EOL;
 
   /* hide inactive submenu */
   .nav ul.sub-menu,
-  .nav ul.sub-menu ul.sub-menu-child{
+  .nav ul.sub-menu ul.sub-menu-child {
     display: block;
   }
 
@@ -97,17 +113,26 @@ echo PHP_EOL;
     margin-left: 20px;
   }
 
-  .secondary-sidebar .sub-menu li.active  .sub-menu-child li a {
+  .secondary-sidebar .sub-menu li.active .sub-menu-child li a {
     color: rgba(120, 129, 149, 0.5) !important;
   }
 
-  .secondary-sidebar .sub-menu li.active  .sub-menu-child li.active a {
+  .secondary-sidebar .sub-menu li.active .sub-menu-child li.active a {
     color: #FFF !important;
   }
 
-  .secondary-sidebar .sub-menu li.active  .sub-menu-child li a:hover {
+  .secondary-sidebar .sub-menu li.active .sub-menu-child li a:hover {
     color: #48B0F7 !important;
     background-color: transparent;
+  }
+
+  /* SCROLLBAR */
+  .scroll-wrapper > .scroll-element.scroll-y {
+    width: 7px;
+  }
+
+  .scroll-wrapper > .scroll-element.scroll-y .scroll-bar {
+    width: 7px;
   }
 
   /* TABLE */

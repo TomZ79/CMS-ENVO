@@ -85,7 +85,7 @@ echo $Html->addDoctype('html5');
     } ?>
 
   </head>
-<body class="fixed-header has-detached-right overlay-disabled">
+<body class="fixed-header has-detached-right overlay-disabled" data-spy="scroll">
   <!-- PACE PRELOADER -->
   <div id="pace" class="active"></div>
 <?php if ($ENVO_PROVED) { ?>

@@ -2167,7 +2167,7 @@
 
     if (!this.$sidebarMenu.length) return;
 
-    // apply perfectScrollbar plugin only for desktops
+    // Apply perfectScrollbar plugin only for desktops
     ($.Pages.getUserAgent() == 'desktop') && this.$sidebarMenu.scrollbar({
       ignoreOverlay: false,
       disableBodyScroll: (this.$element.data("disableBodyScroll") == true) ? true : false

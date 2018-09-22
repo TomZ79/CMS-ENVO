@@ -53,7 +53,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#elementsicons">
-              <span class="title">Icons</span>
+              <span class="title bold">Icons</span>
             </a>
             <ul class="sub-menu-child no-padding">
               <li class="nav-item"><a class="nav-link" href="#elementsenvoicons">Envo Icons</a></li>
@@ -67,7 +67,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#elementscreate">
-              <span class="title">Create HTML Element</span>
+              <span class="title bold">Create HTML Element</span>
             </a>
             <ul class="sub-menu-child no-padding">
               <li class="nav-item"><a class="nav-link" href="#elementscreate-doctype">DOCTYPE</a></li>
@@ -151,6 +151,21 @@
             <a class="nav-link" href="#pluginxmlseo">
               <span class="title">XML Seo</span>
             </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#csmadminfunc">
+          <span class="title bold">CMS Admin Function</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#csmadminfunc_settings">
+              <span class="title bold">Settings</span>
+            </a>
+            <ul class="sub-menu-child no-padding">
+              <li class="nav-item"><a class="nav-link" href="#csmadminfunc_settings_blockiprange">Block IP Range</a></li>
+            </ul>
           </li>
         </ul>
       </li>
@@ -413,6 +428,18 @@
           <li class="nav-item">
             <a class="nav-link" href="#phparray">
               <span class="title">PHP Array</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#frontendpages">
+          <span class="title bold">Fronted pages</span>
+        </a>
+        <ul class="sub-menu no-padding">
+          <li class="nav-item">
+            <a class="nav-link" href="#contentmg">
+              <span class="title">Content for Members/Guests</span>
             </a>
           </li>
         </ul>
@@ -2797,6 +2824,30 @@ $("a[href^='http']:not([href^=''])")
 
   </section>
 
+  <!-- CMS Admin Function -->
+  <section id="csmadminfunc" class="scrollspyoffset">
+    <h2 class="text-center">CMS Admin Function</h2>
+    <hr>
+
+  </section>
+
+  <!-- CMS Admin Function - Settings -->
+  <section id="csmadminfunc_settings" class="scrollspyoffset">
+    <h2 class="text-center">CMS Admin Function - Settings</h2>
+    <hr>
+
+  </section>
+
+  <!-- CMS Admin Function - Settings (Block IP Range) -->
+  <section id="csmadminfunc_settings_blockiprange" class="scrollspyoffset">
+    <h4>Block IP Range</h4>
+    <hr>
+    <p>This will block all IP's from 192.168.1.1 to 192.168.1.254. That should help you block people with ease that like to harm your website.</p>
+    <pre class="prettyprint linenums lang-php">
+192.168.1.0:255.255.255.0
+</pre>
+  </section>
+
   <!-- Hooks -->
   <section id="hooks" class="scrollspyoffset">
     <h2 class="text-center">Hooks</h2>
@@ -3551,12 +3602,52 @@ if (is_numeric(ENVO_BCONTENT1_IGRID_TPL)) {
     <hr>
     <h4 class="m-t-50">PHP Array - Output formatted array</h4>
     <hr>
-    <p></p>
+    <p>1. Long print array php code</p>
     <pre class="prettyprint linenums lang-php">
 // Output a formatted array
 print('&lt;pre&gt;' . var_export($ARRAY, TRUE) . '&lt;/pre&gt;');
 </pre>
+    <p>2. Short print array php function</p>
+    <pre class="prettyprint linenums lang-php">
+// Output a formatted array
+print_array($ARRAY);
+</pre>
 
+  </section>
+
+  <!-- Fronted pages -->
+  <section id="frontendpages" class="scrollspyoffset">
+    <h2 class="text-center">Fronted pages</h2>
+    <hr>
+
+  </section>
+
+  <!-- XXXX -->
+  <section id="contentmg" class="scrollspyoffset">
+    <h2 class="text-center">Content for Members/Guests</h2>
+    <hr>
+    <p>With CMS you can display content for members only, with a simple if statement you can display code only for guests or members.</p>
+    <pre class="prettyprint linenums lang-php">
+{{if notmembers}}
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Start Now it is Free&lt;/a&gt;
+{{endif}}
+{{if members}}
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Download Now&lt;/a&gt;
+{{endif}}
+</pre>
+    <p>Following line above will show content to the register page for guests and when the user is logged in it will show the link to the download area. Of course that is only an example you can place all content between the if statement.</p>
+    <h4 class="m-t-50">Guests only</h4>
+    <pre class="prettyprint linenums lang-php">
+{{if notmembers}}
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Start Now it is Free&lt;/a&gt;
+{{endif}}
+</pre>
+    <h4 class="m-t-50">Members only</h4>
+    <pre class="prettyprint linenums lang-php">
+{{if members}}
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Download Now&lt;/a&gt;
+{{endif}}
+</pre>
   </section>
 
   <!-- XXXX -->

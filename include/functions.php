@@ -5,15 +5,15 @@
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    03/2018
+ * @version 1.0.1
+ * @date    09/2018
  *
- * @param $aArray
+ * @param $Array
  */
-function print_array($aArray)
+function print_array($Array)
 {
   echo '<pre>';
-  print_r($aArray);
+  print_r($Array);
   echo '</pre>';
 }
 
