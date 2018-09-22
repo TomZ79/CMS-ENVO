@@ -60,19 +60,21 @@
 
 /* DL List */
 @media (min-width: 768px) {
-  .dl-horizontal dt {
-    width: 25%;
-    margin-top: 8px;
-  }
-
-  .dl-horizontal dd {
-    margin-left: 28%;
-    margin-top: 8px;
-  }
-
-  .dl-horizontal dt:first-child,
-  .dl-horizontal dd:first-child {
-    margin-top: 0;
+  .dl-horizontal {
+    dt {
+      width: 100%;
+      margin-top: 8px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    dd {
+      margin-left: 10%;
+      margin-top: 8px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
 
@@ -84,42 +86,35 @@
   position: relative;
   text-transform: lowercase !important;
   font-size: 12px !important;
-}
-
-.fancy-checkbox label {
-  position: relative;
-  top: -1px;
-  padding-left: 20px;
-  line-height: 21px;
-  cursor: pointer;
-}
-
-.fancy-checkbox input[type="checkbox"] {
-  display: none;
-}
-
-.fancy-checkbox .checked,
-.fancy-checkbox .unchecked {
-  position: absolute;
-  left: 2px;
-  top: 4px;
-}
-
-.fancy-checkbox .checked {
-  display: none;
-  font-size: 14px;
-}
-
-.fancy-checkbox .unchecked {
-  font-size: 14px;
-}
-
-.fancy-checkbox input[type="checkbox"]:checked ~ .checked {
-  display: inline-block;
-}
-
-.fancy-checkbox input[type="checkbox"]:checked ~ .unchecked {
-  display: none;
+  label {
+    position: relative;
+    top: -1px;
+    padding-left: 20px;
+    line-height: 21px;
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  .checked {
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    display: none;
+    font-size: 14px;
+  }
+  .unchecked {
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    font-size: 14px;
+  }
+  input[type="checkbox"]:checked ~ .checked {
+    display: inline-block;
+  }
+  input[type="checkbox"]:checked ~ .unchecked {
+    display: none;
+  }
 }
 
 /* 00. EDITOR

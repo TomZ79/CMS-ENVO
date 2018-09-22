@@ -4343,14 +4343,16 @@ div.mce-edit-area {
 /* DL List */
 @media (min-width: 768px) {
   .dl-horizontal dt {
-    width: 25%;
+    width: 100%;
     margin-top: 8px;
+  }
+  .dl-horizontal dt:first-child {
+    margin-top: 0;
   }
   .dl-horizontal dd {
-    margin-left: 28%;
+    margin-left: 10%;
     margin-top: 8px;
   }
-  .dl-horizontal dt:first-child,
   .dl-horizontal dd:first-child {
     margin-top: 0;
   }
@@ -4373,17 +4375,17 @@ div.mce-edit-area {
 .fancy-checkbox input[type="checkbox"] {
   display: none;
 }
-.fancy-checkbox .checked,
-.fancy-checkbox .unchecked {
+.fancy-checkbox .checked {
   position: absolute;
   left: 2px;
   top: 4px;
-}
-.fancy-checkbox .checked {
   display: none;
   font-size: 14px;
 }
 .fancy-checkbox .unchecked {
+  position: absolute;
+  left: 2px;
+  top: 4px;
   font-size: 14px;
 }
 .fancy-checkbox input[type="checkbox"]:checked ~ .checked {

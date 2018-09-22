@@ -6,20 +6,20 @@
     <div class="container-detached">
       <div class="content-detached">
         <!-- Version 1.2.1 -->
-        <div id="v_1_2_1" class="scrollspyoffset">
+        <div id="v_1_2_1" class="scrollspyoffset m-b-20">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h5 class="panel-title">Version 1.2.1</h5>
+              <h5 class="panel-title">Version Unreleased</h5>
               <div class="heading-elements">
-                <span class="text-muted heading-text">XX, 2017</span>
-                <span class="label heading-text">v1.2.1</span>
+                <span class="text-muted heading-text">2018</span>
+                <span class="label heading-text">Unreleased</span>
               </div>
             </div>
 
             <div class="panel-body">
-              <p class="content-group">Version 1.2.1 includes bug fixing for reported issues, new components and updated plugins/libraries to the latest stable versions. </p>
+              <p class="content-group">Version ncludes bug fixing for reported issues, new components and updated plugins/libraries to the latest stable versions. </p>
 
-              <pre class="prettyprint">
+              <pre class="">
 // # List of new components
 // ------------------------------
 
@@ -59,7 +59,7 @@
         <!-- /Version 1.2.1 -->
 
         <!-- Version 1.2 -->
-        <div id="v_1_2" class="scrollspyoffset">
+        <div id="v_1_2" class="scrollspyoffset m-b-20">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Version 1.2</h5>
@@ -72,7 +72,7 @@
             <div class="panel-body">
               <p class="content-group">Version 1.2 includes bug fixing for reported issues, new components and updated plugins/libraries to the latest stable versions. </p>
 
-              <pre class="prettyprint">
+              <pre class="">
 // # List of new components
 // ------------------------------
 
@@ -169,7 +169,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
         <!-- /Version 1.2 -->
 
         <!-- Version 1.1 -->
-        <div id="v_1_1" class="scrollspyoffset">
+        <div id="v_1_1" class="scrollspyoffset m-b-20">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Version 1.1</h5>
@@ -182,7 +182,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
             <div class="panel-body">
               <p class="content-group">First update is the most simplified and includes urgent bug fixes of core components, plugins and libraries. Also version 1.1 includes updates of some components to the latest stable versions. Below you can find general list of all changes and details about upgrading.</p>
 
-              <pre class="prettyprint">
+              <pre class="">
 // # List of new components
 // ------------------------------
 
@@ -214,7 +214,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
         <!-- /Version 1.1 -->
 
         <!-- Initial release -->
-        <div id="release" class="scrollspyoffset">
+        <div id="release" class="scrollspyoffset m-b-20">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Initial release</h5>
@@ -234,7 +234,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
         <!-- /Initial release -->
 
         <!-- Properties -->
-        <div id="properties" class="scrollspyoffset">
+        <div id="properties" class="scrollspyoffset m-b-20">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h5 class="panel-title">Admin Control Panel - Properties</h5>
@@ -242,7 +242,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 
             <div class="panel-body">
               <h4>Basic properties</h4>
-              <div class="well">
+              <div class="well padding-10">
                 <dl class="dl-horizontal">
                   <dt>Basic template - Pages</dt>
                   <dd>Pages is carefully well thought UI frame work that is built on top of Bootstrap 3, Its hand crafted components look great on all devices and works super fast even on mobile
@@ -252,7 +252,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
                 </dl>
               </div>
               <h4>Jquery plugins for Admin Control Panel</h4>
-              <div class="well">
+              <div class="well padding-10">
                 <dl class="dl-horizontal">
                   <dt>TinyMCE Editor</dt>
                   <dd>TinyMCE enables you to convert HTML textarea fields or other HTML elements to editor instances.
@@ -304,7 +304,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
                 </dl>
               </div>
               <h4>Other technology</h4>
-              <div class="well">
+              <div class="well padding-10">
                 <dl class="dl-horizontal">
                   <dt>FontAwesome</dt>
                   <dd>Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
@@ -365,8 +365,8 @@ http://99webtools.com/blog/php-simple-captcha-script/
                   <i class="icon-history float-right"></i> Version history
                 </li>
                 <li>
-                  <a href="#v_1_2_1">Version 1.2.1
-                    <span class="text-muted text-regular float-right">XX.XX.2017</span></a>
+                  <a href="#v_1_2_1">Unreleased
+                    <span class="text-muted text-regular float-right">2018</span></a>
                 </li>
                 <li>
                   <a href="#v_1_2">Version 1.2
