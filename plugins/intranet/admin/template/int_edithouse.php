@@ -1716,7 +1716,7 @@ if ($errors) { ?>
                         // Loop photos array
                         foreach ($subarray['photos'] as $imgarray) {
 
-                          echo '<div id="' . $imgarray["id"] . '" class="gallery-item-' . $imgarray["id"] . ' ' . $imgarray["category"] . '" data-width="1" data-height="1" style="float: left;margin: 10px;">';
+                          echo '<div id="' . $imgarray["id"] . '" class="gallery-item-' . $imgarray["id"] . ' ' . $imgarray["category"] . ' float-left" data-width="1" data-height="1" style="margin: 5px;">';
 
                           echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" alt=""></div>';
 
