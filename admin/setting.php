@@ -17,18 +17,18 @@ $envotable = DB_PREFIX . 'categories';
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
-$success = array();
+$success = array ();
 
 // EN: Get all the php Hook by name of Hook for setting top
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$getsettinghook = $envohooks->EnvoGethook("php_admin_setting");
+$getsettinghook = $envohooks -> EnvoGethook("php_admin_setting");
 if ($getsettinghook) foreach ($getsettinghook as $sh) {
   eval($sh['phpcode']);
 }
 
 // EN: Get all the php Hook by name of Hook for setting template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro nastavení šablony
-$ENVO_HOOK_ADMIN_SETTING_EDIT = $envohooks->EnvoGethook("tpl_admin_setting");
+$ENVO_HOOK_ADMIN_SETTING_EDIT = $envohooks -> EnvoGethook("tpl_admin_setting");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["btnSave"])) {
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // EN: Get all the php Hook by name of Hook for setting top
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $getsettingpost = $envohooks->EnvoGethook("php_admin_setting_post");
+    $getsettingpost = $envohooks -> EnvoGethook("php_admin_setting_post");
     if ($getsettingpost) foreach ($getsettingpost as $shp) {
       eval($shp['phpcode']);
     }
@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "email" THEN "' . smartsql($defaults['envo_email']) . '"
                   WHEN "sitehttps" THEN "' . smartsql($defaults['envo_shttp']) . '"
                   WHEN "lang" THEN "' . smartsql($defaults['envo_lang']) . '"
@@ -251,7 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      * CZ: Převod hodnot
      * smartsql - secure method to insert form data into a MySQL DB
     */
-    $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+    $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                 WHEN "smtp_or_mail" THEN "' . smartsql($defaults['envo_smpt']) . '"
                 WHEN "smtp_host" THEN "' . smartsql($defaults['envo_host']) . '"
                 WHEN "smtp_port" THEN "' . smartsql($defaults['envo_port']) . '"
@@ -282,26 +282,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $message = str_replace('%protocol%', 'SMTP', $message);
 
       try {
-        $mail->IsSMTP(); // telling the class to use SMTP
-        $mail->Host          = $setting["smtp_host"];
-        $mail->SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
-        $mail->SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
-        $mail->SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
-        $mail->Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
-        $mail->Username      = $setting["smtp_user"]; // SMTP account username
-        $mail->Password      = $setting["smtp_password"];        // SMTP account password
-        $mail->SetFrom($setting["email"], $setting["title"]);
-        $mail->AddReplyTo($setting["email"], $setting["title"]);
-        $mail->AddAddress($setting["email"], $setting["title"]);
-        $mail->AltBody = "SMTP Mail"; // optional, comment out and test
-        $mail->Subject = $tl["email_text_message"]["emailm2"];
-        $mail->MsgHTML(sprintf($tl["email_text_message"]["emailm3"], 'SMTP'));
-        $mail->Send();
+        $mail -> IsSMTP(); // telling the class to use SMTP
+        $mail -> Host          = $setting["smtp_host"];
+        $mail -> SMTPAuth      = ($setting["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+        $mail -> SMTPSecure    = $setting["smtp_prefix"]; // sets the prefix to the server
+        $mail -> SMTPKeepAlive = ($setting["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+        $mail -> Port          = $setting["smtp_port"]; // set the SMTP port for the GMAIL server
+        $mail -> Username      = $setting["smtp_user"]; // SMTP account username
+        $mail -> Password      = $setting["smtp_password"];        // SMTP account password
+        $mail -> SetFrom($setting["email"], $setting["title"]);
+        $mail -> AddReplyTo($setting["email"], $setting["title"]);
+        $mail -> AddAddress($setting["email"], $setting["title"]);
+        $mail -> AltBody = "SMTP Mail"; // optional, comment out and test
+        $mail -> Subject = $tl["email_text_message"]["emailm2"];
+        $mail -> MsgHTML(sprintf($tl["email_text_message"]["emailm3"], 'SMTP'));
+        $mail -> Send();
         $success['e'] = sprintf($tl["gs_message"]["gsm"], 'SMTP');
       } catch (phpmailerException $e) {
-        $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
+        $errors['e'] = $e -> errorMessage(); //Pretty error messages from PHPMailer
       } catch (Exception $e) {
-        $errors['e'] = $e->getMessage(); //Boring error messages from anything else!
+        $errors['e'] = $e -> getMessage(); //Boring error messages from anything else!
       }
 
     } else {
@@ -312,21 +312,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $message = str_replace('%protocol%', 'PHP Mail()', $message);
 
       try {
-        $mail->SetFrom($setting["email"], $setting["title"]);
-        $mail->AddReplyTo($setting["email"], $setting["title"]);
-        $mail->AddAddress($setting["email"], $setting["title"]);
+        $mail -> SetFrom($setting["email"], $setting["title"]);
+        $mail -> AddReplyTo($setting["email"], $setting["title"]);
+        $mail -> AddAddress($setting["email"], $setting["title"]);
         // Set the subject
-        $mail->Subject = $tl["email_text_message"]["emailm2"];
+        $mail -> Subject = $tl["email_text_message"]["emailm2"];
         //Set the message
-        $mail->MsgHTML($message);
-        $mail->AltBody = "PHP Mail()";
+        $mail -> MsgHTML($message);
+        $mail -> AltBody = "PHP Mail()";
         // Send the email
-        $mail->Send();
+        $mail -> Send();
         $success['e'] = sprintf($tl["gs_message"]["gsm"], 'PHP Mail()');
       } catch (phpmailerException $e) {
-        $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
+        $errors['e'] = $e -> errorMessage(); //Pretty error messages from PHPMailer
       } catch (Exception $e) {
-        $errors['e'] = $e->getMessage(); //Boring error messages from anything else!
+        $errors['e'] = $e -> getMessage(); //Boring error messages from anything else!
       }
 
     }

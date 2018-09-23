@@ -23,14 +23,14 @@ $envotable = DB_PREFIX . 'setting';
 // CZ: Importuj důležité nastavení pro šablonu z DB
 $templateurl = envo_get_setting('setting');
 
-$result = $envodb->query('SELECT value FROM ' . $envotable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
-$row    = $result->fetch_assoc();
+$result = $envodb -> query('SELECT value FROM ' . $envotable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
+$row    = $result -> fetch_assoc();
 
 $ENVO_FILE_SUCCESS = $ENVO_FILE_ERROR = $ENVO_FILEURL = $ENVO_FILECONTENT = "";
-$defaults         = $_POST;
+$defaults          = $_POST;
 
 // Show file in dir - original solution from Jakweb( show file only in main dir)
-function envo_get_template_files($directory, $exempt = array('.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache'), &$files = array())
+function envo_get_template_files($directory, $exempt = array ( '.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache' ), &$files = array ())
 {
   $handle = opendir($directory);
   while (FALSE !== ($resource = readdir($handle))) {
@@ -39,7 +39,7 @@ function envo_get_template_files($directory, $exempt = array('.', '..', '.ds_sto
         array_merge($files, envo_get_template_files($directory . $resource . '/', $exempt, $files));
       } else {
         if (is_writable($directory . '/' . $resource)) {
-          $files[] = array('path' => $directory . '/' . $resource, 'name' => $resource);
+          $files[] = array ( 'path' => $directory . '/' . $resource, 'name' => $resource );
         }
       }
     }
@@ -64,7 +64,7 @@ function getTemplateFiles($dir, $level, $rootLen)
 
   if ($handle = opendir($dir)) {
 
-    $allFiles = array();
+    $allFiles = array ();
 
     while (FALSE !== ($entry = readdir($handle))) {
       if ($entry != "." && $entry != "..") {
@@ -137,9 +137,9 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
-      $openfile        = fopen($defaults['envo_file_edit'], 'r');
-      $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
-      $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+      $openfile         = fopen($defaults['envo_file_edit'], 'r');
+      $filecontent      = @fread($openfile, filesize($defaults['envo_file_edit']));
+      $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
       $ENVO_FILECONTENT = $displaycontent;
       $ENVO_FILEURL     = $defaults['envo_file_edit'];
 
@@ -201,7 +201,7 @@ switch ($page1) {
 
     // EN: Set ACE Editor mode
     // CZ: Nastavení módu ACE Editoru
-    $_SESSION['acemode']='css';
+    $_SESSION['acemode'] = 'css';
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -213,9 +213,9 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
-      $openfile        = fopen($defaults['envo_file_edit'], 'r');
-      $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
-      $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+      $openfile         = fopen($defaults['envo_file_edit'], 'r');
+      $filecontent      = @fread($openfile, filesize($defaults['envo_file_edit']));
+      $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
       $ENVO_FILECONTENT = $displaycontent;
       $ENVO_FILEURL     = $defaults['envo_file_edit'];
 
@@ -273,7 +273,7 @@ switch ($page1) {
 
     // EN: Set ACE Editor mode
     // CZ: Nastavení módu ACE Editoru
-    $_SESSION['acemode']='ini';
+    $_SESSION['acemode'] = 'ini';
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -285,9 +285,9 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
-      $openfile        = fopen($defaults['envo_file_edit'], 'r');
-      $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
-      $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+      $openfile         = fopen($defaults['envo_file_edit'], 'r');
+      $filecontent      = @fread($openfile, filesize($defaults['envo_file_edit']));
+      $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
       $ENVO_FILECONTENT = $displaycontent;
       $ENVO_FILEURL     = $defaults['envo_file_edit'];
 
@@ -345,7 +345,7 @@ switch ($page1) {
 
     // EN: Set ACE Editor mode
     // CZ: Nastavení módu ACE Editoru
-    $_SESSION['acemode']='php';
+    $_SESSION['acemode'] = 'php';
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
@@ -355,7 +355,7 @@ switch ($page1) {
   case 'active':
     // ACTIVE TEMPLATE
 
-    $result = $envodb->query('UPDATE ' . $envotable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
+    $result = $envodb -> query('UPDATE ' . $envotable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
 
     if (!$result) {
       // EN: Redirect page
@@ -387,7 +387,7 @@ switch ($page1) {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "sitestyle" THEN "' . smartsql($defaults['btnSave']) . '"
                 END
                 WHERE varname IN ("sitestyle")');

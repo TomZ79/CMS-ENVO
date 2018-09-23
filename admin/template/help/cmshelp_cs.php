@@ -3,7 +3,7 @@
 <!-- START SECONDARY SIDEBAR MENU-->
 <nav class="secondary-sidebar">
   <div class="list-group padding-20">
-    <ul class="nav navbar-nav main-menu">
+    <ul id="navigation" class="nav navbar-nav main-menu">
       <li class="nav-item">
         <a class="nav-link active" href="#introduction">
           <span class="title bold">Úvod do CMS</span>

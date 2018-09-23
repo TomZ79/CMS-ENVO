@@ -29,7 +29,7 @@ $ENVO_SETTING = envo_get_setting('module');
 $ENVO_SETTING_VAL = envo_get_setting_val('module');
 
 // Get all the hooks out the class file
-$ENVO_HOOK_LOCATIONS = ENVO_hooks::EnvoAllhooks();
+$ENVO_HOOK_LOCATIONS = ENVO_hooks ::EnvoAllhooks();
 
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
@@ -69,7 +69,7 @@ switch ($page1) {
              * CZ: Převod hodnot
              * smartsql - secure method to insert form data into a MySQL DB
             */
-            $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
+            $result = $envodb -> query('INSERT INTO ' . $envotable2 . ' SET
                   name = "' . smartsql($defaults['envo_name']) . '",
                   hook_name = "' . smartsql($defaults['envo_hook']) . '",
                   phpcode = "' . smartsql($defaults['envo_phpcode']) . '",
@@ -78,7 +78,7 @@ switch ($page1) {
                   time = NOW(),
                   active = 1');
 
-            $rowid = $envodb->envo_last_id();
+            $rowid = $envodb -> envo_last_id();
 
             if (!$result) {
               // EN: Redirect page
@@ -140,7 +140,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET
+              $result = $envodb -> query('UPDATE ' . $envotable2 . ' SET
                         name = "' . smartsql($defaults['envo_name']) . '",
                         hook_name = "' . smartsql($defaults['envo_hook']) . '",
                         phpcode = "' . smartsql($defaults['envo_phpcode']) . '",
@@ -189,7 +189,7 @@ switch ($page1) {
         $pageID = $page3;
 
         if (envo_row_exist($pageID, $envotable2)) {
-          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
         }
 
         // EN: Redirect page
@@ -208,7 +208,7 @@ switch ($page1) {
 
           if ($pageID >= 5) {
 
-            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+            $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
 
 
             // EN: Redirect page
@@ -233,8 +233,8 @@ switch ($page1) {
         }
 
         // SQL Query
-        $result = $envodb->query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page3) . '" ORDER BY exorder ASC');
-        while ($row = $result->fetch_assoc()) {
+        $result = $envodb -> query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page3) . '" ORDER BY exorder ASC');
+        while ($row = $result -> fetch_assoc()) {
           $ENVO_HOOKS[] = $row;
         }
 
@@ -268,7 +268,7 @@ switch ($page1) {
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
 
-              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . $locked . '');
+              $result = $envodb -> query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . $locked . '');
             }
 
 
@@ -293,7 +293,7 @@ switch ($page1) {
 
               if ($deleted >= 5) {
 
-                $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($deleted) . '"');
+                $result = $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($deleted) . '"');
               }
 
             }
@@ -317,8 +317,8 @@ switch ($page1) {
         if ($getTotal != 0) {
 
           // SQL Query
-          $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks ORDER BY exorder ASC ');
-          while ($row = $result->fetch_assoc()) {
+          $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks ORDER BY exorder ASC ');
+          while ($row = $result -> fetch_assoc()) {
             $plhooks[] = $row;
           }
 
@@ -352,9 +352,9 @@ switch ($page1) {
         $pageID = $page2;
 
         if (envo_row_exist($pageID, $envotable1)) {
-          $envodb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
-          $envodb->query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($pageID) . '"');
-          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($pageID) . '"');
         }
 
         // EN: Redirect page
@@ -385,7 +385,7 @@ switch ($page1) {
             }
 
             // Update in one query
-            $result1a = $envodb->query('UPDATE ' . $envotable1 . ' SET access = CASE id
+            $result1a = $envodb -> query('UPDATE ' . $envotable1 . ' SET access = CASE id
 		 			    	' . $updatesqla . '
 		 			    	END
 		 			    	WHERE id IN (' . $realid . ')');
@@ -393,7 +393,7 @@ switch ($page1) {
             if ($result1a) {
 
               // and finaly update the setting table
-              $result1 = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+              $result1 = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 		 							WHEN "accessgeneral" THEN "' . smartsql($defaults['envo_generala']) . '"
 		 						    WHEN "accessmanage" THEN "' . smartsql($defaults['envo_managea']) . '"
 		 						END

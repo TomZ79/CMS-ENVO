@@ -13,7 +13,7 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
-$success = array();
+$success = array ();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
@@ -66,10 +66,10 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      $result = $envodb->query('SELECT title,pathoriginal,paththumb FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
-      $row    = $result->fetch_assoc();
+      $result = $envodb -> query('SELECT title,pathoriginal,paththumb FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      $row    = $result -> fetch_assoc();
 
-      $result1 = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      $result1 = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
       if (!$result1) {
         // EN: Redirect page

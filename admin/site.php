@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      * CZ: Převod hodnot
      * smartsql - secure method to insert form data into a MySQL DB
     */
-    $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+    $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                 WHEN "offline" THEN ' . $defaults['envo_online'] . '
                 WHEN "offline_page" THEN "' . smartsql($defaults['envo_offpage']) . '"
                 WHEN "notfound_page" THEN "' . smartsql($defaults['envo_pagenotfound']) . '"

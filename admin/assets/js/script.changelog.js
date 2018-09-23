@@ -17,11 +17,6 @@
 
 $(function () {
 
-  $('body').scrollspy({
-    target: '.sidebar-scroll',
-    offset: 70
-  });
-
   /* Resize sidebar on scroll
    ========================================= */
   // Resize detached sidebar vertically when bottom reached

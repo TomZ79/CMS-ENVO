@@ -26,20 +26,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Execute Optinos
   if (isset($defaults['download'])) {
 
-    $dbimpexp->addValue('download_path', '')->addValue('download', TRUE)->addValue('file_name', ENVO_base::envoCleanurl($setting["title"]) . '-' . date("y_m_d", time()) . '.xml')->export();
+    $dbimpexp -> addValue('download_path', '') -> addValue('download', TRUE) -> addValue('file_name', ENVO_base ::envoCleanurl($setting["title"]) . '-' . date("y_m_d", time()) . '.xml') -> export();
   }
 
   if (isset($defaults['import'])) {
 
     $xmlfiledb = $_FILES['uploaddb']['tmp_name'];
 
-    $filename     = $_FILES['uploaddb']['name']; // original filename
-    $tmpf         = explode(".", $filename);
+    $filename      = $_FILES['uploaddb']['name']; // original filename
+    $tmpf          = explode(".", $filename);
     $envo_xtension = end($tmpf);
 
     if ($xmlfiledb && $envo_xtension == "xml") {
 
-      $dbimpexp->addValue('import_path', $xmlfiledb)->import();
+      $dbimpexp -> addValue('import_path', $xmlfiledb) -> import();
 
       $success['s'] = $tl['general_error']['generror51'] . '<br>';
       $success      = $success;
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (isset($defaults['optimize'])) {
 
-    $dbimpexp->optimize();
+    $dbimpexp -> optimize();
 
     $success['s'] = $tl['general_error']['generror52'] . '<br>';
     $success      = $success;

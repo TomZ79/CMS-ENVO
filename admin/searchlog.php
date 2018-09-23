@@ -26,7 +26,7 @@ switch ($page1) {
   case 'delete':
     // LIST OF SEARCHLOGS - DELETE SEARCHLOGS FROM DB
 
-    $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+    $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
     if (!$result) {
       // EN: Redirect page
@@ -46,7 +46,7 @@ switch ($page1) {
   case 'truncate':
     // LIST OF SEARCHLOGS - TRUNCATE ALL SEARCHLOGS
 
-    $result = $envodb->query('TRUNCATE ' . $envotable);
+    $result = $envodb -> query('TRUNCATE ' . $envotable);
 
     if (!$result) {
       // EN: Redirect page
@@ -79,7 +79,7 @@ switch ($page1) {
         for ($i = 0; $i < count($deleteuser); $i++) {
           $deleted = $deleteuser[$i];
 
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+          $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
 
         }
 
@@ -106,16 +106,16 @@ switch ($page1) {
     $getTotal = envo_get_total($envotable, '', '', '');
     if ($getTotal != 0) {
       // Paginator
-      $pages                 = new ENVO_paginator;
-      $pages->items_total    = $getTotal;
-      $pages->mid_range      = $setting["adminpagemid"];
-      $pages->items_per_page = $setting["adminpageitem"];
-      $pages->envo_get_page   = $page1;
-      $pages->envo_where      = 'index.php?p=searchlog';
-      $pages->paginate();
-      $ENVO_PAGINATE = $pages->display_pages();
+      $pages                   = new ENVO_paginator;
+      $pages -> items_total    = $getTotal;
+      $pages -> mid_range      = $setting["adminpagemid"];
+      $pages -> items_per_page = $setting["adminpageitem"];
+      $pages -> envo_get_page  = $page1;
+      $pages -> envo_where     = 'index.php?p=searchlog';
+      $pages -> paginate();
+      $ENVO_PAGINATE = $pages -> display_pages();
 
-      $ENVO_SEARCHLOG_ALL = envo_get_page_info($envotable, $pages->limit, '');
+      $ENVO_SEARCHLOG_ALL = envo_get_page_info($envotable, $pages -> limit, '');
     }
 
     // EN: Title and Description

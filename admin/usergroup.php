@@ -25,11 +25,11 @@ $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
 // EN: Get all the php Hook by name of Hook for the template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
-$ENVO_HOOK_ADMIN_USERGROUP_EDIT = $envohooks->EnvoGethook("tpl_admin_usergroup_edit");
+$ENVO_HOOK_ADMIN_USERGROUP_EDIT = $envohooks -> EnvoGethook("tpl_admin_usergroup_edit");
 
 // EN: Get all the php Hook by name of Hook for the new template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro novou šablonu
-$ENVO_HOOK_ADMIN_USERGROUP = $envohooks->EnvoGethook("tpl_admin_usergroup");
+$ENVO_HOOK_ADMIN_USERGROUP = $envohooks -> EnvoGethook("tpl_admin_usergroup");
 
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
@@ -69,7 +69,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook for 'index top'
           // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-          $getinserthook = $envohooks->EnvoGethook("php_admin_usergroup");
+          $getinserthook = $envohooks -> EnvoGethook("php_admin_usergroup");
           if ($getinserthook)
             foreach ($getinserthook as $it) {
               eval($it['phpcode']);
@@ -84,13 +84,13 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
+          $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                     name = "' . smartsql($defaults['envo_name']) . '",
                     description = "' . smartsql($defaults['envo_lcontent']) . '",
                     advsearch = "' . smartsql($defaults['envo_advs']) . '",
-                    ' . $insert );
+                    ' . $insert);
 
-          $rowid = $envodb->envo_last_id();
+          $rowid = $envodb -> envo_last_id();
 
           if (!$result) {
             // EN: Redirect page
@@ -137,7 +137,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook for 'index top'
           // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-          $getinserthook = $envohooks->EnvoGethook("php_admin_usergroup");
+          $getinserthook = $envohooks -> EnvoGethook("php_admin_usergroup");
           if ($getinserthook)
             foreach ($getinserthook as $it) {
               eval($it['phpcode']);
@@ -152,7 +152,7 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET
+          $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                           name = "' . smartsql($defaults['envo_name']) . '",
                           description = "' . smartsql($defaults['envo_lcontent']) . '",
                           advsearch = "' . smartsql($defaults['envo_advs']) . '",
@@ -200,16 +200,16 @@ switch ($page1) {
       $getTotal = envo_get_total($envotable1, $page2, 'usergroupid', '');
       if ($getTotal != 0) {
         // Paginator
-        $pages                 = new ENVO_paginator;
-        $pages->items_total    = $getTotal;
-        $pages->mid_range      = $setting["adminpagemid"];
-        $pages->items_per_page = $setting["adminpageitem"];
-        $pages->envo_get_page   = $page3;
-        $pages->envo_where      = 'index.php?p=usergroup&sp=user&ssp=' . $page2;
-        $pages->paginate();
-        $ENVO_PAGINATE = $pages->display_pages();
+        $pages                   = new ENVO_paginator;
+        $pages -> items_total    = $getTotal;
+        $pages -> mid_range      = $setting["adminpagemid"];
+        $pages -> items_per_page = $setting["adminpageitem"];
+        $pages -> envo_get_page  = $page3;
+        $pages -> envo_where     = 'index.php?p=usergroup&sp=user&ssp=' . $page2;
+        $pages -> paginate();
+        $ENVO_PAGINATE = $pages -> display_pages();
       }
-      $ENVO_USER_ALL = envo_get_user_all('user', $pages->limit, $page2);
+      $ENVO_USER_ALL = envo_get_user_all('user', $pages -> limit, $page2);
 
       // EN: Title and Description
       // CZ: Titulek a Popis
@@ -229,7 +229,7 @@ switch ($page1) {
   case 'delete':
     if ($page2 > 4) {
 
-      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
       if (!$result) {
         // EN: Redirect page
@@ -262,14 +262,14 @@ switch ($page1) {
 
       if (isset($defaults['delete'])) {
 
-        $deleteuser   = $defaults['envo_delete_usergroup'];
+        $deleteuser = $defaults['envo_delete_usergroup'];
         $grouparray = explode(',', '1,2,3,4');
 
         for ($i = 0; $i < count($deleteuser); $i++) {
           $deleted = $deleteuser[$i];
 
           if (!in_array($deleted, $grouparray)) {
-            $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+            $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
           }
         }
 

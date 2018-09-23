@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    * CZ: Převod hodnot
    * smartsql - secure method to insert form data into a MySQL DB
   */
-  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+  $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
               WHEN "searchtitle" THEN "' . smartsql($defaults['envo_title']) . '"
               WHEN "searchdesc" THEN "' . smartsql($defaults['envo_lcontent']) . '"
               WHEN "searchform" THEN ' . $defaults['envo_search'] . '
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $whatid = 0;
         if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-        $envodb->query('INSERT INTO ' . $envotable . ' SET plugin = 999999, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+        $envodb -> query('INSERT INTO ' . $envotable . ' SET plugin = 999999, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
       }
 
@@ -70,11 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
     // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-    $row = $envodb->queryRow('SELECT id FROM ' . $envotable . ' WHERE plugin = 999999 AND hookid != 0');
+    $row = $envodb -> queryRow('SELECT id FROM ' . $envotable . ' WHERE plugin = 999999 AND hookid != 0');
 
     // We have something to delete
     if ($row["id"]) {
-      $envodb->query('DELETE FROM ' . $envotable . ' WHERE plugin = 999999 AND hookid != 0');
+      $envodb -> query('DELETE FROM ' . $envotable . ' WHERE plugin = 999999 AND hookid != 0');
     }
 
   }
@@ -90,27 +90,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($doith as $key => $exorder) {
 
       // Get the real what id
-      $result = $envodb->query('SELECT pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
-      $row    = $result->fetch_assoc();
+      $result = $envodb -> query('SELECT pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+      $row    = $result -> fetch_assoc();
 
       $whatid = 0;
       if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
       if (in_array($key, $defaults['envo_hookshow'])) {
-        $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+        $updatesql  .= sprintf("WHEN %d THEN %d ", $key, $exorder);
         $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
       } else {
-        $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $key);
+        $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = ' . $key);
       }
     }
 
-    $envodb->query('UPDATE ' . $envotable . ' SET orderid = CASE id
+    $envodb -> query('UPDATE ' . $envotable . ' SET orderid = CASE id
 			' . $updatesql . '
 			END
 			WHERE id IN (' . $hookrealid . ')');
 
-    $envodb->query('UPDATE ' . $envotable . ' SET whatid = CASE id
+    $envodb -> query('UPDATE ' . $envotable . ' SET whatid = CASE id
 			' . $updatesql1 . '
 			END
 			WHERE id IN (' . $hookrealid . ')');
@@ -124,12 +124,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($defaults['envo_fullsearch']) {
 
       // SQL Queries
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD FULLTEXT(`title`, `content`)');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD FULLTEXT(`title`, `content`)');
+      $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages ADD FULLTEXT(`title`, `content`)');
+      $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news ADD FULLTEXT(`title`, `content`)');
 
       // EN: Get all the php Hook by name of Hook for full text queries
       // CZ: Načtení všech php dat z Hook podle jména Hook pro textové dotazy
-      $mft = $envohooks->EnvoGethook("php_admin_fulltext_add");
+      $mft = $envohooks -> EnvoGethook("php_admin_fulltext_add");
       if ($mft) foreach ($mft as $m) {
         eval($m['phpcode']);
       }
@@ -137,12 +137,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
 
       // SQL Queries
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP INDEX `title`');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP INDEX `title`');
+      $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages DROP INDEX `title`');
+      $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news DROP INDEX `title`');
 
       // EN: Get all the php Hook by name of Hook for full text queries
       // CZ: Načtení všech php dat z Hook podle jména Hook pro textové dotazy
-      $mftr = $envohooks->EnvoGethook("php_admin_fulltext_remove");
+      $mftr = $envohooks -> EnvoGethook("php_admin_fulltext_remove");
       if ($mftr) foreach ($mftr as $mr) {
         eval($mr['phpcode']);
       }
@@ -162,23 +162,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Get the sort orders for the grid
-$grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable . ' WHERE plugin = 999999 ORDER BY orderid ASC');
-while ($grow = $grid->fetch_assoc()) {
+$grid = $envodb -> query('SELECT id, hookid, whatid, orderid FROM ' . $envotable . ' WHERE plugin = 999999 ORDER BY orderid ASC');
+while ($grow = $grid -> fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
   $ENVO_PAGE_GRID[] = $grow;
 }
 
 // Get the sidebar templates
-$result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
-while ($row = $result->fetch_assoc()) {
+$result = $envodb -> query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+while ($row = $result -> fetch_assoc()) {
   $ENVO_HOOKS[] = $row;
 }
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$ENVO_FORM_DATA = array();
-$hookpagei     = $envohooks->EnvoGethook("php_admin_pages_news_info");
+$ENVO_FORM_DATA = array ();
+$hookpagei      = $envohooks -> EnvoGethook("php_admin_pages_news_info");
 if ($hookpagei) {
   foreach ($hookpagei as $hpagi) {
     eval($hpagi['phpcode']);

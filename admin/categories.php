@@ -81,7 +81,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                   name = "' . smartsql($defaults['envo_name']) . '",
                   varname = "' . smartsql($defaults['envo_varname']) . '",
                   exturl = "' . smartsql($defaults['envo_url']) . '",
@@ -94,7 +94,7 @@ switch ($page1) {
                   permission = "' . smartsql($permission) . '",
                   catorder = 2');
 
-        $rowid = $envodb->envo_last_id();
+        $rowid = $envodb -> envo_last_id();
 
         if (!$result) {
           // EN: Redirect page
@@ -173,7 +173,7 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET
+          $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         name = "' . smartsql($defaults['envo_name']) . '",
                         varname = "' . smartsql($defaults['envo_varname']) . '",
                         exturl = "' . smartsql($defaults['envo_url']) . '",
@@ -234,21 +234,21 @@ switch ($page1) {
 
       // EN: If exist page for category, move page to Archiv
       // CZ: Pokud existuje stránka ke kategorii, přesuneme stránku do Archivu
-      $resultpages = $envodb->query('SELECT id FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($pageID) . '" LIMIT 1');
-      $rowpages    = $resultpages->fetch_assoc();
+      $resultpages = $envodb -> query('SELECT id FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($pageID) . '" LIMIT 1');
+      $rowpages    = $resultpages -> fetch_assoc();
       if ($rowpages) {
-        $resultpages = $envodb->query('UPDATE ' . $envotable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
+        $resultpages = $envodb -> query('UPDATE ' . $envotable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
       }
 
       //
-      $result = $envodb->query('SELECT catparent, pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
-      $row    = $result->fetch_assoc();
+      $result = $envodb -> query('SELECT catparent, pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+      $row    = $result -> fetch_assoc();
 
       if ($row['pluginid'] == 0) {
 
         // EN: Delete category from DB
         // CZ: Smažeme kategorii v DB
-        $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
+        $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
         if (!$result) {
           // EN: Redirect page
@@ -293,7 +293,7 @@ switch ($page1) {
 
         if (!is_numeric($v)) $v = 0;
 
-        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'categories SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
+        $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'categories SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
 
         $count++;
 
@@ -303,7 +303,7 @@ switch ($page1) {
         /* Outputtng the success messages */
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
           header('Cache-Control: no-cache');
-          die(json_encode(array('status' => 'success', 'html' => $tl["notification"]["n7"])));
+          die(json_encode(array ( 'status' => 'success', 'html' => $tl["notification"]["n7"] )));
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
@@ -314,7 +314,7 @@ switch ($page1) {
         /* Outputtng the success messages */
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
           header('Cache-Control: no-cache');
-          die(json_encode(array('status' => 'error', 'html'=> $tl["general_error"]["generror1"])));
+          die(json_encode(array ( 'status' => 'error', 'html' => $tl["general_error"]["generror1"] )));
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
@@ -326,14 +326,14 @@ switch ($page1) {
 
     // EN: Build the menu
     // CZ: Vytvoření menu
-    $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 1 OR (showmenu = 1 && showfooter = 1) ORDER BY catparent, catorder, name');
+    $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 1 OR (showmenu = 1 && showfooter = 1) ORDER BY catparent, catorder, name');
     // Create a multidimensional array to conatin a list of items and parents
-    $mheader = array(
-      'items'   => array(),
-      'parents' => array()
+    $mheader = array (
+      'items'   => array (),
+      'parents' => array ()
     );
     // Builds the array lists with data from the menu table
-    while ($items = $result->fetch_assoc()) {
+    while ($items = $result -> fetch_assoc()) {
       // Creates entry into items array with current menu item id ie. $menu['items'][1]
       $mheader['items'][$items['id']] = $items;
       // Creates entry into parents array. Parents array contains a list of all items with children
@@ -347,14 +347,14 @@ switch ($page1) {
     }
 
     // Get the menu
-    $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE showfooter = 1 ORDER BY catparent, catorder, name');
+    $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE showfooter = 1 ORDER BY catparent, catorder, name');
     // Create a multidimensional array to conatin a list of items and parents
-    $mfooter = array(
-      'items'   => array(),
-      'parents' => array()
+    $mfooter = array (
+      'items'   => array (),
+      'parents' => array ()
     );
     // Builds the array lists with data from the menu table
-    while ($items = $result->fetch_assoc()) {
+    while ($items = $result -> fetch_assoc()) {
       // Creates entry into items array with current menu item id ie. $menu['items'][1]
       $mfooter['items'][$items['id']] = $items;
       // Creates entry into parents array. Parents array contains a list of all items with children
@@ -369,8 +369,8 @@ switch ($page1) {
 
     // Get the menu
     $ucatblank = "";
-    $result    = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
-    while ($catblank = $result->fetch_assoc()) {
+    $result    = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
+    while ($catblank = $result -> fetch_assoc()) {
 
       // Creates entry into items array with current menu item id ie. $menu['items'][1]
       $catnotvisible['items'][$catblank['id']] = $catblank;

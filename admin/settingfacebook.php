@@ -13,7 +13,7 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
-$success = array();
+$success = array ();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    * CZ: Převod hodnot
    * smartsql - secure method to insert form data into a MySQL DB
   */
-  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+  $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
               WHEN "facebookconnect" THEN "' . smartsql($defaults['envo_facebookconnect']) . '"
             END
               WHERE varname IN ("facebookconnect")');
@@ -91,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Open Facebook name file
 if (file_exists(APP_PATH . $facebookNameFile)) {
-  $openfile        = fopen(APP_PATH . $facebookNameFile, 'r');
-  $filecontent     = @fread($openfile, filesize(APP_PATH . $facebookNameFile));
-  $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+  $openfile         = fopen(APP_PATH . $facebookNameFile, 'r');
+  $filecontent      = @fread($openfile, filesize(APP_PATH . $facebookNameFile));
+  $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
   $ENVO_FILECONTENT = $displaycontent;
   $ENVO_FILEURL     = '/' . $facebookNameFile;
 
@@ -104,9 +104,9 @@ if (file_exists(APP_PATH . $facebookNameFile)) {
 
 // Open Facebook description file
 if (file_exists(APP_PATH . $facebookDescFile)) {
-  $openfile         = fopen(APP_PATH . $facebookDescFile, 'r');
-  $filecontent      = @fread($openfile, filesize(APP_PATH . $facebookDescFile));
-  $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+  $openfile          = fopen(APP_PATH . $facebookDescFile, 'r');
+  $filecontent       = @fread($openfile, filesize(APP_PATH . $facebookDescFile));
+  $displaycontent    = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
   $ENVO_FILECONTENT1 = $displaycontent;
   $ENVO_FILEURL1     = '/' . $facebookDescFile;
 
@@ -122,7 +122,7 @@ $SECTION_DESC  = $tl["fb_sec_desc"]["fbd"];
 
 // EN: Set ACE Editor mode
 // CZ: Nastavení módu ACE Editoru
-$_SESSION['acemode']='plain_text';
+$_SESSION['acemode'] = 'plain_text';
 
 // EN: Load the php template
 // CZ: Načtení php template (šablony)

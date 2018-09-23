@@ -6,7 +6,7 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSNEWS)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESSNEWS)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -21,8 +21,8 @@ $insert = FALSE;
 
 // EN: Get all the php Hook by name of Hook for the template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
-$ENVO_HOOK_ADMIN_PAGE     = $envohooks->EnvoGethook("tpl_admin_page_news");
-$ENVO_HOOK_ADMIN_PAGE_NEW = $envohooks->EnvoGethook("tpl_admin_page_news_new");
+$ENVO_HOOK_ADMIN_PAGE     = $envohooks -> EnvoGethook("tpl_admin_page_news");
+$ENVO_HOOK_ADMIN_PAGE_NEW = $envohooks -> EnvoGethook("tpl_admin_page_news_new");
 
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
@@ -97,7 +97,7 @@ switch ($page1) {
 
         // EN: Get all the php Hook by name of Hook
         // CZ: Načtení všech php dat z Hook podle jména Hook
-        $hooknews = $envohooks->EnvoGethook("php_admin_news_sql");
+        $hooknews = $envohooks -> EnvoGethook("php_admin_news_sql");
         if ($hooknews) {
           foreach ($hooknews as $hne) {
             eval($hne['phpcode']);
@@ -110,7 +110,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                   title = "' . smartsql($defaults['envo_title']) . '",
                   content = "' . smartsql($defaults['envo_content']) . '",
                   news_css = "' . smartsql($defaults['envo_css']) . '",
@@ -126,7 +126,7 @@ switch ($page1) {
                   ' . $insert . '
                   active = 1');
 
-        $rowid = $envodb->envo_last_id();
+        $rowid = $envodb -> envo_last_id();
 
         // Save order for extra stuff
         $exorder  = $defaults['corder_new'];
@@ -136,7 +136,7 @@ switch ($page1) {
 
         foreach ($doit as $key => $exorder) {
 
-          $envodb->query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $rowid . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
+          $envodb -> query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $rowid . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
 
         }
 
@@ -156,7 +156,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $envodb->query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $rowid . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
+              $envodb -> query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $rowid . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
 
             }
 
@@ -173,9 +173,9 @@ switch ($page1) {
           // Create Tags if the module is active
           if (!empty($defaults['envo_tags'])) {
             // check if tag does not exist and insert in cloud
-            ENVO_tags::envoBuildCloud($defaults['envo_tags'], $rowid, 1);
+            ENVO_tags ::envoBuildCloud($defaults['envo_tags'], $rowid, 1);
             // insert tag for normal use
-            ENVO_tags::envoInserTags($defaults['envo_tags'], $rowid, 1, 1);
+            ENVO_tags ::envoInserTags($defaults['envo_tags'], $rowid, 1, 1);
 
 
           }
@@ -191,14 +191,14 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
-    while ($row = $result->fetch_assoc()) {
+    $result = $envodb -> query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    while ($row = $result -> fetch_assoc()) {
       $ENVO_HOOKS[] = $row;
     }
 
     // Get active sidebar widgets
-    $grid = $envodb->query('SELECT hookid FROM ' . $envotable1 . ' WHERE plugin = 1 ORDER BY orderid ASC');
-    while ($grow = $grid->fetch_assoc()) {
+    $grid = $envodb -> query('SELECT hookid FROM ' . $envotable1 . ' WHERE plugin = 1 ORDER BY orderid ASC');
+    while ($grow = $grid -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $ENVO_ACTIVE_GRID[] = $grow;
@@ -206,8 +206,8 @@ switch ($page1) {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $ENVO_FORM_DATA = array();
-    $hookpagei     = $envohooks->EnvoGethook("php_admin_pages_news_info");
+    $ENVO_FORM_DATA = array ();
+    $hookpagei      = $envohooks -> EnvoGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
         eval($hpagi['phpcode']);
@@ -248,7 +248,7 @@ switch ($page1) {
           for ($i = 0; $i < count($tags); $i++) {
             $tag = $tags[$i];
 
-            ENVO_tags::envoDeleteOneTag($tag);
+            ENVO_tags ::envoDeleteOneTag($tag);
 
           }
 
@@ -256,7 +256,7 @@ switch ($page1) {
 
         // Delete the hits
         if (!empty($defaults['envo_delete_hits'])) {
-          $envodb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($pageID) . '"');
         }
 
         if (empty($defaults['envo_title'])) {
@@ -316,7 +316,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook
           // CZ: Načtení všech php dat z Hook podle jména Hook
-          $hooknews = $envohooks->EnvoGethook("php_admin_news_sql");
+          $hooknews = $envohooks -> EnvoGethook("php_admin_news_sql");
           if ($hooknews) {
             foreach ($hooknews as $hne) {
               eval($hne['phpcode']);
@@ -329,7 +329,7 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET
+          $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         title = "' . smartsql($defaults['envo_title']) . '",
                         content = "' . smartsql($defaults['envo_content']) . '",
                         news_css = "' . smartsql($defaults['envo_css']) . '",
@@ -352,7 +352,7 @@ switch ($page1) {
 
             foreach ($doit as $key => $exorder) {
 
-              $envodb->query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $pageID . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
+              $envodb -> query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $pageID . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
 
             }
 
@@ -375,7 +375,7 @@ switch ($page1) {
                 $whatid = 0;
                 if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-                $envodb->query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $pageID . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
+                $envodb -> query('INSERT INTO ' . $envotable1 . ' SET newsid = "' . $pageID . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
 
               }
 
@@ -393,7 +393,7 @@ switch ($page1) {
             $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
           }
 
-          $envodb->query('UPDATE ' . $envotable1 . ' SET orderid = CASE id
+          $envodb -> query('UPDATE ' . $envotable1 . ' SET orderid = CASE id
 			' . $updatesql . '
 			END
 			WHERE id IN (' . $realid . ')');
@@ -401,11 +401,11 @@ switch ($page1) {
           if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
             // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-            $row = $envodb->queryRow('SELECT id FROM ' . $envotable1 . ' WHERE newsid = "' . smartsql($pageID) . '" AND hookid != 0');
+            $row = $envodb -> queryRow('SELECT id FROM ' . $envotable1 . ' WHERE newsid = "' . smartsql($pageID) . '" AND hookid != 0');
 
             // We have something to delete
             if ($row["id"]) {
-              $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE newsid = "' . smartsql($pageID) . '" AND hookid != 0');
+              $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE newsid = "' . smartsql($pageID) . '" AND hookid != 0');
             }
 
           }
@@ -425,28 +425,28 @@ switch ($page1) {
             foreach ($doith as $key => $exorder) {
 
               // Get the real what id
-              $result = $envodb->query('SELECT pluginid FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
-              $row    = $result->fetch_assoc();
+              $result = $envodb -> query('SELECT pluginid FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+              $row    = $result -> fetch_assoc();
 
               // Get the whatid
               $whatid = 0;
               if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
               if (in_array($key, $defaults['envo_hookshow'])) {
-                $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+                $updatesql  .= sprintf("WHEN %d THEN %d ", $key, $exorder);
                 $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
               } else {
-                $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '"');
+                $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '"');
               }
             }
 
-            $envodb->query('UPDATE ' . $envotable1 . ' SET orderid = CASE id
+            $envodb -> query('UPDATE ' . $envotable1 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-            $envodb->query('UPDATE ' . $envotable1 . ' SET whatid = CASE id
+            $envodb -> query('UPDATE ' . $envotable1 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -472,9 +472,9 @@ switch ($page1) {
             // Create Tags if the module is active
             if (!empty($defaults['envo_tags'])) {
               // check if tag does not exist and insert in cloud
-              ENVO_tags::envoBuildCloud($defaults['envo_tags'], smartsql($pageID), 1);
+              ENVO_tags ::envoBuildCloud($defaults['envo_tags'], smartsql($pageID), 1);
               // insert tag for normal use
-              ENVO_tags::envoInserTags($defaults['envo_tags'], smartsql($pageID), 1, $tagactive);
+              ENVO_tags ::envoInserTags($defaults['envo_tags'], smartsql($pageID), 1, $tagactive);
 
             }
 
@@ -493,22 +493,22 @@ switch ($page1) {
       if (ENVO_TAGS) $ENVO_TAGLIST = envo_get_tags($pageID, 1);
 
       // Get the sort orders for the grid
-      $grid = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable1 . ' WHERE newsid = "' . smartsql($pageID) . '" ORDER BY orderid ASC');
-      while ($grow = $grid->fetch_assoc()) {
+      $grid = $envodb -> query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable1 . ' WHERE newsid = "' . smartsql($pageID) . '" ORDER BY orderid ASC');
+      while ($grow = $grid -> fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $ENVO_PAGE_GRID[] = $grow;
       }
 
       // Get the sidebar templates
-      $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
-      while ($row = $result->fetch_assoc()) {
+      $result = $envodb -> query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+      while ($row = $result -> fetch_assoc()) {
         $ENVO_HOOKS[] = $row;
       }
 
       // EN: Get all the php Hook by name of Hook
       // CZ: Načtení všech php dat z Hook podle jména Hook
-      $hookpagei = $envohooks->EnvoGethook("php_admin_pages_news_info");
+      $hookpagei = $envohooks -> EnvoGethook("php_admin_pages_news_info");
       if ($hookpagei) {
         foreach ($hookpagei as $hpagi) {
           eval($hpagi['phpcode']);
@@ -542,9 +542,9 @@ switch ($page1) {
 
     if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
-      $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
+      $result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
 
-      ENVO_tags::envoLockTags($pageID, 1);
+      ENVO_tags ::envoLockTags($pageID, 1);
 
       if (!$result) {
         // EN: Redirect page
@@ -571,14 +571,14 @@ switch ($page1) {
 
     if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
-      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
+      $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
       if (!$result) {
         // EN: Redirect page
         // CZ: Přesměrování stránky s notifikací - chybné
         envo_redirect(BASE_URL . 'index.php?p=news&status=e');
       } else {
-        ENVO_tags::envoDeleteTags($pageID, 1);
+        ENVO_tags ::envoDeleteTags($pageID, 1);
 
         // EN: Redirect page
         // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -622,7 +622,7 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET
+          $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         title = "' . smartsql($defaults['envo_title']) . '",
                         content = "' . smartsql($defaults['envo_lcontent']) . '"
                         WHERE id = "' . smartsql($pageID) . '"');
@@ -692,7 +692,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "newstitle" THEN "' . smartsql($defaults['envo_title']) . '"
                     WHEN "newsdesc" THEN "' . smartsql($defaults['envo_lcontent']) . '"
                     WHEN "newsorder" THEN "' . $newsorder . '"
@@ -722,7 +722,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $envodb->query('INSERT INTO ' . $envotable1 . ' SET plugin = 1, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+              $envodb -> query('INSERT INTO ' . $envotable1 . ' SET plugin = 1, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
             }
 
@@ -734,11 +734,11 @@ switch ($page1) {
         if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
           // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-          $row = $envodb->queryRow('SELECT id FROM ' . $envotable1 . ' WHERE plugin = 1 AND hookid != 0');
+          $row = $envodb -> queryRow('SELECT id FROM ' . $envotable1 . ' WHERE plugin = 1 AND hookid != 0');
 
           // We have something to delete
           if ($row["id"]) {
-            $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE plugin = 1 AND hookid != 0');
+            $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE plugin = 1 AND hookid != 0');
           }
 
         }
@@ -758,27 +758,27 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $row = $envodb->queryRow('SELECT pluginid FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+            $row = $envodb -> queryRow('SELECT pluginid FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
 
             // Get the whatid
             $whatid = 0;
             if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
             if (in_array($key, $defaults['envo_hookshow'])) {
-              $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+              $updatesql  .= sprintf("WHEN %d THEN %d ", $key, $exorder);
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
             } else {
-              $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '"');
+              $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($key) . '"');
             }
           }
 
-          $envodb->query('UPDATE ' . $envotable1 . ' SET orderid = CASE id
+          $envodb -> query('UPDATE ' . $envotable1 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-          $envodb->query('UPDATE ' . $envotable1 . ' SET whatid = CASE id
+          $envodb -> query('UPDATE ' . $envotable1 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -802,23 +802,23 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable1 . ' WHERE plugin = 1 ORDER BY orderid ASC');
-    while ($grow = $grid->fetch_assoc()) {
+    $grid = $envodb -> query('SELECT id, hookid, whatid, orderid FROM ' . $envotable1 . ' WHERE plugin = 1 ORDER BY orderid ASC');
+    while ($grow = $grid -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $ENVO_PAGE_GRID[] = $grow;
     }
 
     // Get the sidebar templates
-    $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
-    while ($row = $result->fetch_assoc()) {
+    $result = $envodb -> query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    while ($row = $result -> fetch_assoc()) {
       $ENVO_HOOKS[] = $row;
     }
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $ENVO_FORM_DATA = array();
-    $hookpagei     = $envohooks->EnvoGethook("php_admin_pages_news_info");
+    $ENVO_FORM_DATA = array ();
+    $hookpagei      = $envohooks -> EnvoGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
         eval($hpagi['phpcode']);
@@ -861,7 +861,7 @@ switch ($page1) {
           $locked = $lockuser[$i];
 
           // Delete the pics associated with the Nivo Slider
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+          $result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
         }
 
         if (!$result) {
@@ -883,7 +883,7 @@ switch ($page1) {
         for ($i = 0; $i < count($deleteuser); $i++) {
           $deleted = $deleteuser[$i];
 
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+          $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
         }
 
         if (!$result) {
@@ -910,17 +910,17 @@ switch ($page1) {
     if ($getTotal != 0) {
 
       // Paginator
-      $pages                 = new ENVO_paginator;
-      $pages->items_total    = $getTotal;
-      $pages->mid_range      = $setting["adminpagemid"];
-      $pages->items_per_page = $setting["adminpageitem"];
-      $pages->envo_get_page   = $page1;
-      $pages->envo_where      = 'index.php?p=news';
-      $pages->paginate();
-      $ENVO_PAGINATE = $pages->display_pages();
+      $pages                   = new ENVO_paginator;
+      $pages -> items_total    = $getTotal;
+      $pages -> mid_range      = $setting["adminpagemid"];
+      $pages -> items_per_page = $setting["adminpageitem"];
+      $pages -> envo_get_page  = $page1;
+      $pages -> envo_where     = 'index.php?p=news';
+      $pages -> paginate();
+      $ENVO_PAGINATE = $pages -> display_pages();
 
       // Call the news with paginate
-      $ENVO_NEWS = envo_get_news_info($pages->limit);
+      $ENVO_NEWS = envo_get_news_info($pages -> limit);
     }
 
     // EN: Title and Description

@@ -30,7 +30,7 @@ switch ($page1) {
     // CZ: Hlavní proměnné
     $pageID = $page2;
 
-    $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
+    $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
     if (!$result) {
       // EN: Redirect page
@@ -50,7 +50,7 @@ switch ($page1) {
   case 'truncate':
     // LIST OF LOGS - TRUNCATE ALL LOGS
 
-    $result = $envodb->query('TRUNCATE ' . $envotable);
+    $result = $envodb -> query('TRUNCATE ' . $envotable);
 
     if (!$result) {
       // EN: Redirect page
@@ -82,7 +82,7 @@ switch ($page1) {
 
         for ($i = 0; $i < count($deleteuser); $i++) {
           $deleted = $deleteuser[$i];
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+          $result  = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
 
         }
 

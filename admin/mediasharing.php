@@ -10,7 +10,7 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
-$success = array();
+$success = array ();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "md_facebook" THEN "' . smartsql($defaults['envo_md_facebook']) . '"
                     WHEN "md_googleplus" THEN "' . smartsql($defaults['envo_md_googleplus']) . '"
                     WHEN "md_instagram" THEN "' . smartsql($defaults['envo_md_instagram']) . '"
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $errors      = $errors;
     }
 
-  }  else {
+  } else {
     // EN: If no button pressed
     // CZ: Pokud nebylo stisknuto žádné tlačítko
 

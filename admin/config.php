@@ -16,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 define('BASE_URL_ADMIN', BASE_URL);
 define('BASE_URL_ORIG', str_replace('/admin/', '/', BASE_URL));
 define('BASE_PATH_ORIG', str_replace('/admin', '/', _APP_MAIN_DIR));
-define('ROOT_ADMIN', __DIR__ .'/');
+define('ROOT_ADMIN', __DIR__ . '/');
 
 // EN: Include some functions for the ADMIN Area
 // CZ: Vložení funkcí pro Administrační rozhraní
@@ -24,12 +24,12 @@ include_once ROOT_ADMIN . 'include/admin.function.php';
 
 // Overwrite url for admin
 // We are not using apache so take the ugly urls
-$temppa  = $getURL->envoGetsegAdmin(0);
-$temppa1 = $getURL->envoGetsegAdmin(1);
-$temppa2 = $getURL->envoGetsegAdmin(2);
-$temppa3 = $getURL->envoGetsegAdmin(3);
-$temppa4 = $getURL->envoGetsegAdmin(4);
-$temppa5 = $getURL->envoGetsegAdmin(5);
-$temppa6 = $getURL->envoGetsegAdmin(6);
+$temppa  = $getURL -> envoGetsegAdmin(0);
+$temppa1 = $getURL -> envoGetsegAdmin(1);
+$temppa2 = $getURL -> envoGetsegAdmin(2);
+$temppa3 = $getURL -> envoGetsegAdmin(3);
+$temppa4 = $getURL -> envoGetsegAdmin(4);
+$temppa5 = $getURL -> envoGetsegAdmin(5);
+$temppa6 = $getURL -> envoGetsegAdmin(6);
 
 ?>
