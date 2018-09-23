@@ -19,7 +19,7 @@ $page5 = ($tempp5 ? envo_url_input_filter($tempp5) : '');
 $page6 = ($tempp6 ? envo_url_input_filter($tempp6) : '');
 
 // Only the SuperAdmin in the config file see everything
-if (ENVO_USERID && $envouser->envoSuperAdminAccess(ENVO_USERID)) {
+if (ENVO_USERID && $envouser -> envoSuperAdminAccess(ENVO_USERID)) {
   define('ENVO_SUPERADMINACCESS', TRUE);
 } else {
   define('ENVO_SUPERADMINACCESS', FALSE);
@@ -38,19 +38,19 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 define('ENVO_PAGINATE_ADMIN', 0);
 
 // Parse stuff we use more then once
-define('ENVO_PARSE_ERROR', html_entity_decode(ENVO_rewrite::envoParseurl('error', 'mysql')));
-define('ENVO_PARSE_SUCCESS', html_entity_decode(ENVO_rewrite::envoParseurl('success')));
+define('ENVO_PARSE_ERROR', html_entity_decode(ENVO_rewrite ::envoParseurl('error', 'mysql')));
+define('ENVO_PARSE_SUCCESS', html_entity_decode(ENVO_rewrite ::envoParseurl('success')));
 
 // EN: Get the language file from the Hook by  name of Hook
 // CZ: Načtení jazykového souboru z Hook podle jména Hook
-$hooklang = $envohooks->EnvoGethook("php_lang");
+$hooklang = $envohooks -> EnvoGethook("php_lang");
 if ($hooklang) foreach ($hooklang as $hlang) {
   eval($hlang['phpcode']);
 }
 
 // EN: Get all the php Hook by name of Hook for 'index top'
 // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-$indexhook = $envohooks->EnvoGethook("php_index_top");
+$indexhook = $envohooks -> EnvoGethook("php_index_top");
 if ($indexhook) {
   foreach ($indexhook as $it) {
     eval($it['phpcode']);
@@ -59,29 +59,29 @@ if ($indexhook) {
 
 // EN: Get all data from the Hook by name of Hook
 // CZ: Načtení všech dat z Hook podle jména Hook
-$ENVO_HOOK_HEAD_TOP      = $envohooks->EnvoGethook("tpl_between_head");
-$ENVO_HOOK_BODY_TOP      = $envohooks->EnvoGethook("tpl_body_top");
-$ENVO_HOOK_HEADER        = $envohooks->EnvoGethook("tpl_header");
-$ENVO_HOOK_BELOW_HEADER  = $envohooks->EnvoGethook("tpl_below_header");
-$ENVO_HOOK_PAGE          = $envohooks->EnvoGethook("tpl_page");
-$ENVO_HOOK_SIDEBAR       = $envohooks->EnvoGethook("tpl_sidebar");
-$ENVO_HOOK_BELOW_FOOTER = $envohooks->EnvoGethook("tpl_below_footer");
-$ENVO_HOOK_FOOTER        = $envohooks->EnvoGethook("tpl_footer");
-$ENVO_HOOK_FOOTER_WIDGET = $envohooks->EnvoGethook("tpl_footer_widgets");
-$ENVO_HOOK_FOOTER_END    = $envohooks->EnvoGethook("tpl_footer_end");
+$ENVO_HOOK_HEAD_TOP      = $envohooks -> EnvoGethook("tpl_between_head");
+$ENVO_HOOK_BODY_TOP      = $envohooks -> EnvoGethook("tpl_body_top");
+$ENVO_HOOK_HEADER        = $envohooks -> EnvoGethook("tpl_header");
+$ENVO_HOOK_BELOW_HEADER  = $envohooks -> EnvoGethook("tpl_below_header");
+$ENVO_HOOK_PAGE          = $envohooks -> EnvoGethook("tpl_page");
+$ENVO_HOOK_SIDEBAR       = $envohooks -> EnvoGethook("tpl_sidebar");
+$ENVO_HOOK_BELOW_FOOTER  = $envohooks -> EnvoGethook("tpl_below_footer");
+$ENVO_HOOK_FOOTER        = $envohooks -> EnvoGethook("tpl_footer");
+$ENVO_HOOK_FOOTER_WIDGET = $envohooks -> EnvoGethook("tpl_footer_widgets");
+$ENVO_HOOK_FOOTER_END    = $envohooks -> EnvoGethook("tpl_footer_end");
 
 // Define the avatarpath in the settings
 define('ENVO_USERRPATH_BASE', BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles');
 
 // User is logged in #else not
 if (ENVO_USERID) {
-  define('ENVO_USERGROUPID', $envouser->getVar("usergroupid"));
-  $ENVO_USERNAME_LINK = strtolower($envouser->getVar("username"));
-  $ENVO_USERNAME      = $envouser->getVar("username");
-  $P_USR_LOGOUT       = ENVO_rewrite::envoParseurl('logout', '', '', '', '');
+  define('ENVO_USERGROUPID', $envouser -> getVar("usergroupid"));
+  $ENVO_USERNAME_LINK = strtolower($envouser -> getVar("username"));
+  $ENVO_USERNAME      = $envouser -> getVar("username");
+  $P_USR_LOGOUT       = ENVO_rewrite ::envoParseurl('logout', '', '', '', '');
 
   // does the user have admin access
-  if ($envouser->envoAdminAccess($envouser->getVar("usergroupid"))) {
+  if ($envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) {
     define('ENVO_ASACCESS', TRUE);
   } else {
     define('ENVO_ASACCESS', FALSE);
@@ -97,7 +97,7 @@ if (ENVO_USERID) {
 $ENVO_PAGINATE = $SHOWDATE = $apedit = $qapedit = $printme = $keylist = $seop = $seo = $seoc = $ENVO_HEADER_CSS = $ENVO_SEARCH_LINK = $ENVO_ADD_MENU_SB = $ENVO_HOOK_SIDE_GRID = $ENVO_UFORM_EXTRA = $PAGE_TITLE = $PAGE_CONTENT = $PAGE_KEYWORDS = $PAGE_DESCRIPTION = $P_RSS_LINK = $ENVO_TPL_PLUG_T = $ENVO_TPL_PLUG_URL = FALSE;
 
 // Errors, Seo
-$errors = $seokeywords = $usraccesspl = array();
+$errors = $seokeywords = $usraccesspl = array ();
 
 // RSS
 $ENVO_RSS_DISPLAY = 0;
@@ -121,24 +121,24 @@ if ($setting["robots"] == 0) {
 }
 
 // Get all the active categories available in the db
-$envocategories = ENVO_base::envoGetallcategories();
+$envocategories = ENVO_base ::envoGetallcategories();
 
 // Let's check if News are active
-define('ENVO_NEWS_ACTIVE', $envoplugins->getPHPcodeid(1, "active"));
+define('ENVO_NEWS_ACTIVE', $envoplugins -> getPHPcodeid(1, "active"));
 
 // Now check if tags/ads are active, this is global, if you don't use tags, you will safe a lot of queries
-define('ENVO_TAGS', $envoplugins->getPHPcodeid(3, "active"));
+define('ENVO_TAGS', $envoplugins -> getPHPcodeid(3, "active"));
 // if Tags are active
 if (ENVO_TAGS) {
   // Get the tag before all others, because of the url
-  define('ENVO_USER_TAGS', $envousergroup->getVar("tags"));
+  define('ENVO_USER_TAGS', $envousergroup -> getVar("tags"));
 } else {
   // Get the tag before all others, because of the url
   define('ENVO_USER_TAGS', 0);
 }
 
 // User can use search and use tags
-define('ENVO_USER_SEARCH', $envousergroup->getVar("advsearch"));
+define('ENVO_USER_SEARCH', $envousergroup -> getVar("advsearch"));
 
 
 /* =====================================================
@@ -238,26 +238,26 @@ foreach ($envocategories as $ca) {
   if (!empty($ca['pluginid'])) {
 
     // Get the array first so we can use it in the plugins
-    if ($envousergroup->getVar($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $envoplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
-      $usraccesspl[] = $envoplugins->getPHPcodeid($ca['pluginid'], "id");
+    if ($envousergroup -> getVar($envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
+      $usraccesspl[] = $envoplugins -> getPHPcodeid($ca['pluginid'], "id");
     }
 
-    $plugName = strtoupper($envoplugins->getPHPcodeid($ca['pluginid'], "name"));
+    $plugName = strtoupper($envoplugins -> getPHPcodeid($ca['pluginid'], "name"));
 
     // Define the varname for further use
     define('ENVO_PLUGIN_VAR_' . $plugName, $ca['pagename']);
 
     // Define the id for further use
-    define('ENVO_PLUGIN_ID_' . $plugName, $envoplugins->getPHPcodeid($ca['pluginid'], "id"));
+    define('ENVO_PLUGIN_ID_' . $plugName, $envoplugins -> getPHPcodeid($ca['pluginid'], "id"));
 
     // Define the name for further use
     define('ENVO_PLUGIN_NAME_' . $plugName, $ca['name']);
 
     // Define the access for further use
-    if ($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
-      define('ENVO_PLUGIN_ACCESS_' . $plugName, $envoplugins->getPHPcodeid($ca['pluginid'], "usergroup"));
+    if ($envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
+      define('ENVO_PLUGIN_ACCESS_' . $plugName, $envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup"));
     } else {
-      define('ENVO_PLUGIN_ACCESS_' . $plugName, $envousergroup->getVar($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup")));
+      define('ENVO_PLUGIN_ACCESS_' . $plugName, $envousergroup -> getVar($envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup")));
     }
 
   }
@@ -266,8 +266,8 @@ foreach ($envocategories as $ca) {
 // Get the PLUGIN categories available in the db
 // Plugin Register Form
 if (defined(ENVO_TEMPLATE) && is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
-  $result        = $envodb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . ENVO_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
-  $PLUGIN_RF_CAT = $result->fetch_assoc();
+  $result        = $envodb -> query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . ENVO_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
+  $PLUGIN_RF_CAT = $result -> fetch_assoc();
 }
 
 // Set the check page to 0
@@ -286,7 +286,7 @@ foreach ($envocategories as $ca) {
       } elseif ($ca['pageid'] > 0) {
         $pageid = $ca['pageid'];
       } else {
-        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
       }
 
       // Include the page php file
@@ -296,19 +296,19 @@ foreach ($envocategories as $ca) {
       // Get the rss if active
       if ($setting["rss"]) {
         $ENVO_RSS_DISPLAY = 1;
-        $P_RSS_LINK       = ENVO_rewrite::envoParseurl('rss.xml', '', '', '', '');
+        $P_RSS_LINK       = ENVO_rewrite ::envoParseurl('rss.xml', '', '', '', '');
       }
       break;
     }
   }
 
   // Call the plugins if page is not the one
-  if ($ca['pluginid'] > 0 && ($envousergroup->getVar($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $envoplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1)) {
+  if ($ca['pluginid'] > 0 && ($envousergroup -> getVar($envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $envoplugins -> getPHPcodeid($ca['pluginid'], "usergroup") == 1)) {
 
     if ((!$page && $ca['catorder'] == 1 && $ca['showmenu'] == 1) || ($page == $ca['pagename'])) {
 
       // include the php site
-      eval($envoplugins->getPHPcodeid($ca['pluginid'], "phpcode"));
+      eval($envoplugins -> getPHPcodeid($ca['pluginid'], "phpcode"));
 
       // Page exist please go on
       $ENVO_CHECK_PAGE = 1;
@@ -345,8 +345,8 @@ if ($page == 'logout') {
     envo_redirect(BASE_URL);
   }
   if (ENVO_USERID) {
-    $envouserlogin->envoLogout(ENVO_USERID);
-    $usergroupid = $envouser->getVar("usergroupid");
+    $envouserlogin -> envoLogout(ENVO_USERID);
+    $usergroupid = $envouser -> getVar("usergroupid");
     // EN: Add info message to session
     // CZ: Přidání info zprávy do session
     $_SESSION["infomsg"] = $tl["notification"]["n4"];
@@ -365,7 +365,7 @@ if ($page == 'search') {
   */
 
   // Get the url session
-  $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl('search');
+  $_SESSION['envo_lastURL'] = ENVO_rewrite ::envoParseurl('search');
   require_once 'search.php';
   $PAGE_SHOWTITLE  = 1;
   $ENVO_CHECK_PAGE = 1;
@@ -430,10 +430,10 @@ if ($page == 'offline') {
 // CZ: 'Forgot-password' stránka
 if ($page == 'forgot-password') {
 
-  if (ENVO_USERID || !is_numeric($page1) || !$envouserlogin->envoForgotActive($page1)) envo_redirect(BASE_URL);
+  if (ENVO_USERID || !is_numeric($page1) || !$envouserlogin -> envoForgotActive($page1)) envo_redirect(BASE_URL);
 
   // Check the forgot code
-  $row = $envodb->queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
+  $row = $envodb -> queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
 
   $password  = envo_password_creator();
   $passcrypt = hash_hmac('sha256', $password, DB_PASS_HASH);
@@ -444,7 +444,7 @@ if ($page == 'forgot-password') {
    * CZ: Převod hodnot
    * smartsql - secure method to insert form data into a MySQL DB
   */
-  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'user SET
+  $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'user SET
    		password = "' . smartsql($passcrypt) . '"
    		WHERE id = "' . smartsql($row["id"]) . '"');
 
@@ -459,13 +459,13 @@ if ($page == 'forgot-password') {
     $body = sprintf($tl['email_text']['emailm'], $row["name"], $password, $setting["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
-    $mail->SetFrom($setting["email"], $setting["title"]);
-    $mail->AddAddress($row["email"], $row["name"]);
-    $mail->Subject = $setting["title"] . ' - ' . $tl['email_text']['emailm1'];
-    $mail->MsgHTML($body);
-    $mail->AltBody = strip_tags($body);
+    $mail -> SetFrom($setting["email"], $setting["title"]);
+    $mail -> AddAddress($row["email"], $row["name"]);
+    $mail -> Subject = $setting["title"] . ' - ' . $tl['email_text']['emailm1'];
+    $mail -> MsgHTML($body);
+    $mail -> AltBody = strip_tags($body);
 
-    if ($mail->Send()) {
+    if ($mail -> Send()) {
       $_SESSION["infomsg"] = $tl["email_text"]["emailm2"];
       envo_redirect(BASE_URL);
     }
@@ -480,7 +480,7 @@ if ($page == 'forgot-password') {
  *  PHP HOOKs for INDEX PAGE - PHP HOOK pro INDEX PAGE
  * ===================================================== */
 // Get the php hook for index page
-$hookip = $envohooks->EnvoGethook("php_index_page");
+$hookip = $envohooks -> EnvoGethook("php_index_page");
 if ($hookip) foreach ($hookip as $hip) {
   eval($hip['phpcode']);
 }
@@ -490,17 +490,17 @@ if ($hookip) foreach ($hookip as $hip) {
 if ($ENVO_CHECK_PAGE == 0) {
   http_response_code(404);
   /* Redirect browser to page 404 */
-  echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' . ENVO_rewrite::envoParseurl('404', '', '', '', '') . '">';
+  echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' . ENVO_rewrite ::envoParseurl('404', '', '', '', '') . '">';
   exit();
 }
 
 // Get the categories with usergroup rights
-$ENVO_CAT_SITE = ENVO_base::envoCatdisplay(ENVO_USERGROUPID, $usraccesspl, $envocategories);
+$ENVO_CAT_SITE = ENVO_base ::envoCatdisplay(ENVO_USERGROUPID, $usraccesspl, $envocategories);
 
 // Get the header navigation
-$mheader = array(
-  'items'   => array(),
-  'parents' => array()
+$mheader = array (
+  'items'   => array (),
+  'parents' => array ()
 );
 // Builds the array lists with data from the menu table
 foreach ($ENVO_CAT_SITE as $items) {
@@ -514,9 +514,9 @@ foreach ($ENVO_CAT_SITE as $items) {
 }
 
 // Get the footer navigation
-$mfooter = array(
-  'items'   => array(),
-  'parents' => array()
+$mfooter = array (
+  'items'   => array (),
+  'parents' => array ()
 );
 
 // Builds the array lists with data from the menu table
@@ -536,14 +536,14 @@ if (ENVO_NEWS_ACTIVE && $newsloadonce && $setting["shownews"]) {
 }
 
 // We have tags
-if (ENVO_TAGS) $ENVO_GET_TAG_CLOUD = ENVO_tags::envoGettagcloud(ENVO_PLUGIN_VAR_TAGS, 'tagcloud', $setting["taglimit"], $setting["tagmaxfont"], $setting["tagminfont"], $tl["title_element"]["tel"]);
+if (ENVO_TAGS) $ENVO_GET_TAG_CLOUD = ENVO_tags ::envoGettagcloud(ENVO_PLUGIN_VAR_TAGS, 'tagcloud', $setting["taglimit"], $setting["tagmaxfont"], $setting["tagminfont"], $tl["title_element"]["tel"]);
 
 // SEARCH, NEWS and Mobile/Web LINK
-$P_SEAERCH_LINK = ENVO_rewrite::envoParseurl('search', '', '', '', '');
-if (ENVO_NEWS_ACTIVE) $P_NEWS_LINK = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWS, '', '', '', '');
+$P_SEAERCH_LINK = ENVO_rewrite ::envoParseurl('search', '', '', '', '');
+if (ENVO_NEWS_ACTIVE) $P_NEWS_LINK = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_NEWS, '', '', '', '');
 
 // Get the php hook for index bottom
-$hookib = $envohooks->EnvoGethook("php_index_bottom");
+$hookib = $envohooks -> EnvoGethook("php_index_bottom");
 if ($hookib) foreach ($hookib as $hib) {
   eval($hib['phpcode']);
 }
@@ -582,6 +582,6 @@ unset($_SESSION["rf_msg_sent"]);
 
 // EN: Finally close all db connections
 // CZ: Uzavření spojení do databáze
-$envodb->envo_close();
+$envodb -> envo_close();
 
 ?>

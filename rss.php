@@ -11,7 +11,7 @@ $envotable1 = 'categories';
 
 // reset urlsep
 $urlsep     = FALSE;
-$specialurl = array();
+$specialurl = array ();
 
 // Now do the dirty work!
 if (empty($page1)) {
@@ -26,7 +26,7 @@ if (empty($page1)) {
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$hookrss = $envohooks->EnvoGethook("php_rss");
+$hookrss = $envohooks -> EnvoGethook("php_rss");
 if ($hookrss) {
   foreach ($hookrss as $hrss) {
     eval($hrss["phpcode"]);
@@ -35,8 +35,8 @@ if ($hookrss) {
 
 if (!empty($sql)) {
 
-  $result = $envodb->query($sql);
-  while ($row = $result->fetch_assoc()) {
+  $result = $envodb -> query($sql);
+  while ($row = $result -> fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];
     $PAGE_CONTENT = $row['content'];
@@ -61,11 +61,11 @@ if (!empty($sql)) {
 
     // get the new seo title in here, where it works!
     if ($seowhat) {
-      $seo = ENVO_base::envoCleanurl($PAGE_TITLE);
+      $seo = ENVO_base ::envoCleanurl($PAGE_TITLE);
     }
 
     if (isset($sURL) && !empty($sURL) && !is_array($urlsep)) {
-      $parseurl = ENVO_rewrite::envoParseurl($sURL, $sURL1, $whatweask, $seo, '');
+      $parseurl = ENVO_rewrite ::envoParseurl($sURL, $sURL1, $whatweask, $seo, '');
     } elseif (is_array($urlsep)) {
       $slurl      = FALSE;
       $specialurl = FALSE;
@@ -73,20 +73,20 @@ if (!empty($sql)) {
         if (is_numeric($r)) {
           $specialurl[] = $row[$r];
         } else {
-          $specialurl[] = ENVO_base::envoCleanurl($row[$r]);
+          $specialurl[] = ENVO_base ::envoCleanurl($row[$r]);
         }
       }
 
       if ($specialurl) $slurl = join("-", $specialurl);
 
-      $parseurl = ENVO_rewrite::envoParseurl($sURL, $slurl, '', '', '');
+      $parseurl = ENVO_rewrite ::envoParseurl($sURL, $slurl, '', '', '');
     } else {
-      $parseurl = ENVO_rewrite::envoParseurl($whatweask, '', '', '', '');
+      $parseurl = ENVO_rewrite ::envoParseurl($whatweask, '', '', '', '');
     }
 
     $parseurl = str_replace("//", "/", BASE_URL . $parseurl);
 
-    $ENVO_GET_RSS_ITEM[] = array('link' => $parseurl, 'title' => $Name, 'description' => trim($getStripedT), 'created' => date("r", strtotime($row['time'])));
+    $ENVO_GET_RSS_ITEM[] = array ( 'link' => $parseurl, 'title' => $Name, 'description' => trim($getStripedT), 'created' => date("r", strtotime($row['time'])) );
   }
 
   $ENVO_RSS_TITLE = $setting["title"] . ' - RSS';

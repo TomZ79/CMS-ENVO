@@ -31,7 +31,7 @@ define("URL_SEPARATOR", '/');         // Value '/'
 define("US", URL_SEPARATOR);          // Value '/'
 define("DS", DIRECTORY_SEPARATOR);    // Value '/'
 define("PS", PATH_SEPARATOR);         // Value ':'
-define('ROOT', __DIR__ .'/');
+define('ROOT', __DIR__ . '/');
 
 // EN: Setting of absolute path
 // CZ: Nastavení absolutní cesty
@@ -54,7 +54,7 @@ require_once 'class/class.db.php';
 // EN: MySQLi connection
 // CZ:
 $envodb = new ENVO_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-$envodb->set_charset("utf8");
+$envodb -> set_charset("utf8");
 
 // EN: Important all Class and functions
 // CZ: Import všech tříd a funkcí
@@ -82,21 +82,21 @@ $Html = new HTML_Element();
 $getURL = New ENVO_rewrite($_SERVER['REQUEST_URI']);
 
 // We are not using apache so take the ugly urls
-$tempp  = $getURL->envoGetseg(0);
-$tempp1 = $getURL->envoGetseg(1);
-$tempp2 = $getURL->envoGetseg(2);
-$tempp3 = $getURL->envoGetseg(3);
-$tempp4 = $getURL->envoGetseg(4);
-$tempp5 = $getURL->envoGetseg(5);
-$tempp6 = $getURL->envoGetseg(6);
+$tempp  = $getURL -> envoGetseg(0);
+$tempp1 = $getURL -> envoGetseg(1);
+$tempp2 = $getURL -> envoGetseg(2);
+$tempp3 = $getURL -> envoGetseg(3);
+$tempp4 = $getURL -> envoGetseg(4);
+$tempp5 = $getURL -> envoGetseg(5);
+$tempp6 = $getURL -> envoGetseg(6);
 
 // -----------------------------------------------------------------------
 // DEFINE LANG, LOCALE and import language file
 // -----------------------------------------------------------------------
 
 // Get the general settings out the database
-$result = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting');
-while ($row = $result->fetch_assoc()) {
+$result = $envodb -> query('SELECT varname, value FROM ' . DB_PREFIX . 'setting');
+while ($row = $result -> fetch_assoc()) {
   // Now check if sting contains html and do something about it!
   if (strlen($row['value']) != strlen(filter_var($row['value'], FILTER_SANITIZE_STRING))) {
     $defvar = htmlspecialchars_decode(htmlspecialchars($row['value']));
@@ -151,7 +151,7 @@ if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) {
 
 // Timezone from server
 date_default_timezone_set($setting["timezoneserver"]);
-$envodb->query('SET time_zone = "' . date("P") . '"');
+$envodb -> query('SET time_zone = "' . date("P") . '"');
 
 // Set the last activity and session into cookies
 setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
@@ -159,19 +159,19 @@ setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PA
 
 // Check if user is logged in
 $envouserlogin = new ENVO_userlogin();
-$envouserrow   = $envouserlogin->envoCheckLogged();
+$envouserrow   = $envouserlogin -> envoCheckLogged();
 if ($envouserrow) {
   $envouser = new ENVO_user($envouserrow);
-  define('ENVO_USERID', $envouser->getVar("id"));
+  define('ENVO_USERID', $envouser -> getVar("id"));
   // Get the usergroupid out from this user
-  $usergroupid = $envouser->getVar("usergroupid");
+  $usergroupid = $envouser -> getVar("usergroupid");
   // Get user language
-  if ($envouser->getVar("ulang")) $site_language = strtolower($envouser->getVar("ulang"));
+  if ($envouser -> getVar("ulang")) $site_language = strtolower($envouser -> getVar("ulang"));
   // Update last activity from this user
-  $envouserlogin->envoUpdateLastActivity(ENVO_USERID);
+  $envouserlogin -> envoUpdateLastActivity(ENVO_USERID);
 
   // Only the Admin's in the config can have access
-  if (ENVO_USERID && $envouser->envoAdminAccess($envouser->getVar("usergroupid"))) {
+  if (ENVO_USERID && $envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) {
     define('ENVO_ADMINACCESS', TRUE);
     $_SESSION['JAKLoggedInAdmin'] = TRUE;
   } else {
@@ -186,8 +186,8 @@ if ($envouserrow) {
 }
 
 // Let's call the usergroup class
-$resultusrg = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'usergroup WHERE id = "' . smartsql($usergroupid) . '" LIMIT 1');
-$rowusrg    = $resultusrg->fetch_assoc();
+$resultusrg = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'usergroup WHERE id = "' . smartsql($usergroupid) . '" LIMIT 1');
+$rowusrg    = $resultusrg -> fetch_assoc();
 
 // Get the usergroup class
 $envousergroup = new ENVO_usergroup($rowusrg);
@@ -200,6 +200,6 @@ if ($setting["sitehttps"]) {
 }
 
 // Define for template the real request
-$realrequest = substr($getURL->envoRealrequest(), 1);
+$realrequest = substr($getURL -> envoRealrequest(), 1);
 define('ENVO_PARSE_REQUEST', $realrequest);
 ?>

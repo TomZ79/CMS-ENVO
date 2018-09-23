@@ -27,13 +27,14 @@
 // # List of updated components
 // ------------------------------
 
-[updated] Update Fancybox from 3.0 to 3.1.25
-[updated] Fix typo
+[updated] Update Fancybox from 3.0 to 3.4.1
+[updated] Update Bootstrap v4
 
 // # List of fixed bugs
 // ------------------------------
 
-[fixed]
+[fixed] Fix Less files for Admin - Backend
+[fixed] Fix typo
 
 // # List of enhancements
 // ------------------------------

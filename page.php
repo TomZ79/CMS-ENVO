@@ -9,10 +9,10 @@ if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 $envotable = DB_PREFIX . 'pages';
 
 // Get the database stuff
-$row = $envodb->queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
+$row = $envodb -> queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
 
 // Check if the page is not active and we are not an admin then we redirect
-if ($row['active'] != 1 && !ENVO_ASACCESS) envo_redirect(ENVO_rewrite::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
+if ($row['active'] != 1 && !ENVO_ASACCESS) envo_redirect(ENVO_rewrite ::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
 
 // Now let's check the hits cookie
 if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
@@ -20,33 +20,33 @@ if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
   envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
   // Update hits each time
-  ENVO_base::envoUpdatehits($row['id'], $envotable);
+  ENVO_base ::envoUpdatehits($row['id'], $envotable);
 }
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-$PAGE_ID               = $row['id'];
-$PAGE_TITLE            = $row['title'];
-$PAGE_CONTENT          = $row['content'];
-$PAGE_SHOWTITLE        = $row['showtitle'];
-$MAIN_DESCRIPTION      = $ca['metadesc'];
-$MAIN_SITE_DESCRIPTION = $setting['metadesc'];
-$SHOWDATE              = $row['showdate'];
-$SHOWTAGS              = $row['showtags'];
-$SHOWSOCIALBUTTON      = $row['socialbutton'];
-$PAGE_ACTIVE           = $row['active'];
-$PAGE_PASSWORD               = $row['password'];
-$ENVO_HEADER_CSS              = $row['page_css'];
-$ENVO_FOOTER_JAVASCRIPT       = $row['page_javascript'];
+$PAGE_ID                         = $row['id'];
+$PAGE_TITLE                      = $row['title'];
+$PAGE_CONTENT                    = $row['content'];
+$PAGE_SHOWTITLE                  = $row['showtitle'];
+$MAIN_DESCRIPTION                = $ca['metadesc'];
+$MAIN_SITE_DESCRIPTION           = $setting['metadesc'];
+$SHOWDATE                        = $row['showdate'];
+$SHOWTAGS                        = $row['showtags'];
+$SHOWSOCIALBUTTON                = $row['socialbutton'];
+$PAGE_ACTIVE                     = $row['active'];
+$PAGE_PASSWORD                   = $row['password'];
+$ENVO_HEADER_CSS                 = $row['page_css'];
+$ENVO_FOOTER_JAVASCRIPT          = $row['page_javascript'];
 $setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
-$PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["dateformat"], $setting["timeformat"], $tl['global_text']['gtxt4']);
+$PAGE_TIME       = ENVO_base ::envoTimesince($row['time'], $setting["dateformat"], $setting["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (ENVO_USERID) {
-  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('members' => ENVO_USERID));
+  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array ( 'members' => ENVO_USERID ));
 } else {
-  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('notmembers' => 0));
+  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array ( 'notmembers' => 0 ));
 }
 
 // We do not show the navbar
@@ -77,15 +77,15 @@ if (!empty($row['shownews'])) {
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$hookpages = $envohooks->EnvoGethook("php_pages_news");
+$hookpages = $envohooks -> EnvoGethook("php_pages_news");
 if ($hookpages) foreach ($hookpages as $hpag) {
   eval($hpag["phpcode"]);
 }
 
 // Get the sort orders for the grid
-$ENVO_PAGE_GRID = $ENVO_HOOK_SIDE_GRID = array();
-$grid          = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE pageid = "' . $row['id'] . '" ORDER BY orderid ASC');
-while ($grow = $grid->fetch_assoc()) {
+$ENVO_PAGE_GRID = $ENVO_HOOK_SIDE_GRID = array ();
+$grid           = $envodb -> query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE pageid = "' . $row['id'] . '" ORDER BY orderid ASC');
+while ($grow = $grid -> fetch_assoc()) {
   // Load the main grid
   if ($grow["pluginid"] && !$grow["hookid"]) $ENVO_PAGE_GRID[] = $grow;
   // Load the side grid
@@ -93,14 +93,14 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Get the tags for this page
-$ENVO_TAGLIST = ENVO_tags::envoGetTagList($row['id'], 0, ENVO_PLUGIN_VAR_TAGS);
+$ENVO_TAGLIST = ENVO_tags ::envoGetTagList($row['id'], 0, ENVO_PLUGIN_VAR_TAGS);
 
 // EN: Get all the php Hook by name of Hook from page and news grid
 // CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)
-$ENVO_HOOK_PAGE_GRID = $envohooks->EnvoGethook("tpl_page_news_grid");
+$ENVO_HOOK_PAGE_GRID = $envohooks -> EnvoGethook("tpl_page_news_grid");
 
 // Get the url session
-$_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl($page, $page1, $page2, '', '');
+$_SESSION['envo_lastURL'] = ENVO_rewrite ::envoParseurl($page, $page1, $page2, '', '');
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -113,7 +113,7 @@ if ($ENVO_TAGLIST) {
   $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
   $keytags = ',' . implode(',', $keytags);
 }
-$PAGE_KEYWORDS = str_replace(" ", " ", ($setting["metakey"] ? $setting["metakey"] : ENVO_base::envoCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
+$PAGE_KEYWORDS = str_replace(" ", " ", ($setting["metakey"] ? $setting["metakey"] : ENVO_base ::envoCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
 
 
 // SEO from the category content if available
