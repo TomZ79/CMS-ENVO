@@ -46,15 +46,15 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   // Icon technology fonts
   echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'fonts/fonts.css');
   //
-  if ($page1 == 'house' && !empty($page2)) {
+  if ($page1 == 'house' && !empty($page2) || ($page1 == 'houselist' && !empty($page2))) {
     // Plugin Fancybox
     echo $Html -> addStylesheet('/assets/plugins/fancybox/3.4.1/css/jquery.fancybox.min.css');
     // Plugin DialogFX
     echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
     echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
     // Plugin Fileuploader
-    echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/jquery.fileuploader.min.css');
-    echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/theme/jquery.fileuploader-theme-thumbnails.css');
+    echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/font/font-fileuploader.min.css');
+    echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/jquery.fileuploader.min.css');
   }
   ?>
 

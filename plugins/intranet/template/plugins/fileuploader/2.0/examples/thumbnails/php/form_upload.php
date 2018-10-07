@@ -21,7 +21,7 @@
     ));
 
 	// unlink the files
-	// !important only for appended files
+	// !important only for preloaded files
 	// you will need to give the array with appendend files in 'files' option of the fileUploader
 	foreach($FileUploader->getRemovedFiles('file') as $key=>$value) {
 		unlink('../uploads/' . $value['name']);

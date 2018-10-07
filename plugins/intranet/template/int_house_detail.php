@@ -868,6 +868,7 @@
     </div>
   </div>
 
+  <!-- DIALOG FX -->
   <div id="itemDetails" class="dialog item-details">
     <div class="dialog__overlay"></div>
     <div class="dialog__content">

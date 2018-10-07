@@ -39,7 +39,8 @@
  * 26. Dialog FX
  * 27. Tasks
  * 28. Progress Indicators
- * 29. Responsive
+ * 29. Fileuploader Plugin
+ * 30. Responsive
  
 -------------------------------------------------------------------*/
 /* 01. Import fonts
@@ -9129,7 +9130,41 @@ div[class^="task_"] .taskcontent .taskdescription {
 .progress-circle.progress-circle-thick .shadow {
   border-width: 5px;
 }
-/* 29. Responsive
+/*------------------------------------------------------------------
+[29. Fileuploader Plugin]
+*/
+.form-status .progressbar-holder {
+  height: 4px;
+  background-color: #E9ECEE;
+  background-image: none;
+  box-shadow: none;
+  filter: none;
+}
+.form-status .progressbar-holder .progressbar {
+  height: 100%;
+  width: 0;
+  background-color: #0AA699;
+  background-image: none;
+}
+@media only screen and (max-width: 479px) {
+  .fileuploader-input {
+    flex-direction: column;
+  }
+  .fileuploader-input .fileuploader-input-caption {
+    width: 100%;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+  .fileuploader-input .fileuploader-input-button {
+    text-align: center;
+  }
+  .btn-upload {
+    float: none !important;
+    display: block;
+    width: 100%;
+  }
+}
+/* 30. Responsive
  ========================================================================*/
 @media only screen and (min-width: 1824px) {
   body {

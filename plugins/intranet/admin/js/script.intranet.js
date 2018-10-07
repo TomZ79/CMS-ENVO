@@ -112,11 +112,11 @@ var page1 = $.urlParam('sp');
 var page2 = $.urlParam('ssp');
 
 /**
- * Jquery Function - DialogFX Open - Image
+ * Jquery Function - DialogFX Open - Image - House
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
- * <button class="dialog-open" type="button" data-dialog="imgitemDetails"></button>
+ * <button class="dialog-open-img" type="button" data-dialog="imgitemDetails"></button>
  *
  *  <div id="imgitemDetails" class="dialog item-details">
  *    <div class="dialog__overlay"></div>
@@ -204,11 +204,91 @@ function openDialogImg(event) {
 }
 
 /**
- * Jquery Function - DialogFX Open - Video
+ * Jquery Function - DialogFX Open - Image - House List
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
- * <button class="dialog-open" type="button" data-dialog="videoitemDetails"></button>
+ * <button class="dialog-open-listimg" type="button" data-dialog="imgitemDetails"></button>
+ *
+ *  <div id="imgitemDetails" class="dialog item-details">
+ *    <div class="dialog__overlay"></div>
+ *    <div class="dialog__content">
+ *      <div class="container-fluid">
+ *        <div class="row dialog__overview">
+ *          <!-- Data over AJAX  -->
+ *        </div>
+ *      </div>
+ *      <button class="close action top-right" type="button" data-dialog-close>
+ *        <i class="pg-close fs-14"></i>
+ *      </button>
+ *    </div>
+ *  </div>
+ */
+function openDialogListImg(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get Data-Dialog
+  thisDataDialog = $(this).attr('data-dialog');
+  // Get ID of image
+  var imageID = $(this).parents(":eq(4)").attr('id');
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_list_table_dialog_img.php",
+    type: "POST",
+    datatype: 'html',
+    data: {
+      imageID: imageID
+    },
+    beforeSend: function () {
+
+      // Show progress circle
+      $('#imgitemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+    },
+    success: function (data) {
+
+      setTimeout(function () {
+        // Add html data to 'div'
+        $('#imgitemDetails .dialog__overview').hide().html(data).fadeIn(900);
+
+        // Call function for edit description - textarea
+        $('#editlistimgdesc').click(editListImgDesc);
+        $('#closelistimgdesc').click(closeListImgDesc);
+        $('#savelistimgdesc').click(saveListImgDesc);
+
+      }, 1000);
+
+    },
+    error: function () {
+
+    }
+  });
+
+  // Open DialogFX
+  dialogEl = document.getElementById(thisDataDialog);
+  dlg = new DialogFx(dialogEl, {
+    onOpenDialog: function (instance) {
+      // Open DialogFX
+      console.log('Open dialog - Image: OPEN');
+    },
+    onCloseDialog: function (instance) {
+      // Close DialogFX
+      console.log('Open dialog - Image: CLOSE');
+    }
+  });
+  dlg.toggle(dlg);
+
+  return false;
+}
+
+/**
+ * Jquery Function - DialogFX Open - Video - House
+ * @example
+ * Attribute 'data-dialog' in button => ID of dialog 'div' block
+ * -----------------
+ * <button class="dialog-open-video" type="button" data-dialog="videoitemDetails"></button>
  *
  *  <div id="videoitemDetails" class="dialog item-details">
  *    <div class="dialog__overlay"></div>
@@ -279,7 +359,7 @@ function openDialogVideo(event) {
 }
 
 /**
- * Jquery Function - DialogFX Open - Task
+ * Jquery Function - DialogFX Open - Task - House
  * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
@@ -373,7 +453,7 @@ function openDialogEditTask(event) {
 }
 
 /**
- * Jquery Function - Delete Image from DB
+ * Jquery Function - Delete Image from DB - House
  * @example
  * Attribute 'data-id' in button => ID is id of image in DB
  * -----------------
@@ -381,8 +461,6 @@ function openDialogEditTask(event) {
  *
  */
 function deleteImg(imageID) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
 
   // Ajax
   $.ajax({
@@ -477,7 +555,109 @@ function confirmdeleteImg(event) {
 }
 
 /**
- * Jquery Function - Delete Video from DB
+ * Jquery Function - Delete Image from DB - House List
+ * @example
+ * Attribute 'data-id' in button => ID is id of image in DB
+ * -----------------
+ * <button class="delete-img" type="button" data-id="id_of_image_in_DB"></button>
+ *
+ */
+function deleteListImg(imageID) {
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_list_table_delete_img.php",
+    type: "POST",
+    datatype: 'json',
+    data: {
+      imageID: imageID
+    },
+    success: function (data) {
+
+      if (data.status == 'delete_success') {
+        // IF DATA SUCCESS
+
+        // Removes elements quickly from the list
+        // $('div[id=' + data.data[0].id + ']').remove();
+        // Removes elements slowly from the list
+        $('div[id=' + data.data[0].id + ']').fadeOut(300, function(){ $(this).remove();});
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
+
+      } else {
+        // IF DATA ERROR
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+      }
+    },
+    complete: function () {
+
+    },
+    error: function () {
+
+    }
+  });
+
+  return false;
+}
+
+function confirmdeleteListImg(event) {
+// Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of Task
+  var imageID = $(this).attr('data-id');
+
+  // Show Message
+  bootbox.setLocale(envoWeb.envo_lang);
+  bootbox.confirm({
+    title: "Potvrzení o odstranění!",
+    message: $(this).attr('data-confirm-delimg'),
+    className: "bootbox-confirm-del",
+    animate: true,
+    buttons: {
+      confirm: {
+        className: 'btn-success'
+      },
+      cancel: {
+        className: 'btn-danger'
+      }
+    },
+    callback: function (result) {
+      if (result == true) {
+        console.log('Delete Image - ID: ' + imageID);
+        deleteListImg(imageID);
+      }
+      console.log('Bootbox confirm dialog - Image: ' + result);
+    }
+  });
+
+  return false;
+}
+
+/**
+ * Jquery Function - Delete Video from DB - House
  * @example
  * Attribute 'data-id' in button => ID is id of image in DB
  * -----------------
@@ -581,7 +761,7 @@ function confirmdeleteVideo(event) {
 }
 
 /**
- * Jquery Function - Delete Task from DB
+ * Jquery Function - Delete Task from DB - House
  * @example
  * Attribute 'data-id' in button => ID is id of image in DB
  * -----------------
@@ -681,11 +861,12 @@ function confirmDeleteTask(event) {
 }
 
 /**
- * Jquery Function - Edit Image Description
+ * Jquery Function - Edit Image Description - House
  * Remove attribute 'disabled' from textarea and hide Edit button, show Save-Close button
  * @example
  * -----------------
- * <textarea id="desc" disabled>' . $text . '</textarea>
+ * <input type="text" id="shortdesc" class="form-control" readonly>
+ * <textarea id="desc" readonly>' . $text . '</textarea>
  * <button id="editimgdesc" type="button">Edit Description</button>
  * <button id="saveimgdesc" style="display:none;" data-id="' . $id . '" type="button">Save</button>
  * <button id="closeimgdesc" style="display:none;" type="button">Close</button>
@@ -707,7 +888,41 @@ function editImgDesc(event) {
 }
 
 /**
- * Jquery Function - Save Description
+ * Jquery Function - Edit Image Description - House List
+ * Remove attribute 'disabled' from textarea and hide Edit button, show Save-Close button
+ * @example
+ * -----------------
+ * <input type="text" id="listshortdesc" class="form-control" readonly>
+ * <textarea id="listdesc" readonly>' . $text . '</textarea>
+ * <button id="editlistimgdesc" type="button">Edit Description</button>
+ * <button id="savelistimgdesc" style="display:none;" data-id="' . $id . '" type="button">Save</button>
+ * <button id="closelistimgdesc" style="display:none;" type="button">Close</button>
+ */
+function editListImgDesc(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Remove attribute
+  $('#listdesc').attr('readonly', false);
+  $('#listshortdesc').attr('readonly', false);
+  // Show 'select'
+  $('select[name="envo_listshortdesc"]').parents().eq(2).show();
+  $('select[name="envo_listshortdesc"]').change(function(){
+    var value = $(this).val();
+    $('#listshortdesc').val(value);
+    console.log('Short Description - Selected item : ' + value)
+  });
+  // Hide click (this) element
+  $(this).hide();
+  // Show Save and Close button
+  $('#savelistimgdesc').show();
+  $('#closelistimgdesc').show();
+
+  return false;
+}
+
+/**
+ * Jquery Function - Save Description - House
  * Save description over Ajax
  * @example
  * -----------------
@@ -776,7 +991,83 @@ function saveImgDesc(event) {
 }
 
 /**
- * Jquery Function - Close Description
+ * Jquery Function - Save Description - House List
+ * Save description over Ajax
+ * @example
+ * -----------------
+ * <textarea id="desc">' . $text . '</textarea>
+ * <button id="saveimgdesc"  data-id="' . $id . '" type="button">Save</button>
+ * <button id="closeimgdesc" type="button">Close</button>
+ */
+function saveListImgDesc(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of image
+  var imageID = $(this).attr('data-id');
+  // Get Description
+  var descImage = $('#listdesc').val();
+  var shortdescImage = $('#listshortdesc').val();
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_list_table_update_img.php",
+    type: "POST",
+    datatype: 'json',
+    data: {
+      imageID: imageID,
+      descImage: descImage,
+      shortdescImage: shortdescImage
+    },
+    success: function (data) {
+
+      if (data.status == 'update_success') {
+        // IF DATA SUCCESS
+
+        // Edit Time
+        $('#timeedit').html(data.data[0].timeedit);
+
+        // Add attribute
+        $('#listdesc').attr('readonly', true);
+        $('#listshortdesc').attr('readonly', true);
+        // Hide 'select'
+        $('select[name="envo_listshortdesc"]').parents().eq(2).hide();
+        // Hide Save and Close button
+        $('#savelistimgdesc').hide();
+        $('#closelistimgdesc').hide();
+        // Show Edit button
+        $('#editlistimgdesc').show();
+
+        // Add data.shortdescription to item
+        var elClass = $('#' + data.data[0].id + '.gallery-item-' + data.data[0].id);
+        elClass.find('.shortdesc').text(data.data[0].shortdescription);
+        if ((data.data[0].description).length > 0) {
+          elClass.find('.text a').data('caption', data.data[0].shortdescription + ' - ' + data.data[0].description);
+        } else {
+          elClass.find('.text a').data('caption', data.data[0].shortdescription);
+        }
+
+        // Apply the plugin to the container
+        $('#notificationcontainer').pgNotification({
+          style: 'bar',
+          message: data.status_msg,
+          position: 'top',
+          timeout: 2000,
+          type: 'success',
+          showClose: false
+        }).show();
+      }
+    },
+    error: function () {
+
+    }
+  });
+
+  return false;
+}
+
+/**
+ * Jquery Function - Close Description - House
  * Close editing description
  * @example
  * -----------------
@@ -802,7 +1093,36 @@ function closeImgDesc(event) {
 }
 
 /**
- * Jquery Function - Edit Category
+ * Jquery Function - Close Description - House List
+ * Close editing description
+ * @example
+ * -----------------
+ * <input type="text" id="listshortdesc" class="form-control" readonly>
+ * <textarea id="listdesc" readonly>' . $text . '</textarea>
+ * <button id="editlistimgdesc" type="button">Edit Description</button>
+ * <button id="savelistimgdesc" style="display:none;" data-id="' . $id . '" type="button">Save</button>
+ * <button id="closelistimgdesc" style="display:none;" type="button">Close</button>
+ */
+function closeListImgDesc(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Add attribute
+  $('#listdesc').attr('readonly', true);
+  $('#listshortdesc').attr('readonly', true);
+  // Hide 'select'
+  $('select[name="envo_listshortdesc"]').parents().eq(2).hide();
+  // Hide click (this) element and hide Save button
+  $(this).hide();
+  // Show Edit button
+  $('#savelistimgdesc').hide();
+  $('#editlistimgdesc').show();
+
+  return false;
+}
+
+/**
+ * Jquery Function - Edit Category - House
  */
 function editImgCat(event) {
   // Stop, the default action of the event will not be triggered
@@ -820,7 +1140,7 @@ function editImgCat(event) {
 }
 
 /**
- * Jquery Function - Save Category
+ * Jquery Function - Save Category - House
  */
 function saveImgCat(event) {
   // Stop, the default action of the event will not be triggered
@@ -880,7 +1200,7 @@ function saveImgCat(event) {
 }
 
 /**
- * Jquery Function - Close Category
+ * Jquery Function - Close Category - House
  */
 function closeImgCat(event) {
   // Stop, the default action of the event will not be triggered
@@ -897,7 +1217,7 @@ function closeImgCat(event) {
   return false;
 }
 
-/* Add new row for Main Contact */
+/* Add new row for Main Contact - House */
 function addRowCont() {
   // Get value
   var houseID = pageID;
@@ -1014,7 +1334,7 @@ function addRowCont() {
   }
 }
 
-/* Add new row for Entrance */
+/* Add new row for Entrance - House */
 function addRowEnt() {
   // Get value
   var houseID = pageID;
@@ -1133,7 +1453,7 @@ function addRowEnt() {
   }
 }
 
-/* Add new row for Apartment */
+/* Add new row for Apartment - House */
 function addRowApt() {
   // Get value
   var houseID = pageID;
@@ -1159,7 +1479,7 @@ function addRowApt() {
   })
 }
 
-/* Add new row for Services */
+/* Add new row for Services - House */
 function addRowServ() {
   // Get value
   var houseID = pageID;
@@ -1252,7 +1572,7 @@ function addRowServ() {
   });
 }
 
-/* Click Task Header */
+/* Click Task Header - House */
 function clickTaskHeader() {
   $header = $(this);
   //getting text element
@@ -1332,6 +1652,26 @@ function initializeDateTimePicker(selector) {
     ignoreReadonly: true
   });
 }
+
+/** 00. DialogFx Initialisation
+ * @require: DialogFx Plugin
+ ========================================================================*/
+
+$(function () {
+
+  // Dialog open for House
+  $('.dialog-open-img').click(openDialogImg);
+  $('.dialog-open-video').click(openDialogVideo);
+
+  // Dialog open for House List
+  $('.dialog-open-listimg').click(openDialogListImg);
+
+  //
+  $('.close').click(function(event){
+    event.stopPropagation();
+  });
+
+});
 
 /** 00. TinyMCE Initialisation
  * @require: TinyMCE Plugin
@@ -1601,169 +1941,7 @@ $(function () {
  ========================================================================*/
 $(function () {
 
-  /* Upload Files for House list
-   ========================================= */
-
-  $("#uploadListBtnDocu").on('click', (function (event) {
-    // Stop, the default action of the event will not be triggered
-    event.preventDefault();
-
-    // Hide output
-    $('#listdocuoutput').hide();
-    // Show progress info
-    $('#listdocuprogress').show();
-    // Reset
-    $("#listdocupercent").html('0%');
-
-    // Get Data - properties of file from file field
-    var file_data = $('#fileinput_doclist').prop('files')[0];
-    // Get Data - value of folder from file field
-    var folder_path = $('input[name="folderpathlist"]').val();
-    // Creating object of FormData class
-    var form_data = new FormData();
-    // Appending parameter named file with properties of file_field to form_data
-    form_data.append('file', file_data);
-    // Adding extra parameters to form_data
-    form_data.append('folderpath', folder_path);
-    form_data.append('houseID', pageID);
-
-    // Ajax
-    $.ajax({
-      url: "/plugins/intranet/admin/ajax/int_list_table_upload_docu.php",
-      type: "POST",
-      data: form_data,
-      contentType: false,
-      cache: false,
-      processData: false,
-      beforeSend: function () {
-
-      },
-      xhr: function () {
-        // Create a new XMLHttpRequest
-        var xhr = new window.XMLHttpRequest();
-        //Upload progress bar
-        xhr.upload.addEventListener("progress", function (evt) {
-          // Make sure we can compute the length
-          if (evt.lengthComputable) {
-
-            var loaded = evt.loaded;
-            var total = evt.total;
-
-            // Append progress percentage
-            var percent = (loaded / total) * 100;
-            var percentComplete = percent.toFixed(2) + '%';
-
-            // Bytes received
-            var byteRec = formatFileSize(loaded);
-
-            // Total bytes
-            var totalByte = formatFileSize(total);
-
-            // Progress output
-            $('#listdocuprogressbar').css('width', percentComplete);
-            $('#listdocupercent').html(percentComplete);
-            $('#listdocubyterec').html(byteRec);
-            $('#listdocubytetotal').html(totalByte);
-
-          }
-        }, false);
-
-        return xhr;
-      },
-      success: function (data) {
-
-        if (data.status == 'upload_success') {
-          // IF DATA SUCCESS
-
-          $('#listdocuoutput').html('<div class="alert alert-success" role="alert">' +
-            '<button class="close" data-dismiss="alert"></button>' +
-            '<strong>Success: </strong>' + data.status_msg +
-            '</div>');
-
-          var str = JSON.stringify(data);
-          var result = JSON.parse(str);
-
-          var tabledata = '';
-
-          $.each(result, function (key, data) {
-            //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
-
-            if (key === 'data') {
-
-              $.each(data, function (index, data) {
-                // console.log('ID: ', data['id']);
-                // console.log('File Icon: ', data['fileicon']);
-                // console.log('Description: ', data['description']);
-                // console.log('Filepath: ', data['fullpath']);
-
-                tabledata += '<tr>' +
-                  '<td>' + data["id"] + '</td>' +
-                  '<td>' + data["fileicon"] + '</td>' +
-                  '<td>' + data["description"] + '</td>' +
-                  '<td><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
-                  '</tr>';
-
-              })
-
-            }
-
-          });
-
-          // Put data to table
-          $('#listtabledocu tbody').html(tabledata);
-
-          // Update Jquery Tabledit Plugin
-          $('#listtabledocu').Tabledit('update', ({})
-          );
-
-          // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              message: data.status_msg
-            }, {
-              // settings
-              type: 'success',
-              delay: 2000
-            });
-          }, 1000);
-
-        } else if (data.status.indexOf('upload_error') != -1) {
-          // IF DATA ERROR
-
-          $('#listdocuoutput').html('<div class="alert alert-danger" role="alert">' +
-            '<button class="close" data-dismiss="alert"></button>' +
-            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
-            '</div>');
-
-          // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              message: data.status_msg
-            }, {
-              // settings
-              type: 'danger',
-              delay: 2000
-            });
-          }, 1000);
-
-        }
-
-      },
-      error: function () {
-
-      },
-      complete: function () {
-        $('#listdocuprogress').hide();
-        $('#listdocuprogressbar').css('width', '');
-        $('#listdocuoutput').show();
-      }
-    });
-  }));
-
-
-  /* Upload Files
+  /* Upload Files for House
    ========================================= */
 
   $("#uploadBtnDocu").on('click', (function (event) {
@@ -2030,10 +2208,10 @@ $(function () {
                   '</div>' +
                   '<div class="col-7 full-height">' +
                   '<div class="text">' +
-                  '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '" alt="">' +
+                  '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '">' +
                   '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
                   '</a>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open mr-1" type="button" data-dialog="imgitemDetails"><i class="fa fa-edit"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img mr-1" type="button" data-dialog="imgitemDetails"><i class="fa fa-edit"></i></button>' +
                   '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"  data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"><i class="fa fa-trash"></i></button>' +
                   '</div>' +
                   '</div>' +
@@ -2053,7 +2231,7 @@ $(function () {
 
                 // Call dialogFX function for button
                 var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
-                elClass.find('.dialog-open').click(openDialogImg);
+                elClass.find('.dialog-open-img').click(openDialogImg);
                 elClass.find('.delete-img').click(confirmdeleteImg);
 
 
@@ -2311,6 +2489,375 @@ $(function () {
     });
   }));
 
+  /* Upload Files for House list
+   ========================================= */
+
+  $("#uploadListBtnDocu").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Hide output
+    $('#listdocuoutput').hide();
+    // Show progress info
+    $('#listdocuprogress').show();
+    // Reset
+    $("#listdocupercent").html('0%');
+
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_doclist').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpathlist"]').val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('houseID', pageID);
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet/admin/ajax/int_list_table_upload_docu.php",
+      type: "POST",
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+
+      },
+      xhr: function () {
+        // Create a new XMLHttpRequest
+        var xhr = new window.XMLHttpRequest();
+        //Upload progress bar
+        xhr.upload.addEventListener("progress", function (evt) {
+          // Make sure we can compute the length
+          if (evt.lengthComputable) {
+
+            var loaded = evt.loaded;
+            var total = evt.total;
+
+            // Append progress percentage
+            var percent = (loaded / total) * 100;
+            var percentComplete = percent.toFixed(2) + '%';
+
+            // Bytes received
+            var byteRec = formatFileSize(loaded);
+
+            // Total bytes
+            var totalByte = formatFileSize(total);
+
+            // Progress output
+            $('#listdocuprogressbar').css('width', percentComplete);
+            $('#listdocupercent').html(percentComplete);
+            $('#listdocubyterec').html(byteRec);
+            $('#listdocubytetotal').html(totalByte);
+
+          }
+        }, false);
+
+        return xhr;
+      },
+      success: function (data) {
+
+        if (data.status == 'upload_success') {
+          // IF DATA SUCCESS
+
+          $('#listdocuoutput').html('<div class="alert alert-success" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Success: </strong>' + data.status_msg +
+            '</div>');
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var tabledata = '';
+
+          $.each(result, function (key, data) {
+            //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                // console.log('ID: ', data['id']);
+                // console.log('File Icon: ', data['fileicon']);
+                // console.log('Description: ', data['description']);
+                // console.log('Filepath: ', data['fullpath']);
+
+                tabledata += '<tr>' +
+                  '<td class="text-center">' + data["id"] + '</td>' +
+                  '<td class="text-center">' + data["fileicon"] + '</td>' +
+                  '<td>' + data["description"] + '</td>' +
+                  '<td class="text-center"><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
+                  '</tr>';
+
+              })
+
+            }
+
+          });
+
+          // Put data to table
+          $('#listtabledocu tbody').html(tabledata);
+
+          // Update Jquery Tabledit Plugin
+          $('#listtabledocu').Tabledit('update', ({})
+          );
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else if (data.status.indexOf('upload_error') != -1) {
+          // IF DATA ERROR
+
+          $('#listdocuoutput').html('<div class="alert alert-danger" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+            '</div>');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
+
+        }
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        $('#listdocuprogress').hide();
+        $('#listdocuprogressbar').css('width', '');
+        $('#listdocuoutput').show();
+      }
+    });
+  }));
+
+  $("#uploadListBtnImg").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    // Hide output
+    $('#listimgoutput').hide();
+    // Show progress info
+    $('#listimgprogress').show();
+    // Reset
+    $("#listimgpercent").html('0%');
+
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_imglist').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpathlist"]').val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('houseID', pageID);
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet/admin/ajax/int_list_table_upload_img.php",
+      type: "POST",
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+
+      },
+      xhr: function () {
+        var xhr = new window.XMLHttpRequest();
+        //Upload progress bar
+        xhr.upload.addEventListener("progress", function (evt) {
+          // Make sure we can compute the length
+          if (evt.lengthComputable) {
+
+            var loaded = evt.loaded;
+            var total = evt.total;
+
+            // Append progress percentage
+            var percent = (loaded / total) * 100;
+            var percentComplete = percent.toFixed(2) + '%';
+
+            // Bytes received
+            var byteRec = formatFileSize(loaded);
+
+            // Total bytes
+            var totalByte = formatFileSize(total);
+
+            // Progress output
+            $('#listimgprogressbar').css('width', percentComplete);
+            $('#listimgpercent').html(percentComplete);
+            $('#listimgbyterec').html(byteRec);
+            $('#listimgbytetotal').html(totalByte);
+
+          }
+        }, false);
+
+        return xhr;
+      },
+      success: function (data) {
+
+        console.log(data);
+
+        if (data.status == 'upload_success') {
+          // IF DATA SUCCESS
+
+          $('#listimgoutput').html('<div class="alert alert-success" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Success: </strong>' + data.status_msg +
+            '</div>');
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var divdata = '';
+
+          $.each(result, function (key, data) {
+            // console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                // console.log('ID: ', data['id']);
+                // console.log('Description: ', data['description']);
+                // console.log('Filethumbpath: ', data['filethumbpath']);
+
+                // Create new item elements
+                var $imageContent = $('' +
+                  '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' float-left" data-width="1" data-height="1" style="margin: 5px;">' +
+                  '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
+                  '<div class="overlays">' +
+                  '<div class="row full-height">' +
+                  '<div class="col-5 full-height">' +
+                  '<div class="text font-montserrat">' + data["filenamethumb"].substring(data["filenamethumb"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
+                  '</div>' +
+                  '<div class="col-7 full-height">' +
+                  '<div class="text">' +
+                  '<a data-fancybox="gallery-0" href="' + data["filethumbpath"] + '" data-caption="NO SHORT DESCRIPTION">' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 mr-1" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +"><i class="pg-image"></i></button>' +
+                  '</a>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 mr-1 dialog-open-listimg" type="button" data-dialog="imgitemDetails" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace Informací"><i class="fa fa-edit"></i></button>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 delete-listimg" type="button" data-id="' + data["id"] + '"  data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit"><i class="fa fa-trash"></i></button>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="full-width padding-10">' +
+                  '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                  '</div>' +
+                  '</div>');
+
+                // Show name of last upload block
+                if ($('#last_upload_content').children('div').length > 0) {
+                  // YES, the child element is inside the parent
+
+                } else {
+                  // NO, it is not inside
+                  $('#last_upload div[class^="dateblock_"]').show();
+                }
+
+                // Prepend items to gallery
+                $('#last_upload_content').prepend($imageContent);
+
+                // Call dialogFX function for button
+                var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
+                elClass.find('.dialog-open-listimg').click(openDialogListImg);
+                elClass.find('.delete-listimg').click(confirmdeleteListImg);
+                // Reinit Funcybox
+                $('[data-fancybox]').fancybox({
+                  // Internationalization
+                  lang: envoWeb.envo_lang,
+                  i18n: {
+                    'en': {
+                      DOWNLOAD: 'Download Image'
+                    },
+                    'cs': {
+                      CLOSE: 'Zavřít',
+                      NEXT: 'Další',
+                      PREV: 'Předchozí',
+                      ERROR: 'Požadovaný obsah nemůže být načten. <br/> Zkuste to prosím později.',
+                      PLAY_START: 'Start Slideshow',
+                      PLAY_STOP: 'Pause Slideshow',
+                      FULL_SCREEN: 'Celá Obrazovka',
+                      THUMBS: 'Náhledy',
+                      DOWNLOAD: 'Stáhnout Obrázek',
+                      ZOOM: "Zoom"
+                    }
+                  }
+                });
+
+              });
+
+            }
+
+          });
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else if (data.status.indexOf('upload_error') != -1) {
+          // IF DATA ERROR
+
+          $('#imgoutput').html('<div class="alert alert-danger" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+            '</div>');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
+
+        }
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        $('#listimgprogress').hide();
+        $('#listimgprogressbar').css('width', '');
+        $('#listimgoutput').show();
+      }
+    });
+  }));
+
   // Helper function that formats the file sizes
   function formatFileSize(bytes) {
     if (typeof bytes !== 'number') {
@@ -2330,9 +2877,12 @@ $(function () {
 
   /* Delete Image and Video
    ========================================= */
+  // For House
   $('.delete-img').click(confirmdeleteImg);
-
   $('.delete-video').click(confirmdeleteVideo);
+
+  // For House List
+  $('.delete-listimg').click(confirmdeleteListImg);
 
 });
 
@@ -3481,6 +4031,46 @@ $(function () {
     $('#housejusticelaw').val('');
     $('#housejusticelaw').val($(this).text());
 
+  });
+
+});
+
+/** 00. Fancybox initialisation
+ * @require: Fancybox 3 Plugin
+ ========================================================================*/
+
+$(function () {
+
+  // Choose what buttons to display by default
+  $.fancybox.defaults.buttons = [
+    'zoom',
+    'fullScreen',
+    'download',
+    'thumbs',
+    'close'
+  ];
+
+  // Update download link source
+  $('[data-fancybox]').fancybox({
+    // Internationalization
+    lang: envoWeb.envo_lang,
+    i18n: {
+      'en': {
+        DOWNLOAD: 'Download Image'
+      },
+      'cs': {
+        CLOSE: 'Zavřít',
+        NEXT: 'Další',
+        PREV: 'Předchozí',
+        ERROR: 'Požadovaný obsah nemůže být načten. <br/> Zkuste to prosím později.',
+        PLAY_START: 'Start Slideshow',
+        PLAY_STOP: 'Pause Slideshow',
+        FULL_SCREEN: 'Celá Obrazovka',
+        THUMBS: 'Náhledy',
+        DOWNLOAD: 'Stáhnout Obrázek',
+        ZOOM: "Zoom"
+      }
+    }
   });
 
 });

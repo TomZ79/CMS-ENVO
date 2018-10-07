@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_dialog_img.php] => "config.php" not found');
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/int_table_dialog_img.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku

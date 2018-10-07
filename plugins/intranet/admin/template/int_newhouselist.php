@@ -1403,7 +1403,18 @@ if ($errors) { ?>
             <div class="box-body">
               <div class="block">
                 <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-sm-12">
 
+                      <?php
+                      // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                      echo $Html -> addLabel('', '<strong>Popis</strong>', array ( 'class' => 'm-b-10' ));
+                      // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                      echo $Html -> addTextarea('envo_antennadescription', (isset($_REQUEST["envo_antennadescription"]) ? $_REQUEST["envo_antennadescription"] : ''), '10', '', array ( 'class' => 'form-control envoEditorLarge' ));
+                      ?>
+
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

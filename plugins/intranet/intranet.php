@@ -41,6 +41,7 @@ $envotable9 = DB_PREFIX . 'int_housetasks';
 $envotable10 = DB_PREFIX . 'int_housevideo';
 $envotable11 = DB_PREFIX . 'int_houselist';
 $envotable12 = DB_PREFIX . 'int_houselistdocu';
+$envotable13 = DB_PREFIX . 'int_houselistimg';
 
 // Parse links once if needed a lot of time
 $backtoplugin = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -269,7 +270,6 @@ switch ($page1) {
               }
             }
 
-
             // EN: Get the data of videos
             // CZ: Získání dat o videích
             $result = $envodb -> query('SELECT * FROM ' . $envotable10 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
@@ -434,7 +434,7 @@ switch ($page1) {
 
           // EN: Get the data of house
           // CZ: Získání dat o domu
-          $result = $envodb -> query('SELECT name, street, city, psc, ic, justice, housejusticelaw, description, latitude, longitude, contactcontrol FROM ' . $envotable11 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+          $result = $envodb -> query('SELECT * FROM ' . $envotable11 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
           while ($row = $result -> fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
@@ -467,7 +467,32 @@ switch ($page1) {
           while ($row = $result -> fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $ENVO_HOUSE_DOCU[] = $row;
+            $ENVO_HOUSELIST_DOCU[] = $row;
+          }
+
+          // EN: Get all the data for the Photogallery - list photo
+          // CZ: Získání všech dat pro Fotogalerii - list photo
+
+          // EN: Setlocale
+          $envodb -> query('SET lc_time_names = "' . $setting["locale"] . '"');
+          // EN: Get 'timedefault'
+          $result = $envodb -> query('SELECT distinct(DATE_FORMAT(timedefault, "%Y - %M")) as d FROM ' . $envotable13 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY timedefault DESC');
+          // EN: Get all photo by date for house
+          while ($row = $result -> fetch_assoc()) {
+
+            $date = $row['d'];
+            $dateFormat = ucwords(strtolower($date), '\'- ');;
+
+            $ENVO_HOUSELIST_IMG_LIST[$date]['timedefault'] = $dateFormat;
+
+            //
+            $result1 = $envodb -> query('SELECT * FROM ' . $envotable13 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(timedefault,"%Y - %M") = "' . $date . '"');
+
+            while ($row1 = $result1 -> fetch_assoc()) {
+
+              $ENVO_HOUSELIST_IMG_LIST[$date]['photos'][] = $row1;
+
+            }
           }
 
           // EN: Breadcrumbs activation

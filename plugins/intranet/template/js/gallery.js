@@ -301,6 +301,47 @@ $(function () {
     dlg.toggle(dlg);
   });
 
+  $('.dialog-listopen-info').on('click', function () {
+    // Get Data-Dialog
+    thisDataDialog = $(this).attr('data-dialog');
+    // Get ID of image
+    var imageID = $(this).attr('data-id');
+
+    console.log(thisDataDialog);
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet/template/ajax/int_list_table_dialog_img.php",
+      type: "POST",
+      datatype: 'html',
+      data: {
+        imageID: imageID
+      },
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#itemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data) {
+
+        setTimeout(function () {
+          // Add html data to 'div'
+          $('#itemDetails .dialog__overview').hide().html(data).fadeIn(900);
+
+        }, 1000);
+
+      },
+      error: function () {
+
+      }
+    });
+
+    // Open DialogFX
+    dialogEl = document.getElementById(thisDataDialog);
+    dlg = new DialogFx(dialogEl);
+    dlg.toggle(dlg);
+  });
+
 });
 
 /** 04. Upload Photo Gallery
@@ -311,104 +352,172 @@ $(function () {
 
   // Enable fileuploader plugin
   if ($('input[name="files"]').length) {
-    $('input[name="files"]').fileuploader({
-      extensions: ['jpg', 'jpeg', 'png', 'gif', 'bmp'],
-      changeInput: ' ',
-      theme: 'thumbnails',
-      enableApi: true,
-      addMore: true,
+
+    // Define the form and the file input
+    var $form = $('#form_list_upload_img');
+    var $fileuploaderInput = $('input[name="files"]');
+
+    // Enable fileuploader plugin
+    $fileuploaderInput.fileuploader({
+      // Validations - allowed extensions or file types
+      extensions: ['jpg', 'jpeg', 'png', 'gif'],
+      // Templates - thumbnails for files
       thumbnails: {
-        box: '<div class="fileuploader-items">' +
-        '<ul class="fileuploader-items-list">' +
-        '<li class="fileuploader-thumbnails-input"><div class="fileuploader-thumbnails-input-inner">+</div></li>' +
-        '</ul>' +
-        '</div>',
-        item: '<li class="fileuploader-item">' +
-        '<div class="fileuploader-item-inner">' +
-        '<div class="thumbnail-holder">${image}</div>' +
-        '<div class="actions-holder">' +
-        '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i class="remove"></i></a>' +
-        '<span class="fileuploader-action-popup"></span>' +
-        '</div>' +
-        '<div class="progress-holder">${progressBar}</div>' +
-        '</div>' +
-        '</li>',
-        item2: '<li class="fileuploader-item">' +
-        '<div class="fileuploader-item-inner">' +
-        '<div class="thumbnail-holder">${image}</div>' +
-        '<div class="actions-holder">' +
-        '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i class="remove"></i></a>' +
-        '<span class="fileuploader-action-popup"></span>' +
-        '</div>' +
-        '</div>' +
-        '</li>',
-        startImageRenderer: true,
-        canvasImage: false,
-        _selectors: {
-          list: '.fileuploader-items-list',
-          item: '.fileuploader-item',
-          start: '.fileuploader-action-start',
-          retry: '.fileuploader-action-retry',
-          remove: '.fileuploader-action-remove'
+        // show a confirmation dialog by removing a file? {Boolean}
+        // it will not be shown in upload mode by canceling an upload
+        // you can call your own dialog box using dialogs option
+        removeConfirmation: false
+      },
+      // Captions - use captions option to tranlate the plugin into your language.
+      captions: {
+        button: function (options) {
+          return 'Prohledat ' + (options.limit == 1 ? 'Složku' : 'Složky');
         },
-        onItemShow: function (item, listEl) {
-          var plusInput = listEl.find('.fileuploader-thumbnails-input');
-
-          plusInput.insertAfter(item.html);
-
-          if (item.format == 'image') {
-            item.html.find('.fileuploader-item-icon').hide();
-          }
+        feedback: function (options) {
+          return 'Vybrat ' + (options.limit == 1 ? 'soubor' : 'soubory') + ' pro upload';
+        },
+        feedback2: function (options) {
+          return options.length + ' ' + (options.length > 1 ? ' souborů bylo' : ' soubor byl') + (options.length > 1 ? ' vybráno' : ' vybrán');
         }
       },
-      afterRender: function (listEl, parentEl, newInputEl, inputEl) {
-        var plusInput = listEl.find('.fileuploader-thumbnails-input'),
-          api = $.fileuploader.getInstance(inputEl.get(0));
+      // Others - enable addMore mode to add files from different folders
+      addMore: true,
+      // Others - enable Api methods
+      enableApi: true,
 
-        plusInput.on('click', function () {
-          api.open();
-        });
-      },
-      /*
-      // while using upload option, please set
-      // startImageRenderer: false
-      // for a better effect
-      upload: {
-        url: './php/upload_file.php',
-              data: null,
-              type: 'POST',
-              enctype: 'multipart/form-data',
-              start: true,
-              synchron: true,
-              beforeSend: null,
-              onSuccess: function(data, item) {
-          setTimeout(function() {
-            item.html.find('.progress-holder').hide();
-            item.renderThumbnail();
-          }, 400);
-              },
-              onError: function(item) {
-          item.html.find('.progress-holder').hide();
-          item.html.find('.fileuploader-item-icon i').text('Failed!');
-              },
-              onProgress: function(data, item) {
-                  var progressBar = item.html.find('.progress-holder');
+    });
 
-                  if(progressBar.length > 0) {
-                      progressBar.show();
-                      progressBar.find('.fileuploader-progressbar .bar').width(data.percentage + "%");
-                  }
-              }
-          },
-      dragDrop: {
-        container: '.fileuploader-thumbnails-input'
-      },
-      onRemove: function(item) {
-        $.post('php/upload_remove.php', {
-          file: item.name
-        });
-      },
-      */
+    // Form submit
+    $form.on('submit', function (e) {
+      e.preventDefault();
+
+      var formData = new FormData(),
+        api = $.fileuploader.getInstance($fileuploaderInput),
+        _formInputs = [];
+
+      // append form's inputs to the formdata
+      // using this long version because of missing method formData.delete() many browsers
+      $.each($form.find("[name]:input"), function (index, input) {
+        var $input = $(input),
+          name = $input.attr('name'),
+          type = $input.attr('type') || "",
+          value = $input.val();
+
+        if ($.inArray(name, _formInputs) > 0)
+          return;
+        _formInputs.push(name);
+
+        if (typeof value == "undefined")
+          return true;
+
+        if (type == 'file') {
+          // add fileuploader files to the formdata
+          if (name == $fileuploaderInput.attr('name')) {
+            var files = api.getChoosedFiles();
+
+            for (var i = 0; i < files.length; i++) {
+              formData.append(name, files[i].file, (files[i].name ? files[i].name : false));
+            }
+
+            api.disable(true);
+          }
+        } else {
+          formData.append(name, value);
+        }
+
+      });
+
+      //
+      // Adding extra parameters to form_data
+      var houseID = $(this).find('input[type="submit"]').data('houseid');
+      formData.append('houseID', houseID);
+
+      //
+      $.ajax({
+        url: $form.attr('action') || "#",
+        data: formData,
+        type: $form.attr('method') || 'POST',
+        enctype: $form.attr('enctype') || 'multipart/form-data',
+        cache: false,
+        contentType: false,
+        processData: false,
+        beforeSend: function () {
+          $form.find('.form-status').html('<div class="progressbar-holder"><div class="progressbar"></div></div>');
+          $form.find('input[type="submit"]').attr('disabled', 'disabled');
+        },
+        xhr: function () {
+          var xhr = $.ajaxSettings.xhr();
+
+          if (xhr.upload) {
+            xhr.upload.addEventListener("progress", this.progress, false);
+          }
+
+          return xhr;
+        },
+        success: function (result, textStatus, jqXHR) {
+
+          try {
+            // Block of code to try
+
+            // Parse JSON
+            var data = JSON.parse(result);
+
+            // If isSuccess
+            if (data.isSuccess) {
+
+              // Update input values
+              $.each(data, function (key, data) {
+                // console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+                if (key === 'files') {
+
+                  $.each(api.getChoosedFiles(), function (index, item) {
+                    // Clear all items
+
+                    // remove an item by giving an item Object or item HTML element
+                    api.remove(item);
+                  });
+
+                }
+
+              });
+
+              // Show Status
+              $form.find('.form-status').html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>' + data.message + '</div>');
+              $form.find('input[type="submit"]').removeAttr('disabled');
+
+            }
+
+            // If hasWarnings
+            if (data.hasWarnings) {
+
+              // Show Status
+              $form.find('.form-status').html('<div class="alert alert-warning"><button class="close" data-dismiss="alert"></button>' + data.message + '</div>');
+              $form.find('input[type="submit"]').removeAttr('disabled');
+
+            }
+
+          } catch (e) {
+            // Block of code to handle errors
+
+          }
+
+          api.enable();
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          $form.find('.form-status').html('<p class="text-error">Error!</p>');
+          $form.find('input[type="submit"]').removeAttr('disabled');
+        },
+        progress: function (e) {
+          if (e.lengthComputable) {
+            var t = Math.round(e.loaded * 100 / e.total).toString();
+
+            $form.find('.form-status .progressbar').css('width', t + '%');
+          }
+        }
+      });
     });
   }
 

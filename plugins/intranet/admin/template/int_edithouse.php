@@ -1051,7 +1051,7 @@ if ($errors) { ?>
                     </tr>
 
                   <?php } else {
-                    echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                    echo '<tr class="noedit" style="height: 49px"><td colspan="6" style="vertical-align: middle;"><span class="bold text-warning-dark">Nenalezen žádný záznam</span></td></tr>';
                   } ?>
 
                   </tbody>
@@ -1129,7 +1129,7 @@ if ($errors) { ?>
                     </tr>
 
                   <?php } else {
-                    echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                    echo '<tr class="noedit" style="height: 49px"><td colspan="6" style="vertical-align: middle;"><span class="bold text-warning-dark">Nenalezen žádný záznam</span></td></tr>';
                   } ?>
 
                   </tbody>
@@ -1223,7 +1223,7 @@ if ($errors) { ?>
                           }
 
                         } else {
-                          echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                          echo '<tr class="noedit" style="height: 49px"><td colspan="6" style="vertical-align: middle;"><span class="bold text-warning-dark">Nenalezen žádný záznam</span></td></tr>';
                         }
 
                       }
@@ -1448,7 +1448,7 @@ if ($errors) { ?>
 
 
                   } else {
-                    echo '<tr class="noedit" style="height: 49px"><td colspan="5">Nenalezen žádný záznam</td></tr>';
+                    echo '<tr class="noedit" style="height: 49px"><td colspan="6" style="vertical-align: middle;"><span class="bold text-warning-dark">Nenalezen žádný záznam</span></td></tr>';
                   } ?>
 
                   </tbody>
@@ -1573,7 +1573,7 @@ if ($errors) { ?>
                         </tr>
 
                       <?php } else {
-                        echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                        echo '<tr class="noedit" style="height: 49px"><td colspan="6" style="vertical-align: middle;"><span class="bold text-warning-dark">Nenalezen žádný záznam</span></td></tr>';
                       } ?>
 
                       </tbody>
@@ -1604,7 +1604,7 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
               <div class="row" style="padding: 12px 12px 0 12px; background-color: #FEF6DD;">
-                <div class="col-sm-4 m-t-10">
+                <div class="col-sm-4">
 
                 </div>
                 <div class="col-sm-2">
@@ -1814,7 +1814,7 @@ if ($errors) { ?>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgitemDetails" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace Informací">
                                         <i class="fa fa-edit"></i>
                                       </button>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit">
                                         <i class="fa fa-trash"></i>
                                       </button>
                                     </div>

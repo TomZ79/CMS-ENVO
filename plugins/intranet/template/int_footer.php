@@ -64,11 +64,11 @@ if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'sea
   // Fancybox
   echo $Html -> addScript('/assets/plugins/fancybox/3.4.1/js/jquery.fancybox.min.js');
   // Photo gallery
-  echo $Html -> addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.min.js');
+  echo $Html -> addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.js');
 
-  if ($page1 == 'house' && !empty($page2)) {
+  if ($page1 == 'house' && !empty($page2) || ($page1 == 'houselist' && !empty($page2))) {
     // Plugin Fileuploader
-    echo $Html -> addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/1.4/jquery.fileuploader.min.js');
+    echo $Html -> addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/jquery.fileuploader.min.js');
   }
 
   echo PHP_EOL;

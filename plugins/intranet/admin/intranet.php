@@ -33,7 +33,8 @@ $envotable11 = DB_PREFIX . 'int_housetasks';
 $envotable12 = DB_PREFIX . 'int_housevideo';
 $envotable13 = DB_PREFIX . 'int_houselist';
 $envotable14 = DB_PREFIX . 'int_houselistdocu';
-$envotable15 = DB_PREFIX . 'int_houselistregion';
+$envotable15 = DB_PREFIX . 'int_houselistimg';
+$envotable16 = DB_PREFIX . 'int_houselistregion';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -558,7 +559,8 @@ Folder:   ' . $pathfolder . '
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
                         justice = "' . smartsql($defaults['envo_housejustice']) . '",
                         housejusticelaw = "' . smartsql($defaults['envo_housejusticelaw']) . '",
-                        description = "' . smartsql($defaults['envo_housedescription']) . '",
+                        housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
+                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
                         contact1 = "' . smartsql($defaults['envo_housecontact1']) . '",
                         contactphone1 = "' . smartsql($defaults['envo_housecontactphone1']) . '",
                         contactmail1 = "' . smartsql($defaults['envo_housecontactmail1']) . '",
@@ -622,7 +624,7 @@ Folder:   ' . $pathfolder . '
 
         // EN: Getting the data about the city in region - House list
         // CZ: Získání dat o městech v regionu - Seznam domů
-        $envoregion = envo_get_region('', 'city', $envotable15, 1);
+        $envoregion = envo_get_region('', 'city', $envotable16, 1);
 
         // Convert multidimensional array into single array
         $ENVO_REGION = [];
@@ -634,7 +636,7 @@ Folder:   ' . $pathfolder . '
 
         // EN: Getting the data about the city in region - House list
         // CZ: Získání dat o městech v regionu - Seznam domů
-        $envoregioncity = envo_get_region('', 'city_area', $envotable15, 1);
+        $envoregioncity = envo_get_region('', 'city_area', $envotable16, 1);
 
         // Convert multidimensional array into single array
         $ENVO_REGION_AREA = [];
@@ -708,7 +710,8 @@ Folder:   ' . $pathfolder . '
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
                         justice = "' . smartsql($defaults['envo_housejustice']) . '",
                         housejusticelaw = "' . smartsql($defaults['envo_housejusticelaw']) . '",
-                        description = "' . smartsql($defaults['envo_housedescription']) . '",
+                        housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
+                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
                         contact1 = "' . smartsql($defaults['envo_housecontact1']) . '",
                         contactphone1 = "' . smartsql($defaults['envo_housecontactphone1']) . '",
                         contactmail1 = "' . smartsql($defaults['envo_housecontactmail1']) . '",
@@ -780,7 +783,7 @@ Folder:   ' . $pathfolder . '
 
           // EN: Getting the data about the city in region - House list
           // CZ: Získání dat o městech v regionu - Seznam domů
-          $envoregion = envo_get_region('', 'city', $envotable15, 1);
+          $envoregion = envo_get_region('', 'city', $envotable16, 1);
 
           // Convert multidimensional array into single array
           $ENVO_REGION = [];
@@ -792,13 +795,38 @@ Folder:   ' . $pathfolder . '
 
           // EN: Getting the data about the city in region - House list
           // CZ: Získání dat o městech v regionu - Seznam domů
-          $envoregioncity = envo_get_region('', 'city_area', $envotable15, 1);
+          $envoregioncity = envo_get_region('', 'city_area', $envotable16, 1);
 
           // Convert multidimensional array into single array
           $ENVO_REGION_AREA = [];
           foreach ($envoregioncity as $array) {
             foreach ($array as $v) {
               $ENVO_REGION_AREA[] = $v;
+            }
+          }
+
+          // EN: Get all the data for the Photogallery - list photo
+          // CZ: Získání všech dat pro Fotogalerii - list photo
+
+          // EN: Setlocale
+          $envodb -> query('SET lc_time_names = "' . $setting["locale"] . '"');
+          // EN: Get 'timedefault'
+          $result = $envodb -> query('SELECT distinct(DATE_FORMAT(timedefault, "%Y - %M")) as d FROM ' . $envotable15 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY timedefault DESC');
+          // EN: Get all photo by date for house
+          while ($row = $result -> fetch_assoc()) {
+
+            $date = $row['d'];
+            $dateFormat = ucwords(strtolower($date), '\'- ');;
+
+            $ENVO_FORM_DATA_IMG[$date]['timedefault'] = $dateFormat;
+
+            //
+            $result1 = $envodb -> query('SELECT * FROM ' . $envotable15 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(timedefault,"%Y - %M") = "' . $date . '"');
+
+            while ($row1 = $result1 -> fetch_assoc()) {
+
+              $ENVO_FORM_DATA_IMG[$date]['photos'][] = $row1;
+
             }
           }
 
@@ -826,17 +854,20 @@ Folder:   ' . $pathfolder . '
         $pageID = $page3;
 
         if (is_numeric($pageID) && envo_row_exist($pageID, $envotable13)) {
+          /* EN: Delete all records
+           * 1. Get data for deleting
+           * 2. Delete records from DB 'int_houselist'
+           * 3. Delete records from DB 'int_houselistdocu'
+           * 4. Delete all files and folder
+          */
 
-          // EN: Get pathfolder and delete files, folder
-          // CZ: Získání složky a odstranění souborů a složek
-          $result = $envodb -> query('SELECT folder FROM ' . $envotable13 . ' WHERE id = "' . smartsql($pageID) . '"');
-          $row = $result -> fetch_assoc();
+          // EN: 1. Get data for deleting - main folder
+          // CZ: 1. Získání dat potřebná k odstranění - hlavní adresář
+          $resultfolder = $envodb -> query('SELECT folder FROM ' . $envotable13 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1 ');
+          $folder = $resultfolder -> fetch_assoc();
 
-          $pathfolder = APP_PATH . ENVO_FILES_DIRECTORY . $row['folder'];
-          delete_files($pathfolder);
-
-          // EN: Delete row in DB
-          // CZ: Odstranění záznamu z DB
+          // EN: 2. Delete row from DB 'int_houselist' - Main records about house
+          // CZ: 2. Odstranění záznamu z DB 'int_houselist' - Hlavní záznam o domu
           $result = $envodb -> query('DELETE FROM ' . $envotable13 . ' WHERE id = "' . smartsql($pageID) . '"');
 
           if (!$result) {
@@ -844,6 +875,14 @@ Folder:   ' . $pathfolder . '
             // CZ: Přesměrování stránky s notifikací - chybné
             envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=e');
           } else {
+            // EN: 3. Delete row from DB 'int_houselistdocu' - Documents
+            // CZ: 3. Odstranění záznamu z DB 'int_houselistdocu' - Dokumenty
+            $envodb -> query('DELETE FROM ' . $envotable14 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: 4. Delete files, folder
+            // CZ: 4. Odstranění souborů a složek
+            $pathfolder = APP_PATH . ENVO_FILES_DIRECTORY . $folder['folder'];
+            delete_files($pathfolder);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -1218,7 +1257,7 @@ Folder:   ' . $pathfolder . '
 
 
         // CZ: Odstranění měst z DB
-        $result1 = $envodb -> query('TRUNCATE TABLE ' . $envotable15);
+        $result1 = $envodb -> query('TRUNCATE TABLE ' . $envotable16);
 
         // CZ: Zápis vysílačů do DB
         $countregion = $defaults['envo_1'];
@@ -1230,7 +1269,7 @@ Folder:   ' . $pathfolder . '
 
             // EN: Insert new row and update row if exists in DB
             // CZ: Vložení nového záznamu a update záznamu, který je již v DB
-            $result = $envodb -> query('INSERT INTO ' . $envotable15 . ' SET
+            $result = $envodb -> query('INSERT INTO ' . $envotable16 . ' SET
                         id = "' . smartsql($defaults['envo_0'][$i]) . '",
                         region = "' . trim(smartsql($defaults['envo_1'][$i])) . '",
                         district = "' . trim(smartsql($defaults['envo_2'][$i])) . '",
@@ -1302,7 +1341,7 @@ Folder:   ' . $pathfolder . '
 
     // EN: Getting the data about the city in region - House list
     // CZ: Získání dat o městech v regionu - Seznam domů
-    $ENVO_REGION = envo_get_region('', '', $envotable15);
+    $ENVO_REGION = envo_get_region('', '', $envotable16);
 
     // EN: Getting the data about the TV Tower
     // CZ: Získání dat o televizním vysílači

@@ -147,9 +147,9 @@
               <div class="grid-body no-border">
                 <div class="row">
 
-                  <?php if (!empty($ENVO_HOUSELIST_DETAIL['description'])) {
+                  <?php if (!empty($ENVO_HOUSELIST_DETAIL['housedescription'])) {
 
-                    echo '<div>' . $ENVO_HOUSELIST_DETAIL['description'] . '</div>';
+                    echo '<div>' . $ENVO_HOUSELIST_DETAIL['housedescription'] . '</div>';
 
                   } else { ?>
 
@@ -603,6 +603,23 @@
               <div class="grid-body no-border">
                 <div class="row">
 
+                  <?php if (!empty($ENVO_HOUSELIST_DETAIL['antennadescription'])) {
+
+                    echo '<div>' . $ENVO_HOUSELIST_DETAIL['antennadescription'] . '</div>';
+
+                  } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
+                      ?>
+
+                    </div>
+
+                  <?php } ?>
+
                 </div>
               </div>
             </div>
@@ -623,7 +640,7 @@
               <div class="grid-body no-border">
                 <div class="row">
 
-                  <?php if (!empty($ENVO_HOUSE_DOCU) && is_array($ENVO_HOUSE_DOCU)) { ?>
+                  <?php if (!empty($ENVO_HOUSELIST_DOCU) && is_array($ENVO_HOUSELIST_DOCU)) { ?>
                     <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
@@ -635,7 +652,7 @@
                         </thead>
                         <tbody>
 
-                        <?php foreach ($ENVO_HOUSE_DOCU as $hdocu) { ?>
+                        <?php foreach ($ENVO_HOUSELIST_DOCU as $hdocu) { ?>
                           <tr>
                             <td class="text-center"><?= envo_extension_icon($hdocu["filename"]) ?></td>
                             <td><?= $hdocu["description"] ?></td>
@@ -685,14 +702,107 @@
                 </div>
               </div>
               <div class="grid-body no-border">
-                <div class="row">
 
+                <?php if ($ENVO_MODULES_ACCESS) { ?>
+                  <div class="row m-b-20">
+                    <div class="col-sm-12">
+                      <form action="/plugins/intranet/template/ajax/fileuploader_list_upload_img.php" id="form_list_upload_img" method="post" enctype="multipart/form-data">
+                        <!-- File input -->
+                        <input type="file" name="files" accept="image/*">
+                        <div class="form-status m-b-20"></div>
+                        <input type="submit" class="btn btn-info btn-upload pull-right" value="Upload" data-houseid="<?= $ENVO_HOUSELIST_DETAIL["id"] ?>">
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <hr>
+                    </div>
+                  </div>
+                <?php } ?>
+
+                <div class="row">
+                  <div class="col-sm-12">
+
+                    <?php
+
+                    if (!empty($ENVO_HOUSELIST_IMG_LIST) && is_array($ENVO_HOUSELIST_IMG_LIST)) {
+
+                      echo '<div id="imggallery0" class="gallery">';
+
+                      foreach ($ENVO_HOUSELIST_IMG_LIST as $subarray) {
+
+                        // Get first value 'timedefault'
+                        echo '<div class="dateblock_' . uniqid() . ' m-b-20 clearfix">';
+                        echo '<div class="padding-10 m-b-20" style="background:gray;color:white;font-weight:700;font-size:1.2em;">' . reset($subarray) . '</div>';
+
+                        // Loop photos array
+                        foreach ($subarray['photos'] as $himg_list) {
+
+                          echo '<div class="gallery-item-' . $himg_list["id"] . ' float-left margin-gallery" data-width="1" data-height="1">';
+
+                          echo '<div class="img_container"><a data-fancybox="fancybox-0" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" alt=""></a></div>';
+
+                          echo '<div class="overlays">
+                                <div class="col-sm-12 full-height">
+                                  <div class="col-xs-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($himg_list["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
+                                  </div>
+                                  <div class="col-xs-7 full-height">
+                                    <div class="text">
+                                      <a data-fancybox="fancybox-0-1" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '">
+                                        <button class="btn btn-success btn-xs btn-mini" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+                                         <i class="fas fa-image"></i>
+                                        </button>
+                                      </a>
+                                      <button class="btn btn-success btn-xs btn-mini dialog-listopen-info" type="button" data-dialog="itemDetails" data-id="' . $himg_list["id"] . '" data-toggle="tooltipEnvo" title="Informace">
+                                      <i class="fas fa-info"></i>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>';
+
+                          echo '<div class="full-width padding-10">';
+                          echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $himg_list["shortdescription"] . '</p>';
+                          echo '</div>';
+                          echo '</div>';
+                        }
+
+                        echo '</div>';
+                      }
+
+                      echo '</div>';
+
+                    } else {
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupné žádné fotografie.', '', array ( 'class' => 'alert' ));
+                    }
+
+                    ?>
+
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- DIALOG FX -->
+  <div id="itemDetails" class="dialog item-details">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+      <div class="container-fluid" style="height: 90vh;">
+        <div class="row dialog__overview">
+          <!-- Data over AJAX  -->
+        </div>
+      </div>
+      <button class="close action top-right" type="button" data-dialog-close>
+        <i class="fas fa-times fa-lg"></i>
+      </button>
     </div>
   </div>
 

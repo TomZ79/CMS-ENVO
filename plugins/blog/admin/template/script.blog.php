@@ -52,7 +52,7 @@ if ($page == 'blog') {
   // Plugin DataTable
   echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/blog/admin/js/script.blog.min.js');
+  echo $Html->addScript(BASE_URL_ORIG . 'plugins/blog/admin/js/script.blog.js');
 
   echo PHP_EOL . '<!-- End JS Blog -->' . PHP_EOL;
 

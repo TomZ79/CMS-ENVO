@@ -582,8 +582,8 @@ function envo_extension_icon($filename)
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    9/2018
+ * @version 1.0.1
+ * @date    10/2018
  *
  * @param $target       string    | name of file
  *
@@ -591,16 +591,22 @@ function envo_extension_icon($filename)
  */
 function delete_files($target)
 {
-  if (is_dir($target)) {
-    $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+  if ($target == APP_PATH . ENVO_FILES_DIRECTORY) {
+    // Folder is only main folder '/_files/'
 
-    foreach ($files as $file) {
-      delete_files($file);
+  } else {
+    // Folder is with subfolder
+    if (is_dir($target)) {
+      $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+
+      foreach ($files as $file) {
+        delete_files($file);
+      }
+
+      rmdir($target);
+    } elseif (is_file($target)) {
+      unlink($target);
     }
-
-    rmdir($target);
-  } elseif (is_file($target)) {
-    unlink($target);
   }
 }
 

@@ -121,6 +121,8 @@ $(function () {
       "targets": 'no-sort',
       "orderable": false
     }],
+    // Page lenght
+    "pageLength": 15,
     // Design Table items
     "sDom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row  m-t-30'<'col-sm-12'p i>>",
     "sPaginationType": "bootstrap",
