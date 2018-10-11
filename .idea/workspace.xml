@@ -5,185 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone-template.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.abril-droidsans.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.amatic-andika.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.bevan-pontanosans.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.bitter-raleway.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.clicker-garamond.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.dancing-ledger.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.fjalla-average.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.georgia-helvetica.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.knightlab.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.lustria-lato.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.medula-lato.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.oldstandard.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.opensans-gentiumbook.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.opensans.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.playfair-faunaone.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.playfair.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.pt.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.roboto-megrim.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.rufina-sintony.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.ubuntu.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/fonts/font.unicaone-vollkorn.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/icons/icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/icons/tl-icons.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/icons/tl-icons.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/icons/tl-icons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/icons/tl-icons.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/themes/timeline.theme.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/timeline.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/css/timeline_envo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/embed/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/cosmological.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/cosmological.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/dark_theme_example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/eras.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/eras.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/error_message_test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/error_message_test.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/google_spreadsheet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/google_spreadsheet_tester.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/groups_test_2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/groups_test_2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/groups_test_3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/groups_test_3.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/long_time_ticks.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/mark_twain.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/marktwain.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/marktwain_juked.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/marktwain_test.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/media_types.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/media_types.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/milliseconds.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/milliseconds.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/multiple_timeline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/science.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/seventh_century.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/seventh_century.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/sizes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/timeline_language.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/timeline_top_nav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/timenav_height_example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/wedding.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/wedding.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/wedding_backup.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/welcome.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/examples/years.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/library/moment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/af.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ar.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/be.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/bg.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ca.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/cz.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/da.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/de.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/el.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/en-24hr.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/en-week.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/en.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/eo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/es.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/et.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/eu.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/fa.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/fi.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/fo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/fr.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/fy.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ga.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/gl.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/he.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/hi.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/hr.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/hu.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/hy.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/id.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/is.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/it.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/iw.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ja.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ka.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ko.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/lb.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/lt.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/lv.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ms.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/my.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ne.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/nl.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/no.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/pl.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/pt-br.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/pt.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/rm.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ro.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ru.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/si.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/sk.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/sl.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/sr-cy.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/sr.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/sv.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/te.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/th.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/tl.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/tr.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/uk.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/ur.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/vi.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/zh-cn.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/locale/zh-tw.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/timeline-embed-cdn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/timeline-embed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/timeline-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/timeline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/js/timeline_envo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/test/js/data/VCO.getJSON.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/timeline.js/timeline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/porto/img/570x430.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/porto/img/640x480.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/porto/img/640x4801.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/porto/loginpage.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/page.php" afterPath="$PROJECT_DIR$/admin/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/setting.php" afterPath="$PROJECT_DIR$/admin/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/class.search.php" afterPath="$PROJECT_DIR$/class/class.search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/loginpass.php" afterPath="$PROJECT_DIR$/include/loginpass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/plainsql.php" afterPath="$PROJECT_DIR$/install/plainsql.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page.php" afterPath="$PROJECT_DIR$/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/footer_widget.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/footer_widget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/rf_sidebar.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/rf_sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/404.php" afterPath="$PROJECT_DIR$/template/porto/404.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/screen.css" afterPath="$PROJECT_DIR$/template/porto/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/screen.min.css" afterPath="$PROJECT_DIR$/template/porto/css/screen.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/theme-complete.min.css" afterPath="$PROJECT_DIR$/template/porto/css/theme-complete.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/theme-elements.css" afterPath="$PROJECT_DIR$/template/porto/css/theme-elements.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/theme-elements.min.css" afterPath="$PROJECT_DIR$/template/porto/css/theme-elements.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.php" afterPath="$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.php" afterPath="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/error.php" afterPath="$PROJECT_DIR$/template/porto/error.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/footer.php" afterPath="$PROJECT_DIR$/template/porto/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/login.php" afterPath="$PROJECT_DIR$/template/porto/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/loginsidebar.php" afterPath="$PROJECT_DIR$/template/porto/loginsidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/navbar.php" afterPath="$PROJECT_DIR$/template/porto/navbar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/news.php" afterPath="$PROJECT_DIR$/template/porto/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/newsart.php" afterPath="$PROJECT_DIR$/template/porto/newsart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/newssidebar.php" afterPath="$PROJECT_DIR$/template/porto/newssidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/page.php" afterPath="$PROJECT_DIR$/template/porto/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/php/contact-form-sidebar.php" afterPath="$PROJECT_DIR$/template/porto/php/contact-form-sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/footer_widget.php" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/footer_widget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_sidebar.php" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/js/script.page.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/js/script.page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/less/modules/tabs.less" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/less/modules/tabs.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/less/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/less/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/less/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/less/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/include/admin.function.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/include/admin.function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lang/en.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/faq/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/intranet.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/intranet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/intranet.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/intranet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.min.css" afterDir="false" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -203,109 +65,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/search.php">
+      <file leaf-file-name="int_index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="98" column="20" lean-forward="false" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+            <state relative-caret-position="89">
+              <caret line="92" column="50" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
               <folding>
-                <marker date="1506588439652" expanded="true" signature="4207:4326" ph="SELECT id, h... ${DB_PREFIX}" />
+                <element signature="e#160#1301#0#HTML" />
+                <element signature="e#1308#2138#0#HTML" />
+                <element signature="e#2145#2979#0#HTML" />
+                <element signature="e#2986#3815#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact-form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.php">
+      <file leaf-file-name="int_house_detail.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="51" column="2" lean-forward="false" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="send-phone.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="37" column="67" lean-forward="false" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact-form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/porto/php/php-mailer-template/contact-form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="202" column="141" lean-forward="false" selection-start-line="202" selection-start-column="120" selection-end-line="202" selection-end-column="141" />
+            <state relative-caret-position="81">
+              <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#8048#8054#0" expanded="true" />
-                <element signature="e#8054#8060#0" expanded="true" />
-                <element signature="e#8060#8066#0" expanded="true" />
-                <element signature="e#8066#8072#0" expanded="true" />
-                <element signature="e#8086#8092#0" expanded="true" />
-                <element signature="e#8092#8098#0" expanded="true" />
-                <element signature="e#8098#8104#0" expanded="true" />
-                <element signature="e#8104#8110#0" expanded="true" />
-                <marker date="1522090210480" expanded="true" signature="932:999" ph="..." />
-                <marker date="1522090210480" expanded="true" signature="940:989" ph="{...}" />
-                <marker date="1522090210480" expanded="true" signature="4891:5027" ph="..." />
-                <marker date="1522090210480" expanded="true" signature="4922:5018" ph="..." />
-                <marker date="1522090210480" expanded="true" signature="6032:6061" ph="..." />
-                <marker date="1522090210480" expanded="true" signature="6043:6061" ph="..." />
-                <marker date="1522090210480" expanded="true" signature="6056:6061" ph="..." />
+                <element signature="e#1499#5944#0#HTML" />
+                <element signature="e#5951#7145#0#HTML" />
+                <element signature="e#7152#10327#0#HTML" />
+                <element signature="e#10334#11507#0#HTML" />
+                <element signature="e#11514#14498#0#HTML" />
+                <element signature="e#14505#20606#0#HTML" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="e#20613#22776#0#HTML" />
+                <element signature="e#22783#25243#0#HTML" />
+                <element signature="e#25250#35591#0#HTML" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#35598#40758#0#HTML" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sitemap.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sitemap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="11" />
-              <folding>
-                <marker date="1506588441577" expanded="true" signature="1196:1339" ph="SELECT id, h... ${DB_PREFIX}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/porto/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/class/class.search.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-              <folding>
-                <marker date="1522085838724" expanded="true" signature="593:668" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1522085838724" expanded="true" signature="908:1002" ph="INSERT INTO ${DB_PREFIX}searchlog... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="341" column="13" lean-forward="false" selection-start-line="341" selection-start-column="2" selection-end-line="341" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -315,109 +111,118 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>11. PORTO MODIFICATION - INPUT, CHECKBOX</find>
-      <find>lost-pwd</find>
-      <find>general</find>
-      <find>$errorfp</find>
-      <find>570x430.jpg</find>
-      <find>page-header</find>
-      <find>$errorlo</find>
-      <find>&quot;error&quot;</find>
-      <find>'error'</find>
-      <find>error.php</find>
-      <find>nav-side-menu</find>
-      <find>recent-post</find>
-      <find>$ENVO_GET_NEWS_SORTED</find>
-      <find>('success'</find>
-      <find>success</find>
-      <find>JajaxSubmitSearch</find>
-      <find>$P_SEAERCH_LINK</find>
-      <find>$ENVO_SEARCH_USED</find>
-      <find>envoSetTable</find>
-      <find>search</find>
-      <find>$PAGE_TITLE</find>
-      <find>envoSH</find>
-      <find>Big</find>
-      <find>$subject</find>
-      <find>$name</find>
-      <find>phonelink</find>
-      <find>$message</find>
-      <find>Bing</find>
-      <find>.mb-</find>
-      <find>title</find>
+      <find>je připraven na</find>
+      <find>envo_antennadescription</find>
+      <find>$envotable9</find>
+      <find>$envotable5</find>
+      <find>$envotable12</find>
+      <find>int_houseserv</find>
+      <find>$envotable6</find>
+      <find>$envotable11</find>
+      <find>$envotable1</find>
+      <find>$envotable2</find>
+      <find>int_housecontact</find>
+      <find>page-sidebar-wrapper</find>
+      <find>$envotable3</find>
+      <find>Seznam domů</find>
+      <find>Analý</find>
+      <find>padding: 5px 0;</find>
+      <find>tabbable tabs-left</find>
+      <find>border-top-left-radius: 3px;</find>
+      <find>border-width: 0;</find>
+      <find>li.active</find>
+      <find>.tabs-left &gt; .nav-tabs &gt;</find>
+      <find>.tabs-left</find>
+      <find>.table-striped</find>
+      <find>$ENVO_HOUSE_ALL</find>
+      <find>houseparseurl</find>
+      <find>$ENVO_HOUSE_TASK_DELAY</find>
+      <find>int_sec_title</find>
+      <find>INTRANET - SEZNAM BYTOVÝCH DOMŮ</find>
+      <find>inttab3</find>
+      <find>#tabs2</find>
     </findStrings>
     <replaceStrings>
+      <replace>@heightB</replace>
+      <replace>color13</replace>
+      <replace>Roboto, sans-serif</replace>
       <replace>0</replace>
-      <replace>faq-article</replace>
-      <replace>../fonts</replace>
-      <replace>Bluesat-icons</replace>
-      <replace>bluesat-icons</replace>
-      <replace>&quot;);</replace>
-      <replace>Stiskněte a držte klávesu CTRL nebo SHIFT pro výběr více položek</replace>
-      <replace>bh_header</replace>
-      <replace>bh_content.</replace>
-      <replace>bh_header.</replace>
-      <replace>Stiskněte a držte &lt;br&gt;klávesu CTRL nebo SHIFT &lt;br&gt;pro výběr více položek</replace>
-      <replace>envo_allpage</replace>
-      <replace>content_after</replace>
-      <replace>$ENVO_HOOK_BELOW_FOOTER</replace>
-      <replace>masonry-loader</replace>
-      <replace>content_before</replace>
-      <replace>loading-overlay</replace>
-      <replace>generated_admin_js.php</replace>
-      <replace>$</replace>
+      <replace>&quot;Open Sans&quot;, sans-serif</replace>
+      <replace>Fontawesome</replace>
+      <replace>&quot;Fontawesome&quot;</replace>
+      <replace>@color12</replace>
+      <replace>0;</replace>
+      <replace>-</replace>
+      <replace>fa</replace>
+      <replace>int_</replace>
+      <replace>av-item dropdown collapsed-menu hidden</replace>
+      <replace>nav-item dropdown collapsed-menu</replace>
+      <replace>$himg_iso</replace>
+      <replace>$ENVO_HOUSE_IMG_LIST</replace>
+      <replace>$himg_list</replace>
+      <replace>btn-success</replace>
+      <replace>nav-item dropdown collapsed-menu hidden</replace>
+      <replace>margin</replace>
+      <replace>gallery_envo_1</replace>
+      <replace>well padding-10</replace>
+      <replace>scrollspyoffset m-b-20</replace>
+      <replace>listimgoutput</replace>
+      <replace>listimgprogress</replace>
+      <replace>listimgpercent</replace>
+      <replace>fileinput_imglist</replace>
+      <replace>&lt;span class='bold text-warning-dark'&gt;No data&lt;/span&gt;</replace>
+      <replace>col-md-3</replace>
       <replace>m-0</replace>
-      <replace>mr-1</replace>
-      <replace>$envotable1</replace>
-      <replace>$envotable2</replace>
-      <replace>$envotable5</replace>
-      <replace>$envotable4</replace>
-      <replace>$envotable3</replace>
-      <replace>&lt;?=</replace>
-      <replace>&lt;?=ENVO_TEMPLATE?&gt;</replace>
-      <replace>usergroups_table</replace>
-      <replace>tags_table</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\less\modules</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\pages\less\modules</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\pages\css</dir>
-      <dir>D:\Github\CMS-Bluesat\template\mobilerepair\css</dir>
-      <dir>D:\Github\CMS-Bluesat\template\mobilerepair\less</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\blog\admin</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\site_editor\admin</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\js\global_js</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\faq\template</dir>
-      <dir>D:\Github\CMS-Bluesat\template\porto\plugintemplate</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\blog</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\faq</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\belowheader</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\js</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\template</dir>
-      <dir>D:\Github\CMS-Bluesat\_files</dir>
-      <dir>D:\Github\CMS-Bluesat\assets</dir>
-      <dir>D:\Github\CMS-Bluesat\class</dir>
-      <dir>D:\Github\CMS-Bluesat\include</dir>
-      <dir>D:\Github\CMS-Bluesat\install</dir>
-      <dir>D:\Github\CMS-Bluesat\lang</dir>
+      <dir>D:\Github\CMS-Bluesat\template\carzone\less</dir>
+      <dir>D:\Github\CMS-Bluesat\template\carzone\css</dir>
+      <dir>D:\Github\CMS-Bluesat\assets\plugins\fancybox</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\js</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\assets\css</dir>
       <dir>D:\Github\CMS-Bluesat\plugins</dir>
-      <dir>D:\Github\CMS-Bluesat\template</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\less</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\tv_tower</dir>
       <dir>D:\Github\CMS-Bluesat\admin\pages\less</dir>
-      <dir>D:\Github\CMS-Bluesat\admin</dir>
-      <dir>D:\Github\CMS-Bluesat\template\porto</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\pages</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\assets\js</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\js</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\assets\less\modules</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\pages\css</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\template</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\blog</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\pages\less\modules</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\ajax</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\assets\less</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\less</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\faq</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\assets</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\template</dir>
       <dir>D:\Github\CMS-Bluesat</dir>
-      <dir>D:\Github\CMS-Bluesat\template\porto\css</dir>
+      <dir>D:\Github\CMS-Bluesat\admin</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\less\modules</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template</dir>
     </dirStrings>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="lessc --help" />
+      <command text="less -v" />
+      <command text="lessc.cmd -v" />
+      <command text="npm install --global less" />
+      <command text="npm install -g less@2.7.3" />
+    </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -425,57 +230,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/template/logs.php" />
-        <option value="$PROJECT_DIR$/admin/template/searchlog.php" />
-        <option value="$PROJECT_DIR$/admin/template/navbar.php" />
-        <option value="$PROJECT_DIR$/admin/assets/js/script.usergroup.js" />
-        <option value="$PROJECT_DIR$/admin/assets/js/script.tags.js" />
-        <option value="$PROJECT_DIR$/admin/template/header.php" />
-        <option value="$PROJECT_DIR$/admin/template/footer.php" />
-        <option value="$PROJECT_DIR$/admin/tag.php" />
-        <option value="$PROJECT_DIR$/admin/template/usergroup.php" />
-        <option value="$PROJECT_DIR$/admin/template/pages.php" />
-        <option value="$PROJECT_DIR$/admin/template/tag.php" />
-        <option value="$PROJECT_DIR$/admin/pages/less/modules/form_elements.less" />
-        <option value="$PROJECT_DIR$/admin/assets/less/modules/noname.less" />
-        <option value="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_img.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_img.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_dialog_img.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/js/datatables.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/dist/jquery.fileuploader.min.css" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/image-editor/default/js/custom.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/less/webarch.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/less/responsive.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/ajax/int_table_dialog_img.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/ajax/int_list_table_dialog_img.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/default-upload/js/custom.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/drag-drop/js/custom.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/int_footer.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/image-editor/upload/js/custom.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/src/class.fileuploader.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/drag-drop-form/js/custom.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/js/gallery.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules/fileuploader.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/int_houselist_detail.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/ajax/fileuploader_list_upload_img.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/install.php" />
         <option value="$PROJECT_DIR$/template/porto/header.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_header.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_login.php" />
-        <option value="$PROJECT_DIR$/template/porto/loginpage.php" />
-        <option value="$PROJECT_DIR$/template/porto/page.php" />
-        <option value="$PROJECT_DIR$/page.php" />
+        <option value="$PROJECT_DIR$/admin/include/admin.function.php" />
         <option value="$PROJECT_DIR$/admin/page.php" />
-        <option value="$PROJECT_DIR$/admin/template/editpage.php" />
-        <option value="$PROJECT_DIR$/admin/template/newpage.php" />
-        <option value="$PROJECT_DIR$/admin/setting.php" />
-        <option value="$PROJECT_DIR$/admin/template/setting.php" />
-        <option value="$PROJECT_DIR$/install/plainsql.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/template/rf_sidebar.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/template/footer_widget.php" />
-        <option value="$PROJECT_DIR$/template/porto/plugintemplate/register_form/footer_widget.php" />
-        <option value="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_sidebar.php" />
-        <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/template/porto/footer.php" />
-        <option value="$USER_HOME$/Downloads/CssCheckboxKit_1522079336182853/style.css" />
-        <option value="$USER_HOME$/Downloads/CssCheckboxKit_1522079336182853/demo.html" />
-        <option value="$PROJECT_DIR$/include/loginpass.php" />
-        <option value="$PROJECT_DIR$/template/porto/css/theme-elements.css" />
-        <option value="$PROJECT_DIR$/template/porto/css/screen.css" />
-        <option value="$PROJECT_DIR$/template/porto/login.php" />
-        <option value="$PROJECT_DIR$/template/porto/loginsidebar.php" />
-        <option value="$PROJECT_DIR$/template/porto/error.php" />
-        <option value="$PROJECT_DIR$/template/porto/404.php" />
-        <option value="$PROJECT_DIR$/template/porto/navbar.php" />
-        <option value="$PROJECT_DIR$/template/porto/news.php" />
-        <option value="$PROJECT_DIR$/template/porto/newsart.php" />
-        <option value="$PROJECT_DIR$/template/porto/newssidebar.php" />
-        <option value="$PROJECT_DIR$/class/class.search.php" />
-        <option value="$PROJECT_DIR$/template/porto/php/contact-form-sidebar.php" />
-        <option value="$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.php" />
-        <option value="$PROJECT_DIR$/template/porto/php/php-mailer-template/contact-form.html" />
-        <option value="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.php" />
-        <option value="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone-template.html" />
+        <option value="$PROJECT_DIR$/admin/assets/js/script.page.php" />
+        <option value="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" />
+        <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/admin/lang/en.ini" />
+        <option value="$PROJECT_DIR$/admin/template/pages.php" />
+        <option value="$PROJECT_DIR$/admin/users.php" />
+        <option value="$PROJECT_DIR$/admin/template/users.php" />
+        <option value="$PROJECT_DIR$/admin/assets/less/modules/tabs.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js" />
+        <option value="$PROJECT_DIR$/assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.js" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/install.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/intranet.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/int_nav.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/int_header.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/intranet.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini" />
       </list>
     </option>
   </component>
@@ -485,10 +290,19 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/assets/plugins/bootstrap-table-master/package.json" />
+      <path value="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/closure-compiler/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/google-closure-compiler/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/yuicompressor/package.json" />
+      <path value="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/package.json" />
+    </packageJsonPaths>
+  </component>
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="22" />
@@ -499,98 +313,82 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="intranet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="timeline.js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="intranet" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="timeline.js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="3.5.4" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="intranet" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="timeline.js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="3.5.4" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="template" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="intranet" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/assets/js/global_js" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/admin/pages/js/pages_bak.js" />
-    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/template/carzone/css/style.css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/template/carzone/css/style.css" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\template\carzone\widget\sidebar" />
+      <recent name="D:\Github\CMS-Bluesat\template\carzone\less\modules" />
       <recent name="D:\Github\CMS-Bluesat\admin\assets\js\global_js" />
       <recent name="D:\Github\CMS-Bluesat\assets\js" />
       <recent name="D:\Github\CMS-Bluesat\template\porto\custom\css" />
-      <recent name="D:\Github\CMS-Bluesat\template\porto\custom\contactform" />
-      <recent name="D:\Github\CMS-Bluesat\template\porto\custom" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\template\porto\custom\send-phone" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\css" />
       <recent name="D:\Github\CMS-Bluesat\admin\assets\css" />
-      <recent name="D:\Github\CMS-Bluesat\admin\pages\css" />
-      <recent name="D:\Github\CMS-Bluesat" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\img" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0\examples\add-more" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0\examples" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0\dist\font" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -606,15 +404,8 @@
     </option>
   </component>
   <component name="RunManager" selected="JavaScript Debug.tvtower.php">
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-    </configuration>
+    <configuration name="tvtower.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://www.bluesat.cz/plugins/tv_tower/admin/tvtower.php" />
+    <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php" />
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -652,21 +443,24 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php" />
-    <configuration name="tvtower.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://www.bluesat.cz/plugins/tv_tower/admin/tvtower.php" />
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="PHP Script.index.php" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.tvtower.php" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+    </configuration>
+    <list>
+      <item itemvalue="PHP Script.index.php" />
+      <item itemvalue="JavaScript Debug.tvtower.php" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.tvtower.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.index.php" />
+      <list>
+        <item itemvalue="JavaScript Debug.tvtower.php" />
+        <item itemvalue="PHP Script.index.php" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -761,61 +555,126 @@
       <workItem from="1521916754477" duration="11059000" />
       <workItem from="1521963525915" duration="12499000" />
       <workItem from="1521981106731" duration="24247000" />
-      <workItem from="1522073744203" duration="17096000" />
+      <workItem from="1522073744203" duration="18260000" />
+      <workItem from="1522175506477" duration="2136000" />
+      <workItem from="1522392982301" duration="3197000" />
+      <workItem from="1522404768098" duration="76303000" />
+      <workItem from="1522524275541" duration="12952000" />
+      <workItem from="1522570496912" duration="776000" />
+      <workItem from="1522606911517" duration="6973000" />
+      <workItem from="1522613975107" duration="5359000" />
+      <workItem from="1522676888110" duration="12514000" />
+      <workItem from="1522807697260" duration="2951000" />
+      <workItem from="1522867274233" duration="2768000" />
+      <workItem from="1522947476813" duration="22177000" />
+      <workItem from="1523176036716" duration="20565000" />
+      <workItem from="1523302124960" duration="1198000" />
+      <workItem from="1523381552908" duration="1358000" />
+      <workItem from="1523422025442" duration="1126000" />
+      <workItem from="1523550425943" duration="1966000" />
+      <workItem from="1523558155071" duration="611000" />
+      <workItem from="1523796687812" duration="1846000" />
+      <workItem from="1523886768129" duration="5698000" />
+      <workItem from="1523973825828" duration="2001000" />
+      <workItem from="1524085888311" duration="1409000" />
+      <workItem from="1524381997302" duration="647000" />
+      <workItem from="1533240915361" duration="576000" />
+      <workItem from="1533242501814" duration="696000" />
+      <workItem from="1533243337047" duration="5873000" />
+      <workItem from="1534256736301" duration="8178000" />
+      <workItem from="1534268483685" duration="1109000" />
+      <workItem from="1534270203118" duration="1152000" />
+      <workItem from="1534271584471" duration="33527000" />
+      <workItem from="1534442125962" duration="11762000" />
+      <workItem from="1534517794923" duration="604000" />
+      <workItem from="1534771465766" duration="7062000" />
+      <workItem from="1534831927592" duration="604000" />
+      <workItem from="1534871564803" duration="649000" />
+      <workItem from="1535401565961" duration="1350000" />
+      <workItem from="1535556663888" duration="6911000" />
+      <workItem from="1535764684955" duration="37011000" />
+      <workItem from="1535879168359" duration="12078000" />
+      <workItem from="1535896324066" duration="45935000" />
+      <workItem from="1536014183494" duration="27473000" />
+      <workItem from="1536168608329" duration="1587000" />
+      <workItem from="1536244354953" duration="16003000" />
+      <workItem from="1536298684193" duration="93000" />
+      <workItem from="1536347913598" duration="2372000" />
+      <workItem from="1536402062694" duration="12904000" />
+      <workItem from="1536419020419" duration="1633000" />
+      <workItem from="1536582495848" duration="79220000" />
+      <workItem from="1536841281778" duration="15121000" />
+      <workItem from="1536919922800" duration="8734000" />
+      <workItem from="1537350525419" duration="7988000" />
+      <workItem from="1537359636722" duration="30079000" />
+      <workItem from="1537476932142" duration="5541000" />
+      <workItem from="1537483312765" duration="51788000" />
+      <workItem from="1537693046498" duration="19871000" />
+      <workItem from="1537734478639" duration="2261000" />
+      <workItem from="1537794200291" duration="1590000" />
+      <workItem from="1538296939257" duration="22136000" />
+      <workItem from="1538686738750" duration="1288000" />
+      <workItem from="1538817692872" duration="66843000" />
+      <workItem from="1539091015595" duration="14202000" />
+      <workItem from="1539267447769" duration="14513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2780586000" />
+    <option name="totallyTimeSpent" value="3546598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29648608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29648608" sideWeight="0.4937888" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31551978" sideWeight="0.50621116" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39596274" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32868218" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.12868217" />
+      <window_info anchor="bottom" x="0" y="53" width="1362" height="715" id="Version Control" order="8" type="WINDOWED" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.29612404" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.09457365" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24158126" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Find" order="3" sideWeight="0.4937888" weight="0.29648608" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.50621116" side_tool="true" weight="0.31551978" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39906833" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" order="13" />
+      <window_info anchor="bottom" id="REST Client" order="14" weight="0.39596274" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="10" weight="0.32868218" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39596274" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20790629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29648608" sideWeight="0.4937888" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31551978" sideWeight="0.50621116" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.29612404" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22547585" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" x="0" y="53" width="1362" height="715" id="Version Control" order="8" type="WINDOWED" weight="0.32919255" />
+      <window_info anchor="bottom" id="REST Client" order="14" weight="0.39596274" />
+      <window_info id="Find" order="3" sideWeight="0.4937888" weight="0.29648608" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="10" weight="0.32868218" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.09457365" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32868218" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39906833" />
+      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.12868217" />
+      <window_info anchor="bottom" id="Application Servers" order="13" />
+      <window_info id="Favorites" order="2" sideWeight="0.50621116" side_tool="true" weight="0.31551978" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -844,457 +703,453 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="50" />
+      <option name="time" value="69" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/register_form/footer_widget.php">
+    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-          <folding>
-            <element signature="e#37#170#0#PHP" expanded="false" />
-            <element signature="e#176#1580#0#HTML" expanded="false" />
-            <element signature="e#1583#2399#0#HTML" expanded="false" />
-            <element signature="e#2403#2803#0#HTML" expanded="false" />
-          </folding>
+        <state relative-caret-position="174">
+          <caret line="143" column="13" lean-forward="true" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/page.php">
+    <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="164" column="5" lean-forward="false" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/blog/footer_widget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="245" column="21" lean-forward="true" selection-start-line="245" selection-start-column="21" selection-end-line="245" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#section#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/CssCheckboxKit_1522079336182853/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="145" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/CssCheckboxKit_1522079336182853/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/logo-footer.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/640x4801.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/640x480.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/news/news-feature.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/theme-elements.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="3011" column="22" lean-forward="true" selection-start-line="3011" selection-start-column="22" selection-end-line="3011" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="879" column="16" lean-forward="false" selection-start-line="879" selection-start-column="16" selection-end-line="879" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4437">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/570x430.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/custom-header-bg.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="1973" column="1" lean-forward="false" selection-start-line="1973" selection-start-column="1" selection-end-line="1973" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/header-bg-2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/img/header-bg-1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/404.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/loginpass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="113" column="12" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="222">
+          <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/porto/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="237">
+          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/news.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="188">
+          <caret line="70" column="40" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/loginsidebar.php">
+    <entry file="file://$PROJECT_DIR$/class/class.plugins.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/newssidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/offline.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/success.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/error.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/sitemap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/newsart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="404" column="58" lean-forward="false" selection-start-line="404" selection-start-column="52" selection-end-line="404" selection-end-column="58" />
-          <folding>
-            <marker date="1522078423721" expanded="true" signature="13437:13470" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <marker date="1522085838724" expanded="true" signature="593:668" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1522085838724" expanded="true" signature="908:1002" ph="INSERT INTO ${DB_PREFIX}searchlog... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="154">
+          <caret line="111" column="17" lean-forward="true" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="341" column="13" lean-forward="false" selection-start-line="341" selection-start-column="2" selection-end-line="341" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="205">
+          <caret line="498" lean-forward="true" selection-start-line="498" selection-end-line="498" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sitemap.php">
+    <entry file="file://$PROJECT_DIR$/class/class.envobase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="11" />
+        <state relative-caret-position="103">
+          <caret line="269" column="212" lean-forward="true" selection-start-line="269" selection-start-column="212" selection-end-line="269" selection-end-column="212" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="170" column="4" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/include/admin.function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="117" column="3" lean-forward="true" selection-start-line="117" selection-start-column="3" selection-end-line="117" selection-end-column="3" />
           <folding>
-            <marker date="1506588441577" expanded="true" signature="1196:1339" ph="SELECT id, h... ${DB_PREFIX}" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/widget/widget-contact-sidebar-1.php">
+    <entry file="file://$PROJECT_DIR$/admin/assets/js/script.page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#240#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.js">
+    <entry file="file://$PROJECT_DIR$/admin/assets/js/global_js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+        <state relative-caret-position="305">
+          <caret line="1321" column="23" selection-start-line="1321" selection-start-column="23" selection-end-line="1321" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/php/request-form.php">
+    <entry file="file://$PROJECT_DIR$/admin/lang/en.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="583">
+          <caret line="1296" lean-forward="true" selection-start-line="1296" selection-end-line="1296" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/php/contact-form-sidebar.php">
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
+        <state relative-caret-position="127">
+          <caret line="1191" column="14" selection-start-line="1191" selection-start-column="14" selection-end-line="1191" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search.php">
+    <entry file="file://$PROJECT_DIR$/admin/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="98" column="20" lean-forward="false" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
-          <folding>
-            <marker date="1506588439652" expanded="true" signature="4207:4326" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
+        <state relative-caret-position="186">
+          <caret line="963" column="40" selection-start-line="963" selection-start-column="40" selection-end-line="963" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.php">
+    <entry file="file://$PROJECT_DIR$/admin/page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="51" column="2" lean-forward="false" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="122">
+          <caret line="728" column="4" lean-forward="true" selection-start-line="728" selection-start-column="4" selection-end-line="736" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/php/php-mailer-template/contact-form.html">
+    <entry file="file://$PROJECT_DIR$/admin/template/users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="80" column="63" selection-start-line="80" selection-start-column="63" selection-end-line="80" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/pages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="58" column="140" selection-start-line="58" selection-start-column="140" selection-end-line="58" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/assets/less/modules/tabs.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/selecthouse_modal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="202" column="141" lean-forward="false" selection-start-line="202" selection-start-column="120" selection-end-line="202" selection-end-column="141" />
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_houselist_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="171" column="12" lean-forward="true" selection-start-line="135" selection-start-column="6" selection-end-line="171" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="2588" column="45" selection-start-line="2588" selection-start-column="45" selection-end-line="2588" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install/plainsql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="202" column="50" selection-start-line="202" selection-start-column="43" selection-end-line="202" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="162" column="176" selection-start-line="162" selection-start-column="139" selection-end-line="162" selection-end-column="176" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="214" column="30" lean-forward="true" selection-start-line="200" selection-start-column="24" selection-end-line="214" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="306" column="37" lean-forward="true" selection-start-line="306" selection-start-column="37" selection-end-line="306" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="93" column="41" lean-forward="true" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="41" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#8048#8054#0" expanded="true" />
-            <element signature="e#8054#8060#0" expanded="true" />
-            <element signature="e#8060#8066#0" expanded="true" />
-            <element signature="e#8066#8072#0" expanded="true" />
-            <element signature="e#8086#8092#0" expanded="true" />
-            <element signature="e#8092#8098#0" expanded="true" />
-            <element signature="e#8098#8104#0" expanded="true" />
-            <element signature="e#8104#8110#0" expanded="true" />
-            <marker date="1522090210480" expanded="true" signature="932:999" ph="..." />
-            <marker date="1522090210480" expanded="true" signature="940:989" ph="{...}" />
-            <marker date="1522090210480" expanded="true" signature="4891:5027" ph="..." />
-            <marker date="1522090210480" expanded="true" signature="4922:5018" ph="..." />
-            <marker date="1522090210480" expanded="true" signature="6032:6061" ph="..." />
-            <marker date="1522090210480" expanded="true" signature="6043:6061" ph="..." />
-            <marker date="1522090210480" expanded="true" signature="6056:6061" ph="..." />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/timeline.js/timeline.html">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="235">
+          <caret line="1412" lean-forward="true" selection-start-line="1412" selection-end-line="1412" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/timeline.js/js/timeline.js">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="1439" column="10" lean-forward="true" selection-start-line="1394" selection-start-column="4" selection-end-line="1439" selection-end-column="10" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#div#2;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#div#3;n#div#1;n#form#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="724" column="72" lean-forward="true" selection-start-line="724" selection-start-column="54" selection-end-line="724" selection-end-column="72" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#div#2;n#div#1;n#form#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-          <folding />
+          <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/timeline.js/3.5.4/css/timeline.css">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_houselist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="323">
+          <caret line="153" column="19" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="153" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/custom/send-phone/send-phone-template.html">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="107" column="16" lean-forward="true" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
+        <state relative-caret-position="103">
+          <caret line="787" column="22" lean-forward="true" selection-start-line="787" selection-start-column="22" selection-end-line="787" selection-end-column="22" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#3;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#3;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#4401#4407#0" expanded="true" />
-            <element signature="e#4407#4413#0" expanded="true" />
-            <element signature="e#4413#4419#0" expanded="true" />
-            <element signature="e#4419#4425#0" expanded="true" />
-            <element signature="e#4442#4448#0" expanded="true" />
-            <element signature="e#4448#4454#0" expanded="true" />
-            <element signature="e#4454#4460#0" expanded="true" />
-            <element signature="e#4460#4466#0" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#2;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#14981#15546#0" />
+            <element signature="e#15575#15678#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.php">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="37" column="67" lean-forward="false" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="680">
+          <caret line="294" column="13" selection-start-line="294" selection-start-column="13" selection-end-line="294" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_houselist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="76" selection-start-line="76" selection-end-line="76" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Disk Google/Php - Jquery - Css - Fonts - Cms/Html Web Template/Admin Template/Webarch/Webarch v3.0/demo/HTML/tabs_accordian.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="617" column="20" lean-forward="true" selection-start-line="567" selection-start-column="14" selection-end-line="617" selection-end-column="20" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#2;n#div#2;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/less/webarch.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="6954" column="24" selection-start-line="6954" selection-end-line="6954" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Disk Google/Php - Jquery - Css - Fonts - Cms/Html Web Template/Admin Template/Webarch/Webarch v3.0/demo/HTML/tables.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="629" column="30" lean-forward="true" selection-start-line="575" selection-start-column="22" selection-end-line="629" selection-end-column="30" />
+          <folding>
+            <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="25" column="98" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="81" column="48" lean-forward="true" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_house.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/intranet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="739" lean-forward="true" selection-start-line="739" selection-end-line="739" />
+          <folding>
+            <element signature="e#3370#3572#0#PHP" />
+            <element signature="e#3631#12870#0#PHP" />
+            <element signature="e#12949#13788#0#PHP" />
+            <element signature="e#17134#21084#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="92" column="50" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
+          <folding>
+            <element signature="e#160#1301#0#HTML" />
+            <element signature="e#1308#2138#0#HTML" />
+            <element signature="e#2145#2979#0#HTML" />
+            <element signature="e#2986#3815#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="87" column="67" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="38" lean-forward="true" selection-end-line="114" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/intranet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="575" column="22" selection-start-line="575" selection-start-column="22" selection-end-line="575" selection-end-column="22" />
+          <folding>
+            <element signature="e#2254#26622#0#PHP" />
+            <element signature="e#26690#36948#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+          <folding>
+            <element signature="e#1499#5944#0#HTML" />
+            <element signature="e#5951#7145#0#HTML" />
+            <element signature="e#7152#10327#0#HTML" />
+            <element signature="e#10334#11507#0#HTML" />
+            <element signature="e#11514#14498#0#HTML" />
+            <element signature="e#14505#20606#0#HTML" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="e#20613#22776#0#HTML" />
+            <element signature="e#22783#25243#0#HTML" />
+            <element signature="e#25250#35591#0#HTML" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#35598#40758#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>

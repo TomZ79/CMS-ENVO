@@ -174,6 +174,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         state = "' . smartsql($defaults['envo_housestate']) . '",
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        justice = "' . smartsql($defaults['envo_housejustice']) . '",
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
                         housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
@@ -181,10 +182,14 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
                         housefic = "' . smartsql($defaults['envo_housefic']) . '",
                         housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
+                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
+                        elevator = "' . smartsql($defaults['envo_elevator']) . '",
                         permission = "' . smartsql($permission) . '",
-                        folder = "' . $pathfolder . '"');
+                        folder = "' . $pathfolder . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = "' . smartsql($defaults['envo_created']) . '"');
 
               $rowid = $envodb -> envo_last_id();
 
@@ -300,6 +305,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         state = "' . smartsql($defaults['envo_housestate']) . '",
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        justice = "' . smartsql($defaults['envo_housejustice']) . '",
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
                         housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
@@ -307,11 +313,14 @@ IČ:       ' . $defaults['envo_housefic'] . '
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
                         housefic = "' . smartsql($defaults['envo_housefic']) . '",
                         housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
-                        housedesctech = "' . smartsql($defaults['envo_housedesctech']) . '",
+                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
+                        elevator = "' . smartsql($defaults['envo_elevator']) . '",
                         permission = "' . smartsql($permission) . '",
-                        preparationdvb = "' . smartsql($defaults['envo_housedvbt2']) . '"
+                        preparationdvb = "' . smartsql($defaults['envo_housedvbt2']) . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = NOW()
                         WHERE id = "' . smartsql($pageID) . '"');
 
                 if (!$result) {
@@ -335,32 +344,32 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // Get all usergroup's for active plugin
           $ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet');
 
-          // EN: Get all the data for the form - house
-          // CZ: Získání všech dat pro formulář - bytový dům
+          // EN: Get all the data for the form - House
+          // CZ: Získání všech dat pro formulář - Bytový dům
           $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
 
-          // EN: Get all the data for the form - tasks
-          // CZ: Získání všech dat pro formulář - úkoly
+          // EN: Get all the data for the form - Tasks
+          // CZ: Získání všech dat pro formulář - Úkoly
           $ENVO_FORM_DATA_TASK = envo_get_house_task($pageID, $envotable11, $ENVO_SETTING_VAL['intranetdateformat']);
 
-          // EN: Get all the data for the form - contacts
-          // CZ: Získání všech dat pro formulář - hlavní kontakty
+          // EN: Get all the data for the form - Contacts
+          // CZ: Získání všech dat pro formulář - Hlavní kontakty
           $ENVO_FORM_DATA_CONT = envo_get_house_entrance($pageID, $envotable3);
 
-          // EN: Get all the data for the form - entrance
-          // CZ: Získání všech dat pro formulář - vchody
+          // EN: Get all the data for the form - Entrance
+          // CZ: Získání všech dat pro formulář - Vchody
           $ENVO_FORM_DATA_ENT = envo_get_house_entrance($pageID, $envotable1);
 
-          // EN: Get all the data for the form - services
-          // CZ: Získání všech dat pro formulář - servisy
+          // EN: Get all the data for the form - Services
+          // CZ: Získání všech dat pro formulář - Servisy
           $ENVO_FORM_DATA_SERV = envo_get_house_services($pageID, $envotable6);
 
-          // EN: Get all the data for the form - documents
-          // CZ: Získání všech dat pro formulář - dokumenty
+          // EN: Get all the data for the form - Documents
+          // CZ: Získání všech dat pro formulář - Dokumenty
           $ENVO_FORM_DATA_DOCU = envo_get_house_documents($pageID, $envotable4);
 
-          // EN: Get all the data for the Photogallery - isotope photo
-          // CZ: Získání všech dat pro Fotogalerii - isotope photo
+          // EN: Get all the data for the Photogallery - isotop photo
+          // CZ: Získání všech dat pro Fotogalerii - isotop photo
           $ENVO_FORM_DATA_IMG = envo_get_house_image($pageID, $envotable5);
 
 
@@ -389,12 +398,12 @@ IČ:       ' . $defaults['envo_housefic'] . '
             }
           }
 
-          // EN: Get all the data for the form - videos
-          // CZ: Získání všech dat pro formulář - videa
+          // EN: Get all the data for the form - Videos
+          // CZ: Získání všech dat pro formulář - Videa
           $ENVO_FORM_DATA_VIDEO = envo_get_house_video($pageID, $envotable12);
 
-          // EN: Get all the data for the form - apartment
-          // CZ: Získání všech dat pro formulář - byty
+          // EN: Get all the data for the form - Apartment
+          // CZ: Získání všech dat pro formulář - Byty
           $ENVO_FORM_DATA_APT = envo_get_house_apartment($pageID, $envotable2);
 
           // EN: Title and Description
@@ -448,6 +457,96 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // CZ: Načtení php template (šablony)
           $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
 
+        }
+
+        break;
+      case 'delete':
+        // DELETE ROW FROM DB IN HOUSELIST
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable13)) {
+          /* EN: Delete all records
+           * 1. Get data for deleting
+           * 2. Delete records from DB 'int_house'
+           * XX. Delete records from DB 'int_housedocu'
+           * XX. Delete records from DB 'int_houseimg'
+           * XX. Delete records from DB 'int_housevideo'
+           * XX. Delete records from DB 'int_houseserv'
+           * XX. Delete records from DB 'int_housetasks'
+           * XX. Delete records from DB 'int_houseent'
+           * XX. Delete records from DB 'int_houseapt'
+           * XX. Delete records from DB 'int_housecontact'
+           * XX. Delete all files and folder
+          */
+
+          // EN: 1. Get data for deleting - main folder
+          // CZ: 1. Získání dat potřebná k odstranění - hlavní adresář
+          $resultfolder = $envodb -> query('SELECT folder FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1 ');
+          $folder = $resultfolder -> fetch_assoc();
+
+          // EN: 2. Delete row from DB 'int_house' - Main records about house
+          // CZ: 2. Odstranění záznamu z DB 'int_house' - Hlavní záznam o domu
+          $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
+
+          if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=e');
+          } else {
+            // EN: XX. Delete row from DB 'int_housedocu' - Documents
+            // CZ: XX. Odstranění záznamu z DB 'int_housedocu' - Dokumenty
+            $envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_houseimg' - Photogallery
+            // CZ: XX. Odstranění záznamu z DB 'int_houseimg' - Fotogalerie
+            $envodb -> query('DELETE FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_housevideo' - Videos
+            // CZ: XX. Odstranění záznamu z DB 'int_housevideo' - Videa
+            $envodb -> query('DELETE FROM ' . $envotable12 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_houseserv' - Services
+            // CZ: XX. Odstranění záznamu z DB 'int_houseserv' - Servisy
+            $envodb -> query('DELETE FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_housetasks' - Tasks
+            // CZ: XX. Odstranění záznamu z DB 'int_housetasks' - Úkoly
+            $envodb -> query('DELETE FROM ' . $envotable11 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_houseent' - Entrance
+            // CZ: XX. Odstranění záznamu z DB 'int_houseent' - Vchody
+            $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_houseapt' - Apartment
+            // CZ: XX. Odstranění záznamu z DB 'int_houseapt' - Byty
+            $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete row from DB 'int_housecontact' - Contacts
+            // CZ: XX. Odstranění záznamu z DB 'int_housecontact' - Hlavní kontakty
+            $envodb -> query('DELETE FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+            // EN: XX. Delete files, folder
+            // CZ: XX. Odstranění souborů a složek
+            $pathfolder = APP_PATH . ENVO_FILES_DIRECTORY . $folder['folder'];
+            delete_files($pathfolder);
+
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
+            */
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=s&status1=s1');
+          }
+
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houselist&status=ene');
         }
 
         break;

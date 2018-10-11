@@ -182,13 +182,13 @@ switch ($page1) {
 
             }
 
-            // EN: Get the data of house technic
-            // CZ: Získání dat o technickém stavu domu
-            $result = $envodb -> query('SELECT housedesctech FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            // EN: Get the data about the antenna system
+            // CZ: Získání dat o anténním systému
+            $result = $envodb -> query('SELECT antennadescription FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" ORDER BY id ASC');
             while ($row = $result -> fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
-              $ENVO_HOUSE_TECH = $row['housedesctech'];
+              $ENVO_HOUSE_TECH = $row['antennadescription'];
             }
 
             // EN: Get the data of main contacts
@@ -501,7 +501,7 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = 'Seznam domů';
+          $SECTION_TITLE = 'Analýza domů - Přehled domů';
           $SECTION_DESC = 'Detail bytového domu <strong>' . $envo_house_name . '</strong> v Karlovarské kraji (není ve správě)';
 
           // EN: Load the php template
@@ -511,6 +511,23 @@ switch ($page1) {
         } else {
           envo_redirect($backtoplugin);
         }
+
+        break;
+      case 'stats':
+        // HOUSE LIST STATS
+
+        // EN: Breadcrumbs activation
+        // CZ: Aktivace Breadcrumbs
+        $BREADCRUMBS = TRUE;
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = 'Analýza domů - Statistika';
+        $SECTION_DESC = '';
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist_stats.php';
 
         break;
       default:
@@ -539,7 +556,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = 'Seznam domů';
+        $SECTION_TITLE = 'Analýza domů - Přehled domů';
         $SECTION_DESC = 'Seznam bytových domů v Karlovarské kraji (nejsou ve správě)';
 
         // EN: Load the php template
@@ -719,7 +736,7 @@ switch ($page1) {
        * ===================================================== */
       // EN: Get the data about delayed Task
       // CZ: Získání dat o zpožděných Úkolech
-      $ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+      $ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs3', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
       // Count of all records by usergroup
       $ENVO_TASK_DELAY_COUNTS = $ENVO_HOUSE_TASK_DELAY['count_of_task'];
@@ -728,7 +745,7 @@ switch ($page1) {
 
       // EN: Get the data about active Task
       // CZ: Získání dat o aktivních Úkolech
-      $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+      $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs3', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
       // Count of all records by usergroup
       $ENVO_TASK_COUNTS = $ENVO_HOUSE_TASK['count_of_task'];
@@ -781,7 +798,7 @@ switch ($page1) {
        * ===================================================== */
       // EN: Get the data about delayed Task
       // CZ: Získání dat o zpožděných Úkolech
-      $ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+      $ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs3', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
@@ -795,7 +812,7 @@ switch ($page1) {
 
       // EN: Get the data about active Task
       // CZ: Získání dat o aktivních Úkolech
-      $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs2', $ENVO_SETTING_VAL['intranetdateformat']);
+      $ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs3', $ENVO_SETTING_VAL['intranetdateformat']);
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB

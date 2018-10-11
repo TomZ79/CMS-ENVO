@@ -9,41 +9,46 @@
       </li>
       <li>
         <a href="#tabs2" data-toggle="tab">
-          <span class="text">Úkoly</span>
+          <span class="text">Popis</span>
         </a>
       </li>
       <li>
         <a href="#tabs3" data-toggle="tab">
-          <span class="text">Stav Techniky</span>
+          <span class="text">Úkoly</span>
         </a>
       </li>
       <li>
         <a href="#tabs4" data-toggle="tab">
-          <span class="text">Hlavní Kontakty</span>
+          <span class="text">Anténní systém</span>
         </a>
       </li>
       <li>
         <a href="#tabs5" data-toggle="tab">
-          <span class="text">Nájemníci</span>
+          <span class="text">Hlavní Kontakty</span>
         </a>
       </li>
       <li>
         <a href="#tabs6" data-toggle="tab">
-          <span class="text">Servisy</span>
+          <span class="text">Nájemníci</span>
         </a>
       </li>
       <li>
         <a href="#tabs7" data-toggle="tab">
-          <span class="text">Dokumenty</span>
+          <span class="text">Servisy</span>
         </a>
       </li>
       <li>
         <a href="#tabs8" data-toggle="tab">
-          <span class="text">Fotogalerie</span>
+          <span class="text">Dokumenty</span>
         </a>
       </li>
       <li>
         <a href="#tabs9" data-toggle="tab">
+          <span class="text">Fotogalerie</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tabs10" data-toggle="tab">
           <span class="text">Videogalerie</span>
         </a>
       </li>
@@ -91,6 +96,29 @@
                         <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["psc"] ?>" readonly>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="form-label">IČ</label>
+                      <div class="controls">
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["housefic"] ?>" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Databáze - justice.cz</label>
+                      <div class="controls">
+
+                        <?php if (!empty($ENVO_HOUSE_DETAIL["justice"])) { ?>
+
+                          <a href="<?= $ENVO_HOUSE_DETAIL["justice"] ?>" target="_blank" style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Zobrazit
+                            platný výpis</a>
+
+                        <?php } else { ?>
+
+                          <span style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Odkaz na výpis neexistuje</span>
+
+                        <?php } ?>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -126,6 +154,43 @@
         </div>
       </div>
       <div id="tabs2" class="tab-pane fade">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple transparent">
+              <div class="grid-title no-border">
+                <h4 class="bold">Popis domu</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
+
+                  <?php if (!empty($ENVO_HOUSE_DETAIL['description'])) {
+
+                    echo '<div>' . $ENVO_HOUSE_DETAIL['description'] . '</div>';
+
+                  } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html -> addDiv('Nejsou dostupná žádná data.', '', array ( 'class' => 'alert' ));
+                      ?>
+
+                    </div>
+
+                  <?php } ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tabs3" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple transparent">
@@ -199,12 +264,12 @@
           </div>
         </div>
       </div>
-      <div id="tabs3" class="tab-pane fade">
+      <div id="tabs4" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple transparent">
               <div class="grid-title no-border">
-                <h4 class="bold">Popis technického stavu domu</h4>
+                <h4 class="bold">Popis anténního systému</h4>
                 <div class="tools">
                   <a href="javascript:;" class="collapse"></a>
                   <a href="javascript:;" class="remove"></a>
@@ -236,7 +301,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs4" class="tab-pane fade">
+      <div id="tabs5" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple transparent">
@@ -315,7 +380,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs5" class="tab-pane fade">
+      <div id="tabs6" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple transparent">
@@ -451,7 +516,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs6" class="tab-pane fade">
+      <div id="tabs7" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple transparent">
@@ -510,7 +575,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs7" class="tab-pane fade">
+      <div id="tabs8" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="grid simple transparent">
@@ -574,7 +639,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs8" class="tab-pane fade">
+      <div id="tabs9" class="tab-pane fade">
         <div class="row">
           <div class="col-sm-12">
             <div class="grid simple transparent">
@@ -761,7 +826,7 @@
           </div>
         </div>
       </div>
-      <div id="tabs9" class="tab-pane fade">
+      <div id="tabs10" class="tab-pane fade">
         <div class="row">
           <div class="col-sm-12">
             <div class="grid simple transparent">

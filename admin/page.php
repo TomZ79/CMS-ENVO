@@ -721,10 +721,26 @@ switch ($page1) {
 
     if ($getTotal != 0) {
 
-      // Ouput all pages, well with paginate of course
+      // Ouput all pages
       $ENVO_PAGE_ALL = envo_get_page_info($envotable, '');
 
     }
+
+    // Stats - Count of all pages
+    $result = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable);
+    $data   = $result -> fetch_assoc();
+    $ENVO_STATS_COUNTALL = $data['totalpages'];
+
+    // Stats - Count of active pages
+    $result = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE catid > 0 AND active = 1');
+    $data   = $result -> fetch_assoc();
+    $ENVO_STATS_COUNTACTIVE = $data['totalpages'];
+
+    // Stats - Count of not active pages
+    $result = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE (catid = 0 AND active = 0) OR (catid = 0 AND active = 1) OR (catid > 0 AND active = 0)');
+    $data   = $result -> fetch_assoc();
+    $ENVO_STATS_COUNTNOTACTIVE = $data['totalpages'];
+
 
     // EN: Title and Description
     // CZ: Titulek a Popis

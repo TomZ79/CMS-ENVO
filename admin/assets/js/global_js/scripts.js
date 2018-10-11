@@ -1318,3 +1318,28 @@ function increment(obj) {
     }
   });
 }
+
+/* 00. Toggle DIV by ID
+ *
+ * Example :
+ * Button
+ * <a href="#" onclick="slideToggle('#stats-top');" class="btn btn-default"><i class="fa fa-bar-chart"></i></a>
+ *
+ * Toggle DIV
+ * <div id="stats-top" class="bg-white" style="display: none; padding: 15px; margin: 0 0 20px; width: 100%;"></div>
+ *
+ ========================================================================*/
+
+// Slide toggle any selector passed
+function slideToggle(selector, callback) {
+  var $element = $(selector);
+  if ($element.length) {
+    $element.slideToggle('200', function () {
+      // Animation complete
+    });
+  }
+  // Possible callback after slide toggle
+  if (typeof(callback) == 'function') {
+    callback();
+  }
+}

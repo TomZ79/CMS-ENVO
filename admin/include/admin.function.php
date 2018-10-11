@@ -14,7 +14,7 @@
  */
 function envo_varname_blocked($envovar)
 {
-  $blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . ENVO_FILES_DIRECTORY;
+  $blocked    = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . ENVO_FILES_DIRECTORY;
   $blockarray = explode(',', $blocked);
   // check if userid is protected in the config.php
   if (in_array($envovar, $blockarray)) {
@@ -36,10 +36,10 @@ function envo_varname_blocked($envovar)
 function envo_get_cat_notused()
 {
   global $envodb;
-  $categories = array();
-  $result = $envodb->query('SELECT id, name FROM ' . DB_PREFIX . 'categories' . ' WHERE pageid = 0 AND pluginid = 0 AND (exturl = "" OR exturl IS NULL)');
-  while ($row = $result->fetch_assoc()) {
-    $categories[] = array('id' => $row['id'], 'name' => $row['name']);
+  $categories = array ();
+  $result     = $envodb -> query('SELECT id, name FROM ' . DB_PREFIX . 'categories' . ' WHERE pageid = 0 AND pluginid = 0 AND (exturl = "" OR exturl IS NULL)');
+  while ($row = $result -> fetch_assoc()) {
+    $categories[] = array ( 'id' => $row['id'], 'name' => $row['name'] );
   }
   if (!empty($categories)) return $categories;
 }
@@ -64,9 +64,9 @@ function envo_get_cat_info($envovar, $envovar1)
   $sqlwhere = '';
   if (!empty($envovar1)) $sqlwhere = ' WHERE activeplugin = 1';
 
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $envovar . $sqlwhere . ' ORDER BY catorder ASC');
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . $envovar . $sqlwhere . ' ORDER BY catorder ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -89,9 +89,9 @@ function envo_get_cat_info($envovar, $envovar1)
 function envo_get_usergroup_all($envovar)
 {
   global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT id, name, description FROM ' . DB_PREFIX . $envovar . ' ORDER BY id ASC');
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT id, name, description FROM ' . DB_PREFIX . $envovar . ' ORDER BY id ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -110,8 +110,8 @@ function envo_get_usergroup_all($envovar)
  * @version 1.0.0
  * @date    09/2017
  *
- * @param    string      | $usertable      - Název tabulky s uloženými uživately
- * @param    string      | $usergroupID    - ID uživatelské skupiny
+ * @param    string      | $usertable - Název tabulky s uloženými uživately
+ * @param    string      | $usergroupID - ID uživatelské skupiny
  *
  * @return    string
  *
@@ -119,8 +119,8 @@ function envo_get_usergroup_all($envovar)
 function envo_get_count_user_in_group($usertable, $usergroupID)
 {
   global $envodb;
-  $result=$envodb->query('SELECT COUNT(usergroupid) AS total FROM ' . DB_PREFIX . $usertable . ' WHERE usergroupid = ' . $usergroupID . ' ');
-  $data=$result->fetch_assoc();
+  $result = $envodb -> query('SELECT COUNT(usergroupid) AS total FROM ' . DB_PREFIX . $usertable . ' WHERE usergroupid = ' . $usergroupID . ' ');
+  $data   = $result -> fetch_assoc();
 
   $envodata = $data['total'];
 
@@ -143,9 +143,9 @@ function envo_get_count_user_in_group($usertable, $usergroupID)
 function envo_get_page_info($envovar, $envovar1)
 {
   global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $envovar . ' ORDER BY id DESC ' . $envovar1);
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . $envovar . ' ORDER BY id DESC ' . $envovar1);
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -169,9 +169,9 @@ function envo_get_page_info($envovar, $envovar1)
 function envo_get_news_info($envovar)
 {
   global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $envovar);
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $envovar);
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -198,7 +198,7 @@ function envo_get_news_info($envovar)
 function envo_get_tag($limit, $id, $plugin, $order)
 {
 
-  $sqlwhere = '';
+  $sqlwhere   = '';
   $pluginname = '<i class="fa fa-file-text-o"></i>';
   if (!empty($id)) $sqlwhere = ' WHERE pluginid = "' . smartsql($id) . '"';
 
@@ -206,9 +206,9 @@ function envo_get_tag($limit, $id, $plugin, $order)
   if (!empty($order)) $ordersql = ' ORDER BY ' . $order . ' ';
 
   global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT id, tag, pluginid, active FROM ' . DB_PREFIX . 'tags' . $sqlwhere . $ordersql . $limit);
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT id, tag, pluginid, active FROM ' . DB_PREFIX . 'tags' . $sqlwhere . $ordersql . $limit);
+  while ($row = $result -> fetch_assoc()) {
 
     foreach ($plugin as $p) {
       if ($p['id'] == $row['pluginid']) $pluginname = $p['name'];
@@ -216,7 +216,7 @@ function envo_get_tag($limit, $id, $plugin, $order)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'tag' => $row['tag'], 'active' => $row['active'], 'pluginid' => $row['pluginid'], 'plugin' => $pluginname);
+    $envodata[] = array ( 'id' => $row['id'], 'tag' => $row['tag'], 'active' => $row['active'], 'pluginid' => $row['pluginid'], 'plugin' => $pluginname );
   }
 
   return $envodata;
@@ -282,10 +282,10 @@ function envo_get_user_all($envovar, $envovar1, $envovar2)
   if (!empty($envovar2)) $sqlwhere = 'AND usergroupid = ' . smartsql($envovar2) . ' ';
 
   global $envodb;
-  $user = array();
-  $result = $envodb->query('SELECT id, usergroupid, username, email, time, access FROM ' . DB_PREFIX . $envovar . ' WHERE access <= 1 ' . $sqlwhere . $envovar1);
-  while ($row = $result->fetch_assoc()) {
-    $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'time' => $row['time'], 'access' => $row['access']);
+  $user   = array ();
+  $result = $envodb -> query('SELECT id, usergroupid, username, email, time, access FROM ' . DB_PREFIX . $envovar . ' WHERE access <= 1 ' . $sqlwhere . $envovar1);
+  while ($row = $result -> fetch_assoc()) {
+    $user[] = array ( 'id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'time' => $row['time'], 'access' => $row['access'] );
   }
 
   return $user;
@@ -317,9 +317,9 @@ function envo_admin_search($envovar, $envovar1, $envovar2)
     $sqlwhere = ' WHERE title like "%' . $envovar . '%"';
   }
   global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $envovar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . $envovar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -349,8 +349,8 @@ function envo_user_exist_deletable($envovar)
   if (in_array($envovar, $superadminidarray)) {
     return false;
   } else {
-    $result = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
-    if ($envodb->affected_rows > 0) return true;
+    $result = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
+    if ($envodb -> affected_rows > 0) return true;
   }
 }
 
@@ -372,8 +372,8 @@ function envo_user_exist_deletable($envovar)
 function envo_field_not_exist_id($envovar, $envovar1, $envovar2, $envovar3)
 {
   global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $envovar2 . ' WHERE id != "' . smartsql($envovar1) . '" AND ' . $envovar3 . ' = "' . smartsql($envovar) . '" LIMIT 1');
-  if ($envodb->affected_rows > 0) {
+  $result = $envodb -> query('SELECT id FROM ' . $envovar2 . ' WHERE id != "' . smartsql($envovar1) . '" AND ' . $envovar3 . ' = "' . smartsql($envovar) . '" LIMIT 1');
+  if ($envodb -> affected_rows > 0) {
     return true;
   }
 }
@@ -399,10 +399,10 @@ function envo_get_tags($envovar, $envovar1)
 {
 
   global $envodb;
-  $tags = array();
-  $result = $envodb->query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($envovar) . ' AND pluginid = ' . $envovar1 . ' ORDER BY `id` ASC');
+  $tags   = array ();
+  $result = $envodb -> query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($envovar) . ' AND pluginid = ' . $envovar1 . ' ORDER BY `id` ASC');
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
     $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="envo_tagdelete[]" value="' . $row['id'] . '" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> ' . $row['tag'] . '</label></span>';
   }
 
@@ -430,9 +430,9 @@ function envo_tag_data_admin()
 {
 
   global $envodb;
-  $cloud = array();
-  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tagcloud' . ' GROUP BY tag ORDER BY count DESC');
-  while ($row = $result->fetch_assoc()) {
+  $cloud  = array ();
+  $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'tagcloud' . ' GROUP BY tag ORDER BY count DESC');
+  while ($row = $result -> fetch_assoc()) {
     $cloud[$row['tag']] = $row['count'];
   }
   if (!empty($cloud)) {
@@ -457,9 +457,9 @@ function envo_tag_name_admin()
 {
 
   global $envodb;
-  $cloud = array();
-  $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tagcloud' . ' ORDER BY tag ASC');
-  while ($row = $result->fetch_assoc()) {
+  $cloud  = array ();
+  $result = $envodb -> query('SELECT tag FROM ' . DB_PREFIX . 'tagcloud' . ' ORDER BY tag ASC');
+  while ($row = $result -> fetch_assoc()) {
     $cloud[] = $row;
   }
   if (!empty($cloud)) {
@@ -484,22 +484,22 @@ function envo_admin_tag_cloud()
   // Default font sizes
   $min_font_size = 12;
   $max_font_size = 30;
-  $cloud_html = '';
+  $cloud_html    = '';
 
   // Pull in tag data
   $tags = envo_tag_data_admin();
   if ($tags) {
     $minimum_count = min(array_values($tags));
     $maximum_count = max(array_values($tags));
-    $spread = $maximum_count - $minimum_count;
+    $spread        = $maximum_count - $minimum_count;
 
     if ($spread == 0) {
       $spread = 1;
     }
 
-    $cloud_tags = array(); // create an array to hold tag code
+    $cloud_tags = array (); // create an array to hold tag code
     foreach ($tags as $tag => $count) {
-      $size = $min_font_size + ($count - $minimum_count)
+      $size         = $min_font_size + ($count - $minimum_count)
         * ($max_font_size - $min_font_size) / $spread;
       $cloud_tags[] = '<span class="label label-default" style="line-height:2;font-size: ' . floor($size) . 'px;'
         . '" class="tagcloud">'
@@ -528,9 +528,9 @@ function envo_get_contact_options($envovar, $envovar1)
 {
 
   global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $envovar . ' WHERE formid = "' . smartsql($envovar1) . '" ORDER BY forder ASC');
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . $envovar . ' WHERE formid = "' . smartsql($envovar1) . '" ORDER BY forder ASC');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -561,7 +561,7 @@ function envo_get_new_stuff($envovar, $envovar1)
   }
 
   global $envodb;
-  $row = $envodb->queryRow('SELECT COUNT(id) as totalAll FROM ' . DB_PREFIX . $envovar . $sqlwhere . ' ORDER BY time DESC');
+  $row = $envodb -> queryRow('SELECT COUNT(id) as totalAll FROM ' . DB_PREFIX . $envovar . $sqlwhere . ' ORDER BY time DESC');
 
   return $row['totalAll'];
 }
@@ -620,9 +620,9 @@ function envo_load_file_from_url($envovar)
  * @return array
  *
  */
-function envo_objectsIntoArray($arrObjData, $arrSkipIndices = array())
+function envo_objectsIntoArray($arrObjData, $arrSkipIndices = array ())
 {
-  $arrData = array();
+  $arrData = array ();
 
   // if input is object, convert into array
   if (is_object($arrObjData)) {
@@ -728,23 +728,23 @@ function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3,
  * @param array $options
  * @return string
  */
-function url_slug($str, $options = array())
+function url_slug($str, $options = array ())
 {
   // Make sure string is in UTF-8 and strip invalid UTF-8 characters
   $str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());
 
-  $defaults = array(
-    'delimiter' => '-',
-    'limit' => NULL,
-    'lowercase' => true,
-    'replacements' => array(),
+  $defaults = array (
+    'delimiter'     => '-',
+    'limit'         => NULL,
+    'lowercase'     => true,
+    'replacements'  => array (),
     'transliterate' => false,
   );
 
   // Merge options
   $options = array_merge($defaults, $options);
 
-  $char_map = array(
+  $char_map = array (
     // Latin
     'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A', 'Æ' => 'AE', 'Ç' => 'C',
     'È' => 'E', 'É' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I', 'Ï' => 'I',
@@ -840,11 +840,11 @@ function url_slug($str, $options = array())
  */
 function text_clipping_lower($str)
 {
-  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => true, 'transliterate' => true));
+  $str = url_slug($str, array ( 'delimiter' => ' ', 'lowercase' => true, 'transliterate' => true ));
 
   if (str_word_count($str) > 1) {
     //Get the first character for two words
-    $pos = strpos($str, " ");
+    $pos    = strpos($str, " ");
     $result = $str[0] . $str[$pos + 1];
   } else {
     //Get the first character for one word
@@ -868,11 +868,11 @@ function text_clipping_lower($str)
  */
 function text_clipping_upper($str)
 {
-  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => false, 'transliterate' => true));
+  $str = url_slug($str, array ( 'delimiter' => ' ', 'lowercase' => false, 'transliterate' => true ));
 
   if (str_word_count($str) > 1) {
     //Get the first character for two words
-    $pos = strpos($str, " ");
+    $pos    = strpos($str, " ");
     $result = $str[0] . $str[$pos + 1];
   } else {
     //Get the first character for one word
@@ -890,39 +890,35 @@ function text_clipping_upper($str)
 /**
  * Create a XHTML tag
  *
- * @param	string			The tag name
- * @param	array|string	The tag attributes
- * @param	string|bool		The content to place in the tag, or false for no closing tag
- * @return	string
+ * @param  string      The tag name
+ * @param  array|string  The tag attributes
+ * @param  string|bool    The content to place in the tag, or false for no closing tag
+ * @return  string
  */
-if ( ! function_exists('html_tag'))
-{
-  function html_tag($tag, $attr = array(), $content = false)
+if (!function_exists('html_tag')) {
+  function html_tag($tag, $attr = array (), $content = false)
   {
     // list of void elements (tags that can not have content)
-    static $void_elements = array(
+    static $void_elements = array (
       // html4
-      "area","base","br","col","hr","img","input","link","meta","param",
+      "area", "base", "br", "col", "hr", "img", "input", "link", "meta", "param",
       // html5
-      "command","embed","keygen","source","track","wbr",
+      "command", "embed", "keygen", "source", "track", "wbr",
       // html5.1
       "menuitem",
     );
 
     // construct the HTML
-    $html = '<'.$tag;
-    $html .= ( ! empty($attr)) ? ' '.(is_array($attr) ? array_to_attr($attr) : $attr) : '';
+    $html = '<' . $tag;
+    $html .= (!empty($attr)) ? ' ' . (is_array($attr) ? array_to_attr($attr) : $attr) : '';
 
     // a void element?
-    if (in_array(strtolower($tag), $void_elements))
-    {
+    if (in_array(strtolower($tag), $void_elements)) {
       // these can not have content
       $html .= ' />';
-    }
-    else
-    {
+    } else {
       // add the content and close the tag
-      $html .= '>'.$content.'</'.$tag.'>';
+      $html .= '>' . $content . '</' . $tag . '>';
     }
 
     return $html;
@@ -932,30 +928,26 @@ if ( ! function_exists('html_tag'))
 /**
  * Takes an array of attributes and turns it into a string for an html tag
  *
- * @param	array	$attr
- * @return	string
+ * @param  array $attr
+ * @return  string
  */
-if ( ! function_exists('array_to_attr'))
-{
+if (!function_exists('array_to_attr')) {
   function array_to_attr($attr)
   {
     $attr_str = '';
 
-    foreach ((array) $attr as $property => $value)
-    {
+    foreach ((array)$attr as $property => $value) {
       // Ignore null/false
-      if ($value === null or $value === false)
-      {
+      if ($value === null or $value === false) {
         continue;
       }
 
       // If the key is numeric then it must be something like selected="selected"
-      if (is_numeric($property))
-      {
+      if (is_numeric($property)) {
         $property = $value;
       }
 
-      $attr_str .= $property.'="'.str_replace('"', '&quot;', $value).'" ';
+      $attr_str .= $property . '="' . str_replace('"', '&quot;', $value) . '" ';
     }
 
     // We strip off the last space for return
@@ -975,37 +967,33 @@ if ( ! function_exists('array_to_attr'))
  *
  * @return  string  constructed URL
  */
-if (!function_exists('http_build_url'))
-{
-  define('HTTP_URL_REPLACE', 1);				// Replace every part of the first URL when there's one of the second URL
-  define('HTTP_URL_JOIN_PATH', 2);			// Join relative paths
-  define('HTTP_URL_JOIN_QUERY', 4);			// Join query strings
-  define('HTTP_URL_STRIP_USER', 8);			// Strip any user authentication information
-  define('HTTP_URL_STRIP_PASS', 16);			// Strip any password authentication information
-  define('HTTP_URL_STRIP_AUTH', 32);			// Strip any authentication information
-  define('HTTP_URL_STRIP_PORT', 64);			// Strip explicit port numbers
-  define('HTTP_URL_STRIP_PATH', 128);			// Strip complete path
-  define('HTTP_URL_STRIP_QUERY', 256);		// Strip query string
-  define('HTTP_URL_STRIP_FRAGMENT', 512);		// Strip any fragments (#identifier)
-  define('HTTP_URL_STRIP_ALL', 1024);			// Strip anything but scheme and host
+if (!function_exists('http_build_url')) {
+  define('HTTP_URL_REPLACE', 1);        // Replace every part of the first URL when there's one of the second URL
+  define('HTTP_URL_JOIN_PATH', 2);      // Join relative paths
+  define('HTTP_URL_JOIN_QUERY', 4);      // Join query strings
+  define('HTTP_URL_STRIP_USER', 8);      // Strip any user authentication information
+  define('HTTP_URL_STRIP_PASS', 16);      // Strip any password authentication information
+  define('HTTP_URL_STRIP_AUTH', 32);      // Strip any authentication information
+  define('HTTP_URL_STRIP_PORT', 64);      // Strip explicit port numbers
+  define('HTTP_URL_STRIP_PATH', 128);      // Strip complete path
+  define('HTTP_URL_STRIP_QUERY', 256);    // Strip query string
+  define('HTTP_URL_STRIP_FRAGMENT', 512);    // Strip any fragments (#identifier)
+  define('HTTP_URL_STRIP_ALL', 1024);      // Strip anything but scheme and host
 
-  function http_build_url($url, $parts = array(), $flags = HTTP_URL_REPLACE, &$new_url = false)
+  function http_build_url($url, $parts = array (), $flags = HTTP_URL_REPLACE, &$new_url = false)
   {
-    $keys = array('user','pass','port','path','query','fragment');
+    $keys = array ( 'user', 'pass', 'port', 'path', 'query', 'fragment' );
 
     // HTTP_URL_STRIP_ALL becomes all the HTTP_URL_STRIP_Xs
-    if ($flags & HTTP_URL_STRIP_ALL)
-    {
+    if ($flags & HTTP_URL_STRIP_ALL) {
       $flags |= HTTP_URL_STRIP_USER;
       $flags |= HTTP_URL_STRIP_PASS;
       $flags |= HTTP_URL_STRIP_PORT;
       $flags |= HTTP_URL_STRIP_PATH;
       $flags |= HTTP_URL_STRIP_QUERY;
       $flags |= HTTP_URL_STRIP_FRAGMENT;
-    }
-    // HTTP_URL_STRIP_AUTH becomes HTTP_URL_STRIP_USER and HTTP_URL_STRIP_PASS
-    elseif ($flags & HTTP_URL_STRIP_AUTH)
-    {
+    } // HTTP_URL_STRIP_AUTH becomes HTTP_URL_STRIP_USER and HTTP_URL_STRIP_PASS
+    elseif ($flags & HTTP_URL_STRIP_AUTH) {
       $flags |= HTTP_URL_STRIP_USER;
       $flags |= HTTP_URL_STRIP_PASS;
     }
@@ -1015,13 +1003,12 @@ if (!function_exists('http_build_url'))
 
     // make sure we always have a scheme, host and path
     empty($parse_url['scheme']) and $parse_url['scheme'] = 'http';
-    empty($parse_url['host']) and $parse_url['host'] = \Input::server('http_host');
+    empty($parse_url['host']) and $parse_url['host'] = \Input ::server('http_host');
     isset($parse_url['path']) or $parse_url['path'] = '';
 
     // make the path absolute if needed
-    if ( ! empty($parse_url['path']) and substr($parse_url['path'], 0, 1) != '/')
-    {
-      $parse_url['path'] = '/'.$parse_url['path'];
+    if (!empty($parse_url['path']) and substr($parse_url['path'], 0, 1) != '/') {
+      $parse_url['path'] = '/' . $parse_url['path'];
     }
 
     // scheme and host are always replaced
@@ -1029,19 +1016,14 @@ if (!function_exists('http_build_url'))
     isset($parts['host']) and $parse_url['host'] = $parts['host'];
 
     // replace the original URL with it's new parts (if applicable)
-    if ($flags & HTTP_URL_REPLACE)
-    {
-      foreach ($keys as $key)
-      {
+    if ($flags & HTTP_URL_REPLACE) {
+      foreach ($keys as $key) {
         if (isset($parts[$key]))
           $parse_url[$key] = $parts[$key];
       }
-    }
-    else
-    {
+    } else {
       // join the original URL path with the new path
-      if (isset($parts['path']) && ($flags & HTTP_URL_JOIN_PATH))
-      {
+      if (isset($parts['path']) && ($flags & HTTP_URL_JOIN_PATH)) {
         if (isset($parse_url['path']))
           $parse_url['path'] = rtrim(str_replace(basename($parse_url['path']), '', $parse_url['path']), '/') . '/' . ltrim($parts['path'], '/');
         else
@@ -1049,8 +1031,7 @@ if (!function_exists('http_build_url'))
       }
 
       // join the original query string with the new query string
-      if (isset($parts['query']) && ($flags & HTTP_URL_JOIN_QUERY))
-      {
+      if (isset($parts['query']) && ($flags & HTTP_URL_JOIN_QUERY)) {
         if (isset($parse_url['query']))
           $parse_url['query'] .= '&' . $parts['query'];
         else
@@ -1060,9 +1041,8 @@ if (!function_exists('http_build_url'))
 
     // strips all the applicable sections of the URL
     // note: scheme and host are never stripped
-    foreach ($keys as $key)
-    {
-      if ($flags & (int) constant('HTTP_URL_STRIP_' . strtoupper($key)))
+    foreach ($keys as $key) {
+      if ($flags & (int)constant('HTTP_URL_STRIP_' . strtoupper($key)))
         unset($parse_url[$key]);
     }
 
@@ -1070,13 +1050,12 @@ if (!function_exists('http_build_url'))
 
     return
       ((isset($parse_url['scheme'])) ? $parse_url['scheme'] . '://' : '')
-      .((isset($parse_url['user'])) ? $parse_url['user'] . ((isset($parse_url['pass'])) ? ':' . $parse_url['pass'] : '') .'@' : '')
-      .((isset($parse_url['host'])) ? $parse_url['host'] : '')
-      .((isset($parse_url['port'])) ? ':' . $parse_url['port'] : '')
-      .((isset($parse_url['path'])) ? $parse_url['path'] : '')
-      .((isset($parse_url['query'])) ? '?' . $parse_url['query'] : '')
-      .((isset($parse_url['fragment'])) ? '#' . $parse_url['fragment'] : '')
-      ;
+      . ((isset($parse_url['user'])) ? $parse_url['user'] . ((isset($parse_url['pass'])) ? ':' . $parse_url['pass'] : '') . '@' : '')
+      . ((isset($parse_url['host'])) ? $parse_url['host'] : '')
+      . ((isset($parse_url['port'])) ? ':' . $parse_url['port'] : '')
+      . ((isset($parse_url['path'])) ? $parse_url['path'] : '')
+      . ((isset($parse_url['query'])) ? '?' . $parse_url['query'] : '')
+      . ((isset($parse_url['fragment'])) ? '#' . $parse_url['fragment'] : '');
   }
 }
 

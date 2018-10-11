@@ -964,6 +964,11 @@ switch ($page1) {
       $ENVO_USER_ALL_APPROVE[] = array('id' => $rowa['id'], 'usergroupid' => $rowa['usergroupid'], 'username' => $rowa['username'], 'email' => $rowa['email'], 'access' => $rowa['access']);
     }
 
+    // Stats - Count of all users
+    $result = $envodb -> query('SELECT COUNT(id) AS totalusers FROM ' . $envotable);
+    $data   = $result -> fetch_assoc();
+    $ENVO_STATS_COUNTALL = $data['totalusers'];
+
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["user_sec_title"]["usert"];

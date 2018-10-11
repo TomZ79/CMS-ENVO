@@ -57,13 +57,35 @@
 <?php } ?>
 
   <!-- Fixed Button for save form -->
-  <div class="savebutton-medium hidden-xs">
+  <div class="savebutton hidden-xs">
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
     echo $Html->addAnchor('index.php?p=users&amp;sp=newuser', $tl["button"]["btn34"], '', 'btn btn-info button');
+    echo $Html -> addAnchor('#', '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default', array ('onclick' => 'slideToggle(\'#stats-top\');', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i34"]));
     ?>
 
+  </div>
+
+  <div id="stats-top" class="bg-white" style="display: none; padding: 15px; margin: 0 0 20px; width: 100%;">
+    <div id="expenses_total">
+
+      <div class="row">
+        <div class="col-md-3 col-xs-12 total-column">
+          <div class="card no-border bg-success-light m-0">
+            <div class="container-xs-height full-height">
+              <div class="row-xs-height">
+                <h3 class="text-white text-center"><?= $ENVO_STATS_COUNTALL ?></h3>
+              </div>
+              <div class="row-xs-height">
+                <p class="all-caps text-center">Počet uživatelů</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <div class="row">

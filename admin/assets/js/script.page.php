@@ -32,9 +32,9 @@ if ($page == 'page') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
+  echo $Html -> addScript('assets/plugins/ace/ace.js');
   // Plugin Javascript
-  echo $Html->addScript('assets/js/script.page.min.js');
+  echo $Html -> addScript('assets/js/script.page.min.js');
 
   echo PHP_EOL . '<!-- End JS AKP Pages -->' . PHP_EOL;
 

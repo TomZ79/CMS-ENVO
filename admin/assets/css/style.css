@@ -1072,7 +1072,7 @@ pre[class*="language-"] {
 }
 /* Nav Tabs global setting */
 .nav-tabs > li > a {
-  padding: 13px 14px;
+  padding: 13px 13px;
 }
 /* 07. Tables
  ========================================================================*/
@@ -1751,30 +1751,55 @@ div.mce-edit-area {
 }
 /* 13. ACE Editor style
  ========================================================================*/
-#javaeditor,
-#csseditor,
-#htmleditor,
-#htmleditor2,
-#htmleditor3,
-#htmleditor4,
-#htmleditorlight,
-#htmleditorlight2,
-#txteditor,
+#javaeditor {
+  position: relative;
+  height: 300px;
+}
+#csseditor {
+  position: relative;
+  height: 300px;
+}
+#htmleditor {
+  position: relative;
+  height: 500px;
+}
+#htmleditor2 {
+  position: relative;
+  height: 500px;
+}
+#htmleditor3 {
+  position: relative;
+  height: 500px;
+}
+#htmleditor4 {
+  position: relative;
+  height: 500px;
+}
+#htmleditorlight {
+  position: relative;
+  height: 200px;
+}
+#htmleditorlight2 {
+  position: relative;
+  height: 200px;
+}
+#txteditor {
+  position: relative;
+  height: 300px;
+}
 #txteditor1 {
   position: relative;
   height: 300px;
 }
-#htmleditor,
-#htmleditor1,
-#htmleditor2,
-#htmleditor3,
-#htmleditor4 {
+#htmleditor1 {
   height: 500px;
 }
-#htmleditorlight,
-#htmleditorlight1,
-#htmleditorlight2,
-#htmleditorlight3,
+#htmleditorlight1 {
+  height: 200px;
+}
+#htmleditorlight3 {
+  height: 200px;
+}
 #htmleditorlight4 {
   height: 200px;
 }

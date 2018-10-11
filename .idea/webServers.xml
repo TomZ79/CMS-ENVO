@@ -2,16 +2,16 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="4f5eeea2-2cc1-42a2-8274-401c61c833c9" name="Active24 - Bluesat" url="http://www.bluesat.cz">
-        <fileTransfer host="ftp.bluesat.cz.uvirt65.active24.cz" port="21" rootFolder="/www">
+      <webServer id="4a1d8b89-11ef-4814-8530-78ccd96366b0" name="Active24 - Bluesat.cz" url="http://bluesat.cz.uvirt65.active24.cz">
+        <fileTransfer host="bluesat.cz.uvirt65.active24.cz" port="21" rootFolder="/www">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
           <option name="port" value="21" />
         </fileTransfer>
       </webServer>
-      <webServer id="94b264ed-c52f-49db-963b-bc066a003cf0" name="Freesat-karlovarsko" url="http://ftp.freesat-karlovarsko.cz.uvirt64.active24.cz">
-        <fileTransfer host="ftp.freesat-karlovarsko.cz.uvirt64.active24.cz" port="21" rootFolder="/www">
+      <webServer id="ada05fd2-08e5-4d47-accc-f200c765c858" name="Active24 - Traxxas.cz" url="http://rc-traxxas.cz.uvirt71.active24.cz">
+        <fileTransfer host="rc-traxxas.cz.uvirt71.active24.cz" port="21" rootFolder="/www">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

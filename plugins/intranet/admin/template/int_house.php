@@ -74,6 +74,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
             <th style="width:10%">Město</th>
             <th class="no-sort" style="width:20%">IČ</th>
             <th class="no-sort" style="width:5%"></th>
+            <th class="no-sort" style="width:5%"></th>
           </tr>
           </thead>
           <tbody>
@@ -115,6 +116,14 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // EDIT
                 echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $h["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                ?>
+
+              </td>
+              <td class="text-center">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty, servisy, úkoly).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>

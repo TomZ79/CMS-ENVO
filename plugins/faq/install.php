@@ -434,7 +434,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 
       // EN: Insert data to table 'usergroup'
       // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
       // Pages/News alter Table
       $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');

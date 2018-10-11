@@ -1667,7 +1667,7 @@ $(function () {
   $('.dialog-open-listimg').click(openDialogListImg);
 
   //
-  $('.close').click(function(event){
+  $('.closedialog').click(function(event){
     event.stopPropagation();
   });
 
@@ -2037,10 +2037,10 @@ $(function () {
                 // console.log('Filepath: ', data['fullpath']);
 
                 tabledata += '<tr>' +
-                  '<td>' + data["id"] + '</td>' +
-                  '<td>' + data["fileicon"] + '</td>' +
+                  '<td class="text-center">' + data["id"] + '</td>' +
+                  '<td class="text-center">' + data["fileicon"] + '</td>' +
                   '<td>' + data["description"] + '</td>' +
-                  '<td><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
+                  '<td class="text-center"><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
                   '</tr>';
 
               })

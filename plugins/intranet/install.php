@@ -300,6 +300,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `state` varchar(255) NULL DEFAULT NULL,
   `latitude` varchar(255) NULL DEFAULT NULL,
   `longitude` varchar(255) NULL DEFAULT NULL,
+  `justice` varchar(255) NULL DEFAULT NULL,
   `description` varchar(255) NULL DEFAULT NULL,
   `housefname` varchar(255) NULL DEFAULT NULL,
   `housefstreet` varchar(255) NULL DEFAULT NULL,
@@ -308,11 +309,14 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `housefic` varchar(100) NULL DEFAULT NULL,
   `housefdic` varchar(100) NULL DEFAULT NULL,
   `preparationdvb` TINYINT(1) NOT NULL DEFAULT 0,
-  `housedesctech` text NULL DEFAULT NULL,
+  `antennadescription` text NULL DEFAULT NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
   `countapartment` int(10) unsigned NOT NULL DEFAULT 0,
+  `elevator` int(5) unsigned NOT NULL DEFAULT 0,
   `folder` varchar(100) NULL DEFAULT NULL,
+  `created` TIMESTAMP NULL DEFAULT NULL,
+  `updated` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

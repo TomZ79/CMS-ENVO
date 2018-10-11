@@ -682,7 +682,7 @@ body.loginbody {
   padding-left: 5px;
   display: block;
   margin: 0;
-  padding: 5px 0;
+  padding: 8px 0;
   padding-left: 53px !important;
   color: #E1EAF1;
   text-decoration: none;
@@ -741,7 +741,7 @@ body.loginbody {
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu li > ul.sub-menu > li > a {
   display: block;
-  padding: 5px 0;
+  padding: 8px 0;
   color: #CCC;
   text-decoration: none;
   text-shadow: 0 1px 1px #000;
@@ -6966,6 +6966,9 @@ code:hover {
   border-right: 1px solid #DDD;
   float: left;
   margin-right: 0;
+}
+.tabs-left > .nav-tabs > li.active > a {
+  border-top-right-radius: 0;
 }
 .tabs-left > .nav-tabs > li > a {
   border-radius: 4px 0 0 4px;

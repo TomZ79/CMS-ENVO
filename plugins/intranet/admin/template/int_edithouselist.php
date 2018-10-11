@@ -1781,7 +1781,7 @@ if ($errors) { ?>
                           <!-- Data over AJAX  -->
                         </div>
                       </div>
-                      <button class="close action top-right" type="button" data-dialog-close>
+                      <button class="closedialog action top-right" type="button" data-dialog-close>
                         <i class="pg-close fs-30"></i>
                       </button>
                     </div>

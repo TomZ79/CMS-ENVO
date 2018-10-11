@@ -88,6 +88,14 @@ if ($errors) { ?>
   <div class="tab-content">
     <div class="tab-pane fade active show" id="cmsPage1" role="tabpanel">
       <div class="row">
+        <div class="col-sm-12">
+          <div class="alert alert-info" role="alert">
+            <button class="close" data-dismiss="alert"></button>
+            <strong>Info: </strong>Po vyplnění základních údajů o bytovém domu a následném uložení budou zpřístupněny další záložky pro práci s bytovým domem.
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-sm-6">
           <div class="box box-success">
             <div class="box-header with-border">
@@ -293,7 +301,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html -> addInput('text', 'envo_housestate', 'Česká Republika', '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housestate', (isset($_REQUEST["envo_housestate"]) ? $_REQUEST["envo_housestate"] : 'Česká Republika'), '', 'form-control');
                         ?>
 
                       </div>

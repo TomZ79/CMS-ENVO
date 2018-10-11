@@ -279,8 +279,19 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
       <?php if ($BREADCRUMBS) { ?>
         <!-- BEGIN PAGE BREADCRUMBS AND TITLE-->
         <ul class="breadcrumb">
-          <li><span class="title"><?= $SECTION_TITLE ?></span></li>
-          <li><span class="description"><?= $SECTION_DESC ?></span></li>
+
+          <?php
+
+          if (!empty($SECTION_TITLE)) {
+            echo '<li><span class="title">' . $SECTION_TITLE . '</span></li>';
+          }
+
+          if (!empty($SECTION_DESC)) {
+            echo '<li><span class="description">' . $SECTION_DESC . '</span></li>';
+          }
+
+          ?>
+
         </ul>
         <!-- END PAGE BREADCRUMBS AND TITLE -->
       <?php } ?>
