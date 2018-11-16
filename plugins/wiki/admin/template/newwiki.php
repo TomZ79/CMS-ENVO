@@ -68,6 +68,21 @@ if ($errors) { ?>
       </li>
       <li class="nav-item">
         <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlw["wiki_section_tab"]["wikitab5"] ?></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlw["wiki_section_tab"]["wikitab3"] ?></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlw["wiki_section_tab"]["wikitab4"] ?></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#cmsPage6" class="" data-toggle="tab">
           <span class="text"><?= $tlw["wiki_section_tab"]["wikitab1"] ?></span>
         </a>
       </li>
@@ -465,6 +480,90 @@ if ($errors) { ?>
         </div>
       </div>
       <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt11"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt2"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage5" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt3"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage6" role="tabpanel">
         <div class="row">
           <div class="col-sm-12">
             <div class="box box-success">
