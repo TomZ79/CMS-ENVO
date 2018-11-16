@@ -3,75 +3,72 @@
 <?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
 
   <!-- =========================
-    START BLOG SECTION
+        START BLOG SECTION
   ============================== -->
-  <section class="blog-content-area">
+  <section>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
 
-          <?php if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) foreach ($ENVO_BLOG_ALL as $v) {
+        <?php if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) foreach ($ENVO_BLOG_ALL as $v) {
 
-            // Get the categories into a list
-            unset($catids);
-            $resultc = $envodb->query('SELECT id, name, varname FROM ' . DB_PREFIX . 'blogcategories WHERE id IN(' . $v['catid'] . ') ORDER BY id ASC');
-            while ($rowc = $resultc->fetch_assoc()) {
+          // Get the categories into a list
+          unset($catids);
+          $resultc = $envodb -> query('SELECT id, name, varname FROM ' . DB_PREFIX . 'blogcategories WHERE id IN(' . $v['catid'] . ') ORDER BY id ASC');
+          while ($rowc = $resultc -> fetch_assoc()) {
 
-              if ($setting["blogurl"]) {
-                $seoc = ENVO_base::envoCleanurl($rowc['varname']);
-              }
-
-              // EN: Create array with all categories
-              // CZ: Vytvoření pole se všemi kategoriemi
-              $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+            if ($setting["blogurl"]) {
+              $seoc = ENVO_base ::envoCleanurl($rowc['varname']);
             }
 
+            // EN: Create array with all categories
+            // CZ: Vytvoření pole se všemi kategoriemi
+            $catids[] = '<span class="cat-list"><a href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+          }
 
-            if (!empty($catids)) {
-              // EN: Returns a string from the elements of an array
-              // CZ: Získání elementů z pole
-              $blog_catids = join(" ", $catids);
-            }
 
-            ?>
+          if (!empty($catids)) {
+            // EN: Returns a string from the elements of an array
+            // CZ: Získání elementů z pole
+            $blog_catids = join(" ", $catids);
+          }
 
-            <!-- Post - Blog -->
-            <article class="blog-article-preview mb-xs">
+          ?>
+
+          <!-- Start - Post -->
+          <article class="blog-article-preview mb-3">
+            <div class="row">
               <!-- Post Image, Title & Summary -->
               <?php
               // Image is available so set 'class' for 'div'
               $img = $v['previmg'];
 
               if ($img) {
-                $imageClass   = 'col-md-3';
-                $contentClass = 'col-md-9';
+                $imageClass   = 'col-sm-3';
+                $contentClass = 'col-sm-9';
               } else {
                 $imageClass   = '';
-                $contentClass = 'col-md-12';
+                $contentClass = 'col';
               }
               ?>
 
               <?php
               // Image is available so display it or go standard
               if ($img) { ?>
-              <div class="full-intro-head <?= $imageClass; ?> hidden-xs">
-                <div class="post-image">
-                  <div class="row">
-                    <a href="<?=$v["parseurl"]?>">
-                      <span class="thumb-info">
-                        <span class="thumb-info-wrapper">
+                <div class="full-intro-head <?= $imageClass; ?> hidden-xs">
+                  <div class="post-image">
+                    <a href="<?= $v["parseurl"] ?>">
+                      <span class="thumb-info rounded-0">
+                        <span class="thumb-info-wrapper rounded-0">
+
                           <?php
-                          echo '<img src="' . $v["previmg"] . '" alt="' . $v['previmgdesc'] . ' | ' . $setting["title"] . '" class= img-responsive">';
+                          echo '<img src="' . $v["previmg"] . '" alt="' . $v['previmgdesc'] . ' | ' . $setting["title"] . '" class=" img-fluid rounded-0">';
                           ?>
-                          <span class="thumb-info-action">
-                            <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-                          </span>
+
                         </span>
                       </span>
                     </a>
                   </div>
                 </div>
-              </div>
               <?php } ?>
               <div class="full-intro-content <?= $contentClass; ?>">
                 <div class="post-content">
@@ -81,57 +78,66 @@
                     echo '<h4><a href="' . $v["parseurl"] . '">' . envo_cut_text($v["title"], 100, "") . '</a></h4>';
                   }
                   ?>
+
                   <p class="post-data text-muted mb-sm">
+
                     <?php
                     if ($v["showdate"]) {
-                      echo $tlblog["blog_frontend"]["blog3"] . ' : <span class="mr-sm">' . $v["created"] . '</span>';
+                      echo '<span class="date mr-3"><strong class="text-2">' . $tlblog["blog_frontend"]["blog3"] . '</strong>' . ' : <time datetime="' . $v["created"] . '">' . $v["created"] . '</time></span>';
                     }
-                    echo $tlblog["blog_frontend"]["blog4"] . ' : <span>' . $blog_catids . '</span>';
+                    echo '<span class="category mr-3"><strong class="text-2">' . $tlblog["blog_frontend"]["blog4"] . '</strong>' . ' : ' . $blog_catids . '</span>';
                     ?>
+
                   </p>
-                  <p class="no-mb">
-                    <?=envo_cut_text($v['content'], $setting["blogshortmsg"], '....')?>
-                  </p>
-                  <p class="no-mb pull-right">
-                    <a href="<?=$v["parseurl"]?>">
-                      <?=$tlblog["blog_frontend"]["blog5"]?>
-                    </a>
+                  <p class="mb-0"><?= envo_cut_text($v['content'], $setting["blogshortmsg"], '....') ?></p>
+                  <p class="mb-0 float-right">
+
+                    <?php
+
+                    echo '<a href="' . $v["parseurl"] . '" class="read-more text-color-dark font-weight-bold text-2">' . $tlblog["blog_frontend"]["blog5"] . '<i class="fas fa-chevron-right text-1 ml-1"></i></a>';
+
+                    ?>
+
                   </p>
                 </div>
               </div>
-              <!-- Post Info -->
+            </div>
 
-              <!-- Post System Button - Admin -->
-              <?php if (ENVO_ASACCESS) { ?>
+            <?php
 
-              <div class="col-md-12 mt-sm">
-                <div class="pull-right">
-                  <a class="btn btn-primary btn-xs" href="<?=BASE_URL?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn1"]?>">
-                    <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                    <span class="hidden-xs"><?=$tl["button"]["btn1"]?></span>
-                  </a>
+            // SYSTEM ICONS - Edit and Quick Edit
+            if (ENVO_ASACCESS) {
+              echo '<div class="system-icons hidden-xs">';
+              echo '<div class="row">';
+              echo '<div class="col-sm-2">';
+              echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block" href="' . BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"] . '" title="' . $tl["button"]["btn1"] . '">' . $tl["button"]["btn1"] . '</a>';
+              echo '</div>';
+              echo '<div class="col-sm-2">';
+              echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block quickedit" href="' . BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $v["id"] . '" title="' . $tl["button"]["btn2"] . '">' . $tl["button"]["btn2"] . '</a>';
+              echo '</div>';
+              echo '<div class="col-sm-8"></div>';
+              echo '</div>';
+              echo '</div>';
+            }
 
-                  <a class="btn btn-primary btn-xs quickedit" href="<?=BASE_URL?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn2"]?>">
-                    <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                    <span class="hidden-xs"><?=$tl["button"]["btn2"]?></span>
-                  </a>
-                </div>
+            ?>
+
+            <div class="row">
+              <div class="col">
+                <hr class="dashed tall mt-2 mb-2">
               </div>
+            </div>
 
-              <?php } ?><!-- End Post Edit - Admin -->
 
-              <div class="clearfix"></div>
-              <hr class="dashed tall mt-lg mb-lg">
-            </article><!-- End Post -->
+          </article><!-- End Post -->
 
-          <?php } ?>
+        <?php } ?>
 
-        </div>
       </div>
     </div>
   </section>
   <!-- =========================
-    END BLOG SECTION
+        END BLOG SECTION
   ============================== -->
 
 <?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>

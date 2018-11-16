@@ -8,7 +8,7 @@ if ($page1 == 'house') {
   $classintsubsection1 = 'open active';
   $styleint1           = 'style="display: block;"';
 }
-if ($page1 == 'houselist') {
+if ($page1 == 'houseanalytics') {
   $classintsubsection2 = 'open active';
   $styleint2           = 'style="display: block;"';
 }
@@ -73,38 +73,49 @@ if ($page1 == 'houselist') {
       <span class="icon-thumbnail"><?= text_clipping_lower($tlint["int_menu"]["intm12"]) ?></span>
       <ul class="sub-menu" <?= $styleint2 ?>>
 
-        <li class="<?= (($page == 'intranet' && $page1 == 'houselist') || ($page == 'intranet' && $page1 == 'newhouse')) ? 'submenu-active' : '' ?>">
+        <li class="<?= (($page == 'intranet' && $page1 == 'houseanalytics') || ($page == 'intranet' && $page1 == 'newhouse')) ? 'submenu-active' : '' ?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houselist', $tlint["int_menu"]["intm1"]);
+          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics', $tlint["int_menu"]["intm1"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm1"]), 'icon-thumbnail');
           ?>
 
         </li>
-        <li class="<?= ($page == 'intranet' && $page1 == 'houselist' && $page2 == 'newhouse') ? 'submenu-active' : '' ?>">
+        <li class="<?= ($page == 'intranet' && $page1 == 'houseanalytics' && $page2 == 'newhouse') ? 'submenu-active' : '' ?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houselist&amp;ssp=newhouse', $tlint["int_menu"]["intm2"]);
+          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=newhouse', $tlint["int_menu"]["intm2"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm2"]), 'icon-thumbnail');
           ?>
 
         </li>
-        <?php if ($page == 'intranet' && $page1 == 'houselist' && $page2 == 'edithouse') { ?>
-          <li class="<?= ($page == 'intranet' && $page1 == 'houselist' && $page2 == 'edithouse') ? 'submenu-active' : '' ?>">
+        <?php if ($page == 'intranet' && $page1 == 'houseanalytics' && $page2 == 'edithouse') { ?>
+          <li class="<?= ($page == 'intranet' && $page1 == 'houseanalytics' && $page2 == 'edithouse') ? 'submenu-active' : '' ?>">
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=intranet&amp;sp=houselist&amp;ssp=edithouse&amp;id=' . $page2, $tlint["int_menu"]["intm3"]);
+            echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $page2, $tlint["int_menu"]["intm3"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm3"]), 'icon-thumbnail');
             ?>
 
           </li>
         <?php } ?>
+        <li class="list-divider"></li>
+        <li class="<?= ($page == 'intranet' && $page1 == 'houseanalytics' && $page2 == 'maps') ? 'submenu-active' : '' ?>">
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=maps', $tlint["int_menu"]["intm13"]);
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm13"]), 'icon-thumbnail');
+          ?>
+
+        </li>
 
       </ul>
     </li>

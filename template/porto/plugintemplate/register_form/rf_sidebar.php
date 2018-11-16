@@ -54,15 +54,15 @@
     <div class="about">
       <!-- Author Photo -->
       <div class="author-photo">
-        <img src="<?= BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser->getVar("picture") ?>"
+        <img src="<?= BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser -> getVar("picture") ?>"
           alt="avatar">
       </div>
       <div class="about-bubble">
         <blockquote>
           <!-- Author Info -->
           <cite class="author-info">
-            - <?= $tl["contact"]["c1"]; ?>: <?= $envouser->getVar("name") ?><br>
-            - <?= $tl["contact"]["c2"]; ?>: <?= $envouser->getVar("email") ?>
+            - <?= $tl["contact"]["c1"]; ?>: <?= $envouser -> getVar("name") ?><br>
+            - <?= $tl["contact"]["c2"]; ?>: <?= $envouser -> getVar("email") ?>
           </cite>
         </blockquote>
         <div class="sprite arrow-speech-bubble"></div>

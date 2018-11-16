@@ -37,9 +37,9 @@ if (ENVO_ASACCESS) {
 ?>
 
   <section>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
-        <article class="news-article">
+        <div class="news-article">
 
 
           <?php
@@ -62,40 +62,42 @@ if (ENVO_ASACCESS) {
 
             <?php
 
-            if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>';
+            if ($SHOWTITLE) echo '<h3 class="text-color-dark font-weight-normal text-6">' . $PAGE_TITLE . '</h3>';
 
             ?>
 
           </div>
-          <div class="article-head">
+          <div class="article-head mb-2">
 
             <?php
 
             if ($SHOWDATE || $SHOWHITS) {
               // SHOW - Date
               if ($SHOWDATE) {
-                echo '<span class="art-date"><strong>' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
+                echo '<span class="date mr-3"><strong class="text-2">' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
               }
 
               // SHOW - Hits
               if ($SHOWHITS) {
-                echo '<span class="art-hits"><strong>' . $tl["news"]["news2"] . '</strong>' . ' : ' . $PAGE_HITS . '</span>';
+                echo '<span class="hits"><strong class="text-2">' . $tl["news"]["news2"] . '</strong>' . ' : ' . $PAGE_HITS . '</span>';
               }
             }
-            ?>
-
-          </div>
-          <div class="article-content">
-
-            <?php
 
             // SHOW - Tag List
             if ($ENVO_TAGLIST) {
-              echo '<ul class="entry-meta">';
-              echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
+              echo '<ul class="tags-list">';
+              echo ENVO_tags ::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
               echo '</ul>';
 
             }
+
+            ?>
+
+          </div>
+          <hr>
+          <div class="article-content">
+
+            <?php
 
             // SHOW - Page content
             echo $PAGE_CONTENT;
@@ -117,34 +119,40 @@ if (ENVO_ASACCESS) {
 
           </div>
 
-        </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="pt-small pb-small">
-    <div class="container-fluid">
-      <div class="row">
-        <ul class="pager">
-          <?php if ($ENVO_NAV_PREV) { ?>
-            <li class="previous">
-              <a href="<?= $ENVO_NAV_PREV ?>">
-                <i class="fa fa-caret-left"></i>
-                <span class="nav_text_left"><?= $ENVO_NAV_PREV_TITLE ?></span>
-              </a>
-            </li>
-          <?php }
-          if ($ENVO_NAV_NEXT) { ?>
-            <li class="next">
-              <a href="<?= $ENVO_NAV_NEXT ?>">
-                <span class="nav_text_right"><?= $ENVO_NAV_NEXT_TITLE ?></span>
-                <i class="fa fa-caret-right"></i>
-              </a>
-            </li>
-          <?php } ?>
-        </ul>
+  <div class="row align-items-center mt-5">
+
+    <?php if ($ENVO_NAV_PREV) { ?>
+      <div class="col">
+        <a href="<?= $ENVO_NAV_PREV ?>" class="portfolio-prev text-decoration-none d-block">
+          <div class="d-flex align-items-center line-height-1">
+            <i class="fas fa-arrow-left text-dark text-4 mr-3"></i>
+            <div class="d-none d-sm-block line-height-1">
+              <span class="text-dark opacity-4 text-1">PREVIOUS PROJECT</span>
+              <h4 class="font-weight-bold text-3 mb-0"><?= envo_cut_text($ENVO_NAV_PREV_TITLE, 30, '...') ?></h4>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-  </section>
+    <?php } ?>
+    <?php if ($ENVO_NAV_NEXT) { ?>
+      <div class="col">
+        <a href="<?= $ENVO_NAV_NEXT ?>" class="portfolio-next text-decoration-none d-block float-right ">
+          <div class="d-flex align-items-center text-right line-height-1">
+            <div class="d-none d-sm-block line-height-1">
+              <span class="text-dark opacity-4 text-1">NEXT PROJECT</span>
+              <h4 class="font-weight-bold text-3 mb-0"><?= envo_cut_text($ENVO_NAV_NEXT_TITLE, 30, '...') ?></h4>
+            </div>
+            <i class="fas fa-arrow-right text-dark text-4 ml-3"></i>
+          </div>
+        </a>
+      </div>
+    <?php } ?>
+
+  </div>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

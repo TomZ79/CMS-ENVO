@@ -25,9 +25,9 @@
   <div class="col-md-3 col-sm-6" style="margin-bottom: 20px">
     <div class="text-center">
       <i class="fa fa-floppy-o fa-4x"></i>
-      <h3><a href="<?=$dl["parseurl"]?>"><?=$dl["title"]?></a></h3>
-      <p><?=$dl["content"]?></p>
-      <a href="<?=$dl["parseurl"]?>" class="btn btn-primary"><?=$tl["general"]["g3"]?></a>
+      <h3><a href="<?= $dl["parseurl"] ?>"><?= $dl["title"] ?></a></h3>
+      <p><?= $dl["content"] ?></p>
+      <a href="<?= $dl["parseurl"] ?>" class="btn btn-primary"><?= $tl["general"]["g3"] ?></a>
     </div>
   </div>
 

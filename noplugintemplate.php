@@ -12,7 +12,7 @@
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Bootstrap
-  echo $Html -> addStylesheet('../assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addStylesheet('../assets/plugins/bootstrapv4/4.0.0/css/bootstrap.min.css');
   // Font Awesomemin
   echo $Html -> addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>

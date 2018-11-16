@@ -66,7 +66,7 @@ function envo_secure_site($input)
 
     if (isset($url[0])) {
 
-      $flurl = ENVO_rewrite::envoVideourlparser($url[0], 'site');
+      $flurl = ENVO_rewrite ::envoVideourlparser($url[0], 'site');
 
       // make the urls hyper links
       $input = preg_replace($reg_exUrl, '<figure><iframe class="v_player" src="' . $flurl . '" frameborder="0"></iframe></figure><p class="clearfix"></p>', $input);
@@ -77,7 +77,7 @@ function envo_secure_site($input)
 
     if (isset($url2[0])) {
 
-      $flurl2 = ENVO_rewrite::envoVideourlparser($url2[0], 'site');
+      $flurl2 = ENVO_rewrite ::envoVideourlparser($url2[0], 'site');
 
       // make the urls hyper links
       $input = preg_replace($reg_exUrl2, '<figure><iframe class="v_player" src="' . $flurl2 . '" frameborder="0"></iframe></figure><p class="clearfix"></p>', $input);
@@ -88,7 +88,7 @@ function envo_secure_site($input)
 
     if (isset($vurl[0])) {
 
-      $flurlv = ENVO_rewrite::envoVideourlparser($vurl[0], 'site');
+      $flurlv = ENVO_rewrite ::envoVideourlparser($vurl[0], 'site');
 
       // make the urls hyper links
       $input = preg_replace($reg_exUrlv, '<figure><iframe class="v_player" src="' . $flurlv . '" frameborder="0"></iframe></figure><p class="clearfix"></p>', $input);
@@ -144,8 +144,8 @@ function envo_url_input_filter($value)
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.0.1
+ * @date    11/2018
  *
  * @param $value
  * @return string
@@ -155,10 +155,13 @@ function smartsql($value)
 {
   global $envodb;
   if (get_magic_quotes_gpc()) {
-    $value = stripslashes($value);
+    // rtrim — Strip whitespace (or other characters) from the end of a string
+    // stripslashes — Un-quotes a quoted string
+    $value = stripslashes(rtrim($value));
   }
   if (!is_int($value)) {
-    $value = $envodb->real_escape_string($value);
+    // rtrim — Strip whitespace (or other characters) from the end of a string
+    $value = $envodb -> real_escape_string(rtrim($value));
   }
 
   return $value;
@@ -237,7 +240,7 @@ function is_dir_empty($dir)
  */
 function envo_get_random_image($path)
 {
-  $images = array();
+  $images = array ();
   if ($img_dir = @opendir($path)) {
     while (FALSE !== ($img_file = readdir($img_dir))) {
       // checks for gif, jpg, png
@@ -376,9 +379,9 @@ function envo_get_access($envovar, $envovar1)
 function envo_get_setting($group)
 {
   global $envodb;
-  $setting = array();
-  $result  = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
-  while ($row = $result->fetch_assoc()) {
+  $setting = array ();
+  $result  = $envodb -> query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  while ($row = $result -> fetch_assoc()) {
     $setting[] = $row;
   }
 
@@ -400,9 +403,9 @@ function envo_get_setting($group)
 function envo_get_setting_val($group)
 {
   global $envodb;
-  $setting = array();
-  $result  = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
-  while ($row = $result->fetch_assoc()) {
+  $setting = array ();
+  $result  = $envodb -> query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  while ($row = $result -> fetch_assoc()) {
     // Now check if sting contains html and do something about it!
     if (strlen($row['value']) != strlen(filter_var($row['value'], FILTER_SANITIZE_STRING))) {
       $defvar = htmlspecialchars_decode(htmlspecialchars($row['value']));
@@ -444,7 +447,7 @@ function envo_get_total($envovar, $envovar1, $envovar2, $envovar3)
   }
 
   global $envodb;
-  $row = $envodb->queryRow('SELECT COUNT(*) as totalAll FROM ' . $envovar . $sqlwhere . '');
+  $row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envovar . $sqlwhere . '');
 
   return $row['totalAll'];
 }
@@ -466,9 +469,9 @@ function envo_get_data($id, $table)
 {
 
   global $envodb;
-  $envodata = array();
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata = $row;
@@ -495,9 +498,9 @@ function envo_get_galleryfacebook($limit, $table, $order)
 {
 
   global $envodb;
-  $envodata = array();
-  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
+  while ($row = $result -> fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
     $envodata[] = $row;
@@ -527,11 +530,11 @@ function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = 
   global $envodb;
 
   if ($check2) {
-    $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" AND LOWER(' . $field2 . ') = "' . smartsql($check2) . '" LIMIT 1');
+    $result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" AND LOWER(' . $field2 . ') = "' . smartsql($check2) . '" LIMIT 1');
   } else {
-    $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" LIMIT 1');
+    $result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" LIMIT 1');
   }
-  if ($envodb->affected_rows === 1) {
+  if ($envodb -> affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -554,8 +557,8 @@ function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = 
 function envo_row_exist($id, $table)
 {
   global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE id = "' . smartsql($id) . '" LIMIT 1');
-  if ($envodb->affected_rows === 1) {
+  $result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE id = "' . smartsql($id) . '" LIMIT 1');
+  if ($envodb -> affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -579,9 +582,9 @@ function envo_row_exist($id, $table)
 function envo_row_permission($envovar, $envovar1, $envovar2)
 {
   global $envodb;
-  $result = $envodb->query('SELECT permission FROM ' . $envovar1 . ' WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
-  if ($envodb->affected_rows === 1) {
-    $row = $result->fetch_assoc();
+  $result = $envodb -> query('SELECT permission FROM ' . $envovar1 . ' WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
+  if ($envodb -> affected_rows === 1) {
+    $row = $result -> fetch_assoc();
     if (envo_get_access($envovar2, $row['permission']) || $row['permission'] == 0) {
       return TRUE;
     }
@@ -608,9 +611,9 @@ function envo_get_id_name($envovar, $envovar1, $envovar2)
 {
   $sqlwhere = '';
   global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $envovar2 . ' WHERE ' . $envovar1 . ' = "' . smartsql($envovar) . '"' . $sqlwhere . ' LIMIT 1');
-  if ($envodb->affected_rows > 0) {
-    $row = $result->fetch_assoc();
+  $result = $envodb -> query('SELECT id FROM ' . $envovar2 . ' WHERE ' . $envovar1 . ' = "' . smartsql($envovar) . '"' . $sqlwhere . ' LIMIT 1');
+  if ($envodb -> affected_rows > 0) {
+    $row = $result -> fetch_assoc();
 
     return $row['id'];
   } else {
@@ -651,9 +654,9 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
 
   global $envodb;
   global $setting;
-  $envodata = array();
-  $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . ENVO_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $envovar);
-  while ($row = $result->fetch_assoc()) {
+  $envodata = array ();
+  $result   = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . ENVO_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $envovar);
+  while ($row = $result -> fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];
     $PAGE_CONTENT = $row['content'];
@@ -662,11 +665,11 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
     $shortmsg = envo_cut_text($PAGE_CONTENT, $setting["shortmsg"], '...');
 
     // Parse url for user link
-    $parseurl = ENVO_rewrite::envoParseurl($plname, 'news-article', $row['id'], ENVO_base::envoCleanurl($PAGE_TITLE), '');
+    $parseurl = ENVO_rewrite ::envoParseurl($plname, 'news-article', $row['id'], ENVO_base ::envoCleanurl($PAGE_TITLE), '');
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base::envoTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base::envoCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
+    $envodata[] = array ( 'id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base ::envoTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base ::envoCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time'] );
 
   }
 
@@ -709,9 +712,9 @@ function envo_next_page($page, $title, $table, $id, $where, $where2, $approve)
     $fifth = ' AND ' . $approve . ' = 1';
   }
   global $envodb;
-  $result = $envodb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' > ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id ASC LIMIT 1');
-  if ($envodb->affected_rows > 0) {
-    $envodata = $result->fetch_assoc();
+  $result = $envodb -> query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' > ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id ASC LIMIT 1');
+  if ($envodb -> affected_rows > 0) {
+    $envodata = $result -> fetch_assoc();
 
     return $envodata;
   } else
@@ -754,9 +757,9 @@ function envo_previous_page($page, $title, $table, $id, $where, $where2, $approv
     $fifth = ' AND ' . $approve . ' = 1';
   }
   global $envodb;
-  $result = $envodb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' < ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id DESC LIMIT 1');
-  if ($envodb->affected_rows > 0) {
-    $envodata = $result->fetch_assoc();
+  $result = $envodb -> query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' < ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id DESC LIMIT 1');
+  if ($envodb -> affected_rows > 0) {
+    $envodata = $result -> fetch_assoc();
 
     return $envodata;
   } else
@@ -838,7 +841,7 @@ function envo_cut_text($text, $limit, $envovar2)
   if (empty($limit)) $limit = 160;
   $text = trim($text);
   $text = strip_tags($text);
-  $text = str_replace(array("\r", "\n", '"'), "", $text);
+  $text = str_replace(array ( "\r", "\n", '"' ), "", $text);
   $txtl = strlen($text);
   if ($txtl > $limit) {
     for ($i = 1; $text[$limit - $i] != " "; $i++) {
@@ -868,45 +871,46 @@ function envo_cut_text($text, $limit, $envovar2)
  * @param string $append
  * @return array|string
  */
-function envo_cut_text_html_tag($string,$length=500,$append="&hellip;") {
+function envo_cut_text_html_tag($string, $length = 500, $append = "&hellip;")
+{
 
-  $string = trim($string);
+  $string        = trim($string);
   $string_length = strlen($string);
 
   $original_string = $string;
 
-  if( $string_length > $length ) {
+  if ($string_length > $length) {
 
     $remaining_chars = $string_length - $length;
 
-    if( strpos($string, '<') !== false && strpos($string, '>') !== false ) {
+    if (strpos($string, '<') !== false && strpos($string, '>') !== false) {
 
       $string = wordwrap($string, $length);
       $string = explode("\n", $string, 2);
       $string = $string[0] . $append;
 
       $fillimi = substr_count($string, '<');
-      $fundi = substr_count($string, '>');
+      $fundi   = substr_count($string, '>');
 
-      if( $fillimi == $fundi ) {
+      if ($fillimi == $fundi) {
         $string = $string;
       } else {
         $i = 1;
-        while( $i <= $remaining_chars ) {
+        while ($i <= $remaining_chars) {
 
-          $string = wordwrap($original_string, $length + $i);
-          $string = explode("\n", $string, 2);
+          $string              = wordwrap($original_string, $length + $i);
+          $string              = explode("\n", $string, 2);
           $new_remaining_chars = $string_length - ($length + $i);
-          if( $new_remaining_chars > 0 ) {
+          if ($new_remaining_chars > 0) {
             $string = $string[0] . $append;
           } else {
             $string = $string[0];
           }
 
           $fillimi = substr_count($string, '<');
-          $fundi = substr_count($string, '>');
+          $fundi   = substr_count($string, '>');
 
-          if( $fillimi == $fundi ) {
+          if ($fillimi == $fundi) {
             $string = $string;
             break;
           }
@@ -1046,7 +1050,7 @@ function envo_clean_safe_userpost($input)
   // now we convert the code stuff into code blocks
   $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'envo_precode', $input);
 
-  $allowedhtml = array('safe' => 1, 'elements' => 'em, p, br, img, ul, li, ol, a, strong, pre, code', 'deny_attribute' => 'class, title, id, style, on*', 'comment' => 1, 'cdata' => 1, 'valid_xhtml' => 1, 'make_tag_strict' => 1);
+  $allowedhtml = array ( 'safe' => 1, 'elements' => 'em, p, br, img, ul, li, ol, a, strong, pre, code', 'deny_attribute' => 'class, title, id, style, on*', 'comment' => 1, 'cdata' => 1, 'valid_xhtml' => 1, 'make_tag_strict' => 1 );
   $allowedatr  = '';
   $input       = htmLawed($input, $allowedhtml, $allowedatr);
 
@@ -1095,7 +1099,7 @@ function envo_edit_safe_userpost($input)
  */
 function get_ip_address()
 {
-  foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
+  foreach (array ( 'HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR' ) as $key) {
     if (array_key_exists($key, $_SERVER) === TRUE) {
       foreach (explode(',', $_SERVER[$key]) as $ip) {
         if (filter_var($ip, FILTER_VALIDATE_IP) !== FALSE) {
@@ -1262,9 +1266,9 @@ function hex2rgba($color, $opacity = FALSE)
 
   //Check if color has 6 or 3 characters and get values
   if (strlen($color) == 6) {
-    $hex = array($color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5]);
+    $hex = array ( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
   } elseif (strlen($color) == 3) {
-    $hex = array($color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2]);
+    $hex = array ( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
   } else {
     return $default;
   }
@@ -1344,9 +1348,9 @@ function sort_array_mutlidim(array $array, $order_by)
       $sorts[trim($matches[1])] = 'SORT_' . strtoupper(trim($matches[3]));
   }
   // TODO -c optimization -o tufanbarisyildirim : use array_* functions.
-  $colarr = array();
+  $colarr = array ();
   foreach ($sorts as $col => $order) {
-    $colarr[$col] = array();
+    $colarr[$col] = array ();
     foreach ($array as $k => $row) {
       $colarr[$col]['_' . $k] = strtolower($row[$col]);
     }
@@ -1359,7 +1363,7 @@ function sort_array_mutlidim(array $array, $order_by)
   $runIt = substr($runIt, 0, -1) . ');';
   // TODO -c nothing -o tufanbarisyildirim :  eval is evil.
   eval($runIt);
-  $sorted_array = array();
+  $sorted_array = array ();
   foreach ($colarr as $col => $arr) {
     foreach ($arr as $k => $v) {
       $k = substr($k, 1);
@@ -1391,8 +1395,8 @@ function get_pluginversion($pluginname)
   global $envodb;
   $envodata = '';
 
-  $result = $envodb->query('SELECT pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $pluginname . '"');
-  $row    = $result->fetch_assoc();
+  $result = $envodb -> query('SELECT pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $pluginname . '"');
+  $row    = $result -> fetch_assoc();
 
   $envodata = $row['pluginversion'];
 

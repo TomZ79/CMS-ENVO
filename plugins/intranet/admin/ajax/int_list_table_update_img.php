@@ -26,10 +26,10 @@ $shortdescImage  = $_POST['shortdescImage'];
 $data_array = array();
 
 // Update row in DB
-$envodb->query('UPDATE ' . DB_PREFIX . 'int_houselistimg SET shortdescription = "' . $shortdescImage . '", description = "' . $descImage . '", timeedit = NOW() WHERE id = "' . $imageID . '"');
+$envodb->query('UPDATE ' . DB_PREFIX . 'int_houseanalyticsimg SET shortdescription = "' . $shortdescImage . '", description = "' . $descImage . '", timeedit = NOW() WHERE id = "' . $imageID . '"');
 
 // Getting info from DB
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houselistimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houseanalyticsimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
 $data_array[] = array(

@@ -32,7 +32,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
   echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
@@ -92,7 +92,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
   echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
   echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
@@ -158,6 +158,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
             $envodb -> query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "intranet"');
             $envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "intranet"');
             $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
+            $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranetanalytics`');
             $envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
             /* Remove tables with data */

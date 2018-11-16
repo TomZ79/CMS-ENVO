@@ -261,7 +261,7 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 <script src="/assets/plugins/bootstrap/bootstrapv3/js/bootstrap.min.js?=v3.3.7"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/bootstrap-select.min.js"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/jquery.bootstrap-touchspin.js"></script>
-<script src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js?=v3.1.5"></script>
+<script src="/assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/magnific-popup.min.js"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/waypoints.min.js"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/counterup.min.js"></script>

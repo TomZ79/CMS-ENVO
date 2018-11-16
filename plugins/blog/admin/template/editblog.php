@@ -381,7 +381,6 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-sm-12">
-
                         <select name="envo_catid[]" multiple="multiple" class="form-control">
 
                           <?php

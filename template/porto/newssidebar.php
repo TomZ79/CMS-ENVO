@@ -1,28 +1,62 @@
 <?php if (defined("ENVO_PLUGIN_NAME_NEWS") && $ENVO_GET_NEWS_SORTED) { ?>
 
-  <aside class="nav-side-menu nav-sidebar hidden-xs">
+  <aside class="sidebarwidget sidebarwidget-border hidden-xs">
 
-    <div class="right-sidebar">
+    <h3 class="sidebarwidget-title"><?= ENVO_PLUGIN_NAME_NEWS ?></h3>
 
-      <div class="sidebar-inner">
-        <h3 class="brand"><?= ENVO_PLUGIN_NAME_NEWS ?></h3>
+    <?php
+    $i = 1;
+    if (isset($ENVO_GET_NEWS_SORTED) && is_array($ENVO_GET_NEWS_SORTED)) foreach ($ENVO_GET_NEWS_SORTED as $ns) {
 
-        <?php if (isset($ENVO_GET_NEWS_SORTED) && is_array($ENVO_GET_NEWS_SORTED)) foreach ($ENVO_GET_NEWS_SORTED as $n) { ?>
-          <div>
-            <p class="mb-none"><span><?= $n["created"] ?></span></p>
-            <p>
-              <a href="<?= $n["parseurl"] ?>" title="<?= $n["contentshort"] ?>">
-                <?= $n["title"] ?>
-              </a>
-            </p>
+      if ($i == 1) {
+
+        // First Item
+
+        ?>
+
+        <div class="post_small">
+          <div class="post_small-text-meta">
+            <ul>
+              <li><i class="fas fa-calendar-alt"></i> <span><?= $ns["created"] ?></span></li>
+            </ul>
           </div>
-        <?php } ?>
+          <h4 class="title-10">
+            <a href="<?= $ns["parseurl"] ?>" title="<?= $ns["contentshort"] ?>">
+              <?= $ns["title"] ?>
+            </a>
+          </h4>
+        </div>
 
-      </div>
+        <?php
 
-    </div>
+      } else {
 
-    <hr>
+        // Other Items
+
+        ?>
+
+        <div class="post_small">
+          <div class="post_small-text-meta">
+            <ul>
+              <li><i class="fas fa-calendar-alt"></i> <span><?= $ns["created"] ?></span></li>
+            </ul>
+          </div>
+          <h4 class="title-10">
+            <a href="<?= $ns["parseurl"] ?>" title="<?= $ns["contentshort"] ?>">
+              <?= $ns["title"] ?>
+            </a>
+          </h4>
+        </div>
+
+        <?php
+
+      }
+
+      $i++;
+
+    }
+    ?>
+
   </aside>
 
 <?php } ?>

@@ -5,47 +5,676 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/plugins/animate/3.5.1/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/plugins/animate/3.7.0/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/ares.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew_city.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew_cityarea.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew_district.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_houseanalytics_maps.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houseanalytics_stats_ch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houseanalytics_stats_kv.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houseanalytics_stats_so.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/css/style.wiki.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/include/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/js/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/js/script.wiki.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/lang/cs.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/lang/en.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/lang/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/css.wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/editwiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/editwikicat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/newwiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/newwikicat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/script.wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/usergroup_edit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/usergroup_new.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wiki_connect.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wiki_connect_new.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wikicat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wikicatsort.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wikinav.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/template/wikisetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/admin/wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/ajaxsearch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/assets/css/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/assets/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/assets/img/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/assets/js/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/help/help_cs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/help/help_en.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/help/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/install.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/lang/cs.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/lang/en.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/lang/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/cssheader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/footer_widget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/pages_news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/wikiart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/template/wikisidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/uninstall.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/update.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/wiki/wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/carzone/help/cmshelp_en.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/carzone/help/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/help/cmshelp_cs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/help/cmshelp_en.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/help/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/js/theme.custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/livesearch-test/ajaxsearch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/livesearch-test/script.ajaxsearch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/footer_widget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/livesearch-test/ajaxsearch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/livesearch-test/script.ajaxsearch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/pages_news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/wiki.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/wikiart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto/plugintemplate/wiki/wikisidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/css/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/error.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/checkbox/csscheckbox_blue.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/checkbox/csscheckbox_blue.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/custom-header-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/header-bg-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/header-bg-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/logo-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/news/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/img/news/news-feature.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/install.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/js/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/js/porto-revolutionSlider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/js/porto.templatesettings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/lang/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/navbar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/offline.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer-template/contact-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer-template/request-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/PHPMailerAutoload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/VERSION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/class.phpmailer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/class.phpmaileroauth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/class.phpmaileroauthgoogle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/class.pop3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/class.smtp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/DKIM.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/code_generator.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/contactform.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/contents.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/contentsutf8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/exceptions.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/gmail.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/gmail_xoauth.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/images/phpmailer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/images/phpmailer_mini.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/mail.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/mailing_list.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/pop_before_smtp.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/scripts/XRegExp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/scripts/shAutoloader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/scripts/shBrushPhp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/scripts/shCore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/scripts/shLegacy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/send_file_upload.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/send_multiple_file_upload.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/sendmail.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/signed-mail.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/smtp.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/smtp_check.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/smtp_no_auth.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/ssl_options.phps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCore.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreDefault.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreDjango.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreEclipse.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreEmacs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreFadeToGrey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreMDUltra.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreMidnight.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shCoreRDark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeAppleScript.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeDefault.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeDjango.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeEclipse.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeEmacs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeFadeToGrey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeMDUltra.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeMidnight.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeRDark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/shThemeVisualStudio.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/examples/styles/wrapping.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/extras/EasyPeasyICS.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/extras/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/extras/htmlfilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/extras/ntlm_sasl_client.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/get_oauth_token.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-am.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-az.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-be.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-bg.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ca.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-cs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-da.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-de.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-el.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-eo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-es.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-et.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-fa.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-fi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-fo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-fr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-gl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-he.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-hr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-hu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-id.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-it.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ja.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ka.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ko.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-lt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-lv.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ms.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-nb.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-nl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-pl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-pt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-pt_br.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ro.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-ru.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-sk.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-sl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-sr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-sv.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-tr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-uk.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-vi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-zh.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/php/php-mailer/language/phpmailer.lang-zh_cn.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/css/bluesat-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/css/bluesat-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/fonts/bluesat-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/fonts/bluesat-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/fonts/bluesat-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/fonts/bluesat-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/antenna-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/antenna-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/garancy-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/house-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/house-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/innovation-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/innovation-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/innovation-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/iron-steel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/lan-socket-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/lan-socket-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/lan-socket-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/remote-control-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/remote-control-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/remote-control-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/remote-control-04.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/satellite-dish-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/satellite-dish-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/television-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/television-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/television-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/television-04.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/time-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/time-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/time-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/time-04.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/time-05.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/time-06.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/wifi-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/wifi-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/bluesat-icons/original-svg/wifi-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery-cookie/jquery-cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery-cookie/jquery-cookie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.easing/jquery.easing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.lazyload/jquery.lazyload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.lazyload/jquery.lazyload.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.lazyload/jquery.scrollstop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/blog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/blogart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/blogsidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/footer_widget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/footer_widget1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/pages_news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/blog/tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/download.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/downloadfile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/downloadsidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/footer_widget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/footer_widget1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/js/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/js/script.download.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/pages_news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/download/tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/faq.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/faqart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/faqsidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/footer_widget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/pages_news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/faq/tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/footer_widget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/js/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/js/script.registerform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/js/script.registerform.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/rf_editprofile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/rf_registerform.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/plugintemplate/register_form/rf_sidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/sidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/success.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/templatesettings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/templatesettings_case.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/porto2/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/css/style.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/js/global_js/scripts.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/js/script.page.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/js/script.page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/less/modules/tabs.less" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/less/modules/tabs.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/less/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/less/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/assets/less/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/assets/less/style.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/include/admin.function.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/include/admin.function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lang/en.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/template/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/pages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/template/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/quickheader.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/quickheader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/sidebar_widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/sidebar_widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/sidebar_widget_new.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/sidebar_widget_new.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/template/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/template/template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/animate/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/animate/3.5.1/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstap-notify/bootstrap-notify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstap-notify/bootstrap-notify.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/brands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/brands.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/fontawesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/fontawesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/regular.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/regular.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/solid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/solid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/svg-with-js.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/svg-with-js.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/v4-shims.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/css/v4-shims.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/plugins/font-awesome/5.3.1/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/class.paginator.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/class.paginator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/class.tags.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/class.tags.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/loginpass.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/loginpass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/install/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/lang/cs.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noplugintemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/noplugintemplate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/notemplate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page.contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/belowheader/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/belowheader/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/belowheader/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/belowheader/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blank_plugin/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blank_plugin/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blank_plugin/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blank_plugin/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/admin/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/admin/blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/blog/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blog/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/download/admin/download.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/download/admin/download.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/download/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/download/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/download/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/download/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/download/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/download/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/faq/admin/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/admin/faq.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/faq/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/faq/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/lang/cs.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/faq/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/lang/en.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/faq/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/faq/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/faq/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_houseselect_modal.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_houseselect_modal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_houseselect_process.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_houseselect_process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_delete_img.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_delete_img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_dialog_img.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_dialog_img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_docu.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_docu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_img.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_docu.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_docu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_img.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/include/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/include/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/intranet.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/intranet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/css.intranet.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/css.intranet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouseanalytics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_houselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_houseanalytics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouseanalytics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/int_setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/int_setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/admin/template/script.intranet.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/admin/template/script.intranet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/install.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/intranet.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/intranet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/css/webarch.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/ajax/fileuploader_list_upload_img.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/ajax/fileuploader_list_upload_img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/ajax/int_list_table_dialog_img.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/ajax/int_list_table_dialog_img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_houselist.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houseanalytics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_houselist_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_houseanalytics_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/intranet/template/int_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/int_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/template/less/webarch.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/intranet/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/intranet/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/openurl_blank/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/openurl_blank/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/register_form/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/register_form/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/register_form/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/register_form/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/register_form/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/register_form/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/site_editor/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/site_editor/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/site_editor/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/site_editor/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/tv_tower/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/tv_tower/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/tv_tower/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/tv_tower/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/tv_tower/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/tv_tower/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/urlmapping/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/urlmapping/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/urlmapping/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/urlmapping/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/xml_seo/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/xml_seo/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/xml_seo/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/xml_seo/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags.php" beforeDir="false" afterPath="$PROJECT_DIR$/tags.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/carzone/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/carzone/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/carzone/help.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/help.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/carzone/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/carzone/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/carzone/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/carzone/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/bootstrap-print-md.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/bootstrap-print-md.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/bootstrap-print.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/bootstrap-print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/screen.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/screen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/screen.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/screen.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/default.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/default.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-app-landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-app-landing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-app-landing.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-app-landing.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-bluesat.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-bluesat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-bluesat.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-bluesat.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-business-consulting.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-business-consulting.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-business-consulting.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-business-consulting.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-church.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-church.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-church.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-church.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-construction.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-construction.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-construction.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-construction.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-3.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-3.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-3.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-4.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-4.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-4.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-4.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-5.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-5.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-5.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-5.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-6.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-6.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-6.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-6.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-7.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-7.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-7.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-7.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-8.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-8.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-8.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-8.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-hosting.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-hosting.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-corporate-hosting.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-corporate-hosting.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-digital-agency.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-digital-agency.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-digital-agency.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-digital-agency.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-event.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-event.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-event.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-event.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-finance.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-finance.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-finance.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-finance.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-gym.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-gym.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-gym.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-gym.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-hotel.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-hotel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-hotel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-hotel.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-law-firm.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-law-firm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-law-firm.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-law-firm.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-medical.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-medical.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-medical.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-medical.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-photography.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-photography.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-photography.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-photography.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-real-estate.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-real-estate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-real-estate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-real-estate.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-restaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-restaurant.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-restaurant.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-restaurant.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-resume.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-resume.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-resume.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-resume.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-wedding.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-wedding.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/skins/skin-wedding.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/skins/skin-wedding.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme-blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme-blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme-blog.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme-complete.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme-complete.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme-complete.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme-complete.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme-elements.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme-elements.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme-elements.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme-elements.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/css/theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/css/theme.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/contact-form/contact-form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/contact-form/contact-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/contact-form/contact-form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/css/customstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/css/customstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/css/customstyle.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/css/customstyle.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/send-phone/send-phone-template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/send-phone/send-phone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/custom/send-phone/send-phone.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/custom/send-phone/send-phone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/description.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/help.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/carzone/help/cmshelp_cs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/examples/examples.portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/examples/examples.portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/wiki/admin/css/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/porto.custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/porto.custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/porto.custom.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/porto.custom.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/theme.init.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/theme.init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/theme.init.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/theme.init.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/theme.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/theme.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/js/view.request.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/js/view.request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/lang/cs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/lang/cs.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/lang/en.ini" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/lang/en.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/lang/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/wiki/admin/include/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/loginsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/loginsidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/newsart.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/newsart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/newssidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/newssidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/offline.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/offline.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/php/contact-form-sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/php/contact-form-sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/php/refresh-captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/php/refresh-captcha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/php/request-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/php/request-form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/php/verify-captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/php/verify-captcha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bluesat-icons/css/bluesat-icons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugins/bluesat-icons/css/bluesat-icons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap-theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap-theme.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap-theme.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/bootstrap/js/npm.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/bootstrap/js/npm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/common/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/common/common.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/common/common.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/wiki/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/isotope/jquery.isotope.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/isotope/jquery.isotope.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery-cookie/jquery-cookie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugins/jquery-cookie/jquery-cookie.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery.appear/jquery.appear.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.appear/jquery.appear.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery.appear/jquery.appear.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.appear/jquery.appear.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery.easing/jquery.easing.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.easing/jquery.easing.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery.lazyload/jquery.lazyload.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugins/jquery.lazyload/jquery.lazyload.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery.validation/jquery.validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.validation/jquery.validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/jquery.validation/jquery.validation.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/jquery.validation/jquery.validation.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/magnific-popup/jquery.magnific-popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/magnific-popup/jquery.magnific-popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/magnific-popup/jquery.magnific-popup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/magnific-popup/jquery.magnific-popup.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/magnific-popup/magnific-popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/magnific-popup/magnific-popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/magnific-popup/magnific-popup.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/magnific-popup/magnific-popup.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/modernizr/modernizr.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/modernizr/modernizr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/ajax-loader.gif" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/ajax-loader.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.carousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.carousel.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.theme.default.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.theme.default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.theme.default.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.theme.default.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.theme.green.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.theme.green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.theme.green.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.theme.green.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/assets/owl.video.play.png" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/assets/owl.video.play.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/owl.carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/owl.carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/owl.carousel/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/owl.carousel/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/CODE_OF_CONDUCT.md" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/History.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/LICENSE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/css/simple-line-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/css/simple-line-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/css/simple-line-icons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/css/simple-line-icons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/fonts/Simple-Line-Icons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/fonts/Simple-Line-Icons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/fonts/Simple-Line-Icons.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/fonts/Simple-Line-Icons.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/fonts/Simple-Line-Icons.woff" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/fonts/Simple-Line-Icons.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/fonts/Simple-Line-Icons.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/fonts/Simple-Line-Icons.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/less/simple-line-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/less/simple-line-icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/scss/simple-line-icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/scss/simple-line-icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/blogart.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/blogart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/blogsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/blogsidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/footer_widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/footer_widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/footer_widget1.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/footer_widget1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/pages_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/pages_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/sitemap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/blog/tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/blog/tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/download.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/download.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/downloadfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/downloadfile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/downloadsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/downloadsidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/footer_widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/footer_widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/footer_widget1.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/footer_widget1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/pages_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/pages_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/sitemap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/download/tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/download/tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/faq.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/faqart.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/faqart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/faqsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/faqsidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/footer_widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/footer_widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/pages_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/pages_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/sitemap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/faq/tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/faq/tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_editprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_editprofile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_registerform.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_registerform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/plugintemplate/register_form/rf_sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/preview.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/preview.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/rss.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/rss.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/searchfooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/searchfooter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/searchsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/searchsidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/sitemap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/socialbutton.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/socialbutton.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/success.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/tags.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/tags.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/tagsfooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/tagsfooter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/tagsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/tagsidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto/uninstall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/userform.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/userform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/widget/widget-contact-sidebar-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/widget/widget-contact-sidebar-1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/porto/widget/widget-custom-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/porto2/widget/widget-custom-1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/traxxas.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/traxxas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/traxxas.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/traxxas.min.js" beforeDir="false" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,43 +694,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="int_index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_index.php">
+      <file leaf-file-name="newwiki.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/template/newwiki.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="92" column="50" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
+            <state relative-caret-position="116">
+              <caret line="469" selection-start-line="469" selection-end-line="469" />
               <folding>
-                <element signature="e#160#1301#0#HTML" />
-                <element signature="e#1308#2138#0#HTML" />
-                <element signature="e#2145#2979#0#HTML" />
-                <element signature="e#2986#3815#0#HTML" />
+                <element signature="e#2868#22407#0#HTML" />
+                <element signature="e#22414#22654#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="int_house_detail.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php">
+      <file leaf-file-name="sidebar_widget_new.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/template/sidebar_widget_new.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
-              <folding>
-                <element signature="e#1499#5944#0#HTML" />
-                <element signature="e#5951#7145#0#HTML" />
-                <element signature="e#7152#10327#0#HTML" />
-                <element signature="e#10334#11507#0#HTML" />
-                <element signature="e#11514#14498#0#HTML" />
-                <element signature="e#14505#20606#0#HTML" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="e#20613#22776#0#HTML" />
-                <element signature="e#22783#25243#0#HTML" />
-                <element signature="e#25250#35591#0#HTML" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#35598#40758#0#HTML" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -112,107 +722,105 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>je připraven na</find>
-      <find>envo_antennadescription</find>
-      <find>$envotable9</find>
-      <find>$envotable5</find>
-      <find>$envotable12</find>
-      <find>int_houseserv</find>
-      <find>$envotable6</find>
-      <find>$envotable11</find>
-      <find>$envotable1</find>
-      <find>$envotable2</find>
-      <find>int_housecontact</find>
-      <find>page-sidebar-wrapper</find>
-      <find>$envotable3</find>
-      <find>Seznam domů</find>
-      <find>Analý</find>
-      <find>padding: 5px 0;</find>
-      <find>tabbable tabs-left</find>
-      <find>border-top-left-radius: 3px;</find>
-      <find>border-width: 0;</find>
-      <find>li.active</find>
-      <find>.tabs-left &gt; .nav-tabs &gt;</find>
-      <find>.tabs-left</find>
-      <find>.table-striped</find>
-      <find>$ENVO_HOUSE_ALL</find>
-      <find>houseparseurl</find>
-      <find>$ENVO_HOUSE_TASK_DELAY</find>
-      <find>int_sec_title</find>
-      <find>INTRANET - SEZNAM BYTOVÝCH DOMŮ</find>
-      <find>inttab3</find>
-      <find>#tabs2</find>
+      <find>$catid</find>
+      <find>catid</find>
+      <find>envo_update_time</find>
+      <find>envo_get_</find>
+      <find>envo_catid</find>
+      <find>$getTotal</find>
+      <find>faq</find>
+      <find>$tl</find>
+      <find>Categories</find>
+      <find>$tlf</find>
+      <find>$envocategories</find>
+      <find>title</find>
+      <find>int_list_table_upload_docu.php</find>
+      <find>json</find>
+      <find>$envodata</find>
+      <find>err</find>
+      <find>ajaxlivesearch</find>
+      <find>envo_get_wiki</find>
+      <find>$ENVO_WIKI_ALL</find>
+      <find>envo_get_total_permission_wiki</find>
+      <find>setting</find>
+      <find>envo_shortmsg</find>
+      <find>$shortmsg</find>
+      <find>wikihlimit</find>
+      <find>i25</find>
+      <find>// CZ: Hlavní proměnné</find>
+      <find>bc37</find>
+      <find>$ENVO_PAGE_GRID</find>
+      <find>$ENVO_ACTIVE_GRID</find>
+      <find>$ENVO_HOOKS</find>
     </findStrings>
     <replaceStrings>
-      <replace>@heightB</replace>
-      <replace>color13</replace>
-      <replace>Roboto, sans-serif</replace>
-      <replace>0</replace>
-      <replace>&quot;Open Sans&quot;, sans-serif</replace>
-      <replace>Fontawesome</replace>
-      <replace>&quot;Fontawesome&quot;</replace>
-      <replace>@color12</replace>
-      <replace>0;</replace>
-      <replace>-</replace>
-      <replace>fa</replace>
-      <replace>int_</replace>
-      <replace>av-item dropdown collapsed-menu hidden</replace>
-      <replace>nav-item dropdown collapsed-menu</replace>
-      <replace>$himg_iso</replace>
-      <replace>$ENVO_HOUSE_IMG_LIST</replace>
-      <replace>$himg_list</replace>
-      <replace>btn-success</replace>
-      <replace>nav-item dropdown collapsed-menu hidden</replace>
-      <replace>margin</replace>
-      <replace>gallery_envo_1</replace>
-      <replace>well padding-10</replace>
-      <replace>scrollspyoffset m-b-20</replace>
-      <replace>listimgoutput</replace>
-      <replace>listimgprogress</replace>
-      <replace>listimgpercent</replace>
-      <replace>fileinput_imglist</replace>
-      <replace>&lt;span class='bold text-warning-dark'&gt;No data&lt;/span&gt;</replace>
+      <replace />
       <replace>col-md-3</replace>
       <replace>m-0</replace>
+      <replace>$usergroupanalytics</replace>
+      <replace>$ENVO_HOUSEANALYTICS_DETAIL</replace>
+      <replace>$ENVO_HOUSEANALYTICS_CONT</replace>
+      <replace>$ENVO_HOUSEANALYTICS_DOCU</replace>
+      <replace>$ENVO_HOUSEANALYTICS_IMG_LIST</replace>
+      <replace>$row_id</replace>
+      <replace>$rowdistrict</replace>
+      <replace>envo_housejustice</replace>
+      <replace>envo_houseares</replace>
+      <replace>houseanalytics</replace>
+      <replace>$envodata</replace>
+      <replace>bootstrapv4/v4.0.0</replace>
+      <replace>404-area</replace>
+      <replace>section-404</replace>
+      <replace>section-404-title</replace>
+      <replace>section-404-shadow</replace>
+      <replace>18:00</replace>
+      <replace>text-2</replace>
+      <replace>img-fluid</replace>
+      <replace>sidebarwidget</replace>
+      <replace>$wfw</replace>
+      <replace>$wa</replace>
+      <replace>$w</replace>
+      <replace>wiki</replace>
+      <replace>$tlw</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>D:\Github\CMS-Bluesat\template\carzone\less</dir>
-      <dir>D:\Github\CMS-Bluesat\template\carzone\css</dir>
-      <dir>D:\Github\CMS-Bluesat\assets\plugins\fancybox</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\js</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\css</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\tv_tower</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\pages\less</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\pages</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\js</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\js</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\less\modules</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\pages\css</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\template</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\blog</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\pages\less\modules</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\ajax</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets\less</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\less</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\faq</dir>
-      <dir>D:\Github\CMS-Bluesat\admin\assets</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\template</dir>
-      <dir>D:\Github\CMS-Bluesat</dir>
-      <dir>D:\Github\CMS-Bluesat\admin</dir>
-      <dir>D:\Github\CMS-Bluesat\plugins\intranet\template\less\modules</dir>
       <dir>D:\Github\CMS-Bluesat\plugins\intranet</dir>
       <dir>D:\Github\CMS-Bluesat\plugins\intranet\template</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\js</dir>
+      <dir>D:\Github\CMS-Bluesat\admin\template</dir>
+      <dir>D:\Github\CMS-Bluesat\assets\plugins\font-awesome\5.3.1</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto2\plugins\bluesat-icons</dir>
+      <dir>D:\Github\CMS-Bluesat\assets</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\faq</dir>
+      <dir>D:\Github\CMS-Bluesat\template</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto\css</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto\plugins</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto2\css</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto2</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\faq\assets</dir>
+      <dir>D:\Github\CMS-Bluesat</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\download</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\admin\css</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\admin\include</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\admin\js</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\admin\lang</dir>
+      <dir>D:\Github\CMS-Bluesat\admin</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\admin\template</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\admin</dir>
+      <dir>D:\Github\CMS-Bluesat\template\porto\plugintemplate\wiki</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\wiki\template</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins\intranet\admin\ajax</dir>
+      <dir>D:\Github\CMS-Bluesat\plugins</dir>
     </dirStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
@@ -230,57 +838,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_img.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_img.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_dialog_img.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/js/datatables.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/dist/jquery.fileuploader.min.css" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/image-editor/default/js/custom.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/less/webarch.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/less/responsive.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/ajax/int_table_dialog_img.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/ajax/int_list_table_dialog_img.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/default-upload/js/custom.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/drag-drop/js/custom.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_footer.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/image-editor/upload/js/custom.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/src/class.fileuploader.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/plugins/fileuploader/2.0/examples/drag-drop-form/js/custom.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/js/gallery.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules/fileuploader.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_houselist_detail.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/ajax/fileuploader_list_upload_img.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/install.php" />
-        <option value="$PROJECT_DIR$/template/porto/header.php" />
-        <option value="$PROJECT_DIR$/admin/include/admin.function.php" />
-        <option value="$PROJECT_DIR$/admin/page.php" />
-        <option value="$PROJECT_DIR$/admin/assets/js/script.page.php" />
-        <option value="$PROJECT_DIR$/admin/assets/js/global_js/scripts.js" />
-        <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/admin/lang/en.ini" />
-        <option value="$PROJECT_DIR$/admin/template/pages.php" />
-        <option value="$PROJECT_DIR$/admin/users.php" />
-        <option value="$PROJECT_DIR$/admin/template/users.php" />
-        <option value="$PROJECT_DIR$/admin/assets/less/modules/tabs.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js" />
-        <option value="$PROJECT_DIR$/assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.js" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/install.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/intranet.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_nav.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_header.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/intranet.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini" />
+        <option value="$PROJECT_DIR$/plugins/register_form/install.php" />
+        <option value="$PROJECT_DIR$/plugins/site_editor/install.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/install.php" />
+        <option value="$PROJECT_DIR$/plugins/urlmapping/install.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/wiki_connect.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/wiki_connect_new.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/template/footer_widget.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/template/pages_news.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/template/search.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/template/sitemap.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/template/tag.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/js/script.wiki.js" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/css.wiki.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/script.wiki.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/usergroup_new.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/update.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/editwiki.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/install.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/blog.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/blog/blog.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/template/wiki.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/footer_widget.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/search.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/sitemap.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/tag.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/pages_news.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/wikiart.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/wikisidebar.php" />
+        <option value="$PROJECT_DIR$/template/porto/footer.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/livesearch-test/ajaxsearch.php" />
+        <option value="$PROJECT_DIR$/template/porto/css/theme-custom.css" />
+        <option value="$PROJECT_DIR$/plugins/wiki/wiki.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/functions.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/wiki.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/faq/faq.php" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/include/functions.php" />
+        <option value="$PROJECT_DIR$/include/functions.php" />
+        <option value="$PROJECT_DIR$/template/porto/plugintemplate/wiki/livesearch-test/script.ajaxsearch.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/wikicat.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/wiki.php" />
+        <option value="$PROJECT_DIR$/plugins/wiki/admin/template/newwiki.php" />
+        <option value="$PROJECT_DIR$/admin/template/sidebar_widget.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/download.php" />
+        <option value="$PROJECT_DIR$/admin/template/header.php" />
+        <option value="$PROJECT_DIR$/admin/template/sidebar_widget_new.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/faq.php" />
       </list>
     </option>
   </component>
@@ -297,7 +905,7 @@
       <path value="$PROJECT_DIR$/node_modules/closure-compiler/package.json" />
       <path value="$PROJECT_DIR$/node_modules/google-closure-compiler/package.json" />
       <path value="$PROJECT_DIR$/node_modules/yuicompressor/package.json" />
-      <path value="$PROJECT_DIR$/template/porto/plugins/simple-line-icons/package.json" />
+      <path value="$PROJECT_DIR$/template/porto2/plugins/simple-line-icons/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpServers">
@@ -327,36 +935,74 @@
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
               <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="intranet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="intranet" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
               <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="intranet" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="intranet" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="wiki" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="wiki" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="wiki" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="porto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="porto" type="462c0819:PsiDirectoryNode" />
+              <item name="plugintemplate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="porto" type="462c0819:PsiDirectoryNode" />
+              <item name="plugintemplate" type="462c0819:PsiDirectoryNode" />
+              <item name="wiki" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMS-Bluesat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CMS-Bluesat" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="porto" type="462c0819:PsiDirectoryNode" />
+              <item name="plugintemplate" type="462c0819:PsiDirectoryNode" />
+              <item name="wiki" type="462c0819:PsiDirectoryNode" />
+              <item name="livesearch-test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -372,23 +1018,24 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/template/carzone/css/style.css" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\template\porto\plugintemplate" />
+      <recent name="D:\Github\CMS-Bluesat\plugins" />
+      <recent name="D:\Github\CMS-Bluesat\template\porto" />
+      <recent name="D:\Github\CMS-Bluesat\template\porto\js" />
+      <recent name="D:\Github\CMS-Bluesat\template\porto\plugins" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\assets\plugins\animate\3.5.1" />
+      <recent name="D:\Github\CMS-Bluesat\assets\plugins\bootstrap\bootstrapv4\v4.0.0" />
       <recent name="D:\Github\CMS-Bluesat\template\carzone\widget\sidebar" />
       <recent name="D:\Github\CMS-Bluesat\template\carzone\less\modules" />
       <recent name="D:\Github\CMS-Bluesat\admin\assets\js\global_js" />
-      <recent name="D:\Github\CMS-Bluesat\assets\js" />
-      <recent name="D:\Github\CMS-Bluesat\template\porto\custom\css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\css" />
-      <recent name="D:\Github\CMS-Bluesat\admin\assets\css" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0\examples\add-more" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0\examples" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\intranet\template\plugins\fileuploader\2.0\dist\font" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -617,11 +1264,33 @@
       <workItem from="1538817692872" duration="66843000" />
       <workItem from="1539091015595" duration="14202000" />
       <workItem from="1539267447769" duration="14513000" />
+      <workItem from="1539704134278" duration="21461000" />
+      <workItem from="1539879505950" duration="10320000" />
+      <workItem from="1540141690962" duration="3748000" />
+      <workItem from="1540305080553" duration="3342000" />
+      <workItem from="1540383522478" duration="14806000" />
+      <workItem from="1540468964592" duration="8086000" />
+      <workItem from="1540550254242" duration="13788000" />
+      <workItem from="1540632775214" duration="29898000" />
+      <workItem from="1540699540475" duration="31000" />
+      <workItem from="1540721076784" duration="6642000" />
+      <workItem from="1540910135838" duration="3256000" />
+      <workItem from="1541324452185" duration="26019000" />
+      <workItem from="1541363685146" duration="11806000" />
+      <workItem from="1541424224394" duration="24582000" />
+      <workItem from="1541506751152" duration="27672000" />
+      <workItem from="1541845464691" duration="19605000" />
+      <workItem from="1542061322071" duration="3459000" />
+      <workItem from="1542109904065" duration="6433000" />
+      <workItem from="1542147265925" duration="9175000" />
+      <workItem from="1542195006219" duration="30612000" />
+      <workItem from="1542290637606" duration="260000" />
+      <workItem from="1542305749563" duration="10141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3546598000" />
+    <option name="totallyTimeSpent" value="3831740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -634,10 +1303,10 @@
       <window_info anchor="bottom" x="0" y="53" width="1362" height="715" id="Version Control" order="8" type="WINDOWED" weight="0.32919255" />
       <window_info anchor="bottom" id="Run" order="1" weight="0.29612404" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.09457365" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24158126" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18740849" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Find" order="3" sideWeight="0.4937888" weight="0.29648608" />
+      <window_info id="Find" order="3" sideWeight="0.4937888" weight="0.30673498" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50621116" side_tool="true" weight="0.31551978" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39906833" />
@@ -652,17 +1321,17 @@
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="1" weight="0.29612404" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22547585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" x="0" y="53" width="1362" height="715" id="Version Control" order="8" type="WINDOWED" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.29612404" />
       <window_info anchor="bottom" id="REST Client" order="14" weight="0.39596274" />
       <window_info id="Find" order="3" sideWeight="0.4937888" weight="0.29648608" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="10" weight="0.32868218" />
@@ -670,7 +1339,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.09457365" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32868218" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" x="0" y="53" width="1362" height="715" id="Version Control" order="8" type="WINDOWED" weight="0.32919255" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39906833" />
       <window_info anchor="bottom" id="File Transfer" order="12" weight="0.12868217" />
       <window_info anchor="bottom" id="Application Servers" order="13" />
@@ -703,453 +1372,394 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="69" />
+      <option name="time" value="72" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/blog/blog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="143" column="13" lean-forward="true" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+        <state relative-caret-position="157">
+          <caret line="105" column="12" lean-forward="true" selection-start-line="105" selection-start-column="12" selection-end-line="122" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/template/wiki.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
+        <state relative-caret-position="16">
+          <caret line="1" selection-start-line="1" selection-end-line="17" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/navbar.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/tag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/config.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/sitemap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="40" />
+        <state relative-caret-position="165">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.plugins.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="111" column="17" lean-forward="true" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/footer_widget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="124" lean-forward="true" selection-start-line="7" selection-start-column="124" selection-end-line="7" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/wikisidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/pages_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/ajax/int_list_table_dialog_img.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/ajax/int_table_dialog_img.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1021" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_houseselect_modal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-358" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_delete_img.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_houseselect_process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_dialog_img.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2193" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="498" lean-forward="true" selection-start-line="498" selection-end-line="498" />
+        <state relative-caret-position="-1240">
+          <caret line="235" column="24" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.envobase.php">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew_city.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="269" column="212" lean-forward="true" selection-start-line="269" selection-start-column="212" selection-end-line="269" selection-end-column="212" />
-        </state>
+        <state relative-caret-position="-1786" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="170" column="4" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/include/admin.function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="117" column="3" lean-forward="true" selection-start-line="117" selection-start-column="3" selection-end-line="117" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/js/script.page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/js/global_js/scripts.js">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_update_docu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
-          <caret line="1321" column="23" selection-start-line="1321" selection-start-column="23" selection-end-line="1321" selection-end-column="23" />
+          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/en.ini">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="1296" lean-forward="true" selection-start-line="1296" selection-end-line="1296" />
+        <state relative-caret-position="322">
+          <caret line="60" column="14" lean-forward="true" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew_cont.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="1191" column="14" selection-start-line="1191" selection-start-column="14" selection-end-line="1191" selection-end-column="14" />
+        <state relative-caret-position="84">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/users.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="963" column="40" selection-start-line="963" selection-start-column="40" selection-end-line="963" selection-end-column="40" />
+        <state relative-caret-position="17">
+          <caret line="231" column="36" selection-start-line="231" selection-start-column="36" selection-end-line="231" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/page.php">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_list_table_upload_docu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="728" column="4" lean-forward="true" selection-start-line="728" selection-start-column="4" selection-end-line="736" selection-end-column="50" />
+        <state relative-caret-position="-1225">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/users.php">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_update_task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="80" column="63" selection-start-line="80" selection-start-column="63" selection-end-line="80" selection-end-column="63" />
-        </state>
+        <state relative-caret-position="-1378" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/pages.php">
+    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/ajax/int_table_addnew_task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="58" column="140" selection-start-line="58" selection-start-column="140" selection-end-line="58" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/less/modules/tabs.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/selecthouse_modal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_houselist_detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="171" column="12" lean-forward="true" selection-start-line="135" selection-start-column="6" selection-end-line="171" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="204">
+          <caret line="11" selection-start-line="11" selection-end-line="13" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/js/script.intranet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="2588" column="45" selection-start-line="2588" selection-start-column="45" selection-end-line="2588" selection-end-column="45" />
+        <state relative-caret-position="1310">
+          <caret line="3591" column="39" lean-forward="true" selection-start-line="3591" selection-start-column="39" selection-end-line="3591" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/install/plainsql.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/css/theme-custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="202" column="50" selection-start-line="202" selection-start-column="43" selection-end-line="202" selection-end-column="50" />
+        <state relative-caret-position="340">
+          <caret line="332" column="13" selection-start-line="332" selection-start-column="13" selection-end-line="332" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/wikiart.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="162" column="176" selection-start-line="162" selection-start-column="139" selection-end-line="162" selection-end-column="176" />
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editpage.php">
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="214" column="30" lean-forward="true" selection-start-line="200" selection-start-column="24" selection-end-line="214" selection-end-column="30" />
+        <state relative-caret-position="109">
+          <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/install.php">
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="306" column="37" lean-forward="true" selection-start-line="306" selection-start-column="37" selection-end-line="306" selection-end-column="37" />
+        <state relative-caret-position="188">
+          <caret line="430" column="7" selection-start-line="430" selection-start-column="7" selection-end-line="430" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouselist.php">
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/wiki.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="93" column="41" lean-forward="true" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="207">
+          <caret line="305" column="30" lean-forward="true" selection-start-line="305" selection-start-column="30" selection-end-line="305" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_edithouse.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/faq/faq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="1412" lean-forward="true" selection-start-line="1412" selection-end-line="1412" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="82">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouselist.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/wiki.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="1439" column="10" lean-forward="true" selection-start-line="1394" selection-start-column="4" selection-end-line="1439" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#div#2;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#div#3;n#div#1;n#form#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_newhouse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="724" column="72" lean-forward="true" selection-start-line="724" selection-start-column="54" selection-end-line="724" selection-end-column="72" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#div#2;n#div#1;n#form#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_house.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_houselist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="153" column="19" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="153" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/less/modules/layout.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="787" column="22" lean-forward="true" selection-start-line="787" selection-start-column="22" selection-end-line="787" selection-end-column="22" />
-          <folding>
-            <element signature="e#14981#15546#0" />
-            <element signature="e#15575#15678#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="294" column="13" selection-start-line="294" selection-start-column="13" selection-end-line="294" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_houselist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="76" selection-start-line="76" selection-end-line="76" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Disk Google/Php - Jquery - Css - Fonts - Cms/Html Web Template/Admin Template/Webarch/Webarch v3.0/demo/HTML/tabs_accordian.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="617" column="20" lean-forward="true" selection-start-line="567" selection-start-column="14" selection-end-line="617" selection-end-column="20" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#2;n#div#2;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/less/webarch.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="6954" column="24" selection-start-line="6954" selection-end-line="6954" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/less/modules/tabs_accordians.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Disk Google/Php - Jquery - Css - Fonts - Cms/Html Web Template/Admin Template/Webarch/Webarch v3.0/demo/HTML/tables.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="629" column="30" lean-forward="true" selection-start-line="575" selection-start-column="22" selection-end-line="629" selection-end-column="30" />
-          <folding>
-            <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_houselist_stats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="25" column="98" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="81" column="48" lean-forward="true" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_house.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/intranet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="739" lean-forward="true" selection-start-line="739" selection-end-line="739" />
-          <folding>
-            <element signature="e#3370#3572#0#PHP" />
-            <element signature="e#3631#12870#0#PHP" />
-            <element signature="e#12949#13788#0#PHP" />
-            <element signature="e#17134#21084#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="92" column="50" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
-          <folding>
-            <element signature="e#160#1301#0#HTML" />
-            <element signature="e#1308#2138#0#HTML" />
-            <element signature="e#2145#2979#0#HTML" />
-            <element signature="e#2986#3815#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="87" column="67" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/lang/en.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="38" lean-forward="true" selection-end-line="114" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/template/int_nav.php">
+    <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+          <caret line="4" column="326" selection-start-line="4" selection-start-column="326" selection-end-line="4" selection-end-column="326" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/admin/intranet.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="575" column="22" selection-start-line="575" selection-start-column="22" selection-end-line="575" selection-end-column="22" />
+        <state relative-caret-position="178">
+          <caret line="588" column="36" selection-start-line="588" selection-start-column="18" selection-end-line="588" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="161" column="24" lean-forward="true" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/livesearch-test/script.ajaxsearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="90" column="25" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
           <folding>
-            <element signature="e#2254#26622#0#PHP" />
-            <element signature="e#26690#36948#0#PHP" />
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/intranet/template/int_house_detail.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/wiki/livesearch-test/ajaxsearch.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+        <state relative-caret-position="305">
+          <caret line="60" column="17" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/include/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="68" column="138" selection-start-line="68" selection-start-column="138" selection-end-line="68" selection-end-column="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="1189" column="3" selection-start-line="1189" selection-end-line="1189" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/template/wikicat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="69" column="17" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="352" selection-start-line="352" selection-end-line="352" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/template/wikisetting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1641">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="e#1499#5944#0#HTML" />
-            <element signature="e#5951#7145#0#HTML" />
-            <element signature="e#7152#10327#0#HTML" />
-            <element signature="e#10334#11507#0#HTML" />
-            <element signature="e#11514#14498#0#HTML" />
-            <element signature="e#14505#20606#0#HTML" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="e#20613#22776#0#HTML" />
-            <element signature="e#22783#25243#0#HTML" />
-            <element signature="e#25250#35591#0#HTML" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#35598#40758#0#HTML" />
+            <element signature="e#3468#20970#0#HTML" />
+            <element signature="e#20977#22951#0#HTML" />
+            <element signature="e#22958#24962#0#HTML" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/faq.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="160" column="32" lean-forward="true" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
+          <folding>
+            <element signature="e#1545#5944#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="221" column="116" selection-start-line="221" selection-start-column="116" selection-end-line="221" selection-end-column="116" />
+          <folding>
+            <element signature="e#1672#7426#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/download.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="221" column="138" selection-start-line="221" selection-start-column="122" selection-end-line="221" selection-end-column="133" />
+          <folding>
+            <element signature="e#9191#20273#0#PHP" />
+            <element signature="e#20276#21235#0#PHP" />
+            <element signature="e#21238#22428#0#PHP" />
+            <element signature="e#22431#23536#0#PHP" />
+            <element signature="e#23539#25398#0#PHP" />
+            <element signature="e#25401#33599#0#PHP" />
+            <element signature="e#33602#36715#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/wiki.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="195" column="123" selection-start-line="195" selection-start-column="123" selection-end-line="195" selection-end-column="123" />
+          <folding>
+            <element signature="e#1620#6468#0#PHP" />
+            <element signature="e#7566#16696#0#PHP" />
+            <element signature="e#16699#17657#0#PHP" />
+            <element signature="e#17660#18843#0#PHP" />
+            <element signature="e#18846#19957#0#PHP" />
+            <element signature="e#19960#28223#0#PHP" />
+            <element signature="e#28226#31351#0#PHP" />
+            <element signature="e#31375#37293#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="364" selection-start-line="364" selection-end-line="364" />
+          <folding>
+            <element signature="e#7473#13648#0#HTML" />
+            <element signature="e#13717#15306#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/sidebar_widget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/wiki/admin/template/newwiki.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="469" selection-start-line="469" selection-end-line="469" />
+          <folding>
+            <element signature="e#2868#22407#0#HTML" />
+            <element signature="e#22414#22654#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/sidebar_widget_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
         </state>
       </provider>
     </entry>

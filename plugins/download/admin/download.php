@@ -219,7 +219,7 @@ switch ($page1) {
     }
 
     // Get active sidebar widgets
-    $grid = $envodb->query('SELECT hookid FROM ' . $envotable2 . ' WHERE plugin = "' . smartsql(ENVO_PLUGIN_DOWNLOAD) . '" ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT hookid FROM ' . $envotable2 . ' WHERE plugin = "' . smartsql(ENVO_PLUGIN_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

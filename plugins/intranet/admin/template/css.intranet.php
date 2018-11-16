@@ -42,3 +42,9 @@ if ($page == 'intranet') {
 // New line in source code
 echo PHP_EOL;
 ?>
+
+<style>
+  [id*='setting_table_'] td {
+    vertical-align: middle;
+  }
+</style>

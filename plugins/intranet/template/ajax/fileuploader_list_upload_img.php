@@ -27,7 +27,7 @@ if (isset($_FILES['files'])) {
   // Upload - files exists
 
   // Get house data
-  $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houselist WHERE id = "' . $houseID . '" LIMIT 1');
+  $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houseanalytics WHERE id = "' . $houseID . '" LIMIT 1');
   $row    = $result -> fetch_assoc();
 
   $housefolder = $row['folder'];
@@ -88,7 +88,7 @@ if (isset($_FILES['files'])) {
       }
 
       // Insert info about image into DB
-      // $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int_houselistimg SET id = NULL, houseid = "' . $houseID . '", shortdescription = "", description = "", filenameoriginal = "' . $value[$i]['name'] . '", filenamethumb = "' . $thumbname . '", sizeoriginal = "' . $value[$i]['size'] . '", sizethumb = "", widthoriginal = "' . $exifimagewidth . '", heightoriginal = "' . $exifimageheight . '", widththumb = "", heightthumb = "", mainfolder = "' . $mainfolder . '", category = "", subcategory = "", timedefault = "' . $timedefault . '", timeupload = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
+      // $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int_houseanalyticsimg SET id = NULL, houseid = "' . $houseID . '", shortdescription = "", description = "", filenameoriginal = "' . $value[$i]['name'] . '", filenamethumb = "' . $thumbname . '", sizeoriginal = "' . $value[$i]['size'] . '", sizethumb = "", widthoriginal = "' . $exifimagewidth . '", heightoriginal = "' . $exifimageheight . '", widththumb = "", heightthumb = "", mainfolder = "' . $mainfolder . '", category = "", subcategory = "", timedefault = "' . $timedefault . '", timeupload = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
 
       //
       $data_array[$i] = array (

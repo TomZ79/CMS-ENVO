@@ -30,7 +30,7 @@
   // Google Fonts
   echo $Html -> addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // Animate
-  echo $Html -> addStylesheet('/assets/plugins/animate/animate.min.css');
+  echo $Html -> addStylesheet('/assets/plugins/animate/3.7.0/animate.min.css');
   ?>
 
   <!-- END PLUGIN CSS -->

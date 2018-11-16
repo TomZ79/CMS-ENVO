@@ -24,7 +24,7 @@ $imageID = $_POST['imageID'];
 $data_array = array();
 
 // Delete file from folder
-$result = $envodb->query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'int_houselistimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'int_houseanalyticsimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
 $deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenameoriginal'];
@@ -34,7 +34,7 @@ foreach ($deletefiles as $files) {
 }
 
 // Delete row in DB
-$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_houselistimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_houseanalyticsimg WHERE id = "' . $imageID . '"');
 
 if ($result) {
   $data_array[] = array(

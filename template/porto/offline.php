@@ -5,12 +5,12 @@ include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 if ($USR_IP_BLOCKED) { ?>
 
 	<!-- IP USER BLOCKED -->
-	<section class="pt-small pb-small dark-color">
+	<section class="pt-5 pb-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col">
 					<div class="text-center">
-						<h3 class="no-margin"><?=$USR_IP_BLOCKED?></h3>
+						<h3><?=$USR_IP_BLOCKED?></h3>
 					</div>
 				</div>
 			</div>
@@ -20,10 +20,10 @@ if ($USR_IP_BLOCKED) { ?>
 <?php } else { ?>
 
 	<!-- OFFLINE PAGE -->
-	<section class="pt-large pb-large light-color">
+	<section class="pt-5 pb-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col">
 					<div class="text-center">
 						<h1><?=$tl["general_error"]["generror6"]?></h1>
 						<p><?=$tl["general_error"]["generror7"]?></p>

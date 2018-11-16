@@ -4,12 +4,12 @@
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url       = end($url_array);
   // Get Download Categories
-  $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $setting["blogurl"]);
+  $ENVO_BLOG_CAT = ENVO_base ::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $setting["blogurl"]);
 
   if ($ENVO_BLOG_CAT) { ?>
     <aside class="nav-side-menu">
 
-      <h4 class="brand"><?=ENVO_PLUGIN_NAME_BLOG . ' - ' . $tlblog["blog_frontend"]["blog2"]?></h4>
+      <h4 class="brand"><?= ENVO_PLUGIN_NAME_BLOG . ' - ' . $tlblog["blog_frontend"]["blog2"] ?></h4>
       <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#blogsidebar"></span>
 
       <div class="menu-list">
@@ -26,13 +26,13 @@
               }
 
               ?> >
-                <a href="<?=$c["parseurl"]?>" title="<?=strip_tags($c["content"])?>">
+                <a href="<?= $c["parseurl"] ?>" title="<?= strip_tags($c["content"]) ?>">
                   <?php if ($c["catimg"]) { ?>
-                    <i class="fa <?=$c["catimg"]?> fa-fw"></i>
+                    <i class="fa <?= $c["catimg"] ?> fa-fw"></i>
                   <?php }
                   echo $c["name"]; ?>
-                  <span <?=($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"'?>>
-										<?=$c["count"]?>
+                  <span <?= ($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"' ?>>
+										<?= $c["count"] ?>
 									</span>
                 </a>
 

@@ -3,12 +3,12 @@
   <!-- =========================
   START 404 SECTION
   ============================== -->
-  <section class="feature-404-area">
+  <section class="section-404">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="feature-404-title">
-            <div class="feature-404-shadow-heading">
+        <div class="col text-center">
+          <div class="section-404-title">
+            <div class="section-404-shadow">
               <h2><?= $tl["general_error"]["generror"] ?></h2>
             </div>
             <h2><?= $tl["general_error"]["generror"] ?></h2>

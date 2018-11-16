@@ -16,7 +16,7 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 // CZ: Získání dat z ajax
 $imageID = $_POST['imageID'];
 
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houselistimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houseanalyticsimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
 $envodata .= '

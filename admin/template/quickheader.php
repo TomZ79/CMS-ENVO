@@ -10,7 +10,7 @@ echo $Html->addDoctype('html5');
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Bootstrap
-  echo $Html->addStylesheet('../assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0', 'screen');
+  echo $Html->addStylesheet('../assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css', 'screen');
   // Font Awesomemin
   echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css');
   ?>
@@ -37,7 +37,7 @@ echo $Html->addDoctype('html5');
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col">
       <section class="content-header">

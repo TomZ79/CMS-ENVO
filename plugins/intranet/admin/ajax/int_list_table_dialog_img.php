@@ -23,7 +23,7 @@ foreach($select as $item){
 }
 
 //
-$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houselistimg WHERE id = "' . $imageID . '"');
+$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houseanalyticsimg WHERE id = "' . $imageID . '"');
 $row    = $result -> fetch_assoc();
 
 switch ($row["exiforientation"]) {

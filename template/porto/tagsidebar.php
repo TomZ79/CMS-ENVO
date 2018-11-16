@@ -1,21 +1,13 @@
 <?php if (ENVO_TAGS && ENVO_USER_TAGS && $ENVO_GET_TAG_CLOUD) { ?>
 
-  <aside class="nav-side-menu nav-sidebar-inline hidden-xs">
+  <aside class="sidebarwidget sidebarwidget-border hidden-xs">
 
-		<div class="right-sidebar">
+    <h3 class="sidebarwidget-title"><?= ENVO_PLUGIN_NAME_TAGS ?></h3>
 
-			<div class="sidebar-inner">
-				<h2 class="brand"><?=ENVO_PLUGIN_NAME_TAGS?></h2>
+    <ul class="tag-cloud">
+      <?= $ENVO_GET_TAG_CLOUD ?>
+    </ul>
 
-				<ul class="tag-cloud">
-          <?=$ENVO_GET_TAG_CLOUD?>
-				</ul>
-
-			</div>
-
-		</div>
-
-		<hr>
-	</aside>
+  </aside>
 
 <?php } ?>

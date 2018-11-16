@@ -48,6 +48,6 @@
  * </ul>
  *
  */
-echo build_menu_porto(0, $mheader, TRUE, $page, 'nav nav-pills', 'dropdown', 'dropdown-toggle', 'dropdown-menu', 'sub-menu-li dropdown-submenu', FALSE);
+echo build_menu_porto(0, $mheader, TRUE, $page, 'nav nav-pills', 'dropdown', 'dropdown-toggle', 'dropdown-menu', 'dropdown-submenu', FALSE);
 
 ?>

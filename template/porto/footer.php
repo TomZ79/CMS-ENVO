@@ -29,8 +29,6 @@ switch ($section) {
 
 ?>
 
-</div><!-- END MAIN CONTENT -->
-
 <?php if ($ENVO_SHOW_FOOTER) {
   // Import templates below header
   if (isset($ENVO_HOOK_BELOW_FOOTER) && is_array($ENVO_HOOK_BELOW_FOOTER)) foreach ($ENVO_HOOK_BELOW_FOOTER as $bfooter) {
@@ -38,13 +36,15 @@ switch ($section) {
   }
 } ?>
 
+</div><!-- END MAIN CONTENT -->
+
 <?php if ($ENVO_SHOW_FOOTER && ENVO_ASACCESS) { ?>
   <!-- =========================
   START FOOTER SECTION
   ============================== -->
-  <footer id="footer" class="color color-quaternary">
-    <div class="container">
-      <div class="row">
+  <footer id="footer">
+    <div class="container my-4 py-2">
+      <div class="row py-4">
         <div class="col-md-10">
           <div class="row">
             <?= $setting["footerblocktext1_porto_tpl"] ?>
@@ -56,67 +56,71 @@ switch ($section) {
 
             <?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-facebook">
-                <a href="<?= $setting[" facebookfooterLinks_porto_tpl"]?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="<?= $setting[" facebookfooterLinks_porto_tpl"] ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
               </li>
             <?php }
             if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-twitter">
-                <a href="<?= $setting["twitterfooterLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="<?= $setting["twitterfooterLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
               </li>
             <?php }
             if ($setting["googlefooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-googleplus">
-                <a href="<?= $setting["googlefooterLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                <a href="<?= $setting["googlefooterLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
               </li>
             <?php }
             if ($setting["instagramfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-instagram">
-                <a href="<?= $setting["instagramfooterLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="<?= $setting["instagramfooterLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
               </li>
             <?php }
             if ($ENVO_RSS_DISPLAY) { ?>
               <li class="social-icons-rss">
-                <a href="<?= $P_RSS_LINK ?>" target="_blank" title="RSS"><i class="fa fa-rss"></i></a>
+                <a href="<?= $P_RSS_LINK ?>" target="_blank" title="RSS"><i class="fas fa-rss"></i></a>
               </li>
             <?php } ?>
 
           </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="system-icons pull-right">
-            <?php if ($apedit) { ?>
-              <a class="btn btn-filled btn-primary btn-sm" href="<?= $apedit ?>" title="<?= $tl["button"]["btn1"] ?>">
-                <?= $tl["button"]["btn1"] ?>
-              </a>
-              <?php if ($qapedit) { ?>
-                <a class="btn btn-filled btn-primary btn-sm quickedit" href="<?= $qapedit ?>" title="<?= $tl["button"]["btn2"] ?>">
-                  <?= $tl["button"]["btn2"] ?>
-                </a>
-              <?php }
-            }
-            if ($setting["printme"] && $printme) { ?>
-              <a class="btn btn-filled btn-primary btn-sm" id="envoprint" href="#" title="<?= $tl["button"]["btn6"] ?>">
-                <?= $tl["button"]["btn6"] ?>
-              </a>
-            <?php } ?>
+          <div class="row py-4">
+            <div class="col">
+              <div class="system-icons">
+
+                <?php
+
+                if ($apedit) {
+
+                  echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block" href="' . $apedit . '" title="' . $tl["button"]["btn1"] . '">' . $tl["button"]["btn1"] . '</a>';
+
+                  if ($qapedit) {
+                    echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block quickedit" href="' . $qapedit . '" title="' . $tl["button"]["btn2"] . '">' . $tl["button"]["btn2"] . '</a>';
+                  }
+                }
+                if ($setting["printme"] && $printme) {
+
+                  echo '<a class="btn btn-primary btn-xs rounded-0 mb-2 d-block" id="envoprint" href="#" title="' . $tl["button"]["btn6"] . '">' . $tl["button"]["btn6"] . '</a>';
+
+                }
+
+                ?>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-1">
-            <a href="<?= BASE_URL ?>" class="logo">
-              <img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" class="img-responsive" src="<?= $setting["logo2_porto_tpl"] ?>">
+      <div class="container py-2">
+        <div class="row py-4">
+          <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
+            <a href="<?= BASE_URL ?>" class="logo pr-0 pr-lg-3">
+              <img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" class="img-fluid opacity-2" src="<?= $setting["logo2_porto_tpl"] ?>">
             </a>
           </div>
-          <div class="col-md-7">
+          <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
             <p><?= $setting["copyright"] ?></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
             <nav id="sub-menu">
               <?= build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', ENVO_ASACCESS) ?>
             </nav>
@@ -133,9 +137,9 @@ switch ($section) {
     <!-- =========================
     START FOOTER SECTION
     ============================== -->
-    <footer id="footer" class="color color-quaternary">
-      <div class="container">
-        <div class="row">
+    <footer id="footer">
+      <div class="container my-4 py-2">
+        <div class="row py-4">
           <div class="col-md-10">
             <div class="row">
               <?= $setting["footerblocktext1_porto_tpl"] ?>
@@ -147,67 +151,63 @@ switch ($section) {
 
               <?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-facebook">
-                  <a href="<?= $setting["facebookfooterLinks_porto_tpl"] ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="<?= $setting["facebookfooterLinks_porto_tpl"] ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                 </li>
               <?php }
               if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-twitter">
-                  <a href="<?= $setting["twitterfooterLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="<?= $setting["twitterfooterLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                 </li>
               <?php }
               if ($setting["googlefooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-googleplus">
-                  <a href="<?= $setting["googlefooterLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                  <a href="<?= $setting["googlefooterLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
                 </li>
               <?php }
               if ($setting["instagramfooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-instagram">
-                  <a href="<?= $setting["instagramfooterLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="<?= $setting["instagramfooterLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 </li>
               <?php }
               if ($ENVO_RSS_DISPLAY) { ?>
                 <li class="social-icons-rss">
-                  <a href="<?= $P_RSS_LINK ?>" target="_blank" title="RSS"><i class="fa fa-rss"></i></a>
+                  <a href="<?= $P_RSS_LINK ?>" target="_blank" title="RSS"><i class="fas fa-rss"></i></a>
                 </li>
               <?php } ?>
 
             </ul>
           </div>
         </div>
-        <div class="row">
+        <div class="row py-4">
           <div class="col-md-12">
-            <div class="system-icons pull-right">
-              <?php if ($apedit) { ?>
-                <a class="btn btn-filled btn-primary btn-sm" href="<?= $apedit ?>" title="<?= $tl["button"]["btn1"] ?>">
-                  <?= $tl["button"]["btn1"] ?>
-                </a>
-                <?php if ($qapedit) { ?>
-                  <a class="btn btn-filled btn-primary btn-sm quickedit" href="<?= $qapedit ?>" title="<?= $tl["button"]["btn2"] ?>">
-                    <?= $tl["button"]["btn2"] ?>
-                  </a>
-                <?php }
+            <div class="system-icons">
+
+              <?php
+
+              if ($setting["printme"] && $printme) {
+
+                echo '<a class="btn btn-primary btn-xs rounded-0 mb-2 d-block" id="envoprint" href="#" title="' . $tl["button"]["btn6"] . '">' . $tl["button"]["btn6"] . '</a>';
+
               }
-              if ($setting["printme"] && $printme) { ?>
-                <a class="btn btn-filled btn-primary btn-sm" id="envoprint" href="#" title="<?= $tl["button"]["btn6"] ?>">
-                  <?= $tl["button"]["btn6"] ?>
-                </a>
-              <?php } ?>
+
+              ?>
+
             </div>
           </div>
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-1">
-              <a href="<?= BASE_URL ?>" class="logo">
-                <img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" class="img-responsive" src="<?= $setting["logo2_porto_tpl"] ?>">
+        <div class="container py-2">
+          <div class="row py-4">
+            <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
+              <a href="<?= BASE_URL ?>" class="logo pr-0 pr-lg-3">
+                <img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" class="img-fluid opacity-2" src="<?= $setting["logo2_porto_tpl"] ?>">
               </a>
             </div>
-            <div class="col-md-7">
+            <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
               <p><?= $setting["copyright"] ?></p>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
               <nav id="sub-menu">
                 <?= build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', ENVO_ASACCESS) ?>
               </nav>
@@ -229,17 +229,17 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 
 <!-- End Document  ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4"></script>
+<script src="/assets/plugins/jquery/3.3.1/jquery-3.3.1.min.js"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.appear/jquery.appear.min.js"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.easing/jquery.easing.min.js?=v1.3" async defer></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery-cookie/jquery-cookie.min.js?=v1.4.1"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/bootstrap/js/bootstrap.min.js?=v3.3.7"></script>
-<script src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js?=v3.1.5" async defer></script>
+<script src="/assets/plugins/bootstrap/bootstrapv4/4.1.3/js/bootstrap.min.js"></script>
+<script src="/assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5" async defer></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/common/common.min.js?=v5.7.2"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.validation/jquery.validation.min.js?=v1.16.0"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.validation/jquery.validate.min.js?=v1.18.0"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.lazyload/jquery.lazyload.min.js?=v1.9.7" async defer></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.3"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/owl.carousel/owl.carousel.min.js?=v2.1.6"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.6"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/owl.carousel/owl.carousel.min.js?=v2.3.4"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/magnific-popup/jquery.magnific-popup.min.js?=v1.1.0"></script>
 <script src="/assets/plugins/revolution-slider/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
 <script src="/assets/plugins/revolution-slider/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
@@ -248,14 +248,14 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.min.js"></script>
 
 <!-- Theme Function -->
-<script src="/template/<?= ENVO_TEMPLATE ?>/js/porto.custom.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.custom.js"></script>
 <script src="/assets/js/generated_js.php"></script>
 
 <!-- Theme Initialization Files -->
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.init.min.js"></script>
 
 <!-- Revolutin Slider 5.0 Initialization -->
-<script src="/template/<?= ENVO_TEMPLATE ?>/js/porto-revolutionSlider.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/js/porto-revolutionSlider.min.js"></script>
 
 <?php
 // Hook footer code
@@ -276,27 +276,30 @@ if ($SHOWSOCIALBUTTON) {
   <!-- News in OWL Carousel -->
   <script>
     // Be more specific with your selector if .items is used elsewhere on the page.
-    var items = $('.owl-carousel .item').size();
+    var items = $('.owl-carousel .item').length;
+    console.log(items);
     if (items > 1) {
       $('.owl-carousel').owlCarousel({
         loop: false,
-        margin: 10,
-        nav: false,
+        margin: 30,
+        nav: true,
+        dots: false,
+        navText: [],
         responsive: {
           0: {
             items: 1
           },
           768: {
-            items: 3
+            items: 2
           },
           960: {
-            items: 4
+            items: 3
           },
           1200: {
-            items: 4
+            items: 3
           },
           1920: {
-            items: 6
+            items: 4
           }
         }
       });
@@ -305,7 +308,8 @@ if ($SHOWSOCIALBUTTON) {
       $('.owl-carousel').owlCarousel({
         loop: false,
         margin: 50,
-        nav: false
+        nav: true,
+        dots: false
       });
     }
   </script>
@@ -381,16 +385,15 @@ if ($SHOWSOCIALBUTTON) {
 
 <!-- Modal -->
 <div class="modal fullscreen fade" id="ENVOModal" tabindex="-1" role="dialog" aria-labelledby="ENVOModal" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
+        <h4 class="modal-title" id="ENVOModalLabel"></h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="ENVOModalLabel">&nbsp;</h4>
       </div>
-      <div class="modal-body">
-      </div>
+      <div class="modal-body"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?= $tl["global_text"]["gtxt5"] ?></button>
+        <button type="button" class="btn btn-light" data-dismiss="modal"><?= $tl["global_text"]["gtxt5"] ?></button>
       </div>
     </div>
   </div>
@@ -437,7 +440,7 @@ if ($SHOWSOCIALBUTTON) {
 <?php if (isset($ENVO_FACEBOOK_SDK_CONNECTION)) echo $ENVO_FACEBOOK_SDK_CONNECTION; ?>
 
 <!-- Download plugins -->
-<?php if (defined('ENVO_PLUGIN_DOWNLOAD')) {
+<?php if ($page == ENVO_PLUGIN_VAR_DOWNLOAD) {
   $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/downloadfile.php';
 
   if (file_exists($pluginsite_template)) {
@@ -445,7 +448,16 @@ if ($SHOWSOCIALBUTTON) {
   } else {
     include APP_PATH . 'plugins/download/js/script.download.php';
   }
+} ?>
 
+<!-- FAQ plugins -->
+<?php if ($page == ENVO_PLUGIN_VAR_FAQ) {
+  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/livesearch-test/script.ajaxsearch.php';
+} ?>
+
+<!-- WIKI plugins -->
+<?php if ($page == ENVO_PLUGIN_VAR_WIKI) {
+  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/wiki/livesearch-test/script.ajaxsearch.php';
 } ?>
 
 <!-- RegisterForm plugins -->
@@ -457,26 +469,39 @@ if ($SHOWSOCIALBUTTON) {
   } else {
     include APP_PATH . 'plugins/register_form/js/script.registerform.php';
   }
-
-  ?>
-<?php } ?>
+} ?>
 
 <!-- Login Page -->
 <script>
   $(document).ready(function () {
 
-    $(".forgotP").hide();
+    $('#LostPwdF').hide();
+    $('input[name="signInUsername"]').focus();
+
     // Switch buttons from "Log In | Register" to "Close Panel" on click
-    $(".lost-pwd").click(function (e) {
+    $('.lostPwd').click(function (e) {
       e.preventDefault();
-      $(".loginF").slideToggle();
-      $(".forgotP").slideToggle();
+      $('#SignInF').removeClass('active').hide();
+      $('#LostPwdF').addClass('active').show();
+      $('input[name="resetEmail"]').focus();
+    });
+
+    $('.restoreSignIn').click(function (e) {
+      e.preventDefault();
+      $('#SignInF').addClass('active').show();
+      $('#LostPwdF').removeClass('active').hide();
+      $('input[name="signInUsername"]').focus();
     });
 
     <?php if ($errorfp) { ?>
-    $(".loginF").hide();
-    $(".forgotP").show();
+    $('#SignInF').removeClass('active').hide();
+    $('#LostPwdF').addClass('active').show();
     <?php } ?>
+
+    $('.save').click(function () {
+      var btn = $(this);
+      btn.val($(this).data("loading-text"));
+    });
 
   });
 </script>

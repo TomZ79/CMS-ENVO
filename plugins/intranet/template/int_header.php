@@ -42,11 +42,11 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   // Scrollbar
   echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.css');
   // DataTables (Stylesheet only for pages which contains 'table')
-  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2') || ($page1 == 'houselist' && empty($page2))) echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
+  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2') || ($page1 == 'houseanalytics' && empty($page2))) echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
   // Icon technology fonts
   echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'fonts/fonts.css');
   //
-  if ($page1 == 'house' && !empty($page2) || ($page1 == 'houselist' && !empty($page2))) {
+  if ($page1 == 'house' && !empty($page2) || ($page1 == 'houseanalytics' && !empty($page2))) {
     // Plugin Fancybox
     echo $Html -> addStylesheet('/assets/plugins/fancybox/3.4.1/css/jquery.fancybox.min.css');
     // Plugin DialogFX

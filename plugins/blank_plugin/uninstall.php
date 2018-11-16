@@ -32,7 +32,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0');
+  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
   echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
@@ -92,7 +92,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
   echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
   echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
   echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js?=v4.0.0');
+  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php

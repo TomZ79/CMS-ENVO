@@ -14,7 +14,7 @@
  * @return array
  *
  */
-function envo_get_region($limit, $colname = NULL, $table, $distinct = NULL)
+function envo_get_region($limit, $colname = NULL, $table, $orderby, $distinct = NULL)
 {
 
   global $envodb;
@@ -25,7 +25,7 @@ function envo_get_region($limit, $colname = NULL, $table, $distinct = NULL)
   // CZ: SQL Dotaz
   if ($distinct == '1') {
     // if $distinct = 1 , then select values by group from DB
-    $result = $envodb -> query('SELECT DISTINCT ' . $colname . ' FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+    $result = $envodb -> query('SELECT DISTINCT ' . $colname . ' FROM ' . $table . ' ORDER BY ' . $orderby . $limit);
     while ($row = $result -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -33,7 +33,7 @@ function envo_get_region($limit, $colname = NULL, $table, $distinct = NULL)
     }
   } else {
     // select all values with duplicated values
-    $result = $envodb -> query('SELECT ' . $colname . ' FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+    $result = $envodb -> query('SELECT ' . $colname . ' FROM ' . $table . ' ORDER BY ' . $orderby . $limit);
     while ($row = $result -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

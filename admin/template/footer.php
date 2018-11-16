@@ -86,7 +86,7 @@ echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
 echo $Html->addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
 echo $Html->addScript('assets/plugins/modernizr.custom.js?=v2.8.3');
 echo $Html->addScript('../assets/plugins/popover/1.14.1/popper.min.js');
-echo $Html->addScript('../assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js?=v4.0.0');
+echo $Html->addScript('../assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
 echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
 echo $Html->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');

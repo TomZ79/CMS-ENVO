@@ -322,23 +322,30 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_catid"]) && ($_REQUEST["envo_catid"] == '0' || (in_array('0', $_REQUEST["envo_catid"]))) || !isset($_REQUEST["envo_catid"]))) ? TRUE : FALSE;
+                          $selected = ((isset($_REQUEST["envo_catid"]) && ($_REQUEST["envo_catid"] == '0' || (in_array('0', $_REQUEST["envo_catid"]))) || (!isset($_REQUEST["envo_catid"]) && !isset($ENVO_CAT_SELECTED)) )) ? TRUE : FALSE;
 
                           echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc37"], $selected);
                           if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $v) {
 
-                            if (isset($_REQUEST["envo_catid"]) && (in_array($v["id"], $_REQUEST["envo_catid"]))) {
-                              if (isset($_REQUEST["envo_catid"]) && (in_array('0', $_REQUEST["envo_catid"]))) {
-                                $selected = FALSE;
-                              } else {
+                            if (isset($ENVO_CAT_SELECTED)) {
+                              if ($v["id"] == $ENVO_CAT_SELECTED) {
                                 $selected = TRUE;
+                              } else {
+                                $selected = FALSE;
                               }
                             } else {
-                              $selected = FALSE;
+                              if (isset($_REQUEST["envo_catid"]) && (in_array($v["id"], $_REQUEST["envo_catid"]))) {
+                                if (isset($_REQUEST["envo_catid"]) && (in_array('0', $_REQUEST["envo_catid"]))) {
+                                  $selected = FALSE;
+                                } else {
+                                  $selected = TRUE;
+                                }
+                              } else {
+                                $selected = FALSE;
+                              }
                             }
 
                             echo $Html->addOption($v["id"], $v["name"], $selected);
-
                           }
                           ?>
 

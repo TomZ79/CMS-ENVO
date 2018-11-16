@@ -39,6 +39,10 @@ switch ($page1) {
     // Get the important template stuff
     $ENVO_CAT           = envo_get_cat_info($envotable1, 0);
 
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $catID = $page2;
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
       // CZ: Hlavní proměnné
@@ -202,6 +206,12 @@ switch ($page1) {
       }
     }
 
+    // EN: Select category by "Add article" in "Category"
+    // CZ:
+    if (is_numeric($catID)) {
+      $ENVO_CAT_SELECTED = $catID;
+    }
+
     // Get the sidebar templates
     $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
@@ -209,7 +219,7 @@ switch ($page1) {
     }
 
     // Get active sidebar widgets
-    $grid = $envodb->query('SELECT hookid FROM ' . $envotable2 . ' WHERE plugin = ' . ENVO_PLUGIN_BLOG . ' ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT hookid FROM ' . $envotable2 . ' WHERE plugin = ' . ENVO_PLUGIN_BLOG . '  AND blogid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -302,6 +312,9 @@ switch ($page1) {
           if (isset($finalto)) {
             $insert .= 'enddate = "' . smartsql($finalto) . '",';
           }
+
+          // Show Social Button
+          if (!isset($defaults['envo_social'])) $defaults['envo_social'] = 0;
 
           // Save category
           if (!isset($defaults['envo_catid'])) {

@@ -3898,6 +3898,7 @@ $(function () {
         var res = $.parseJSON(data);
 
         $('input[name="envo_housename"]').val(res.name);
+        $('input[name="envo_househeadquarters"]').val(res.headquarters);
         $('input[name="envo_housestreet"]').val(res.street);
         $('select[name="envo_housecity"]').val(res.city);
         $('select[name="envo_housecityarea"]').val(res.cityarea);
@@ -4019,7 +4020,7 @@ $(function () {
 
   });
 
-  // Select text in houselist (Edit & New)
+  // Select text in houseanalytics (Edit & New)
   $('#textSelect').on('click', function (e) {
     e.preventDefault();
     $('#ENVOModalPlugin1').modal('show');

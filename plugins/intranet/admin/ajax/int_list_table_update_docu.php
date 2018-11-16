@@ -28,7 +28,7 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'int_houselistdocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'int_houseanalyticsdocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
 
   $data_array[] = array(
     'id'     => $input["id"],
@@ -55,14 +55,14 @@ if ($input['action'] === 'edit') {
   // ACTION - DELETE
 
   // Delete file from folder
-  $result = $envodb->query('SELECT fullpath FROM ' . DB_PREFIX . 'int_houselistdocu WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('SELECT fullpath FROM ' . DB_PREFIX . 'int_houseanalyticsdocu WHERE id = "' . $input['id'] . '"');
   $row    = $result->fetch_assoc();
 
   $fullpath = APP_PATH . ENVO_FILES_DIRECTORY . $row['fullpath'];
   unlink($fullpath);
 
   // Delete row in DB
-  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_houselistdocu WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_houseanalyticsdocu WHERE id = "' . $input['id'] . '"');
 
   $data_array[] = array(
     'id'     => $input["id"],

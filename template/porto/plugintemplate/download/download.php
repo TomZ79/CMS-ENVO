@@ -33,7 +33,7 @@
 
 <?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setting'; ?>
 
-<?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) {?>
+<?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) { ?>
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
     <table id="table">
       <thead>
@@ -47,7 +47,7 @@
 
       <?php foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
         <tr>
-          <td><a href="<?=$v["parseurl"]?>"><?=envo_cut_text($v["title"], 40, "")?></a></td>
+          <td><a href="<?= $v["parseurl"] ?>"><?= envo_cut_text($v["title"], 40, "") ?></a></td>
           <td>
             <?php if ($v["showdate"]) echo $v["created"]; ?>
           </td>

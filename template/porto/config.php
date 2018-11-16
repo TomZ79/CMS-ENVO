@@ -87,7 +87,7 @@ function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $d
         $html .= '
         <li' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active"' : '') . '>
         
-          <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active"' : '') . '>' .
+          <a href="' . $menu["items"][$itemId]["varname"] . '" ' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="dropdown-item active"' : 'class="dropdown-item"') . '>' .
 
           (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
@@ -107,7 +107,7 @@ function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $d
           $html .= '
           <li class="' . $dropdown . (($active == $menu["items"][$itemId]["pagename"]) ? ' active' : $classcat) . '">
             
-            <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active ' . $dropdownclass . $classcat . '"' : ' class="' . $dropdownclass . $classcat . '"') . '>' .
+            <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="dropdown-item active ' . $dropdownclass . $classcat . '"' : ' class="dropdown-item ' . $dropdownclass . $classcat . '"') . '>' .
 
             (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
@@ -131,7 +131,7 @@ function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $d
           $html .= '
           <li class="' . $dropdown . (($active == $menu["items"][$itemId]["pagename"]) ? ' active' : $classcat) . '">
           
-            <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active"' : '') . '>' .
+            <a href="' . $menu["items"][$itemId]["varname"] . '" ' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="dropdown-item active"' : 'class="dropdown-item"') . '>' .
 
             (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 

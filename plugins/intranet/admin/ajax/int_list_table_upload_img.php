@@ -269,13 +269,13 @@ if (isset($_FILES['file'])) {
         }
 
         // Insert info about image into DB
-        $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int_houselistimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", sizeoriginal = "' . $imgoriginalsize . '", sizethumb = "' . $imgthumbsize . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", timedefault = "' . $timedefault . '", timeupload = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
+        $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int_houseanalyticsimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", sizeoriginal = "' . $imgoriginalsize . '", sizethumb = "' . $imgthumbsize . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", timedefault = "' . $timedefault . '", timeupload = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
 
         // Get last row ID from DB
         $rowid = $envodb -> envo_last_id();
 
         // Getting info uploaded image from DB
-        $result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houselistimg WHERE id = "' . $rowid . '"');
+        $result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int_houseanalyticsimg WHERE id = "' . $rowid . '"');
         $row1    = $result1 -> fetch_assoc();
 
         $data_array[] = array (

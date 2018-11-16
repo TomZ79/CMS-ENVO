@@ -1,4 +1,5 @@
 <?php
+
 /*
  * PLUGIN DOWNLOAD - POPIS SOUBORU sitemap.php
  * ------------------------------------------------------
@@ -15,15 +16,29 @@
  * $dla["parseurl"]       text      - Adresa URL
  *
  */
+
+if (ENVO_PLUGIN_ACCESS_DOWNLOAD && $ENVO_DOWNLOAD_ALL) {
+
+  echo '<div class="col">';
+
+  echo '<h4 class="font-weight-bold text-3 mb-1 mt-2">' . ENVO_PLUGIN_NAME_DOWNLOAD . '</h4>';
+
+  if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) {
+
+    echo '<ul class="list list-icons list-icons-sm">';
+
+    foreach ($ENVO_DOWNLOAD_ALL as $dla) {
+      echo '<li><a href="' . $dla["parseurl"] . '"><i class="far fa-file"></i>' . envo_cut_text($dla["title"], 35, "...") . '</a></li>';
+    }
+
+    echo '</ul>';
+
+  }
+
+  echo '</div>';
+}
+
 ?>
 
-<?php if (ENVO_PLUGIN_ACCESS_DOWNLOAD && $ENVO_DOWNLOAD_ALL) { ?>
-  <h3><?=ENVO_PLUGIN_NAME_DOWNLOAD?></h3>
-  <?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) { ?>
-    <ul>
-      <?php foreach ($ENVO_DOWNLOAD_ALL as $dla) { ?>
-        <li><a href="<?=$dla["parseurl"]?>"><?=$dla["title"]?></a></li>
-      <?php } ?>
-    </ul>
-  <?php }
-} ?>
+
+

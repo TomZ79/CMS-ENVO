@@ -1,4 +1,4 @@
-<div class="col-md-3 sidebar">
+<div class="col-sm-3 sidebar">
 
   <?php
 

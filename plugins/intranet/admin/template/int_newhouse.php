@@ -179,19 +179,75 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Město');
+                      echo $Html -> addTag('strong', 'Město');
                       ?>
 
                     </div>
                     <div class="col-sm-8">
                       <div class="form-group m-0">
+                        <select name="envo_housecity" class="form-control selectpicker" data-search-select2="true">
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          $selected = ((isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] == '0')) || !isset($_REQUEST["envo_housecity"])) ? TRUE : FALSE;
+
+                          echo $Html -> addOption('0', $tlint["selection"]["sel"], $selected);
+                          if (isset($ENVO_REGION) && is_array($ENVO_REGION)) foreach ($ENVO_REGION as $r) {
+
+                            if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
+                              if (isset($_REQUEST["envo_housecity"]) && ($r == $_REQUEST["envo_housecity"])) {
+                                $selected = TRUE;
+                              } else {
+                                $selected = FALSE;
+                              }
+                            } else {
+                              $selected = FALSE;
+                            }
+
+                            echo $Html -> addOption($r, $r, $selected);
+
+                          }
+                          ?>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Město - čtvrť');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-8">
+                      <select name="envo_housecityarea" class="form-control selectpicker" data-search-select2="true">
 
                         <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housecity', (isset($_REQUEST["envo_housecity"]) ? $_REQUEST["envo_housecity"] : ''), '', 'form-control');
+                        // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                        $selected = ((isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] == '0')) || !isset($_REQUEST["envo_housecityarea"])) ? TRUE : FALSE;
+
+                        echo $Html -> addOption('0', $tlint["selection"]["sel1"], $selected);
+                        if (isset($ENVO_REGION_AREA) && is_array($ENVO_REGION_AREA)) foreach ($ENVO_REGION_AREA as $ra) {
+
+                          if (isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] != '0')) {
+                            if (isset($_REQUEST["envo_housecityarea"]) && ($ra == $_REQUEST["envo_housecityarea"])) {
+                              $selected = TRUE;
+                            } else {
+                              $selected = FALSE;
+                            }
+                          } else {
+                            $selected = FALSE;
+                          }
+
+                          echo $Html -> addOption($ra, $ra, $selected);
+
+                        }
                         ?>
 
-                      </div>
+                      </select>
                     </div>
                   </div>
                   <div class="row-form">

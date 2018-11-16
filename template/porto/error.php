@@ -14,7 +14,7 @@ if ($PAGE_ACTIVE) {
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col text-center">
           <h2><?= $PAGE_CONTENT ?></h2>
         </div>
       </div>

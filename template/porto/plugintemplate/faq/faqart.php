@@ -37,42 +37,45 @@ if ($setting["printme"]) $printme = 1;
 
               <?php
 
-              if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>';
+              if ($SHOWTITLE) echo '<h3 class="text-color-dark font-weight-normal text-6">' . $PAGE_TITLE . '</h3>';
 
               ?>
 
             </div>
-            <div class="article-head">
+            <div class="article-head mb-2">
 
               <?php
 
-              if ($SHOWDATE || $SHOWHITS) {
+              if ($SHOWDATE || $SHOWHITS || $SHOWCATS) {
                 // SHOW - Date
                 if ($SHOWDATE) {
-                  echo '<span class="art-date"><strong>' . $tlf["faq_frontend"]["faq4"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
-                }
-
-                // SHOW - Category
-                if ($SHOWCATS) {
-                  echo '<span class="art-cats"><strong>' . $tlf["faq_frontend"]["faq5"] . '</strong>' . ' : ' . $FAQ_CATLIST . '</span>';
+                  echo '<span class="date mr-3"><strong class="text-2">' . $tlf["faq_frontend"]["faq4"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
                 }
 
                 // SHOW - Hits
                 if ($SHOWHITS) {
-                  echo '<span class="art-hits"><strong>' . $tlf["faq_frontend"]["faq6"] . '</strong>' . ' : ' . $FAQ_HITS . '</span>';
+                  echo '<span class="hits mr-3"><strong class="text-2">' . $tlf["faq_frontend"]["faq5"] . '</strong>' . ' : ' . $FAQ_HITS . '</span>';
                 }
+
+                // SHOW - Category
+                if ($SHOWCATS) {
+                  echo '<span class="category mr-3"><strong class="text-2">' . $tlf["faq_frontend"]["faq6"] . '</strong>' . ' : ' . $FAQ_CATLIST . '</span>';
+                }
+
               }
+
+              // SHOW - Tag list
+              if ($ENVO_TAGLIST) {
+                echo '<span class="tag">' . $ENVO_TAGLIST . '</span>';
+              }
+
               ?>
 
             </div>
+            <hr>
             <div class="article-content">
 
               <?php
-
-              // SHOW - Tag List
-              if ($ENVO_TAGLIST) {
-                echo $ENVO_TAGLIST;
-              }
 
               // SHOW - Page content
               echo $PAGE_CONTENT;
@@ -84,7 +87,7 @@ if ($setting["printme"]) $printme = 1;
                   <hr>
                   <div class="pull-right" style="display: table;">
                     <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
-                      <strong><?=$tl["share"]["share1"] . ' '?></strong>
+                      <strong><?= $tl["share"]["share1"] . ' ' ?></strong>
                     </div>
                     <div id="sollist-sharing"></div>
                   </div>
@@ -106,29 +109,35 @@ if ($setting["printme"]) $printme = 1;
   </div>
   <!-- End Print Post -->
 
-  <section class="pt-small pb-small">
-    <div class="container-fluid">
-      <div class="row">
-        <ul class="pager">
-          <?php if ($ENVO_NAV_PREV) { ?>
-            <li class="previous">
-              <a href="<?=$ENVO_NAV_PREV?>">
-                <i class="fa fa-caret-left"></i>
-                <span class="nav_text_left"><?=$ENVO_NAV_PREV_TITLE?></span>
-              </a>
-            </li>
-          <?php }
-          if ($ENVO_NAV_NEXT) { ?>
-            <li class="next">
-              <a href="<?=$ENVO_NAV_NEXT?>">
-                <span class="nav_text_right"><?=$ENVO_NAV_NEXT_TITLE?></span>
-                <i class="fa fa-caret-right"></i>
-              </a>
-            </li>
-          <?php } ?>
-        </ul>
+  <div class="row align-items-center mt-5">
+
+    <?php if ($ENVO_NAV_PREV) { ?>
+      <div class="col">
+        <a href="<?= $ENVO_NAV_PREV ?>" class="portfolio-prev text-decoration-none d-block">
+          <div class="d-flex align-items-center line-height-1">
+            <i class="fas fa-arrow-left text-dark text-4 mr-3"></i>
+            <div class="d-none d-sm-block line-height-1">
+              <span class="text-dark opacity-4 text-1">PREVIOUS PROJECT</span>
+              <h4 class="font-weight-bold text-3 mb-0"><?= envo_cut_text($ENVO_NAV_PREV_TITLE, 30, '...') ?></h4>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-  </section>
+    <?php } ?>
+    <?php if ($ENVO_NAV_NEXT) { ?>
+      <div class="col">
+        <a href="<?= $ENVO_NAV_NEXT ?>" class="portfolio-next text-decoration-none d-block float-right ">
+          <div class="d-flex align-items-center text-right line-height-1">
+            <div class="d-none d-sm-block line-height-1">
+              <span class="text-dark opacity-4 text-1">NEXT PROJECT</span>
+              <h4 class="font-weight-bold text-3 mb-0"><?= envo_cut_text($ENVO_NAV_NEXT_TITLE, 30, '...') ?></h4>
+            </div>
+            <i class="fas fa-arrow-right text-dark text-4 ml-3"></i>
+          </div>
+        </a>
+      </div>
+    <?php } ?>
+
+  </div>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

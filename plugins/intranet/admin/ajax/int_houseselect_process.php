@@ -15,11 +15,12 @@ $house_array = array();
 
 // EN: Get data of TV Tower
 // CZ: Získání dat o televizních vysílačích
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houselist WHERE id IN (' . $id . ')');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int_houseanalytics WHERE id IN (' . $id . ')');
 
 while ($row = $result->fetch_assoc()) {
 
   $house_array['name'] = $row['name'];
+  $house_array['headquarters'] = $row['headquarters'];
   $house_array['street'] = $row['street'];
   $house_array['city'] = $row['city'];
   $house_array['cityarea'] = $row['cityarea'];

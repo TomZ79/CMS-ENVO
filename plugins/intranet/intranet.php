@@ -15,7 +15,7 @@ $ENVO_MODULES_ACCESS = $envouser -> envoModuleAccess(ENVO_USERID, '1,2');
 
 // EN: Set base plugin folder - template
 // CZ: Nastavení základní složky pluginu - šablony
-$BASE_PLUGIN_URL_TEMPLATE = APP_PATH . 'plugins/intranet/template/';
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/intranet/template/';
 $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/intranet/template/';
 
 // EN: Import important settings for the template from the DB (only VALUE)
@@ -28,20 +28,20 @@ $PAGE_TITLE = $setting["intranettitle"];
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$envotable = DB_PREFIX . 'int_house';
-$envotable1 = DB_PREFIX . 'int_housecontact';
-$envotable2 = DB_PREFIX . 'int_houseserv';
-$envotable3 = DB_PREFIX . 'int_houseimg';
-$envotable4 = DB_PREFIX . 'int_housenotifications';
-$envotable5 = DB_PREFIX . 'int_housenotificationug';
-$envotable6 = DB_PREFIX . 'int_housedocu';
-$envotable7 = DB_PREFIX . 'int_houseent';
-$envotable8 = DB_PREFIX . 'int_houseapt';
-$envotable9 = DB_PREFIX . 'int_housetasks';
+$envotable   = DB_PREFIX . 'int_house';
+$envotable1  = DB_PREFIX . 'int_housecontact';
+$envotable2  = DB_PREFIX . 'int_houseserv';
+$envotable3  = DB_PREFIX . 'int_houseimg';
+$envotable4  = DB_PREFIX . 'int_housenotifications';
+$envotable5  = DB_PREFIX . 'int_housenotificationug';
+$envotable6  = DB_PREFIX . 'int_housedocu';
+$envotable7  = DB_PREFIX . 'int_houseent';
+$envotable8  = DB_PREFIX . 'int_houseapt';
+$envotable9  = DB_PREFIX . 'int_housetasks';
 $envotable10 = DB_PREFIX . 'int_housevideo';
-$envotable11 = DB_PREFIX . 'int_houselist';
-$envotable12 = DB_PREFIX . 'int_houselistdocu';
-$envotable13 = DB_PREFIX . 'int_houselistimg';
+$envotable11 = DB_PREFIX . 'int_houseanalytics';
+$envotable12 = DB_PREFIX . 'int_houseanalyticsdocu';
+$envotable13 = DB_PREFIX . 'int_houseanalyticsimg';
 
 // Parse links once if needed a lot of time
 $backtoplugin = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -55,8 +55,8 @@ if (ENVO_USERID) {
   // Get the user avatar
   $ENVO_USER_AVATAR = $envouser -> getVar('picture');
   // Get the user group name
-  $result = $envodb -> query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $envouser -> getVar("usergroupid") . '"');
-  $row = $result -> fetch_assoc();
+  $result          = $envodb -> query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $envouser -> getVar("usergroupid") . '"');
+  $row             = $result -> fetch_assoc();
   $ENVO_USER_GROUP = $row['name'];
 
 }
@@ -72,6 +72,22 @@ $ENVO_NOTIFICATION = envo_get_notification_unread(ENVO_USERGROUPID, FALSE, $ENVO
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
 $ENVO_SETTING_VAL = envo_get_setting_val('intranet');
+
+// EN: Get permissions for House Analytics
+// CZ: Získání přístupových práv do analýzy bytových domů
+$result = $envodb -> query('SELECT intranetanalytics FROM ' . DB_PREFIX . 'usergroup WHERE id = "' . ENVO_USERGROUPID . '" LIMIT 1');
+if ($envodb -> affected_rows === 1) {
+  $row = $result -> fetch_assoc();
+  if ($row['intranetanalytics'] == 1 || ENVO_USERGROUPID == 3) {
+    $usergroupanalytics = $ENVO_GROUP_ACCESS_ANALYTICS = TRUE;
+  }
+} else {
+  if ($row['intranetanalytics'] == 0 || ENVO_USERGROUPID == 3) {
+    $usergroupanalytics = $ENVO_GROUP_ACCESS_ANALYTICS = TRUE;
+  } else {
+    $usergroupanalytics = $ENVO_GROUP_ACCESS_ANALYTICS = FALSE;
+  }
+}
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -111,9 +127,9 @@ switch ($page1) {
             while ($row = $result -> fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
-              $envohousedetail[] = $row;
-              $envo_house_name = $row['name'];
-              $envo_house_latitude = $row['latitude'];
+              $envohousedetail[]    = $row;
+              $envo_house_name      = $row['name'];
+              $envo_house_latitude  = $row['latitude'];
               $envo_house_longitude = $row['longitude'];
             }
 
@@ -255,7 +271,7 @@ switch ($page1) {
             // EN: Get all photo by date for house
             while ($row = $result -> fetch_assoc()) {
 
-              $date = $row['d'];
+              $date       = $row['d'];
               $dateFormat = ucwords(strtolower($date), '\'- ');;
 
               $ENVO_HOUSE_IMG_LIST[$date]['timedefault'] = $dateFormat;
@@ -286,7 +302,7 @@ switch ($page1) {
             // EN: Title and Description
             // CZ: Titulek a Popis
             $SECTION_TITLE = 'Domy ve správě';
-            $SECTION_DESC = 'Detail bytového domu ve správě <strong>' . $envo_house_name . '</strong>';
+            $SECTION_DESC  = 'Detail bytového domu ve správě <strong>' . $envo_house_name . '</strong>';
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
@@ -324,7 +340,7 @@ switch ($page1) {
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = 'Domy ve správě';
-          $SECTION_DESC = 'Zobrazení všech bytových domů';
+          $SECTION_DESC  = 'Zobrazení všech bytových domů';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -349,7 +365,7 @@ switch ($page1) {
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = 'Domy ve správě';
-          $SECTION_DESC = 'Vyhledání bytových domů ve správě <strong>s přípravou DVB-T2</strong>';
+          $SECTION_DESC  = 'Vyhledání bytových domů ve správě <strong>s přípravou DVB-T2</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -374,7 +390,7 @@ switch ($page1) {
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = 'Domy ve správě';
-          $SECTION_DESC = 'Vyhledání bytových domů ve správě <strong>bez přípravy DVB-T2</strong>';
+          $SECTION_DESC  = 'Vyhledání bytových domů ve správě <strong>bez přípravy DVB-T2</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
@@ -410,7 +426,7 @@ switch ($page1) {
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = 'Domy ve správě';
-        $SECTION_DESC = 'Seznam bytových domů ve správě';
+        $SECTION_DESC  = 'Seznam bytových domů ve správě';
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -419,8 +435,8 @@ switch ($page1) {
     }
 
     break;
-  case 'houselist':
-    // HOUSE LIST
+  case 'houseanalytics':
+    // HOUSE ANALYTICS
 
     switch ($page2) {
       case 'h':
@@ -430,7 +446,7 @@ switch ($page1) {
         // CZ: Hlavní proměnné
         $pageID = $page3;
 
-        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable11)) {
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable11) && $usergroupanalytics) {
 
           // EN: Get the data of house
           // CZ: Získání dat o domu
@@ -438,17 +454,17 @@ switch ($page1) {
           while ($row = $result -> fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $envohouselistdetail[] = $row;
-            $envo_house_name = $row['name'];
-            $envo_house_latitude = $row['latitude'];
-            $envo_house_longitude = $row['longitude'];
+            $envohousedetail[] = $row;
+            $envo_house_name       = $row['name'];
+            $envo_house_latitude   = $row['latitude'];
+            $envo_house_longitude  = $row['longitude'];
           }
 
           // Convert multidimensional array to associated array
-          $ENVO_HOUSELIST_DETAIL = array ();
-          foreach ($envohouselistdetail as $array) {
+          $ENVO_HOUSEANALYTICS_DETAIL = array ();
+          foreach ($envohousedetail as $array) {
             foreach ($array as $k => $v) {
-              $ENVO_HOUSELIST_DETAIL[$k] = $v;
+              $ENVO_HOUSEANALYTICS_DETAIL[$k] = $v;
             }
           }
 
@@ -458,7 +474,7 @@ switch ($page1) {
           while ($row = $result -> fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $ENVO_HOUSELIST_CONT = $row;
+            $ENVO_HOUSEANALYTICS_CONT = $row;
           }
 
           // EN: Get the data of documentation
@@ -467,7 +483,7 @@ switch ($page1) {
           while ($row = $result -> fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $ENVO_HOUSELIST_DOCU[] = $row;
+            $ENVO_HOUSEANALYTICS_DOCU[] = $row;
           }
 
           // EN: Get all the data for the Photogallery - list photo
@@ -480,17 +496,17 @@ switch ($page1) {
           // EN: Get all photo by date for house
           while ($row = $result -> fetch_assoc()) {
 
-            $date = $row['d'];
+            $date       = $row['d'];
             $dateFormat = ucwords(strtolower($date), '\'- ');;
 
-            $ENVO_HOUSELIST_IMG_LIST[$date]['timedefault'] = $dateFormat;
+            $ENVO_HOUSEANALYTICS_IMG_LIST[$date]['timedefault'] = $dateFormat;
 
             //
             $result1 = $envodb -> query('SELECT * FROM ' . $envotable13 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(timedefault,"%Y - %M") = "' . $date . '"');
 
             while ($row1 = $result1 -> fetch_assoc()) {
 
-              $ENVO_HOUSELIST_IMG_LIST[$date]['photos'][] = $row1;
+              $ENVO_HOUSEANALYTICS_IMG_LIST[$date]['photos'][] = $row1;
 
             }
           }
@@ -502,32 +518,84 @@ switch ($page1) {
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = 'Analýza domů - Přehled domů';
-          $SECTION_DESC = 'Detail bytového domu <strong>' . $envo_house_name . '</strong> v Karlovarské kraji (není ve správě)';
+          $SECTION_DESC  = 'Detail bytového domu <strong>' . $envo_house_name . '</strong>';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist_detail.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houseanalytics_detail.php';
 
         } else {
           envo_redirect($backtoplugin);
         }
 
         break;
-      case 'stats':
-        // HOUSE LIST STATS
+      case 'stats-kv':
+        // HOUSE ANALYTICS STATS
 
-        // EN: Breadcrumbs activation
-        // CZ: Aktivace Breadcrumbs
-        $BREADCRUMBS = TRUE;
+        if ($usergroupanalytics) {
 
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = 'Analýza domů - Statistika';
-        $SECTION_DESC = '';
+          // EN: Breadcrumbs activation
+          // CZ: Aktivace Breadcrumbs
+          $BREADCRUMBS = TRUE;
 
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist_stats.php';
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = 'Analýza domů - Statistika Okres Karlovy Vary';
+          $SECTION_DESC  = '';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houseanalytics_stats_kv.php';
+
+        } else {
+          envo_redirect($backtoplugin);
+        }
+
+        break;
+      case 'stats-so':
+        // HOUSE ANALYTICS STATS
+
+        if ($usergroupanalytics) {
+
+          // EN: Breadcrumbs activation
+          // CZ: Aktivace Breadcrumbs
+          $BREADCRUMBS = TRUE;
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = 'Analýza domů - Statistika Okres Sokolov';
+          $SECTION_DESC  = '';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houseanalytics_stats_so.php';
+
+        } else {
+          envo_redirect($backtoplugin);
+        }
+
+        break;
+      case 'stats-ch':
+        // HOUSE ANALYTICS STATS
+
+        if ($usergroupanalytics) {
+
+          // EN: Breadcrumbs activation
+          // CZ: Aktivace Breadcrumbs
+          $BREADCRUMBS = TRUE;
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = 'Analýza domů - Statistika Okres Cheb';
+          $SECTION_DESC  = '';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houseanalytics_stats_ch.php';
+
+        } else {
+          envo_redirect($backtoplugin);
+        }
 
         break;
       default:
@@ -538,7 +606,7 @@ switch ($page1) {
         // EN: If not exist value in 'case', redirect page to 404
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
-          if ($page2 != 'h') {
+          if ($page2 != 'h' || $page2 != 'stats-kv' || $page2 != 'stats-so' || $page2 != 'stats-ch') {
             envo_redirect(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
@@ -546,22 +614,28 @@ switch ($page1) {
         // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
         // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
-        // EN: Getting the data about the Houses by usergroupid
-        // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
-        $ENVO_HOUSE_ALL_LIST = envo_get_houselist_info($envotable11, FALSE, ENVO_USERGROUPID);
+        if ($usergroupanalytics) {
 
-        // EN: Breadcrumbs activation
-        // CZ: Aktivace Breadcrumbs
-        $BREADCRUMBS = TRUE;
+          // EN: Getting the data about the Houses by usergroupid
+          // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
+          $ENVO_HOUSE_ALL_LIST = envo_get_houseanalytics_info($envotable11, FALSE, ENVO_USERGROUPID);
 
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = 'Analýza domů - Přehled domů';
-        $SECTION_DESC = 'Seznam bytových domů v Karlovarské kraji (nejsou ve správě)';
+          // EN: Breadcrumbs activation
+          // CZ: Aktivace Breadcrumbs
+          $BREADCRUMBS = TRUE;
 
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houselist.php';
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = 'Analýza domů - Přehled domů';
+          $SECTION_DESC  = 'Seznam bytových domů v Karlovarské kraji (nejsou ve správě)';
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_houseanalytics.php';
+
+        } else {
+          envo_redirect($backtoplugin);
+        }
 
     }
 
@@ -643,7 +717,7 @@ switch ($page1) {
             // EN: Title and Description
             // CZ: Titulek a Popis
             $SECTION_TITLE = 'Notifikace';
-            $SECTION_DESC = 'Detail notifikace';
+            $SECTION_DESC  = 'Detail notifikace';
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
@@ -688,7 +762,7 @@ switch ($page1) {
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = 'Notifikace';
-        $SECTION_DESC = 'Seznam notifikací';
+        $SECTION_DESC  = 'Seznam notifikací';
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -705,7 +779,7 @@ switch ($page1) {
     // EN: If not exist value in 'case', redirect page to 404
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1)) {
-      if ($page1 != 'house' || $page1 != 'notification') {
+      if ($page1 != 'house' || $page1 != 'houseanalytics' || $page1 != 'notification') {
         envo_redirect(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
       }
     }
@@ -719,11 +793,11 @@ switch ($page1) {
       // CZ: Pokud je uživatelská skupiny přihlášeného uživatele 'Administrator'
 
       /* =====================================================
-       *  HOUSE STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
+       *  HOUSE - STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
        * ===================================================== */
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
-      $result = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+      $result    = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
       $rowCtotal = $result -> fetch_assoc();
 
       // Count of all records by usergroup
@@ -732,7 +806,7 @@ switch ($page1) {
       $ENVO_PERCENT = ($rowCtotal['houseCtotal'] * 100) . '%';
 
       /* =====================================================
-       *  TASKS STATISTIC - STATISTIKA ÚKOLŮ
+       *  HOUSE - TASKS STATISTIC - STATISTIKA ÚKOLŮ
        * ===================================================== */
       // EN: Get the data about delayed Task
       // CZ: Získání dat o zpožděných Úkolech
@@ -757,11 +831,11 @@ switch ($page1) {
       // CZ: Ostatní uživatelské skupiny přihlášených uživatelů
 
       /* =====================================================
-       *  HOUSE STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
+       *  HOUSE - STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
        * ===================================================== */
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
-      $result = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+      $result    = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
       $rowCtotal = $result -> fetch_assoc();
 
       if ($rowCtotal['houseCtotal'] > 0) {
@@ -794,7 +868,7 @@ switch ($page1) {
       }
 
       /* =====================================================
-       *  TASKS STATISTIC - STATISTIKA ÚKOLŮ
+       *  HOUSE - TASKS STATISTIC - STATISTIKA ÚKOLŮ
        * ===================================================== */
       // EN: Get the data about delayed Task
       // CZ: Získání dat o zpožděných Úkolech
@@ -802,7 +876,7 @@ switch ($page1) {
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
-      $result = $envodb -> query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable9 . '  WHERE time < NOW()');
+      $result     = $envodb -> query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable9 . '  WHERE time < NOW()');
       $taskCtotal = $result -> fetch_assoc();
 
       // Count of all records by usergroup
@@ -816,7 +890,7 @@ switch ($page1) {
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
-      $result = $envodb -> query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable9);
+      $result     = $envodb -> query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable9);
       $taskCtotal = $result -> fetch_assoc();
 
       // Count of all records by usergroup
@@ -827,28 +901,41 @@ switch ($page1) {
     }
 
     /* ================================================================
-     *  HOUSE STATISTIC - STATISTIKA SEZNAMU DOMŮ (nejsou ve správě)
+     *  HOUSE ANALYTICS - ANALÝZA SEZNAMU DOMŮ (nejsou ve správě)
      * ================================================================ */
-    // EN: Getting count of all records in DB
-    // CZ: Získání počtu všech záznamů v DB
-    $result = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable11);
-    $rowCtotal = $result -> fetch_assoc();
 
-    // Count of all records by usergroup
-    $ENVO_COUNTS_LIST = $rowCtotal['houseCtotal'];
-    // Percentage - records by usergroup / all records
-    $ENVO_PERCENT_LIST = ($rowCtotal['houseCtotal'] * 100) . '%';
+    if ($usergroupanalytics) {
 
-    // ------------------------
-    // EN: Getting count of all records in DB
-    // CZ: Získání počtu všech záznamů v DB
-    $result = $envodb -> query('SELECT ic, COUNT(*) FROM ' . $envotable11 . ' GROUP BY ic');
-    // EN: Determine the number of rows in the result from DB
-    // CZ: Určení počtu řádků ve výsledku z DB
-    $rowCnt = $result -> num_rows;
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result0    = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable11);
+      $rowCtotal = $result0 -> fetch_assoc();
 
-    // Count of all records by usergroup
-    $ENVO_COUNTS_LIST1 = $rowCnt;
+      // Count of all records by usergroup
+      $ENVO_COUNTS_ANALYTICS = $rowCtotal['houseCtotal'];
+      // Percentage - records by usergroup / all records
+      $ENVO_PERCENT_ANALYTICS = ($rowCtotal['houseCtotal'] * 100) . '%';
+
+      // ------------------------
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result1 = $envodb -> query('SELECT ic, COUNT(*) FROM ' . $envotable11 . ' WHERE ic > 0 GROUP BY ic');
+      // EN: Determine the number of rows in the result from DB
+      // CZ: Určení počtu řádků ve výsledku z DB
+      $rowCnt = $result1 -> num_rows;
+
+      // Count of all records by usergroup
+      $ENVO_COUNTS_ANALYTICS1 = $rowCnt;
+
+      // ------------------------
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result2 = $envodb -> query('SELECT COUNT(ic) AS null_ic  FROM ' . $envotable11 . ' WHERE ic = 0');
+      $rowCtotal = $result2 -> fetch_assoc();
+      $ENVO_COUNTS_ANALYTICS2 = $rowCtotal['null_ic'];
+
+
+    }
 
     // ------------------------
     // EN: Breadcrumbs activation

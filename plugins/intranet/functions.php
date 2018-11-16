@@ -61,15 +61,15 @@ function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
  * CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    04/2018
+ * @version 1.0.1
+ * @date    10/2018
  *
  * @param $table
  * @param $ext_seo
  * @param $usergroupid
  * @return array
  */
-function envo_get_houselist_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
+function envo_get_houseanalytics_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 {
   global $envodb;
   $envodata = array ();
@@ -92,7 +92,7 @@ function envo_get_houselist_info($table, $ext_seo, $usergroupid, $filter1 = NULL
       // There should be always a varname in categories and check if seo is valid
       $seo = '';
       if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/houselist', 'h', $row['id'], $seo);
+      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/houseanalytics', 'h', $row['id'], $seo);
 
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

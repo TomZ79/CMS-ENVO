@@ -32,7 +32,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   <title><?=$tl["installtemplate"]["itpl"] . ' - PORTO Template'?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
-  <link href="/assets/plugins/bootstrap/bootstrapv4/css/bootstrap.min.css?=v4.0.0" rel="stylesheet" type="text/css"/>
+  <link href="/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN Pages CSS-->
   <link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
@@ -58,7 +58,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
   echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
   echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
   echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/js/bootstrap.min.js?=v4.0.0');
+  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
@@ -179,7 +179,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 
 ("skin_porto_tpl", "porto", "default", "default", "input", "free", "tpl_porto"),
 ("header_porto_tpl", "porto", "header-area navbar-fixed-top", "header-area navbar-fixed-top", "input", "free", "tpl_porto"),
-("navi_porto_tpl", "porto", "", "", "input", "free", "tpl_porto"),
+("navi_porto_tpl", "porto", "header-effect-shrink", "header-effect-shrink", "input", "free", "tpl_porto"),
 ("sitemapShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 ("sitemapLinks_porto_tpl", "porto", "sitemap", "sitemap", "input", "free", "tpl_porto"),
 ("loginShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),

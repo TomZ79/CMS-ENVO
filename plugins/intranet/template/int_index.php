@@ -2,74 +2,80 @@
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
 
-    <div class="row 2col">
-      <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-        <div class="tiles purple added-margin">
-          <div class="tiles-body">
-            <div class="tiles-title"> BYTOVÉ DOMY V SEZNAMU</div>
-            <div class="heading">
-              <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet domů">0</span>
-              <span>/</span>
-              <span class="animate-number" data-value="<?= $ENVO_COUNTS_LIST1 ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet SVJ">0</span>
+    <?php if ($ENVO_GROUP_ACCESS_ANALYTICS) { ?>
+      <div class="row 2col">
+        <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+          <div class="tiles purple added-margin">
+            <div class="tiles-body">
+              <div class="tiles-title"> BYTOVÉ DOMY - ANALÝZA</div>
+              <div class="heading">
+                <span class="animate-number" data-value="<?= $ENVO_COUNTS_ANALYTICS ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Celkový počet domů">0</span>
+                <span>/</span>
+                <span class="animate-number" data-value="<?= $ENVO_COUNTS_ANALYTICS1 ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet SVJ">0</span>
+                <span>/</span>
+                <span class="animate-number" data-value="<?= $ENVO_COUNTS_ANALYTICS2 ?>" data-animation-duration="1200" data-toggle="tooltipEnvo" data-placemen="bottom" title="Počet bytových domů (Není SVJ)">0</span>
+              </div>
+              <div class="progress transparent progress-small no-radius">
+                <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_PERCENT_ANALYTICS ?>"></div>
+              </div>
+              <div class="description">
+                <span class="text-white mini-description ">Počet domů <span class="blend">uložených v databázi</span> <br>NEJSOU ve správě</span>
+              </div>
             </div>
-            <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_PERCENT_LIST ?>"></div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+          <div class="tiles blue added-margin">
+            <div class="tiles-body">
+              <div class="tiles-title"> BYTOVÉ DOMY VE SPRÁVĚ</div>
+              <div class="heading">
+                <span class="animate-number" data-value="<?= $ENVO_COUNTS ?>" data-animation-duration="1200">0</span>
+              </div>
+              <div class="progress transparent progress-small no-radius">
+                <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_PERCENT ?>"></div>
+              </div>
+              <div class="description">
+                <span class="text-white mini-description ">Počet domů <span class="blend">ve správě</span> <br>JSOU ve správě</span>
+              </div>
             </div>
-            <div class="description">
-              <span class="text-white mini-description ">Počet domů <span class="blend">uložených v databázi</span> <br>NEJSOU ve správě</span>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+          <div class="tiles green added-margin">
+            <div class="tiles-body">
+              <div class="tiles-title">AKTIVNÍ ÚKOLY</div>
+              <div class="heading">
+                <span class="animate-number" data-value="<?= $ENVO_TASK_COUNTS ?>" data-animation-duration="1200">0</span>
+              </div>
+              <div class="progress transparent progress-small no-radius">
+                <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_TASK_PERCENT ?>"></div>
+              </div>
+              <div class="description">
+                <span class="text-white mini-description ">Počet aktivních <span class="blend">úkolů</span> <br>Úkoly v termínu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 spacing-bottom">
+          <div class="tiles red added-margin">
+            <div class="tiles-body">
+              <div class="tiles-title">OPOŽDĚNÉ ÚKOLY</div>
+              <div class="heading">
+                <span class="animate-number" data-value="<?= $ENVO_TASK_DELAY_COUNTS ?>" data-animation-duration="1200">0</span>
+              </div>
+              <div class="progress transparent progress-small no-radius">
+                <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_TASK_DELAY_PERCENT ?>"></div>
+              </div>
+              <div class="description">
+                <span class="text-white mini-description ">Počet opožděných <span class="blend">úkolů</span> <br>Úkoly po termínu</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-        <div class="tiles blue added-margin">
-          <div class="tiles-body">
-            <div class="tiles-title"> BYTOVÉ DOMY VE SPRÁVĚ</div>
-            <div class="heading">
-              <span class="animate-number" data-value="<?= $ENVO_COUNTS ?>" data-animation-duration="1200">0</span>
-            </div>
-            <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_PERCENT ?>"></div>
-            </div>
-            <div class="description">
-              <span class="text-white mini-description ">Počet domů <span class="blend">ve správě</span> <br>JSOU ve správě</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-        <div class="tiles green added-margin">
-          <div class="tiles-body">
-            <div class="tiles-title">AKTIVNÍ ÚKOLY</div>
-            <div class="heading">
-              <span class="animate-number" data-value="<?= $ENVO_TASK_COUNTS ?>" data-animation-duration="1200">0</span>
-            </div>
-            <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_TASK_PERCENT ?>"></div>
-            </div>
-            <div class="description">
-              <span class="text-white mini-description ">Počet aktivních <span class="blend">úkolů</span> <br>Úkoly v termínu</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 spacing-bottom">
-        <div class="tiles red added-margin">
-          <div class="tiles-body">
-            <div class="tiles-title">OPOŽDĚNÉ ÚKOLY</div>
-            <div class="heading">
-              <span class="animate-number" data-value="<?= $ENVO_TASK_DELAY_COUNTS ?>" data-animation-duration="1200">0</span>
-            </div>
-            <div class="progress transparent progress-small no-radius">
-              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?= $ENVO_TASK_DELAY_PERCENT ?>"></div>
-            </div>
-            <div class="description">
-              <span class="text-white mini-description ">Počet opožděných <span class="blend">úkolů</span> <br>Úkoly po termínu</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php } ?>
+
+
 
     <div class="row">
       <div class="col-sm-12">

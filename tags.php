@@ -24,9 +24,11 @@ $AJAX_SEARCH_PLUGIN_SEO   = 0;
 $swaplang = ENVO_PLUGIN_ID_TAGS;
 
 if (empty($page1)) {
+
   $PAGE_TITLE       = ENVO_PLUGIN_NAME_TAGS;
   $PAGE_CONTENT     = $setting["tagdesc"];
   $ENVO_NO_TAG_DATA = $tl['general_error']['generror11'];
+
 } else {
 
   // Clean the tag if someone is funny and tries to type something weird

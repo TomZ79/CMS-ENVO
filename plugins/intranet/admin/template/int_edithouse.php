@@ -256,12 +256,50 @@ if ($errors) { ?>
                     </div>
                     <div class="col-sm-8">
                       <div class="form-group m-0">
+                        <select name="envo_housecity" class="form-control selectpicker" data-search-select2="true">
 
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html -> addInput('text', 'envo_housecity', $ENVO_FORM_DATA["city"], '', 'form-control');
-                        ?>
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          $selected = ($ENVO_FORM_DATA["city"] == '0') ? TRUE : FALSE;
 
+                          echo $Html -> addOption('0', $tlint["selection"]["sel"], $selected);
+                          if (isset($ENVO_REGION) && is_array($ENVO_REGION)) foreach ($ENVO_REGION as $r) {
+
+                            echo $Html -> addOption($r, $r, ($r == $ENVO_FORM_DATA["city"]) ? TRUE : FALSE);
+
+                          }
+                          ?>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Město - čtvrť');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="form-group m-0">
+                        <select name="envo_housecityarea" class="form-control selectpicker" data-search-select2="true">
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          $selected = ($ENVO_FORM_DATA["cityarea"] == '0') ? TRUE : FALSE;
+
+                          echo $Html -> addOption('0', $tlint["selection"]["sel1"], $selected);
+                          if (isset($ENVO_REGION_AREA) && is_array($ENVO_REGION_AREA)) foreach ($ENVO_REGION_AREA as $ra) {
+
+                            echo $Html -> addOption($ra, $ra, ($ra == $ENVO_FORM_DATA["cityarea"]) ? TRUE : FALSE);
+
+                          }
+                          ?>
+
+                        </select>
                       </div>
                     </div>
                   </div>
