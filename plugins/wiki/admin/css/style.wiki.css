@@ -10,3 +10,7 @@
  *
  *
  */
+
+[id*="wiki_table_"] td {
+  vertical-align: middle;
+}

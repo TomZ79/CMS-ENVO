@@ -267,7 +267,7 @@ switch ($page1) {
         // Show Tags
         $ENVO_TAGLIST = ENVO_tags::envoGetTagList($page2, ENVO_PLUGIN_ID_DOWNLOAD, ENVO_PLUGIN_VAR_TAGS);
 
-        // Page Nav
+        // Page Navigation
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 

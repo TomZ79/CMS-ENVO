@@ -18,6 +18,7 @@ $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/wiki/template/';
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'wiki';
 $envotable1 = DB_PREFIX . 'wikicategories';
+$envotable2 = DB_PREFIX . 'wikiliterature';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -54,7 +55,11 @@ switch ($page1) {
   case 'category':
     // WIKI CATEGORY
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $catID = $page2;
+
+    if (is_numeric($catID) && envo_row_permission($catID, $envotable1, ENVO_USERGROUPID)) {
 
       if ($setting["wikiurl"]) {
         $getWhere = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, $page1, $page2, $page3, '');
@@ -64,7 +69,7 @@ switch ($page1) {
         $getPage  = $page3;
       }
 
-      $resultgt = $envodb -> query('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . smartsql($page2) . '%" AND active = 1');
+      $resultgt = $envodb -> query('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . smartsql($catID) . '%" AND active = 1');
       $getTotal = $resultgt -> fetch_assoc();
 
       if ($getTotal["totalAll"] != 0) {
@@ -83,9 +88,9 @@ switch ($page1) {
 
       }
 
-      $ENVO_WIKI_ALL = envo_get_wiki($wikic -> limit, $setting["wikiorder"], $page2, 't1.catid', $setting["wikiurl"], $tl['global_text']['gtxt4']);
+      $ENVO_WIKI_ALL = envo_get_wiki($wikic -> limit, $setting["wikiorder"], $catID, 't1.catid', $setting["wikiurl"], $tl['global_text']['gtxt4']);
 
-      $result = $envodb -> query('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb -> query('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
       $row    = $result -> fetch_assoc();
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_WIKI . ' - ' . $row['name'];
@@ -142,9 +147,13 @@ switch ($page1) {
   case 'wiki-article':
     // WIKI ARTICLE
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
 
-      $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+      $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
       $row    = $result -> fetch_assoc();
 
       if ($row['active'] != 1) {
@@ -165,16 +174,18 @@ switch ($page1) {
           }
 
           // Now output the data
-          $PAGE_ID          = $row['id'];
-          $PAGE_TITLE       = $row['title'];
-          $PAGE_CONTENT     = envo_secure_site($row['content']);
-          $SHOWTITLE        = $row['showtitle'];
-          $SHOWDATE         = $row['showdate'];
-          $SHOWUPDATE       = $row['showupdate'];
-          $SHOWCATS         = $row['showcat'];
-          $SHOWHITS         = $row['showhits'];
-          $SHOWSOCIALBUTTON = $row['socialbutton'];
-          $WIKI_HITS        = $row['hits'];
+          $PAGE_ID                = $row['id'];
+          $PAGE_TITLE             = $row['title'];
+          $PAGE_CONTENT           = envo_secure_site($row['content']);
+          $SHOWTITLE              = $row['showtitle'];
+          $SHOWDATE               = $row['showdate'];
+          $SHOWUPDATE             = $row['showupdate'];
+          $SHOWCATS               = $row['showcat'];
+          $SHOWHITS               = $row['showhits'];
+          $SHOWSOCIALBUTTON       = $row['socialbutton'];
+          $WIKI_HITS              = $row['hits'];
+          $ENVO_HEADER_CSS        = $row['wiki_css'];
+          $ENVO_FOOTER_JAVASCRIPT = $row['wiki_javascript'];
 
           // Get Created time
           $PAGE_TIME_CREATE       = ENVO_base ::envoTimesince($row['created'], $setting["wikidateformat"], $setting["wikitimeformat"], $tl['global_text']['gtxt4']);
@@ -200,7 +211,7 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList($page2, ENVO_PLUGIN_ID_WIKI, ENVO_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList($pageID, ENVO_PLUGIN_ID_WIKI, ENVO_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
         $resultc = $envodb -> query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
@@ -225,8 +236,12 @@ switch ($page1) {
           $WIKI_CATLIST = join(" ", $catids);
         }
 
-        // Page Nav
-        $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        // EN: Getting the data about the extern anchor - Literature
+        // CZ: Získání dat o externích odkazech - Literatura
+        $ENVO_LITERATURE = envo_get_anchor('', '', $envotable2, 'article_id = ' . $pageID, 'id ASC');
+
+        // Page Navigation
+        $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($setting["wikiurl"]) {
@@ -237,7 +252,7 @@ switch ($page1) {
           $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
-        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $prevp = envo_previous_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
           if ($setting["wikiurl"]) {

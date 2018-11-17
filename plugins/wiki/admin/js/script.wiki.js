@@ -280,7 +280,7 @@ $(function () {
 
 });
 
-/** 04. DateTimePicker
+/** 06. DateTimePicker
  * @require: DateTimePicker Plugin
  ========================================================================*/
 
@@ -311,3 +311,44 @@ $(function () {
 
 });
 
+/** 07. Add new Rows
+ ========================================================================*/
+
+$(function () {
+
+  function DeleteRow() {
+    var par = $(this).closest('tr');
+    par.remove();
+  }
+
+  $('.deleteRow').bind('click', DeleteRow);
+
+  //
+  $('#addRowTab1').click(function (e) {
+    e.preventDefault();
+
+    var tabledata = '';
+    var max = 0;
+    var nextmax = '1'; // value '1', if not exists some row
+
+    $('#wiki_table_1 .rowid').each(function () {
+      $this = parseInt($(this).val());
+      if ($this > max) max = $this;
+      nextmax = max + 1;
+    });
+
+    tabledata += '<tr>' +
+      '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid" value="' + nextmax + '"/></td>' +
+      '<td><input type="text" name="envo_literature_1[]" class="form-control"></td>' +
+      '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow"><i class="fa fa-trash-o"></i></button></td>' +
+      '</tr>';
+
+    // Put data to table
+    $('#wiki_table_1 tbody').prepend(tabledata);
+
+    // Update Jquery Function
+    $('#wiki_table_1 .deleteRow').bind("click", DeleteRow);
+
+  });
+
+});

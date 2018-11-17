@@ -276,17 +276,17 @@ include_once APP_PATH.\'plugins/wiki/admin/template/wiki_connect.php\';
       // EN: Php code for insert data to DB
       // CZ: Php kód pro vložení dat do DB
       $sqlinsert = 'if (!isset($defaults[\'envo_showwiki\'])) {
-	$fq = 0;
+	$wq = 0;
 } else if (in_array(0, $defaults[\'envo_showwiki\'])) {
-	$fq = 0;
+	$wq = 0;
 } else {
-	$fq = join(\',\', $defaults[\'envo_showwiki\']);
+	$wq = join(\',\', $defaults[\'envo_showwiki\']);
 }
 
-if (empty($fq) && !empty($defaults[\'envo_showwikimany\'])) {
+if (empty($wq) && !empty($defaults[\'envo_showwikimany\'])) {
 	$insert .= \'showwiki = \"\'.$defaults[\'envo_showwikiorder\'].\':\'.$defaults[\'envo_showwikimany\'].\'\",\';
-} else if (!empty($fq)) {
-	$insert .= \'showwiki = \"\'.$fq.\'\",\';
+} else if (!empty($wq)) {
+	$insert .= \'showwiki = \"\'.$wq.\'\",\';
 } else {
   	$insert .= \'showwiki = NULL,\';
 }';
@@ -452,7 +452,10 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
   `catid` varchar(100) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` mediumtext,
+  `wiki_css` text,
+  `wiki_javascript` text,
   `previmg` varchar(255) DEFAULT NULL,
+  `previmgdesc` mediumtext,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
@@ -482,6 +485,15 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
   `count` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catorder` (`catorder`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+      // EN: Create table for plugin (categories)
+      // CZ: Vytvoření tabulky pro plugin (kategorie)
+      $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'wikiliterature (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) DEFAULT NULL,
+  `text` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
       // Full text search is activated we do so for the wiki table as well

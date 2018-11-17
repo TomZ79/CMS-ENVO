@@ -357,7 +357,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html -> addInput('text', 'envo_imgdesc', (isset($_REQUEST["envo_imgdesc"])) ? $_REQUEST["envo_imgdesc"] : 'Image Preview', 'envo_imgdesc', 'form-control');
+                        echo $Html -> addInput('text', 'envo_imgdesc', (isset($_REQUEST["envo_imgdesc"])) ? $_REQUEST["envo_imgdesc"] : 'Image Preview | Wiki', 'envo_imgdesc', 'form-control');
                         ?>
 
                       </div>
@@ -600,8 +600,77 @@ if ($errors) { ?>
 
               </div>
               <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="float-right">
 
+                      <?php
+                      // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                      echo $Html -> addButtonSubmit('addRowTab1', 'Přidat Odkaz', 'addRowTab1', 'btn btn-info btn-sm');
+                      ?>
 
+                    </div>
+                    <div class="clearfix m-b-20"></div>
+
+                    <table id="wiki_table_1" class="table">
+                      <thead>
+                      <tr>
+                        <th class="col-sm-1 text-center">#</th>
+                        <th class="col-sm-10">Text / Odkaz</th>
+                        <th class="col-sm-1"></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt13"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="float-right">
+
+                      <?php
+                      // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                      echo $Html -> addButtonSubmit('addRowTab2', 'Přidat Odkaz', 'addRowTab2', 'btn btn-info btn-sm');
+                      ?>
+
+                    </div>
+                    <div class="clearfix m-b-20"></div>
+
+                    <table id="wiki_table_2" class="table">
+                      <thead>
+                      <tr>
+                        <th class="col-sm-1 text-center">#</th>
+                        <th class="col-sm-10">Text / Odkaz</th>
+                        <th class="col-sm-1"></th>
+                      </tr>
+                      </thead>
+
+                    </table>
+
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
 
@@ -629,6 +698,17 @@ if ($errors) { ?>
               </div>
               <div class="box-body">
 
+                <?php
+                echo '<div class="m-b-10">';
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
+                echo $Html -> addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+                echo '</div>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html -> addDiv('', 'csseditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html -> addTextarea('envo_css', (isset($_REQUEST["envo_css"])) ? $_REQUEST["envo_css"] : '', '', '', array ( 'id' => 'envo_css', 'class' => 'hidden' ));
+                ?>
 
               </div>
               <div class="box-footer">
@@ -657,6 +737,17 @@ if ($errors) { ?>
               </div>
               <div class="box-body">
 
+                <?php
+                echo '<div class="m-b-10">';
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
+                echo $Html -> addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+                echo '</div>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html -> addDiv('', 'javaeditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html -> addTextarea('envo_javascript', (isset($_REQUEST["envo_javascript"])) ? $_REQUEST["envo_javascript"] : '', '', '', array ( 'id' => 'envo_javascript', 'class' => 'hidden' ));
+                ?>
 
               </div>
               <div class="box-footer">

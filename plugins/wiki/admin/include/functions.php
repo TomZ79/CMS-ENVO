@@ -1,6 +1,50 @@
 <?php
 
 /**
+ * EN: Getting the data about the city in region - House list
+ * CZ: Získání dat o městech v regionu - Seznam domů
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    11/2018
+ *
+ * @param $limit
+ * @param $colname
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_anchor($limit, $colname = NULL, $table, $where, $orderby, $distinct = NULL)
+{
+
+  global $envodb;
+  $envodata = array ();
+  $colname = (empty($colname) ? '*' : $colname);
+
+  // EN: SQL Query
+  // CZ: SQL Dotaz
+  if ($distinct == '1') {
+    // if $distinct = 1 , then select values by group from DB
+    $result = $envodb -> query('SELECT DISTINCT ' . $colname . ' FROM ' . $table . ' WHERE ' . $where . ' ORDER BY ' . $orderby . $limit);
+    while ($row = $result -> fetch_assoc()) {
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = $row;
+    }
+  } else {
+    // select all values with duplicated values
+    $result = $envodb -> query('SELECT ' . $colname . ' FROM ' . $table . ' WHERE ' . $where . ' ORDER BY ' . $orderby . $limit);
+    while ($row = $result -> fetch_assoc()) {
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = $row;
+    }
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
  * EN: Get the data per array for wikis
  * CZ:
  *

@@ -3049,6 +3049,13 @@ ul.thumbnail-gallery li {
   top: 7px;
 }
 
+.list.list-icons.list-icons-xs li > [class*="fa-"]:first-child,
+.list.list-icons.list-icons-xs li > .icons:first-child, .list.list-icons.list-icons-xs li a:first-child > [class*="fa-"]:first-child,
+.list.list-icons.list-icons-xs li a:first-child > .icons:first-child {
+  font-size: 0.6em;
+  top: 8px;
+}
+
 .list.list-icons.list-icons-sm.list-icons-style-2 li {
   padding-left: 32px;
 }

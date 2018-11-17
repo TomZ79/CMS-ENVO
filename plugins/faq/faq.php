@@ -217,7 +217,7 @@ switch ($page1) {
           $FAQ_CATLIST = join(" ", $catids);
         }
 
-        // Page Nav
+        // Page Navigation
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 

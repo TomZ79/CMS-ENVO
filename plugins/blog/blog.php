@@ -200,7 +200,7 @@ switch ($page1) {
         // Show Tags
         $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($page2, ENVO_PLUGIN_ID_BLOG, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
 
-        // Page Nav
+        // Page Navigation
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($nextp) {
 

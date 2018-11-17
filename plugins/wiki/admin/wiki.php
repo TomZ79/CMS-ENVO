@@ -22,6 +22,7 @@ $envotable  = DB_PREFIX . 'wiki';
 $envotable1 = DB_PREFIX . 'wikicategories';
 $envotable2 = DB_PREFIX . 'pagesgrid';
 $envotable3 = DB_PREFIX . 'pluginhooks';
+$envotable4 = DB_PREFIX . 'wikiliterature';
 
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
@@ -107,10 +108,32 @@ switch ($page1) {
                     showhits = "' . smartsql($defaults['envo_showhits']) . '",
                     socialbutton = "' . smartsql($defaults['envo_social']) . '",
                     ' . $insert . '
+                    previmgdesc = "' . smartsql($defaults['envo_imgdesc']) . '",
+                    wiki_css = "' . smartsql($defaults['envo_css']) . '",
+                    wiki_javascript = "' . smartsql($defaults['envo_javascript']) . '",
                     created = "' . smartsql($defaults['envo_created']) . '",
                     updated = "' . smartsql($defaults['envo_created']) . '"');
 
           $rowid = $envodb -> envo_last_id();
+
+          // EN:
+          // CZ: Zápis odkazů na článek do DB
+          $countlit = $defaults['envo_literature_0'];
+
+          for ($i = 0, $j = count($countlit); $i < $j; $i++) {
+            $lit = $countlit[$i];
+            if (!empty($lit)) {
+              // EN: Insert new row and update row if exists in DB
+              // CZ: Vložení nového záznamu a update záznamu, který je již v DB
+              $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
+                        id = "' . smartsql($defaults['envo_literature_0'][$i]) . '",
+                        article_id = "' . smartsql($rowid) . '",
+                        text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"
+                        ON DUPLICATE KEY UPDATE
+                        article_id = "' . smartsql($rowid) . '", 
+                        text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"');
+            }
+          }
 
           /// Set tag active to zero
           $tagactive = 0;
@@ -216,7 +239,11 @@ switch ($page1) {
     break;
   case 'edit':
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
       // Get the important template stuff
       $ENVO_CAT = envo_get_cat_info($envotable1, 0);
@@ -241,7 +268,7 @@ switch ($page1) {
 
         // Delete the hits
         if (!empty($defaults['envo_delete_hits'])) {
-          $envodb -> query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
+          $envodb -> query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($pageID) . '"');
         }
 
         if (empty($defaults['envo_title'])) {
@@ -285,10 +312,43 @@ switch ($page1) {
                         showcat = "' . smartsql($defaults['envo_showcat']) . '",
                         showhits = "' . smartsql($defaults['envo_showhits']) . '",
                         ' . $insert . '
+                        previmgdesc = "' . smartsql($defaults['envo_imgdesc']) . '",
                         socialbutton = "' . smartsql($defaults['envo_social']) . '",
                         created = "' . smartsql($defaults['envo_created']) . '",
-                        updated = NOW()
-                        WHERE id = "' . smartsql($page2) . '"');
+                        updated = NOW(),
+                        wiki_css = "' . smartsql($defaults['envo_css']) . '",
+                        wiki_javascript = "' . smartsql($defaults['envo_javascript']) . '"
+                        WHERE id = "' . smartsql($pageID) . '"');
+
+          // EN:
+          // CZ: Zápis odkazů na článek do DB
+          $array1 = explode(',', $defaults['envo_all_rows']);
+          $array2 = $defaults['envo_literature_0'];
+
+          foreach ($array1 as $a1) {
+            foreach ($array2 as $a2) {
+              if ($a1 == $a2) {
+                $countlit = $defaults['envo_literature_0'];
+
+                for ($i = 0, $j = count($countlit); $i < $j; $i++) {
+                  $lit = $countlit[$i];
+                  if (!empty($lit)) {
+                    // EN: Insert new row and update row if exists in DB
+                    // CZ: Vložení nového záznamu a update záznamu, který je již v DB
+                    $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
+                        id = "' . smartsql($defaults['envo_literature_0'][$i]) . '",
+                        article_id = "' . smartsql($pageID) . '",
+                        text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"
+                        ON DUPLICATE KEY UPDATE
+                        article_id = "' . smartsql($pageID) . '", 
+                        text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"');
+                  }
+                }
+              } else {
+                $result2 = $envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE id = ' . $a1);
+              }
+            }
+          }
 
           // Set tag active to zero
           $tagactive = 0;
@@ -337,7 +397,7 @@ switch ($page1) {
                 $whatid = 0;
                 if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-                $envodb -> query('INSERT INTO ' . $envotable2 . ' SET wikiid = "' . $page2 . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = ' . ENVO_PLUGIN_WIKI);
+                $envodb -> query('INSERT INTO ' . $envotable2 . ' SET wikiid = "' . $pageID . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = ' . ENVO_PLUGIN_WIKI);
 
               }
 
@@ -349,11 +409,11 @@ switch ($page1) {
           if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
             // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-            $row = $envodb -> queryRow('SELECT id FROM ' . $envotable2 . ' WHERE wikiid = "' . smartsql($page2) . '" AND hookid != 0');
+            $row = $envodb -> queryRow('SELECT id FROM ' . $envotable2 . ' WHERE wikiid = "' . smartsql($pageID) . '" AND hookid != 0');
 
             // We have something to delete
             if ($row["id"]) {
-              $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE wikiid = "' . smartsql($page2) . '" AND hookid != 0');
+              $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE wikiid = "' . smartsql($pageID) . '" AND hookid != 0');
             }
 
           }
@@ -399,21 +459,21 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=wiki&sp=edit&id=' . $page2 . '&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=wiki&sp=edit&id=' . $pageID . '&status=e');
           } else {
 
             // Create Tags if the module is active
             if (!empty($defaults['envo_tags'])) {
               // check if tag does not exist and insert in cloud
-              ENVO_tags ::envoBuildCloud($defaults['envo_tags'], smartsql($page2), ENVO_PLUGIN_WIKI);
+              ENVO_tags ::envoBuildCloud($defaults['envo_tags'], smartsql($pageID), ENVO_PLUGIN_WIKI);
               // insert tag for normal use
-              ENVO_tags ::envoInserTags($defaults['envo_tags'], smartsql($page2), ENVO_PLUGIN_WIKI, $tagactive);
+              ENVO_tags ::envoInserTags($defaults['envo_tags'], smartsql($pageID), ENVO_PLUGIN_WIKI, $tagactive);
 
             }
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=wiki&sp=edit&id=' . $page2 . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=wiki&sp=edit&id=' . $pageID . '&status=s');
           }
 
         } else {
@@ -423,13 +483,28 @@ switch ($page1) {
         }
       }
 
-      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
       if (ENVO_TAGS) {
-        $ENVO_TAGLIST = envo_get_tags($page2, ENVO_PLUGIN_WIKI);
+        $ENVO_TAGLIST = envo_get_tags($pageID, ENVO_PLUGIN_WIKI);
       }
 
+      // EN: Getting the data about the extern anchor - Literature
+      // CZ: Získání dat o externích odkazech - Literatura
+      $ENVO_LITERATURE = envo_get_anchor('', '', $envotable4, 'article_id = ' . $pageID, 'id ASC');
+
+      $envotest = envo_get_anchor('', 'id', $envotable4, 'article_id = ' . $pageID, 'id ASC');
+      // Convert multidimensional array into single array
+      $ENVO_TEST = [];
+      foreach ($envotest as $array) {
+        foreach ($array as $v) {
+          $ENVO_TEST[] = $v;
+        }
+      }
+
+      $ENVO_TEST = implode(',', $ENVO_TEST);
+
       // Get the sort orders for the grid
-      $grid = $envodb -> query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE wikiid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
+      $grid = $envodb -> query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE wikiid = "' . smartsql($pageID) . '" ORDER BY orderid ASC');
       while ($grow = $grid -> fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole

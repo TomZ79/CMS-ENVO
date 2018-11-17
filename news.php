@@ -119,7 +119,7 @@ switch ($page1) {
         // Show Tags
         $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
 
-        // Page Nav
+        // Page Navigation
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($nextp) {
           $ENVO_NAV_NEXT       = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_NEWS, 'news-article', $nextp['id'], ENVO_base ::envoCleanurl($nextp['title']), '');

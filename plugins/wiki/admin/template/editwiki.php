@@ -385,6 +385,26 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc25"]);
+                        echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlw["wiki_help"]["wikih5"], 'data-original-title' => $tlw["wiki_help"]["wikih"] ));
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_imgdesc', (!empty($ENVO_FORM_DATA["previmgdesc"])) ? $ENVO_FORM_DATA["previmgdesc"] : 'Image Preview | Wiki', 'envo_imgdesc', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc33"]);
                         ?>
 
@@ -478,7 +498,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_datetime', ($ENVO_FORM_DATA["time"]) ? $ENVO_FORM_DATA["time"] : '', 'datepickerTime', 'form-control', array('readonly' => 'readonly'));
+                          echo $Html -> addInput('text', 'envo_datetime', ($ENVO_FORM_DATA["created"]) ? $ENVO_FORM_DATA["created"] : '', 'datepickerTime', 'form-control', array ( 'readonly' => 'readonly' ));
                           ?>
 
                         </div>
@@ -632,6 +652,92 @@ if ($errors) { ?>
 
               </div>
               <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="float-right">
+
+                      <?php
+                      // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                      echo $Html -> addButtonSubmit('addRowTab1', 'Přidat Odkaz', 'addRowTab1', 'btn btn-info btn-sm');
+                      ?>
+
+                    </div>
+                    <div class="clearfix m-b-20"></div>
+                    <table id="wiki_table_1" class="table">
+                      <thead>
+                      <tr>
+                        <th class="col-sm-1 text-center">#</th>
+                        <th class="col-sm-10">Text / Odkaz</th>
+                        <th class="col-sm-1"></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      <input type="hidden" name="envo_all_rows" class="rowid" value="<?= $ENVO_TEST ?>"/>
+
+                      <?php if (!empty($ENVO_LITERATURE) && is_array($ENVO_LITERATURE)) {
+                        foreach ($ENVO_LITERATURE as $l) { ?>
+
+                          <tr>
+                            <td class="text-center">
+                              <?= $l["id"] ?>
+                              <input type="hidden" name="envo_literature_0[]" class="rowid" value="<?= $l["id"] ?>"/>
+                            </td>
+                            <td>
+
+                              <?php
+                              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                              echo $Html -> addInput('text', 'envo_literature_1[]', $l["text"], '', 'form-control');
+                              ?>
+
+                            </td>
+                            <td class="text-center">
+
+                              <?php
+                              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                              echo $Html -> addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteRow');
+
+                              ?>
+
+                            </td>
+                          </tr>
+
+                        <?php }
+                      } else {
+
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo '<tr class="nodata">';
+                        echo '<td colspan="5">';
+                        echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
+                        echo '</td>';
+                        echo '</tr>';
+
+                      } ?>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt13"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
 
 
               </div>
@@ -661,6 +767,17 @@ if ($errors) { ?>
               </div>
               <div class="box-body">
 
+                <?php
+                echo '<div class="m-b-10">';
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
+                echo $Html -> addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+                echo '</div>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html -> addDiv('', 'csseditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html -> addTextarea('envo_css', $ENVO_FORM_DATA["wiki_css"], '', '', array ( 'id' => 'envo_css', 'class' => 'hidden' ));
+                ?>
 
               </div>
               <div class="box-footer">
@@ -689,6 +806,17 @@ if ($errors) { ?>
               </div>
               <div class="box-body">
 
+                <?php
+                echo '<div class="m-b-10">';
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
+                echo $Html -> addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+                echo '</div>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html -> addDiv('', 'javaeditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html -> addTextarea('envo_javascript', $ENVO_FORM_DATA["wiki_javascript"], '', '', array ( 'id' => 'envo_javascript', 'class' => 'hidden' ));
+                ?>
 
               </div>
               <div class="box-footer">

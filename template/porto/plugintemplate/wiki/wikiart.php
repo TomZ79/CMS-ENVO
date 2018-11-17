@@ -105,6 +105,21 @@ if ($setting["printme"]) $printme = 1;
 
             </div>
 
+            <?php
+            // SHOW - Page literature
+            if (!empty($ENVO_LITERATURE) && is_array($ENVO_LITERATURE)) {
+              echo '<hr>';
+              echo '<h4>Literatura</h4>';
+              echo '<ul class="list list-icons list-icons-xs">';
+
+              foreach ($ENVO_LITERATURE as $l) {
+                echo '<li style="font-size: .9em"><i class="fas fa-circle"></i>' . $l["text"] . '</li>';
+              }
+
+              echo '<ul>';
+            }
+            ?>
+
           </article>
         </div>
       </div>
