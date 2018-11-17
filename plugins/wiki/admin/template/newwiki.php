@@ -116,6 +116,26 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('strong', 'Datum Zápisu');
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="form-group m-0">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html -> addInput('text', 'envo_created', (isset($_REQUEST["envo_created"]) ? $_REQUEST["envo_created"] : date("Y-m-d H:i:s")), '', 'form-control', array ( 'readonly' => 'readonly' ));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc"]);
                         echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                         ?>
@@ -295,6 +315,26 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc25"]);
+                        echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlw["wiki_help"]["wikih5"], 'data-original-title' => $tlw["wiki_help"]["wikih"] ));
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_imgdesc', (isset($_REQUEST["envo_imgdesc"])) ? $_REQUEST["envo_imgdesc"] : 'Image Preview', 'envo_imgdesc', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -313,8 +353,13 @@ if ($errors) { ?>
               <div class="box-header with-border">
 
                 <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt7"], 'box-title');
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
+                echo $tlw["wiki_box_title"]["wikibt7"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlw["wiki_help"]["wikih2"], 'data-original-title' => $tlw["wiki_help"]["wikih"] ));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html -> endTag('h3');
                 ?>
 
               </div>
@@ -327,9 +372,9 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_catid"]) && ($_REQUEST["envo_catid"] == '0' || (in_array('0', $_REQUEST["envo_catid"]))) || (!isset($_REQUEST["envo_catid"]) && !isset($ENVO_CAT_SELECTED)) )) ? TRUE : FALSE;
+                          $selected = ((isset($_REQUEST["envo_catid"]) && ($_REQUEST["envo_catid"] == '0' || (in_array('0', $_REQUEST["envo_catid"]))) || (!isset($_REQUEST["envo_catid"]) && !isset($ENVO_CAT_SELECTED)))) ? TRUE : FALSE;
 
-                          echo $Html->addOption('0', $tlw["wiki_box_content"]["wikibc35"], $selected);
+                          echo $Html -> addOption('0', $tlw["wiki_box_content"]["wikibc35"], $selected);
                           if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $v) {
 
                             if (isset($ENVO_CAT_SELECTED)) {
@@ -350,11 +395,47 @@ if ($errors) { ?>
                               }
                             }
 
-                            echo $Html->addOption($v["id"], $v["name"], $selected);
+                            echo $Html -> addOption($v["id"], $v["name"], $selected);
                           }
                           ?>
 
                         </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt12"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-sm-12">
+                        <div class="form-group m-0">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html -> addInput('text', 'envo_datetime', (isset($_REQUEST["envo_datetime"])) ? $_REQUEST["envo_datetime"] : date("Y-m-d H:i:s"), 'datepickerTime', 'form-control', array ( 'readonly' => 'readonly' ));
+                          ?>
+
+                        </div>
                       </div>
                     </div>
                   </div>
