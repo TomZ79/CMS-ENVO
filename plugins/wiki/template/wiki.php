@@ -2,13 +2,13 @@
 /*
  * ALL VALUE for FRONTEND - wiki.php
  *
- * $id 							number		|	- ID souboru
+ * $id 							number		|	- ID článku
  * $catid 					number		|	- ID categorie(í)
- * $title						string		|	- Titulek souboru
- * $content					string		|	- Celý popis souboru
- * $contentshort		string		|	- Zkrácený popis souboru
+ * $title						string		|	- Titulek článku
+ * $content					string		|	- Celý popis článku
+ * $contentshort		string		|	- Zkrácený popis článku
  * $showtitle				number		| - Zobrazení nadpisu ( hodnota 1 = ANO / 0 = NE )
- * $showdate				number		| - Zobrazení nadpisu ( hodnota 1 = ANO / 0 = NE )
+ * $showdate				number		| - Zobrazení datumu ( hodnota 1 = ANO / 0 = NE )
  * $created					date			| - Datum vytvoření
  * $hits						number		|	- Počet zobrazení
  * $previmg         string		|

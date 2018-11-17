@@ -72,12 +72,12 @@ if ($errors) { ?>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#cmsPage3" class="" data-toggle="tab">
+        <a href="#cmsPage4" class="" data-toggle="tab">
           <span class="text"><?= $tlw["wiki_section_tab"]["wikitab3"] ?></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#cmsPage3" class="" data-toggle="tab">
+        <a href="#cmsPage5" class="" data-toggle="tab">
           <span class="text"><?= $tlw["wiki_section_tab"]["wikitab4"] ?></span>
         </a>
       </li>
@@ -116,7 +116,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html -> addTag('strong', 'Datum Zápisu');
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc2"]);
                         ?>
 
                       </div>
@@ -201,6 +201,33 @@ if ($errors) { ?>
                           echo $Html -> addRadio('envo_showdate', '0', ((isset($_REQUEST["envo_showdate"]) && $_REQUEST["envo_showdate"] == '0')) ? TRUE : FALSE, 'envo_showdate2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html -> addLabel('envo_showdate2', $tl["checkbox"]["chk1"]);
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc32"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="radio radio-success">
+
+                          <?php
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html -> addRadio('envo_showupdate', '1', ((isset($_REQUEST["envo_showupdate"]) && $_REQUEST["envo_showupdate"] == '1')) ? TRUE : FALSE, 'envo_showupdate1');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html -> addLabel('envo_showupdate1', $tl["checkbox"]["chk"]);
+
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html -> addRadio('envo_showupdate', '0', ((isset($_REQUEST["envo_showupdate"]) && $_REQUEST["envo_showupdate"] == '0') || !isset($_REQUEST["envo_showupdate"])) ? TRUE : FALSE, 'envo_showupdate2');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html -> addLabel('envo_showupdate2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>

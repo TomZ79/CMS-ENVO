@@ -170,13 +170,19 @@ switch ($page1) {
           $PAGE_CONTENT     = envo_secure_site($row['content']);
           $SHOWTITLE        = $row['showtitle'];
           $SHOWDATE         = $row['showdate'];
+          $SHOWUPDATE       = $row['showupdate'];
           $SHOWCATS         = $row['showcat'];
           $SHOWHITS         = $row['showhits'];
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $WIKI_HITS        = $row['hits'];
 
-          $PAGE_TIME       = ENVO_base ::envoTimesince($row['time'], $setting["wikidateformat"], $setting["wikitimeformat"], $tl['global_text']['gtxt4']);
-          $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
+          // Get Created time
+          $PAGE_TIME_CREATE       = ENVO_base ::envoTimesince($row['created'], $setting["wikidateformat"], $setting["wikitimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME_CREATE_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['created']));
+
+          // Get Updated time
+          $PAGE_TIME_UPDATE       = ENVO_base ::envoTimesince($row['updated'], $setting["wikidateformat"], $setting["wikitimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME_UPDATE_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['updated']));
 
           // Get the url session
           $_SESSION['envo_lastURL'] = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, $page1, $page2, $page3, '');

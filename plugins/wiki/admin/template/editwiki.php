@@ -86,6 +86,21 @@ if ($errors) { ?>
       </li>
       <li class="nav-item">
         <a href="#cmsPage3" class="" data-toggle="tab">
+          <span class="text"><?= $tlw["wiki_section_tab"]["wikitab5"] ?></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#cmsPage4" class="" data-toggle="tab">
+          <span class="text"><?= $tlw["wiki_section_tab"]["wikitab3"] ?></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#cmsPage5" class="" data-toggle="tab">
+          <span class="text"><?= $tlw["wiki_section_tab"]["wikitab4"] ?></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#cmsPage6" class="" data-toggle="tab">
           <span class="text"><?= $tlw["wiki_section_tab"]["wikitab1"] ?></span>
         </a>
       </li>
@@ -114,6 +129,46 @@ if ($errors) { ?>
               <div class="box-body">
                 <div class="block">
                   <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc2"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="form-group m-0">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html -> addInput('text', 'envo_created', $ENVO_FORM_DATA["created"], '', 'form-control', array ( 'readonly' => 'readonly' ));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc4"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="form-group m-0">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html -> addInput('text', 'envo_updated', $ENVO_FORM_DATA["updated"], '', 'form-control', array ( 'readonly' => 'readonly' ));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
                     <div class="row-form">
                       <div class="col-sm-5">
 
@@ -184,6 +239,33 @@ if ($errors) { ?>
                           echo $Html -> addRadio('envo_showdate', '0', ($ENVO_FORM_DATA["showdate"] == '0') ? TRUE : FALSE, 'envo_showdate2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html -> addLabel('envo_showdate2', $tl["checkbox"]["chk1"]);
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc32"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="radio radio-success">
+
+                          <?php
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html -> addRadio('envo_showupdate', '1', ($ENVO_FORM_DATA["showupdate"] == '1') ? TRUE : FALSE, 'envo_showupdate1');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html -> addLabel('envo_showupdate1', $tl["checkbox"]["chk"]);
+
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html -> addRadio('envo_showupdate', '0', ($ENVO_FORM_DATA["showupdate"] == '0') ? TRUE : FALSE, 'envo_showupdate2');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html -> addLabel('envo_showupdate2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -320,29 +402,6 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
-                    <div class="row-form">
-                      <div class="col-sm-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc34"]);
-                        ?>
-
-                      </div>
-                      <div class="col-sm-7">
-                        <div class="checkbox-singel check-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html -> addCheckbox('envo_update_time', '', FALSE, 'envo_update_time');
-                          echo $Html -> addLabel('envo_update_time', '');
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </div>
@@ -387,6 +446,42 @@ if ($errors) { ?>
                           ?>
 
                         </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt12"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-sm-12">
+                        <div class="form-group m-0">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'envo_datetime', ($ENVO_FORM_DATA["time"]) ? $ENVO_FORM_DATA["time"] : '', 'datepickerTime', 'form-control', array('readonly' => 'readonly'));
+                          ?>
+
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -525,6 +620,90 @@ if ($errors) { ?>
         </div>
       </div>
       <div class="tab-pane fade" id="cmsPage3" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt11"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage4" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt2"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage5" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt3"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cmsPage6" role="tabpanel">
         <div class="row">
           <div class="col-sm-12">
             <div class="box box-success">

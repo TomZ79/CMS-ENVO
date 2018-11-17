@@ -280,4 +280,34 @@ $(function () {
 
 });
 
+/** 04. DateTimePicker
+ * @require: DateTimePicker Plugin
+ ========================================================================*/
+
+$(function () {
+
+  /* DateTimePicker
+   ========================================= */
+  $('#datepickerTime').datetimepicker({
+    // Language
+    locale: envoWeb.envo_lang,
+    // Date-Time format
+    format: 'YYYY-MM-DD HH:mm:ss',
+    // Icons
+    icons: $.AdminEnvo.DateTimepicker.icons(),
+    // Tooltips
+    tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
+    // Show Button
+    showTodayButton: true,
+    showClear: true,
+    // Other
+    calendarWeeks: true,
+    ignoreReadonly: true
+  }).on('dp.change', function (e) {
+    // Grab the time value
+    var date = $(this).data('date');
+    $('input[name="envo_created"]').val(date);
+  });
+
+});
 

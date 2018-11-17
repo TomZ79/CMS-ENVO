@@ -2,17 +2,20 @@
 /**
  * ALL VALUE for FRONTEND - wikiart.php
  *
- * $PAGE_ID              číslo    |  - id článku
- * $PAGE_TITLE           text        - Titulek článku
- * $PAGE_CONTENT         text        - Celý popis článku
- * $SHOWTITLE            ano/ne      - Zobrazení nadpisu
- * $SHOWDATE             ano/ne      - Zobrazení datumu
- * $SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
- * $WIKI_HITS             číslo       - Počet Zobrazení
- * $PAGE_TIME            date        - Datum vytvoření článku
- * $PAGE_TIME_HTML5
- * $ENVO_TAGLIST          text        - Seznam tagů
- * $WIKI_CATLIST          text        - Seznam kategorií
+ * $PAGE_ID                 number    | - ID článku
+ * $PAGE_TITLE              string    | - Titulek článku
+ * $PAGE_CONTENT            string    | - Celý popis článku
+ * $SHOWTITLE               number    | - Zobrazení nadpisu ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWDATE                number    | - Zobrazení datumu ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWUPDATE              number    | - Zobrazení datumu - poslední změna ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWSOCIALBUTTON        number    | - Zobrazení sociálních tlačítek ( hodnota 1 = ANO / 0 = NE )
+ * $WIKI_HITS               number    | - Počet Zobrazení
+ * $PAGE_TIME_CREATE        date      | - Datum vytvoření článku
+ * $PAGE_TIME_CREATE_HTML5  date      | - Datum vytvoření článku HTML 5 formát
+ * $PAGE_TIME_UPDATE        date      | - Datum aktualizace článku
+ * $PAGE_TIME_UPDATE_HTML5  date      | - Datum aktualizace článku HTML 5 formát
+ * $ENVO_TAGLIST            string    | - Seznam tagů
+ * $WIKI_CATLIST            string    | - Seznam kategorií
  *
  */
 
@@ -46,10 +49,15 @@ if ($setting["printme"]) $printme = 1;
 
               <?php
 
-              if ($SHOWDATE || $SHOWHITS || $SHOWCATS) {
+              if ($SHOWDATE || $SHOWUPDATE || $SHOWHITS || $SHOWCATS) {
                 // SHOW - Date
                 if ($SHOWDATE) {
-                  echo '<span class="date mr-3"><strong class="text-2">' . $tlw["wiki_frontend"]["wiki4"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
+                  echo '<span class="date mr-3"><strong class="text-2">' . $tlw["wiki_frontend"]["wiki4"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME_CREATE . '">' . $PAGE_TIME_CREATE . '</time></span>';
+                }
+
+                // SHOW - Update
+                if ($SHOWUPDATE) {
+                  echo '<span class="date mr-3"><strong class="text-2">' . $tlw["wiki_frontend"]["wiki7"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME_UPDATE . '">' . $PAGE_TIME_UPDATE . '</time></span>';
                 }
 
                 // SHOW - Hits

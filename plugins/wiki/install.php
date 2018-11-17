@@ -456,11 +456,13 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
+  `showupdate` smallint(1) unsigned NOT NULL DEFAULT 0,
   `showcat` smallint(1) unsigned NOT NULL DEFAULT 0,
   `showhits` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
-  `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');

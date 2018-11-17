@@ -55,12 +55,14 @@ switch ($page1) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
         }
 
+        // Setting - Displaying the title
         if (isset($defaults['envo_showtitle'])) {
           $showtitle = $defaults['envo_showtitle'];
         } else {
           $showtitle = '0';
         }
 
+        // Setting - Displaying the date
         if (isset($defaults['envo_showdate'])) {
           $showdate = $defaults['envo_showdate'];
         } else {
@@ -100,11 +102,13 @@ switch ($page1) {
                     content = "' . smartsql($defaults['envo_content']) . '",
                     showtitle = "' . smartsql($showtitle) . '",
                     showdate = "' . smartsql($showdate) . '",
+                    showupdate = "' . smartsql($defaults['envo_showupdate']) . '",
                     showcat = "' . smartsql($defaults['envo_showcat']) . '",
                     showhits = "' . smartsql($defaults['envo_showhits']) . '",
                     socialbutton = "' . smartsql($defaults['envo_social']) . '",
                     ' . $insert . '
-                    time = NOW()');
+                    created = "' . smartsql($defaults['envo_created']) . '",
+                    updated = "' . smartsql($defaults['envo_created']) . '"');
 
           $rowid = $envodb -> envo_last_id();
 
@@ -116,7 +120,7 @@ switch ($page1) {
           if (is_array($catarray)) {
             foreach ($catarray as $c) {
 
-              $envodb->query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($c) . '"');
+              $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($c) . '"');
             }
 
             // Set tag active, well to active
@@ -246,11 +250,6 @@ switch ($page1) {
 
         if (count($errors) == 0) {
 
-          // Update time
-          if (!empty($defaults['envo_update_time'])) {
-            $insert .= 'time = NOW(),';
-          }
-
           // Save image
           if (!empty($defaults['envo_img'])) {
             $insert .= 'previmg = "' . smartsql($defaults['envo_img']) . '",';
@@ -282,10 +281,13 @@ switch ($page1) {
                         content = "' . smartsql($defaults['envo_content']) . '",
                         showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                        showupdate = "' . smartsql($defaults['envo_showupdate']) . '",
                         showcat = "' . smartsql($defaults['envo_showcat']) . '",
                         showhits = "' . smartsql($defaults['envo_showhits']) . '",
                         ' . $insert . '
-                        socialbutton = "' . smartsql($defaults['envo_social']) . '"
+                        socialbutton = "' . smartsql($defaults['envo_social']) . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = NOW()
                         WHERE id = "' . smartsql($page2) . '"');
 
           // Set tag active to zero
@@ -301,7 +303,7 @@ switch ($page1) {
           if (is_array($catoarray)) {
 
             foreach ($catoarray as $co) {
-              $envodb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($co) . '"');
+              $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($co) . '"');
             }
           }
 
@@ -310,7 +312,7 @@ switch ($page1) {
           if (is_array($catarray)) {
             foreach ($catarray as $c) {
 
-              $envodb->query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($c) . '"');
+              $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($c) . '"');
             }
 
             // Set tag active, well to active

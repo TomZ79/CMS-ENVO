@@ -30,7 +30,7 @@ function envo_get_wiki($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showdate, t1.time, t1.hits, t1.previmg FROM ' . DB_PREFIX . 'wiki AS t1 LEFT JOIN ' . DB_PREFIX . 'wikicategories AS t2 ON (t2.id IN(t1.catid)) WHERE ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showdate, t1.created, t1.hits, t1.previmg FROM ' . DB_PREFIX . 'wiki AS t1 LEFT JOIN ' . DB_PREFIX . 'wikicategories AS t2 ON (t2.id IN(t1.catid)) WHERE ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
 
   while ($row = $result->fetch_assoc()) {
 
@@ -42,8 +42,8 @@ function envo_get_wiki($limit, $order, $where, $table_row, $ext_seo, $timeago)
     if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['title']);
     $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'wiki-article', $row['id'], $seo);
 
-    // finally get the time
-    $getTime = ENVO_base::envoTimesince($row['time'], $setting["wikidateformat"], $setting["wikitimeformat"], $timeago);
+    // Finally get the time
+    $getTime = ENVO_base::envoTimesince($row['created'], $setting["wikidateformat"], $setting["wikitimeformat"], $timeago);
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
