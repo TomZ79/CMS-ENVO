@@ -211,7 +211,7 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList($pageID, ENVO_PLUGIN_ID_WIKI, ENVO_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($pageID, ENVO_PLUGIN_ID_WIKI, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
 
         // Get the categories into a list
         $resultc = $envodb -> query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
@@ -223,7 +223,7 @@ switch ($page1) {
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlw["wiki_frontend"]["wiki2"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<span class="cat-list"><a class="category-label"  href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlw["wiki_frontend"]["wiki2"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie

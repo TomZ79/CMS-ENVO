@@ -74,7 +74,7 @@ if ($setting["printme"]) $printme = 1;
 
               // SHOW - Tag list
               if ($ENVO_TAGLIST) {
-                echo '<span class="tag">' . $ENVO_TAGLIST . '</span>';
+                echo '<ul class="tags-list">' . $ENVO_TAGLIST . '</ul>';
               }
 
               ?>
@@ -113,7 +113,7 @@ if ($setting["printme"]) $printme = 1;
               echo '<ul class="list list-icons list-icons-xs">';
 
               foreach ($ENVO_LITERATURE as $l) {
-                echo '<li style="font-size: .9em"><i class="fas fa-circle"></i>' . $l["text"] . '</li>';
+                echo '<li style="font-size: .9em; height: 24px;"><i class="fas fa-circle"></i>' . $l["text"] . '</li>';
               }
 
               echo '<ul>';

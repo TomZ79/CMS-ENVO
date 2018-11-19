@@ -54,9 +54,13 @@ switch ($page1) {
   case 'category':
     // FAQ CATEGORY
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $catID = $page2;
 
-      $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
+    if (is_numeric($catID) && envo_row_permission($catID, $envotable1, ENVO_USERGROUPID)) {
+
+      $getTotal = envo_get_total($envotable, $catID, 'catid', 'active');
 
       if ($setting["faqurl"]) {
         $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
@@ -81,9 +85,9 @@ switch ($page1) {
         $ENVO_PAGINATE = $faqc->display_pages();
       }
 
-      $ENVO_FAQ_ALL = envo_get_faq($faqc->limit, $setting["faqorder"], $page2, 't1.catid', $setting["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faqc->limit, $setting["faqorder"], $catID, 't1.catid', $setting["faqurl"], $tl['global_text']['gtxt4']);
 
-      $result = $envodb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
@@ -140,9 +144,13 @@ switch ($page1) {
   case 'faq-article':
     // FAQ ARTICLE
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
 
-      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
@@ -192,7 +200,7 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($page2, ENVO_PLUGIN_ID_FAQ, ENVO_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($pageID, ENVO_PLUGIN_ID_FAQ, ENVO_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
@@ -218,7 +226,7 @@ switch ($page1) {
         }
 
         // Page Navigation
-        $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($setting["faqurl"]) {
@@ -229,7 +237,7 @@ switch ($page1) {
           $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
-        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $prevp = envo_previous_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
           if ($setting["faqurl"]) {

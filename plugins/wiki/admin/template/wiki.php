@@ -153,7 +153,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   }
                   ?>
                 </td>
-                <td><?= date("d.m.Y", strtotime($v["time"])) ?></td>
+                <td><?= date("d.m.Y", strtotime($v["created"])) ?></td>
                 <td><?= $v["hits"] ?></td>
                 <td>
 

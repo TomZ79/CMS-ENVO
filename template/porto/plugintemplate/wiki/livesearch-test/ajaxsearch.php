@@ -13,6 +13,12 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 // CZ: Nastavení záhlaví JSON
 header('Content-Type: application/json;charset=utf-8');
 
+// CHECK REQUEST METHOD
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+  $_POST = filter_input_array(INPUT_POST);
+} else {
+  $_POST = filter_input_array(INPUT_GET);
+}
 // PHP CODE and DB
 //-------------------------
 

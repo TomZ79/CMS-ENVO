@@ -119,7 +119,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 ?>
 
               </td>
-              <td><?= date("d.m.Y - H:i:s", strtotime($v["time"])) ?></td>
+              <td><?= date("d.m.Y - H:i:s", strtotime($v["created"])) ?></td>
               <td>
 
                 <?php

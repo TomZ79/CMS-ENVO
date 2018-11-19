@@ -53,7 +53,11 @@ switch ($page1) {
   case 'category':
     // BLOG CATEGORY
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $catID = $page2;
+
+    if (is_numeric($catID) && envo_row_permission($catID, $envotable1, ENVO_USERGROUPID)) {
 
       if ($setting["blogurl"]) {
         $getWhere = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
@@ -63,7 +67,7 @@ switch ($page1) {
         $getPage  = $page3;
       }
 
-      $resultgt = $envodb -> query('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND catid LIKE "%' . smartsql($page2) . '%" AND active = 1');
+      $resultgt = $envodb -> query('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND catid LIKE "%' . smartsql($catID) . '%" AND active = 1');
       $getTotal = $resultgt -> fetch_assoc();
 
       if ($getTotal["totalAll"] != 0) {
@@ -82,9 +86,9 @@ switch ($page1) {
 
       }
 
-      $ENVO_BLOG_ALL = envo_get_blog($blogc -> limit, $setting["blogorder"], $page2, 't1.catid', $setting["blogurl"], $tl['global_text']['gtxt4']);
+      $ENVO_BLOG_ALL = envo_get_blog($blogc -> limit, $setting["blogorder"], $catID, 't1.catid', $setting["blogurl"], $tl['global_text']['gtxt4']);
 
-      $row = $envodb -> queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $envodb -> queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
@@ -140,10 +144,13 @@ switch ($page1) {
   case 'blog-article':
     // BLOG ARTICLE
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
 
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
-      $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND id = "' . smartsql($pageID) . '" LIMIT 1');
       $row    = $result -> fetch_assoc();
 
       if ($row['active'] != 1) {
@@ -198,10 +205,10 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($page2, ENVO_PLUGIN_ID_BLOG, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
+        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($pageID, ENVO_PLUGIN_ID_BLOG, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
 
         // Page Navigation
-        $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
+        $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($nextp) {
 
           if ($setting["blogurl"]) {
@@ -212,7 +219,7 @@ switch ($page1) {
           $ENVO_NAV_NEXT_TITLE = $nextp['title'];
         }
 
-        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
+        $prevp = envo_previous_page($pageID, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($prevp) {
 
           if ($setting["blogurl"]) {

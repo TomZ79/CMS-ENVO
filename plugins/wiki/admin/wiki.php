@@ -322,12 +322,16 @@ switch ($page1) {
 
           // EN:
           // CZ: Zápis odkazů na článek do DB
-          $array1 = explode(',', $defaults['envo_all_rows']);
-          $array2 = $defaults['envo_literature_0'];
+          if (!empty($defaults['envo_all_rows'])) {
+            $array1 = explode(',', $defaults['envo_all_rows']);
+          }
+          if (!empty($defaults['envo_literature_0'])) {
+            $array2 = $defaults['envo_literature_0'];
+          }
 
-          if (!$array1 && is_array($array1)) {
+          if (isset($array1) && is_array($array1) && !empty($array1)) {
             foreach ($array1 as $a1) {
-              if (!$array2 && is_array($array2)) {
+              if (isset($array2) && is_array($array2) && !empty($array2)) {
                 foreach ($array2 as $a2) {
                   if ($a1 == $a2) {
                     $countlit = $defaults['envo_literature_0'];

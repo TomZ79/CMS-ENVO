@@ -328,26 +328,65 @@ $(function () {
     e.preventDefault();
 
     var tabledata = '';
-    var max = 0;
-    var nextmax = '1'; // value '1', if not exists some row
 
-    $('#wiki_table_1 .rowid').each(function () {
-      $this = parseInt($(this).val());
-      if ($this > max) max = $this;
-      nextmax = max + 1;
+    // Ajax
+    $.ajax({
+      url: "/plugins/wiki/admin/ajax/wiki_literature.php",
+      type: 'POST',
+      datatype: 'json',
+      beforeSend: function () {
+
+      },
+      success: function (data) {
+        // Console log
+        // console.log(data);
+
+        var dataInt = parseInt(data.data);
+        var max = 0;
+        var nextmax = '1'; // value '1', if not exists some row
+
+        $('#wiki_table_1 .rowid').each(function () {
+          $this = parseInt($(this).val());
+          if ($this > max) max = $this;
+        });
+
+          nextmax = dataInt + 1;
+          console.log('Data:' + dataInt);
+          console.log('Max:' + max);
+          console.log('NetMax:' + nextmax);
+
+        if (dataInt == max) {
+          nextmax = dataInt + 1;
+        } else {
+          if (max == 0) {
+            nextmax = dataInt + 1;
+          } else {
+            nextmax = max + 1;
+          }
+        }
+
+        tabledata += '<tr>' +
+          '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid" value="' + nextmax + '"/></td>' +
+          '<td><input type="text" name="envo_literature_1[]" class="form-control"></td>' +
+          '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow"><i class="fa fa-trash-o"></i></button></td>' +
+          '</tr>';
+
+        //
+        if ($('#wiki_table_1 .nodata').length) {
+          $('#wiki_table_1 .nodata').remove();
+        }
+
+        // Put data to table
+        $('#wiki_table_1 tbody').prepend(tabledata);
+
+        // Update Jquery Function
+        $('#wiki_table_1 .deleteRow').bind("click", DeleteRow);
+
+      },
+      error: function () {
+
+      }
     });
-
-    tabledata += '<tr>' +
-      '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid" value="' + nextmax + '"/></td>' +
-      '<td><input type="text" name="envo_literature_1[]" class="form-control"></td>' +
-      '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow"><i class="fa fa-trash-o"></i></button></td>' +
-      '</tr>';
-
-    // Put data to table
-    $('#wiki_table_1 tbody').prepend(tabledata);
-
-    // Update Jquery Function
-    $('#wiki_table_1 .deleteRow').bind("click", DeleteRow);
 
   });
 

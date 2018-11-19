@@ -58,9 +58,13 @@ switch ($page1) {
   case 'category':
     // DOWNLOAD CATEGORY
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $catID = $page2;
 
-      $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
+    if (is_numeric($catID) && envo_row_permission($catID, $envotable1, ENVO_USERGROUPID)) {
+
+      $getTotal = envo_get_total($envotable, $catID, 'catid', 'active');
 
       if ($setting["downloadurl"]) {
         $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
@@ -84,11 +88,11 @@ switch ($page1) {
         $dlc->paginate();
         $ENVO_PAGINATE = $dlc->display_pages();
 
-        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc->limit, $setting["downloadorder"], $page2, 't1.catid', $setting["downloadurl"], $tl['global_text']['gtxt4']);
+        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc->limit, $setting["downloadorder"], $catID, 't1.catid', $setting["downloadurl"], $tl['global_text']['gtxt4']);
       }
 
       // Get the download categories
-      $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
@@ -144,7 +148,11 @@ switch ($page1) {
   case 'f':
     // DOWNLOAD ARTICLE
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
       // Gain access to page
       if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['dlprotect'])) {
@@ -178,7 +186,7 @@ switch ($page1) {
         }
       }
 
-      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
@@ -265,10 +273,10 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($page2, ENVO_PLUGIN_ID_DOWNLOAD, ENVO_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($pageID, ENVO_PLUGIN_ID_DOWNLOAD, ENVO_PLUGIN_VAR_TAGS);
 
         // Page Navigation
-        $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($setting["downloadurl"]) {
@@ -279,7 +287,7 @@ switch ($page1) {
           $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
-        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $prevp = envo_previous_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
           if ($setting["downloadurl"]) {
@@ -352,11 +360,16 @@ switch ($page1) {
     break;
   case 'dl':
     // DOWNLOAD
-    if ($_SESSION['envo_thisFileID'] == $page2 && is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if ($_SESSION['envo_thisFileID'] == $pageID && is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
       // EN: Get the file from DB
       // CZ: Získání souboru z DB
-      $row = $envodb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $envodb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
 
       // Not active back to download
       if ($row['active'] != 1) envo_redirect($backtodl);
@@ -394,7 +407,7 @@ switch ($page1) {
           $file = smartsql($row['extfile']);
         }
 
-        $envodb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
+        $envodb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $pageID . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
 
         if (!empty($row['extfile'])) {
           /*
@@ -404,7 +417,7 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($pageID) . '"');
           // EN: Redirect page with download file
           // CZ: Přesměrování stránky
           envo_redirect($row['extfile']);
@@ -492,7 +505,7 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($pageID) . '"');
 
         }
 
