@@ -325,30 +325,54 @@ switch ($page1) {
           $array1 = explode(',', $defaults['envo_all_rows']);
           $array2 = $defaults['envo_literature_0'];
 
-          foreach ($array1 as $a1) {
-            foreach ($array2 as $a2) {
-              if ($a1 == $a2) {
-                $countlit = $defaults['envo_literature_0'];
+          if (!$array1 && is_array($array1)) {
+            foreach ($array1 as $a1) {
+              if (!$array2 && is_array($array2)) {
+                foreach ($array2 as $a2) {
+                  if ($a1 == $a2) {
+                    $countlit = $defaults['envo_literature_0'];
 
-                for ($i = 0, $j = count($countlit); $i < $j; $i++) {
-                  $lit = $countlit[$i];
-                  if (!empty($lit)) {
-                    // EN: Insert new row and update row if exists in DB
-                    // CZ: Vložení nového záznamu a update záznamu, který je již v DB
-                    $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
+                    for ($i = 0, $j = count($countlit); $i < $j; $i++) {
+                      $lit = $countlit[$i];
+                      if (!empty($lit)) {
+                        // EN: Insert new row and update row if exists in DB
+                        // CZ: Vložení nového záznamu a update záznamu, který je již v DB
+                        $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
                         id = "' . smartsql($defaults['envo_literature_0'][$i]) . '",
                         article_id = "' . smartsql($pageID) . '",
                         text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"
                         ON DUPLICATE KEY UPDATE
                         article_id = "' . smartsql($pageID) . '", 
                         text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"');
+                      }
+                    }
+                  } else {
+                    $result2 = $envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE id = ' . $a1);
                   }
                 }
               } else {
-                $result2 = $envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE id = ' . $a1);
+                $result3 = $envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE id = ' . $a1);
+              }
+            }
+          } else {
+            $countlit = $defaults['envo_literature_0'];
+
+            for ($i = 0, $j = count($countlit); $i < $j; $i++) {
+              $lit = $countlit[$i];
+              if (!empty($lit)) {
+                // EN: Insert new row and update row if exists in DB
+                // CZ: Vložení nového záznamu a update záznamu, který je již v DB
+                $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
+                        id = "' . smartsql($defaults['envo_literature_0'][$i]) . '",
+                        article_id = "' . smartsql($pageID) . '",
+                        text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"
+                        ON DUPLICATE KEY UPDATE
+                        article_id = "' . smartsql($pageID) . '", 
+                        text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"');
               }
             }
           }
+
 
           // Set tag active to zero
           $tagactive = 0;
