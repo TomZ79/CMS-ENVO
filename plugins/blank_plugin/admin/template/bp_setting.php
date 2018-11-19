@@ -44,7 +44,7 @@ if ($page2 == "e") { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
       ?>
 
     </div>
@@ -89,7 +89,7 @@ if ($page2 == "e") { ?>
 
                 <?php
                 // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', $tlbp["bp_box_title"]["bpbt"], 'box-title');
+                echo $Html -> addTag('h3', $tlbp["bp_box_title"]["bpbt"], 'box-title');
                 ?>
 
               </div>
@@ -101,7 +101,7 @@ if ($page2 == "e") { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlbp["bp_box_content"]["bpbc"]);
+                        echo $Html -> addTag('strong', $tlbp["bp_box_content"]["bpbc"]);
                         ?>
 
                       </div>
@@ -110,7 +110,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["blankplugintitle"], '', 'form-control');
+                          echo $Html -> addInput('text', 'envo_title', $ENVO_SETTING_VAL["blankplugintitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -123,7 +123,7 @@ if ($page2 == "e") { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
                 ?>
 
               </div>

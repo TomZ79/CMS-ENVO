@@ -41,7 +41,7 @@ switch ($page1) {
 
     // EN: Default Variable
     // CZ: Hlavní proměnné
-    $catID = $page2;
+    $catsID = $page2;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -117,21 +117,32 @@ switch ($page1) {
           $rowid = $envodb -> envo_last_id();
 
           // EN:
-          // CZ: Zápis odkazů na článek do DB
-          $countlit = $defaults['envo_literature_0'];
+          // CZ: Zápis literatury/odkazů do DB
+          if (!empty($defaults['envo_all_rows'])) {
+            $array1 = explode(',', $defaults['envo_all_rows']);
+          }
+          if (!empty($defaults['envo_literature_0'])) {
+            $array2 = $defaults['envo_literature_0'];
+          }
 
-          for ($i = 0, $j = count($countlit); $i < $j; $i++) {
-            $lit = $countlit[$i];
-            if (!empty($lit)) {
-              // EN: Insert new row and update row if exists in DB
-              // CZ: Vložení nového záznamu a update záznamu, který je již v DB
-              $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
+          if (isset($array2) && is_array($array2) && !empty($array2)) {
+            foreach ($array2 as $a2) {
+              $countlit = $defaults['envo_literature_0'];
+
+              for ($i = 0, $j = count($countlit); $i < $j; $i++) {
+                $lit = $countlit[$i];
+                if (!empty($lit)) {
+                  // EN: Insert new row and update row if exists in DB
+                  // CZ: Vložení nového záznamu a update záznamu, který je již v DB
+                  $result1 = $envodb -> query('INSERT INTO ' . $envotable4 . ' SET
                         id = "' . smartsql($defaults['envo_literature_0'][$i]) . '",
                         article_id = "' . smartsql($rowid) . '",
                         text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"
                         ON DUPLICATE KEY UPDATE
                         article_id = "' . smartsql($rowid) . '", 
                         text = "' . trim(smartsql($defaults['envo_literature_1'][$i])) . '"');
+                }
+              }
             }
           }
 
@@ -209,8 +220,8 @@ switch ($page1) {
 
     // EN: Select category by "Add article" in "Category"
     // CZ:
-    if (is_numeric($catID)) {
-      $ENVO_CAT_SELECTED = $catID;
+    if (is_numeric($catsID)) {
+      $ENVO_CAT_SELECTED = $catsID;
     }
 
     // Get the sidebar templates
@@ -321,7 +332,7 @@ switch ($page1) {
                         WHERE id = "' . smartsql($pageID) . '"');
 
           // EN:
-          // CZ: Zápis odkazů na článek do DB
+          // CZ: Zápis literatury/odkazů do DB
           if (!empty($defaults['envo_all_rows'])) {
             $array1 = explode(',', $defaults['envo_all_rows']);
           }
@@ -587,21 +598,33 @@ switch ($page1) {
 
     break;
   case 'delete':
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      $result2 = $envodb -> query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+      $result2 = $envodb -> query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
       $row2    = $result2 -> fetch_assoc();
 
       $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
 
-      $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
       if (!$result) {
         // EN: Redirect page
         // CZ: Přesměrování stránky s notifikací - chybné
         envo_redirect(BASE_URL . 'index.php?p=wiki&status=e');
       } else {
-        ENVO_tags ::envoDeleteTags($page2, ENVO_PLUGIN_WIKI);
+
+        // EN:
+        // CZ: Odstranění literatury/odkazů z DB
+        $envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE article_id = "' . smartsql($pageID) . '"');
+
+        // EN: Delete the Tags from DB
+        // CZ: Odstranění Tagů (Štítků) z DB
+        ENVO_tags ::envoDeleteTags($pageID, ENVO_PLUGIN_WIKI);
 
         // EN: Redirect page
         // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -963,6 +986,7 @@ switch ($page1) {
 
     break;
   case 'setting':
+    // WIKI SETTING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -1153,6 +1177,8 @@ switch ($page1) {
 
     break;
   case 'quickedit':
+    // WIKI QUICKEDIT IN FRONTEND
+
     if (envo_row_exist($page2, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -1208,6 +1234,22 @@ switch ($page1) {
     }
     break;
   default:
+    // MAIN PAGE OF PLUGIN - LIST OF WIKI ARTICLE
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    $pagearray = array ('new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit');
+    if (!empty($page1) && !is_numeric($page1)) {
+      if (in_array($page1, $pagearray)) {
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     // Important Smarty stuff
     $ENVO_CAT = envo_get_cat_info($envotable1, 0);

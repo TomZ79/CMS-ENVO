@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -27,19 +27,19 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tlbh["bh_install"]["bhinst"]?></title>
+  <title><?= $tlbh["bh_install"]["bhinst"] ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -89,15 +89,15 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
   <!-- BEGIN VENDOR JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
+  echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  echo $Html -> addScript('/admin/pages/js/pages.min.js');
   ?>
 </head>
 <body>
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?=$tlbh["bh_install"]["bhinst"]?></h3>
+        <h3 class="semi-bold text-white"><?= $tlbh["bh_install"]["bhinst"] ?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?=$tlbh["bh_install"]["bhinst1"]?></h4>
+        <h4 class="semi-bold"><?= $tlbh["bh_install"]["bhinst1"] ?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?=$tlbh["bh_install"]["bhinst2"]?></div>
+            <div class="card-title"><?= $tlbh["bh_install"]["bhinst2"] ?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -149,8 +149,8 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
-      if ($envodb->affected_rows > 0) { ?>
+      $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
+      if ($envodb -> affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -179,7 +179,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "BelowHeader", "Run your own Layer Slider.", 1, ' . ENVO_USERID . ', 4, "belowheader", "", "if ($page == \'belowheader\') {
+      $envodb -> query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "BelowHeader", "Run your own Layer Slider.", 1, ' . ENVO_USERID . ', 4, "belowheader", "", "if ($page == \'belowheader\') {
         require_once APP_PATH.\'plugins/belowheader/admin/belowheader.php\';
         $ENVO_PROVED = 1;
         $checkp = 1;
@@ -188,8 +188,8 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $sqls    = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
-      $results = $envodb->query($sqls);
-      $rows    = $results->fetch_assoc();
+      $results = $envodb -> query($sqls);
+      $rows    = $results -> fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -209,12 +209,12 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 
       // EN: Frontend - set files for other uses
       // CZ: Frontend - nastavení používaných souborů
-      $belowheader  = 'plugins/belowheader/bh_header.php';
+      $belowheader = 'plugins/belowheader/bh_header.php';
       $belowfooter = 'plugins/belowheader/bh_footer.php';
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+      $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "BelowHeader Admin Language", "' . $adminlang . '", "belowheader", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "BelowHeader Admin CSS", "plugins/belowheader/admin/template/css.belowheader.php", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_top", "BelowHeader Index", "' . $index_top . '", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -223,7 +223,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 
       // EN: Create table for plugin
       // CZ: Vytvoření tabulky pro plugin
-      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'belowheader (
+      $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'belowheader (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `allpage` smallint(1) unsigned NOT NULL DEFAULT 0,
   `pageid` varchar(100) DEFAULT NULL,
@@ -267,13 +267,13 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
+      $result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
 
       ?>
-        <div class="alert bg-danger"><?=$tlbh["bh_install"]["bhinst5"]?></div>
+        <div class="alert bg-danger"><?= $tlbh["bh_install"]["bhinst5"] ?></div>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
           <button type="submit" name="redirect" class="btn btn-danger btn-block">
-            <?=$tlbh["bh_install"]["bhinst6"]?>
+            <?= $tlbh["bh_install"]["bhinst6"] ?>
           </button>
         </form>
       <?php }
@@ -282,7 +282,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="install.php" enctype="multipart/form-data">
           <button type="submit" name="install" class="btn btn-primary btn-block">
-            <?=$tlbh["bh_install"]["bhinst7"]?>
+            <?= $tlbh["bh_install"]["bhinst7"] ?>
           </button>
         </form>
       <?php }

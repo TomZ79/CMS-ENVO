@@ -43,16 +43,16 @@ if ($page == 'blog') {
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
+  echo $Html -> addScript('assets/plugins/ace/ace.js');
   // Plugin Slug
-  echo $Html->addScript('assets/js/global_js/slug.min.js');
+  echo $Html -> addScript('assets/js/global_js/slug.min.js');
   // Categories plugin and script
-  echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
-  echo $Html->addScript('assets/js/global_js/catorder.min.js');
+  echo $Html -> addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
+  echo $Html -> addScript('assets/js/global_js/catorder.min.js');
   // Plugin DataTable
-  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+  echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/blog/admin/js/script.blog.js');
+  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/blog/admin/js/script.blog.js');
 
   echo PHP_EOL . '<!-- End JS Blog -->' . PHP_EOL;
 

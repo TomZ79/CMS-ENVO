@@ -6,7 +6,7 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSBELOWHEADER)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESSBELOWHEADER)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -32,7 +32,6 @@ include_once("../plugins/belowheader/admin/include/functions.php");
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
-
   case 'newbh':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -71,7 +70,7 @@ switch ($page1) {
         }
 
         // Do the dirty work in mysql
-        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                   allpage = "' . smartsql($defaults['envo_allpage']) . '",
                   pageid = "' . smartsql($pageid) . '",
                   newsid = "' . smartsql($newsid) . '",
@@ -85,7 +84,7 @@ switch ($page1) {
                   permission = "' . smartsql($permission) . '",
                   time = NOW()');
 
-        $rowid = $envodb->envo_last_id();
+        $rowid = $envodb -> envo_last_id();
 
         if (!$result) {
           // EN: Redirect page
@@ -163,7 +162,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $envodb->query('UPDATE ' . $envotable . ' SET
+        $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                       allpage = "' . smartsql($defaults['envo_allpage']) . '",
                       pageid = "' . smartsql($pageid) . '",
                       newsid = "' . smartsql($newsid) . '",
@@ -214,7 +213,7 @@ switch ($page1) {
     break;
   case 'lock':
 
-    $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
+    $result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
     if (!$result) {
       // EN: Redirect page
@@ -228,10 +227,15 @@ switch ($page1) {
 
     break;
   case 'delete':
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
       // Delete the Content
-      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
       if (!$result) {
         // EN: Redirect page
@@ -255,6 +259,22 @@ switch ($page1) {
     }
     break;
   default:
+    // MAIN PAGE OF PLUGIN - LIST OF BELOWHEADER ARTICLE
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    $pagearray = array ( 'newbh', 'edit', 'lock', 'delete' );
+    if (!empty($page1) && !is_numeric($page1)) {
+      if (in_array($page1, $pagearray)) {
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_belowheader'])) {
       // EN: Default Variable
@@ -268,7 +288,7 @@ switch ($page1) {
         for ($i = 0; $i < count($deleteuser); $i++) {
           $deleted = $deleteuser[$i];
 
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+          $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
         }
 
         if (!$result) {
@@ -296,7 +316,7 @@ switch ($page1) {
           $locked = $lockuser[$i];
 
           // Delete the pics associated with the Nivo Slider
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+          $result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
         }
 
         if (!$result) {

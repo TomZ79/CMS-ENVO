@@ -42,15 +42,15 @@ if ($errors) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton hidden-xs">
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=blog&sp=categories', $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html -> addAnchor('index.php?p=blog&sp=categories', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -63,7 +63,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('h3', $tlblog["blog_box_title"]["blogbt5"], 'box-title');
+            echo $Html -> addTag('h3', $tlblog["blog_box_title"]["blogbt5"], 'box-title');
             ?>
 
           </div>
@@ -75,8 +75,8 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc19"]);
-                    echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                    echo $Html -> addTag('strong', $tlblog["blog_box_content"]["blogbc19"]);
+                    echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                     ?>
 
                   </div>
@@ -85,7 +85,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_name', (isset($_REQUEST["envo_name"])) ? $_REQUEST["envo_name"] : '', 'envo_name', 'form-control');
+                      echo $Html -> addInput('text', 'envo_name', (isset($_REQUEST["envo_name"])) ? $_REQUEST["envo_name"] : '', 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -97,9 +97,9 @@ if ($errors) { ?>
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc20"]);
-                    echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlblog["blog_help"]["blogh2"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
-                    echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                    echo $Html -> addTag('strong', $tlblog["blog_box_content"]["blogbc20"]);
+                    echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlblog["blog_help"]["blogh2"], 'data-original-title' => $tlblog["blog_help"]["blogh"] ));
+                    echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                     ?>
 
                   </div>
@@ -108,7 +108,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_varname', (isset($_REQUEST["envo_varname"])) ? $_REQUEST["envo_varname"] : '', 'envo_varname', 'form-control');
+                      echo $Html -> addInput('text', 'envo_varname', (isset($_REQUEST["envo_varname"])) ? $_REQUEST["envo_varname"] : '', 'envo_varname', 'form-control');
                       ?>
 
                     </div>
@@ -119,7 +119,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc21"]);
+                    echo $Html -> addTag('strong', $tlblog["blog_box_content"]["blogbc21"]);
                     ?>
 
                   </div>
@@ -127,7 +127,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('envo_lcontent', (isset($_REQUEST["envo_lcontent"])) ? envo_edit_safe_userpost($_REQUEST["envo_lcontent"]) : '', '4', '', array('id' => 'content', 'class' => 'form-control'));
+                    echo $Html -> addTextarea('envo_lcontent', (isset($_REQUEST["envo_lcontent"])) ? envo_edit_safe_userpost($_REQUEST["envo_lcontent"]) : '', '4', '', array ( 'id' => 'content', 'class' => 'form-control' ));
                     ?>
 
                   </div>
@@ -137,7 +137,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc22"]);
+                    echo $Html -> addTag('strong', $tlblog["blog_box_content"]["blogbc22"]);
                     ?>
 
                   </div>
@@ -146,14 +146,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('envo_active', '1', ((isset($_REQUEST["envo_active"]) && $_REQUEST["envo_active"] == '1') || !isset($_REQUEST["envo_active"])) ? TRUE : FALSE, 'envo_active1');
+                      echo $Html -> addRadio('envo_active', '1', ((isset($_REQUEST["envo_active"]) && $_REQUEST["envo_active"] == '1') || !isset($_REQUEST["envo_active"])) ? TRUE : FALSE, 'envo_active1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('envo_active1', $tl["checkbox"]["chk"]);
+                      echo $Html -> addLabel('envo_active1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('envo_active', '0', ((isset($_REQUEST["envo_active"]) && $_REQUEST["envo_active"] == '0')) ? TRUE : FALSE, 'envo_active2');
+                      echo $Html -> addRadio('envo_active', '0', ((isset($_REQUEST["envo_active"]) && $_REQUEST["envo_active"] == '0')) ? TRUE : FALSE, 'envo_active2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('envo_active2', $tl["checkbox"]["chk1"]);
+                      echo $Html -> addLabel('envo_active2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -164,7 +164,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc23"]);
+                    echo $Html -> addTag('strong', $tlblog["blog_box_content"]["blogbc23"]);
                     ?>
 
                   </div>
@@ -176,7 +176,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_img', $_REQUEST["envo_img"], 'envo_img', 'form-control text-center');
+                      echo $Html -> addInput('text', 'envo_img', $_REQUEST["envo_img"], 'envo_img', 'form-control text-center');
                       ?>
 
                       <span class="input-group-append">
@@ -192,7 +192,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
             ?>
 
           </div>
@@ -204,12 +204,12 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-            echo $Html->startTag('h3', array('class' => 'box-title'));
+            echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
             echo $tlblog["blog_box_title"]["blogbt6"];
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+            echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"] ));
             // Add Html Element -> endTag (Arguments: tag)
-            echo $Html->endTag('h3');
+            echo $Html -> endTag('h3');
             ?>
 
           </div>
@@ -224,7 +224,7 @@ if ($errors) { ?>
                       // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
                       $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
 
-                      echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc24"], $selected);
+                      echo $Html -> addOption('0', $tlblog["blog_box_content"]["blogbc24"], $selected);
                       if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                         if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
@@ -237,7 +237,7 @@ if ($errors) { ?>
                           $selected = FALSE;
                         }
 
-                        echo $Html->addOption($v["id"], $v["name"], $selected);
+                        echo $Html -> addOption($v["id"], $v["name"], $selected);
 
                       }
                       ?>
@@ -252,7 +252,7 @@ if ($errors) { ?>
 
             <?php
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+            echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
             ?>
 
           </div>

@@ -1,7 +1,6 @@
 <?php
 
 // Now we have a cache file let's display the content if the user has permission.
-
 if (isset($ENVO_ALLPAGE_BELOW_HEADER) && is_array($ENVO_ALLPAGE_BELOW_HEADER)) {
   foreach ($ENVO_ALLPAGE_BELOW_HEADER as $suball) {
     if ($suball['allpage'] == 1 && (envo_get_access(ENVO_USERGROUPID, $suball['permission']) || $suball['permission'] == 0)) {

@@ -3,7 +3,7 @@
 
     <?php
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-    echo $Html->addTag('h3', $tlbp["bp_connect"]["bpc"], 'box-title');
+    echo $Html -> addTag('h3', $tlbp["bp_connect"]["bpc"], 'box-title');
     ?>
 
   </div>
@@ -15,7 +15,7 @@
 
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('strong', $tlbp["bp_connect"]["bpc1"]);
+            echo $Html -> addTag('strong', $tlbp["bp_connect"]["bpc1"]);
             ?>
 
           </div>
@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_blankplugin', '1', ((isset($_REQUEST["envo_blankplugin"]) && $_REQUEST["envo_blankplugin"] == '1')) ? TRUE : FALSE, 'envo_blankplugin1');
+              echo $Html -> addRadio('envo_blankplugin', '1', ((isset($_REQUEST["envo_blankplugin"]) && $_REQUEST["envo_blankplugin"] == '1')) ? TRUE : FALSE, 'envo_blankplugin1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_blankplugin1', $tl["checkbox"]["chk"]);
+              echo $Html -> addLabel('envo_blankplugin1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_blankplugin', '0', ((isset($_REQUEST["envo_blankplugin"]) && $_REQUEST["envo_blankplugin"] == '0') || !isset($_REQUEST["envo_blankplugin"])) ? TRUE : FALSE, 'envo_blankplugin2');
+              echo $Html -> addRadio('envo_blankplugin', '0', ((isset($_REQUEST["envo_blankplugin"]) && $_REQUEST["envo_blankplugin"] == '0') || !isset($_REQUEST["envo_blankplugin"])) ? TRUE : FALSE, 'envo_blankplugin2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_blankplugin2', $tl["checkbox"]["chk1"]);
+              echo $Html -> addLabel('envo_blankplugin2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>
@@ -44,7 +44,7 @@
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
     ?>
 
   </div>

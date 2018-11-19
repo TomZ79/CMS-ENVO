@@ -241,9 +241,13 @@ switch ($page1) {
     break;
   case 'edit':
 
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
     $site_dload_files = envo_get_download_files($setting["downloadpath"]);
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // EN: Default Variable
@@ -264,13 +268,13 @@ switch ($page1) {
 
         // Delete the hits
         if (!empty($defaults['envo_delete_hits'])) {
-          $envodb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($pageID) . '"');
         }
 
         // Delete the password
         if (!empty($defaults['envo_delete_password'])) {
           $defaults['envo_password'] = '';
-          $envodb->query('UPDATE ' . $envotable . ' SET password = NULL WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET password = NULL WHERE id = "' . smartsql($pageID) . '"');
         }
 
         if (empty($defaults['envo_title'])) {
@@ -358,7 +362,7 @@ switch ($page1) {
                         ' . $insert . '
                         ftshare = "' . smartsql($defaults['envo_ftshare']) . '",
                         socialbutton = "' . smartsql($defaults['envo_social']) . '"
-                        WHERE id = "' . smartsql($page2) . '"');
+                        WHERE id = "' . smartsql($pageID) . '"');
 
           // Set tag active to zero
           $tagactive = 0;
@@ -393,7 +397,7 @@ switch ($page1) {
                 $whatid = 0;
                 if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-                $envodb->query('INSERT INTO ' . $envotable2 . ' SET fileid = "' . smartsql($page2) . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = "' . smartsql(ENVO_PLUGIN_DOWNLOAD) . '"');
+                $envodb->query('INSERT INTO ' . $envotable2 . ' SET fileid = "' . smartsql($pageID) . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = "' . smartsql(ENVO_PLUGIN_DOWNLOAD) . '"');
 
               }
 
@@ -405,11 +409,11 @@ switch ($page1) {
           if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
             // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-            $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($page2) . '" AND hookid != 0');
+            $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($pageID) . '" AND hookid != 0');
 
             // We have something to delete
             if ($row["id"]) {
-              $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($page2) . '" AND hookid != 0');
+              $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($pageID) . '" AND hookid != 0');
             }
 
           }
@@ -455,21 +459,21 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=edit&id=' . $page2 . '&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=download&sp=edit&id=' . $pageID . '&status=e');
           } else {
 
             // Create Tags if the module is active
             if (!empty($defaults['envo_tags'])) {
               // check if tag does not exist and insert in cloud
-              ENVO_tags::envoBuildCloud($defaults['envo_tags'], smartsql($page2), ENVO_PLUGIN_DOWNLOAD);
+              ENVO_tags::envoBuildCloud($defaults['envo_tags'], smartsql($pageID), ENVO_PLUGIN_DOWNLOAD);
               // insert tag for normal use
-              ENVO_tags::envoInserTags($defaults['envo_tags'], smartsql($page2), ENVO_PLUGIN_DOWNLOAD, $tagactive);
+              ENVO_tags::envoInserTags($defaults['envo_tags'], smartsql($pageID), ENVO_PLUGIN_DOWNLOAD, $tagactive);
 
             }
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=edit&id=' . $page2 . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=download&sp=edit&id=' . $pageID . '&status=s');
           }
 
         } else {
@@ -479,13 +483,13 @@ switch ($page1) {
         }
       }
 
-      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
       if (ENVO_TAGS) {
-        $ENVO_TAGLIST = envo_get_tags($page2, ENVO_PLUGIN_DOWNLOAD);
+        $ENVO_TAGLIST = envo_get_tags($pageID, ENVO_PLUGIN_DOWNLOAD);
       }
 
       // Get the sort orders for the grid
-      $grid = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
+      $grid = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($pageID) . '" ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
@@ -543,21 +547,29 @@ switch ($page1) {
 
     break;
   case 'delete':
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      $result2 = $envodb->query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+      $result2 = $envodb->query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
       $row2    = $result2->fetch_assoc();
 
       $envodb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
 
-      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
       if (!$result) {
         // EN: Redirect page
         // CZ: Přesměrování stránky s notifikací - chybné
         envo_redirect(BASE_URL . 'index.php?p=download&status=e');
       } else {
-        ENVO_tags::envoDeleteTags($page2, ENVO_PLUGIN_DOWNLOAD);
+
+        // EN: Delete the Tags from DB
+        // CZ: Odstranění Tagů (Štítků) z DB
+        ENVO_tags::envoDeleteTags($pageID, ENVO_PLUGIN_DOWNLOAD);
 
         // EN: Redirect page
         // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -597,61 +609,6 @@ switch ($page1) {
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
       $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'catsort.php';
-
-    } else {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      envo_redirect(BASE_URL . 'index.php?p=download&status=ene');
-    }
-    break;
-  case 'quickedit':
-    if (envo_row_exist($page2, $envotable)) {
-
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // EN: Default Variable
-        // CZ: Hlavní proměnné
-        $defaults = $_POST;
-
-        if (empty($defaults['envo_title'])) {
-          $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
-        }
-
-        // Now do the dirty stuff in mysql
-        if (count($errors) == 0) {
-
-          /* EN: Convert value
-           * smartsql - secure method to insert form data into a MySQL DB
-           * ------------------
-           * CZ: Převod hodnot
-           * smartsql - secure method to insert form data into a MySQL DB
-          */
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        title = "' . smartsql($defaults['envo_title']) . '",
-                        content = "' . smartsql($defaults['envo_lcontent']) . '"
-                        WHERE id = "' . smartsql($page2) . '"');
-
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=quickedit&id=' . $page2 . '&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=quickedit&id=' . $page2 . '&status=s');
-          }
-        } else {
-
-          $errors['e'] = $tl['general_error']['generror'] . '<br>';
-          $errors      = $errors;
-        }
-      }
-
-      // Get the data
-      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
-
-      // EN: Load the php template
-      // CZ: Načtení php template (šablony)
-      $template = 'quickedit.php';
 
     } else {
       // EN: Redirect page
@@ -1156,7 +1113,78 @@ switch ($page1) {
     $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'setting.php';
 
     break;
+  case 'quickedit':
+    if (envo_row_exist($page2, $envotable)) {
+
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $defaults = $_POST;
+
+        if (empty($defaults['envo_title'])) {
+          $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
+        }
+
+        // Now do the dirty stuff in mysql
+        if (count($errors) == 0) {
+
+          /* EN: Convert value
+           * smartsql - secure method to insert form data into a MySQL DB
+           * ------------------
+           * CZ: Převod hodnot
+           * smartsql - secure method to insert form data into a MySQL DB
+          */
+          $result = $envodb->query('UPDATE ' . $envotable . ' SET
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['envo_lcontent']) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
+
+          if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
+            envo_redirect(BASE_URL . 'index.php?p=download&sp=quickedit&id=' . $page2 . '&status=e');
+          } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
+            envo_redirect(BASE_URL . 'index.php?p=download&sp=quickedit&id=' . $page2 . '&status=s');
+          }
+        } else {
+
+          $errors['e'] = $tl['general_error']['generror'] . '<br>';
+          $errors      = $errors;
+        }
+      }
+
+      // Get the data
+      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
+      $template = 'quickedit.php';
+
+    } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
+      envo_redirect(BASE_URL . 'index.php?p=download&status=ene');
+    }
+    break;
   default:
+    // MAIN PAGE OF PLUGIN - LIST OF DOWNLOAD ARTICLE
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    $pagearray = array ('new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit');
+    if (!empty($page1) && !is_numeric($page1)) {
+      if (in_array($page1, $pagearray)) {
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     // Important Smarty stuff
     $ENVO_CAT           = envo_get_cat_info($envotable1, 0);

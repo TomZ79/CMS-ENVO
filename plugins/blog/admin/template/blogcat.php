@@ -69,7 +69,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-  echo $Html->addAnchor('index.php?p=blog&sp=newcategory', $tl["button"]["btn29"], '', 'btn btn-info button');
+  echo $Html -> addAnchor('index.php?p=blog&sp=newcategory', $tl["button"]["btn29"], '', 'btn btn-info button');
   ?>
 
 </div>
@@ -81,8 +81,8 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('i', '', 'fa fa-bars');
-      echo $Html->addTag('h3', $tlblog["blog_box_table"]["blogtb5"], 'box-title');
+      echo $Html -> addTag('i', '', 'fa fa-bars');
+      echo $Html -> addTag('h3', $tlblog["blog_box_table"]["blogtb5"], 'box-title');
       ?>
 
     </div>
@@ -107,7 +107,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success float-right save-menu-plugin', array('data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html -> addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success float-right save-menu-plugin', array ( 'data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"] ));
       ?>
 
     </div>
@@ -118,12 +118,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"]));
-      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"]));
-      echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i21"]));
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+      echo $Html -> addTag('h3', $tl["icons"]["i"]);
+      echo $Html -> addTag('i', '', 'fa fa-check', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"] ));
+      echo $Html -> addTag('i', '', 'fa fa-lock', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"] ));
+      echo $Html -> addTag('i', '', 'fa fa-sticky-note-o', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i21"] ));
+      echo $Html -> addTag('i', '', 'fa fa-edit', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
+      echo $Html -> addTag('i', '', 'fa fa-trash-o', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
       ?>
 
     </div>
@@ -135,7 +135,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+    echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
     ?>
 
   </div>

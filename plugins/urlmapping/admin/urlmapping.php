@@ -202,8 +202,22 @@ switch ($page1) {
     }
     break;
   default:
+    // MAIN PAGE OF PLUGIN - LIST OF URL MAPPING
 
-    // LIST OF URL MAPPING
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    $pagearray = array ('new', 'edit', 'lock', 'delete');
+    if (!empty($page1) && !is_numeric($page1)) {
+      if (in_array($page1, $pagearray)) {
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_urlmapping'])) {
       // EN: Default Variable

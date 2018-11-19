@@ -24,12 +24,12 @@ if ($page == 'belowheader') {
   // Load 'ace.js'  - only for selected pages
   if ($setting["adv_editor"]) {
     // Plugin ACE Editor
-    echo $Html->addScript('assets/plugins/ace/ace.js');
+    echo $Html -> addScript('assets/plugins/ace/ace.js');
   }
   // Plugin DataTable
-  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+  echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Javascript
-  echo $Html->addScript('/plugins/belowheader/admin/js/script.belowheader.min.js');
+  echo $Html -> addScript('/plugins/belowheader/admin/js/script.belowheader.min.js');
 
   echo PHP_EOL . '<!-- End JS Belowheader -->' . PHP_EOL;
 

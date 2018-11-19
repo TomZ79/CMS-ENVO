@@ -22,18 +22,18 @@ if (strlen($SearchInput) >= 3) {
   $urldetail = $_GET['url_detail'];
 
   $blog = new ENVO_search($SearchInput);
-  $blog->envoSetTable('blog', "");
-  $blog->envoAndor("OR");
-  $blog->envoFieldActive("active");
-  $blog->envoFieldTitle("title");
-  $blog->envoFieldCut("content");
-  $blog->envoFieldstoSearch(array('title', 'content'));
-  $blog->envoFieldstoSelect("id, title, content");
+  $blog -> envoSetTable('blog', "");
+  $blog -> envoAndor("OR");
+  $blog -> envoFieldActive("active");
+  $blog -> envoFieldTitle("title");
+  $blog -> envoFieldCut("content");
+  $blog -> envoFieldstoSearch(array ( 'title', 'content' ));
+  $blog -> envoFieldstoSelect("id, title, content");
 
-  $blogarray = $blog->set_result($urldetail, 'blog-article', $_GET['seo']);
+  $blogarray = $blog -> set_result($urldetail, 'blog-article', $_GET['seo']);
 
   if (isset($blogarray) && is_array($blogarray)) {
-    ENVO_search::search_cloud($SearchInput);
+    ENVO_search ::search_cloud($SearchInput);
     $text = '';
     foreach ($blogarray as $row) {
 

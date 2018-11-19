@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -27,19 +27,19 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tlbp["bp_install"]["bpinst"]?></title>
+  <title><?= $tlbp["bp_install"]["bpinst"] ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -89,15 +89,15 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
   <!-- BEGIN VENDOR JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
+  echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  echo $Html -> addScript('/admin/pages/js/pages.min.js');
   ?>
 </head>
 <body>
@@ -107,17 +107,17 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
     <div class="col-sm-12">
       <div class="col-sm-12 m-t-20">
         <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-          <h3 class="semi-bold text-white"><?=$tlbp["bp_install"]["bpinst"]?></h3>
+          <h3 class="semi-bold text-white"><?= $tlbp["bp_install"]["bpinst"] ?></h3>
         </div>
         <hr>
         <div id="notificationcontainer"></div>
         <div class="m-b-30">
 
-          <h4 class="semi-bold"><?=$tlbp["bp_install"]["bpinst1"]?></h4>
+          <h4 class="semi-bold"><?= $tlbp["bp_install"]["bpinst1"] ?></h4>
 
           <div data-pages="card" class="card card-transparent" id="card-basic">
             <div class="card-header separator">
-              <div class="card-title"><?=$tlbp["bp_install"]["bpinst2"]?></div>
+              <div class="card-title"><?= $tlbp["bp_install"]["bpinst2"] ?></div>
               <div class="card-controls">
                 <ul>
                   <li>
@@ -150,8 +150,8 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
          * Kontrola zda je plugin instalován
          * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
         */
-        $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "blank_plugin"');
-        if ($envodb->affected_rows > 0) { ?>
+        $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "blank_plugin"');
+        if ($envodb -> affected_rows > 0) { ?>
 
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
           </button>
@@ -181,7 +181,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blank_plugin", "Blank Plugin.", 1, ' . ENVO_USERID . ', 1, "blank_plugin", "require_once APP_PATH.\'plugins/blank_plugin/blankplugin.php\';", "if ($page == \'blank-plugin\') {
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blank_plugin", "Blank Plugin.", 1, ' . ENVO_USERID . ', 1, "blank_plugin", "require_once APP_PATH.\'plugins/blank_plugin/blankplugin.php\';", "if ($page == \'blank-plugin\') {
         require_once APP_PATH.\'plugins/blank_plugin/admin/blankplugin.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
@@ -189,8 +189,8 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-        $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
-        $rows    = $results->fetch_assoc();
+        $results = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
+        $rows    = $results -> fetch_assoc();
 
         if ($rows['id']) {
         // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -218,7 +218,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Blank Plugin Admin Language", "' . $adminlang . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blank Plugin Site Language", "' . $sitelang . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Blank Plugin Admin CSS", "plugins/blank_plugin/admin/template/css.blank_plugin.php", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -228,16 +228,16 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("blankplugintitle", "blankplugin", "Blank Plugin", "Blank Plugin", "input", "free", "blankplugin")');
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
-        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blankplugin` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blankplugin` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
         // EN: Insert data to table 'categories' (create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Blank Plugin", "blank-plugin", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
         $succesfully = 1;
@@ -266,14 +266,14 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
         // EN: If plugin have 'id' (plugin is not installed), uninstall
         // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-        $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
+        $result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
 
         ?>
 
-          <div class="alert bg-danger"><?=$tlbp["bp_install"]["bpinst5"]?></div>
+          <div class="alert bg-danger"><?= $tlbp["bp_install"]["bpinst5"] ?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
             <button type="submit" name="redirect" class="btn btn-danger btn-block">
-              <?=$tlbp["bp_install"]["bpinst6"]?>
+              <?= $tlbp["bp_install"]["bpinst6"] ?>
             </button>
           </form>
 
@@ -282,7 +282,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php">
             <button type="submit" name="install" class="btn btn-complete btn-block">
-              <?=$tlbp["bp_install"]["bpinst7"]?>
+              <?= $tlbp["bp_install"]["bpinst7"] ?>
             </button>
           </form>
         <?php }
