@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -27,19 +27,19 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tld["downl_install"]["downlinst"]?></title>
+  <title><?= $tld["downl_install"]["downlinst"] ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -89,15 +89,15 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
   <!-- BEGIN VENDOR JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
+  echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  echo $Html -> addScript('/admin/pages/js/pages.min.js');
   ?>
 </head>
 <body>
@@ -106,18 +106,18 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?=$tld["downl_install"]["downlinst"]?></h3>
+        <h3 class="semi-bold text-white"><?= $tld["downl_install"]["downlinst"] ?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?=$tld["downl_install"]["downlinst1"]?></h4>
+        <h4 class="semi-bold"><?= $tld["downl_install"]["downlinst1"] ?></h4>
         <p>Plugin umožní přesměrování stránek se zadáním typu přesměrování.</p>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?=$tld["downl_install"]["downlinst2"]?></div>
+            <div class="card-title"><?= $tld["downl_install"]["downlinst2"] ?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -154,92 +154,92 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
                 </tr>
                 </tbody>
               </table>
+            </div>
           </div>
+
         </div>
+        <hr>
 
-      </div>
-      <hr>
+        <?php
+        /* English
+         * -------
+         * Check if the plugin is already installed
+         * If plugin is installed - show Notification
+         *
+         * Czech
+         * -------
+         * Kontrola zda je plugin instalován
+         * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
+        */
+        $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+        if ($envodb -> affected_rows > 0) { ?>
 
-      <?php
-      /* English
-       * -------
-       * Check if the plugin is already installed
-       * If plugin is installed - show Notification
-       *
-       * Czech
-       * -------
-       * Kontrola zda je plugin instalován
-       * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
-      */
-      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-      if ($envodb->affected_rows > 0) { ?>
+          <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+          <script>
+            $(document).ready(function () {
+              'use strict';
+              // Apply the plugin to the body
+              $('#notificationcontainer').pgNotification({
+                style: 'bar',
+                message: '<?=$tld["downl_install"]["downlinst3"]?>',
+                position: 'top',
+                timeout: 0,
+                type: 'warning'
+              }).show();
 
-        <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
-        <script>
-          $(document).ready(function () {
-            'use strict';
-            // Apply the plugin to the body
-            $('#notificationcontainer').pgNotification({
-              style: 'bar',
-              message: '<?=$tld["downl_install"]["downlinst3"]?>',
-              position: 'top',
-              timeout: 0,
-              type: 'warning'
-            }).show();
+              e.preventDefault();
+            });
+          </script>
 
-            e.preventDefault();
-          });
-        </script>
+        <?php
+        } else {
+        // EN: If plugin is not installed - install plugin
+        // CZ: Pokud není plugin instalován, spustit instalaci pluginu
 
-      <?php
-      } else {
-      // EN: If plugin is not installed - install plugin
-      // CZ: Pokud není plugin instalován, spustit instalaci pluginu
+        // MAIN PLUGIN INSTALLATION
+        if (isset($_POST['install'])) {
 
-      // MAIN PLUGIN INSTALLATION
-      if (isset($_POST['install'])) {
-
-      // EN: Insert data to table 'plugins' about this plugin
-      // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . ENVO_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
+        // EN: Insert data to table 'plugins' about this plugin
+        // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . ENVO_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
         require_once APP_PATH.\'plugins/download/admin/download.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.2.1", NOW())');
 
-      // EN: Now get the plugin 'id' from table 'plugins' for futher use
-      // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-      $rows    = $results->fetch_assoc();
+        // EN: Now get the plugin 'id' from table 'plugins' for futher use
+        // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
+        $results = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+        $rows    = $results -> fetch_assoc();
 
-      if ($rows['id']) {
-      // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
-      // CZ: Pokud má plugin 'id' (tzn. plugin je instalován), instalujeme další data pro plugin (vytvoření tabulek a zápis dat do tabulek)
+        if ($rows['id']) {
+        // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
+        // CZ: Pokud má plugin 'id' (tzn. plugin je instalován), instalujeme další data pro plugin (vytvoření tabulek a zápis dat do tabulek)
 
-      // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
-      // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-      $insertphpcode = 'if (isset($defaults[\'envo_download\'])) {
+        // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
+        // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
+        $insertphpcode = 'if (isset($defaults[\'envo_download\'])) {
 	$insert .= \'download = \"\'.$defaults[\'envo_download\'].\'\", downloadcan = \"\'.$defaults[\'envo_candownload\'].\'\",\'; }';
 
-      // EN: Set admin lang of plugin
-      // CZ: Nastavení jazyka pro administrační rozhraní pluginu
-      $adminlang = 'if (file_exists(APP_PATH.\'plugins/download/admin/lang/\'.$site_language.\'.ini\')) {
+        // EN: Set admin lang of plugin
+        // CZ: Nastavení jazyka pro administrační rozhraní pluginu
+        $adminlang = 'if (file_exists(APP_PATH.\'plugins/download/admin/lang/\'.$site_language.\'.ini\')) {
 	$tld = parse_ini_file(APP_PATH.\'plugins/download/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
   $tld = parse_ini_file(APP_PATH.\'plugins/download/admin/lang/en.ini\', true);
 }';
 
-      // EN: Set site lang of plugin
-      // CZ: Nastavení jazyka pro webové rozhraní pluginu
-      $sitelang = 'if (file_exists(APP_PATH.\'plugins/download/lang/\'.$site_language.\'.ini\')) {
+        // EN: Set site lang of plugin
+        // CZ: Nastavení jazyka pro webové rozhraní pluginu
+        $sitelang = 'if (file_exists(APP_PATH.\'plugins/download/lang/\'.$site_language.\'.ini\')) {
   $tld = parse_ini_file(APP_PATH.\'plugins/download/lang/\'.$site_language.\'.ini\', true);
 } else {
   $tld = parse_ini_file(APP_PATH.\'plugins/download/lang/en.ini\', true);
 }';
 
-      // EN: Php code for search
-      // CZ: Php kód pro vyhledávání
-      $sitephpsearch = '$download = new ENVO_search($SearchInput);
+        // EN: Php code for search
+        // CZ: Php kód pro vyhledávání
+        $sitephpsearch = '$download = new ENVO_search($SearchInput);
         	$download->envoSetTable(\'download\',\"\");
         	$download->envoAndor(\"OR\");
         	$download->envoFieldActive(\"active\");
@@ -251,9 +251,9 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         	// Load the array into template
         	$ENVO_SEARCH_RESULT_DOWNLOAD = $download->set_result(ENVO_PLUGIN_VAR_DOWNLOAD, \'f\', $setting[\"downloadurl\"]);';
 
-      // EN: Php code for rss
-      // CZ: Php kód pro rss
-      $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_DOWNLOAD) {
+        // EN: Php code for rss
+        // CZ: Php kód pro rss
+        $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_DOWNLOAD) {
 	
 	if ($setting[\"downloadrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"downloadrss\"];
@@ -270,32 +270,32 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 	
 }';
 
-      // EN: Php code for tags
-      // CZ: Php kód pro tagy
-      $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD) {
+        // EN: Php code for tags
+        // CZ: Php kód pro tagy
+        $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD) {
 $downloadtagData[] = ENVO_tags::envoTagSql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_DOWNLOAD, \"f\", $setting[\"downloadurl\"]);
 $ENVO_TAG_DOWNLOAD_DATA = $downloadtagData;
 }';
 
-      // EN: Php code for sitemap
-      // CZ: Php kód pro mapu sítě
-      $sitephpsitemap = 'include_once APP_PATH.\'plugins/download/functions.php\';
+        // EN: Php code for sitemap
+        // CZ: Php kód pro mapu sítě
+        $sitephpsitemap = 'include_once APP_PATH.\'plugins/download/functions.php\';
 
 $ENVO_DOWNLOAD_ALL = envo_get_download(\'\', $setting[\"downloadorder\"], \'\', \'\', $setting[\"downloadrss\"], $setting[\"downloadurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = ENVO_PLUGIN_NAME_DOWNLOAD;';
 
-      // Fulltext search query
-      $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
-      $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'download DROP INDEX `title`\');';
+        // Fulltext search query
+        $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
+        $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'download DROP INDEX `title`\');';
 
-      // Connect to pages/news
-      $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_DOWNLOAD) {
+        // Connect to pages/news
+        $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_DOWNLOAD) {
 include_once APP_PATH.\'plugins/download/admin/template/dl_connect.php\';
 }';
 
-      // EN: Php code for insert data to DB
-      // CZ: Php kód pro vložení dat do DB
-      $sqlinsert = 'if (!isset($defaults[\'envo_showdl\'])) {
+        // EN: Php code for insert data to DB
+        // CZ: Php kód pro vložení dat do DB
+        $sqlinsert = 'if (!isset($defaults[\'envo_showdl\'])) {
 	$dl = 0;
 } else if (in_array(0, $defaults[\'envo_showdl\'])) {
 	$dl = 0;
@@ -311,8 +311,8 @@ if (empty($dl) && !empty($defaults[\'envo_showdlmany\'])) {
   	$insert .= \'showdownload = NULL,\';
 }';
 
-      //
-      $getdl = '$ENVO_GET_DOWNLOAD = envo_get_page_info(DB_PREFIX.\'download\', \'\');
+        //
+        $getdl = '$ENVO_GET_DOWNLOAD = envo_get_page_info(DB_PREFIX.\'download\', \'\');
 
 if ($ENVO_FORM_DATA) {
 
@@ -325,13 +325,13 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	
 } }';
 
-      // EN: Insert code into admin/index.php
-      // CZ: Vložení kódu do admin/index.php
-      $insertadminindex = 'plugins/download/admin/template/stat.php';
+        // EN: Insert code into admin/index.php
+        // CZ: Vložení kódu do admin/index.php
+        $insertadminindex = 'plugins/download/admin/template/stat.php';
 
-      // EN: Frontend - template for display connect
-      // CZ: Frontend - šablona
-      $get_dlconnect = '
+        // EN: Frontend - template for display connect
+        // CZ: Frontend - šablona
+        $get_dlconnect = '
 	$pluginbasic_connect = \'plugins/download/template/pages_news.php\';
 	$pluginsite_connect = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/pages_news.php\';
 	
@@ -344,9 +344,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Frontend - template for display plugin sidebar
-      // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
-      $get_dlsidebar = '
+        // EN: Frontend - template for display plugin sidebar
+        // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
+        $get_dlsidebar = '
 	$pluginbasic_sidebar = \'plugins/download/template/downloadsidebar.php\';
 	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/downloadsidebar.php\';
 	
@@ -357,9 +357,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Frontend - template for sitemap
-      // CZ: Frontend - šablona pro mapu sítě
-      $get_dlsitemap = '
+        // EN: Frontend - template for sitemap
+        // CZ: Frontend - šablona pro mapu sítě
+        $get_dlsitemap = '
 	$pluginbasic_sitemap = \'plugins/download/template/sitemap.php\';
 	$pluginsite_sitemap = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/sitemap.php\';
 	
@@ -370,9 +370,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Frontend - template for search
-      // CZ: Frontend - šablona pro vyhledávání
-      $get_dlsearch = '
+        // EN: Frontend - template for search
+        // CZ: Frontend - šablona pro vyhledávání
+        $get_dlsearch = '
 	$pluginbasic_search = \'plugins/download/template/search.php\';
 	$pluginsite_search = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/search.php\';
 	
@@ -383,9 +383,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Frontend - template for tags
-      // CZ: Frontend - šablona pro tagy
-      $get_dltag = '
+        // EN: Frontend - template for tags
+        // CZ: Frontend - šablona pro tagy
+        $get_dltag = '
 	$pluginbasic_tag = \'plugins/download/template/tag.php\';
 	$pluginsite_tag = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/tag.php\';
 	
@@ -396,9 +396,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Frontend - template for display plugin footer widget
-      // CZ: Frontend - šablona pro zobrazení widgetu
-      $get_dlfooter_widgets = '
+        // EN: Frontend - template for display plugin footer widget
+        // CZ: Frontend - šablona pro zobrazení widgetu
+        $get_dlfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/download/template/footer_widget.php\';
 	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/footer_widget.php\';
 	
@@ -409,9 +409,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Frontend - template for display plugin footer widget
-      // CZ: Frontend - šablona pro zobrazení widgetu
-      $get_dlfooter_widgets1 = '
+        // EN: Frontend - template for display plugin footer widget
+        // CZ: Frontend - šablona pro zobrazení widgetu
+        $get_dlfooter_widgets1 = '
 	$pluginbasic_fwidgets1 = \'plugins/download/template/footer_widget1.php\';
 	$pluginsite_fwidgets1 = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/footer_widget1.php\';
 	
@@ -422,9 +422,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Insert data to table 'pluginhooks'
-      // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+        // EN: Insert data to table 'pluginhooks'
+        // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Download Admin CSS", "plugins/download/admin/template/css.download.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -452,9 +452,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 (NULL, "tpl_footer_widgets", "Download - 3 Latest Files", "' . $get_dlfooter_widgets . '", "download", 1, 3, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Download - Show Categories", "' . $get_dlfooter_widgets1 . '", "download", 1, 3, "' . $rows['id'] . '", NOW())');
 
-      // EN: Insert data to table 'setting'
-      // CZ: Vložení potřebných dat to tabulky 'setting'
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+        // EN: Insert data to table 'setting'
+        // CZ: Vložení potřebných dat to tabulky 'setting'
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("downloadtitle", "download", "Download", "Download", "input", "free", "download"),
 ("downloaddesc", "download", "Write something about your Download", "Write something about your Download", "textarea", "free", "download"),
 ("downloademail", "download", NULL, NULL, "input", "free", "download"),
@@ -472,24 +472,24 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 ("download_javascript", "download", "", "", "textarea", "free", "download"),
 ("downloadrss", "download", 5, 5, "select", "number", "download")');
 
-      // EN: Insert data to table 'usergroup'
-      // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`');
+        // EN: Insert data to table 'usergroup'
+        // CZ: Vložení potřebných dat to tabulky 'usergroup'
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`');
 
-      // Pages/News alter Table
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER shownews');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showdownload varchar(100) DEFAULT NULL AFTER shownews');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD fileid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+        // Pages/News alter Table
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER shownews');
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news ADD showdownload varchar(100) DEFAULT NULL AFTER shownews');
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD fileid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
-      // EN: Insert data to table 'categories' (create category)
-      // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Download", "download", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+        // EN: Insert data to table 'categories' (create category)
+        // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
+        $envodb -> query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Download", "download", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
-      // EN: Create table for plugin (download)
-      // CZ: Vytvoření tabulky pro plugin (soubory)
-      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'download (
+        // EN: Create table for plugin (download)
+        // CZ: Vytvoření tabulky pro plugin (soubory)
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'download (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `catid` int(11) unsigned NOT NULL DEFAULT 0,
+  `catid` VARCHAR(100) NOT NULL DEFAULT 0,
   `candownload` VARCHAR(100) NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
   `content` mediumtext,
@@ -505,6 +505,8 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
+  `showcat` smallint(1) unsigned NOT NULL DEFAULT 0,
+  `showdl` smallint(1) unsigned NOT NULL DEFAULT 0,
   `ftshare` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
@@ -514,9 +516,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-      /// EN: Create table for plugin (categories)
-      // CZ: Vytvoření tabulky pro plugin (kategorie)
-      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcategories (
+        /// EN: Create table for plugin (categories)
+        // CZ: Vytvoření tabulky pro plugin (kategorie)
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(100) DEFAULT NULL,
@@ -531,9 +533,9 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-      // EN: Create table for plugin (downloadhistory)
-      // CZ: Vytvoření tabulky pro plugin (historie stahování)
-      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadhistory (
+        // EN: Create table for plugin (downloadhistory)
+        // CZ: Vytvoření tabulky pro plugin (historie stahování)
+        $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadhistory (
 	`id` BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`fileid` INT(11) UNSIGNED NOT NULL DEFAULT 0,
 	`userid` INT(11) UNSIGNED NOT NULL DEFAULT 0,
@@ -545,62 +547,62 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	KEY `fileid` (`fileid`)
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
-      // Full text search is activated we do so for the download table as well
-      if ($setting["fulltextsearch"]) {
-        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'download ADD FULLTEXT(`title`, `content`)');
-      }
+        // Full text search is activated we do so for the download table as well
+        if ($setting["fulltextsearch"]) {
+          $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'download ADD FULLTEXT(`title`, `content`)');
+        }
 
-      $succesfully = 1;
+        $succesfully = 1;
 
-      ?>
+        ?>
 
-        <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
-        <script>
-          $(document).ready(function () {
-            'use strict';
-            // Apply the plugin to the body
-            $('#notificationcontainer').pgNotification({
-              style: 'bar',
-              message: '<?=$tld["downl_install"]["downlinst4"]?>',
-              position: 'top',
-              timeout: 0,
-              type: 'success'
-            }).show();
+          <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+          <script>
+            $(document).ready(function () {
+              'use strict';
+              // Apply the plugin to the body
+              $('#notificationcontainer').pgNotification({
+                style: 'bar',
+                message: '<?=$tld["downl_install"]["downlinst4"]?>',
+                position: 'top',
+                timeout: 0,
+                type: 'success'
+              }).show();
 
-            e.preventDefault();
-          });
-        </script>
+              e.preventDefault();
+            });
+          </script>
 
-      <?php } else {
-      // EN: If plugin have 'id' (plugin is not installed), uninstall
-      // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
+        <?php } else {
+        // EN: If plugin have 'id' (plugin is not installed), uninstall
+        // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+        $result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
 
-      ?>
+        ?>
 
-        <div class="alert bg-danger"><?=$tld["downl_install"]["downlinst5"]?></div>
-        <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="redirect" class="btn btn-danger btn-block">
-            <?=$tld["downl_install"]["downlinst6"]?>
-          </button>
-        </form>
+          <div class="alert bg-danger"><?= $tld["downl_install"]["downlinst5"] ?></div>
+          <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+            <button type="submit" name="redirect" class="btn btn-danger btn-block">
+              <?= $tld["downl_install"]["downlinst6"] ?>
+            </button>
+          </form>
 
-      <?php }
-      } ?>
+        <?php }
+        } ?>
 
-      <?php if (!$succesfully) { ?>
-        <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-complete btn-block">
-            <?=$tld["downl_install"]["downlinst7"]?>
-          </button>
-        </form>
-      <?php }
-      } ?>
+        <?php if (!$succesfully) { ?>
+          <form name="company" method="post" action="install.php" enctype="multipart/form-data">
+            <button type="submit" name="install" class="btn btn-complete btn-block">
+              <?= $tld["downl_install"]["downlinst7"] ?>
+            </button>
+          </form>
+        <?php }
+        } ?>
 
+      </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>

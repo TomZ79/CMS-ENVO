@@ -82,7 +82,7 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
 
               // SYSTEM ICONS - Edit and Quick Edit
               if (ENVO_ASACCESS) {
-                echo '<div class="system-icons hidden-xs">';
+                echo '<div class="system-icons d-none d-sm-block">';
                 echo '<div class="row"><div class="col"><hr class="dashed tall my-3"></div></div>';
                 echo '<div class="row">';
                 echo '<div class="col-sm-6">';

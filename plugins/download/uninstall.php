@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -27,19 +27,19 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tld["downl_uninstall"]["downluninst"]?></title>
+  <title><?= $tld["downl_uninstall"]["downluninst"] ?></title>
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
+  echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
   ?>
   <!-- BEGIN Pages CSS-->
   <?php
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
+  echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+  echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ( 'class' => 'main-stylesheet' ));
   ?>
   <!-- BEGIN CUSTOM MODIFICATION -->
   <style type="text/css">
@@ -89,15 +89,15 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
   <!-- BEGIN VENDOR JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
+  echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+  echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
   <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
+  echo $Html -> addScript('/admin/pages/js/pages.min.js');
   ?>
 </head>
 <body>
@@ -106,17 +106,17 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
   <div class="row">
     <div class="col-sm-12 m-t-20">
       <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?=$tld["downl_uninstall"]["downluninst"]?></h3>
+        <h3 class="semi-bold text-white"><?= $tld["downl_uninstall"]["downluninst"] ?></h3>
       </div>
       <hr>
       <div id="notificationcontainer"></div>
       <div class="m-b-30">
 
-        <h4 class="semi-bold"><?=$tld["downl_uninstall"]["downluninst1"]?></h4>
+        <h4 class="semi-bold"><?= $tld["downl_uninstall"]["downluninst1"] ?></h4>
 
         <div data-pages="card" class="card card-transparent" id="card-basic">
           <div class="card-header separator">
-            <div class="card-title"><?=$tld["downl_uninstall"]["downluninst2"]?></div>
+            <div class="card-title"><?= $tld["downl_uninstall"]["downluninst2"] ?></div>
             <div class="card-controls">
               <ul>
                 <li>
@@ -149,40 +149,40 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-          $rows    = $results->fetch_assoc();
+          $results = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+          $rows    = $results -> fetch_assoc();
 
           if ($rows) {
 
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql($rows['id']) . '"');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "download"');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "download"');
-            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`');
-            $envodb->query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
-            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showdownload');
-            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showdownload');
-            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid DROP fileid');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql($rows['id']) . '"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "download"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "download"');
+            $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`');
+            $envodb -> query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showdownload');
+            $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news DROP showdownload');
+            $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid DROP fileid');
 
             // Now delete all tags
-            $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
-            while ($row = $result->fetch_assoc()) {
-              $result1 = $envodb->query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
-              $count   = $result1->fetch_assoc();
+            $result = $envodb -> query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            while ($row = $result -> fetch_assoc()) {
+              $result1 = $envodb -> query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
+              $count   = $result1 -> fetch_assoc();
 
               if ($count['count'] <= '1') {
-                $envodb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+                $envodb -> query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
 
               } else {
 
-                $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+                $envodb -> query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
 
               }
             }
 
-            $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb -> query('DELETE FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
           }
 
@@ -207,7 +207,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
           </script>
         <?php } else { ?>
           <div>
-            <h5 class="text-danger bold"><?=$tld["downl_uninstall"]["downluninst4"]?></h5>
+            <h5 class="text-danger bold"><?= $tld["downl_uninstall"]["downluninst4"] ?></h5>
           </div>
           <script>
             $(document).ready(function () {
@@ -229,12 +229,12 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
       if (!$succesfully) { ?>
         <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
           <div class="form-group form-inline">
-            <label for="text"><?=$tld["downl_uninstall"]["downluninst5"]?></label>
+            <label for="text"><?= $tld["downl_uninstall"]["downluninst5"] ?></label>
             <input type="text" name="captcha" class="form-control m-l-10" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
           <button type="submit" name="uninstall" class="btn btn-complete btn-block">
-            <?=$tld["downl_uninstall"]["downluninst6"]?>
+            <?= $tld["downl_uninstall"]["downluninst6"] ?>
           </button>
         </form>
       <?php } ?>

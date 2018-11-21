@@ -41,7 +41,7 @@
           <div>
             <h3>
 							<span>
-								<a href="<?=$v["parseurl"]?>"><?=envo_cut_text($v["title"], 30, "")?></a>
+								<a href="<?= $v["parseurl"] ?>"><?= envo_cut_text($v["title"], 30, "") ?></a>
 							</span>
             </h3>
           </div>
@@ -54,30 +54,30 @@
             ?>
 
             <span class="pull-right">
-							<?='<strong>' . $tld["downl_frontend"]["downl31"] . '</strong> : ' . $v["countdl"]?>
+							<?= '<strong>' . $tld["downl_frontend"]["downl31"] . '</strong> : ' . $v["countdl"] ?>
 						</span>
           </div>
           <div>
-            <p><?=$v["contentshort"]?></p>
+            <p><?= $v["contentshort"] ?></p>
           </div>
           <hr>
 
           <!-- Button -->
           <div class="pull-right">
-            <a href="<?=$v["parseurl"]?>" class="btn btn-default btn-sm">
-              <?=$tld["downl_frontend"]["downl2"]?>
+            <a href="<?= $v["parseurl"] ?>" class="btn btn-default btn-sm">
+              <?= $tld["downl_frontend"]["downl2"] ?>
             </a>
 
             <?php if (ENVO_ASACCESS) { ?>
 
-              <a href="<?=BASE_URL?>admin/index.php?p=download&amp;sp=edit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn1"]?>" class="btn btn-info btn-sm">
+              <a href="<?= BASE_URL ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?= $v["id"] ?>" title="<?= $tl["button"]["btn1"] ?>" class="btn btn-info btn-sm">
                 <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                <span class="hidden-xs"><?=$tl["button"]["btn1"]?></span>
+                <span class="hidden-xs"><?= $tl["button"]["btn1"] ?></span>
               </a>
 
-              <a class="btn btn-info btn-sm quickedit" href="<?=BASE_URL?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?=$v["id"]?>" title="<?=$tl["button"]["btn2"]?>">
+              <a class="btn btn-info btn-sm quickedit" href="<?= BASE_URL ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?= $v["id"] ?>" title="<?= $tl["button"]["btn2"] ?>">
                 <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                <span class="hidden-xs"><?=$tl["button"]["btn2"]?></span>
+                <span class="hidden-xs"><?= $tl["button"]["btn2"] ?></span>
               </a>
 
             <?php } ?>

@@ -93,7 +93,7 @@ while ($grow = $grid -> fetch_assoc()) {
 }
 
 // Get the tags for this page
-$ENVO_TAGLIST = ENVO_tags ::envoGetTagList($row['id'], 0, ENVO_PLUGIN_VAR_TAGS);
+$ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($row['id'], 0, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
 
 // EN: Get all the php Hook by name of Hook from page and news grid
 // CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)

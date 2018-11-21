@@ -1,6 +1,6 @@
 <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
   <!-- Fixed Button for save form -->
-  <div class="savebutton-small hidden-xs">
+  <div class="savebutton-small d-none d-sm-block">
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)

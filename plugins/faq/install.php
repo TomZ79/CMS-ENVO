@@ -428,6 +428,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 ("faqshortmsg", "faq", 300, 300, "input", "boolean", "faq"),
 ("faqorder", "faq", "id ASC", "", "input", "free", "faq"),
 ("faqrss", "faq", 5, 5, "select", "number", "faq"),
+("faqlivesearch", "faq", 0, 0, "yesno", "boolean", "faq"),
 ("faqhlimit", "faq", 5, 5, "select", "number", "faq"),
 ("faq_css", "faq", "", "", "textarea", "free", "faq"),
 ("faq_javascript", "faq", "", "", "textarea", "free", "faq")');
@@ -449,7 +450,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Vytvoření tabulky pro plugin (články)
       $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faq (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `catid` int(11) unsigned NOT NULL DEFAULT 0,
+  `catid` VARCHAR(100) NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
   `content` mediumtext,
   `previmg` varchar(255) DEFAULT NULL,

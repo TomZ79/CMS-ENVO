@@ -1,6 +1,6 @@
 <?php if (ENVO_TAGS && ENVO_USER_TAGS && $ENVO_GET_TAG_CLOUD) { ?>
 
-  <aside class="sidebarwidget sidebarwidget-border hidden-xs">
+  <aside class="sidebarwidget sidebarwidget-border d-none d-sm-block">
 
     <h3 class="sidebarwidget-title"><?= ENVO_PLUGIN_NAME_TAGS ?></h3>
 

@@ -71,13 +71,13 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
               <?php if (ENVO_ASACCESS) { ?>
 
                 <a href="<?= BASE_URL ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?= $d["id"] ?>" title="<?= $tl["button"]["btn1"] ?>" class="btn btn-info btn-xs">
-                  <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                  <span class="hidden-xs"><?= $tl["button"]["btn1"] ?></span>
+                  <span class="d-none"><i class="fa fa-edit"></i></span>
+                  <span class="d-none d-sm-block"><?= $tl["button"]["btn1"] ?></span>
                 </a>
 
                 <a class="btn btn-info btn-xs quickedit" href="<?= BASE_URL ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?= $d["id"] ?>" title="<?= $tl["button"]["btn2"] ?>">
-                  <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                  <span class="hidden-xs"><?= $tl["button"]["btn2"] ?></span>
+                  <span class="d-none"><i class="fa fa-pencil"></i></span>
+                  <span class="d-none d-sm-block"><?= $tl["button"]["btn2"] ?></span>
                 </a>
 
               <?php } ?>

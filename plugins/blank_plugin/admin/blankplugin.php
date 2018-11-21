@@ -24,6 +24,7 @@ $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/blank_plugin/admin/template/';
 switch ($page1) {
 
   case 'setting':
+    // SETTING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable

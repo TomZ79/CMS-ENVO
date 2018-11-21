@@ -298,8 +298,13 @@ if ($errors) { ?>
               <div class="box-header with-border">
 
                 <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', $tlf["faq_box_title"]["faqbt7"], 'box-title');
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
+                echo $tlf["faq_box_title"]["faqbt7"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlf["faq_help"]["faqh2"], 'data-original-title' => $tlf["faq_help"]["faqh"] ));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html -> endTag('h3');
                 ?>
 
               </div>
@@ -308,27 +313,34 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-sm-12">
-                        <select name="envo_catid" class="form-control selectpicker">
+                        <select name="envo_catid[]" multiple="multiple" class="form-control">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                          $selected = ((isset($_REQUEST["envo_catid"]) && $_REQUEST["envo_catid"] == '0') || !isset($_REQUEST["envo_catid"])) ? TRUE : FALSE;
+                          $selected = ((isset($_REQUEST["envo_catid"]) && ($_REQUEST["envo_catid"] == '0' || (in_array('0', $_REQUEST["envo_catid"]))) || (!isset($_REQUEST["envo_catid"]) && !isset($ENVO_CAT_SELECTED)))) ? TRUE : FALSE;
 
-                          echo $Html->addOption('0', $tlf["faq_box_content"]["faqbc35"], $selected);
+                          echo $Html -> addOption('0', $tlf["faq_box_content"]["faqbc35"], $selected);
                           if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $v) {
 
-                            if (isset($_REQUEST["envo_catid"]) && ($_REQUEST["envo_catid"] != '0')) {
-                              if ($_REQUEST["envo_catid"] == $v["id"]) {
+                            if (isset($ENVO_CAT_SELECTED)) {
+                              if ($v["id"] == $ENVO_CAT_SELECTED) {
                                 $selected = TRUE;
                               } else {
                                 $selected = FALSE;
                               }
                             } else {
-                              $selected = FALSE;
+                              if (isset($_REQUEST["envo_catid"]) && (in_array($v["id"], $_REQUEST["envo_catid"]))) {
+                                if (isset($_REQUEST["envo_catid"]) && (in_array('0', $_REQUEST["envo_catid"]))) {
+                                  $selected = FALSE;
+                                } else {
+                                  $selected = TRUE;
+                                }
+                              } else {
+                                $selected = FALSE;
+                              }
                             }
 
-                            echo $Html->addOption($v["id"], $v["name"], $selected);
-
+                            echo $Html -> addOption($v["id"], $v["name"], $selected);
                           }
                           ?>
 

@@ -35,15 +35,15 @@ if ($page == 'xml_seo') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Code-prettify CSS
-  echo $Html->addStylesheet('assets/plugins/code-prettify-master/themes/github/github.min.css');
+  echo $Html -> addStylesheet('assets/plugins/code-prettify-master/themes/github/github.min.css');
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Code-prettify JS
-  echo $Html->addScript('assets/plugins/code-prettify-master/src/prettify.js');
+  echo $Html -> addScript('assets/plugins/code-prettify-master/src/prettify.js');
   // Step Form Wizard plugin
-  echo $Html->addScript('/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js');
+  echo $Html -> addScript('/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js');
   // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/xml_seo/admin/js/script.xml_seo.min.js');
+  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/xml_seo/admin/js/script.xml_seo.min.js');
 
   ?>
 

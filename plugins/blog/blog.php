@@ -178,7 +178,7 @@ switch ($page1) {
           $PAGE_TITLE                      = $row['title'];
           $PAGE_CONTENT                    = envo_secure_site($row['content']);
           $SHOWTITLE                       = $row['showtitle'];
-          $SHOWIMG                         = $row['previmg'];
+          $THUMBIMG                        = $row['previmg'];
           $SHOWDATE                        = $row['showdate'];
           $SHOWSOCIALBUTTON                = $row['socialbutton'];
           $BLOG_HITS                       = $row['hits'];
@@ -207,6 +207,29 @@ switch ($page1) {
         // Show Tags
         $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($pageID, ENVO_PLUGIN_ID_BLOG, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
 
+        // Get the categories into a list
+        $resultc = $envodb -> query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        while ($rowc = $resultc -> fetch_assoc()) {
+
+          if ($setting["blogurl"]) {
+            $seoc = ENVO_base ::envoCleanurl($rowc['varname']);
+          }
+
+          // EN: Create array with all categories
+          // CZ: Vytvoření pole se všemi kategoriemi
+          $catids[] = '<span class="cat-list"><a href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+
+          // EN: Get 'varname' for category
+          // CZ: Získaní 'varname' kategorie
+          $BLOG_CAT[] = $rowc['varname'];
+        }
+
+        if (!empty($catids)) {
+          // EN: Returns a string from the elements of an array
+          // CZ: Získání elementů z pole
+          $BLOG_CATLIST = join(" ", $catids);
+        }
+
         // Page Navigation
         $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($nextp) {
@@ -228,29 +251,6 @@ switch ($page1) {
 
           $ENVO_NAV_PREV       = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'blog-article', $prevp['id'], $seop, '');
           $ENVO_NAV_PREV_TITLE = $prevp['title'];
-        }
-
-        // Get the categories into a list
-        $resultc = $envodb -> query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
-        while ($rowc = $resultc -> fetch_assoc()) {
-
-          if ($setting["blogurl"]) {
-            $seoc = ENVO_base ::envoCleanurl($rowc['varname']);
-          }
-
-          // EN: Create array with all categories ( Plugin Blog have one or more categories for one article, in array will be it one or more categories )
-          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Blog má jednu nebo více kategorií pro jeden článek, v poli bude jedna nebo více kategorií )
-          $catids[] = '<span class="cat-list"><a href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
-
-          // EN: Get 'varname' for category
-          // CZ: Získaní 'varname' kategorie
-          $BLOG_CAT[] = $rowc['varname'];
-        }
-
-        if (!empty($catids)) {
-          // EN: Returns a string from the elements of an array
-          // CZ: Získání elementů z pole
-          $BLOG_CATLIST = join(" ", $catids);
         }
 
       }

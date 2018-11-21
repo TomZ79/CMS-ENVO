@@ -35,6 +35,7 @@ include_once("../plugins/blog/admin/include/functions.php");
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
+    // BLOG NEW ARTICLE
 
     // Get the important template stuff
     $ENVO_CAT = envo_get_cat_info($envotable1, 0);
@@ -87,7 +88,8 @@ switch ($page1) {
             $insert .= 'time = NOW()';
           }
 
-          // Save image
+          // EN: Preview Image of file
+          // CZ: Náhledový obrázek souboru
           if (!empty($defaults['envo_img'])) {
             $insert .= ',previmg = "' . smartsql($defaults['envo_img']) . '"';
           } else {
@@ -206,8 +208,8 @@ switch ($page1) {
       }
     }
 
-    // EN: Select category by "Add article" in "Category"
-    // CZ:
+    // EN: Select category by "Add article" in "Categories"
+    // CZ: Výběr kategorie pro "Přidat článek" v "Kategoriích"
     if (is_numeric($catsID)) {
       $ENVO_CAT_SELECTED = $catsID;
     }
@@ -237,6 +239,7 @@ switch ($page1) {
 
     break;
   case 'edit':
+    // BLOG EDIT ARTICLE
 
     // EN: Default Variable
     // CZ: Hlavní proměnné
@@ -301,7 +304,8 @@ switch ($page1) {
             $insert .= 'time = NOW(),';
           }
 
-          // Save image
+          // EN: Preview Image of file
+          // CZ: Náhledový obrázek souboru
           if (!empty($defaults['envo_img'])) {
             $insert .= 'previmg = "' . smartsql($defaults['envo_img']) . '",';
           } else {
@@ -527,6 +531,7 @@ switch ($page1) {
     }
     break;
   case 'lock':
+    // BLOG LOCK ARTICLE
 
     $result2 = $envodb -> query('SELECT catid, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
     $row2    = $result2 -> fetch_assoc();
@@ -570,6 +575,7 @@ switch ($page1) {
 
     break;
   case 'delete':
+    // BLOG DELETE ARTICLE
 
     // EN: Default Variable
     // CZ: Hlavní proměnné
@@ -626,6 +632,7 @@ switch ($page1) {
     }
     break;
   case 'showcat':
+    // BLOG SHOW ARTICLE BY CATEGORY
 
     $result = $envodb -> query('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE FIND_IN_SET(' . $page2 . ', catid)');
     $row    = $result -> fetch_assoc();
@@ -661,6 +668,7 @@ switch ($page1) {
     }
     break;
   case 'categories':
+    // BLOG CATEGORIES
 
     // Additional DB field information
     $envofield  = 'catparent';
@@ -877,6 +885,7 @@ switch ($page1) {
     }
     break;
   case 'newcategory':
+    // WIKI NEW CATEGORY
 
     // Additional DB Stuff
     $envofield = 'varname';
@@ -969,6 +978,7 @@ switch ($page1) {
 
     break;
   case 'setting':
+    // BLOG SETTING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -1163,7 +1173,13 @@ switch ($page1) {
 
     break;
   case 'quickedit':
-    if (envo_row_exist($page2, $envotable)) {
+    // BLOG QUICKEDIT IN FRONTEND
+
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (envo_row_exist($pageID, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // EN: Default Variable
@@ -1186,16 +1202,16 @@ switch ($page1) {
           $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                     title = "' . smartsql($defaults['envo_title']) . '",
                     content = "' . smartsql($defaults['envo_lcontent']) . '"
-                    WHERE id = "' . smartsql($page2) . '"');
+                    WHERE id = "' . smartsql($pageID) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=blog&sp=quickedit&id=' . $page2 . '&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=blog&sp=quickedit&id=' . $pageID . '&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=blog&sp=quickedit&id=' . $page2 . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=blog&sp=quickedit&id=' . $pageID . '&status=s');
           }
         } else {
 
@@ -1205,7 +1221,7 @@ switch ($page1) {
       }
 
       // Get the data
-      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)

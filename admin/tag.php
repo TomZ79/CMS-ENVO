@@ -27,9 +27,6 @@ switch ($page1) {
   case 'cloud':
     // TAGS CLOUD
 
-    // Important template Stuff
-    $ENVO_TAGCLOUD = envo_admin_tag_cloud();
-
     switch ($page2) {
       case 'delete':
 
@@ -62,6 +59,9 @@ switch ($page1) {
         break;
       default:
         define('TAG_DELETE_CLOUD', $tl['tag_notification']['delall']);
+
+        // Important template Stuff
+        $ENVO_TAGCLOUD = envo_admin_tag_cloud();
 
         // EN: Title and Description
         // CZ: Titulek a Popis

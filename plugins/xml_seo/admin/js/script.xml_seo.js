@@ -23,20 +23,20 @@ $(function () {
     nextBtn: $('<a class="next-btn sf-right sf-btn" href="#">' + stepForm.nextBtn + '</a>'),
     prevBtn: $('<a class="prev-btn sf-left sf-btn" href="#">' + stepForm.prevBtn + '</a>'),
     finishBtn: $('<a class="finish-btn sf-right sf-btn" href="#">' + stepForm.finishBtn + '</a>'),
-    onNext: function(i) {
+    onNext: function (i) {
       // Step 0 -> 1
-      if(i == '0') {
+      if (i == '0') {
         // Get folder path
         var baseurl = envoWeb.envo_url_orig;
 
-        if($("input[name='envo_xmlseopath']").val()) {
+        if ($("input[name='envo_xmlseopath']").val()) {
           var inputval = $("input[name='envo_xmlseopath']").val() + '/';
         } else {
           var inputval = '';
         }
 
         var sitemap = 'Sitemap: ' + baseurl.slice(0, -1) + '/' + inputval + 'sitemap.xml';
-        $('#sitemapcode').text( sitemap );
+        $('#sitemapcode').text(sitemap);
 
         // Change date in file
         var txt = $("#envo_filetxt");

@@ -400,7 +400,7 @@ if ($errors) { ?>
 
                       </div>
                     </div>
-                    <div class="row-form">
+                    <div class="row-form p-t-10 p-b-10">
                       <div class="col-sm-5">
 
                         <?php
@@ -440,8 +440,13 @@ if ($errors) { ?>
               <div class="box-header with-border">
 
                 <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html -> addTag('h3', $tlw["wiki_box_title"]["wikibt7"], 'box-title');
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
+                echo $tlw["wiki_box_title"]["wikibt7"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tlw["wiki_help"]["wikih2"], 'data-original-title' => $tlw["wiki_help"]["wikih"] ));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html -> endTag('h3');
                 ?>
 
               </div>
@@ -673,7 +678,7 @@ if ($errors) { ?>
                       </thead>
                       <tbody>
 
-                      <input type="hidden" name="envo_all_rows" class="rowid" value="<?= $ENVO_TEST ?>"/>
+                      <input type="hidden" name="envo_all_rows_1" value="<?= $ENVO_LITERATURE_ALL ?>"/>
 
                       <?php if (!empty($ENVO_LITERATURE) && is_array($ENVO_LITERATURE)) {
                         foreach ($ENVO_LITERATURE as $l) { ?>
@@ -681,7 +686,7 @@ if ($errors) { ?>
                           <tr>
                             <td class="text-center">
                               <?= $l["id"] ?>
-                              <input type="hidden" name="envo_literature_0[]" class="rowid" value="<?= $l["id"] ?>"/>
+                              <input type="hidden" name="envo_literature_0[]" class="rowid1" value="<?= $l["id"] ?>"/>
                             </td>
                             <td>
 
@@ -695,7 +700,7 @@ if ($errors) { ?>
 
                               <?php
                               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                              echo $Html -> addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteRow');
+                              echo $Html -> addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteRow1');
 
                               ?>
 
@@ -738,8 +743,70 @@ if ($errors) { ?>
 
               </div>
               <div class="box-body">
+                <div class="block-content">
+                  <div class="float-right">
 
+                    <?php
+                    // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                    echo $Html -> addButtonSubmit('addRowTab2', 'Přidat Odkaz', 'addRowTab2', 'btn btn-info btn-sm');
+                    ?>
 
+                  </div>
+                  <div class="clearfix m-b-20"></div>
+                  <table id="wiki_table_2" class="table">
+                    <thead>
+                    <tr>
+                      <th class="col-sm-1 text-center">#</th>
+                      <th class="col-sm-10">Text / Odkaz</th>
+                      <th class="col-sm-1"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <input type="hidden" name="envo_all_rows_2" value="<?= $ENVO_LINKS_ALL ?>"/>
+
+                    <?php if (!empty($ENVO_LINKS) && is_array($ENVO_LINKS)) {
+                      foreach ($ENVO_LINKS as $ls) { ?>
+
+                        <tr>
+                          <td class="text-center">
+                            <?= $l["id"] ?>
+                            <input type="hidden" name="envo_links_0[]" class="rowid2" value="<?= $ls["id"] ?>"/>
+                          </td>
+                          <td>
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html -> addInput('text', 'envo_links_1[]', $ls["text"], '', 'form-control');
+                            ?>
+
+                          </td>
+                          <td class="text-center">
+
+                            <?php
+                            // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                            echo $Html -> addButton('button', '', '<i class="fa fa-trash-o"></i>', '', '', 'btn btn-danger btn-xs deleteRow2');
+
+                            ?>
+
+                          </td>
+                        </tr>
+
+                      <?php }
+                    } else {
+
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo '<tr class="nodata">';
+                      echo '<td colspan="5">';
+                      echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
+                      echo '</td>';
+                      echo '</tr>';
+
+                    } ?>
+
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="box-footer">
 

@@ -304,7 +304,7 @@ if ($errors) { ?>
 
                       </div>
                     </div>
-                    <div class="row-form">
+                    <div class="row-form p-t-10 p-b-10">
                       <div class="col-sm-5">
 
                         <?php
@@ -326,7 +326,7 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
-                    <div class="row-form">
+                    <div class="row-form p-t-10 p-b-10">
                       <div class="col-sm-5">
 
                         <?php

@@ -45,11 +45,11 @@ if (isset($ENVO_GET_TAG_CLOUD)) {
     }
 
     // Include php code for plugin
-    /*
+
     if (isset($ENVO_HOOK_TAGS) && is_array($ENVO_HOOK_TAGS)) foreach ($ENVO_HOOK_TAGS as $ht) {
-      include_once APP_PATH . $ht['phpcode'];
+      eval($ht['phpcode']);
     }
-    */
+
 
     ?>
 

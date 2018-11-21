@@ -23,9 +23,9 @@ if ($page == 'xml_seo') {
 
   // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
   // Step Form Wizard plugin
-  echo $Html->addStylesheet('/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-all.css');
+  echo $Html -> addStylesheet('/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-all.css');
   // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/xml_seo/admin/css/style.xml_seo.min.css');
+  echo $Html -> addStylesheet(BASE_URL_ORIG . 'plugins/xml_seo/admin/css/style.xml_seo.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS XML Seo -->';

@@ -19,7 +19,7 @@ function envo_get_anchor($limit, $colname = NULL, $table, $where, $orderby)
 
   global $envodb;
   $envodata = array ();
-  $colname = (empty($colname) ? '*' : $colname);
+  $colname  = (empty($colname) ? '*' : $colname);
 
   // EN: SQL Query
   // CZ: SQL Dotaz
@@ -64,39 +64,40 @@ function envo_get_wiki($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showdate, t1.created, t1.hits, t1.previmg FROM ' . DB_PREFIX . 'wiki AS t1 LEFT JOIN ' . DB_PREFIX . 'wikicategories AS t2 ON (t2.id IN(t1.catid)) WHERE ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $envodb -> query('SELECT t1.* FROM ' . DB_PREFIX . 'wiki AS t1 LEFT JOIN ' . DB_PREFIX . 'wikicategories AS t2 ON (t2.id IN(t1.catid)) WHERE ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
 
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $result -> fetch_assoc()) {
 
     // Write content in short format with full words
     $shortmsg = envo_cut_text($row['content'], $setting["wikishortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
-    if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['title']);
-    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'wiki-article', $row['id'], $seo);
+    if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['title']);
+    $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'wiki-article', $row['id'], $seo);
 
     // Finally get the time
-    $getTime = ENVO_base::envoTimesince($row['created'], $setting["wikidateformat"], $setting["wikitimeformat"], $timeago);
+    $getTimeCreate = ENVO_base ::envoTimesince($row['created'], $setting["wikidateformat"], $setting["wikitimeformat"], $timeago);
+    $getTimeUpdate = ENVO_base ::envoTimesince($row['updated'], $setting["wikidateformat"], $setting["wikitimeformat"], $timeago);
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array(
-      'id' => $row['id'],
-      'catid' => $row['catid'],
-      'title' => $row['title'],
-      'content' => envo_secure_site($row['content']),
+    $envodata[] = array (
+      'id'           => $row['id'],
+      'catid'        => $row['catid'],
+      'title'        => $row['title'],
+      'content'      => envo_secure_site($row['content']),
       'contentshort' => $shortmsg,
-      'showtitle' => $row['showtitle'],
-      'showdate' => $row['showdate'],
-      'created' => $getTime,
-      'hits' => $row['hits'],
-      'previmg' => $row['previmg'],
-      'parseurl' => $parseurl,
-      'date-time' => $row['time']
+      'showtitle'    => $row['showtitle'],
+      'showdate'     => $row['showdate'],
+      'created'      => $getTimeCreate,
+      'updated'      => $getTimeUpdate,
+      'hits'         => $row['hits'],
+      'previmg'      => $row['previmg'],
+      'previmgdesc'  => $row['previmgdesc'],
+      'parseurl'     => $parseurl
     );
   }
-
 
   return $envodata;
 }

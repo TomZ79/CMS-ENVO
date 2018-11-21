@@ -18,8 +18,8 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site
 }
 
 // Set define variable
-$BASE_URL_ORIG  = BASE_URL;
-$BASE_URL       = BASE_URL;
+$BASE_URL_ORIG  = $_SERVER['HTTP_HOST'];
+$BASE_URL       = $_SERVER['HTTP_HOST'];
 $ENVO_TEMPLATE  = $setting["sitestyle"];
 $REQUEST_URI    = ENVO_PARSE_REQUEST;
 $FORGOT_LOGIN   = (isset($errorfp) && !empty($errorfp) ? '1' : '0');
@@ -57,7 +57,7 @@ envoWeb.request_uri = '{$REQUEST_URI}';
 envoWeb.envo_quickedit = '{$tl["global_text"]["gtxt6"]}';
 envoWeb.envo_forgotlogin = '{$FORGOT_LOGIN}';
 
-// Name of options
+// Name of options - Example
 var Name = {
   Subname: '{$VAR}',
 };

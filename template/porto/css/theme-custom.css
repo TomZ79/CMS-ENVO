@@ -312,18 +312,20 @@
   }
 
   .nav-side-menu span.toggle-btn:before {
-    font-family: 'FontAwesome';
-    content: '\f067';
+    font-family: 'Font Awesome 5 Free';
+    content: "\f00b";
     color: #263238;
     font-size: 18px;
+    font-weight: 900; /* requires for Font Awesome 5*/
     margin: 0;
   }
 
   .nav-side-menu span.toggle-btn.is-active:before {
-    font-family: 'FontAwesome';
-    content: '\f068';
+    font-family: 'Font Awesome 5 Free';
+    content: "\f00d";
     color: #263238;
     font-size: 18px;
+    font-weight: 900; /* requires for Font Awesome 5*/
     margin: 0;
   }
 }
@@ -331,6 +333,70 @@
 /* Article in plugins */
 [class*="-article"] {
   width: 100%;
+}
+
+/* 00. NECESSARY CODE !!! - NEWS
+       - basic code for sidebar menu.
+
+       If you want, change only color
+========================================================================*/
+/* Edit, QuickEdit links */
+
+/* Thumbnail image for news.php, downloadfile.php */
+.thumb-news {
+  position: relative;
+}
+
+.thumb-news .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.thumb-news .caption span {
+  font-size: 46px;
+  font-weight: bold;
+  width: 100%;
+  float: left;
+}
+
+.thumb-news .caption span.color1 {
+  color: #FFF;
+}
+
+.thumb-news .caption span.color2 {
+  color: #037ACC;
+}
+
+/* Thumbnail image for downloadfile.php */
+.thumb-download {
+  position: relative;
+}
+
+.thumb-download .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.thumb-download .caption span {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 100%;
+  float: left;
+}
+
+.thumb-download .caption span.color1 {
+  color: #FFF;
+}
+
+.thumb-download .caption span.color2 {
+  color: #037ACC;
 }
 
 /* 00. OTHER MODIFICATION

@@ -57,6 +57,26 @@ if (!$PAGE_ACTIVE) {
       echo '<h2>' . $PAGE_TITLE . '</h2>';
     }
 
+    // SHOW - Date, hits and tag list
+    if ($SHOWDATE || $SHOWHITS) {
+      // SHOW - Date
+      if ($SHOWDATE) {
+        echo '<span class="date mr-3"><strong class="text-2">' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
+      }
+
+      // SHOW - Hits
+      if ($SHOWHITS) {
+        echo '<span class="hits"><strong class="text-2">' . $tl["news"]["news2"] . '</strong>' . ' : ' . $PAGE_HITS . '</span>';
+      }
+    }
+
+    // SHOW - Tag List
+    if ($ENVO_TAGLIST && $SHOWTAGS) {
+      echo '<ul class="tags-list">';
+      echo $ENVO_TAGLIST;
+      echo '</ul>';
+    }
+
     if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
       include_once APP_PATH . $hpage["phpcode"];
     }
@@ -116,10 +136,10 @@ if (!$PAGE_ACTIVE) {
                   if (ENVO_ASACCESS) { ?>
                     <div class="system-icons clearfix">
                       <div class="pull-right hidden-xs">
-                        <a class="btn btn-filled btn-primary btn-xs" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">
+                        <a class="btn btn-filled btn-warning rounded-0 btn-xs" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">
                           <?= $tl["button"]["btn1"] ?>
                         </a>
-                        <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn2"] ?>">
+                        <a class="btn btn-filled btn-warning rounded-0 btn-xs quickedit" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn2"] ?>">
                           <?= $tl["button"]["btn2"] ?>
                         </a>
                       </div>
@@ -147,25 +167,14 @@ if (!$PAGE_ACTIVE) {
     }
 
     // SHOW - Date, social buttons and tag list
-    if ($SHOWDATE || $SHOWSOCIALBUTTON || ($ENVO_TAGLIST && $SHOWTAGS)) { ?>
+    if ($SHOWSOCIALBUTTON) { ?>
       <section class="pt-1 pb-1">
         <div class="container">
           <div class="row">
             <div class="col">
 
-              <?php if ($SHOWDATE) { ?>
-                <div class="col-md-3">
-                  <i class="icon-clock-1"></i>
-                  <time datetime="<?= $PAGE_TIME_HTML5 ?>"><?= $PAGE_TIME ?></time>
-                </div>
-              <?php }
-              if ($ENVO_TAGLIST && $SHOWTAGS) { ?>
-                <div class="col-md-5">
-                  <i class="icon-tags"></i> <?= $ENVO_TAGLIST ?>
-                </div>
-              <?php }
-              if ($SHOWSOCIALBUTTON) { ?>
-                <div class="pull-right">
+              <?php if ($SHOWSOCIALBUTTON) { ?>
+                <div class="float-right">
                   <div style="display: table;">
                     <div style="display: table-cell;vertical-align: middle;padding-right: 20px;">
                       <strong><?= $tl["share"]["share"] . ' ' ?></strong>

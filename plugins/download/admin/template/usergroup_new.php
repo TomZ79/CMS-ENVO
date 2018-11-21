@@ -3,7 +3,7 @@
 
     <?php
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-    echo $Html->addTag('h3', $tld["downl_connect"]["downlc"], 'box-title');
+    echo $Html -> addTag('h3', $tld["downl_connect"]["downlc"], 'box-title');
     ?>
 
   </div>
@@ -15,7 +15,7 @@
 
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('strong', $tld["downl_connect"]["downlc1"]);
+            echo $Html -> addTag('strong', $tld["downl_connect"]["downlc1"]);
             ?>
 
           </div>
@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_download', '1', ((isset($_REQUEST["envo_download"]) && $_REQUEST["envo_download"] == '1')) ? TRUE : FALSE, 'envo_download1');
+              echo $Html -> addRadio('envo_download', '1', ((isset($_REQUEST["envo_download"]) && $_REQUEST["envo_download"] == '1')) ? TRUE : FALSE, 'envo_download1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_download1', $tl["checkbox"]["chk"]);
+              echo $Html -> addLabel('envo_download1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_download', '0', ((isset($_REQUEST["envo_download"]) && $_REQUEST["envo_download"] == '0') || !isset($_REQUEST["envo_download"])) ? TRUE : FALSE, 'envo_download2');
+              echo $Html -> addRadio('envo_download', '0', ((isset($_REQUEST["envo_download"]) && $_REQUEST["envo_download"] == '0') || !isset($_REQUEST["envo_download"])) ? TRUE : FALSE, 'envo_download2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_download2', $tl["checkbox"]["chk1"]);
+              echo $Html -> addLabel('envo_download2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>
@@ -42,7 +42,7 @@
 
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('strong', $tld["downl_connect"]["downlc2"]);
+            echo $Html -> addTag('strong', $tld["downl_connect"]["downlc2"]);
             ?>
 
           </div>
@@ -51,14 +51,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_candownload', '1', ((isset($_REQUEST["envo_candownload"]) && $_REQUEST["envo_candownload"] == '1')) ? TRUE : FALSE, 'envo_candownload1');
+              echo $Html -> addRadio('envo_candownload', '1', ((isset($_REQUEST["envo_candownload"]) && $_REQUEST["envo_candownload"] == '1')) ? TRUE : FALSE, 'envo_candownload1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_candownload1', $tl["checkbox"]["chk"]);
+              echo $Html -> addLabel('envo_candownload1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_candownload', '0', ((isset($_REQUEST["envo_candownload"]) && $_REQUEST["envo_candownload"] == '0') || !isset($_REQUEST["envo_candownload"])) ? TRUE : FALSE, 'envo_candownload2');
+              echo $Html -> addRadio('envo_candownload', '0', ((isset($_REQUEST["envo_candownload"]) && $_REQUEST["envo_candownload"] == '0') || !isset($_REQUEST["envo_candownload"])) ? TRUE : FALSE, 'envo_candownload2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_candownload2', $tl["checkbox"]["chk1"]);
+              echo $Html -> addLabel('envo_candownload2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>
@@ -71,7 +71,7 @@
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
     ?>
 
   </div>

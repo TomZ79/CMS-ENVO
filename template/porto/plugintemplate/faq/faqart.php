@@ -1,18 +1,28 @@
 <?php
 /**
- * ALL VALUE for FRONTEND - faqart.php
+ * PLUGIN DOWNLOAD - ALL VALUE for FRONTEND - faqart.php
+ * ------------------------------------------------------------------
  *
- * $PAGE_ID              číslo    |  - id článku
- * $PAGE_TITLE           text        - Titulek článku
- * $PAGE_CONTENT         text        - Celý popis článku
- * $SHOWTITLE            ano/ne      - Zobrazení nadpisu
- * $SHOWDATE             ano/ne      - Zobrazení datumu
- * $SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
- * $FAQ_HITS             číslo       - Počet Zobrazení
- * $PAGE_TIME            date        - Datum vytvoření článku
- * $PAGE_TIME_HTML5
- * $ENVO_TAGLIST          text        - Seznam tagů
- * $FAQ_CATLIST          text        - Seznam kategorií
+ * Soubor slouží pro generovaní (zobrazení) celkového seznamu článků
+ *
+ * Použitelné hodnoty s daty pro FRONTEND - faqart.php
+ * ------------------------------------------------------------------
+ *
+ * $PAGE_ID                 number    | - ID článku
+ * $PAGE_TITLE              string    | - Titulek článku
+ * $PAGE_CONTENT            string    | - Celý popis článku
+ * $SHOWTITLE               number    | - Zobrazení nadpisu ( hodnota 1 = ANO / 0 = NE )
+ * $THUMBIMG                string    | - Relativní url adresa náhledového obrázku
+ * $SHOWDATE                number    | - Zobrazení datumu ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWCATS                number    | - Zobrazení kategorií ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWHITS                number    | - Zobrazení počtu zobrazení ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWSOCIALBUTTON        number    | - Zobrazení sociálních tlačítek ( hodnota 1 = ANO / 0 = NE )
+ * $FAQ_HITS                number    | - Počet Zobrazení
+ * $PAGE_TIME               date      | - Datum vytvoření článku
+ * $PAGE_TIME_HTML5         date      | - Datum vytvoření článku HTML 5 formát
+ * $ENVO_TAGLIST            array     | - Seznam tagů
+ * $FAQ_CAT                 array     | - Seznam kategorií (Varname)
+ * $FAQ_CATLIST             array     | - Seznam kategorií (html)
  *
  */
 
@@ -46,7 +56,9 @@ if ($setting["printme"]) $printme = 1;
 
               <?php
 
-              if ($SHOWDATE || $SHOWHITS || $SHOWCATS) {
+              if ($SHOWDATE || $SHOWHITS) {
+                echo '<div>';
+
                 // SHOW - Date
                 if ($SHOWDATE) {
                   echo '<span class="date mr-3"><strong class="text-2">' . $tlf["faq_frontend"]["faq4"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
@@ -57,16 +69,23 @@ if ($setting["printme"]) $printme = 1;
                   echo '<span class="hits mr-3"><strong class="text-2">' . $tlf["faq_frontend"]["faq5"] . '</strong>' . ' : ' . $FAQ_HITS . '</span>';
                 }
 
+                echo '</div>';
+              }
+
+              if ($SHOWCATS || $ENVO_TAGLIST) {
+                echo '<div>';
+
                 // SHOW - Category
                 if ($SHOWCATS) {
                   echo '<span class="category mr-3"><strong class="text-2">' . $tlf["faq_frontend"]["faq6"] . '</strong>' . ' : ' . $FAQ_CATLIST . '</span>';
                 }
 
-              }
+                // SHOW - Tag list
+                if ($ENVO_TAGLIST) {
+                  echo '<ul class="tags-list">' . $ENVO_TAGLIST . '</ul>';
+                }
 
-              // SHOW - Tag list
-              if ($ENVO_TAGLIST) {
-                echo '<span class="tag">' . $ENVO_TAGLIST . '</span>';
+                echo '</div>';
               }
 
               ?>
@@ -85,7 +104,7 @@ if ($setting["printme"]) $printme = 1;
 
                 <div class="col-md-12">
                   <hr>
-                  <div class="pull-right" style="display: table;">
+                  <div class="float-right" style="display: table;">
                     <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
                       <strong><?= $tl["share"]["share1"] . ' ' ?></strong>
                     </div>

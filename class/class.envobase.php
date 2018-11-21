@@ -4,12 +4,12 @@ include_once 'class.rewrite.php';
 
 class ENVO_base
 {
-  protected $table = '', $itemid = '', $select = '', $where = '', $dseo = '';
-  private $data = array();
-  private $usraccesspl = array();
-  private $case;
-  private $envovar;
-  private $envovar1;
+  protected $table = '', $itemid = '', $select = '', $where = '', $dseo        = '';
+  private                                                         $data        = array ();
+  private                                                         $usraccesspl = array ();
+  private                                                         $case;
+  private                                                         $envovar;
+  private                                                         $envovar1;
 
 
   /**
@@ -27,8 +27,8 @@ class ENVO_base
   {
 
     foreach ($options as $k => $v) {
-      if (isset($this->$k)) {
-        $this->$k = $v;
+      if (isset($this -> $k)) {
+        $this -> $k = $v;
       }
     }
   }
@@ -46,21 +46,21 @@ class ENVO_base
    * @return string
    *
    */
-  public static function envoCleanurl($str, $options = array())
+  public static function envoCleanurl($str, $options = array ())
   {
 
-    $defaults = array(
+    $defaults = array (
       'delimiter'     => '-',
       'limit'         => NULL,
       'lowercase'     => TRUE,
-      'replacements'  => array(),
+      'replacements'  => array (),
       'transliterate' => TRUE,
     );
 
     // Merge options
     $options = array_merge($defaults, $options);
 
-    $char_map = array(
+    $char_map = array (
       // Latin
       'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A', 'Æ' => 'AE', 'Ç' => 'C',
       'È' => 'E', 'É' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I', 'Ï' => 'I',
@@ -170,8 +170,8 @@ class ENVO_base
 
     $envovar = strip_tags($envovar);
     $envovar = strtolower($envovar);
-    $crepl  = array("ä", "ö", "ü", "Ä", "Ü", "Ö", "é", "à", "è", "ô");
-    $cfin   = array('au', 'oe', 'ue', 'au', 'oe', 'ue', 'e', 'a', 'e', 'o');
+    $crepl   = array ( "ä", "ö", "ü", "Ä", "Ü", "Ö", "é", "à", "è", "ô" );
+    $cfin    = array ( 'au', 'oe', 'ue', 'au', 'oe', 'ue', 'e', 'a', 'e', 'o' );
     $envovar = str_replace($cfin, $crepl, $envovar);
 
     return $envovar;
@@ -209,20 +209,20 @@ class ENVO_base
       $replydate = new DateTime($mysqlstamp);
 
       // Calculate DateInterval (www.php.net/manual/en/class.dateinterval.php)
-      $diff = $replydate->diff(new DateTime());
+      $diff = $replydate -> diff(new DateTime());
 
-      if ($diff->m >= 1) {
+      if ($diff -> m >= 1) {
         return date($date . $time, $mysqlstamp);
       }
 
-      if ($v = $diff->d >= 1) {
-        $timeago = ENVO_base::pluralize($diff->d, $lang[0], $lang[4]);
-      } elseif ($v = $diff->h >= 1) {
-        $timeago = ENVO_base::pluralize($diff->h, $lang[1], $lang[5]);
-      } elseif ($v = $diff->i >= 1) {
-        $timeago = ENVO_base::pluralize($diff->i, $lang[2], $lang[6]);
+      if ($v = $diff -> d >= 1) {
+        $timeago = ENVO_base ::pluralize($diff -> d, $lang[0], $lang[4]);
+      } elseif ($v = $diff -> h >= 1) {
+        $timeago = ENVO_base ::pluralize($diff -> h, $lang[1], $lang[5]);
+      } elseif ($v = $diff -> i >= 1) {
+        $timeago = ENVO_base ::pluralize($diff -> i, $lang[2], $lang[6]);
       } else {
-        $timeago = ENVO_base::pluralize($diff->s, $lang[3], $lang[7]);
+        $timeago = ENVO_base ::pluralize($diff -> s, $lang[3], $lang[7]);
       }
 
       return sprintf($lang[8], $timeago);
@@ -267,25 +267,41 @@ class ENVO_base
   {
 
     global $envodb;
-    $result = $envodb->query('SELECT id, name, varname, exturl, catimg, content, metadesc, metakey, showmenu, showfooter, catparent, catorder, pageid, activeplugin, permission, pluginid FROM ' . DB_PREFIX . 'categories WHERE ((pageid > 0 AND activeplugin = 1) OR (pageid = 0 AND pluginid > 0) OR (exturl != "" AND pageid = 0 AND pluginid = 0)) ORDER BY catorder ASC');
+    $result = $envodb -> query('SELECT id, name, varname, exturl, catimg, content, metadesc, metakey, showmenu, showfooter, catparent, catorder, pageid, activeplugin, permission, pluginid FROM ' . DB_PREFIX . 'categories WHERE ((pageid > 0 AND activeplugin = 1) OR (pageid = 0 AND pluginid > 0) OR (exturl != "" AND pageid = 0 AND pluginid = 0)) ORDER BY catorder ASC');
 
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result -> fetch_assoc()) {
 
       $permission = explode(',', $row['permission']);
 
       if (in_array(ENVO_USERGROUPID, $permission) || $row['permission'] == 0) {
 
         if ($row['catorder'] == 1 && $row['showmenu'] == 1 && $row['catparent'] == 0) {
-          $parseurl = ENVO_rewrite::envoParseurl('', '', '', '', '');
+          $parseurl = ENVO_rewrite ::envoParseurl('', '', '', '', '');
         } else if ($row['varname'] && !$row['exturl']) {
-          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], '', '', '', '');
+          $parseurl = ENVO_rewrite ::envoParseurl($row['varname'], '', '', '', '');
         } else if ($row['exturl']) {
           $parseurl = $row['exturl'];
         } else {
-          $parseurl = ENVO_rewrite::envoParseurl('', '', '', '', '');
+          $parseurl = ENVO_rewrite ::envoParseurl('', '', '', '', '');
         }
 
-        $envodata[] = array('id' => $row['id'], 'name' => $row['name'], 'varname' => $parseurl, 'pagename' => $row['varname'], 'content' => $row['content'], 'metadesc' => $row['metadesc'], 'metakey' => $row['metakey'], 'showmenu' => $row['showmenu'], 'showfooter' => $row['showfooter'], 'catorder' => $row['catorder'], 'catimg' => $row['catimg'], 'catparent' => $row['catparent'], 'activeplugin' => $row['activeplugin'], 'pluginid' => $row['pluginid'], 'pageid' => $row['pageid']);
+        $envodata[] = array (
+          'id'           => $row['id'],
+          'name'         => $row['name'],
+          'varname'      => $parseurl,
+          'pagename'     => $row['varname'],
+          'content'      => $row['content'],
+          'metadesc'     => $row['metadesc'],
+          'metakey'      => $row['metakey'],
+          'showmenu'     => $row['showmenu'],
+          'showfooter'   => $row['showfooter'],
+          'catorder'     => $row['catorder'],
+          'catimg'       => $row['catimg'],
+          'catparent'    => $row['catparent'],
+          'activeplugin' => $row['activeplugin'],
+          'pluginid'     => $row['pluginid'],
+          'pageid'       => $row['pageid']
+        );
       }
 
     }
@@ -313,10 +329,10 @@ class ENVO_base
   public static function envoGetcatmix($where, $where1, $table, $usergroup, $dseo)
   {
 
-    $envodata = array();
+    $envodata = array ();
     global $envodb;
-    $result = $envodb->query('SELECT * FROM ' . $table . ' WHERE active = 1 ORDER BY catorder ASC');
-    while ($row = $result->fetch_assoc()) {
+    $result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE active = 1 ORDER BY catorder ASC');
+    while ($row = $result -> fetch_assoc()) {
 
       if (envo_get_access($usergroup, $row['permission']) || $row['permission'] == 0) {
 
@@ -326,10 +342,10 @@ class ENVO_base
           $seo = $row['varname'];
         }
 
-        $row['parseurl'] = ENVO_rewrite::envoParseurl($where, 'category', $row['id'], $seo, '');
+        $row['parseurl'] = ENVO_rewrite ::envoParseurl($where, 'category', $row['id'], $seo, '');
 
         if ($where1) {
-          $row['parseurl1'] = ENVO_rewrite::envoParseurl($where1, $where, $row['id'], '', '');
+          $row['parseurl1'] = ENVO_rewrite ::envoParseurl($where1, $where, $row['id'], '', '');
         }
 
         // EN: Insert each record into array
@@ -359,7 +375,7 @@ class ENVO_base
   public static function envoCatdisplay($envovar, $usraccesspl, $catarray)
   {
 
-    $case = array();
+    $case = array ();
     if (isset($catarray) && !empty($catarray)) foreach ($catarray as $c) {
       if ($c['pluginid'] == 0 || in_array($c['pluginid'], $usraccesspl))
         $case[] = $c;
@@ -413,7 +429,7 @@ class ENVO_base
   {
 
     global $envodb;
-    $result = $envodb->query('UPDATE ' . $envovar1 . ' SET hits = hits + 1 WHERE id = "' . smartsql($envovar) . '"');
+    $result = $envodb -> query('UPDATE ' . $envovar1 . ' SET hits = hits + 1 WHERE id = "' . smartsql($envovar) . '"');
 
   }
 
@@ -479,8 +495,8 @@ class ENVO_base
   {
 
     global $envodb;
-    $envodb->query('SELECT id FROM ' . DB_PREFIX . $table . ' WHERE password = "' . $pass . '" AND id = ' . $id . ' AND active = 1');
-    if ($envodb->affected_rows > 0) {
+    $envodb -> query('SELECT id FROM ' . DB_PREFIX . $table . ' WHERE password = "' . $pass . '" AND id = ' . $id . ' AND active = 1');
+    if ($envodb -> affected_rows > 0) {
       return TRUE;
     } else {
       return FALSE;

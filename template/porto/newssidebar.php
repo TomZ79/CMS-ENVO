@@ -1,6 +1,6 @@
 <?php if (defined("ENVO_PLUGIN_NAME_NEWS") && $ENVO_GET_NEWS_SORTED) { ?>
 
-  <aside class="sidebarwidget sidebarwidget-border hidden-xs">
+  <aside class="sidebarwidget sidebarwidget-border d-none d-sm-block">
 
     <h3 class="sidebarwidget-title"><?= ENVO_PLUGIN_NAME_NEWS ?></h3>
 

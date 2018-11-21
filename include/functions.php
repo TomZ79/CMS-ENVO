@@ -134,7 +134,8 @@ function envo_input_filter($value)
 function envo_url_input_filter($value)
 {
   $value = html_entity_decode($value);
-  $value = preg_replace('/[^\w-.]/', '', $value);
+  $value = rawurldecode($value);
+  // $value = preg_replace('/[^\w-.]/', '', $value);
 
   return trim(filter_var($value, FILTER_SANITIZE_STRING));
 }
@@ -669,7 +670,21 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array ( 'id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base ::envoTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base ::envoCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time'] );
+    $envodata[] = array (
+      'id'           => $row['id'],
+      'title'        => envo_secure_site($PAGE_TITLE),
+      'content'      => envo_secure_site($PAGE_CONTENT),
+      'showtitle'    => $row['showtitle'],
+      'showdate'     => $row['showdate'],
+      'showhits'     => $row['showhits'],
+      'created'      => ENVO_base ::envoTimesince($row['time'], $datef, $timef, $timeago),
+      'titleurl'     => ENVO_base ::envoCleanurl($row['title']),
+      'hits'         => $row['hits'],
+      'previmg'      => $row['previmg'],
+      'contentshort' => $shortmsg,
+      'parseurl'     => $parseurl,
+      'date-time'    => $row['time']
+    );
 
   }
 
@@ -1050,7 +1065,15 @@ function envo_clean_safe_userpost($input)
   // now we convert the code stuff into code blocks
   $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'envo_precode', $input);
 
-  $allowedhtml = array ( 'safe' => 1, 'elements' => 'em, p, br, img, ul, li, ol, a, strong, pre, code', 'deny_attribute' => 'class, title, id, style, on*', 'comment' => 1, 'cdata' => 1, 'valid_xhtml' => 1, 'make_tag_strict' => 1 );
+  $allowedhtml = array (
+    'safe'            => 1,
+    'elements'        => 'em, p, br, img, ul, li, ol, a, strong, pre, code',
+    'deny_attribute'  => 'class, title, id, style, on*',
+    'comment'         => 1,
+    'cdata'           => 1,
+    'valid_xhtml'     => 1,
+    'make_tag_strict' => 1
+  );
   $allowedatr  = '';
   $input       = htmLawed($input, $allowedhtml, $allowedatr);
 

@@ -6,7 +6,7 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSREGISTER_FORM)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESSREGISTER_FORM)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -30,6 +30,7 @@ $envotable3 = DB_PREFIX . 'pluginhooks';
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'settings':
+    // REGISTER FORM SETTING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -42,7 +43,7 @@ switch ($page1) {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "rf_title" THEN "' . smartsql($defaults['envo_title']) . '"
                   WHEN "rf_active" THEN ' . $defaults['envo_register'] . '
                   WHEN "rf_simple" THEN ' . $defaults['envo_simple'] . '
@@ -71,7 +72,7 @@ switch ($page1) {
             $whatid = 0;
             if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-            $envodb->query('INSERT INTO ' . $envotable2 . ' SET plugin = ' . ENVO_PLUGIN_REGISTER_FORM . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+            $envodb -> query('INSERT INTO ' . $envotable2 . ' SET plugin = ' . ENVO_PLUGIN_REGISTER_FORM . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
           }
 
@@ -83,11 +84,11 @@ switch ($page1) {
       if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
         // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-        $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(ENVO_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
+        $row = $envodb -> queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(ENVO_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
 
         // We have something to delete
         if ($row["id"]) {
-          $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(ENVO_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
+          $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(ENVO_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
         }
 
       }
@@ -103,27 +104,27 @@ switch ($page1) {
         foreach ($doith as $key => $exorder) {
 
           // Get the real what id
-          $result = $envodb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
-          $row    = $result->fetch_assoc();
+          $result = $envodb -> query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+          $row    = $result -> fetch_assoc();
 
           $whatid = 0;
           if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
           if (in_array($key, $defaults['envo_hookshow'])) {
-            $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+            $updatesql  .= sprintf("WHEN %d THEN %d ", $key, $exorder);
             $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
           } else {
-            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = ' . $key);
+            $envodb -> query('DELETE FROM ' . $envotable2 . ' WHERE id = ' . $key);
           }
         }
 
-        $envodb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
+        $envodb -> query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 				' . $updatesql . '
 				END
 				WHERE id IN (' . $hookrealid . ')');
 
-        $envodb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
+        $envodb -> query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
 				' . $updatesql1 . '
 				END
 				WHERE id IN (' . $hookrealid . ')');
@@ -143,16 +144,16 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = ' . ENVO_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
-    while ($grow = $grid->fetch_assoc()) {
+    $grid = $envodb -> query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = ' . ENVO_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
+    while ($grow = $grid -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $ENVO_PAGE_GRID[] = $grow;
     }
 
     // Get the sidebar templates
-    $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
-    while ($row = $result->fetch_assoc()) {
+    $result = $envodb -> query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    while ($row = $result -> fetch_assoc()) {
       $ENVO_HOOKS[] = $row;
     }
 
@@ -180,6 +181,22 @@ switch ($page1) {
 
     break;
   default:
+    // MAIN PAGE OF PLUGIN
+
+    // ----------- ERROR: REDIRECT PAGE ------------
+    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+    // EN: If not exist value in 'case', redirect page to 404
+    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+    $pagearray = array ( 'settings' );
+    if (!empty($page1) && !is_numeric($page1)) {
+      if (in_array($page1, $pagearray)) {
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+      }
+    }
+
+    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -205,7 +222,7 @@ switch ($page1) {
             $sqlmand = $defaults['envo_optionmandatory'][$u];
           }
 
-          $envodb->query('INSERT INTO ' . $envotable . ' SET
+          $envodb -> query('INSERT INTO ' . $envotable . ' SET
 		   	       name = "' . smartsql($name) . '",
 		   	       typeid = "' . smartsql($defaults['envo_optiontype'][$u]) . '",
 		   	       options = "' . $sqloptions . '",
@@ -213,10 +230,10 @@ switch ($page1) {
 		   	       mandatory = "' . smartsql($sqlmand) . '",
 		   	       forder = "' . smartsql($defaults['envo_optionsort'][$u]) . '"');
 
-          $rowid = $envodb->envo_last_id();
+          $rowid = $envodb -> envo_last_id();
 
           // Insert a new field into user table, so the option will be available
-          $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name)) . '_' . $rowid . ' VARCHAR(100) NULL AFTER picture');
+          $envodb -> query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name)) . '_' . $rowid . ' VARCHAR(100) NULL AFTER picture');
 
         }
       }
@@ -228,18 +245,18 @@ switch ($page1) {
         for ($i = 0; $i < count($odel); $i++) {
           $optiondel = $odel[$i];
 
-          $result = $envodb->query('SELECT name FROM ' . $envotable . ' WHERE id = ' . $optiondel);
-          while ($row = $result->fetch_assoc()) {
+          $result = $envodb -> query('SELECT name FROM ' . $envotable . ' WHERE id = ' . $optiondel);
+          while ($row = $result -> fetch_assoc()) {
 
             // Delete the user table option
             if ($optiondel > 3) {
-              $envodb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $optiondel);
+              $envodb -> query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $optiondel);
             }
 
           }
 
           // Now finally delete the option
-          $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $optiondel);
+          $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = ' . $optiondel);
 
         }
       }
@@ -269,7 +286,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $envodb->query('UPDATE ' . $envotable . ' SET
+        $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                   name = "' . smartsql(trim($name_old)) . '",
                   typeid = "' . smartsql($defaults['envo_optiontype_old'][$i]) . '",
                   options = "' . smartsql(trim($defaults['envo_options_old'][$i])) . '",
@@ -280,14 +297,14 @@ switch ($page1) {
 
         if ($result && $defaults['envo_optionid'][$i] > 3 && $defaults['envo_option_name_old'][$i] != $name_old) {
 
-          $envodb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $defaults['envo_option_name_old'][$i])) . '_' . $defaults['envo_optionid'][$i]);
+          $envodb -> query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $defaults['envo_option_name_old'][$i])) . '_' . $defaults['envo_optionid'][$i]);
 
           if ($defaults['envo_optiontype_old'][$i] == 2) {
 
-            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['envo_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
+            $envodb -> query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['envo_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
 
           } else {
-            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['envo_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
+            $envodb -> query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['envo_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
           }
 
 
@@ -300,8 +317,8 @@ switch ($page1) {
     }
 
     // Get contact options
-    $result = $envodb->query('SELECT * FROM ' . $envotable . ' ORDER BY forder ASC');
-    while ($row = $result->fetch_assoc()) {
+    $result = $envodb -> query('SELECT * FROM ' . $envotable . ' ORDER BY forder ASC');
+    while ($row = $result -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $ENVO_REGISTEROPTION_ALL[] = $row;

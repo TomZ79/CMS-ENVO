@@ -29,7 +29,7 @@ $ENVO_SEARCH_WHERE = ENVO_PLUGIN_VAR_DOWNLOAD;
 $ENVO_SEARCH_LINK  = ENVO_PLUGIN_VAR_DOWNLOAD;
 
 // Wright the Usergroup permission into define and for template
-define('ENVO_DOWNLOADCAN', $envousergroup->getVar("downloadcan"));
+define('ENVO_DOWNLOADCAN', $envousergroup -> getVar("downloadcan"));
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -39,11 +39,11 @@ $AJAX_SEARCH_PLUGIN_SEO   = $setting["downloadurl"];
 // Get the rss if active
 if ($setting["downloadrss"]) {
   $ENVO_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '');
+  $P_RSS_LINK       = ENVO_rewrite ::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtodl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
+$backtodl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
 
 // Template Call
 $ENVO_TPL_PLUG_T   = ENVO_PLUGIN_NAME_DOWNLOAD;
@@ -67,32 +67,32 @@ switch ($page1) {
       $getTotal = envo_get_total($envotable, $catID, 'catid', 'active');
 
       if ($setting["downloadurl"]) {
-        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
       if ($getTotal != 0) {
 
         // Paginator
-        $dlc                 = new ENVO_paginator;
-        $dlc->items_total    = $getTotal;
-        $dlc->mid_range      = $setting["downloadpagemid"];
-        $dlc->items_per_page = $setting["downloadpageitem"];
-        $dlc->envo_get_page   = $getPage;
-        $dlc->envo_where      = $getWhere;
-        $dlc->envo_prevtext   = $tl["pagination"]["pagin"];
-        $dlc->envo_nexttext   = $tl["pagination"]["pagin1"];
-        $dlc->paginate();
-        $ENVO_PAGINATE = $dlc->display_pages();
+        $dlc                   = new ENVO_paginator;
+        $dlc -> items_total    = $getTotal;
+        $dlc -> mid_range      = $setting["downloadpagemid"];
+        $dlc -> items_per_page = $setting["downloadpageitem"];
+        $dlc -> envo_get_page  = $getPage;
+        $dlc -> envo_where     = $getWhere;
+        $dlc -> envo_prevtext  = $tl["pagination"]["pagin"];
+        $dlc -> envo_nexttext  = $tl["pagination"]["pagin1"];
+        $dlc -> paginate();
+        $ENVO_PAGINATE = $dlc -> display_pages();
 
-        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc->limit, $setting["downloadorder"], $catID, 't1.catid', $setting["downloadurl"], $tl['global_text']['gtxt4']);
+        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc -> limit, $setting["downloadorder"], $catID, 't1.catid', $setting["downloadurl"], $tl['global_text']['gtxt4']);
       }
 
       // Get the download categories
-      $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
+      $row = $envodb -> queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
@@ -101,8 +101,8 @@ switch ($page1) {
 
       // Get the sort orders for the grid
       $ENVO_HOOK_SIDE_GRID = FALSE;
-      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(ENVO_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
-      while ($grow = $grid->fetch_assoc()) {
+      $grid                = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(ENVO_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+      while ($grow = $grid -> fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $ENVO_HOOK_SIDE_GRID[] = $grow;
@@ -112,11 +112,11 @@ switch ($page1) {
       $_SESSION['envo_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+      if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base ::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base ::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -170,7 +170,7 @@ switch ($page1) {
         $passcrypt = hash_hmac('sha256', $defaults['dlpass'], DB_PASS_HASH);
 
         // Check if the password is correct
-        $dl_check = ENVO_base::envoCheckProtectedArea($passcrypt, 'download', $defaults['dlsec']);
+        $dl_check = ENVO_base ::envoCheckProtectedArea($passcrypt, 'download', $defaults['dlsec']);
 
         if (!$dl_check) {
           $errors['e'] = $tl['general_error']['generror8'];
@@ -186,24 +186,24 @@ switch ($page1) {
         }
       }
 
-      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
-      $row    = $result->fetch_assoc();
+      $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+      $row    = $result -> fetch_assoc();
 
       if ($row['active'] != 1) {
-        envo_redirect(ENVO_rewrite::envoParseurl('offline'));
+        envo_redirect(ENVO_rewrite ::envoParseurl('offline'));
       } else {
 
         if (!envo_row_permission($row['catid'], $envotable1, ENVO_USERGROUPID)) {
           envo_redirect($backtodl);
         } else {
 
-          // Now let's check the vote and hits cookie
+          // Now let's check the hits cookie
           if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
 
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            ENVO_base::envoUpdatehits($row['id'], $envotable);
+            ENVO_base ::envoUpdatehits($row['id'], $envotable);
           }
 
           // Output the data
@@ -211,8 +211,10 @@ switch ($page1) {
           $PAGE_TITLE       = $row['title'];
           $PAGE_CONTENT     = envo_secure_site($row['content']);
           $SHOWTITLE        = $row['showtitle'];
-          $SHOWIMG          = $row['previmg'];
+          $THUMBIMG         = $row['previmg'];
           $SHOWDATE         = $row['showdate'];
+          $SHOWCATS         = $row['showcat'];
+          $SHOWDL           = $row['showdl'];
           $FT_SHARE         = $row['ftshare'];
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $DL_HITS          = $row['hits'];
@@ -221,31 +223,31 @@ switch ($page1) {
           // CZ: Obrázek pro Facebook
           if (!empty($row['previmgfbsm']) || !empty($row['previmgfblg'])) {
             if (isset($row['previmgfbsm']) && !isset($row['previmgfblg'])) {
-              $imgsm = urldecode ($row['previmgfbsm']);
-              $FB_IMAGE         = BASE_URL . ltrim($imgsm, '/') . '?v=' . rand();
-              $data = getimagesize(APP_PATH . ltrim($imgsm, '/'));
+              $imgsm      = urldecode($row['previmgfbsm']);
+              $FB_IMAGE   = BASE_URL . ltrim($imgsm, '/') . '?v=' . rand();
+              $data       = getimagesize(APP_PATH . ltrim($imgsm, '/'));
               $FB_IMAGE_W = $data[0];
               $FB_IMAGE_H = $data[1];
             } else {
-              $imglg = urldecode ($row['previmgfblg']);
-              $FB_IMAGE         = BASE_URL . ltrim($imglg, '/') . '?v=' . rand();
-              $data = getimagesize(APP_PATH . ltrim($imglg, '/'));
+              $imglg      = urldecode($row['previmgfblg']);
+              $FB_IMAGE   = BASE_URL . ltrim($imglg, '/') . '?v=' . rand();
+              $data       = getimagesize(APP_PATH . ltrim($imglg, '/'));
               $FB_IMAGE_W = $data[0];
               $FB_IMAGE_H = $data[1];
             }
           }
           // EN: $DL_PASSWORD - variable if page have password
           // CZ: $DL_PASSWORD - proměná pro zaheslovanou stránku
-          $DL_PASSWORD      = $row['password'];
+          $DL_PASSWORD = $row['password'];
           // EN: $PAGE_PASSWORD - main variable if page have password, use in template
           // CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
-          $PAGE_PASSWORD               = $DL_PASSWORD;
-          $ENVO_HEADER_CSS              = $row['dl_css'];
-          $ENVO_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
+          $PAGE_PASSWORD                   = $DL_PASSWORD;
+          $ENVO_HEADER_CSS                 = $row['dl_css'];
+          $ENVO_FOOTER_JAVASCRIPT          = $row['dl_javascript'];
           $setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
-          $DL_LINK                     = html_entity_decode(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
+          $DL_LINK                         = html_entity_decode(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
-          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["downloaddateformat"], $setting["downloadtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base ::envoTimesince($row['time'], $setting["downloaddateformat"], $setting["downloadtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Set download to false
@@ -258,14 +260,14 @@ switch ($page1) {
           }
 
           // Get the url session
-          $_SESSION['envo_lastURL']    = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+          $_SESSION['envo_lastURL']    = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
           $_SESSION['envo_thisFileID'] = $row['id'];
 
         }
 
         // Get the sort orders for the grid
-        $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE fileid = "' . smartsql($row['id']) . '" ORDER BY orderid ASC');
-        while ($grow = $grid->fetch_assoc()) {
+        $grid = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE fileid = "' . smartsql($row['id']) . '" ORDER BY orderid ASC');
+        while ($grow = $grid -> fetch_assoc()) {
 
           // the sidebar grid
           $ENVO_HOOK_SIDE_GRID[] = $grow;
@@ -273,17 +275,40 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($pageID, ENVO_PLUGIN_ID_DOWNLOAD, ENVO_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($pageID, ENVO_PLUGIN_ID_DOWNLOAD, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
+
+        // Get the categories into a list
+        $resultc = $envodb -> query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        while ($rowc = $resultc -> fetch_assoc()) {
+
+          if ($setting["downloadurl"]) {
+            $seoc = ENVO_base ::envoCleanurl($rowc['varname']);
+          }
+
+          // EN: Create array with all categories
+          // CZ: Vytvoření pole se všemi kategoriemi
+          $catids[] = '<span class="cat-list"><a href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a></span>';
+
+          // EN: Get 'varname' for category
+          // CZ: Získaní 'varname' kategorie
+          $DOWNLOAD_CAT[] = $rowc['varname'];
+        }
+
+        if (!empty($catids)) {
+          // EN: Returns a string from the elements of an array
+          // CZ: Získání elementů z pole
+          $DOWNLOAD_CATLIST = join(" ", $catids);
+        }
 
         // Page Navigation
         $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($setting["downloadurl"]) {
-            $seo = ENVO_base::envoCleanurl($nextp['title']);
+            $seo = ENVO_base ::envoCleanurl($nextp['title']);
           }
 
-          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
+          $ENVO_NAV_NEXT       = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
           $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
@@ -291,34 +316,11 @@ switch ($page1) {
         if ($prevp) {
 
           if ($setting["downloadurl"]) {
-            $seop = ENVO_base::envoCleanurl($prevp['title']);
+            $seop = ENVO_base ::envoCleanurl($prevp['title']);
           }
 
-          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
+          $ENVO_NAV_PREV       = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
           $ENVO_NAV_PREV_TITLE = addslashes($prevp['title']);
-        }
-
-        // Get the categories into a list
-        $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
-        while ($rowc = $resultc->fetch_assoc()) {
-
-          if ($setting["downloadurl"]) {
-            $seoc = ENVO_base::envoCleanurl($rowc['varname']);
-          }
-
-          // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
-          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
-
-          // EN: Get 'varname' for category
-          // CZ: Získaní 'varname' kategorie
-          $DOWNLOAD_CAT = $rowc['varname'];
-        }
-
-        if (!empty($catids)) {
-          // EN: Returns a string from the elements of an array
-          // CZ: Získání elementů z pole
-          $DOWNLOAD_CATLIST = join(" ", $catids);
         }
 
       }
@@ -332,11 +334,11 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base ::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
-    $row = $envodb->queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
+    $row = $envodb -> queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
 
     // Get script for Facebook SDK
     $ENVO_FACEBOOK_SDK_CONNECTION = $row['value'];
@@ -369,7 +371,7 @@ switch ($page1) {
 
       // EN: Get the file from DB
       // CZ: Získání souboru z DB
-      $row = $envodb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+      $row = $envodb -> queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
 
       // Not active back to download
       if ($row['active'] != 1) envo_redirect($backtodl);
@@ -396,7 +398,7 @@ switch ($page1) {
         $dlemail  = "guest";
         if (ENVO_USERID) {
           $dluserid = ENVO_USERID;
-          $dlemail  = $envouser->getVar("email");
+          $dlemail  = $envouser -> getVar("email");
         }
 
         // EN: Write data to download history ( table 'DBPrefix_downloadhistory' in DB )
@@ -407,7 +409,7 @@ switch ($page1) {
           $file = smartsql($row['extfile']);
         }
 
-        $envodb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $pageID . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
+        $envodb -> query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $pageID . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
 
         if (!empty($row['extfile'])) {
           /*
@@ -417,7 +419,7 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($pageID) . '"');
           // EN: Redirect page with download file
           // CZ: Přesměrování stránky
           envo_redirect($row['extfile']);
@@ -505,7 +507,7 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($pageID) . '"');
+          $envodb -> query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($pageID) . '"');
 
         }
 
@@ -526,7 +528,7 @@ switch ($page1) {
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1) && !is_numeric($page1)) {
       if ($page1 != 'category' || $page1 != 'f' || $page1 != 'dl') {
-        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
       }
     }
 
@@ -537,21 +539,21 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $dl                 = new ENVO_paginator;
-      $dl->items_total    = $getTotal;
-      $dl->mid_range      = $setting["downloadpagemid"];
-      $dl->items_per_page = $setting["downloadpageitem"];
-      $dl->envo_get_page   = $page1;
-      $dl->envo_where      = $backtodl;
-      $dl->envo_prevtext   = $tl["pagination"]["pagin"];
-      $dl->envo_nexttext   = $tl["pagination"]["pagin1"];
-      $dl->paginate();
+      $dl                   = new ENVO_paginator;
+      $dl -> items_total    = $getTotal;
+      $dl -> mid_range      = $setting["downloadpagemid"];
+      $dl -> items_per_page = $setting["downloadpageitem"];
+      $dl -> envo_get_page  = $page1;
+      $dl -> envo_where     = $backtodl;
+      $dl -> envo_prevtext  = $tl["pagination"]["pagin"];
+      $dl -> envo_nexttext  = $tl["pagination"]["pagin1"];
+      $dl -> paginate();
 
       // Pagination
-      $ENVO_PAGINATE = $dl->display_pages();
+      $ENVO_PAGINATE = $dl -> display_pages();
 
       // Get all files
-      $ENVO_DOWNLOAD_ALL = envo_get_download($dl->limit, $setting["downloadorder"], '', '', $setting["downloadurl"], $tl['global_text']['gtxt4']);
+      $ENVO_DOWNLOAD_ALL = envo_get_download($dl -> limit, $setting["downloadorder"], '', '', $setting["downloadurl"], $tl['global_text']['gtxt4']);
 
     }
 
@@ -566,19 +568,19 @@ switch ($page1) {
 
     // Get the sort orders for the grid
     $ENVO_HOOK_SIDE_GRID = FALSE;
-    $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(ENVO_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
-    while ($grow = $grid->fetch_assoc()) {
+    $grid                = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(ENVO_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+    while ($grow = $grid -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $ENVO_HOOK_SIDE_GRID[] = $grow;
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+    if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base ::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base ::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

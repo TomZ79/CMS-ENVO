@@ -321,7 +321,8 @@ $(function () {
     par.remove();
   }
 
-  $('.deleteRow').bind('click', DeleteRow);
+  //
+  $('.deleteRow1').bind('click', DeleteRow);
 
   //
   $('#addRowTab1').click(function (e) {
@@ -345,15 +346,17 @@ $(function () {
         var max = 0;
         var nextmax = '1'; // value '1', if not exists some row
 
-        $('#wiki_table_1 .rowid').each(function () {
+        $('#wiki_table_1 .rowid1').each(function () {
           $this = parseInt($(this).val());
           if ($this > max) max = $this;
         });
 
-          nextmax = dataInt + 1;
-          console.log('Data:' + dataInt);
-          console.log('Max:' + max);
-          console.log('NetMax:' + nextmax);
+        nextmax = dataInt + 1;
+        console.log('Wiki Table 1');
+        console.log('----------------');
+        console.log('Data:' + dataInt);
+        console.log('Max:' + max);
+        console.log('NetMax:' + nextmax);
 
         if (dataInt == max) {
           nextmax = dataInt + 1;
@@ -366,9 +369,9 @@ $(function () {
         }
 
         tabledata += '<tr>' +
-          '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid" value="' + nextmax + '"/></td>' +
+          '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid1" value="' + nextmax + '"/></td>' +
           '<td><input type="text" name="envo_literature_1[]" class="form-control"></td>' +
-          '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow"><i class="fa fa-trash-o"></i></button></td>' +
+          '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow1"><i class="fa fa-trash-o"></i></button></td>' +
           '</tr>';
 
         //
@@ -380,7 +383,79 @@ $(function () {
         $('#wiki_table_1 tbody').prepend(tabledata);
 
         // Update Jquery Function
-        $('#wiki_table_1 .deleteRow').bind("click", DeleteRow);
+        $('#wiki_table_1 .deleteRow1').bind("click", DeleteRow);
+
+      },
+      error: function () {
+
+      }
+    });
+
+  });
+
+  //
+  $('.deleteRow2').bind('click', DeleteRow);
+
+  //
+  $('#addRowTab2').click(function (e) {
+    e.preventDefault();
+
+    var tabledata = '';
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/wiki/admin/ajax/wiki_link.php",
+      type: 'POST',
+      datatype: 'json',
+      beforeSend: function () {
+
+      },
+      success: function (data) {
+        // Console log
+        // console.log(data);
+
+        var dataInt = parseInt(data.data);
+        var max = 0;
+        var nextmax = '1'; // value '1', if not exists some row
+
+        $('#wiki_table_2 .rowid2').each(function () {
+          $this = parseInt($(this).val());
+          if ($this > max) max = $this;
+        });
+
+        nextmax = dataInt + 1;
+        console.log('Wiki Table 2');
+        console.log('----------------');
+        console.log('Data:' + dataInt);
+        console.log('Max:' + max);
+        console.log('NetMax:' + nextmax);
+
+        if (dataInt == max) {
+          nextmax = dataInt + 1;
+        } else {
+          if (max == 0) {
+            nextmax = dataInt + 1;
+          } else {
+            nextmax = max + 1;
+          }
+        }
+
+        tabledata += '<tr>' +
+          '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_links_0[]" class="rowid2" value="' + nextmax + '"/></td>' +
+          '<td><input type="text" name="envo_links_1[]" class="form-control"></td>' +
+          '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow2"><i class="fa fa-trash-o"></i></button></td>' +
+          '</tr>';
+
+        //
+        if ($('#wiki_table_2 .nodata').length) {
+          $('#wiki_table_2 .nodata').remove();
+        }
+
+        // Put data to table
+        $('#wiki_table_2 tbody').prepend(tabledata);
+
+        // Update Jquery Function
+        $('#wiki_table_2 .deleteRow2').bind("click", DeleteRow);
 
       },
       error: function () {

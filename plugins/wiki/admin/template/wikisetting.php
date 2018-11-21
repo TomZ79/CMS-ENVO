@@ -317,6 +317,33 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
+                    <div class="row-form">
+                      <div class="col-sm-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('strong', $tlw["wiki_box_content"]["wikibc38"]);
+                        ?>
+
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="radio radio-success">
+
+                          <?php
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html -> addRadio('envo_wikilivesearch', '1', ($setting["wikilivesearch"] == '1') ? TRUE : FALSE, 'envo_wikilivesearch1');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html -> addLabel('envo_wikilivesearch1', $tl["checkbox"]["chk"]);
+
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html -> addRadio('envo_wikilivesearch', '0', ($setting["wikilivesearch"] == '0') ? TRUE : FALSE, 'envo_wikilivesearch2');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html -> addLabel('envo_wikilivesearch2', $tl["checkbox"]["chk1"]);
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -64,14 +64,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=download&sp=new', $tl["button"]["btn40"], '', 'btn btn-info button');
+    echo $Html -> addAnchor('index.php?p=download&sp=new', $tl["button"]["btn40"], '', 'btn btn-info button');
     ?>
 
   </div>
 
 <?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) { ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
@@ -85,23 +85,23 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
-                  echo $Html->addLabel('envo_delete_all', '');
+                  echo $Html -> addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html -> addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
               </th>
-              <th style="width:22%"><?=$tld["downl_box_table"]["downltb"]?></th>
-              <th style="width:10%"><?=$tld["downl_box_table"]["downltb1"]?></th>
-              <th style="width:9%"><?=$tld["downl_box_table"]["downltb2"]?></th>
-              <th style="width:12%"><?=$tld["downl_box_table"]["downltb3"]?></th>
-              <th style="width:14%"><?=$tld["downl_box_table"]["downltb6"]?></th>
-              <th style="width:12%"><?=$tld["downl_box_table"]["downltb4"]?></th>
+              <th style="width:22%"><?= $tld["downl_box_table"]["downltb"] ?></th>
+              <th style="width:10%"><?= $tld["downl_box_table"]["downltb1"] ?></th>
+              <th style="width:9%"><?= $tld["downl_box_table"]["downltb2"] ?></th>
+              <th style="width:12%"><?= $tld["downl_box_table"]["downltb3"] ?></th>
+              <th style="width:14%"><?= $tld["downl_box_table"]["downltb6"] ?></th>
+              <th style="width:12%"><?= $tld["downl_box_table"]["downltb4"] ?></th>
               <th class="text-center no-sort" style="width:4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
+                echo $Html -> addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
                 ?>
 
               </th>
@@ -110,7 +110,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tld["downl_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'left', 'title' => $tl["icons"]["i30"]));
+                echo $Html -> addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ( 'disabled' => 'disabled', 'data-confirm-del' => $tld["downl_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'left', 'title' => $tl["icons"]["i30"] ));
                 ?>
 
               </th>
@@ -118,15 +118,15 @@ if ($page1 == "e" || $page1 == "ene") { ?>
             </thead>
             <?php foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
               <tr>
-                <td><?=$v["id"]?></td>
+                <td><?= $v["id"] ?></td>
                 <td>
                   <div class="checkbox-singel check-success" style="margin: 0 auto;">
 
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('envo_delete_download[]', $v["id"], FALSE, 'envo_delete_download' . $v["id"], 'highlight');
-                    echo $Html->addLabel('envo_delete_download' . $v["id"], '');
+                    echo $Html -> addCheckbox('envo_delete_download[]', $v["id"], FALSE, 'envo_delete_download' . $v["id"], 'highlight');
+                    echo $Html -> addLabel('envo_delete_download' . $v["id"], '');
                     ?>
 
                   </div>
@@ -135,11 +135,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+                  echo $Html -> addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
 
                   if ($v["password"]) {
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('i', '', 'fa fa-key');
+                    echo $Html -> addTag('i', '', 'fa fa-key');
                   }
                   ?>
 
@@ -151,7 +151,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                       if (in_array($z["id"], explode(',', $v["catid"]))) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('index.php?p=download&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
+                        echo $Html -> addAnchor('index.php?p=download&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
                       }
                     }
                   } else {
@@ -160,9 +160,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td><?=date("d.m.Y", strtotime($v["time"]))?></td>
-                <td><?=$v["hits"]?></td>
-                <td><?=$v["countdl"]?></td>
+                <td><?= date("d.m.Y", strtotime($v["time"])) ?></td>
+                <td><?= $v["hits"] ?></td>
+                <td><?= $v["countdl"] ?></td>
                 <td>
 
                   <?php
@@ -182,7 +182,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=download&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  echo $Html -> addAnchor('index.php?p=download&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"] ));
                   ?>
 
                 </td>
@@ -190,7 +190,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                  echo $Html -> addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
                   ?>
 
                 </td>
@@ -198,7 +198,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=download&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tld["downl_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                  echo $Html -> addAnchor('index.php?p=download&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array ( 'data-confirm' => sprintf($tld["downl_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
                   ?>
 
                 </td>
@@ -215,12 +215,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"]));
-      echo $Html->addTag('i', '', 'fa fa-key', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i14"]));
-      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"]));
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+      echo $Html -> addTag('h3', $tl["icons"]["i"]);
+      echo $Html -> addTag('i', '', 'fa fa-check', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"] ));
+      echo $Html -> addTag('i', '', 'fa fa-key', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i14"] ));
+      echo $Html -> addTag('i', '', 'fa fa-lock', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"] ));
+      echo $Html -> addTag('i', '', 'fa fa-edit', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
+      echo $Html -> addTag('i', '', 'fa fa-trash-o', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
       ?>
 
     </div>
@@ -232,7 +232,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+    echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
     ?>
 
   </div>

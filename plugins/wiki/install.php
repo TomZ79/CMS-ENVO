@@ -428,6 +428,7 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
 ("wikishortmsg", "wiki", 300, 300, "input", "boolean", "wiki"),
 ("wikiorder", "wiki", "id ASC", "", "input", "free", "wiki"),
 ("wikirss", "wiki", 5, 5, "select", "number", "wiki"),
+("wikilivesearch", "wiki", 0, 0, "yesno", "boolean", "wiki"),
 ("wikihlimit", "wiki", 5, 5, "select", "number", "wiki"),
 ("wiki_css", "wiki", "", "", "textarea", "free", "wiki"),
 ("wiki_javascript", "wiki", "", "", "textarea", "free", "wiki")');
@@ -449,7 +450,7 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
       // CZ: Vytvoření tabulky pro plugin (články)
       $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'wiki (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `catid` varchar(100) DEFAULT NULL,
+  `catid` VARCHAR(100) NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
   `content` mediumtext,
   `wiki_css` text,
@@ -487,12 +488,21 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-      // EN: Create table for plugin (categories)
-      // CZ: Vytvoření tabulky pro plugin (kategorie)
+      // EN: Create table for plugin (Literature)
+      // CZ: Vytvoření tabulky pro plugin (Literatura)
       $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'wikiliterature (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) DEFAULT NULL,
-  `text` varchar(255) NULL DEFAULT NULL,
+  `text` mediumtext NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+      // EN: Create table for plugin (Links)
+      // CZ: Vytvoření tabulky pro plugin (Odkazy)
+      $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'wikilink (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) DEFAULT NULL,
+  `text` mediumtext NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

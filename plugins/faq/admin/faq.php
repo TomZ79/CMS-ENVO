@@ -34,6 +34,11 @@ include_once("../plugins/faq/admin/include/functions.php");
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
+    // FAQ NEW ARTICLE
+
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $catsID = $page2;
 
     // Get the important template stuff
     $ENVO_CAT = envo_get_cat_info($envotable1, 0);
@@ -47,16 +52,19 @@ switch ($page1) {
         // EN: If button "Save Changes" clicked
         // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
+        // Setting - Title of file
         if (empty($defaults['envo_title'])) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
         }
 
+        // Setting - Displaying the title
         if (isset($defaults['envo_showtitle'])) {
           $showtitle = $defaults['envo_showtitle'];
         } else {
           $showtitle = '0';
         }
 
+        // Setting - Displaying the date
         if (isset($defaults['envo_showdate'])) {
           $showdate = $defaults['envo_showdate'];
         } else {
@@ -65,11 +73,25 @@ switch ($page1) {
 
         if (count($errors) == 0) {
 
+          // EN: Preview Image of file
+          // CZ: Náhledový obrázek souboru
           if (!empty($defaults['envo_img'])) {
             $insert .= 'previmg = "' . smartsql($defaults['envo_img']) . '",';
+          } else {
+            $insert .= 'previmg = NULL,';
           }
 
+          // Show Social Button
           if (!isset($defaults['envo_social'])) $defaults['envo_social'] = 0;
+
+          // Save category
+          if (!isset($defaults['envo_catid'])) {
+            $catid = 0;
+          } elseif (in_array(0, $defaults['envo_catid'])) {
+            $catid = 0;
+          } else {
+            $catid = join(',', $defaults['envo_catid']);
+          }
 
           /* EN: Convert value
            * smartsql - secure method to insert form data into a MySQL DB
@@ -78,7 +100,7 @@ switch ($page1) {
            * smartsql - secure method to insert form data into a MySQL DB
           */
           $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
-                    catid = "' . smartsql($defaults['envo_catid']) . '",
+                    catid = "' . smartsql($catid) . '",
                     title = "' . smartsql($defaults['envo_title']) . '",
                     content = "' . smartsql($defaults['envo_content']) . '",
                     showtitle = "' . smartsql($showtitle) . '",
@@ -91,12 +113,17 @@ switch ($page1) {
 
           $rowid = $envodb -> envo_last_id();
 
-          // Set tag active to zero
+          /// Set tag active to zero
           $tagactive = 0;
 
-          if ($defaults['envo_catid'] != 0) {
+          $catarray = explode(',', $catid);
 
-            $result1 = $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($defaults['envo_catid']) . '"');
+          if (is_array($catarray)) {
+            foreach ($catarray as $c) {
+
+              $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($c) . '"');
+            }
+
             // Set tag active, well to active
             $tagactive = 1;
 
@@ -158,6 +185,12 @@ switch ($page1) {
       }
     }
 
+    // EN: Select category by "Add article" in "Categories"
+    // CZ: Výběr kategorie pro "Přidat článek" v "Kategoriích"
+    if (is_numeric($catsID)) {
+      $ENVO_CAT_SELECTED = $catsID;
+    }
+
     // Get the sidebar templates
     $result = $envodb -> query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result -> fetch_assoc()) {
@@ -183,6 +216,7 @@ switch ($page1) {
 
     break;
   case 'edit':
+    // FAQ EDIT ARTICLE
 
     // EN: Default Variable
     // CZ: Hlavní proměnné
@@ -226,10 +260,24 @@ switch ($page1) {
             $insert .= 'time = NOW(),';
           }
 
+          // EN: Preview Image of file
+          // CZ: Náhledový obrázek souboru
           if (!empty($defaults['envo_img'])) {
             $insert .= 'previmg = "' . smartsql($defaults['envo_img']) . '",';
           } else {
             $insert .= 'previmg = NULL,';
+          }
+
+          // Show Social Button
+          if (!isset($defaults['envo_social'])) $defaults['envo_social'] = 0;
+
+          // Save category
+          if (!isset($defaults['envo_catid'])) {
+            $catid = 0;
+          } elseif (in_array(0, $defaults['envo_catid'])) {
+            $catid = 0;
+          } else {
+            $catid = join(',', $defaults['envo_catid']);
           }
 
           /* EN: Convert value
@@ -239,7 +287,7 @@ switch ($page1) {
            * smartsql - secure method to insert form data into a MySQL DB
           */
           $result = $envodb -> query('UPDATE ' . $envotable . ' SET
-                        catid = "' . $defaults['envo_catid'] . '",
+                        catid = "' . smartsql($catid) . '",
                         title = "' . smartsql($defaults['envo_title']) . '",
                         content = "' . smartsql($defaults['envo_content']) . '",
                         showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
@@ -258,12 +306,26 @@ switch ($page1) {
             $tagactive = 1;
           }
 
-          if ($defaults['envo_catid'] != 0 || $defaults['envo_catid'] != $defaults['envo_oldcatid']) {
-            $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($defaults['envo_oldcatid']) . '"');
-            $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($defaults['envo_catid']) . '"');
+          $catoarray = explode(',', $defaults['envo_oldcatid']);
+
+          if (is_array($catoarray)) {
+
+            foreach ($catoarray as $co) {
+              $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($co) . '"');
+            }
+          }
+
+          $catarray = explode(',', $catid);
+
+          if (is_array($catarray)) {
+            foreach ($catarray as $c) {
+
+              $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($c) . '"');
+            }
 
             // Set tag active, well to active
             $tagactive = 1;
+
           }
 
           // Save order for sidebar widget
@@ -404,6 +466,7 @@ switch ($page1) {
     }
     break;
   case 'lock':
+    // FAQ LOCK ARTICLE
 
     $result2 = $envodb -> query('SELECT catid, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
     $row2    = $result2 -> fetch_assoc();
@@ -430,6 +493,7 @@ switch ($page1) {
 
     break;
   case 'delete':
+    // FAQ DELETE ARTICLE
 
     // EN: Default Variable
     // CZ: Hlavní proměnné
@@ -440,7 +504,22 @@ switch ($page1) {
       $result2 = $envodb -> query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
       $row2    = $result2 -> fetch_assoc();
 
-      $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+      if (is_numeric($row2['catid'])) {
+
+        $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+
+
+      } else {
+
+        $catarray = explode(',', $row2['catid']);
+
+        if (is_array($catarray)) foreach ($catarray as $c) {
+
+          $envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($c) . '"');
+
+        }
+
+      }
 
       $result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
 
@@ -468,6 +547,7 @@ switch ($page1) {
     }
     break;
   case 'showcat':
+    // FAQ SHOW ARTICLE BY CATEGORY
 
     $getTotal = envo_get_total($envotable, $page2, 'catid', '');
 
@@ -499,6 +579,7 @@ switch ($page1) {
     }
     break;
   case 'categories':
+    // FAQ CATEGORIES
 
     // Additional DB field information
     $envofield  = 'catparent';
@@ -719,6 +800,7 @@ switch ($page1) {
     }
     break;
   case 'newcategory':
+    // FAQ NEW CATEGORY
 
     // Additional DB Stuff
     $envofield = 'varname';
@@ -811,6 +893,7 @@ switch ($page1) {
 
     break;
   case 'setting':
+    // FAQ SETTING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -851,13 +934,14 @@ switch ($page1) {
 		        WHEN "faqtimeformat" THEN "' . smartsql($defaults['envo_time']) . '"
 		        WHEN "faqurl" THEN ' . $defaults['envo_faqurl'] . '
 		        WHEN "faqrss" THEN "' . smartsql($defaults['envo_rssitem']) . '"
+		        WHEN "faqlivesearch" THEN "' . smartsql($defaults['envo_faqlivesearch']) . '"
 		        WHEN "faqpagemid" THEN "' . smartsql($defaults['envo_mid']) . '"
 		        WHEN "faqpageitem" THEN "' . smartsql($defaults['envo_item']) . '"
 		        WHEN "faqshortmsg" THEN "' . smartsql($defaults['envo_shortmsg']) . '"
 		        WHEN "faq_css" THEN "' . smartsql($defaults['envo_css']) . '"
 		      WHEN "faq_javascript" THEN "' . smartsql($defaults['envo_javascript']) . '"
 		    END
-				WHERE varname IN ("faqtitle","faqdesc","faqorder","faqdateformat","faqtimeformat","faqurl","faqpagemid","faqpageitem", "faqshortmsg", "faqrss", "faq_css", "faq_javascript")';
+				WHERE varname IN ("faqtitle","faqdesc","faqorder","faqdateformat","faqtimeformat","faqurl","faqpagemid","faqpageitem", "faqshortmsg", "faqrss", "faqlivesearch", "faq_css", "faq_javascript")';
         $result = $envodb -> query($sql);
 
         // Save order for sidebar widget
@@ -1001,7 +1085,13 @@ switch ($page1) {
 
     break;
   case 'quickedit':
-    if (envo_row_exist($page2, $envotable)) {
+    // FAQ QUICKEDIT IN FRONTEND
+
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $pageID = $page2;
+
+    if (envo_row_exist($pageID, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // EN: Default Variable
@@ -1024,16 +1114,16 @@ switch ($page1) {
           $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                     title = "' . smartsql($defaults['envo_title']) . '",
                     content = "' . smartsql($defaults['envo_lcontent']) . '"
-                    WHERE id = "' . smartsql($page2) . '"');
+                    WHERE id = "' . smartsql($pageID) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&id=' . $page2 . '&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&id=' . $pageID . '&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&id=' . $page2 . '&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&id=' . $pageID . '&status=s');
           }
         } else {
 
@@ -1043,7 +1133,7 @@ switch ($page1) {
       }
 
       // Get the data
-      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -1063,7 +1153,7 @@ switch ($page1) {
 
     // EN: If not exist value in 'case', redirect page to 404
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
-    $pagearray = array ('new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit');
+    $pagearray = array ( 'new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit' );
     if (!empty($page1) && !is_numeric($page1)) {
       if (in_array($page1, $pagearray)) {
         envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));

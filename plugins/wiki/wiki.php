@@ -19,6 +19,7 @@ $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/wiki/template/';
 $envotable  = DB_PREFIX . 'wiki';
 $envotable1 = DB_PREFIX . 'wikicategories';
 $envotable2 = DB_PREFIX . 'wikiliterature';
+$envotable3 = DB_PREFIX . 'wikilink';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -221,9 +222,9 @@ switch ($page1) {
             $seoc = ENVO_base ::envoCleanurl($rowc['varname']);
           }
 
-          // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
-          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<span class="cat-list"><a class="category-label"  href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlw["wiki_frontend"]["wiki2"] . '">' . $rowc['name'] . '</a></span>';
+          // EN: Create array with all categories
+          // CZ: Vytvoření pole se všemi kategoriemi
+          $catids[] = '<span class="cat-list"><a href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_WIKI, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlw["wiki_frontend"]["wiki2"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -239,6 +240,10 @@ switch ($page1) {
         // EN: Getting the data about the extern anchor - Literature
         // CZ: Získání dat o externích odkazech - Literatura
         $ENVO_LITERATURE = envo_get_anchor('', '', $envotable2, 'article_id = ' . $pageID, 'id ASC');
+
+        // EN: Getting the data about the extern anchor - Links
+        // CZ: Získání dat o externích odkazech - Odkazy
+        $ENVO_LINKS = envo_get_anchor('', '', $envotable3, 'article_id = ' . $pageID, 'id ASC');
 
         // Page Navigation
         $nextp = envo_next_page($pageID, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');

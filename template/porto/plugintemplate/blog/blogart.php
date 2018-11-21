@@ -1,6 +1,31 @@
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
-
 <?php
+/**
+ * PLUGIN DOWNLOAD - ALL VALUE for FRONTEND - blogart.php
+ * ------------------------------------------------------------------
+ *
+ * Soubor slouží pro generovaní (zobrazení) celkového seznamu článků
+ *
+ * Použitelné hodnoty s daty pro FRONTEND - blogart.php
+ * ------------------------------------------------------------------
+ *
+ * $PAGE_ID                 number    | - ID článku
+ * $PAGE_TITLE              string    | - Titulek článku
+ * $PAGE_CONTENT            string    | - Celý popis článku
+ * $SHOWTITLE               number    | - Zobrazení nadpisu ( hodnota 1 = ANO / 0 = NE )
+ * $THUMBIMG                string    | - Relativní url adresa náhledového obrázku
+ * $SHOWDATE                number    | - Zobrazení datumu ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWHITS                number    | - Zobrazení počtu zobrazení ( hodnota 1 = ANO / 0 = NE )
+ * $SHOWSOCIALBUTTON        number    | - Zobrazení sociálních tlačítek ( hodnota 1 = ANO / 0 = NE )
+ * $BLOG_HITS               number    | - Počet Zobrazení
+ * $PAGE_TIME               date      | - Datum vytvoření článku
+ * $PAGE_TIME_HTML5         date      | - Datum vytvoření článku HTML 5 formát
+ * $ENVO_TAGLIST            array     | - Seznam tagů
+ * $BLOG_CAT                array     | - Seznam kategorií (Varname)
+ * $BLOG_CATLIST            array     | - Seznam kategorií (html)
+ *
+ */
+
+include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
 if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $PAGE_ID;
@@ -30,7 +55,9 @@ if ($setting["printme"]) $printme = 1;
 
               <?php
 
-              if ($SHOWDATE || $BLOG_HITS || $BLOG_CATLIST) {
+              if ($SHOWDATE || $BLOG_HITS) {
+                echo '<div>';
+
                 // SHOW - Date
                 if ($SHOWDATE) {
                   echo '<span class="date mr-3"><strong class="text-2">' . $tlblog["blog_frontend"]["blog3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
@@ -41,15 +68,23 @@ if ($setting["printme"]) $printme = 1;
                   echo '<span class="hits mr-3"><strong class="text-2">' . $tlblog["blog_frontend"]["blog6"] . '</strong>' . ' : ' . $BLOG_HITS . '</span>';
                 }
 
+                echo '</div>';
+              }
+
+              if ($SHOWCATS || $BLOG_CATLIST) {
+                echo '<div>';
+
                 // SHOW - Category
                 if ($BLOG_CATLIST) {
                   echo '<span class="category mr-3"><strong class="text-2">' . $tlblog["blog_frontend"]["blog4"] . '</strong>' . ' : ' . $BLOG_CATLIST . '</span>';
                 }
-              }
 
-              // SHOW - Tag list
-              if ($ENVO_TAGLIST) {
-                echo '<ul class="tags-list">' . $ENVO_TAGLIST . '</ul>';
+                // SHOW - Tag list
+                if ($ENVO_TAGLIST) {
+                  echo '<ul class="tags-list">' . $ENVO_TAGLIST . '</ul>';
+                }
+
+                echo '</div>';
               }
 
               ?>
@@ -68,7 +103,7 @@ if ($setting["printme"]) $printme = 1;
 
                 <div class="col-md-12">
                   <hr>
-                  <div class="pull-right" style="display: table;">
+                  <div class="float-right" style="display: table;">
                     <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
                       <strong><?= $tl["share"]["share1"] . ' ' ?></strong>
                     </div>

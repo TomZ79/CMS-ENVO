@@ -65,7 +65,7 @@ if (empty($page1)) {
         }
         // Get the news data
       } elseif ($row['pluginid'] == 1) {
-        $newstagData[]      = ENVO_tags ::envoTagSql($envotable3, $row['itemid'], "id, title" . ", content", "content", ENVO_PLUGIN_VAR_NEWS, 'a', 1);
+        $newstagData[]      = ENVO_tags ::envoTagSql($envotable3, $row['itemid'], "id, title, content", "content", ENVO_PLUGIN_VAR_NEWS, 'a', 1);
         $ENVO_TAG_NEWS_DATA = $newstagData;
       } else {
         // No Tag Data in the while

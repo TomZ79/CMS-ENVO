@@ -498,13 +498,16 @@ function envo_admin_tag_cloud()
     }
 
     $cloud_tags = array (); // create an array to hold tag code
+
     foreach ($tags as $tag => $count) {
-      $size         = $min_font_size + ($count - $minimum_count)
-        * ($max_font_size - $min_font_size) / $spread;
-      $cloud_tags[] = '<span class="label label-default" style="line-height:2;font-size: ' . floor($size) . 'px;'
-        . '" class="tagcloud">'
-        . htmlspecialchars(stripslashes($tag)) . ' <a href="index.php?p=tags&sp=cloud&ssp=delete&id=' . $tag . '" data-confirm="Delete this Tag?"><i class="fa fa-trash-o"></i></a></span>';
+      $size    = $min_font_size + ($count - $minimum_count) * ($max_font_size - $min_font_size) / $spread;
+      $tagurl  = rawurlencode($tag);
+      $taghtml = htmlspecialchars(stripslashes($tag));
+
+      $cloud_tags[] = '<span class="label label-default" style="line-height:2;font-size: ' . floor($size) . 'px;" class="tagcloud">'
+        . $taghtml . ' <a href="index.php?p=tags&sp=cloud&ssp=delete&name=' . $tagurl . '" data-confirm="Delete this Tag?"><i class="fa fa-trash-o"></i></a></span>';
     }
+
     $cloud_html = join(" ", $cloud_tags);
   }
 

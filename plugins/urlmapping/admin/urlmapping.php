@@ -160,6 +160,7 @@ switch ($page1) {
 
     break;
   case 'lock':
+    // LOCK URL MAPPING
 
     $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
@@ -175,6 +176,8 @@ switch ($page1) {
 
     break;
   case 'delete':
+    // DELETE URL MAPPING
+
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       // Delete the Content

@@ -24,32 +24,32 @@ class xml_sitemap_generator_config
   private $_domain;
   private $_path;
   private $_filename;
-  private $_entries = array();
+  private $_entries = array ();
 
   public function get($arg)
   {
     switch ($arg) {
       case 'domain':
-        return $this->_domain;
+        return $this -> _domain;
       case 'path':
-        return $this->_path;
+        return $this -> _path;
       case 'filename':
-        return $this->_filename;
+        return $this -> _filename;
       case 'filepath':
-        return $this->_getFilepath();
+        return $this -> _getFilepath();
       case 'entries':
-        return $this->_entries;
+        return $this -> _entries;
     }
   }
 
   private function _getFilepath()
   {
-    return sprintf('%s/%s', $this->_path, $this->_filename);
+    return sprintf('%s/%s', $this -> _path, $this -> _filename);
   }
 
   public function setDomain($domain)
   {
-    $this->_domain = trim($domain);
+    $this -> _domain = trim($domain);
 
     return $this;
   }
@@ -72,7 +72,7 @@ class xml_sitemap_generator_config
       exit(sprintf('write directory not writable: %s' . "\n", $path));
     }
 
-    $this->_path = $path;
+    $this -> _path = $path;
 
     return $this;
   }
@@ -89,7 +89,7 @@ class xml_sitemap_generator_config
       $filename = substr($filename, 1, 0);
     }
 
-    $this->_filename = $filename;
+    $this -> _filename = $filename;
 
     return $this;
   }
@@ -105,7 +105,7 @@ class xml_sitemap_generator_config
         throw new exception('setEntries() method expects an aray of xml_sitemap_entry objects');
       }
     }
-    $this->_entries = $entries;
+    $this -> _entries = $entries;
 
     return $this;
   }
@@ -115,11 +115,11 @@ class xml_sitemap_generator_config
    */
   public function sanityCheck()
   {
-    if (!strlen($this->_filename) > 0) {
+    if (!strlen($this -> _filename) > 0) {
       exit('Error: sitemap filename not set in configuration object');
     }
 
-    if (!strlen($this->_domain) > 0) {
+    if (!strlen($this -> _domain) > 0) {
       exit('Error: domain not set in configuration object');
     }
   }
@@ -132,25 +132,25 @@ class xml_sitemap_entry
   private $_changefreq;
   private $_lastmod;
 
-  private $_frequencies = array('always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never');
-  private $_priorities = array('0.0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0');
+  private $_frequencies = array ( 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never' );
+  private $_priorities  = array ( '0.0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0' );
 
   public function __construct($loc, $priority, $changefreq = "", $lastmod = '')
   {
-    $this->_setLoc($loc);
-    $this->_setPriority($priority);
+    $this -> _setLoc($loc);
+    $this -> _setPriority($priority);
 
     if (strlen($changefreq) > 0) {
-      $this->_setChangefreq($changefreq);
+      $this -> _setChangefreq($changefreq);
     }
     if (strlen($lastmod) > 0) {
-      $this->_setLastmod($lastmod);
+      $this -> _setLastmod($lastmod);
     }
   }
 
   private function _setLoc($loc)
   {
-    $this->_loc = $loc;
+    $this -> _loc = $loc;
 
     return $this;
   }
@@ -158,10 +158,10 @@ class xml_sitemap_entry
   private function _setPriority($priority)
   {
     $priority = trim($priority);
-    if (!in_array($priority, $this->_priorities)) {
+    if (!in_array($priority, $this -> _priorities)) {
       throw new Exception('setPriority() method is expecting a value between 0.0 and 1.0');
     } else {
-      $this->_priority = trim($priority);
+      $this -> _priority = trim($priority);
     }
 
     return $this;
@@ -171,10 +171,10 @@ class xml_sitemap_entry
   {
     $changefreq = strtolower(trim($changefreq));
 
-    if (!in_array($changefreq, $this->_frequencies)) {
+    if (!in_array($changefreq, $this -> _frequencies)) {
       throw new Exception('setChangefreq() method is expecting a value such as hourly daily, weekly etc');
     } else {
-      $this->_changefreq = $changefreq;
+      $this -> _changefreq = $changefreq;
     }
 
     return $this;
@@ -186,7 +186,7 @@ class xml_sitemap_entry
     if (!checkdate($arr['month'], $arr['day'], $arr['year'])) {
       throw new Exception('setLastmod() method expects a valid date');
     } else {
-      $this->_lastmod =
+      $this -> _lastmod =
         sprintf('%s-%s-%s', $arr['year'], $arr['month'], $arr['day']);
     }
 
@@ -197,17 +197,17 @@ class xml_sitemap_entry
   {
     switch ($arg) {
       case 'loc':
-        return $this->_getLoc();
+        return $this -> _getLoc();
       case 'priority':
-        return $this->_getPriority();
+        return $this -> _getPriority();
       case 'changefreq':
-        return $this->_getChangefreq();
+        return $this -> _getChangefreq();
       case 'lastmod':
-        return $this->_getLastmod();
+        return $this -> _getLastmod();
       case 'frequencies':
-        return $this->_frequencies;
+        return $this -> _frequencies;
       case 'priorities':
-        return $this->_priorities;
+        return $this -> _priorities;
       default:
         throw new Exception('get() method in class: ' . __CLASS__ . ' did not recognize the argument');
     }
@@ -215,34 +215,34 @@ class xml_sitemap_entry
 
   private function _getLoc()
   {
-    return $this->_loc;
+    return $this -> _loc;
   }
 
   private function _getPriority()
   {
-    if (!strlen($this->_priority) > 0) {
+    if (!strlen($this -> _priority) > 0) {
       return '0.5';
     } else {
-      return $this->_priority;
+      return $this -> _priority;
     }
   }
 
   private function _getChangefreq()
   {
-    if (!strlen($this->_changefreq) > 0) {
+    if (!strlen($this -> _changefreq) > 0) {
       return 'monthly';
     } else {
-      return $this->_changefreq;
+      return $this -> _changefreq;
     }
   }
 
   private function _getLastmod()
   {
     // set default values
-    if (!strlen($this->_lastmod) > 0) {
+    if (!strlen($this -> _lastmod) > 0) {
       return date('Y-m-d');
     } else {
-      return $this->_lastmod;
+      return $this -> _lastmod;
     }
   }
 }
@@ -255,7 +255,7 @@ class xml_sitemap_generator
 
   public function __construct(xml_sitemap_generator_config $conf)
   {
-    $this->_conf = $conf;
+    $this -> _conf = $conf;
   }
 
   /**
@@ -264,20 +264,20 @@ class xml_sitemap_generator
    */
   public function build()
   {
-    $this->_build();
+    $this -> _build();
   }
 
   private function _build()
   {
-    $this->_conf->sanityCheck();
-    $this->_append($this->_buildHeader());
-    $this->_append($this->_buildBlocks());
-    $this->_append($this->_buildFooter());
+    $this -> _conf -> sanityCheck();
+    $this -> _append($this -> _buildHeader());
+    $this -> _append($this -> _buildBlocks());
+    $this -> _append($this -> _buildFooter());
   }
 
   private function _append($xml)
   {
-    $this->_xml .= $xml;
+    $this -> _xml .= $xml;
   }
 
   private function _buildHeader()
@@ -291,11 +291,11 @@ class xml_sitemap_generator
 
   private function _buildBlocks()
   {
-    foreach ($this->_conf->get('entries') AS $entry) {
-      $this->_blocks .= $this->_buildEntry($entry);
+    foreach ($this -> _conf -> get('entries') AS $entry) {
+      $this -> _blocks .= $this -> _buildEntry($entry);
     }
 
-    return $this->_blocks;
+    return $this -> _blocks;
   }
 
   private function _buildEntry(xml_sitemap_entry $entry)
@@ -305,22 +305,22 @@ class xml_sitemap_generator
 
     if ($setting["sitehttps"]) {
       $loc = sprintf("https://%s%s",
-        $this->_conf->get('domain'), $entry->get('loc'));
+        $this -> _conf -> get('domain'), $entry -> get('loc'));
     } else {
       $loc = sprintf("http://%s%s",
-        $this->_conf->get('domain'), $entry->get('loc'));
+        $this -> _conf -> get('domain'), $entry -> get('loc'));
     }
 
     return sprintf("<url>\n%s%s%s%s</url>\n",
-      $this->_buildLine('loc', $loc),
-      $this->_buildLine('priority', $entry->get('priority')),
-      $this->_buildLine('changefreq', $entry->get('changefreq')),
-      $this->_buildLine('lastmod', $entry->get('lastmod')));
+      $this -> _buildLine('loc', $loc),
+      $this -> _buildLine('priority', $entry -> get('priority')),
+      $this -> _buildLine('changefreq', $entry -> get('changefreq')),
+      $this -> _buildLine('lastmod', $entry -> get('lastmod')));
   }
 
   private function _buildLine($tagname, $content)
   {
-    if (!$this->_is_utf8($content)) {
+    if (!$this -> _is_utf8($content)) {
       $content = trim(utf8_encode($content));
     }
 
@@ -356,16 +356,16 @@ class xml_sitemap_generator
    */
   public function getXml()
   {
-    $this->_build();
+    $this -> _build();
 
-    return $this->_xml;
+    return $this -> _xml;
   }
 
   public function toString()
   {
-    $this->_build();
+    $this -> _build();
 
-    return $this->_xml;
+    return $this -> _xml;
   }
 
   /**
@@ -373,13 +373,13 @@ class xml_sitemap_generator
    */
   public function write()
   {
-    $this->_build();
+    $this -> _build();
 
-    if (!file_put_contents($this->_conf->get('filepath'), $this->_xml)) {
-      throw new Exception('cound not write file: ' . $this->_conf->get('filepath') . "\n");
+    if (!file_put_contents($this -> _conf -> get('filepath'), $this -> _xml)) {
+      throw new Exception('cound not write file: ' . $this -> _conf -> get('filepath') . "\n");
     }
 
-    return ($this->_xml);
+    return ($this -> _xml);
   }
 
 

@@ -1,4 +1,4 @@
-<aside class="nav-sidebar hidden-xs">
+<aside class="nav-sidebar d-none d-sm-block">
 
   <?php if (!ENVO_USERID) { ?>
 

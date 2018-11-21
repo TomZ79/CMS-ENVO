@@ -23,18 +23,18 @@ if (strlen($SearchInput) >= 3) {
   $urldetail = $_GET['url_detail'];
 
   $download = new ENVO_search($SearchInput);
-  $download->envoSetTable('download', "");
-  $download->envoAndor("OR");
-  $download->envoFieldActive("active");
-  $download->envoFieldTitle("title");
-  $download->envoFieldCut("content");
-  $download->envoFieldstoSearch(array('title', 'content'));
-  $download->envoFieldstoSelect("id, title, content");
+  $download -> envoSetTable('download', "");
+  $download -> envoAndor("OR");
+  $download -> envoFieldActive("active");
+  $download -> envoFieldTitle("title");
+  $download -> envoFieldCut("content");
+  $download -> envoFieldstoSearch(array ( 'title', 'content' ));
+  $download -> envoFieldstoSelect("id, title, content");
 
-  $downloadarray = $download->set_result($urldetail, 'f', $_GET['seo']);
+  $downloadarray = $download -> set_result($urldetail, 'f', $_GET['seo']);
 
   if (isset($downloadarray) && is_array($downloadarray)) {
-    ENVO_search::search_cloud($SearchInput);
+    ENVO_search ::search_cloud($SearchInput);
     $text = '';
     foreach ($downloadarray as $row) {
 

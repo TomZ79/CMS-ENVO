@@ -452,12 +452,12 @@ if ($SHOWSOCIALBUTTON) {
 
 <!-- FAQ plugins -->
 <?php if ($page == ENVO_PLUGIN_VAR_FAQ) {
-  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/livesearch-test/script.ajaxsearch.php';
+  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/livesearch/script.ajaxsearch.php';
 } ?>
 
 <!-- WIKI plugins -->
 <?php if ($page == ENVO_PLUGIN_VAR_WIKI) {
-  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/wiki/livesearch-test/script.ajaxsearch.php';
+  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/wiki/livesearch/script.ajaxsearch.php';
 } ?>
 
 <!-- RegisterForm plugins -->

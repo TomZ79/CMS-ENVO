@@ -33,6 +33,7 @@ include_once("../plugins/belowheader/admin/include/functions.php");
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newbh':
+    // ADD NEW BELOWHEADER
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -120,6 +121,7 @@ switch ($page1) {
 
     break;
   case 'edit':
+    // EDIT BELOWHEADER
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -212,6 +214,7 @@ switch ($page1) {
 
     break;
   case 'lock':
+    // LOCK BELOWHEADER
 
     $result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
@@ -227,6 +230,7 @@ switch ($page1) {
 
     break;
   case 'delete':
+    // DELETE BELOWHEADER
 
     // EN: Default Variable
     // CZ: Hlavní proměnné

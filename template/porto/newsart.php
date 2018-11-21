@@ -86,9 +86,8 @@ if (ENVO_ASACCESS) {
             // SHOW - Tag List
             if ($ENVO_TAGLIST) {
               echo '<ul class="tags-list">';
-              echo ENVO_tags ::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
+              echo $ENVO_TAGLIST;
               echo '</ul>';
-
             }
 
             ?>

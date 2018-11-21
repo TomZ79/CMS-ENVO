@@ -35,11 +35,11 @@ $AJAX_SEARCH_PLUGIN_SEO   = $setting["faqurl"];
 // Get the rss if active
 if ($setting["faqrss"]) {
   $ENVO_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_FAQ, '', '', '');
+  $P_RSS_LINK       = ENVO_rewrite ::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_FAQ, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtofaq = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, '', '', '', '');
+$backtofaq = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, '', '', '', '');
 
 // Template Call
 $ENVO_TPL_PLUG_T   = ENVO_PLUGIN_NAME_FAQ;
@@ -63,32 +63,32 @@ switch ($page1) {
       $getTotal = envo_get_total($envotable, $catID, 'catid', 'active');
 
       if ($setting["faqurl"]) {
-        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
       if ($getTotal != 0) {
 
         // Paginator
-        $faqc                 = new ENVO_paginator;
-        $faqc->items_total    = $getTotal;
-        $faqc->mid_range      = $setting["faqpagemid"];
-        $faqc->items_per_page = $setting["faqpageitem"];
-        $faqc->envo_get_page   = $getPage;
-        $faqc->envo_where      = $getWhere;
-        $faqc->envo_prevtext   = $tl["pagination"]["pagin"];
-        $faqc->envo_nexttext   = $tl["pagination"]["pagin1"];
-        $faqc->paginate();
-        $ENVO_PAGINATE = $faqc->display_pages();
+        $faqc                   = new ENVO_paginator;
+        $faqc -> items_total    = $getTotal;
+        $faqc -> mid_range      = $setting["faqpagemid"];
+        $faqc -> items_per_page = $setting["faqpageitem"];
+        $faqc -> envo_get_page  = $getPage;
+        $faqc -> envo_where     = $getWhere;
+        $faqc -> envo_prevtext  = $tl["pagination"]["pagin"];
+        $faqc -> envo_nexttext  = $tl["pagination"]["pagin1"];
+        $faqc -> paginate();
+        $ENVO_PAGINATE = $faqc -> display_pages();
       }
 
-      $ENVO_FAQ_ALL = envo_get_faq($faqc->limit, $setting["faqorder"], $catID, 't1.catid', $setting["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faqc -> limit, $setting["faqorder"], $catID, 't1.catid', $setting["faqurl"], $tl['global_text']['gtxt4']);
 
-      $result = $envodb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
-      $row    = $result->fetch_assoc();
+      $result = $envodb -> query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
+      $row    = $result -> fetch_assoc();
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
@@ -97,8 +97,8 @@ switch ($page1) {
 
       // Get the sort orders for the grid
       $ENVO_HOOK_SIDE_GRID = FALSE;
-      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
-      while ($grow = $grid->fetch_assoc()) {
+      $grid                = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+      while ($grow = $grid -> fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $ENVO_HOOK_SIDE_GRID[] = $grow;
@@ -108,11 +108,11 @@ switch ($page1) {
       $_SESSION['envo_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+      if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $kv) $seokeywords[] = ENVO_base ::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base ::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -150,11 +150,11 @@ switch ($page1) {
 
     if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
-      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
-      $row    = $result->fetch_assoc();
+      $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+      $row    = $result -> fetch_assoc();
 
       if ($row['active'] != 1) {
-        envo_redirect(ENVO_rewrite::envoParseurl('offline'));
+        envo_redirect(ENVO_rewrite ::envoParseurl('offline'));
       } else {
 
         if (!envo_row_permission($row['catid'], $envotable1, ENVO_USERGROUPID)) {
@@ -167,7 +167,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            ENVO_base::envoUpdatehits($row['id'], $envotable);
+            ENVO_base ::envoUpdatehits($row['id'], $envotable);
           }
 
           // Now output the data
@@ -175,23 +175,24 @@ switch ($page1) {
           $PAGE_TITLE       = $row['title'];
           $PAGE_CONTENT     = envo_secure_site($row['content']);
           $SHOWTITLE        = $row['showtitle'];
+          $THUMBIMG         = $row['previmg'];
           $SHOWDATE         = $row['showdate'];
           $SHOWCATS         = $row['showcat'];
           $SHOWHITS         = $row['showhits'];
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $FAQ_HITS         = $row['hits'];
 
-          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["faqdateformat"], $setting["faqtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base ::envoTimesince($row['time'], $setting["faqdateformat"], $setting["faqtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Get the url session
-          $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
+          $_SESSION['envo_lastURL'] = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
 
         }
 
         // Get the sort orders for the grid
-        $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE faqid = "' . $row['id'] . '" ORDER BY orderid ASC');
-        while ($grow = $grid->fetch_assoc()) {
+        $grid = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE faqid = "' . $row['id'] . '" ORDER BY orderid ASC');
+        while ($grow = $grid -> fetch_assoc()) {
 
           // the sidebar grid
           if ($grow["hookid"]) {
@@ -200,19 +201,19 @@ switch ($page1) {
         }
 
         // Show Tags
-        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($pageID, ENVO_PLUGIN_ID_FAQ, ENVO_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($pageID, ENVO_PLUGIN_ID_FAQ, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
 
         // Get the categories into a list
-        $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
-        while ($rowc = $resultc->fetch_assoc()) {
+        $resultc = $envodb -> query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        while ($rowc = $resultc -> fetch_assoc()) {
 
           if ($setting["faqurl"]) {
-            $seoc = ENVO_base::envoCleanurl($rowc['varname']);
+            $seoc = ENVO_base ::envoCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<span class="cat-list"><a href="' . ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'category', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -230,10 +231,10 @@ switch ($page1) {
         if ($nextp) {
 
           if ($setting["faqurl"]) {
-            $seo = ENVO_base::envoCleanurl($nextp['title']);
+            $seo = ENVO_base ::envoCleanurl($nextp['title']);
           }
 
-          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'faq-article', $nextp['id'], $seo, '');
+          $ENVO_NAV_NEXT       = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'faq-article', $nextp['id'], $seo, '');
           $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
@@ -241,10 +242,10 @@ switch ($page1) {
         if ($prevp) {
 
           if ($setting["faqurl"]) {
-            $seop = ENVO_base::envoCleanurl($prevp['title']);
+            $seop = ENVO_base ::envoCleanurl($prevp['title']);
           }
 
-          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'faq-article', $prevp['id'], $seop, '');
+          $ENVO_NAV_PREV       = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'faq-article', $prevp['id'], $seop, '');
           $ENVO_NAV_PREV_TITLE = addslashes($prevp['title']);
         }
 
@@ -259,7 +260,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base ::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
 
@@ -285,7 +286,7 @@ switch ($page1) {
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1) && !is_numeric($page1)) {
       if ($page1 != 'category' || $page1 != 'faq-article') {
-        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
+        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
       }
     }
 
@@ -296,21 +297,21 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $faq                 = new ENVO_paginator;
-      $faq->items_total    = $getTotal;
-      $faq->mid_range      = $setting["faqpagemid"];
-      $faq->items_per_page = $setting["faqpageitem"];
-      $faq->envo_get_page   = $page1;
-      $faq->envo_where      = $backtofaq;
-      $faq->envo_prevtext   = $tl["pagination"]["pagin"];
-      $faq->envo_nexttext   = $tl["pagination"]["pagin1"];
-      $faq->paginate();
+      $faq                   = new ENVO_paginator;
+      $faq -> items_total    = $getTotal;
+      $faq -> mid_range      = $setting["faqpagemid"];
+      $faq -> items_per_page = $setting["faqpageitem"];
+      $faq -> envo_get_page  = $page1;
+      $faq -> envo_where     = $backtofaq;
+      $faq -> envo_prevtext  = $tl["pagination"]["pagin"];
+      $faq -> envo_nexttext  = $tl["pagination"]["pagin1"];
+      $faq -> paginate();
 
       // Pagination
-      $ENVO_PAGINATE = $faq->display_pages();
+      $ENVO_PAGINATE = $faq -> display_pages();
 
       // Get all FAQ articles
-      $ENVO_FAQ_ALL = envo_get_faq($faq->limit, $setting["faqorder"], '', '', $setting["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faq -> limit, $setting["faqorder"], '', '', $setting["faqurl"], $tl['global_text']['gtxt4']);
 
     }
 
@@ -325,19 +326,19 @@ switch ($page1) {
     $_SESSION['envo_lastURL'] = $backtofaq;
 
     // Get the sort orders for the grid
-    $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
-    while ($grow = $grid->fetch_assoc()) {
+    $grid = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+    while ($grow = $grid -> fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $ENVO_HOOK_SIDE_GRID[] = $grow;
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+    if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $kv) $seokeywords[] = ENVO_base ::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base ::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

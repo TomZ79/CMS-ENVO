@@ -14,11 +14,12 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 header('Content-Type: application/json;charset=utf-8');
 
 // CHECK REQUEST METHOD
-if ($_SERVER['REQUEST_METHOD']=='POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $_POST = filter_input_array(INPUT_POST);
 } else {
   $_POST = filter_input_array(INPUT_GET);
 }
+
 // PHP CODE and DB
 //-------------------------
 
@@ -29,7 +30,7 @@ $title = $_POST['search'];
 if (isset($_POST['search'])) {
 
   // Search query
-  $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'wiki WHERE title LIKE "%' . $title . '%" LIMIT 10');
+  $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'faq WHERE title LIKE "%' . $title . '%" LIMIT 10');
   $row    = $result -> fetch_assoc();
 
   // EN: Determine the number of rows in the result from DB
@@ -40,22 +41,35 @@ if (isset($_POST['search'])) {
   if ($row_cnt > 0) {
     // Number of Entrance exists
 
-    // Search query
-    $result1 = $envodb -> query('SELECT id, title FROM ' . DB_PREFIX . 'wiki WHERE title LIKE "%' . $title . '%" LIMIT 10');
+    $data_array = array ();
 
-    $data_array = array();
+    // Search query
+    $result1 = $envodb -> query('SELECT id, title FROM ' . DB_PREFIX . 'faq WHERE title LIKE "%' . $title . '%" LIMIT 10');
+
+    // Search the plugin name and id
+    $result2 = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+    $row2    = $result2 -> fetch_assoc();
+
+    $result3 = $envodb -> query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($row2['id']) . '"');
+    $row3    = $result3 -> fetch_assoc();
 
     while ($row1 = $result1 -> fetch_assoc()) {
 
-      $data_array[] = $row1;
+      $data_array[] = array (
+        'id'    => $row1["id"],
+        'title' => $row1["title"],
+      );
 
     }
 
     // Data for JSON
     $envodata = array (
-      'status'     => 'success',
-      'status_msg' => 'Count of rows in DB: ' . $row_cnt,
-      'data'       => $data_array
+      'status'             => 'success',
+      'status_msg'         => 'Count of rows in DB: ' . $row_cnt,
+      'plugin_id'          => $row2['id'],
+      'plugin_cat_name'    => $row3['name'],
+      'plugin_cat_varname' => $row3['varname'],
+      'data'               => $data_array
     );
 
   } else {

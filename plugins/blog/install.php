@@ -465,7 +465,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Vytvoření tabulky pro plugin (články)
       $envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `catid` varchar(100) DEFAULT NULL,
+  `catid` VARCHAR(100) NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
   `content` mediumtext,
   `blog_css` text,
