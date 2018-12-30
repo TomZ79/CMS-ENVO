@@ -670,7 +670,7 @@ if ($errors) { ?>
                     <div class="clearfix m-b-20"></div>
                     <table id="wiki_table_1" class="table">
                       <thead>
-                      <tr>
+                      <tr class="row">
                         <th class="col-sm-1 text-center">#</th>
                         <th class="col-sm-10">Text / Odkaz</th>
                         <th class="col-sm-1"></th>
@@ -683,12 +683,12 @@ if ($errors) { ?>
                       <?php if (!empty($ENVO_LITERATURE) && is_array($ENVO_LITERATURE)) {
                         foreach ($ENVO_LITERATURE as $l) { ?>
 
-                          <tr>
-                            <td class="text-center">
+                          <tr class="row">
+                            <td class="col-sm-1 text-center">
                               <?= $l["id"] ?>
                               <input type="hidden" name="envo_literature_0[]" class="rowid1" value="<?= $l["id"] ?>"/>
                             </td>
-                            <td>
+                            <td class="col-sm-10">
 
                               <?php
                               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -696,7 +696,7 @@ if ($errors) { ?>
                               ?>
 
                             </td>
-                            <td class="text-center">
+                            <td class="col-sm-1 text-center">
 
                               <?php
                               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
@@ -755,7 +755,7 @@ if ($errors) { ?>
                   <div class="clearfix m-b-20"></div>
                   <table id="wiki_table_2" class="table">
                     <thead>
-                    <tr>
+                    <tr class="row">
                       <th class="col-sm-1 text-center">#</th>
                       <th class="col-sm-10">Text / Odkaz</th>
                       <th class="col-sm-1"></th>
@@ -768,12 +768,12 @@ if ($errors) { ?>
                     <?php if (!empty($ENVO_LINKS) && is_array($ENVO_LINKS)) {
                       foreach ($ENVO_LINKS as $ls) { ?>
 
-                        <tr>
-                          <td class="text-center">
-                            <?= $l["id"] ?>
+                        <tr class="row">
+                          <td class="col-sm-1 text-center">
+                            <?= $ls["id"] ?>
                             <input type="hidden" name="envo_links_0[]" class="rowid2" value="<?= $ls["id"] ?>"/>
                           </td>
-                          <td>
+                          <td class="col-sm-10">
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -781,7 +781,7 @@ if ($errors) { ?>
                             ?>
 
                           </td>
-                          <td class="text-center">
+                          <td class="col-sm-1 text-center">
 
                             <?php
                             // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)

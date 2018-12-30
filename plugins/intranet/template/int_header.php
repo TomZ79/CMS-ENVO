@@ -35,8 +35,8 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   // Google Fonts
   echo $Html -> addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // Fontawesome icon
-  echo $Html -> addStylesheet('/assets/plugins/font-awesome/5.3.1/css/solid.css?=v5.3.1');
-  echo $Html -> addStylesheet('/assets/plugins/font-awesome/5.3.1/css/fontawesome.css?=v5.3.1');
+  echo $Html -> addStylesheet('https://use.fontawesome.com/releases/v5.5.0/css/solid.css?=v5.5.0');
+  echo $Html -> addStylesheet('https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css?=v5.5.0');
   // Bootstrap
   echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv3/css/bootstrap.min.css?=v3.3.7');
   // Scrollbar

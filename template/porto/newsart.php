@@ -67,7 +67,7 @@ if (ENVO_ASACCESS) {
             ?>
 
           </div>
-          <div class="article-head mb-2">
+          <div class="article-head d-flex mb-2">
 
             <?php
 
@@ -84,8 +84,8 @@ if (ENVO_ASACCESS) {
             }
 
             // SHOW - Tag List
-            if ($ENVO_TAGLIST) {
-              echo '<ul class="tags-list">';
+            if ($ENVO_TAGLIST && $SHOWTAGS) {
+              echo '<ul class="ml-auto tags-list mb-0">';
               echo $ENVO_TAGLIST;
               echo '</ul>';
             }

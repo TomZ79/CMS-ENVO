@@ -5,17 +5,17 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
   <script>
-      // Notification
-      setTimeout(function () {
-          $.notify({
-              // options
-              message: '<?=$tl["notification"]["n7"]?>'
-          }, {
-              // settings
-              type: 'success',
-              delay: 5000
-          });
-      }, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
   </script>
 <?php } ?>
 
@@ -24,19 +24,19 @@ if ($page2 == "s") { ?>
 // CZ: Odstranění záznamu z DB bylo úspěšné
 if ($page3 == "s1") { ?>
   <script>
-      // Notification
-      setTimeout(function () {
-          $.notify({
-              // options
-              icon: 'fa fa-info-circle',
-              message: '<?=$tl["notification"]["n2"]?>'
-          }, {
-              // settings
-              type: 'info',
-              delay: 5000,
-              timer: 3000
-          });
-      }, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tl["notification"]["n2"]?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
   </script>
 <?php } ?>
 
@@ -45,17 +45,17 @@ if ($page3 == "s1") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "ene") { ?>
   <script>
-      // Notification
-      setTimeout(function () {
-          $.notify({
-              // options
-              message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-          }, {
-              // settings
-              type: 'success',
-              delay: 5000
-          });
-      }, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
   </script>
 <?php } ?>
 
@@ -64,7 +64,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=newhouse', 'Nový Dům', '', 'btn btn-info button');
+    echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=newhouse', 'Nový Dům', '', 'btn btn-info button');
     ?>
 
   </div>
@@ -84,8 +84,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 <?php
                 // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
-                echo $Html->addLabel('envo_delete_all', '');
+                echo $Html -> addCheckbox('', '', FALSE, 'envo_delete_all');
+                echo $Html -> addLabel('envo_delete_all', '');
                 ?>
 
               </div>
@@ -109,8 +109,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('envo_delete_tvtower[]', $h["id"], FALSE, 'envo_delete_tvtower' . $h["id"], 'highlight');
-                  echo $Html->addLabel('envo_delete_tvtower' . $h["id"], '');
+                  echo $Html -> addCheckbox('envo_delete_tvtower[]', $h["id"], FALSE, 'envo_delete_tvtower' . $h["id"], 'highlight');
+                  echo $Html -> addLabel('envo_delete_tvtower' . $h["id"], '');
                   ?>
 
                 </div>
@@ -119,7 +119,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $h["id"], $h["name"]);
+                echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $h["id"], $h["name"]);
                 ?>
 
               </td>
@@ -140,7 +140,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // EDIT
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $h["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $h["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
                 ?>
 
               </td>
@@ -148,7 +148,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array ( 'data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
                 ?>
 
               </td>
@@ -165,9 +165,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+      echo $Html -> addTag('h3', $tl["icons"]["i"]);
+      echo $Html -> addTag('i', '', 'fa fa-edit', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
+      echo $Html -> addTag('i', '', 'fa fa-trash-o', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
       ?>
 
     </div>
@@ -179,7 +179,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+    echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
     ?>
 
   </div>

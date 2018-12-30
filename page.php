@@ -32,9 +32,11 @@ $PAGE_SHOWTITLE                  = $row['showtitle'];
 $MAIN_DESCRIPTION                = $ca['metadesc'];
 $MAIN_SITE_DESCRIPTION           = $setting['metadesc'];
 $SHOWDATE                        = $row['showdate'];
+$SHOWHITS                        = $row['showhits'];
 $SHOWTAGS                        = $row['showtags'];
 $SHOWSOCIALBUTTON                = $row['socialbutton'];
 $PAGE_ACTIVE                     = $row['active'];
+$PAGE_HITS                       = $row['hits'];
 $PAGE_PASSWORD                   = $row['password'];
 $ENVO_HEADER_CSS                 = $row['page_css'];
 $ENVO_FOOTER_JAVASCRIPT          = $row['page_javascript'];
@@ -118,9 +120,9 @@ $PAGE_KEYWORDS = str_replace(" ", " ", ($setting["metakey"] ? $setting["metakey"
 
 // SEO from the category content if available
 if (!empty($MAIN_DESCRIPTION)) {
-  $PAGE_DESCRIPTION = envo_cut_text($MAIN_DESCRIPTION, 155, '');
+  $PAGE_DESCRIPTION = $MAIN_DESCRIPTION;
 } else {
-  $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+  $PAGE_DESCRIPTION = $MAIN_SITE_DESCRIPTION;
 }
 
 // EN: Load the php template

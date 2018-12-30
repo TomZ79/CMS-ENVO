@@ -647,7 +647,7 @@ if ($errors) { ?>
                                   if (isset($ENVO_REGION) && is_array($ENVO_REGION)) foreach ($ENVO_REGION as $r) {
 
                                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                                    echo $Html -> addOption($r["id"], $r["region"], ($r["id"] == $c["region_id"]) ? TRUE : FALSE);
+                                    echo $Html -> addOption($r["id"], $r["region"], ($r["id"] == $ca["region_id"]) ? TRUE : FALSE);
 
                                   }
                                   ?>
@@ -664,7 +664,7 @@ if ($errors) { ?>
                                   if (isset($ENVO_DISTRICT) && is_array($ENVO_DISTRICT)) foreach ($ENVO_DISTRICT as $d) {
 
                                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                                    echo $Html -> addOption($d["id"], $d["district"], ($d["id"] == $c["district_id"]) ? TRUE : FALSE);
+                                    echo $Html -> addOption($d["id"], $d["district"], ($d["id"] == $ca["district_id"]) ? TRUE : FALSE);
 
                                   }
                                   ?>

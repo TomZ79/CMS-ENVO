@@ -368,10 +368,10 @@ $(function () {
           }
         }
 
-        tabledata += '<tr>' +
-          '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid1" value="' + nextmax + '"/></td>' +
-          '<td><input type="text" name="envo_literature_1[]" class="form-control"></td>' +
-          '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow1"><i class="fa fa-trash-o"></i></button></td>' +
+        tabledata += '<tr class="row">' +
+          '<td class="col-sm-1 text-center">' + nextmax + '<input type="hidden" name="envo_literature_0[]" class="rowid1" value="' + nextmax + '"/></td>' +
+          '<td class="col-sm-10"><input type="text" name="envo_literature_1[]" class="form-control"></td>' +
+          '<td class="col-sm-1 text-center"><button type="button" class="btn btn-danger btn-xs deleteRow1"><i class="fa fa-trash-o"></i></button></td>' +
           '</tr>';
 
         //
@@ -440,10 +440,10 @@ $(function () {
           }
         }
 
-        tabledata += '<tr>' +
-          '<td class="text-center">' + nextmax + '<input type="hidden" name="envo_links_0[]" class="rowid2" value="' + nextmax + '"/></td>' +
-          '<td><input type="text" name="envo_links_1[]" class="form-control"></td>' +
-          '<td class="text-center"><button type="button" class="btn btn-danger btn-xs deleteRow2"><i class="fa fa-trash-o"></i></button></td>' +
+        tabledata += '<tr class="row">' +
+          '<td class="col-sm-1 text-center">' + nextmax + '<input type="hidden" name="envo_links_0[]" class="rowid2" value="' + nextmax + '"/></td>' +
+          '<td class="col-sm-10"><input type="text" name="envo_links_1[]" class="form-control"></td>' +
+          '<td class="col-sm-1 text-center"><button type="button" class="btn btn-danger btn-xs deleteRow2"><i class="fa fa-trash-o"></i></button></td>' +
           '</tr>';
 
         //

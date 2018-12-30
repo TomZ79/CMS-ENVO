@@ -42,6 +42,8 @@ $envotable10 = DB_PREFIX . 'int_housevideo';
 $envotable11 = DB_PREFIX . 'int_houseanalytics';
 $envotable12 = DB_PREFIX . 'int_houseanalyticsdocu';
 $envotable13 = DB_PREFIX . 'int_houseanalyticsimg';
+$envotable14 = DB_PREFIX . 'int_settings_city';
+$envotable15 = DB_PREFIX . 'int_settings_cityarea';
 
 // Parse links once if needed a lot of time
 $backtoplugin = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -123,7 +125,7 @@ switch ($page1) {
 
             // EN: Get the data of house
             // CZ: Získání dat o domu
-            $result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+            $result = $envodb -> query('SELECT t1.*,t2.id, t2.city FROM ' . $envotable . ' t1 LEFT JOIN ' . $envotable14 . ' t2 ON t1.city = t2.id WHERE t1.id = "' . smartsql($pageID) . '" LIMIT 1');
             while ($row = $result -> fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
@@ -327,7 +329,7 @@ switch ($page1) {
 
           // EN: Getting the data about the Houses
           // CZ: Získání dat o bytových domech
-          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID);
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable14, FALSE, ENVO_USERGROUPID);
 
           // EN: Breadcrumbs activation
           // CZ: Aktivace Breadcrumbs
@@ -352,7 +354,7 @@ switch ($page1) {
 
           // EN: Getting the data about the Houses
           // CZ: Získání dat o bytových domech
-          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID, 'preparationdvb = 1');
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable14, FALSE, ENVO_USERGROUPID, 'preparationdvb = 1');
 
           // EN: Breadcrumbs activation
           // CZ: Aktivace Breadcrumbs
@@ -377,7 +379,7 @@ switch ($page1) {
 
           // EN: Getting the data about the Houses
           // CZ: Získání dat o bytových domech
-          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID, 'preparationdvb = 0');
+          $ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable14, FALSE, ENVO_USERGROUPID, 'preparationdvb = 0');
 
           // EN: Breadcrumbs activation
           // CZ: Aktivace Breadcrumbs
@@ -417,7 +419,7 @@ switch ($page1) {
 
         // EN: Getting the data about the Houses by usergroupid
         // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
-        $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID);
+        $ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable14, FALSE, ENVO_USERGROUPID);
 
         // EN: Breadcrumbs activation
         // CZ: Aktivace Breadcrumbs

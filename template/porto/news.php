@@ -7,6 +7,9 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting';
 if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEWS as $n) {
   include_once APP_PATH . $n['phpcode'];
 }
+
+// Set local language
+setlocale(LC_TIME, $setting["locale"] . '.utf8');
 ?>
 
   <!-- =========================
@@ -56,8 +59,8 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
               </div>
 
               <div class="post-date">
-                <span class="day"><?= date("d", strtotime($v["created"])) ?></span>
-                <span class="month"><?= date("M", strtotime($v["created"])) ?></span>
+                <span class="day"><?= strftime("%d", strtotime($v["created"])) ?></span>
+                <span class="month"><?= strftime("%b", strtotime($v["created"])) ?></span>
               </div>
 
               <div class="post-content">

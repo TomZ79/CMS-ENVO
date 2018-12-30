@@ -9,11 +9,20 @@
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
+ * 00. BASIC
  * 00. WIDGET SIDEBAR
  * 00. TAGS CLOUD AND LIST
- * 00. NAVIGATION SIDEBAR MENU
- * 00. CUSTOM MODIFICATION
+ * 00. NECESSARY CODE !!! - NAVIGATION SIDEBAR MENU
+ * 00. NECESSARY CODE !!! - SIDEBAR
+ * 00. NECESSARY CODE !!! - NEWS
+ * 00. OTHER MODIFICATION
  */
+
+/* 00. BASIC
+========================================================================*/
+h3 {
+  line-height: 1.4em;
+}
 
 /* 00. WIDGET SIDEBAR
 ========================================================================*/
@@ -335,6 +344,52 @@
   width: 100%;
 }
 
+/* 00. NECESSARY CODE !!! - SIDEBAR
+       - basic code for sidebar menu.
+
+       If you want, change only color
+========================================================================*/
+/* Sidebar - block */
+.nav-sidebar {
+  width: 100%;
+}
+
+.nav-sidebar ul {
+  padding-left: 10px;
+}
+
+.nav-sidebar li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+/* Sidebar - inline */
+.nav-sidebar-inline {
+  width: 100%;
+}
+
+.nav-sidebar-inline ul {
+  padding-left: 10px;
+}
+
+.nav-sidebar-inline li {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-sidebar-inline li.tag-cloud a {
+  color: #111;
+  background: #C7CFB6;
+  border-color: transparent;
+  padding: 5px;
+  font-size: 14px !important;
+}
+
 /* 00. NECESSARY CODE !!! - NEWS
        - basic code for sidebar menu.
 
@@ -399,9 +454,23 @@
   color: #037ACC;
 }
 
+/* 00. BUTTON
+========================================================================*/
+.btn.disabled, .btn:disabled {
+  cursor: not-allowed;
+}
+
 /* 00. OTHER MODIFICATION
 ========================================================================*/
 
+/*---------------------------------------
+        HEADER NAVIGATION
+-----------------------------------------*/
+@media (min-width: 992px) {
+  #header .header-nav-main nav > ul > li.dropdown .dropdown-menu {
+    min-width: 230px;
+  }
+}
 /*---------------------------------------
         USER LOGIN NAVIGATION
 -----------------------------------------*/

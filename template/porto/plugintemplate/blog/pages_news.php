@@ -13,47 +13,64 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
 
 ?>
 
-<h3 class="text-color"><?= $tlblog["blog"]["d3"] ?></h3>
-<div class="row">
-  <?php if (isset($ENVO_BLOG) && is_array($ENVO_BLOG)) foreach ($ENVO_BLOG as $bl) { ?>
+<section class="mt-5">
+  <div class="container">
+    <h4><?= $setting["blogtitle"] ?></h4>
+    <div class="owl-carousel owl-theme show-nav-title top-border">
 
-    <!-- Post -->
-    <div class="col-md-3 col-sm-6">
-      <div class="envo-post">
-        <!-- Post Info -->
-        <div class="post-info">
-          <div class="info-details">
-            <?php if ($bl["showdate"]) { ?><i class="fa fa-clock-o"></i> <?= $bl["created"] ?><br><?php } ?>
-            <i class="fa fa-eye"></i> <?= $tl["general"]["g13"] . $bl["hits"] ?>
+      <?php
+
+      // SHOW - Blog
+      if (isset($ENVO_BLOG) && is_array($ENVO_BLOG)) foreach ($ENVO_BLOG as $bl) {
+        ?>
+
+        <article class="post post-large item">
+          <div class="post-date">
+            <span class="day"><?= strftime("%d", strtotime($bl["created"])) ?></span>
+            <span class="month"><?= strftime("%b", strtotime($bl["created"])) ?></span>
           </div>
-        </div>
-        <!-- End Post Info -->
-        <!-- Post Image -->
-        <a href="<?= $bl["parseurl"] ?>"><img src="<?= BASE_URL . $bl["previmg"] ?>" alt="blog-preview" class="post-image img-responsive"></a>
-        <!-- End Post Image -->
-        <!-- Post Title & Summary -->
-        <div class="post-title">
-          <h3><a href="<?= $bl["parseurl"] ?>"><?= envo_cut_text($bl["title"], 20, "") ?></a></h3>
-        </div>
-        <div class="post-summary">
-          <p><?= $bl["contentshort"] ?></p>
-        </div>
-        <!-- End Post Title & Summary -->
-        <div class="post-more">
-          <a href="<?= $bl["parseurl"] ?>" class="btn btn-color btn-sm">
-            <?= $tl["general"]["g3"] ?>
-          </a>
-          <?php if (ENVO_ASACCESS) { ?>
+          <div class="post-content">
 
-            <a href="<?= BASE_URL ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?= $bl["id"] ?>" title="<?= $tl["general"]["g"] ?>" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i></a>
+            <?php
 
-            <a class="btn btn-default btn-sm quickedit" href="<?= BASE_URL ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?= $bl["id"] ?>" title="<?= $tl["button"]["btn2"] ?>"><i class="fa fa-edit"></i></a>
+            echo '<h4><a href="' . $bl["parseurl"] . '" class="text-decoration-none" title="' . $bl["title"] . '">' . envo_cut_text($bl["title"], 50, "...") . '</a></h4>';
 
+            ?>
+
+            <blockquote class="blockquote-primary">
+              <p><?= $bl["contentshort"] ?></p>
+            </blockquote>
+
+            <?php
+
+            echo '<a href="' . $bl["parseurl"] . '" class="read-more text-color-dark font-weight-bold text-2">' . $tlblog["blog_frontend"]["blog"] . '<i class="fas fa-chevron-right text-1 ml-1"></i></a>';
+
+            ?>
+
+          </div>
+
+
+          <?php
+          // SYSTEM ICONS - Edit and Quick Edit
+          if (ENVO_ASACCESS) { ?>
+            <div class="system-icons clearfix">
+              <div class="pull-right hidden-xs">
+                <a class="btn btn-filled btn-warning rounded-0 btn-xs" href="<?= BASE_URL ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?= $bl["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">
+                  <?= $tl["button"]["btn1"] ?>
+                </a>
+                <a class="btn btn-filled btn-warning rounded-0 btn-xs quickedit" href="<?= BASE_URL ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?= $bl["id"] ?>" title="<?= $tl["button"]["btn2"] ?>">
+                  <?= $tl["button"]["btn2"] ?>
+                </a>
+              </div>
+            </div>
           <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Post -->
 
-  <?php } ?>
-</div>
+        </article>
+
+        <?php
+      }
+      ?>
+
+    </div>
+  </div>
+</section>

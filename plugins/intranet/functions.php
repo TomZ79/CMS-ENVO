@@ -13,7 +13,7 @@
  * @param $usergroupid
  * @return array
  */
-function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
+function envo_get_house_info($table1, $table2, $ext_seo, $usergroupid, $filter1 = NULL)
 {
   global $envodb;
   $envodata = array ();
@@ -23,7 +23,7 @@ function envo_get_house_info($table, $ext_seo, $usergroupid, $filter1 = NULL)
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb -> query('SELECT * FROM ' . $table . $sql . ' ORDER BY id ASC');
+  $result = $envodb -> query('SELECT t1.*, t2.city FROM ' . $table1 . ' t1 LEFT JOIN ' . $table2 . ' t2 ON t1.city = t2.id ' . $sql . 'ORDER BY t1.id ASC');
 
   while ($row = $result -> fetch_assoc()) {
 

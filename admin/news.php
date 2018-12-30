@@ -116,11 +116,12 @@ switch ($page1) {
                   news_css = "' . smartsql($defaults['envo_css']) . '",
                   news_javascript = "' . smartsql($defaults['envo_javascript']) . '",
                   sidebar = "' . smartsql($defaults['envo_sidebar']) . '",
-                  previmg = "' . $defaults['envo_img'] . '",
+                  previmg = "' . smartsql($defaults['envo_img']) . '",
                   showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
-                  showdate = "' . $defaults['envo_showdate'] . '",
-                  showhits = "' . $defaults['envo_showhits'] . '",
-                  socialbutton = "' . $defaults['envo_social'] . '",
+                  showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                  showhits = "' . smartsql($defaults['envo_showhits']) . '",
+                  showtags = "' . smartsql($defaults['envo_showtags']) . '",
+                  socialbutton = "' . smartsql($defaults['envo_social']) . '",
                   newsorder = 1,
                   permission = "' . smartsql($permission) . '",
                   ' . $insert . '
@@ -339,6 +340,7 @@ switch ($page1) {
                         showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",
                         showhits = "' . smartsql($defaults['envo_showhits']) . '",
+                        showtags = "' . smartsql($defaults['envo_showtags']) . '",
                         socialbutton = "' . smartsql($defaults['envo_social']) . '",
                         ' . $insert . '
                         permission = "' . smartsql($permission) . '"

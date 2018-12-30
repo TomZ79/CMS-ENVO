@@ -2,7 +2,7 @@
 
 // EN: Getting data from the database
 // CZ: Získání dat z databáze
-$resultbh = $envodb -> query('SELECT allpage, pageid, newsid, newsmain, tags, search, sitemap, content_before, content_after, permission FROM ' . DB_PREFIX . 'belowheader WHERE active = 1');
+$resultbh = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'belowheader WHERE active = 1');
 
 while ($rowbh = $resultbh -> fetch_assoc()) {
 
@@ -29,7 +29,7 @@ while ($rowbh = $resultbh -> fetch_assoc()) {
 
       for ($i = 0; $i < count($pagearray); $i++) {
 
-        $ENVO_PAGE_BELOW_HEADER[$pagearray[$i]] = array ( 'pageid' => $pagearray[$i], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission'] );
+        $ENVO_PAGE_BELOW_HEADER[] = array ( 'pageid' => $pagearray[$i], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission'] );
 
       }
 
@@ -37,7 +37,7 @@ while ($rowbh = $resultbh -> fetch_assoc()) {
 
     if (is_numeric($rowbh['pageid'])) {
 
-      $ENVO_PAGE_BELOW_HEADER[$rowbh['pageid']] = array ( 'pageid' => $rowbh['pageid'], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission'] );
+      $ENVO_PAGE_BELOW_HEADER[] = array ( 'pageid' => $rowbh['pageid'], 'content_before' => $content_before, 'content_after' => $content_after, 'permission' => $rowbh['permission'] );
     }
 
 

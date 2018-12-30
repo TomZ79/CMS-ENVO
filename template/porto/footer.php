@@ -241,8 +241,8 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.6"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/owl.carousel/owl.carousel.min.js?=v2.3.4"></script>
 <script src="/template/<?= ENVO_TEMPLATE ?>/plugins/magnific-popup/jquery.magnific-popup.min.js?=v1.1.0"></script>
-<script src="/assets/plugins/revolution-slider/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-<script src="/assets/plugins/revolution-slider/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+<script src="/assets/plugins/revolution-slider/js/jquery.themepunch.tools.min.js?=v5.4.8"></script>
+<script src="/assets/plugins/revolution-slider/js/jquery.themepunch.revolution.min.js?=v5.4.8"></script>
 
 <!-- Theme Base, Components and Settings -->
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.min.js"></script>

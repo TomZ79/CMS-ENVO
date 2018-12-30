@@ -79,6 +79,12 @@
                       </div>
                     </div>
                     <div class="form-group">
+                      <label class="form-label">Sídlo</label>
+                      <div class="controls">
+                        <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["headquarters"] ?>" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <label class="form-label">Ulice</label>
                       <div class="controls">
                         <input class="form-control" type="text" value="<?= $ENVO_HOUSE_DETAIL["street"] ?>" readonly>
@@ -103,13 +109,51 @@
                       </div>
                     </div>
                     <div class="form-group">
+                      <label class="form-label">Databáze - ARES</label>
+                      <div class="controls">
+
+                        <?php if ($ENVO_HOUSE_DETAIL["ares"] == 1) { ?>
+
+                          <div style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">
+                            <a href="https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_res.cgi?ico=<?= $ENVO_HOUSE_DETAIL["ic"] ?>&jazyk=cz&xml=1" target="_blank">Zobrazit výpis RES</a>
+                            <a href="https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_vreo.cgi?ico=<?= $ENVO_HOUSE_DETAIL["ic"] ?>&jazyk=cz&xml=1" class="m-l-20" target="_blank">Zobrazit výpis VREO</a>
+                          </div>
+
+                        <?php } else { ?>
+
+                          <span style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Odkaz na výpis neexistuje</span>
+
+                        <?php } ?>
+
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <label class="form-label">Databáze - justice.cz</label>
                       <div class="controls">
 
-                        <?php if (!empty($ENVO_HOUSE_DETAIL["justice"])) { ?>
+                        <?php if ($ENVO_HOUSE_DETAIL["justice"] == 1) { ?>
 
-                          <a href="<?= $ENVO_HOUSE_DETAIL["justice"] ?>" target="_blank" style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Zobrazit
-                            platný výpis</a>
+                          <div style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">
+                            <a href="https://or.justice.cz/ias/ui/rejstrik-$firma?ico=<?= $ENVO_HOUSE_DETAIL["ic"] ?>&jenPlatne=VSECHNY" target="_blank">Zobrazit výpis - VŠECHNY</a>
+                          </div>
+
+                        <?php } else { ?>
+
+                          <span style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">Odkaz na výpis neexistuje</span>
+
+                        <?php } ?>
+
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">iKatastr</label>
+                      <div class="controls">
+
+                        <?php if (!empty($ENVO_HOUSE_DETAIL["ikatastr"])) { ?>
+
+                          <div style="background-color: #eee;padding: 8px 11px !important;font-size: 13px;border-radius: 2px;display: block;width: 100%;">
+                            <a href="<?= $ENVO_HOUSE_DETAIL["ikatastr"] ?>" target="_blank">Zobrazit  výpis z katastru nemovitostí</a>
+                          </div>
 
                         <?php } else { ?>
 
@@ -167,9 +211,9 @@
               <div class="grid-body no-border">
                 <div class="row">
 
-                  <?php if (!empty($ENVO_HOUSE_DETAIL['description'])) {
+                  <?php if (!empty($ENVO_HOUSE_DETAIL['housedescription'])) {
 
-                    echo '<div>' . $ENVO_HOUSE_DETAIL['description'] . '</div>';
+                    echo '<div>' . $ENVO_HOUSE_DETAIL['housedescription'] . '</div>';
 
                   } else { ?>
 

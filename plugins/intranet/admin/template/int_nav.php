@@ -17,9 +17,9 @@ if ($page1 == 'houseanalytics') {
 
   <?php
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-  echo $Html->addAnchor('javascript:;', '<span class="title">' . $tlint["int_menu"]["intm"] . '</span><span class="arrow ' . $classintsection . '"></span>');
+  echo $Html -> addAnchor('javascript:;', '<span class="title">' . $tlint["int_menu"]["intm"] . '</span><span class="arrow ' . $classintsection . '"></span>');
   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-  echo $Html->addTag('span', 'INT', 'icon-thumbnail ' . $classinticonbg);
+  echo $Html -> addTag('span', 'INT', 'icon-thumbnail ' . $classinticonbg);
   ?>
 
   <ul class="sub-menu">
@@ -33,9 +33,9 @@ if ($page1 == 'houseanalytics') {
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=house', $tlint["int_menu"]["intm1"]);
+          echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house', $tlint["int_menu"]["intm1"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm1"]), 'icon-thumbnail');
+          echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm1"]), 'icon-thumbnail');
           ?>
 
         </li>
@@ -43,9 +43,9 @@ if ($page1 == 'houseanalytics') {
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=newhouse', $tlint["int_menu"]["intm2"]);
+          echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=newhouse', $tlint["int_menu"]["intm2"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm2"]), 'icon-thumbnail');
+          echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm2"]), 'icon-thumbnail');
           ?>
 
         </li>
@@ -54,9 +54,9 @@ if ($page1 == 'houseanalytics') {
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $page2, $tlint["int_menu"]["intm3"]);
+            echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $page2, $tlint["int_menu"]["intm3"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm3"]), 'icon-thumbnail');
+            echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm3"]), 'icon-thumbnail');
             ?>
 
           </li>
@@ -77,9 +77,9 @@ if ($page1 == 'houseanalytics') {
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics', $tlint["int_menu"]["intm1"]);
+          echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics', $tlint["int_menu"]["intm1"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm1"]), 'icon-thumbnail');
+          echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm1"]), 'icon-thumbnail');
           ?>
 
         </li>
@@ -87,9 +87,9 @@ if ($page1 == 'houseanalytics') {
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=newhouse', $tlint["int_menu"]["intm2"]);
+          echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=newhouse', $tlint["int_menu"]["intm2"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm2"]), 'icon-thumbnail');
+          echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm2"]), 'icon-thumbnail');
           ?>
 
         </li>
@@ -98,9 +98,9 @@ if ($page1 == 'houseanalytics') {
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $page2, $tlint["int_menu"]["intm3"]);
+            echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=edithouse&amp;id=' . $page2, $tlint["int_menu"]["intm3"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm3"]), 'icon-thumbnail');
+            echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm3"]), 'icon-thumbnail');
             ?>
 
           </li>
@@ -110,9 +110,9 @@ if ($page1 == 'houseanalytics') {
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=maps', $tlint["int_menu"]["intm13"]);
+          echo $Html -> addAnchor('index.php?p=intranet&amp;sp=houseanalytics&amp;ssp=maps', $tlint["int_menu"]["intm13"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm13"]), 'icon-thumbnail');
+          echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm13"]), 'icon-thumbnail');
           ?>
 
         </li>
@@ -126,9 +126,9 @@ if ($page1 == 'houseanalytics') {
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification', $tlint["int_menu"]["intm4"]);
+      echo $Html -> addAnchor('index.php?p=intranet&amp;sp=notification', $tlint["int_menu"]["intm4"]);
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm4"]), 'icon-thumbnail');
+      echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm4"]), 'icon-thumbnail');
       ?>
 
     </li>
@@ -136,9 +136,9 @@ if ($page1 == 'houseanalytics') {
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=newnotification', $tlint["int_menu"]["intm5"]);
+      echo $Html -> addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=newnotification', $tlint["int_menu"]["intm5"]);
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm5"]), 'icon-thumbnail');
+      echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm5"]), 'icon-thumbnail');
       ?>
 
     </li>
@@ -147,9 +147,9 @@ if ($page1 == 'houseanalytics') {
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-        echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=editnotification&amp;id=' . $page2, $tlint["int_menu"]["intm6"]);
+        echo $Html -> addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=editnotification&amp;id=' . $page2, $tlint["int_menu"]["intm6"]);
         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-        echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm6"]), 'icon-thumbnail');
+        echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm6"]), 'icon-thumbnail');
         ?>
 
       </li>
@@ -160,9 +160,9 @@ if ($page1 == 'houseanalytics') {
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=intranet&amp;sp=setting', $tlint["int_menu"]["intm10"]);
+      echo $Html -> addAnchor('index.php?p=intranet&amp;sp=setting', $tlint["int_menu"]["intm10"]);
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm10"]), 'icon-thumbnail');
+      echo $Html -> addTag('span', text_clipping_lower($tlint["int_menu"]["intm10"]), 'icon-thumbnail');
       ?>
 
     </li>

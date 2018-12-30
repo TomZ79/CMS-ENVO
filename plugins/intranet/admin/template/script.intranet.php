@@ -241,17 +241,10 @@ echo PHP_EOL;
       e.preventDefault();
 
       // Street and City from Form
-      var street0 = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
-      var city0 = $.trim($('select[name="envo_housecity"] option:selected').text()).replace(/\s/g, '+');
-      // Basic address - after load ARES data
-      var street1 = $.trim($('input[name="data_gps_street"]').val()).replace(/\s/g, '+');
-      var city1 = $.trim($('input[name="data_gps_city"]').val()).replace(/\s/g, '+');
+      var street = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
+      var city = $.trim($('select[name="envo_housecity"] option:selected').text()).replace(/\s/g, '+');
 
-      if (street0.length && city1.length) {
-        var datagps = street0 + ',' + city1;
-      } else {
-        var datagps = street0 + ',' + city0;
-      }
+      var datagps = street + ',' + city;
 
       // Ajax
       $.ajax({
@@ -267,8 +260,8 @@ echo PHP_EOL;
             console.log('GPS data - Latitude: ' + data.lat + ' / Longitude: ' + data.lon);
 
             // Add data to 'input'
-            $('input[name=envo_housegpslat]').val(data.lat).css('background-color', '#FFE680');
-            $('input[name=envo_housegpslng]').val(data.lon).css('background-color', '#FFE680');
+            $('input[name=envo_housegpslat]').val(data.lat).css('background-color', '#FFF5CC');
+            $('input[name=envo_housegpslng]').val(data.lon).css('background-color', '#FFF5CC');
 
             // Remove backgroung color from 'input'
             setTimeout(function () {
@@ -309,21 +302,48 @@ echo PHP_EOL;
 
           if (data.status == 'upload_success') {
 
-            // Add data to 'input'
+            // Add data to 'input' - for House and House Analytics
             $('input[name=envo_househeadquarters]').val(
               data.sidlo + ', ' + data.mesto + ' - ' + data.katastralniuzemi + ', PSČ ' + data.psc
-            ).css('background-color', '#FFE680');
-            $('input[name=envo_houseic]').val(data.ic).css('background-color', '#FFE680');
-            $('input[name=envo_housepsc]').val(data.psc).css('background-color', '#FFE680');
-            $('input[name=data_gps_street]').val(data.sidlo);
-            $('input[name=data_gps_city]').val(data.mesto);
+            ).css('background-color', '#FFF5CC');
+            $('input[name=envo_houseic]').val(data.ic).css('background-color', '#FFF5CC');
+            $('input[name=envo_housepsc]').val(data.psc).css('background-color', '#FFF5CC');
+
+            // Add data to 'input' - only for House
+            if ($('input[name=envo_housefname]').length) {
+              $('input[name=envo_housefname]').val(data.name).css('background-color', '#FFF5CC');
+            }
+            if ($('input[name=envo_housefstreet]').length) {
+              $('input[name=envo_housefstreet]').val(data.sidlo).css('background-color', '#FFF5CC');
+            }
+            if ($('input[name=envo_housefcity]').length) {
+              $('input[name=envo_housefcity]').val(data.mesto).css('background-color', '#FFF5CC');
+            }
+            if ($('input[name=envo_housefpsc]').length) {
+              $('input[name=envo_housefpsc]').val(data.psc).css('background-color', '#FFF5CC');
+            }
+            if ($('input[name=envo_housefic]').length) {
+              $('input[name=envo_housefic]').val(data.ic).css('background-color', '#FFF5CC');
+            }
+            if ($('input[name=envo_housefdic]').length) {
+              $('input[name=envo_housefdic]').val(data.dic).css('background-color', '#FFF5CC');
+            }
+
 
             // Remove backgroung color from 'input'
             setTimeout(function () {
+              // Add background color for House Analytics
               $('input[name=envo_househeadquarters]').css('background-color', '#FFF');
               $('input[name=envo_houseic]').css('background-color', '#FFF');
               $('input[name=envo_housepsc]').css('background-color', '#FFF');
-            }, 4000);
+              // Add background color for House
+              $('input[name=envo_housefname]').css('background-color', '#FFF');
+              $('input[name=envo_housefstreet]').css('background-color', '#FFF');
+              $('input[name=envo_housefcity]').css('background-color', '#FFF');
+              $('input[name=envo_housefpsc]').css('background-color', '#FFF');
+              $('input[name=envo_housefic]').css('background-color', '#FFF');
+              $('input[name=envo_housefdic]').css('background-color', '#FFF');
+            }, 5000);
 
             // Change 'attr' in anchor
             $('#ares_res a').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_res.cgi?ico=' + ic + '&jazyk=cz&xml=1');

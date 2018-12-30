@@ -8,20 +8,17 @@ if ($PAGE_ACTIVE) {
 
 ?>
 
-  <!-- =========================
-    START ERROR SECTION
-    ============================== -->
-  <section>
+  <!-- ERROR SECTION -->
+  <section class="pt-5 pb-5">
     <div class="container">
       <div class="row">
         <div class="col text-center">
-          <h2><?= $PAGE_CONTENT ?></h2>
+          <hr class="tall">
+          <h1 class="small text-uppercase"><?= $PAGE_CONTENT ?></h1>
+          <hr class="tall">
         </div>
       </div>
     </div>
   </section>
-  <!-- =========================
-  END ERROR SECTION
-  ============================== -->
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

@@ -16,7 +16,7 @@ if (isset($ENVO_ALLPAGE_BELOW_HEADER) && is_array($ENVO_ALLPAGE_BELOW_HEADER)) {
 }
 
 // Let's check if there is a valid Page array
-if (!$page1 && isset($PAGE_ID) && isset($ENVO_PAGE_BELOW_HEADER) && is_array($ENVO_PAGE_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_PAGE_BELOW_HEADER)) {
+if (!$page1 && isset($PAGE_ID) && isset($ENVO_PAGE_BELOW_HEADER) && is_array($ENVO_PAGE_BELOW_HEADER)) {
   foreach ($ENVO_PAGE_BELOW_HEADER as $subp) {
     if ($subp['pageid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) {
 

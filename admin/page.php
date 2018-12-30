@@ -100,6 +100,7 @@ switch ($page1) {
                     showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                     shownews = "' . smartsql($news) . '",
                     showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                    showhits = "' . smartsql($defaults['envo_showhits']) . '",
                     showtags = "' . smartsql($defaults['envo_showtags']) . '",
                     socialbutton = "' . smartsql($defaults['envo_social']) . '",
                     ' . $insert . '
@@ -309,6 +310,7 @@ switch ($page1) {
                         showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                         shownews = "' . smartsql($news) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                        showhits = "' . smartsql($defaults['envo_showhits']) . '",
                         showtags = "' . smartsql($defaults['envo_showtags']) . '",
                         ' . $insert . '
                         socialbutton = "' . smartsql($defaults['envo_social']) . '"
@@ -727,18 +729,18 @@ switch ($page1) {
     }
 
     // Stats - Count of all pages
-    $result = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable);
-    $data   = $result -> fetch_assoc();
+    $result              = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable);
+    $data                = $result -> fetch_assoc();
     $ENVO_STATS_COUNTALL = $data['totalpages'];
 
     // Stats - Count of active pages
-    $result = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE catid > 0 AND active = 1');
-    $data   = $result -> fetch_assoc();
+    $result                 = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE catid > 0 AND active = 1');
+    $data                   = $result -> fetch_assoc();
     $ENVO_STATS_COUNTACTIVE = $data['totalpages'];
 
     // Stats - Count of not active pages
-    $result = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE (catid = 0 AND active = 0) OR (catid = 0 AND active = 1) OR (catid > 0 AND active = 0)');
-    $data   = $result -> fetch_assoc();
+    $result                    = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE (catid = 0 AND active = 0) OR (catid = 0 AND active = 1) OR (catid > 0 AND active = 0)');
+    $data                      = $result -> fetch_assoc();
     $ENVO_STATS_COUNTNOTACTIVE = $data['totalpages'];
 
 

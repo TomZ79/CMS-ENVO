@@ -109,6 +109,12 @@ switch ($page1) {
               $errors['e7'] = $tlint['int_error']['interror6'] . '<br>';
             }
 
+            // EN: Check if ic of house isn't empty
+            // CZ: Kontrola jestli je zadáné ič
+            if (empty($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
+              $errors['e8'] = $tlint['int_error']['interror8'] . '<br>';
+            }
+
 
             // EN: All checks are OK without Errors - Start the form processing
             // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
@@ -172,22 +178,25 @@ IČ:       ' . $defaults['envo_housefic'] . '
               $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET 
                         name = "' . smartsql($defaults['envo_housename']) . '",
                         varname = "' . url_slug($defaults['envo_housename'], array ( 'transliterate' => TRUE )) . '",
+                        headquarters = "' . smartsql($defaults['envo_househeadquarters']) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
+                        ic = "' . smartsql($defaults['envo_houseic']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
                         justice = "' . smartsql($defaults['envo_housejustice']) . '",
-                        description = "' . smartsql($defaults['envo_housedescription']) . '",
+                        housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
+                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
+                        mainemail = "' . smartsql($defaults['envo_houseemail']) . '",
                         housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
                         housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
                         housefic = "' . smartsql($defaults['envo_housefic']) . '",
                         housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
-                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
                         elevator = "' . smartsql($defaults['envo_elevator']) . '",
@@ -215,42 +224,37 @@ IČ:       ' . $defaults['envo_housefic'] . '
           }
         }
 
-        // EN: Getting the data about the city in region - House Analytics
-        // CZ: Získání dat o městech v regionu - Analýza domů
-        $envoregion = envo_get_region('', 'city', $envotable16, 1);
+        // EN: Getting the data about the city in region - House
+        // CZ: Získání dat o městech v regionu - Domy
+        $envocity = envo_get_region('', 'id, city', $envotable18, 'city ASC', 1);
 
         // Convert multidimensional array into single array
-        $ENVO_REGION = [];
-        foreach ($envoregion as $array) {
-          foreach ($array as $v) {
-            $ENVO_REGION[] = $v;
-          }
+        $ENVO_CITY = [];
+        foreach ($envocity as $ec) {
+          $ENVO_CITY[] = array (
+            'id'   => $ec['id'],
+            'city' => $ec['city'],
+          );
         }
 
-        // EN: Getting the data about the city in region - House Analytics
-        // CZ: Získání dat o městech v regionu - Analýza domů
-        $envoregioncity = envo_get_region('', 'city_area', $envotable16, 1);
-
-        // Convert multidimensional array into single array
-        $ENVO_REGION_AREA = [];
-        foreach ($envoregioncity as $array) {
-          foreach ($array as $v) {
-            $ENVO_REGION_AREA[] = $v;
-          }
-        }
-
-        // EN: Get 'timedefault'
-        $result = $envodb -> query('SELECT * FROM ' . $envotable16 . ' GROUP BY city');
-
-        // EN: Get all photo by date for house
-        $i = 0;
-        while ($row = $result -> fetch_assoc()) {
-
-          $city                = $row['city'];
-          $ENVO_REGION_AREA1[] = $row;
-
-
-          $i++;
+        // EN: Getting the data about the cityarea in region - House
+        // CZ: Získání dat o městských částí v regionu - Domy
+        $resultcityarea = $envodb -> query('SELECT 
+                                        t1.id,
+                                        t1.city,
+                                        t2.id,
+                                        t2.city_id,
+                                        t2.city_area
+                                      FROM
+                                        cms_int_settings_city t1
+                                      LEFT JOIN 
+                                        cms_int_settings_cityarea t2
+                                          ON t1.id = t2.city_id
+                                        ORDER BY t2.city_area');
+        while ($rowcityarea = $resultcityarea -> fetch_assoc()) {
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
+          $ENVO_CITY_AREA[] = $rowcityarea;
         }
 
         // Get all usergroup's for active plugin
@@ -312,6 +316,12 @@ IČ:       ' . $defaults['envo_housefic'] . '
                 $errors['e5'] = $tlint['int_error']['interror4'] . '<br>';
               }
 
+              // EN: Check if ic of house isn't empty
+              // CZ: Kontrola jestli je zadáné ič
+              if (empty($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
+                $errors['e6'] = $tlint['int_error']['interror8'] . '<br>';
+              }
+
               // EN: Check if ic is numeric
               // CZ: Kontrola jestli ič je číslo
               if (!empty($defaults['envo_housefic']) && !is_numeric($defaults['envo_housefic'])) {
@@ -342,22 +352,27 @@ IČ:       ' . $defaults['envo_housefic'] . '
                 $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         name = "' . smartsql($defaults['envo_housename']) . '",
                         varname = "' . url_slug($defaults['envo_housename'], array ( 'transliterate' => TRUE )) . '",
+                        headquarters = "' . smartsql($defaults['envo_househeadquarters']) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
+                        ic = "' . smartsql($defaults['envo_houseic']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
                         latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
                         longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        ikatastr = "' . smartsql($defaults['envo_houseikatastr']) . '",
                         justice = "' . smartsql($defaults['envo_housejustice']) . '",
-                        description = "' . smartsql($defaults['envo_housedescription']) . '",
+                        ares = "' . smartsql($defaults['envo_houseares']) . '",
+                        housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
+                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
+                        mainemail = "' . smartsql($defaults['envo_houseemail']) . '",
                         housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
                         housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
                         housefic = "' . smartsql($defaults['envo_housefic']) . '",
                         housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
-                        antennadescription = "' . smartsql($defaults['envo_antennadescription']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
                         elevator = "' . smartsql($defaults['envo_elevator']) . '",
@@ -416,30 +431,38 @@ IČ:       ' . $defaults['envo_housefic'] . '
           // CZ: Získání všech dat pro Fotogalerii - isotop photo
           $ENVO_FORM_DATA_IMG = envo_get_house_image($pageID, $envotable5);
 
-          // EN: Getting the data about the city in region - House Analytics
-          // CZ: Získání dat o městech v regionu - Analýza domů
-          $envoregion = envo_get_region('', 'city', $envotable16, 1);
+          // EN: Getting the data about the city in region - House
+          // CZ: Získání dat o městech v regionu - Domy
+          $envocity = envo_get_region('', 'id, city', $envotable18, 'city ASC', 1);
 
           // Convert multidimensional array into single array
-          $ENVO_REGION = [];
-          foreach ($envoregion as $array) {
-            foreach ($array as $v) {
-              $ENVO_REGION[] = $v;
-            }
+          $ENVO_CITY = [];
+          foreach ($envocity as $ec) {
+            $ENVO_CITY[] = array (
+              'id'   => $ec['id'],
+              'city' => $ec['city'],
+            );
           }
 
-          // EN: Getting the data about the city in region - House Analytics
-          // CZ: Získání dat o městech v regionu - Analýza domů
-          $envoregioncity = envo_get_region('', 'city_area', $envotable16, 1);
-
-          // Convert multidimensional array into single array
-          $ENVO_REGION_AREA = [];
-          foreach ($envoregioncity as $array) {
-            foreach ($array as $v) {
-              $ENVO_REGION_AREA[] = $v;
-            }
+          // EN: Getting the data about the cityarea in region - House Analytics
+          // CZ: Získání dat o městských částí v regionu - Analýza domů
+          $resultcityarea = $envodb -> query('SELECT 
+                                        t1.id,
+                                        t1.city,
+                                        t2.id,
+                                        t2.city_id,
+                                        t2.city_area
+                                      FROM
+                                        cms_int_settings_city t1
+                                      LEFT JOIN 
+                                        cms_int_settings_cityarea t2
+                                          ON t1.id = t2.city_id
+                                        ORDER BY t2.city_area');
+          while ($rowcityarea = $resultcityarea -> fetch_assoc()) {
+            // EN: Insert each record into array
+            // CZ: Vložení získaných dat do pole
+            $ENVO_CITY_AREA[] = $rowcityarea;
           }
-
 
           // EN: Get all the data for the Photogallery - list photo
           // CZ: Získání všech dat pro Fotogalerii - list photo

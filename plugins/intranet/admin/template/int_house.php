@@ -24,7 +24,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=newhouse', 'Nový Dům', '', 'btn btn-info button');
+    echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=newhouse', 'Nový Dům', '', 'btn btn-info button');
     ?>
 
   </div>
@@ -50,7 +50,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 <?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
-  <form method="post" action="<?=$_SERVER['REQUEST_URI']?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
     <div class="box box-success">
       <div class="box-body no-padding">
         <table id="int_table" class="table table-striped table-hover">
@@ -63,8 +63,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 <?php
                 // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
-                echo $Html->addLabel('envo_delete_all', '');
+                echo $Html -> addCheckbox('', '', FALSE, 'envo_delete_all');
+                echo $Html -> addLabel('envo_delete_all', '');
                 ?>
 
               </div>
@@ -80,15 +80,15 @@ if ($page2 == "e" || $page2 == "ene") { ?>
           <tbody>
           <?php foreach ($ENVO_HOUSE_ALL as $h) { ?>
             <tr>
-              <td><?=$h["id"]?></td>
+              <td><?= $h["id"] ?></td>
               <td>
                 <div class="checkbox-singel check-success">
 
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('envo_delete_tvtower[]', $h["id"], FALSE, 'envo_delete_tvtower' . $h["id"], 'highlight');
-                  echo $Html->addLabel('envo_delete_tvtower' . $h["id"], '');
+                  echo $Html -> addCheckbox('envo_delete_tvtower[]', $h["id"], FALSE, 'envo_delete_tvtower' . $h["id"], 'highlight');
+                  echo $Html -> addLabel('envo_delete_tvtower' . $h["id"], '');
                   ?>
 
                 </div>
@@ -97,25 +97,25 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $h["id"], $h["name"]);
+                echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $h["id"], $h["name"]);
                 ?>
 
               </td>
               <td>
-                <?=$h["street"]?>
+                <?= $h["street"] ?>
               </td>
               <td>
-                <?=$h["city"]?>
+                <?= $h["city"] ?>
               </td>
               <td>
-                <?=$h["housefic"]?>
+                <?= $h["ic"] ?>
               </td>
               <td class="text-center">
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // EDIT
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $h["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=edithouse&amp;id=' . $h["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
                 ?>
 
               </td>
@@ -123,7 +123,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty, servisy, úkoly).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array ( 'data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty, servisy, úkoly).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
                 ?>
 
               </td>
@@ -140,9 +140,9 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+      echo $Html -> addTag('h3', $tl["icons"]["i"]);
+      echo $Html -> addTag('i', '', 'fa fa-edit', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"] ));
+      echo $Html -> addTag('i', '', 'fa fa-trash-o', array ( 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"] ));
       ?>
 
     </div>
@@ -154,7 +154,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+    echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ( 'class' => 'alert bg-info text-white' ));
     ?>
 
   </div>

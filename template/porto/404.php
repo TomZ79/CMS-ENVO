@@ -1,8 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-  <!-- =========================
-  START 404 SECTION
-  ============================== -->
+  <!-- 404 SECTION -->
   <section class="section-404">
     <div class="container">
       <div class="row">
@@ -18,8 +16,5 @@
       </div>
     </div>
   </section>
-  <!-- =========================
-  END 404 SECTION
-  ============================== -->
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

@@ -43,9 +43,9 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+      echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=intranet&sp=notification', $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html -> addAnchor('index.php?p=intranet&sp=notification', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -80,7 +80,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', 'Titulek a Typ', 'box-title');
+                echo $Html -> addTag('h3', 'Titulek a Typ', 'box-title');
                 ?>
 
               </div>
@@ -92,8 +92,8 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Titulek');
-                        echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                        echo $Html -> addTag('strong', 'Titulek');
+                        echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                         ?>
 
                       </div>
@@ -102,7 +102,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title', $_REQUEST["envo_title"], '', 'form-control');
+                          echo $Html -> addInput('text', 'envo_title', $_REQUEST["envo_title"], '', 'form-control');
                           ?>
 
                         </div>
@@ -113,7 +113,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Type');
+                        echo $Html -> addTag('strong', 'Type');
                         ?>
 
                       </div>
@@ -122,9 +122,9 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('info', 'Info', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'info') ? TRUE : FALSE);
-                          echo $Html->addOption('success', 'Success', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'success') ? TRUE : FALSE);
-                          echo $Html->addOption('danger', 'Danger', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'danger') ? TRUE : FALSE);
+                          echo $Html -> addOption('info', 'Info', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'info') ? TRUE : FALSE);
+                          echo $Html -> addOption('success', 'Success', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'success') ? TRUE : FALSE);
+                          echo $Html -> addOption('danger', 'Danger', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'danger') ? TRUE : FALSE);
                           ?>
 
                         </select>
@@ -136,8 +136,8 @@ if ($errors) { ?>
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addTag('strong', 'Zkrácený Popis');
-                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => 'Maximální počet znaků <br> pro zkrácený popis je 45 znaků', 'data-original-title' => 'Nápověda'));
+                        echo $Html -> addTag('strong', 'Zkrácený Popis');
+                        echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => 'Maximální počet znaků <br> pro zkrácený popis je 45 znaků', 'data-original-title' => 'Nápověda' ));
                         ?>
 
                       </div>
@@ -146,7 +146,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_shortdescription', $_REQUEST["shortdescription"], '', 'form-control', array('maxlength' => '45'));
+                          echo $Html -> addInput('text', 'envo_shortdescription', $_REQUEST["shortdescription"], '', 'form-control', array ( 'maxlength' => '45' ));
                           ?>
 
                         </div>
@@ -159,7 +159,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
                 ?>
 
               </div>
@@ -171,12 +171,12 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                echo $Html->startTag('h3', array('class' => 'box-title'));
+                echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
                 echo $tl["cat_box_title"]["catbt3"];
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"] ));
                 // Add Html Element -> endTag (Arguments: tag)
-                echo $Html->endTag('h3');
+                echo $Html -> endTag('h3');
                 ?>
 
               </div>
@@ -191,7 +191,7 @@ if ($errors) { ?>
                           // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
                           $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
 
-                          echo $Html->addOption('0', 'Nikdo', $selected);
+                          echo $Html -> addOption('0', 'Nikdo', $selected);
                           if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                             if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
@@ -204,7 +204,7 @@ if ($errors) { ?>
                               $selected = FALSE;
                             }
 
-                            echo $Html->addOption($v["id"], $v["name"], $selected);
+                            echo $Html -> addOption($v["id"], $v["name"], $selected);
 
                           }
                           ?>
@@ -219,7 +219,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
                 ?>
 
               </div>

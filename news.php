@@ -85,6 +85,7 @@ switch ($page1) {
         $SHOWTITLE                       = $row['showtitle'];
         $SHOWDATE                        = $row['showdate'];
         $SHOWHITS                        = $row['showhits'];
+        $SHOWTAGS                        = $row['showtags'];
         $SHOWSOCIALBUTTON                = $row['socialbutton'];
         $PAGE_ACTIVE                     = $row['active'];
         $PAGE_HITS                       = $row['hits'];

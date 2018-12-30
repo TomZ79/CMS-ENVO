@@ -15,7 +15,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 <!--[if IE 8 ]>
 <?= '<html class="ie ie8" lang="<?=$site_language?>"> <![endif]-->' ?>
 <!--[if (gte IE 9)|!(IE)]><!-->
-<?= '<html lang="<?= $site_language ?>">' ?>
+<?= '<html lang="' . $site_language .'">' ?>
 <!--<![endif]-->
 <head>
 
@@ -50,15 +50,15 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@publisher_handle">
-  <meta name="twitter:title" content="Page Title">
-  <meta name="twitter:description" content="Page description less than 200 characters">
+  <meta name="twitter:title" content="<?= $PAGE_TITLE ?>">
+  <meta name="twitter:description" content="<?= trim($PAGE_DESCRIPTION) ?>">
   <meta name="twitter:creator" content="@author_handle">
   <!-- Twitter Summary card images must be at least 120x120px -->
   <meta name="twitter:image" content="https://www.example.com/image.jpg">
 
   <!-- Schema.org markup for Google+ -->
   <meta itemprop="name" content="">
-  <meta itemprop="description" content="">
+  <meta itemprop="description" content="<?= trim($PAGE_DESCRIPTION) ?>">
   <meta itemprop="image" content="">
 
   <?php if ($page == '404') { ?>
@@ -95,9 +95,9 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Magnific-popup -->
   <link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/plugins/magnific-popup/magnific-popup.min.css?=v1.1.0">
   <!-- RS5.0 Main Stylesheetm, Layers and Navigation Styles -->
-  <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/settings.min.css?=v5.0.0">
-  <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/layers.min.css?=v5.0.0">
-  <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/navigation.min.css?=v5.0.0">
+  <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/settings.min.css?=v5.4.8">
+  <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/layers.min.css?=v5.4.8">
+  <link rel="stylesheet" type="text/css" href="/assets/plugins/revolution-slider/css/navigation.min.css?=v5.4.8">
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/css/theme.css">
   <link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/css/theme-elements.css">
@@ -128,11 +128,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- Favicons
   ================================================== -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+  <link rel="shortcut icon" href="<?= (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]/" ?>favicon.ico" type="image/x-icon">
 
   <!-- Import templates for in between head
   ============================================= -->

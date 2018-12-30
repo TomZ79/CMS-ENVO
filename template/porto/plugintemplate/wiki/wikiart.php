@@ -151,10 +151,10 @@ if ($setting["printme"]) $printme = 1;
 
               foreach ($ENVO_LINKS as $ls) {
                 // Display and convert special HTML entities back to characters
-                echo '<li style="font-size: .9em; height: 24px; margin-bottom: 5px;"><i class="fas fa-circle"></i>' . htmlspecialchars_decode($ls["text"], ENT_NOQUOTES) . '</li>';
+                echo '<li style="font-size: .9em; height: 24px; margin-bottom: 5px;"><i class="fas fa-circle"></i>' . htmlspecialchars_decode($ls["text"], ENT_QUOTES) . '</li>';
               }
 
-              echo '<ul>';
+              echo '</ul>';
               echo '</div>';
             }
             ?>

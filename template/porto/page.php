@@ -2,6 +2,9 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
+// Set local language
+setlocale(LC_TIME, $setting["locale"] . '.utf8');
+
 if (!$PAGE_ACTIVE) {
   echo '<div class="alert alert-danger">' . $tl["general_error"]["generror2"] . '</div>';
 } else {
@@ -54,11 +57,15 @@ if (!$PAGE_ACTIVE) {
     // NOT PROTECTED PAGE
 
     if ($PAGE_SHOWTITLE) {
-      echo '<h2>' . $PAGE_TITLE . '</h2>';
+      echo '<div>';
+      echo '<h3 class="text-color-dark font-weight-normal text-6">' . $PAGE_TITLE . '</h3>';
+      echo '</div>';
     }
 
     // SHOW - Date, hits and tag list
-    if ($SHOWDATE || $SHOWHITS) {
+    if ($SHOWDATE || $SHOWHITS || ($ENVO_TAGLIST && $SHOWTAGS)) {
+      echo '<div class="d-flex mb-2">';
+
       // SHOW - Date
       if ($SHOWDATE) {
         echo '<span class="date mr-3"><strong class="text-2">' . $tl["news"]["news3"] . '</strong>' . ' : <time datetime="' . $PAGE_TIME . '">' . $PAGE_TIME . '</time></span>';
@@ -68,13 +75,19 @@ if (!$PAGE_ACTIVE) {
       if ($SHOWHITS) {
         echo '<span class="hits"><strong class="text-2">' . $tl["news"]["news2"] . '</strong>' . ' : ' . $PAGE_HITS . '</span>';
       }
+
+      // SHOW - Tag List
+      if ($ENVO_TAGLIST && $SHOWTAGS) {
+        echo '<ul class="ml-auto tags-list mb-0">';
+        echo $ENVO_TAGLIST;
+        echo '</ul>';
+      }
+
+      echo '</div>';
     }
 
-    // SHOW - Tag List
-    if ($ENVO_TAGLIST && $SHOWTAGS) {
-      echo '<ul class="tags-list">';
-      echo $ENVO_TAGLIST;
-      echo '</ul>';
+    if ($PAGE_SHOWTITLE || $SHOWDATE || $SHOWHITS || ($ENVO_TAGLIST && $SHOWTAGS)) {
+      echo '<hr>';
     }
 
     if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
@@ -107,14 +120,14 @@ if (!$PAGE_ACTIVE) {
 
                 <article class="post post-large item">
                   <div class="post-date">
-                    <span class="day"><?= date("d",strtotime($n["created"])) ?></span>
-                    <span class="month"><?= date("M",strtotime($n["created"])) ?></span>
+                    <span class="day"><?= strftime("%d", strtotime($n["created"])) ?></span>
+                    <span class="month"><?= strftime("%b", strtotime($n["created"])) ?></span>
                   </div>
                   <div class="post-content">
 
                     <?php
 
-                    echo '<h4><a href="' . $n["parseurl"] . '" class="text-decoration-none">' . envo_cut_text($n["title"], 50, "...") . '</a></h4>';
+                    echo '<h4><a href="' . $n["parseurl"] . '" class="text-decoration-none" title="' . $n["title"] . '">' . envo_cut_text($n["title"], 50, "...") . '</a></h4>';
 
                     ?>
 

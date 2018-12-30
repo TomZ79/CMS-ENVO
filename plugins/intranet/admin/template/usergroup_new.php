@@ -3,7 +3,7 @@
 
     <?php
     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-    echo $Html->addTag('h3', $tlint["int_connect"]["intc"], 'box-title');
+    echo $Html -> addTag('h3', $tlint["int_connect"]["intc"], 'box-title');
     ?>
 
   </div>
@@ -15,7 +15,7 @@
 
             <?php
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-            echo $Html->addTag('strong', $tlint["int_connect"]["intc1"]);
+            echo $Html -> addTag('strong', $tlint["int_connect"]["intc1"]);
             ?>
 
           </div>
@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_intranet', '1', ((isset($_REQUEST["envo_intranet"]) && $_REQUEST["envo_intranet"] == '1')) ? TRUE : FALSE, 'envo_intranet1');
+              echo $Html -> addRadio('envo_intranet', '1', ((isset($_REQUEST["envo_intranet"]) && $_REQUEST["envo_intranet"] == '1')) ? TRUE : FALSE, 'envo_intranet1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_intranet1', $tl["checkbox"]["chk"]);
+              echo $Html -> addLabel('envo_intranet1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_intranet', '0', ((isset($_REQUEST["envo_intranet"]) && $_REQUEST["envo_intranet"] == '0') || !isset($_REQUEST["envo_intranet"])) ? TRUE : FALSE, 'envo_intranet2');
+              echo $Html -> addRadio('envo_intranet', '0', ((isset($_REQUEST["envo_intranet"]) && $_REQUEST["envo_intranet"] == '0') || !isset($_REQUEST["envo_intranet"])) ? TRUE : FALSE, 'envo_intranet2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('envo_intranet2', $tl["checkbox"]["chk1"]);
+              echo $Html -> addLabel('envo_intranet2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>
@@ -44,7 +44,7 @@
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
     ?>
 
   </div>

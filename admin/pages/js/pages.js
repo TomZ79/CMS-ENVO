@@ -781,7 +781,7 @@
     this.setBackgroundImage();
     this.initDropDown();
     this.initFormGroupDefault();
-    this.initSlidingTabs();
+    // this.initSlidingTabs();
     this.initNotificationCenter();
     this.initProgressBars();
     this.initHorizontalMenu();

@@ -1,6 +1,76 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
+
+if (!function_exists('array_group_by')) {
+  /**
+   * Groups an array by a given key.
+   *
+   * Groups an array into arrays by a given key, or set of keys, shared between all array members.
+   *
+   * Based on {@author Jake Zatecky}'s {@link https://github.com/jakezatecky/array_group_by array_group_by()} function.
+   * This variant allows $key to be closures.
+   *
+   * www: https://gist.github.com/mcaskill/baaee44487653e1afc0d
+   *
+   * @param array $array The array to have grouping performed on.
+   * @param mixed $key,... The key to group or split by. Can be a _string_,
+   *                       an _integer_, a _float_, or a _callable_.
+   *
+   *                       If the key is a callback, it must return
+   *                       a valid key from the array.
+   *
+   *                       If the key is _NULL_, the iterated element is skipped.
+   *
+   *                       ```
+   *                       string|int callback ( mixed $item )
+   *                       ```
+   *
+   * @return array|null Returns a multidimensional array or `null` if `$key` is invalid.
+   */
+  function array_group_by(array $array, $key)
+  {
+    if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
+      trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
+      return null;
+    }
+    $func = (!is_string($key) && is_callable($key) ? $key : null);
+    $_key = $key;
+    // Load the new array, splitting by the target key
+    $grouped = [];
+    foreach ($array as $value) {
+      $key = null;
+      if (is_callable($func)) {
+        $key = call_user_func($func, $value);
+      } elseif (is_object($value) && isset($value ->{$_key})) {
+        $key = $value ->{$_key};
+      } elseif (isset($value[$_key])) {
+        $key = $value[$_key];
+      }
+      if ($key === null) {
+        continue;
+      }
+      $grouped[$key][] = $value;
+    }
+    // Recursively build a nested grouping if more parameters are supplied
+    // Each grouped array value is grouped according to the next sequential key
+    if (func_num_args() > 2) {
+      $args = func_get_args();
+      foreach ($grouped as $key => $value) {
+        $params        = array_merge([ $value ], array_slice($args, 2, func_num_args()));
+        $grouped[$key] = call_user_func_array('array_group_by', $params);
+      }
+    }
+    return $grouped;
+  }
+}
+
+// Group data by the "gender" key
+$ENVO_CITY_AREA = array_group_by($ENVO_CITY_AREA, "city");
+
+?>
+
+<?php
 // EN: An error occurred while saving to DB
 // CZ: Při ukládání do DB došlo k chybě
 if ($page3 == "e") { ?>
@@ -35,7 +105,8 @@ if ($errors) { ?>
           if (isset($errors["e4"])) echo $errors["e4"];
           if (isset($errors["e5"])) echo $errors["e5"];
           if (isset($errors["e6"])) echo $errors["e6"];
-          if (isset($errors["e7"])) echo $errors["e7"];?>'
+          if (isset($errors["e7"])) echo $errors["e7"];
+          if (isset($errors["e8"])) echo $errors["e8"];?>'
       }, {
         // settings
         type: 'danger',
@@ -51,9 +122,9 @@ if ($errors) { ?>
 
     <?php
     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-    echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
+    echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=intranet&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
+    echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -106,7 +177,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Obecná nastavení', 'box-title');
+              echo $Html -> addTag('h3', 'Obecná nastavení', 'box-title');
               ?>
 
             </div>
@@ -138,8 +209,8 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Název Domu');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      echo $Html -> addTag('strong', 'Název Domu');
+                      echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
                       ?>
 
                     </div>
@@ -148,7 +219,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housename', (isset($_REQUEST["envo_housename"]) ? $_REQUEST["envo_housename"] : ''), '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housename', (isset($_REQUEST["envo_housename"]) ? $_REQUEST["envo_housename"] : ''), '', 'form-control');
                         ?>
 
                       </div>
@@ -159,7 +230,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Ulice');
+                      echo $Html -> addTag('strong', 'Sídlo');
                       ?>
 
                     </div>
@@ -168,7 +239,27 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housestreet', (isset($_REQUEST["envo_housestreet"]) ? $_REQUEST["envo_housestreet"] : ''), '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_househeadquarters', (isset($_REQUEST["envo_househeadquarters"]) ? $_REQUEST["envo_househeadquarters"] : ''), '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Ulice');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="form-group m-0">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_housestreet', (isset($_REQUEST["envo_housestreet"]) ? $_REQUEST["envo_housestreet"] : ''), '', 'form-control');
                         ?>
 
                       </div>
@@ -192,10 +283,10 @@ if ($errors) { ?>
                           $selected = ((isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] == '0')) || !isset($_REQUEST["envo_housecity"])) ? TRUE : FALSE;
 
                           echo $Html -> addOption('0', $tlint["selection"]["sel"], $selected);
-                          if (isset($ENVO_REGION) && is_array($ENVO_REGION)) foreach ($ENVO_REGION as $r) {
+                          if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
 
                             if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
-                              if (isset($_REQUEST["envo_housecity"]) && ($r == $_REQUEST["envo_housecity"])) {
+                              if (isset($_REQUEST["envo_housecity"]) && ($c == $_REQUEST["envo_housecity"])) {
                                 $selected = TRUE;
                               } else {
                                 $selected = FALSE;
@@ -204,7 +295,7 @@ if ($errors) { ?>
                               $selected = FALSE;
                             }
 
-                            echo $Html -> addOption($r, $r, $selected);
+                            echo $Html -> addOption($c["id"], $c["city"], $selected);
 
                           }
                           ?>
@@ -223,17 +314,33 @@ if ($errors) { ?>
 
                     </div>
                     <div class="col-sm-8">
-                      <select name="envo_housecityarea" class="form-control selectpicker" data-search-select2="true">
+                      <?php
+                      // Start - Select Tag
+                      echo '<div class="form-group m-0"><select name="envo_housecityarea" class="form-control selectpicker" data-search-select2="true">';
 
-                        <?php
-                        // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ((isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] == '0')) || !isset($_REQUEST["envo_housecityarea"])) ? TRUE : FALSE;
+                      //
+                      $selected = ((isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] == '0')) || !isset($_REQUEST["envo_housecityarea"])) ? TRUE : FALSE;
 
-                        echo $Html -> addOption('0', $tlint["selection"]["sel1"], $selected);
-                        if (isset($ENVO_REGION_AREA) && is_array($ENVO_REGION_AREA)) foreach ($ENVO_REGION_AREA as $ra) {
+                      // First blank option
+                      // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                      echo $Html -> addOption('0', '----------------', $selected);
+
+                      foreach ($ENVO_CITY_AREA as $keycity => $cityitem) {
+
+                        foreach ($cityitem as $item) {
+                          // Get City ID from first item - is same for all items
+                          $cityid = $item["city_id"];
+                          // Break loop after first iteration
+                          break;
+                        }
+
+                        // to know what's in $item
+                        echo '<optgroup label="' . $keycity . '" data-cityname="' . $keycity . '" data-cityid="' . $cityid . '">';
+
+                        foreach ($cityitem as $cityarea) {
 
                           if (isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] != '0')) {
-                            if (isset($_REQUEST["envo_housecityarea"]) && ($ra == $_REQUEST["envo_housecityarea"])) {
+                            if (isset($_REQUEST["envo_housecityarea"]) && ($cityarea["id"] == $_REQUEST["envo_housecityarea"])) {
                               $selected = TRUE;
                             } else {
                               $selected = FALSE;
@@ -242,12 +349,20 @@ if ($errors) { ?>
                             $selected = FALSE;
                           }
 
-                          echo $Html -> addOption($ra, $ra, $selected);
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html -> addOption($cityarea["id"], $cityarea["city_area"], $selected, '', '', array ( 'data-cityareaname' => $cityarea["city_area"], 'data-cityareaid' => $cityarea["id"] ));
 
                         }
-                        ?>
 
-                      </select>
+                        echo '</optgroup>';
+
+                      }
+
+                      // End - Select Tag
+                      echo '</select></div>';
+
+                      ?>
+
                     </div>
                   </div>
                   <div class="row-form">
@@ -255,7 +370,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'PSČ');
+                      echo $Html -> addTag('strong', 'PSČ');
                       ?>
 
                     </div>
@@ -264,7 +379,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housepsc', (isset($_REQUEST["envo_housepsc"]) ? $_REQUEST["envo_housepsc"] : ''), '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housepsc', (isset($_REQUEST["envo_housepsc"]) ? $_REQUEST["envo_housepsc"] : ''), '', 'form-control');
                         ?>
 
                       </div>
@@ -275,7 +390,28 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Stát');
+                      echo $Html -> addTag('strong', 'IČ');
+                      echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="form-group m-0<?php if (isset($errors["e8"])) echo " has-error"; ?>">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_houseic', (isset($_REQUEST["envo_houseic"]) ? $_REQUEST["envo_houseic"] : ''), '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Stát');
                       ?>
 
                     </div>
@@ -284,7 +420,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housestate', (isset($_REQUEST["envo_housestate"]) ? $_REQUEST["envo_housestate"] : 'Česká Republika'), '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housestate', (isset($_REQUEST["envo_housestate"]) ? $_REQUEST["envo_housestate"] : 'Česká Republika'), '', 'form-control');
                         ?>
 
                       </div>
@@ -295,7 +431,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'GPS - Koordináty');
+                      echo $Html -> addTag('strong', 'GPS - Koordináty');
                       ?>
 
                     </div>
@@ -304,7 +440,14 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('https://www.gps-coordinates.net/', 'Získat GPS pozici', '', '', array('target' => '_blank'));
+                        echo $Html -> addAnchor('https://www.latlong.net/', 'LATLONG.net', '', '', array ( 'target' => 'NewGPS' ));
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addAnchor('#', 'Získat GPS z OpenStreetMap', 'getgpscoordinates', '');
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('hidden', 'data_gps_street');
+                        echo $Html -> addInput('hidden', 'data_gps_city');
                         ?>
 
                       </div>
@@ -315,7 +458,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'GPS - Latitude');
+                      echo $Html -> addTag('strong', 'GPS - Latitude');
                       ?>
 
                     </div>
@@ -324,7 +467,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housegpslat', (isset($_REQUEST["envo_housegpslat"]) ? $_REQUEST["envo_housegpslat"] : ''), '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housegpslat', (isset($_REQUEST["envo_housegpslat"]) ? $_REQUEST["envo_housegpslat"] : ''), '', 'form-control');
                         ?>
 
                       </div>
@@ -335,7 +478,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'GPS - Longitude');
+                      echo $Html -> addTag('strong', 'GPS - Longitude');
                       ?>
 
                     </div>
@@ -344,27 +487,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housegpslng', (isset($_REQUEST["envo_housegpslng"]) ? $_REQUEST["envo_housegpslng"] : ''), '', 'form-control');
-                        ?>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row-form">
-                    <div class="col-sm-4">
-
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html -> addTag('strong', 'Web - Justice.cz');
-                      ?>
-
-                    </div>
-                    <div class="col-sm-8">
-                      <div class="form-group m-0">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html -> addInput('text', 'envo_housejustice', (isset($_REQUEST["envo_housejustice"]) ? $_REQUEST["envo_housejustice"] : ''), '', 'form-control');
+                        echo $Html -> addInput('text', 'envo_housegpslng', (isset($_REQUEST["envo_housegpslng"]) ? $_REQUEST["envo_housegpslng"] : ''), '', 'form-control');
                         ?>
 
                       </div>
@@ -377,7 +500,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -388,106 +511,13 @@ if ($errors) { ?>
             <div class="box-header with-border">
 
               <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Vchody a Byty', 'box-title');
-              ?>
-
-            </div>
-            <div class="box-body">
-              <div class="block">
-                <div class="block-content">
-                  <div class="row-form">
-                    <div class="col-sm-8">
-
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Celkový Počet Vchodů');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
-                      ?>
-
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group m-0<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countentranceall', (isset($_REQUEST["envo_countentranceall"]) ? $_REQUEST["envo_countentranceall"] : ''), '', 'form-control');
-                        ?>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row-form">
-                    <div class="col-sm-8">
-
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Celkový Počet Bytů');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
-                      ?>
-
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group m-0<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countapartmentall', (isset($_REQUEST["envo_countapartmentall"]) ? $_REQUEST["envo_countapartmentall"] : ''), '', 'form-control');
-                        ?>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row-form">
-                    <div class="col-sm-8">
-
-                      <?php
-                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Výtah');
-                      ?>
-
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="radio radio-success">
-
-                        <?php
-                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('envo_elevator', '1', ((isset($_REQUEST["envo_elevator"]) && $_REQUEST["envo_elevator"] == '1')) ? TRUE : FALSE, 'envo_elevator1');
-                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('envo_elevator1', $tl["checkbox"]["chk"]);
-
-                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('envo_elevator', '0', ((isset($_REQUEST["envo_elevator"]) && $_REQUEST["envo_elevator"] == '0') || !isset($_REQUEST["envo_elevator"])) ? TRUE : FALSE, 'envo_elevator2');
-                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('envo_elevator2', $tl["checkbox"]["chk1"]);
-                        ?>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box-footer">
-
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
-              ?>
-
-            </div>
-          </div>
-          <div class="box box-success">
-            <div class="box-header with-border">
-
-              <?php
               // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-              echo $Html->startTag('h3', array('class' => 'box-title'));
+              echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
               echo $tl["cat_box_title"]["catbt3"];
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+              echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"] ));
               // Add Html Element -> endTag (Arguments: tag)
-              echo $Html->endTag('h3');
+              echo $Html -> endTag('h3');
               ?>
 
             </div>
@@ -502,7 +532,7 @@ if ($errors) { ?>
                         // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
                         $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
 
-                        echo $Html->addOption('0', 'Všechny skupiny', $selected);
+                        echo $Html -> addOption('0', 'Všechny skupiny', $selected);
                         if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                           if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
@@ -515,7 +545,7 @@ if ($errors) { ?>
                             $selected = FALSE;
                           }
 
-                          echo $Html->addOption($v["id"], $v["name"], $selected);
+                          echo $Html -> addOption($v["id"], $v["name"], $selected);
 
                         }
                         ?>
@@ -530,7 +560,343 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+              ?>
+
+            </div>
+          </div>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html -> addTag('h3', 'ARES', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'ARES - Upload data');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group m-0">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_dataares', '', '', 'form-control', array ( 'placeholder' => 'Zadejte IČ' ));
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+
+                      <?php
+                      // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                      echo $Html -> addButton('button', '', 'Upload Data', '', 'loadAres', 'btn btn-default');
+                      ?>
+
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Web - ARES');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="radio radio-success">
+
+                        <?php
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html -> addRadio('envo_houseares', '1', ((isset($_REQUEST["envo_houseares"]) && $_REQUEST["envo_houseares"] == '1')) ? TRUE : FALSE, 'envo_houseares1');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html -> addLabel('envo_houseares1', $tl["checkbox"]["chk"]);
+
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html -> addRadio('envo_houseares', '0', ((isset($_REQUEST["envo_houseares"]) && $_REQUEST["envo_houseares"] == '0') || !isset($_REQUEST["envo_houseares"])) ? TRUE : FALSE, 'envo_houseares2');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html -> addLabel('envo_houseares2', $tl["checkbox"]["chk1"]);
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div id="ares_res" <?= ((isset($_REQUEST["envo_houseares"]) && $_REQUEST["envo_houseares"] == '1')) ? '' : 'style="display: none;"' ?>>
+
+                        <?php
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addAnchor('#', 'Výpis - RES', '', '', array ( 'target' => 'WindowARES' ));
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addAnchor('#', 'Výpis - VREO', '', '', array ( 'target' => 'WindowARES' ));
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+              ?>
+
+            </div>
+          </div>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html -> addTag('h3', 'Justice.cz', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Web - Justice.cz');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="radio radio-success">
+
+                        <?php
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html -> addRadio('envo_housejustice', '1', ((isset($_REQUEST["envo_housejustice"]) && $_REQUEST["envo_housejustice"] == '1')) ? TRUE : FALSE, 'envo_housejustice1');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html -> addLabel('envo_housejustice1', $tl["checkbox"]["chk"]);
+
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html -> addRadio('envo_housejustice', '0', ((isset($_REQUEST["envo_housejustice"]) && $_REQUEST["envo_housejustice"] == '0') || !isset($_REQUEST["envo_housejustice"])) ? TRUE : FALSE, 'envo_housejustice2');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html -> addLabel('envo_housejustice2', $tl["checkbox"]["chk1"]);
+                        ?>
+
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div id="justice_vor" <?= ((isset($_REQUEST["envo_housejustice"]) && $_REQUEST["envo_housejustice"] == '1')) ? '' : 'style="display: none;"' ?>>
+
+                        <?php
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addAnchor('#', 'Výpis - Justice.cz', '', '', array ( 'target' => 'WindowJUSTICE' ));
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+              ?>
+
+            </div>
+          </div>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html -> addTag('h3', 'Katastr', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'iKatastr');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="form-group m-0" id="ikatastr">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_houseikatastr', (isset($_REQUEST["envo_houseikatastr"]) ? $_REQUEST["envo_houseikatastr"] : ''), '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form p-t-10 p-b-10">
+                    <div class="col-sm-4">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'iKatastr - Link');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="form-group m-0" id="ikatastrlink">
+
+                        <?php
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html -> addAnchor((isset($_REQUEST["envo_houseikatastr"]) ? $_REQUEST["envo_houseikatastr"] : 'https://www.ikatastr.cz/'), 'Zobrazit informace z Katastru', '', '', array ( 'target' => 'WindowKATASTR' ));
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+              ?>
+
+            </div>
+          </div>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html -> addTag('h3', 'Vchody a Byty', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-sm-8">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Celkový Počet Vchodů');
+                      echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group m-0<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_countentranceall', (isset($_REQUEST["envo_countentranceall"]) ? $_REQUEST["envo_countentranceall"] : ''), '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-8">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Celkový Počet Bytů');
+                      echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group m-0<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html -> addInput('text', 'envo_countapartmentall', (isset($_REQUEST["envo_countapartmentall"]) ? $_REQUEST["envo_countapartmentall"] : ''), '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-sm-8">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html -> addTag('strong', 'Výtah');
+                      ?>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="radio radio-success">
+
+                        <?php
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html -> addRadio('envo_elevator', '1', ((isset($_REQUEST["envo_elevator"]) && $_REQUEST["envo_elevator"] == '1')) ? TRUE : FALSE, 'envo_elevator1');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html -> addLabel('envo_elevator1', $tl["checkbox"]["chk"]);
+
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html -> addRadio('envo_elevator', '0', ((isset($_REQUEST["envo_elevator"]) && $_REQUEST["envo_elevator"] == '0') || !isset($_REQUEST["envo_elevator"])) ? TRUE : FALSE, 'envo_elevator2');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html -> addLabel('envo_elevator2', $tl["checkbox"]["chk1"]);
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+              ?>
+
+            </div>
+          </div>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html -> addTag('h3', 'Spojení s bytovým domem', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -546,7 +912,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Nastavení Fakturace', 'box-title');
+              echo $Html -> addTag('h3', 'Nastavení Fakturace', 'box-title');
               ?>
 
             </div>
@@ -560,7 +926,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Název');
+                          echo $Html -> addTag('strong', 'Název');
                           ?>
 
                         </div>
@@ -569,7 +935,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefname', (isset($_REQUEST["envo_housefname"]) ? $_REQUEST["envo_housefname"] : ''), '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefname', (isset($_REQUEST["envo_housefname"]) ? $_REQUEST["envo_housefname"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -580,7 +946,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Ulice');
+                          echo $Html -> addTag('strong', 'Ulice');
                           ?>
 
                         </div>
@@ -589,7 +955,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefstreet', (isset($_REQUEST["envo_housefstreet"]) ? $_REQUEST["envo_housefstreet"] : ''), '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefstreet', (isset($_REQUEST["envo_housefstreet"]) ? $_REQUEST["envo_housefstreet"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -600,7 +966,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'Město');
+                          echo $Html -> addTag('strong', 'Město');
                           ?>
 
                         </div>
@@ -609,7 +975,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefcity', (isset($_REQUEST["envo_housefcity"]) ? $_REQUEST["envo_housefcity"] : ''), '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefcity', (isset($_REQUEST["envo_housefcity"]) ? $_REQUEST["envo_housefcity"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -620,7 +986,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'PSČ');
+                          echo $Html -> addTag('strong', 'PSČ');
                           ?>
 
                         </div>
@@ -629,7 +995,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefpsc', (isset($_REQUEST["envo_housefpsc"]) ? $_REQUEST["envo_housefpsc"] : ''), '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefpsc', (isset($_REQUEST["envo_housefpsc"]) ? $_REQUEST["envo_housefpsc"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -642,7 +1008,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'IČ');
+                          echo $Html -> addTag('strong', 'IČ');
                           ?>
 
                         </div>
@@ -651,7 +1017,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefic', (isset($_REQUEST["envo_housefic"]) ? $_REQUEST["envo_housefic"] : ''), '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefic', (isset($_REQUEST["envo_housefic"]) ? $_REQUEST["envo_housefic"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -662,7 +1028,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                          echo $Html->addTag('strong', 'DIČ');
+                          echo $Html -> addTag('strong', 'DIČ');
                           ?>
 
                         </div>
@@ -671,7 +1037,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', 'envo_housefdic', (isset($_REQUEST["envo_housefdic"]) ? $_REQUEST["envo_housefdic"] : ''), '', 'form-control');
+                            echo $Html -> addInput('text', 'envo_housefdic', (isset($_REQUEST["envo_housefdic"]) ? $_REQUEST["envo_housefdic"] : ''), '', 'form-control');
                             ?>
 
                           </div>
@@ -686,7 +1052,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
               ?>
 
             </div>
@@ -713,12 +1079,12 @@ if ($errors) { ?>
             <div class="box-body">
               <div class="block">
                 <div class="block-content">
-                  <div class="row-form m-b-10">
+                  <div class="row-form p-t-10 p-b-10">
                     <div class="col-sm-3">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Složka domu');
+                      echo $Html -> addTag('strong', 'Složka domu');
                       ?>
 
                     </div>

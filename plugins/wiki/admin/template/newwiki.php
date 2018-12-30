@@ -614,7 +614,7 @@ if ($errors) { ?>
 
                     <table id="wiki_table_1" class="table">
                       <thead>
-                      <tr>
+                      <tr  class="row">
                         <th class="col-sm-1 text-center">#</th>
                         <th class="col-sm-10">Text / Odkaz</th>
                         <th class="col-sm-1"></th>
@@ -660,7 +660,7 @@ if ($errors) { ?>
 
                     <table id="wiki_table_2" class="table">
                       <thead>
-                      <tr>
+                      <tr class="row">
                         <th class="col-sm-1 text-center">#</th>
                         <th class="col-sm-10">Text / Odkaz</th>
                         <th class="col-sm-1"></th>

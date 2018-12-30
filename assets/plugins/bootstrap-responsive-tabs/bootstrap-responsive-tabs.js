@@ -3,18 +3,18 @@
  * @type {{initialize: TabManager.initialize}}
  */
 var TabManager = {
-  initialize: function(parent) {
+  initialize: function (parent) {
     var tabs = parent;
     var tabsHeight = tabs.innerHeight();
 
     //
-    if (tabsHeight >= 50) {
-      while(tabsHeight > 50) {
+    if (tabsHeight >= 45) {
+      while (tabsHeight > 45) {
         var children = tabs.children('li:not(:last-child)');
         var count = children.length;
 
         // Create the new menu item.
-        var item = $(children[count-1]);
+        var item = $(children[count - 1]);
         var newMenuItem = '<a class="dropdown-item" href="' + item.children('a').attr('href') + '" data-toggle="tab">' + item.text() + '</a>';
 
         // Append the new menu item to the collapsed menu list.
@@ -28,7 +28,7 @@ var TabManager = {
     }
     else {
       var count = 0;
-      while(tabsHeight < 50 && (tabs.children('li').length > 0) && count++ < 20) {
+      while (tabsHeight < 45 && (tabs.children('li').length > 0) && count++ < 20) {
         var collapsed = tabs.find('.collapsed-tabs').children('a');
         var count = collapsed.length;
         if (count) {
@@ -48,7 +48,7 @@ var TabManager = {
           break;
         }
       }
-      if (tabsHeight > 50) {
+      if (tabsHeight > 45) {
         // Double chk height again.
         TabManager.initialize(parent);
       }
@@ -66,10 +66,10 @@ var TabManager = {
   }
 };
 
-$(function() {
+$(function () {
   TabManager.initialize($('.nav-tabs-responsive'));
 
-  $(window).resize(function() {
+  $(window).resize(function () {
     TabManager.initialize($('.nav-tabs-responsive'))
   });
-})
+});

@@ -115,7 +115,7 @@ function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $d
 
             '</a>';
 
-          $html .= build_menu_porto($itemId, $menu, $maincategory, $active, $dropclass, $subclass, $dropdownclass, $dropclass, $subclass, $admin);
+          $html .= build_menu_porto($itemId, $menu, $maincategory, $active, $dropclass, $subclass, '', $dropclass, $subclass, $admin);
 
           $html .= '</li>';
         }
