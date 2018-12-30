@@ -84,7 +84,7 @@ if (ENVO_ASACCESS) {
             }
 
             // SHOW - Tag List
-            if ($ENVO_TAGLIST && $SHOWTAGS) {
+            if ($SHOWTAGS && $ENVO_TAGLIST) {
               echo '<ul class="ml-auto tags-list mb-0">';
               echo $ENVO_TAGLIST;
               echo '</ul>';
@@ -93,7 +93,13 @@ if (ENVO_ASACCESS) {
             ?>
 
           </div>
-          <hr>
+
+          <?php
+          if ($SHOWTITLE || $SHOWDATE || $SHOWHITS || ($SHOWTAGS && $ENVO_TAGLIST)) {
+            echo '<hr>';
+          }
+          ?>
+
           <div class="article-content">
 
             <?php

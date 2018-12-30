@@ -77,7 +77,7 @@ if (!$PAGE_ACTIVE) {
       }
 
       // SHOW - Tag List
-      if ($ENVO_TAGLIST && $SHOWTAGS) {
+      if ($SHOWTAGS && $ENVO_TAGLIST) {
         echo '<ul class="ml-auto tags-list mb-0">';
         echo $ENVO_TAGLIST;
         echo '</ul>';
@@ -86,7 +86,7 @@ if (!$PAGE_ACTIVE) {
       echo '</div>';
     }
 
-    if ($PAGE_SHOWTITLE || $SHOWDATE || $SHOWHITS || ($ENVO_TAGLIST && $SHOWTAGS)) {
+    if ($PAGE_SHOWTITLE || $SHOWDATE || $SHOWHITS || ($SHOWTAGS && $ENVO_TAGLIST)) {
       echo '<hr>';
     }
 

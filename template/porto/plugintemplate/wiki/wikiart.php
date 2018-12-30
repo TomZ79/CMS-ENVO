@@ -100,7 +100,13 @@ if ($setting["printme"]) $printme = 1;
               ?>
 
             </div>
-            <hr>
+
+            <?php
+            if ($SHOWTITLE || $SHOWDATE || $SHOWUPDATE || $SHOWHITS || $SHOWCATS || $ENVO_TAGLIST) {
+              echo '<hr>';
+            }
+            ?>
+
             <div class="article-content">
 
               <?php

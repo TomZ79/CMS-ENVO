@@ -71,7 +71,7 @@ if ($setting["printme"]) $printme = 1;
                 echo '</div>';
               }
 
-              if ($SHOWCATS || $BLOG_CATLIST) {
+              if ($SHOWCATS || $ENVO_TAGLIST) {
                 echo '<div>';
 
                 // SHOW - Category
@@ -90,7 +90,13 @@ if ($setting["printme"]) $printme = 1;
               ?>
 
             </div>
-            <hr>
+
+            <?php
+            if ($SHOWTITLE || $SHOWDATE || $BLOG_HITS || $SHOWCATS || $ENVO_TAGLIST) {
+              echo '<hr>';
+            }
+            ?>
+
             <div class="article-content">
 
               <?php
