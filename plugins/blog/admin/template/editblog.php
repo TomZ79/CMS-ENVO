@@ -77,35 +77,65 @@ if ($errors) { ?>
 		<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
 			<li class="nav-item">
 				<a href="#cmsPage1" class="active" data-toggle="tab">
-					<span class="text"><?= $tlblog["blog_section_tab"]["blogtab"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlblog["blog_section_tab"]["blogtab"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item next">
 				<a href="#cmsPage2" class="" data-toggle="tab">
-					<span class="text"><?= $tlblog["blog_section_tab"]["blogtab4"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlblog["blog_section_tab"]["blogtab4"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage3" class="" data-toggle="tab">
-					<span class="text"><?= $tlblog["blog_section_tab"]["blogtab1"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlblog["blog_section_tab"]["blogtab1"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage4" class="" data-toggle="tab">
-					<span class="text"><?= $tlblog["blog_section_tab"]["blogtab2"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlblog["blog_section_tab"]["blogtab2"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage5" class="" data-toggle="tab">
-					<span class="text"><?= $tlblog["blog_section_tab"]["blogtab3"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlblog["blog_section_tab"]["blogtab3"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class='nav-item dropdown collapsed-menu hidden'>
 				<a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
-					... <span class="glyphicon glyphicon-chevron-right"></span>
+					...
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', '', 'glyphicon glyphicon-chevron-right');
+					?>
+
 				</a>
-				<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
-				</div>
+				<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton"></div>
 			</li>
 		</ul>
 

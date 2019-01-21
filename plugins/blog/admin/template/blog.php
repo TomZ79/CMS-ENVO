@@ -114,6 +114,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 						</th>
 					</tr>
 					</thead>
+					<tbody>
+
 					<?php foreach ($ENVO_BLOG_ALL as $v) { ?>
 						<tr>
 							<td><?= $v["id"] ?></td>
@@ -227,6 +229,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							</td>
 						</tr>
 					<?php } ?>
+
+					</tbody>
 				</table>
 			</div>
 		</div>

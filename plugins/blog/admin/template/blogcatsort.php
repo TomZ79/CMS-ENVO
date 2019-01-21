@@ -81,6 +81,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							</th>
 						</tr>
 						</thead>
+						<tbody>
+
 						<?php if (isset($ENVO_BLOG_SORT) && is_array($ENVO_BLOG_SORT)) foreach ($ENVO_BLOG_SORT as $v) { ?>
 							<tr>
 								<td><?= $v["id"] ?></td>
@@ -191,6 +193,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								</td>
 							</tr>
 						<?php } ?>
+
+						</tbody>
 					</table>
 				</div>
 			</div>
