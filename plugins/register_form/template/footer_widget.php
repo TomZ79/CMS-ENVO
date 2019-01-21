@@ -49,21 +49,21 @@ if (!ENVO_USERID) { ?><?php if (isset($_SESSION['password_recover'])) {
 
 	<script>
 
-		$(document).ready(function () {
+    $(document).ready(function () {
 
-			// Switch buttons from "Log In | Register" to "Close Panel" on click
-			$(".lost-pwd").click(function (e) {
-				e.preventDefault();
-				$(".loginF").slideToggle();
-				$(".forgotP").slideToggle();
-			});
+      // Switch buttons from "Log In | Register" to "Close Panel" on click
+      $(".lost-pwd").click(function (e) {
+        e.preventDefault();
+        $(".loginF").slideToggle();
+        $(".forgotP").slideToggle();
+      });
 
 			<?php if ($errorfp) { ?>
-			$(".loginF").hide();
-			$(".forgotP").show();
+      $(".loginF").hide();
+      $(".forgotP").show();
 			<?php } ?>
 
-		});
+    });
 
 	</script>
 

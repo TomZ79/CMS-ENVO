@@ -5,17 +5,17 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,17 +24,17 @@ if ($page2 == "s") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["general_error"]["generror1"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["general_error"]["generror1"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -53,20 +53,35 @@ if ($page2 == "e") { ?>
 		<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
 			<li class="nav-item">
 				<a href="#cmsPage1" class="active" data-toggle="tab">
-					<span class="text"><?= $tlrf["reg_section_tab"]["regtab"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlrf["reg_section_tab"]["regtab"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item next">
 				<a href="#cmsPage2" class="" data-toggle="tab">
-					<span class="text"><?= $tlrf["reg_section_tab"]["regtab1"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlrf["reg_section_tab"]["regtab1"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class='nav-item dropdown collapsed-menu hidden'>
 				<a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
-					... <span class="glyphicon glyphicon-chevron-right"></span>
+					...
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', '', 'glyphicon glyphicon-chevron-right');
+					?>
+
 				</a>
-				<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
-				</div>
+				<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton"></div>
 			</li>
 		</ul>
 

@@ -118,18 +118,18 @@
 
 	<?php if (!ENVO_USERID) { ?>
 		<script>
-			$(document).ready(function () {
+      $(document).ready(function () {
 
 				<?php if ($setting["hvm"]) { ?>
-				jQuery(document).ready(function () {
-					jQuery(".cFrom").append('<input type="hidden" name="<?=$random_name?>" value="<?=$random_value?>" />');
-				});
+        jQuery(document).ready(function () {
+          jQuery(".cFrom").append('<input type="hidden" name="<?=$random_name?>" value="<?=$random_value?>" />');
+        });
 				<?php } ?>
 
-				$('.check_password').keyup(function () {
-					passwordStrength($(this).val());
-				});
-			});
+        $('.check_password').keyup(function () {
+          passwordStrength($(this).val());
+        });
+      });
 		</script>
 	<?php }
 } ?>

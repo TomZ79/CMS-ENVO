@@ -140,7 +140,7 @@
 										<img src="<?= BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser -> getVar("picture") ?>" alt="avatar">
 									</div>
 									<div>
-            <span class="btn btn-default btn-file"><span class="fileinput-new"><?= $tl["login"]["l12"] ?></span><span class="fileinput-exists"><?= $tl["general"]["g180"] ?></span><input type="file" name="uploadpp" accept="image/*"></span>
+										<span class="btn btn-default btn-file"><span class="fileinput-new"><?= $tl["login"]["l12"] ?></span><span class="fileinput-exists"><?= $tl["general"]["g180"] ?></span><input type="file" name="uploadpp" accept="image/*"></span>
 										<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?= $tl["general"]["g179"] ?></a>
 									</div>
 								</div>
