@@ -267,6 +267,9 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 <!-- Theme Function -->
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.custom.js"></script>
 <script src="/assets/js/generated_js.php"></script>
+<script>
+  envoWeb.envo_forgotlogin = '<?= $FORGOT_LOGIN?>';
+</script>
 
 <!-- Theme Initialization Files -->
 <script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.init.min.js"></script>
@@ -292,42 +295,42 @@ if ($SHOWSOCIALBUTTON) {
 <?php if (isset($ENVO_NEWS_IN_CONTENT) && is_array($ENVO_NEWS_IN_CONTENT)) { ?>
 	<!-- News in OWL Carousel -->
 	<script>
-		// Be more specific with your selector if .items is used elsewhere on the page.
-		var items = $('.owl-carousel .item').length;
-		if (items > 1) {
-			$('.owl-carousel').owlCarousel({
-				loop: false,
-				margin: 30,
-				nav: true,
-				dots: false,
-				navText: [],
-				responsive: {
-					0: {
-						items: 1
-					},
-					768: {
-						items: 3
-					},
-					960: {
-						items: 3
-					},
-					1200: {
-						items: 3
-					},
-					1920: {
-						items: 3
-					}
-				}
-			});
-		} else {
-			// same as above but with loop: false;
-			$('.owl-carousel').owlCarousel({
-				loop: false,
-				margin: 50,
-				nav: true,
-				dots: false
-			});
-		}
+    // Be more specific with your selector if .items is used elsewhere on the page.
+    var items = $('.owl-carousel .item').length;
+    if (items > 1) {
+      $('.owl-carousel').owlCarousel({
+        loop: false,
+        margin: 30,
+        nav: true,
+        dots: false,
+        navText: [],
+        responsive: {
+          0: {
+            items: 1
+          },
+          768: {
+            items: 3
+          },
+          960: {
+            items: 3
+          },
+          1200: {
+            items: 3
+          },
+          1920: {
+            items: 3
+          }
+        }
+      });
+    } else {
+      // same as above but with loop: false;
+      $('.owl-carousel').owlCarousel({
+        loop: false,
+        margin: 50,
+        nav: true,
+        dots: false
+      });
+    }
 	</script>
 <?php } ?>
 
@@ -335,46 +338,46 @@ if ($SHOWSOCIALBUTTON) {
 <?php if (isset($_SESSION)) { ?>
 
 	<script>
-		// Load script after page loading
-		$(window).on("load", function () {
+    // Load script after page loading
+    $(window).on("load", function () {
 			<?php if (isset($_SESSION["infomsg"])) { ?>
-			$.notify({icon: 'icon-info', message: '<?=$_SESSION["infomsg"]?>'}, {type: 'info'});
+      $.notify({icon: 'icon-info', message: '<?=$_SESSION["infomsg"]?>'}, {type: 'info'});
 			<?php }
 			if (isset($_SESSION["successmsg"])) { ?>
-			$.notify({icon: 'icon-check', message: '<?=$_SESSION["successmsg"]?>'}, {type: 'success'});
+      $.notify({icon: 'icon-check', message: '<?=$_SESSION["successmsg"]?>'}, {type: 'success'});
 			<?php }
 			if (isset($_SESSION["errormsg"])) { ?>
-			$.notify({icon: 'icon-attention', message: '<?=$_SESSION["errormsg"]?>'}, {type: 'danger'});
+      $.notify({icon: 'icon-attention', message: '<?=$_SESSION["errormsg"]?>'}, {type: 'danger'});
 			<?php }
 			if (isset($_SESSION["warningmsg"])) { ?>
-			$.notify({icon: '', message: '<?=$_SESSION["warningmsg"]?>'}, {type: 'warning'});
+      $.notify({icon: '', message: '<?=$_SESSION["warningmsg"]?>'}, {type: 'warning'});
 			<?php }
 			if ($errorpp) { ?>
-			$.notify({icon: 'icon-attention', message: '<?=$errorpp["e"]?>'}, {type: 'danger'});
+      $.notify({icon: 'icon-attention', message: '<?=$errorpp["e"]?>'}, {type: 'danger'});
 			<?php }
 			if ($PAGE_PASSWORD && ENVO_ASACCESS) { ?>
-			$.notify({icon: 'icon-info', message: '<?=$tl["notification"]["n5"]?>'}, {type: 'info', delay: 0});
+      $.notify({icon: 'icon-info', message: '<?=$tl["notification"]["n5"]?>'}, {type: 'info', delay: 0});
 			<?php }
 			if ($setting["offline"] == 1 && ENVO_ASACCESS) { ?>
-			$.notify({
-				// Options
-				icon: 'icon-flash',
-				message: '<?=$tl["notification"]["n1"]?>'
-			}, {
-				// Settings
-				type: 'offline',
-				timer: 0,
-				template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-				'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-				'<span data-notify="icon"></span> ' +
-				'<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
-				'<span data-notify="message">{2}</span>' +
-				'</div>' +
-				'</div>'
-			});
+      $.notify({
+        // Options
+        icon: 'icon-flash',
+        message: '<?=$tl["notification"]["n1"]?>'
+      }, {
+        // Settings
+        type: 'offline',
+        timer: 0,
+        template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+        '<span data-notify="icon"></span> ' +
+        '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+        '<span data-notify="message">{2}</span>' +
+        '</div>' +
+        '</div>'
+      });
 
 			<?php } ?>
-		});
+    });
 	</script>
 
 <?php } ?>
@@ -414,17 +417,15 @@ if ($SHOWSOCIALBUTTON) {
 <!-- Search script -->
 <?php if ($setting["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
 	<script>
-		$(document).ready(function () {
+    $(document).ready(function () {
+      $('#ajaxsearchForm').ajaxSearch({
+        apiURL: '<?=BASE_URL . $AJAX_SEARCH_PLUGIN_URL?>',
+        msg: '<?=$tl["searching"]["stxt12"]?>',
+        seo: <?=$AJAX_SEARCH_PLUGIN_SEO?>});
 
-			$('#ajaxsearchForm').ajaxSearch({
-				apiURL: '<?=BASE_URL . $AJAX_SEARCH_PLUGIN_URL?>',
-				msg: '<?=$tl["searching"]["stxt12"]?>',
-				seo: <?=$AJAX_SEARCH_PLUGIN_SEO?>});
-
-			$('#Jajaxs').alphanumeric({nocaps: false, allow: ' +*'});
-			$('.hideAdvSearchResult').fadeIn();
-
-		});
+      $('#Jajaxs').alphanumeric({nocaps: false, allow: ' +*'});
+      $('.hideAdvSearchResult').fadeIn();
+    });
 	</script>
 <?php } ?>
 
@@ -446,40 +447,5 @@ if ($SHOWSOCIALBUTTON) {
 		include APP_PATH . 'plugins/register_form/js/script.registerform.php';
 	}
 } ?>
-
-<!-- Login Page -->
-<script>
-	$(document).ready(function () {
-
-		$('#LostPwdF').hide();
-		$('input[name="signInUsername"]').focus();
-
-		// Switch buttons from "Log In | Register" to "Close Panel" on click
-		$('.lostPwd').click(function (e) {
-			e.preventDefault();
-			$('#SignInF').removeClass('active').hide();
-			$('#LostPwdF').addClass('active').show();
-			$('input[name="resetEmail"]').focus();
-		});
-
-		$('.restoreSignIn').click(function (e) {
-			e.preventDefault();
-			$('#SignInF').addClass('active').show();
-			$('#LostPwdF').removeClass('active').hide();
-			$('input[name="signInUsername"]').focus();
-		});
-
-		<?php if ($errorfp) { ?>
-		$('#SignInF').removeClass('active').hide();
-		$('#LostPwdF').addClass('active').show();
-		<?php } ?>
-
-		$('.save').click(function () {
-			var btn = $(this);
-			btn.val($(this).data("loading-text"));
-		});
-
-	});
-</script>
 
 </body></html>

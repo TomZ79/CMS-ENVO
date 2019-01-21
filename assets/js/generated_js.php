@@ -17,12 +17,12 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site
   $site_language = $setting["lang"];
 }
 
-// Set define variable
+// EN: Set define variable
 $BASE_URL_ORIG  = $_SERVER['HTTP_HOST'];
 $BASE_URL       = $_SERVER['HTTP_HOST'];
 $ENVO_TEMPLATE  = $setting["sitestyle"];
 $REQUEST_URI    = ENVO_PARSE_REQUEST;
-$FORGOT_LOGIN   = (isset($errorfp) && !empty($errorfp) ? '1' : '0');
+
 if (ENVO_USERID && $envouser -> envoSuperAdminAccess(ENVO_USERID)) {
   $ENVO_DISABLEMOUSE = '1';
 } else {
@@ -60,7 +60,7 @@ envoWeb.envo_jslang = '{$jslangdata_output}';
 envoWeb.envo_template = '{$ENVO_TEMPLATE}';
 envoWeb.envo_search_link = '{$ENVO_SEARCH_LINK}';
 envoWeb.envo_quickedit = '{$tl["global_text"]["gtxt6"]}';
-envoWeb.envo_forgotlogin = '{$FORGOT_LOGIN}';
+envoWeb.envo_forgotlogin = '';
 envoWeb.request_uri = '{$REQUEST_URI}';
 envoWeb.envo_disablemouse = '{$ENVO_DISABLEMOUSE}';
 

@@ -112,8 +112,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['frmLostPwd'])) {
 			envo_redirect($_SERVER['HTTP_REFERER']);
 		}
 
+		$FORGOT_LOGIN = '0';
+
 	} else {
 		$errorfp = $errors;
+
+		$FORGOT_LOGIN = '1';
 	}
 }
 
