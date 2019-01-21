@@ -36,9 +36,9 @@ if ($page == 'faq') {
 	?>
 
 	<script>
-		// Add to Global settings javascript object
-		iconPicker['icon'] = <?=json_encode($categoryimg)?>;
-		globalSettings['pageID2'] = <?=(!empty($page2) && is_numeric($page2) ? $page2 : '""')?>;
+    // Add to Global settings javascript object
+    iconPicker['icon'] = <?=json_encode($categoryimg)?>;
+    globalSettings['pageID2'] = <?=(!empty($page2) && is_numeric($page2) ? $page2 : '""')?>;
 	</script>
 
 	<?php

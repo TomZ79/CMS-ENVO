@@ -182,9 +182,9 @@ switch ($page1) {
 				// EN: Setting output value - Title, Description, Keywords and other ...
 				// CZ: Nastavení výstupních hodnot - Titulek, Popis, Klíčová slova a další ...
 				// -----------------------------------------------------------------------------
-				$PAGE_TITLE              = ENVO_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
+				$PAGE_TITLE = ENVO_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
 				// TODO! Vyřešit $PAGE_CONTENT - není zahrnuto ve frontend | přejmenovat nejlépe na $CAT_DESCRIPTION - je to popis kategorie
-				$PAGE_CONTENT            = $row['content'];
+				$PAGE_CONTENT = $row['content'];
 				// TODO! Vyřešit $MAIN_PLUGIN_DESCRIPTION a $MAIN_SITE_DESCRIPTION - přejmenovat | pokud přejmenujeme $PAGE_CONTENT
 				$MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
 				$MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
@@ -267,7 +267,7 @@ switch ($page1) {
 		// CZ: Hlavní proměnné
 		$pageID = $page2;
 		if ($setting["faqurl"]) {
-			$pageNAME = $page3;
+			$pageNAME       = $page3;
 			$undesirableArr = array ($page4, $page5, $page6);
 		} else {
 			$undesirableArr = array ($page3, $page4, $page5, $page6);
@@ -545,8 +545,8 @@ switch ($page1) {
 		// EN: Setting basic value - Title, Description, Keywords and other ...
 		// CZ: Nastavení základních hodnot - Titulek, Popis, Klíčová slova a další ...
 		// -----------------------------------------------------------------------------
-		$PAGE_TITLE              = $setting["faqtitle"];
-		$PAGE_CONTENT            = $setting["faqdesc"];
+		$PAGE_TITLE   = $setting["faqtitle"];
+		$PAGE_CONTENT = $setting["faqdesc"];
 		// TODO! Vyřešit $MAIN_PLUGIN_DESCRIPTION a $MAIN_SITE_DESCRIPTION - přejmenovat
 		$MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
 		$MAIN_SITE_DESCRIPTION   = $setting['metadesc'];

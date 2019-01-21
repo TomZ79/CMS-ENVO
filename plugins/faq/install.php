@@ -153,19 +153,19 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function () {
-						'use strict';
-						// Apply the plugin to the body
-						$('#notificationcontainer').pgNotification({
-							style: 'bar',
-							message: '<?=$tlf["faq_install"]["faqinst3"]?>',
-							position: 'top',
-							timeout: 0,
-							type: 'warning'
-						}).show();
+          $(document).ready(function () {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?=$tlf["faq_install"]["faqinst3"]?>',
+              position: 'top',
+              timeout: 0,
+              type: 'warning'
+            }).show();
 
-						e.preventDefault();
-					});
+            e.preventDefault();
+          });
 				</script>
 
 			<?php
@@ -495,19 +495,19 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function () {
-						'use strict';
-						// Apply the plugin to the body
-						$('#notificationcontainer').pgNotification({
-							style: 'bar',
-							message: '<?=$tlf["faq_install"]["faqinst4"]?>',
-							position: 'top',
-							timeout: 0,
-							type: 'success'
-						}).show();
+          $(document).ready(function () {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?=$tlf["faq_install"]["faqinst4"]?>',
+              position: 'top',
+              timeout: 0,
+              type: 'success'
+            }).show();
 
-						e.preventDefault();
-					});
+            e.preventDefault();
+          });
 				</script>
 
 			<?php } else {

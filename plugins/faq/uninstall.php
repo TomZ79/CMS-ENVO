@@ -189,36 +189,36 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 					?>
 					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 					<script>
-						$(document).ready(function () {
-							'use strict';
-							// Apply the plugin to the body
-							$('#notificationcontainer').pgNotification({
-								style: 'bar',
-								message: '<?=$tlf["faq_uninstall"]["faquninst3"]?>',
-								position: 'top',
-								timeout: 0,
-								type: 'success'
-							}).show();
+            $(document).ready(function () {
+              'use strict';
+              // Apply the plugin to the body
+              $('#notificationcontainer').pgNotification({
+                style: 'bar',
+                message: '<?=$tlf["faq_uninstall"]["faquninst3"]?>',
+                position: 'top',
+                timeout: 0,
+                type: 'success'
+              }).show();
 
-							e.preventDefault();
-						});
+              e.preventDefault();
+            });
 					</script><?php } else { ?><div>
 					<h5 class="text-danger bold"><?= $tlf["faq_uninstall"]["faquninst4"] ?></h5>
 				</div>
 					<script>
-						$(document).ready(function () {
-							'use strict';
-							// Apply the plugin to the body
-							$('#notificationcontainer').pgNotification({
-								style: 'bar',
-								message: '<?=$tlf["faq_uninstall"]["faquninst4"]?>',
-								position: 'top',
-								timeout: 0,
-								type: 'danger'
-							}).show();
+            $(document).ready(function () {
+              'use strict';
+              // Apply the plugin to the body
+              $('#notificationcontainer').pgNotification({
+                style: 'bar',
+                message: '<?=$tlf["faq_uninstall"]["faquninst4"]?>',
+                position: 'top',
+                timeout: 0,
+                type: 'danger'
+              }).show();
 
-							e.preventDefault();
-						});
+              e.preventDefault();
+            });
 					</script>
 				<?php }
 			}
