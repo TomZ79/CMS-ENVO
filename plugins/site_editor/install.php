@@ -154,19 +154,19 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function () {
-						'use strict';
-						// Apply the plugin to the body
-						$('#notificationcontainer').pgNotification({
-							style: 'bar',
-							message: '<?=$tlsedi["siteedit_install"]["seinst3"]?>',
-							position: 'top',
-							timeout: 0,
-							type: 'warning'
-						}).show();
+          $(document).ready(function () {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?=$tlsedi["siteedit_install"]["seinst3"]?>',
+              position: 'top',
+              timeout: 0,
+              type: 'warning'
+            }).show();
 
-						e.preventDefault();
-					});
+            e.preventDefault();
+          });
 				</script>
 
 			<?php
@@ -214,33 +214,33 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function () {
-						'use strict';
-						// Apply the plugin to the body
-						$('#notificationcontainer').pgNotification({
-							style: 'bar',
-							message: '<?=$tlsedi["siteedit_install"]["seinst4"]?>',
-							position: 'top',
-							timeout: 0,
-							type: 'success'
-						}).show();
+          $(document).ready(function () {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?=$tlsedi["siteedit_install"]["seinst4"]?>',
+              position: 'top',
+              timeout: 0,
+              type: 'success'
+            }).show();
 
-						e.preventDefault();
-					});
+            e.preventDefault();
+          });
 				</script>
 
 			<?php } else {
-			// EN: If plugin have 'id' (plugin is not installed), uninstall
-			// CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
+				// EN: If plugin have 'id' (plugin is not installed), uninstall
+				// CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-			$result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
+				$result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
-			?><div class="alert bg-danger"><?= $tlsedi["siteedit_install"]["seinst5"] ?></div>
-				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-					<button type="submit" name="redirect" class="btn btn-danger btn-block">
-						<?= $tlsedi["siteedit_install"]["seinst6"] ?>
-					</button>
-				</form><?php }
+				?><div class="alert bg-danger"><?= $tlsedi["siteedit_install"]["seinst5"] ?></div>
+			<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+				<button type="submit" name="redirect" class="btn btn-danger btn-block">
+					<?= $tlsedi["siteedit_install"]["seinst6"] ?>
+				</button>
+			</form><?php }
 			} ?>
 
 			<?php if (!$succesfully) { ?>

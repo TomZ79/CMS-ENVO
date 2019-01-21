@@ -80,10 +80,10 @@
 <script src="/admin/assets/doc/js/doc.js"></script>
 
 <script>
-	// Init Code-Prettify
-	window.onload = (function () {
-		prettyPrint();
-	});
+  // Init Code-Prettify
+  window.onload = (function () {
+    prettyPrint();
+  });
 </script>
 
 </body>
