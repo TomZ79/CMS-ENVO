@@ -5,17 +5,17 @@
 // CZ: Při ukládání do DB došlo k chybě
 if ($page2 == "e") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["general_error"]["generror1"]?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["general_error"]["generror1"]?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,21 +24,21 @@ if ($page2 == "e") { ?>
 // CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if (isset($errors["e"])) echo $errors["e"];
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
 					if (isset($errors["e3"])) echo $errors["e3"];
 					if (isset($errors["e4"])) echo $errors["e4"];?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 

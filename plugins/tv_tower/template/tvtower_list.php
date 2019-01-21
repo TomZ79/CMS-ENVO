@@ -10,7 +10,7 @@
             <span class="col-xs-12 col-md-6 text-xs-center">
               <?= $tltt["tt_frontend_list"]["ttl"] ?><strong> <?= $COUNT_TVPROGRAM_ALL ?></strong>
             </span>
-						<span class="col-xs-12 col-md-6 text-xs-center">
+					<span class="col-xs-12 col-md-6 text-xs-center">
 
               <?php
 							if ($COUNT_TVPROGRAM_ALL > 0) {

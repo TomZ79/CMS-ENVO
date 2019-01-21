@@ -7,7 +7,7 @@ if ($page == ENVO_PLUGIN_VAR_WIKI) {
 	echo PHP_EOL . "\t";
 
 	// Get file
-	$pluginsite_template =  APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/wiki/js/script.wiki.php';
+	$pluginsite_template = APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/wiki/js/script.wiki.php';
 
 	if (file_exists($pluginsite_template)) {
 		include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/wiki/js/script.wiki.php';

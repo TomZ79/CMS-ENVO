@@ -5,17 +5,17 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page1 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,19 +24,19 @@ if ($page1 == "s") { ?>
 // CZ: Odstranění záznamu z DB bylo úspěšné
 if ($page2 == "s1") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?=$tl["notification"]["n2"]?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tl["notification"]["n2"]?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 <?php } ?>
 
@@ -45,17 +45,17 @@ if ($page2 == "s1") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page1 == "e" || $page1 == "ene") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php echo($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -114,6 +114,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							</th>
 						</tr>
 						</thead>
+						<tbody>
+
 						<?php foreach ($ENVO_WIKI_ALL as $v) { ?>
 							<tr>
 								<td><?= $v["id"] ?></td>
@@ -195,6 +197,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								</td>
 							</tr>
 						<?php } ?>
+
+						</tbody>
 					</table>
 				</div>
 			</div>

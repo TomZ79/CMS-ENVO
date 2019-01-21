@@ -5,17 +5,17 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,19 +24,19 @@ if ($page2 == "s") { ?>
 // CZ: Odstranění záznamu z DB bylo úspěšné
 if ($page3 == "s1" || $page3 == "s2") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?php echo($page3 == "s2" ? 'Záznam úspěšně uzamčen' : $tl["notification"]["n2"]);?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo($page3 == "s2" ? 'Záznam úspěšně uzamčen' : $tl["notification"]["n2"]);?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 <?php } ?>
 
@@ -45,17 +45,17 @@ if ($page3 == "s1" || $page3 == "s2") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "ene") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -64,19 +64,19 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 // CZ: Výpis chyb při zpracování
 if ($errors) { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if (isset($errors["e"])) echo $errors["e"];
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -85,17 +85,17 @@ if ($errors) { ?>
 // CZ: Výpis chyb při zpracování
 if ($page2 == "n") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: 'Vysílač nelze odstanit, protože obsahuje kanál(y) nebo program(y). Odstraňte nejdříve všechny program(y) a kanál(y) pro vybraný vysílač.'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: 'Vysílač nelze odstanit, protože obsahuje kanál(y) nebo program(y). Odstraňte nejdříve všechny program(y) a kanál(y) pro vybraný vysílač.'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -137,6 +137,8 @@ if ($page2 == "n") { ?>
 						<th class="text-center no-sort" style="width:4%"></th>
 					</tr>
 					</thead>
+					<tbody>
+
 					<?php foreach ($ENVO_TVTOWER_ALL as $tt) { ?>
 						<tr>
 							<td><?= $tt["id"] ?></td>
@@ -196,6 +198,8 @@ if ($page2 == "n") { ?>
 							</td>
 						</tr>
 					<?php } ?>
+
+					</tbody>
 				</table>
 			</div>
 		</div>

@@ -5,17 +5,17 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,19 +24,19 @@ if ($page2 == "s") { ?>
 // CZ: Odstranění záznamu z DB bylo úspěšné
 if ($page3 == "s1") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?=$tl["notification"]["n2"]?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tl["notification"]["n2"]?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 <?php } ?>
 
@@ -45,17 +45,17 @@ if ($page3 == "s1") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "ene") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -64,20 +64,36 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 	<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
 		<li class="nav-item">
 			<a href="#cmsPage1" class="active" data-toggle="tab">
-				<span class="text">Service ID</span>
+
+				<?php
+				// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+				echo $Html -> addTag('span', 'Service ID', 'text');
+				?>
+
 			</a>
 		</li>
 		<li class="nav-item next">
 			<a href="#cmsPage2" class="" data-toggle="tab">
-				<span class="text">Original Network ID / Network ID</span>
+
+				<?php
+				// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+				echo $Html -> addTag('span', 'Original Network ID / Network ID', 'text');
+				?>
+
 			</a>
 		</li>
 		<li class='nav-item dropdown collapsed-menu hidden'>
 			<a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
-				... <span class="glyphicon glyphicon-chevron-right"></span>
+				...
+
+				<?php
+				// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+				echo $Html -> addTag('span', '', 'glyphicon glyphicon-chevron-right');
+				?>
+
+
 			</a>
-			<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
-			</div>
+			<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton"></div>
 		</li>
 	</ul>
 
@@ -106,6 +122,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 									<th class="no-sort" style="width:5%"></th>
 								</tr>
 								</thead>
+								<tbody>
 
 								<?php if (!empty($ENVO_SIDTV_ALL) && is_array($ENVO_SIDTV_ALL)) {
 									foreach ($ENVO_SIDTV_ALL as $sidtv) { ?>
@@ -150,6 +167,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 									<?php }
 								} ?>
 
+								</tbody>
 							</table>
 						</div>
 					</div>

@@ -104,7 +104,7 @@ switch ($page1) {
 					$result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                     catid = "' . smartsql($catid) . '",
                     title = "' . smartsql($defaults['envo_title']) . '",
-                    varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
+                    varname = "' . url_slug($defaults['envo_title'], array ('transliterate' => TRUE)) . '",
                     content = "' . smartsql($defaults['envo_content']) . '",
                     showtitle = "' . smartsql($showtitle) . '",
                     showdate = "' . smartsql($showdate) . '",
@@ -328,7 +328,7 @@ switch ($page1) {
 					$result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         catid = "' . smartsql($catid) . '",
                         title = "' . smartsql($defaults['envo_title']) . '",
-                        varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array ('transliterate' => TRUE)) . '",
                         content = "' . smartsql($defaults['envo_content']) . '",
                         showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                         showdate = "' . smartsql($defaults['envo_showdate']) . '",

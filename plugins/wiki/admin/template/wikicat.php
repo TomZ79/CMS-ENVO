@@ -5,35 +5,35 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
 <?php if ($page3 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?=$tl["notification"]["n2"]?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tl["notification"]["n2"]?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 <?php } ?>
 
@@ -42,11 +42,11 @@ if ($page2 == "s") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if ($page2 == "e") {
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if ($page2 == "e") {
 					$tl["general_error"]["generror1"];
 				} elseif ($page2 == "epc") {
 					echo $tlw["wiki_error"]["wikierror1"];
@@ -55,12 +55,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 				} else {
 					echo $tlw["wiki_error"]["wikierror"];
 				} ?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 

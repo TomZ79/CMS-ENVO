@@ -5,17 +5,17 @@
 // CZ: Data byla úspěšně uložena do DB
 if ($page4 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,17 +24,17 @@ if ($page4 == "s") { ?>
 // CZ: Při ukládání do DB došlo k chybě
 if ($page4 == "e") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["general_error"]["generror1"]?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["general_error"]["generror1"]?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -43,18 +43,18 @@ if ($page4 == "e") { ?>
 // CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if (isset($errors["e"])) echo $errors["e"];
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 

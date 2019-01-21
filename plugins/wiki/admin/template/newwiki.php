@@ -5,17 +5,17 @@
 // CZ: Při ukládání do DB došlo k chybě
 if ($page2 == "e") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["general_error"]["generror1"]?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["general_error"]["generror1"]?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,20 +24,20 @@ if ($page2 == "e") { ?>
 // CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if (isset($errors["e"])) echo $errors["e"];
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
 					if (isset($errors["e3"])) echo $errors["e3"]; ?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 5000
-			});
-		}, 1000);
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -58,40 +58,75 @@ if ($errors) { ?>
 		<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
 			<li class="nav-item">
 				<a href="#cmsPage1" class="active" data-toggle="tab">
-					<span class="text"><?= $tlw["wiki_section_tab"]["wikitab"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlw["wiki_section_tab"]["wikitab"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item next">
 				<a href="#cmsPage2" class="" data-toggle="tab">
-					<span class="text"><?= $tlw["wiki_section_tab"]["wikitab2"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlw["wiki_section_tab"]["wikitab2"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage3" class="" data-toggle="tab">
-					<span class="text"><?= $tlw["wiki_section_tab"]["wikitab5"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlw["wiki_section_tab"]["wikitab5"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage4" class="" data-toggle="tab">
-					<span class="text"><?= $tlw["wiki_section_tab"]["wikitab3"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlw["wiki_section_tab"]["wikitab3"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage5" class="" data-toggle="tab">
-					<span class="text"><?= $tlw["wiki_section_tab"]["wikitab4"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlw["wiki_section_tab"]["wikitab4"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage6" class="" data-toggle="tab">
-					<span class="text"><?= $tlw["wiki_section_tab"]["wikitab1"] ?></span>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', $tlw["wiki_section_tab"]["wikitab1"], 'text');
+					?>
+
 				</a>
 			</li>
 			<li class='nav-item dropdown collapsed-menu hidden'>
 				<a class="dropdown-toggle" data-toggle='dropdown' href='#' role='button' aria-haspopup="true" aria-expanded="false">
-					... <span class="glyphicon glyphicon-chevron-right"></span>
+					...
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', '', 'glyphicon glyphicon-chevron-right');
+					?>
+
 				</a>
-				<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton">
-				</div>
+				<div class="dropdown-menu dropdown-menu-right collapsed-tabs" aria-labelledby="dropdownMenuButton"></div>
 			</li>
 		</ul>
 

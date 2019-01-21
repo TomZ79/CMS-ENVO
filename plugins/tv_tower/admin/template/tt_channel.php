@@ -5,17 +5,17 @@
 // CZ: Kontrola některé stránky byla úspěšná
 if ($page2 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -24,19 +24,19 @@ if ($page2 == "s") { ?>
 // CZ: Odstranění záznamu z DB bylo úspěšné
 if ($page3 == "s1") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?=$tl["notification"]["n2"]?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tl["notification"]["n2"]?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 <?php } ?>
 
@@ -45,17 +45,17 @@ if ($page3 == "s1") { ?>
 // CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "ene") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -64,17 +64,17 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 // CZ: Výpis chyb při zpracování
 if ($page2 == "n") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: 'Kanál nelze odstanit, protože obsahuje program(y). Odstraňte nejdříve všechny program(y) pro vybraný kanál.'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: 'Kanál nelze odstanit, protože obsahuje program(y). Odstraňte nejdříve všechny program(y) pro vybraný kanál.'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -116,6 +116,8 @@ if ($page2 == "n") { ?>
 						<th class="text-center no-sort" style="width:4%"></th>
 					</tr>
 					</thead>
+					<tbody>
+
 					<?php foreach ($ENVO_TVCHANNEL_ALL as $tc) { ?>
 						<tr>
 							<td><?= $tc["id"] ?></td>
@@ -182,6 +184,8 @@ if ($page2 == "n") { ?>
 							</td>
 						</tr>
 					<?php } ?>
+
+					</tbody>
 				</table>
 			</div>
 		</div>

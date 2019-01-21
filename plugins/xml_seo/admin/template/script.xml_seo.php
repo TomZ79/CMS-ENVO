@@ -24,11 +24,11 @@ if ($page == 'xml_seo') {
 	?>
 
 	<script>
-		var stepForm = {
-			nextBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn"])?>,
-			prevBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn1"])?>,
-			finishBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn2"])?>
-		};
+    var stepForm = {
+      nextBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn"])?>,
+      prevBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn1"])?>,
+      finishBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn2"])?>
+    };
 	</script>
 
 	<?php
@@ -48,10 +48,10 @@ if ($page == 'xml_seo') {
 	?>
 
 	<script>
-		// Init Code-Prettify
-		window.onload = (function () {
-			prettyPrint();
-		});
+    // Init Code-Prettify
+    window.onload = (function () {
+      prettyPrint();
+    });
 	</script>
 
 	<?php

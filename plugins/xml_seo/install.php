@@ -171,19 +171,19 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function () {
-						'use strict';
-						// Apply the plugin to the body
-						$('#notificationcontainer').pgNotification({
-							style: 'bar',
-							message: '<?=$tlxml["xml_install"]["xmlinst3"]?>',
-							position: 'top',
-							timeout: 0,
-							type: 'warning'
-						}).show();
+          $(document).ready(function () {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?=$tlxml["xml_install"]["xmlinst3"]?>',
+              position: 'top',
+              timeout: 0,
+              type: 'warning'
+            }).show();
 
-						e.preventDefault();
-					});
+            e.preventDefault();
+          });
 				</script>
 
 			<?php
@@ -240,19 +240,19 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function () {
-						'use strict';
-						// Apply the plugin to the body
-						$('#notificationcontainer').pgNotification({
-							style: 'bar',
-							message: '<?=$tlxml["xml_install"]["xmlinst4"]?>',
-							position: 'top',
-							timeout: 0,
-							type: 'success'
-						}).show();
+          $(document).ready(function () {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?=$tlxml["xml_install"]["xmlinst4"]?>',
+              position: 'top',
+              timeout: 0,
+              type: 'success'
+            }).show();
 
-						e.preventDefault();
-					});
+            e.preventDefault();
+          });
 				</script>
 
 			<?php } else {

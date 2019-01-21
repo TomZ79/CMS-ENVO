@@ -1,31 +1,34 @@
-<?php include_once APP_PATH . 'admin/template/header.php'; ?>
-<?php if (isset($xml_result)) { ?>
-	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?=$tlxml["xml_notification"]["xmlnot"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+<?php
 
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?=$tlxml["xml_notification"]["xmlnot1"] . '<br>' . BASE_URL_ORIG . $XMLSEOPATH?>sitemap.xml'
-			}, {
-				// settings
-				type: 'warning',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+include_once APP_PATH . 'admin/template/header.php';
+
+if (isset($xml_result)) { ?>
+	<script>
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tlxml["xml_notification"]["xmlnot"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
+
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=$tlxml["xml_notification"]["xmlnot1"] . '<br>' . BASE_URL_ORIG . $XMLSEOPATH?>sitemap.xml'
+      }, {
+        // settings
+        type: 'warning',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 
 	<div>
@@ -62,6 +65,8 @@
 		</div>
 	</form>
 
-<?php } ?>
+<?php }
 
-<?php include_once APP_PATH . 'admin/template/footer.php'; ?>
+include_once APP_PATH . 'admin/template/footer.php';
+
+?>

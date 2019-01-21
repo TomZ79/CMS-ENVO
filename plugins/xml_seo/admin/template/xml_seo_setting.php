@@ -2,45 +2,45 @@
 
 <?php if (isset($succes1)) { ?>
 	<script>
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$succes1?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 7000
-			});
-		}, 1000);
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$succes1?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 7000
+      });
+    }, 1000);
 	</script>
 <?php }
 if (isset($error1)) { ?>
 	<script>
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$error1?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 5000
-			});
-		}, 1000);
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$error1?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php }
 if (isset($error2)) { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$error2?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$error2?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
