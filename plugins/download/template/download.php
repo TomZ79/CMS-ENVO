@@ -34,7 +34,7 @@
 
 	<div class="col-md-12" style="margin: 10px 0 50px 0;">
 		<?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
-			<!-- Post - Download -->			<div class="col-sm-6" style="margin-bottom: 30px ">
+			<!-- Post - Download -->      <div class="col-sm-6" style="margin-bottom: 30px ">
 				<div>
 					<!-- Post Title & Summary -->
 					<div>

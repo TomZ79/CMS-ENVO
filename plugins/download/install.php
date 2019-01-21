@@ -175,19 +175,19 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 
 					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 					<script>
-						$(document).ready(function () {
-							'use strict';
-							// Apply the plugin to the body
-							$('#notificationcontainer').pgNotification({
-								style: 'bar',
-								message: '<?=$tld["downl_install"]["downlinst3"]?>',
-								position: 'top',
-								timeout: 0,
-								type: 'warning'
-							}).show();
+            $(document).ready(function () {
+              'use strict';
+              // Apply the plugin to the body
+              $('#notificationcontainer').pgNotification({
+                style: 'bar',
+                message: '<?=$tld["downl_install"]["downlinst3"]?>',
+                position: 'top',
+                timeout: 0,
+                type: 'warning'
+              }).show();
 
-							e.preventDefault();
-						});
+              e.preventDefault();
+            });
 					</script>
 
 				<?php
@@ -560,19 +560,19 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 
 					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 					<script>
-						$(document).ready(function () {
-							'use strict';
-							// Apply the plugin to the body
-							$('#notificationcontainer').pgNotification({
-								style: 'bar',
-								message: '<?=$tld["downl_install"]["downlinst4"]?>',
-								position: 'top',
-								timeout: 0,
-								type: 'success'
-							}).show();
+            $(document).ready(function () {
+              'use strict';
+              // Apply the plugin to the body
+              $('#notificationcontainer').pgNotification({
+                style: 'bar',
+                message: '<?=$tld["downl_install"]["downlinst4"]?>',
+                position: 'top',
+                timeout: 0,
+                type: 'success'
+              }).show();
 
-							e.preventDefault();
-						});
+              e.preventDefault();
+            });
 					</script>
 
 				<?php } else {

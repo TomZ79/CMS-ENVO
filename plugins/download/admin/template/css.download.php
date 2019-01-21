@@ -18,17 +18,17 @@
 
 if ($page == 'download') {
 
-  echo PHP_EOL . "\t";
-  echo '<!-- Start CSS Download -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- Start CSS Download -->';
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Plugin DataTable
-  echo $Html -> addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
-  // Plugin Css style
-  echo $Html -> addStylesheet('/plugins/download/admin/css/style.download.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Plugin DataTable
+	echo $Html -> addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
+	// Plugin Css style
+	echo $Html -> addStylesheet('/plugins/download/admin/css/style.download.min.css');
 
-  echo PHP_EOL . "\t";
-  echo '<!-- End CSS Download -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- End CSS Download -->';
 
 }
 

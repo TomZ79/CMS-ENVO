@@ -60,7 +60,7 @@ switch ($page1) {
 
 		// EN: Default Variable
 		// CZ: Hlavní proměnné
-		$catID   = $page2;
+		$catID = $page2;
 		if ($setting["downloadurl"]) {
 			$catNAME = $page3;
 			// '$page4' can be a number for Paginator
@@ -273,9 +273,9 @@ switch ($page1) {
 
 		// EN: Default Variable
 		// CZ: Hlavní proměnné
-		$pageID   = $page2;
+		$pageID = $page2;
 		if ($setting["downloadurl"]) {
-			$pageNAME = $page3;
+			$pageNAME       = $page3;
 			$undesirableArr = array ($page4, $page5, $page6);
 		} else {
 			$undesirableArr = array ($page3, $page4, $page5, $page6);
