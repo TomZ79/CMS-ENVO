@@ -18,13 +18,13 @@
 
 if ($page == 'usergroup') {
 
-  echo PHP_EOL . '<!-- Start JS AKP User Group -->';
+	echo PHP_EOL . '<!-- Start JS AKP User Group -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.usergroup.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.usergroup.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP User Group -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP User Group -->' . PHP_EOL;
 
 }
 

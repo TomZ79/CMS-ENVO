@@ -20,15 +20,15 @@
 ?>
 
 <?php if (ENVO_PLUGIN_ACCESS_TAGS && isset($ENVO_TAG_DOWNLOAD_DATA) && is_array($ENVO_TAG_DOWNLOAD_DATA)) foreach ($ENVO_TAG_DOWNLOAD_DATA as $dl) {
-  $count++; ?>
+	$count++; ?>
 
-  <div class="col-md-3 col-sm-6">
-    <div class="service-wrapper">
-      <i class="fa fa-floppy-o fa-4x"></i>
-      <h3><a href="<?= $dl["parseurl"] ?>"><?= $dl["title"] ?></a></h3>
-      <p><?= $dl["content"] ?></p>
-      <a href="<?= $dl["parseurl"] ?>" class="btn btn-primary"><?= $tl["general"]["g3"] ?></a>
-    </div>
-  </div>
+	<div class="col-md-3 col-sm-6">
+		<div class="service-wrapper">
+			<i class="fa fa-floppy-o fa-4x"></i>
+			<h3><a href="<?= $dl["parseurl"] ?>"><?= $dl["title"] ?></a></h3>
+			<p><?= $dl["content"] ?></p>
+			<a href="<?= $dl["parseurl"] ?>" class="btn btn-primary"><?= $tl["general"]["g3"] ?></a>
+		</div>
+	</div>
 
 <?php } ?>

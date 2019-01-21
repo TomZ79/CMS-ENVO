@@ -18,13 +18,13 @@
 
 if ($page == 'site') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Site -->';
+	echo PHP_EOL . '<!-- Start JS AKP Site -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.site.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.site.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP Site -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Site -->' . PHP_EOL;
 
 }
 

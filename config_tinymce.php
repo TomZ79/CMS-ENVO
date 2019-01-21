@@ -20,9 +20,9 @@ $row    = $result -> fetch_assoc();
 
 // Set lang for Filemanager
 if ($row["value"] == 'en') {
-  $managerlang = 'en_EN';
+	$managerlang = 'en_EN';
 } else {
-  $managerlang = 'cs';
+	$managerlang = 'cs';
 }
 
 ?>

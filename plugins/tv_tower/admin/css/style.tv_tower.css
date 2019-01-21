@@ -15,15 +15,15 @@
 /* 01. Bootstrap Modal
  ========================================================================*/
 #ENVOModalPlugin .modal-body {
-  max-height: calc(100vh - 200px);
-  overflow-y: auto;
+	max-height: calc(100vh - 200px);
+	overflow-y: auto;
 }
 
 #ENVOModalPlugin .modal-header {
-  padding: 15px 25px !important;
-  text-align: left !important;
+	padding: 15px 25px !important;
+	text-align: left !important;
 }
 
 #ENVOModalPlugin .modal-footer {
-  padding: 15px 25px !important;
+	padding: 15px 25px !important;
 }

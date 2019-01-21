@@ -43,14 +43,6 @@
           <li data-deeplink="changelog">Changelog</li>
         </ul>
       </li>
-      <li>
-        <span>Hooks</span>
-        <ul>
-          <li data-deeplink="tpl_below_header">Hook: tpl_below_header</li>
-          <li data-deeplink="tpl_below_content">Hook: tpl_below_content</li>
-          <li data-deeplink="php_admin_lang">Hook: php_admin_lang</li>
-        </ul>
-      </li>
     </ul>
   </nav>
 </aside>
@@ -152,53 +144,6 @@
         <h5>v 1.0</h5>
         <p>Základní inicializace</p>
 
-
-      </article>
-
-    </section>
-
-    <!-- Hooks -->
-    <section>
-
-      <!-- Hook: tpl_below_header -->
-      <article>
-        <h4>Hook: tpl_below_header</h4>
-        <p>Template Hook: tpl_below_header</p>
-        <p>This hook is located below the header, display advertising, buttons or whatever you like below the navigation and logo.</p>
-
-        <p>You can include a file, for example:</p>
-        <pre class="prettyprint linenums lang-php">
-plugins/belowheader/bh_header.php
-</pre>
-
-      </article>
-
-      <!-- Hook: tpl_below_content -->
-      <article>
-        <h4>Hook: tpl_below_content</h4>
-        <p>Template Hook: tpl_below_content</p>
-        <p>This is the brother from the below_header hook. You can close some divs or add some extra stuff that doesn't fit in the main section.</p>
-
-        <p>You can include a file, for example:</p>
-        <pre class="prettyprint linenums lang-php">
-plugins/belowheader/bh_footer.php
-</pre>
-
-      </article>
-
-      <!-- Hook: php_admin_lang -->
-      <article>
-        <h4>Hook: php_admin_lang</h4>
-        <p>Use this hook to execute PHP language code in the admin/index.php file.</p>
-
-        <p>For example:</p>
-        <pre class="prettyprint linenums lang-php">
-if (file_exists(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini')) {
-    $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini', true);
-} else {
-    $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/en.ini', true);
-}
-</pre>
 
       </article>
 

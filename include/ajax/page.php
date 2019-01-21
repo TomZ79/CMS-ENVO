@@ -17,35 +17,35 @@ $SearchInput = strip_tags(smartsql($_GET['q']));
 
 // Narrow down search, only three charactars and more
 if (strlen($SearchInput) >= 3) {
-  $url = $_GET['url'];
-  $urldetail = $_GET['url_detail'];
+	$url       = $_GET['url'];
+	$urldetail = $_GET['url_detail'];
 
 // Standard search for all pages
-  $pages = new ENVO_search($SearchInput);
-  $pages->envoSetTable(array('1' => 'pages', '2' => 'categories'), "t1.catid = t2.id"); // array for pages and cat
-  $pages->envoAndor("OR"); // We do an OR so it will search thru title and content and display one of them
-  $pages->envoFieldActive("active"); // Only if the page is active
-  $pages->envoFieldCut("t1.content"); // The content will be cuted to fit nicely
-  $pages->envoFieldstoSearch(array('t1.title', 't1.content')); // This fields will be searched
-  $pages->envoFieldstoSelect("t2.varname, t1.title" . ", t1.content" . ", catorder, catparent"); // This will be the output for the template, packed in a array
+	$pages = new ENVO_search($SearchInput);
+	$pages -> envoSetTable(array ('1' => 'pages', '2' => 'categories'), "t1.catid = t2.id"); // array for pages and cat
+	$pages -> envoAndor("OR"); // We do an OR so it will search thru title and content and display one of them
+	$pages -> envoFieldActive("active"); // Only if the page is active
+	$pages -> envoFieldCut("t1.content"); // The content will be cuted to fit nicely
+	$pages -> envoFieldstoSearch(array ('t1.title', 't1.content')); // This fields will be searched
+	$pages -> envoFieldstoSelect("t2.varname, t1.title" . ", t1.content" . ", catorder, catparent"); // This will be the output for the template, packed in a array
 
-  $pagearray = $pages->set_result('', '', '');
+	$pagearray = $pages -> set_result('', '', '');
 
-  if (isset($pagearray) && is_array($pagearray)) {
-    ENVO_search::search_cloud($SearchInput);
-    foreach ($pagearray as $row) {
+	if (isset($pagearray) && is_array($pagearray)) {
+		ENVO_search ::search_cloud($SearchInput);
+		foreach ($pagearray as $row) {
 
-      // Now display the countries
-      $text .= '
+			// Now display the countries
+			$text .= '
 		<div class="ajaxsResult">
 			<h4><a href="' . $url . str_replace(BASE_URL, '', $row['parseurl']) . '">' . $row['title'] . '</a></h4>
 			<p>' . $row['content'] . '</p>
 		</div>
 		';
-    }
-  }
+		}
+	}
 
-  echo $text;
+	echo $text;
 
 }
 

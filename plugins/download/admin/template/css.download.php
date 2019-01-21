@@ -25,7 +25,7 @@ if ($page == 'download') {
   // Plugin DataTable
   echo $Html -> addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
   // Plugin Css style
-  echo $Html -> addStylesheet(BASE_URL_ORIG . 'plugins/download/admin/css/style.download.min.css');
+  echo $Html -> addStylesheet('/plugins/download/admin/css/style.download.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Download -->';

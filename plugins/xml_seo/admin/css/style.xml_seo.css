@@ -15,20 +15,20 @@
 ======================================================================== */
 /* Color correction */
 .sf-t2 .sf-nav li {
-  background: #2B303B;
+	background: #2B303B;
 }
 
 .sf-t2 .sf-nav li.sf-active,
 .sf-t2.sf-nomob .sf-nav li.sf-nav-link:hover:not(.sf-nav-step-disabled):not(.sf-nav-unlink) {
-  background: #10CFBD !important;
+	background: #10CFBD !important;
 }
 
 .sf-t2 .sf-nav-top .sf-nav-step.sf-active::after {
-  border-color: transparent #10CFBD #10CFBD transparent !important;
+	border-color: transparent #10CFBD #10CFBD transparent !important;
 }
 
 .sf-t2.sf-wizard.sf-nomob .sf-btn:hover,
 .sf-t2.sf-wizard.sf-mob .sf-btn:active,
 .sf-t2 .nocsript-sf-btn:hover {
-  background-color: #10CFBD !important;
+	background-color: #10CFBD !important;
 }

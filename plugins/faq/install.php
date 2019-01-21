@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -18,206 +18,205 @@ $succesfully = 0;
 // EN: Load the language file for plugin
 // CZ: Načtení jazykového souboru pro plugin
 if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini')) {
-  $tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini', TRUE);
+	$tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/en.ini', TRUE);
+	$tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/en.ini', TRUE);
 }
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=$tlf["faq_install"]["faqinst"]?></title>
-  <meta charset="utf-8">
-  <!-- BEGIN Vendor CSS-->
-  <?php
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
-  echo $Html->addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
-  ?>
-  <!-- BEGIN Pages CSS-->
-  <?php
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  echo $Html->addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
-  echo $Html->addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array('class' => 'main-stylesheet'));
-  ?>
-  <!-- BEGIN CUSTOM MODIFICATION -->
-  <style type="text/css">
-    /* Fix 'jumping scrollbar' issue */
-    @media screen and (min-width: 960px) {
-      html {
-        margin-left: calc(100vw - 100%);
-        margin-right: 0;
-      }
-    }
+	<title><?= $tlf["faq_install"]["faqinst"] ?></title>
+	<meta charset="utf-8">
+	<!-- BEGIN Vendor CSS-->
+	<?php
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	echo $Html -> addStylesheet('/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css');
+	echo $Html -> addStylesheet('/assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+	?>
+	<!-- BEGIN Pages CSS-->
+	<?php
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	echo $Html -> addStylesheet('/admin/pages/css/pages-icons.css?=v3.0.0');
+	echo $Html -> addStylesheet('/admin/pages/css/pages.min.css?=v3.0.2', '', array ('class' => 'main-stylesheet'));
+	?>
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
 
-    /* Main body */
-    body {
-      background: transparent;
-    }
+		/* Main body */
+		body {
+			background: transparent;
+		}
 
-    /* Notification */
-    #notificationcontainer {
-      position: relative;
-      z-index: 1000;
-      top: -21px;
-    }
+		/* Notification */
+		#notificationcontainer {
+			position: relative;
+			z-index: 1000;
+			top: -21px;
+		}
 
-    .pgn-wrapper {
-      position: absolute;
-      z-index: 1000;
-    }
+		.pgn-wrapper {
+			position: absolute;
+			z-index: 1000;
+		}
 
-    /* Button, input, checkbox ... */
-    input[type="text"]:hover {
-      background: #fafafa;
-      border-color: #c6c6c6;
-      color: #384343;
-    }
+		/* Button, input, checkbox ... */
+		input[type="text"]:hover {
+			background: #fafafa;
+			border-color: #c6c6c6;
+			color: #384343;
+		}
 
-    /* Card */
-    .card-collapse i {
-      font-size: 17px;
-      font-weight: bold;
-    }
+		/* Card */
+		.card-collapse i {
+			font-size: 17px;
+			font-weight: bold;
+		}
 
-    /* Table */
-    .table-transparent tbody tr td {
-      background: transparent;
-    }
-  </style>
-  <!-- BEGIN VENDOR JS -->
-  <?php
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
-  ?>
-  <!-- BEGIN CORE TEMPLATE JS -->
-  <?php
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
-  ?>
+		/* Table */
+		.table-transparent tbody tr td {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<?php
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+	echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+	echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+	echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
+	?>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<?php
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	echo $Html -> addScript('/admin/pages/js/pages.min.js');
+	?>
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 m-t-20">
-      <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?=$tlf["faq_install"]["faqinst"]?></h3>
-      </div>
-      <hr>
-      <div id="notificationcontainer"></div>
-      <div class="m-b-30">
+	<div class="row">
+		<div class="col-sm-12 m-t-20">
+			<div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
+				<h3 class="semi-bold text-white"><?= $tlf["faq_install"]["faqinst"] ?></h3>
+			</div>
+			<hr>
+			<div id="notificationcontainer"></div>
+			<div class="m-b-30">
 
-        <h4 class="semi-bold"><?=$tlf["faq_install"]["faqinst1"]?></h4>
+				<h4 class="semi-bold"><?= $tlf["faq_install"]["faqinst1"] ?></h4>
 
-        <div data-pages="card" class="card card-transparent" id="card-basic">
-          <div class="card-header separator">
-            <div class="card-title"><?=$tlf["faq_install"]["faqinst2"]?></div>
-            <div class="card-controls">
-              <ul>
-                <li>
-                  <a data-toggle="collapse" class="card-collapse" href="#">
-                    <i class="card-icon card-icon-collapse"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-block">
-            <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
-            <p>Seznam komponent které budou instalovány v průběhu instalačního procesu tohoto pluginu</p>
-            <br>
-            <h5 class="text-uppercase">Prostudovat postup instalace</h5>
-          </div>
-        </div>
+				<div data-pages="card" class="card card-transparent" id="card-basic">
+					<div class="card-header separator">
+						<div class="card-title"><?= $tlf["faq_install"]["faqinst2"] ?></div>
+						<div class="card-controls">
+							<ul>
+								<li>
+									<a data-toggle="collapse" class="card-collapse" href="#">
+										<i class="card-icon card-icon-collapse"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card-block">
+						<h3><span class="semi-bold">Výpis</span> Komponentů</h3>
+						<p>Seznam komponent které budou instalovány v průběhu instalačního procesu tohoto pluginu</p><br>
+						<h5 class="text-uppercase">Prostudovat postup instalace</h5>
+					</div>
+				</div>
 
-      </div>
-      <hr>
+			</div>
+			<hr>
 
-      <?php
-      /* English
-       * -------
-       * Check if the plugin is already installed
-       * If plugin is installed - show Notification
-       *
-       * Czech
-       * -------
-       * Kontrola zda je plugin instalován
-       * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
-      */
-      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
-      if ($envodb->affected_rows > 0) { ?>
+			<?php
+			/* English
+			 * -------
+			 * Check if the plugin is already installed
+			 * If plugin is installed - show Notification
+			 *
+			 * Czech
+			 * -------
+			 * Kontrola zda je plugin instalován
+			 * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
+			*/
+			$envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+			if ($envodb -> affected_rows > 0) { ?>
 
-        <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
-        <script>
-          $(document).ready(function () {
-            'use strict';
-            // Apply the plugin to the body
-            $('#notificationcontainer').pgNotification({
-              style: 'bar',
-              message: '<?=$tlf["faq_install"]["faqinst3"]?>',
-              position: 'top',
-              timeout: 0,
-              type: 'warning'
-            }).show();
+				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+				<script>
+					$(document).ready(function () {
+						'use strict';
+						// Apply the plugin to the body
+						$('#notificationcontainer').pgNotification({
+							style: 'bar',
+							message: '<?=$tlf["faq_install"]["faqinst3"]?>',
+							position: 'top',
+							timeout: 0,
+							type: 'warning'
+						}).show();
 
-            e.preventDefault();
-          });
-        </script>
+						e.preventDefault();
+					});
+				</script>
 
-      <?php
-      } else {
-      // EN: If plugin is not installed - install plugin
-      // CZ: Pokud není plugin instalován, spustit instalaci pluginu
+			<?php
+			} else {
+			// EN: If plugin is not installed - install plugin
+			// CZ: Pokud není plugin instalován, spustit instalaci pluginu
 
-      // MAIN PLUGIN INSTALLATION
-      if (isset($_POST['install'])) {
+			// MAIN PLUGIN INSTALLATION
+			if (isset($_POST['install'])) {
 
-      // EN: Insert data to table 'plugins' about this plugin
-      // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . ENVO_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
+			// EN: Insert data to table 'plugins' about this plugin
+			// CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
+			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . ENVO_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
         require_once APP_PATH.\'plugins/faq/admin/faq.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/faq/admin/template/faqnav.php", "faq", "uninstall.php", "1.1", NOW())');
 
-      // EN: Now get the plugin 'id' from table 'plugins' for futher use
-      // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
-      $rows    = $results->fetch_assoc();
+			// EN: Now get the plugin 'id' from table 'plugins' for futher use
+			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
+			$results = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+			$rows    = $results -> fetch_assoc();
 
-      if ($rows['id']) {
-      // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
-      // CZ: Pokud má plugin 'id' (tzn. plugin je instalován), instalujeme další data pro plugin (vytvoření tabulek a zápis dat do tabulek)
+			if ($rows['id']) {
+			// EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
+			// CZ: Pokud má plugin 'id' (tzn. plugin je instalován), instalujeme další data pro plugin (vytvoření tabulek a zápis dat do tabulek)
 
-      // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
-      // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-      $insertphpcode = 'if (isset($defaults[\'envo_faq\'])) {
+			// EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
+			// CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
+			$insertphpcode = 'if (isset($defaults[\'envo_faq\'])) {
 	$insert .= \'faq = \"\'.$defaults[\'envo_faq\'].\'\"\'; }';
 
-      // EN: Set admin lang of plugin
-      // CZ: Nastavení jazyka pro administrační rozhraní pluginu
-      $adminlang = 'if (file_exists(APP_PATH.\'plugins/faq/admin/lang/\'.$site_language.\'.ini\')) {
+			// EN: Set admin lang of plugin
+			// CZ: Nastavení jazyka pro administrační rozhraní pluginu
+			$adminlang = 'if (file_exists(APP_PATH.\'plugins/faq/admin/lang/\'.$site_language.\'.ini\')) {
   $tlf = parse_ini_file(APP_PATH.\'plugins/faq/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
   $tlf = parse_ini_file(APP_PATH.\'plugins/faq/admin/lang/en.ini\', true);
 }';
 
-      // EN: Set site lang of plugin
-      // CZ: Nastavení jazyka pro webové rozhraní pluginu
-      $sitelang = 'if (file_exists(APP_PATH.\'plugins/faq/lang/\'.$site_language.\'.ini\')) {
+			// EN: Set site lang of plugin
+			// CZ: Nastavení jazyka pro webové rozhraní pluginu
+			$sitelang = 'if (file_exists(APP_PATH.\'plugins/faq/lang/\'.$site_language.\'.ini\')) {
   $tlf = parse_ini_file(APP_PATH.\'plugins/faq/lang/\'.$site_language.\'.ini\', true);
 } else {
   $tlf = parse_ini_file(APP_PATH.\'plugins/faq/lang/en.ini\', true);
 }';
 
-      // EN: Php code for search
-      // CZ: Php kód pro vyhledávání
-      $sitephpsearch = '$faq = new ENVO_search($SearchInput);
+			// EN: Php code for search
+			// CZ: Php kód pro vyhledávání
+			$sitephpsearch = '$faq = new ENVO_search($SearchInput);
         	$faq->envoSetTable(\'faq\',\"\");
         	$faq->envoAndor(\"OR\");
         	$faq->envoFieldActive(\"active\");
@@ -229,9 +228,9 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
         	// Load the array into template
         	$ENVO_SEARCH_RESULT_FAQ = $faq->set_result(ENVO_PLUGIN_VAR_FAQ, \'faq-article\', $setting[\"faqurl\"]);';
 
-      // EN: Php code for rss
-      // CZ: Php kód pro rss
-      $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_FAQ) {
+			// EN: Php code for rss
+			// CZ: Php kód pro rss
+			$sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_FAQ) {
 	
 	if ($setting[\"faqrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'faq WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"faqrss\"];
@@ -248,34 +247,34 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 	
 }';
 
-      // EN: Php code for tags
-      // CZ: Php kód pro tagy
-      $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ) {
+			// EN: Php code for tags
+			// CZ: Php kód pro tagy
+			$sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ) {
 $faqtagData[] = ENVO_tags::envoTagSql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_FAQ, \"a\", $setting[\"faqurl\"]);
 $ENVO_TAG_FAQ_DATA = $faqtagData;
 }';
 
-      // EN: Php code for sitemap
-      // CZ: Php kód pro mapu sítě
-      $sitephpsitemap = 'include_once APP_PATH.\'plugins/faq/functions.php\';
+			// EN: Php code for sitemap
+			// CZ: Php kód pro mapu sítě
+			$sitephpsitemap = 'include_once APP_PATH.\'plugins/faq/functions.php\';
 
 $ENVO_FAQ_ALL = envo_get_faq(\'\', $setting[\"faqorder\"], \'\', \'\', $setting[\"faqurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = ENVO_PLUGIN_NAME_FAQ;';
 
-      // Fulltext search query
-      $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
-      $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq DROP INDEX `title`\');';
+			// Fulltext search query
+			$sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
+			$sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq DROP INDEX `title`\');';
 
-      // Connect to pages/news
-      $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_FAQ) {
+			// Connect to pages/news
+			$pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_FAQ) {
 
 include_once APP_PATH.\'plugins/faq/admin/template/faq_connect.php\';
 
 }';
 
-      // EN: Php code for insert data to DB
-      // CZ: Php kód pro vložení dat do DB
-      $sqlinsert = 'if (!isset($defaults[\'envo_showfaq\'])) {
+			// EN: Php code for insert data to DB
+			// CZ: Php kód pro vložení dat do DB
+			$sqlinsert = 'if (!isset($defaults[\'envo_showfaq\'])) {
 	$fq = 0;
 } else if (in_array(0, $defaults[\'envo_showfaq\'])) {
 	$fq = 0;
@@ -291,8 +290,8 @@ if (empty($fq) && !empty($defaults[\'envo_showfaqmany\'])) {
   	$insert .= \'showfaq = NULL,\';
 }';
 
-      //
-      $getfaq = '$ENVO_GET_FAQ = envo_get_page_info(DB_PREFIX.\'faq\', \'\');
+			//
+			$getfaq = '$ENVO_GET_FAQ = envo_get_page_info(DB_PREFIX.\'faq\', \'\');
 
 if ($ENVO_FORM_DATA) {
 
@@ -305,9 +304,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	
 } }';
 
-      // EN: Frontend - template for display connect
-      // CZ: Frontend - šablona
-      $get_faqconnect = '
+			// EN: Frontend - template for display connect
+			// CZ: Frontend - šablona
+			$get_faqconnect = '
 	$pluginbasic_connect = \'plugins/faq/template/pages_news.php\';
 	$pluginsite_connect = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/pages_news.php\';
 	
@@ -320,9 +319,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Frontend - template for display plugin sidebar
-      // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
-      $get_faqsidebar = '
+			// EN: Frontend - template for display plugin sidebar
+			// CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
+			$get_faqsidebar = '
 	$pluginbasic_sidebar = \'plugins/faq/template/faqsidebar.php\';
 	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/faqsidebar.php\';
 	
@@ -333,9 +332,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Frontend - template for sitemap
-      // CZ: Frontend - šablona pro mapu sítě
-      $get_faqsitemap = '
+			// EN: Frontend - template for sitemap
+			// CZ: Frontend - šablona pro mapu sítě
+			$get_faqsitemap = '
 	$pluginbasic_sitemap = \'plugins/faq/template/sitemap.php\';
 	$pluginsite_sitemap = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/sitemap.php\';
 	
@@ -346,9 +345,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Frontend - template for search
-      // CZ: Frontend - šablona pro vyhledávání
-      $get_faqsearch = '
+			// EN: Frontend - template for search
+			// CZ: Frontend - šablona pro vyhledávání
+			$get_faqsearch = '
 	$pluginbasic_search = \'plugins/faq/template/search.php\';
 	$pluginsite_search = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/search.php\';
 	
@@ -359,9 +358,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Frontend - template for tags
-      // CZ: Frontend - šablona pro tagy
-      $get_faqtag = '
+			// EN: Frontend - template for tags
+			// CZ: Frontend - šablona pro tagy
+			$get_faqtag = '
 	$pluginbasic_tag = \'plugins/faq/template/tag.php\';
 	$pluginsite_tag = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/tag.php\';
 	
@@ -372,9 +371,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Frontend - template for display plugin footer widget
-      // CZ: Frontend - šablona pro zobrazení widgetu
-      $get_faqfooter_widgets = '
+			// EN: Frontend - template for display plugin footer widget
+			// CZ: Frontend - šablona pro zobrazení widgetu
+			$get_faqfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/faq/template/footer_widget.php\';
 	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/footer_widget.php\';
 	
@@ -385,9 +384,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Insert data to table 'pluginhooks'
-      // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+			// EN: Insert data to table 'pluginhooks'
+			// CZ: Vložení potřebných dat to tabulky 'pluginhooks'
+			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Faq Admin Language", "' . $adminlang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Faq Site Language", "' . $sitelang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Faq Admin CSS", "plugins/faq/admin/template/css.faq.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -396,7 +395,8 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 (NULL, "php_rss", "FAQ RSS PHP", "' . $sitephprss . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_tags", "Faq Tags PHP", "' . $sitephptag . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_sitemap", "Faq Sitemap PHP", "' . $sitephpsitemap . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_between_head", "Faq CSS", "plugins/faq/template/cssheader.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Faq CSS", "plugins/faq/tpl_between_head.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_end", "Faq Script", "plugins/faq/tpl_footer_end.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Faq Usergroup New", "plugins/faq/admin/template/usergroup_new.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Faq Usergroup Edit", "plugins/faq/admin/template/usergroup_edit.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_tags", "Faq Tags", "' . $get_faqtag . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -413,9 +413,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 (NULL, "tpl_search", "Faq Search", "' . $get_faqsearch . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "' . $get_faqfooter_widgets . '", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
 
-      // EN: Insert data to table 'setting'
-      // CZ: Vložení potřebných dat to tabulky 'setting'
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+			// EN: Insert data to table 'setting'
+			// CZ: Vložení potřebných dat to tabulky 'setting'
+			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("faqtitle", "faq", "FAQ", "FAQ", "input", "free", "faq"),
 ("faqdesc", "faq", "Write something about your FAQ", "Write something about your FAQ", "textarea", "free", "faq"),
 ("faqemail", "faq", NULL, NULL, "input", "free", "faq"),
@@ -433,25 +433,26 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 ("faq_css", "faq", "", "", "textarea", "free", "faq"),
 ("faq_javascript", "faq", "", "", "textarea", "free", "faq")');
 
-      // EN: Insert data to table 'usergroup'
-      // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+			// EN: Insert data to table 'usergroup'
+			// CZ: Vložení potřebných dat to tabulky 'usergroup'
+			$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
-      // Pages/News alter Table
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');
-      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD faqid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+			// Pages/News alter Table
+			$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');
+			$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news ADD showfaq varchar(100) DEFAULT NULL AFTER shownews');
+			$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD faqid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
-      // EN: Insert data to table 'categories' (create category)
-      // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "FAQ", "faq", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+			// EN: Insert data to table 'categories' (create category)
+			// CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
+			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "FAQ", "faq", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
-      // EN: Create table for plugin (article)
-      // CZ: Vytvoření tabulky pro plugin (články)
-      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faq (
+			// EN: Create table for plugin (article)
+			// CZ: Vytvoření tabulky pro plugin (články)
+			$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faq (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` VARCHAR(100) NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
+  `varname` varchar(255) DEFAULT NULL,
   `content` mediumtext,
   `previmg` varchar(255) DEFAULT NULL,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
@@ -466,9 +467,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-      // EN: Create table for plugin (categories)
-      // CZ: Vytvoření tabulky pro plugin (kategorie)
-      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcategories (
+			// EN: Create table for plugin (categories)
+			// CZ: Vytvoření tabulky pro plugin (kategorie)
+			$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(255) DEFAULT NULL,
@@ -483,61 +484,61 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-      // Full text search is activated we do so for the faq table as well
-      if ($setting["fulltextsearch"]) {
-        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'faq ADD FULLTEXT(`title`, `content`)');
-      }
+			// Full text search is activated we do so for the faq table as well
+			if ($setting["fulltextsearch"]) {
+				$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'faq ADD FULLTEXT(`title`, `content`)');
+			}
 
-      $succesfully = 1;
+			$succesfully = 1;
 
-      ?>
+			?>
 
-        <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
-        <script>
-          $(document).ready(function () {
-            'use strict';
-            // Apply the plugin to the body
-            $('#notificationcontainer').pgNotification({
-              style: 'bar',
-              message: '<?=$tlf["faq_install"]["faqinst4"]?>',
-              position: 'top',
-              timeout: 0,
-              type: 'success'
-            }).show();
+				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+				<script>
+					$(document).ready(function () {
+						'use strict';
+						// Apply the plugin to the body
+						$('#notificationcontainer').pgNotification({
+							style: 'bar',
+							message: '<?=$tlf["faq_install"]["faqinst4"]?>',
+							position: 'top',
+							timeout: 0,
+							type: 'success'
+						}).show();
 
-            e.preventDefault();
-          });
-        </script>
+						e.preventDefault();
+					});
+				</script>
 
-      <?php } else {
-      // EN: If plugin have 'id' (plugin is not installed), uninstall
-      // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
+			<?php } else {
+			// EN: If plugin have 'id' (plugin is not installed), uninstall
+			// CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Faq"');
+			$result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Faq"');
 
-      ?>
+			?>
 
-        <div class="alert bg-danger"><?=$tlf["faq_install"]["faqinst5"]?></div>
-        <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="redirect" class="btn btn-danger btn-block">
-            <?=$tlf["faq_install"]["faqinst6"]?>
-          </button>
-        </form>
+				<div class="alert bg-danger"><?= $tlf["faq_install"]["faqinst5"] ?></div>
+				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+					<button type="submit" name="redirect" class="btn btn-danger btn-block">
+						<?= $tlf["faq_install"]["faqinst6"] ?>
+					</button>
+				</form>
 
-      <?php }
-      } ?>
+			<?php }
+			} ?>
 
-      <?php if (!$succesfully) { ?>
-        <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-complete btn-block">
-            <?=$tlf["faq_install"]["faqinst7"]?>
-          </button>
-        </form>
-      <?php }
-      } ?>
+			<?php if (!$succesfully) { ?>
+				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
+					<button type="submit" name="install" class="btn btn-complete btn-block">
+						<?= $tlf["faq_install"]["faqinst7"] ?>
+					</button>
+				</form>
+			<?php }
+			} ?>
 
-    </div>
-  </div>
+		</div>
+	</div>
 </div>
 
 </body>

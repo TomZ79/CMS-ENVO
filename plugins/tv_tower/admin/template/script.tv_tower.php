@@ -18,17 +18,17 @@
 
 if ($page == 'tv-tower') {
 
-  echo PHP_EOL . '<!-- Start JS TV Tower -->';
+	echo PHP_EOL . '<!-- Start JS TV Tower -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
-  // Plugin DataTable
-  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
-  // Plugin Javascript
-  echo $Html->addScript('/plugins/tv_tower/admin/js/script.tv_tower.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin ACE Editor
+	echo $Html -> addScript('assets/plugins/ace/ace.js');
+	// Plugin DataTable
+	echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/tv_tower/admin/js/script.tv_tower.min.js');
 
-  echo PHP_EOL . '<!-- End JS TV Tower -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS TV Tower -->' . PHP_EOL;
 
 }
 

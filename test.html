@@ -1,32 +1,51 @@
-<p><strong>Televizní zkušební obrazec (monoskop)</strong> slouží k nastavení jakosti obrazu přijímače před začátkem vysílání programu. Jedná se o rozlišovací schopnost, jas, kontrast, gradaci, geometrické zkreslení, linearitu vychylování, přesnost synchronizace atd.</p>
-<p>V počátcích televizního vysílání totiž bývalo zvykem, že televizory osazené elektronkami (bez pomocné elektroniky, která zajišťuje vyrovnávání geometrie obrazu) bylo nutno po zapnutí seřídit a toto seřízení několikrát zopakovat v průběhu sledování programu. Proto vznikly zkušební obrazce, které bývaly generovány speciální elektronkou zvanou monoskop. V běžné češtině se pak tento původní název elektronky stal synonymem i pro samotný obrazec bez ohledu na to, zda byl obrazec pouze snímán kamerou z papírové předlohy nebo byl generovaný elektronicky.</p>
-<p>V dnešním vysílání se se zkušebním obrazcem setkáme jen výjimečně: nové televizní přijímače s plochými obrazovkami, integrovanými obvody a mikroprocesory nepotřebují složité nastavování. Opravny televizorů mají dnes svůj vlastní elektronický generátor obrazce a většina televizních stanic vysílá nepřetržitě 24 hodin.</p>
-<h4>Historie televizního zkušebního obrazce v tuzemském vysílání</h4>
-<h5>60. léta</h5>
-<p>Tehdejší Československá televize začala své pravidelné veřejné vysílání v roce 1953. Z této doby je první „monoskop“ s nápisem „ČS. TELEVISE“, který byl později mírně změněn a nápis nahrazen nápisem „ČESKOSLOVENSKO“. Zvukovým doprovodem pro obrazec byla stanice Hvězda Československého rozhlasu. Tehdejší televizory (50. léta) vyžadovaly zapnutí asi 20 minut před začátkem vysílání, aby se mohlo provést doladění obrazu podle návodu.</p>
-<div class="row mb-4 text-center">
-  <div class="col-sm-3">
-    <img class="img-fluid rounded mb-2" src="/_files/bluesat/wiki/tv-zkusebni-obrazec/monoskop_r1953_01.jpg" alt="Televizní zkušební obrazec - rok 1953 | Bluesat s.r.o.">
-    <span><strong>Rok 1953</strong></span>
-  </div>
-  <div class="col-sm-3">
-    <img class="img-fluid rounded mb-2" src="/_files/bluesat/wiki/tv-zkusebni-obrazec/monoskop_r1953_02.jpg" alt="Televizní zkušební obrazec - rok 1953 | Bluesat s.r.o.">
-    <span><strong>Rok 1953</strong></span>
-  </div>
-  <div class="col-sm-4">
-    <div class="embed-responsive embed-responsive-16by9 mb-2">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/2c8wRU2lqHo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <span><strong>Video ukázka rok 1953</strong></span>
-  </div>
-</div>
-<div class="row mb-4 text-center">
-  <div class="col-sm-3">
-    <img class="img-fluid rounded mb-2" src="/_files/bluesat/wiki/tv-zkusebni-obrazec/monoskop_r_cca_1960.jpg" alt="Televizní zkušební obrazec - rok cca 1960 | Bluesat s.r.o.">
-    <span><strong>Rok cca 1960</strong></span>
-  </div>
-</div>
-<h5>80. léta</h5>
-<p>Barevné vysílání zahájila ČST v roce 1970, původně pořizované technologie na „německou“ normu PAL však musela z politických důvodů rychle nahradit technologiemi podle „francouzské“ normy SECAM s postupným přenosem barev, kterou preferoval Sovětský svaz, a to samozřejmě znamenalo i zavedení nového zkušebního obrazce. Brzy se však prokázalo, že norma SECAM není vhodná pro studiové zpracování a tak i když z politicko-ekonomických důvodů musela norma SECAM zůstat pro distribuci pozemního vysílání, mohla ČST od 80. let veškerou studijní techniku postupně přestavět na normu PAL, takže se změnil i zkušební obrazec. Do pozemního vysílání se norma PAL dostala počátkem 90. let.</p>
-<h5>Současnost</h5>
-<p>Dnes se již televizní kontrolní obrazec nevysílá. Současné televizní přijímače nemají žádné regulátory k nastavené geometrie obrazu, takže by ani podle monoskopu nebylo co nastavovat. Rovněž většina televizních stanic vysílá nepřetržitě, není zde tedy ani prostor pro monoskop. Snad si ještě většina z nás vzpomíná, když v 80. letech se monoskop před zahájením vysílal. V té době již doplněný o barevné stupnice, včetně políčka s "pleťovou" barvou pro správné nastavení barevné sytosti. Jako zvukový doprovod hrála rozhlasové stanice Hvězda, minutu před zahájením vysílání ji nahradil tón o kmitočtu 1 kHz a pak se již objevila znělka ČST s červeným kolečkem, které se postupně rozvinulo do symbolu Československé televize.</p>
+.pace {
+-webkit-pointer-events: none;
+pointer-events: none;
+
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+
+z-index: 2000;
+position: fixed;
+margin: auto;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+height: 5px;
+width: 200px;
+background: #fff;
+border: 1px solid #29d;
+
+overflow: hidden;
+}
+
+.pace .pace-progress {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-ms-box-sizing: border-box;
+-o-box-sizing: border-box;
+box-sizing: border-box;
+
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0);
+-ms-transform: translate3d(0, 0, 0);
+-o-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+
+max-width: 200px;
+position: fixed;
+z-index: 2000;
+display: block;
+position: absolute;
+top: 0;
+right: 100%;
+height: 100%;
+width: 100%;
+background: #29d;
+}
+
+.pace.pace-inactive {
+display: none;
+}

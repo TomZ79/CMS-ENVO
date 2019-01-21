@@ -18,15 +18,15 @@
 
 if ($page == 'register-form') {
 
-  echo PHP_EOL . "\t";
-  echo '<!-- Start CSS Register Form -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- Start CSS Register Form -->';
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/register_form/admin/css/style.register_form.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Plugin Css style
+	echo $Html -> addStylesheet('/plugins/register_form/admin/css/style.register_form.min.css');
 
-  echo PHP_EOL . "\t";
-  echo '<!-- End CSS Register Form -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- End CSS Register Form -->';
 
 }
 

@@ -33,7 +33,7 @@ if ($page == 'intranet') {
   // Plugin DataTable
   echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
   // Plugin Tabledit
-  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/jquery.tabledit.min.js');
+  echo $Html -> addScript('/plugins/intranet/admin/js/jquery.tabledit.min.js');
   // Plugin Fancybox
   echo $Html -> addScript('/assets/plugins/fancybox/3.2.5/js/jquery.fancybox.min.js');
   // Plugin DialogFX
@@ -42,7 +42,7 @@ if ($page == 'intranet') {
   // Plugin Isotope
   echo $Html -> addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
   // Plugin Javascript
-  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.js');
+  echo $Html -> addScript('/plugins/intranet/admin/js/script.intranet.js');
 
   echo PHP_EOL . '<!-- End JS Intranet -->' . PHP_EOL;
 

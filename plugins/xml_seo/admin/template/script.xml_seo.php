@@ -18,45 +18,45 @@
 
 if ($page == 'xml_seo') {
 
-  echo PHP_EOL . '<!-- Start JS XML Seo -->';
+	echo PHP_EOL . '<!-- Start JS XML Seo -->';
 
-  // Setting variable for Jquery external script
-  ?>
+	// Setting variable for Jquery external script
+	?>
 
-  <script>
-    var stepForm = {
-      nextBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn"])?>,
-      prevBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn1"])?>,
-      finishBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn2"])?>
-    };
-  </script>
+	<script>
+		var stepForm = {
+			nextBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn"])?>,
+			prevBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn1"])?>,
+			finishBtn: <?=json_encode($tlxml["xml_button"]["xmlbtn2"])?>
+		};
+	</script>
 
-  <?php
+	<?php
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Code-prettify CSS
-  echo $Html -> addStylesheet('assets/plugins/code-prettify-master/themes/github/github.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Code-prettify CSS
+	echo $Html -> addStylesheet('assets/plugins/code-prettify-master/themes/github/github.min.css');
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Code-prettify JS
-  echo $Html -> addScript('assets/plugins/code-prettify-master/src/prettify.js');
-  // Step Form Wizard plugin
-  echo $Html -> addScript('/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js');
-  // Plugin Javascript
-  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/xml_seo/admin/js/script.xml_seo.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Code-prettify JS
+	echo $Html -> addScript('assets/plugins/code-prettify-master/src/prettify.js');
+	// Step Form Wizard plugin
+	echo $Html -> addScript('/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js');
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/xml_seo/admin/js/script.xml_seo.min.js');
 
-  ?>
+	?>
 
-  <script>
-    // Init Code-Prettify
-    window.onload = (function () {
-      prettyPrint();
-    });
-  </script>
+	<script>
+		// Init Code-Prettify
+		window.onload = (function () {
+			prettyPrint();
+		});
+	</script>
 
-  <?php
+	<?php
 
-  echo PHP_EOL . '<!-- End JS XML Seo -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS XML Seo -->' . PHP_EOL;
 
 }
 

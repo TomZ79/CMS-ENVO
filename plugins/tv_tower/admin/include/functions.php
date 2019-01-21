@@ -13,19 +13,19 @@
  * @return array
  *
  */
-function envo_get_tvchannel($limit, $table)
+function envo_get_tvchannel ($limit, $table)
 {
 
-  global $envodb;
-  $envodata = array();
-  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
+	global $envodb;
+	$envodata = array ();
+	$result   = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = $row;
+	}
 
-  if (isset($envodata)) return $envodata;
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -40,18 +40,18 @@ function envo_get_tvchannel($limit, $table)
  * @return array
  *
  */
-function envo_get_tvchannel_info($table)
+function envo_get_tvchannel_info ($table)
 {
-  global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY number ASC');
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
+	global $envodb;
+	$envodata = array ();
+	$result   = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY number ASC');
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = $row;
+	}
 
-  if (isset($envodata)) return $envodata;
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -67,19 +67,19 @@ function envo_get_tvchannel_info($table)
  * @return array
  *
  */
-function envo_get_tvtower($limit, $table)
+function envo_get_tvtower ($limit, $table)
 {
 
-  global $envodb;
-  $envodata = array();
-  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
+	global $envodb;
+	$envodata = array ();
+	$result   = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = $row;
+	}
 
-  if (isset($envodata)) return $envodata;
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -93,18 +93,18 @@ function envo_get_tvtower($limit, $table)
  * @return array
  *
  */
-function envo_get_tvtower_info($table)
+function envo_get_tvtower_info ($table)
 {
-  global $envodb;
-  $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY name ASC');
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
+	global $envodb;
+	$envodata = array ();
+	$result   = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY name ASC');
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = $row;
+	}
 
-  if (isset($envodata)) return $envodata;
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -120,19 +120,19 @@ function envo_get_tvtower_info($table)
  * @return array
  *
  */
-function envo_get_tvprogram($limit, $table)
+function envo_get_tvprogram ($limit, $table)
 {
 
-  global $envodb;
-  $envodata = array();
-  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
+	global $envodb;
+	$envodata = array ();
+	$result   = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = $row;
+	}
 
-  if (isset($envodata)) return $envodata;
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -149,15 +149,15 @@ function envo_get_tvprogram($limit, $table)
  * @return bool
  *
  */
-function envo_channel_not_exist($tower, $channel, $table)
+function envo_channel_not_exist ($tower, $channel, $table)
 {
-  global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE towerid = "' . smartsql($tower) . '" AND number = "' . smartsql($channel) . '" LIMIT 1');
-  if ($envodb->affected_rows === 1) {
-    return TRUE;
-  } else {
-    return FALSE;
-  }
+	global $envodb;
+	$result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE towerid = "' . smartsql($tower) . '" AND number = "' . smartsql($channel) . '" LIMIT 1');
+	if ($envodb -> affected_rows === 1) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
 }
 
 ?>

@@ -1,73 +1,108 @@
-<?php if (ENVO_PLUGIN_ACCESS_FAQ) {
-  // Get URL
-  $url_array = explode('/', $_SERVER['REQUEST_URI']);
-  $url       = end($url_array);
-  // Get FAQ Categories
-  $ENVO_FAQ_CAT = ENVO_base ::envoGetcatmix(ENVO_PLUGIN_VAR_FAQ, '', DB_PREFIX . 'faqcategories', ENVO_USERGROUPID, $setting["faqurl"]);
+<?php
 
-  if ($ENVO_FAQ_CAT) { ?>
-    <aside class="nav-side-menu">
+if (ENVO_PLUGIN_ACCESS_FAQ) {
+	// Get URL
+	$url_array = explode('/', $_SERVER['REQUEST_URI']);
+	$url       = end($url_array);
+	// Get FAQ Categories
+	$ENVO_FAQ_CAT = ENVO_base ::envoGetcatmix(ENVO_PLUGIN_VAR_FAQ, '', DB_PREFIX . 'faqcategories', ENVO_USERGROUPID, $setting["faqurl"]);
 
-      <h4 class="brand"><?= ENVO_PLUGIN_NAME_FAQ . ' - ' . $tlf["faq_frontend"]["faq3"] ?></h4>
-      <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#faqsidebar"></span>
+	if ($ENVO_FAQ_CAT) { ?>
 
-      <div class="menu-list">
-        <ul class="menu-content collapse" id="faqsidebar">
-          <?php if (isset($ENVO_FAQ_CAT) && is_array($ENVO_FAQ_CAT)) foreach ($ENVO_FAQ_CAT as $c) { ?>
+		<aside class="nav-side-menu">
 
-            <?php if ($c["catparent"] == 0) { ?>
+			<h4 class="brand"><?= ENVO_PLUGIN_NAME_FAQ . ' - ' . $tlf["faq_frontend"]["faq3"] ?></h4>
+			<span class="toggle-btn c-icons" data-toggle="collapse" data-target="#faqsidebar"></span>
 
-              <li <?php
-              // Class for all Blog article in category
-              if ($c["varname"] == $url) echo 'class="active"';
-              // Class for Blog article - active class for all blog categories
-              if (isset($FAQ_CAT) && in_array($c["varname"], $FAQ_CAT)) {
-                echo 'class="active"';
-              }
+			<div class="menu-list">
+				<ul class="menu-content collapse" id="faqsidebar">
 
-              ?> >
-                <a href="<?= $c["parseurl"] ?>" title="<?= strip_tags($c["content"]) ?>">
-                  <?php if ($c["catimg"]) { ?>
-                    <i class="fa <?= $c["catimg"] ?> fa-fw"></i>
-                  <?php }
-                  echo $c["name"]; ?>
-                  <span <?= ($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"' ?>>
-										<?= $c["count"] ?>
-									</span>
-                </a>
+					<?php
 
+					if (isset($ENVO_FAQ_CAT) && is_array($ENVO_FAQ_CAT)) {
+						foreach ($ENVO_FAQ_CAT as $c) {
 
-                <?php
+							if ($c["catparent"] == 0) {
 
-                if (isset($ENVO_FAQ_CAT) && is_array($ENVO_FAQ_CAT)) {
-                  echo "<ul>";
+								// EN: Main Category -> MainCategory
+								// CZ:
+								// ---------------------------------------------------------------------
+								if ($c["varname"] == $url) {
+									// Class for active category by parse URL
+									echo '<li class="active">';
+								} else if (isset($FAQ_CAT) && in_array($c["id"], array_column($FAQ_CAT, 'id'))) {
+									// Class for Blog article - active class for categories by 'ID'
+									echo '<li class="active">';
+								} else {
+									// Class for not active category
+									echo '<li class="">';
+								}
 
-                  foreach ($ENVO_FAQ_CAT as $c1) {
-                    if ($c1["catparent"] != '0' && $c1["catparent"] == $c["id"]) {
-                      echo "<li>";
-                      echo '<a href="' . $c1['parseurl'] . '" title="' . strip_tags($c1['content']) . '">';
-                      if ($c1["catimg"]) {
-                        echo '<i class="fa ' . $c1['catimg'] . 'fa-fw"></i>';
-                      }
-                      echo $c1["name"];
-                      echo '<span ' . ($c["count"] <= 9 ? 'class="count count-small"' : 'class="count"') . '" title="' . strip_tags($c1['content']) . '">' . $c1['count'] . '</span>';
-                      echo "</a>";
-                      echo "</li>";
-                    }
-                  }
-                  echo '</ul>';
-                }
+								if ($c["maincat"] > 0) {
+									echo '<a href="#" title="' . strip_tags($c["content"]) . '">';
+								} else {
+									echo '<a href="' . $c["parseurl"] . '" title="' . strip_tags($c["content"]) . '">';
+								}
 
-                ?>
+								if ($c["catimg"]) {
+									echo '<i class="fa' . $c["catimg"] . ' fa-fw"></i>';
+								}
+								echo $c["name"];
+								if ($c["maincat"] == 0) {
+									echo '<span ' . (($c["count"] <= 9) ? 'class="count count-small"' : 'class="count"') . '>' . $c["count"] . '</span>';
+								}
 
-              </li>
-            <?php }
-          } ?>
-        </ul>
-      </div>
+								echo '</a>';
 
-      <hr>
-    </aside>
+								// EN: Category in Submenu -> SubCategory
+								// CZ:
+								// ---------------------------------------------------------------------
+								if ($c["maincat"] > 0) {
 
-  <?php }
-} ?>
+									echo '<ul class="sub-menu">';
+
+									foreach ($ENVO_FAQ_CAT as $c1) {
+										if ($c1["catparent"] != '0' && $c1["catparent"] == $c["id"]) {
+
+											if ($c1["varname"] == $url) {
+												// Class for active category by parse URL
+												echo '<li class="active">';
+											} else if (isset($FAQ_CAT) && in_array($c1["id"], array_column($FAQ_CAT, 'id'))) {
+												// Class for Blog article - active class for categories by 'ID'
+												echo '<li class="active">';
+											} else {
+												// Class for not active category
+												echo '<li class="">';
+											}
+
+											echo '<a href="' . $c1['parseurl'] . '" title="' . strip_tags($c1['content']) . '">';
+											if ($c1["catimg"]) {
+												echo '<i class="fa ' . $c1['catimg'] . 'fa-fw"></i>';
+											}
+											echo $c1["name"];
+											echo '<span ' . ($c["count"] <= 9 ? 'class="count count-small"' : 'class="count"') . '" title="' . strip_tags($c1['content']) . '">' . $c1['count'] . '</span>';
+											echo "</a>";
+											echo "</li>";
+										}
+									}
+									echo '</ul>';
+								}
+
+								echo '</li>';
+
+							}
+						}
+					}
+
+					?>
+
+				</ul>
+			</div>
+
+			<hr>
+		</aside>
+
+	<?php }
+}
+
+?>

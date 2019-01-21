@@ -21,319 +21,319 @@
  */
 class xml_sitemap_generator_config
 {
-  private $_domain;
-  private $_path;
-  private $_filename;
-  private $_entries = array ();
+	private $_domain;
+	private $_path;
+	private $_filename;
+	private $_entries = array ();
 
-  public function get($arg)
-  {
-    switch ($arg) {
-      case 'domain':
-        return $this -> _domain;
-      case 'path':
-        return $this -> _path;
-      case 'filename':
-        return $this -> _filename;
-      case 'filepath':
-        return $this -> _getFilepath();
-      case 'entries':
-        return $this -> _entries;
-    }
-  }
+	public function get ($arg)
+	{
+		switch ($arg) {
+			case 'domain':
+				return $this -> _domain;
+			case 'path':
+				return $this -> _path;
+			case 'filename':
+				return $this -> _filename;
+			case 'filepath':
+				return $this -> _getFilepath();
+			case 'entries':
+				return $this -> _entries;
+		}
+	}
 
-  private function _getFilepath()
-  {
-    return sprintf('%s/%s', $this -> _path, $this -> _filename);
-  }
+	private function _getFilepath ()
+	{
+		return sprintf('%s/%s', $this -> _path, $this -> _filename);
+	}
 
-  public function setDomain($domain)
-  {
-    $this -> _domain = trim($domain);
+	public function setDomain ($domain)
+	{
+		$this -> _domain = trim($domain);
 
-    return $this;
-  }
+		return $this;
+	}
 
-  public function setPath($path)
-  {
-    $path = trim($path);
-    // clean trailing slash if exists
-    if (substr($path, -1) == '/') {
-      $path = substr($path, 0, -1);
-    }
+	public function setPath ($path)
+	{
+		$path = trim($path);
+		// clean trailing slash if exists
+		if (substr($path, -1) == '/') {
+			$path = substr($path, 0, -1);
+		}
 
-    // check if write directory is valid
-    if (!is_dir($path)) {
-      exit(sprintf('write directory does not exist: %s' . "\n", $path));
-    }
+		// check if write directory is valid
+		if (!is_dir($path)) {
+			exit(sprintf('write directory does not exist: %s' . "\n", $path));
+		}
 
-    // check if write dir is writable
-    if (!is_writable($path)) {
-      exit(sprintf('write directory not writable: %s' . "\n", $path));
-    }
+		// check if write dir is writable
+		if (!is_writable($path)) {
+			exit(sprintf('write directory not writable: %s' . "\n", $path));
+		}
 
-    $this -> _path = $path;
+		$this -> _path = $path;
 
-    return $this;
-  }
+		return $this;
+	}
 
-  public function setFilename($filename)
-  {
-    $filename = trim($filename);
-    if (strtolower(substr($filename, -3)) != 'xml') {
-      exit(sprintf('filename must end with: xml: %s' . "\n", $filename));
-    }
+	public function setFilename ($filename)
+	{
+		$filename = trim($filename);
+		if (strtolower(substr($filename, -3)) != 'xml') {
+			exit(sprintf('filename must end with: xml: %s' . "\n", $filename));
+		}
 
-    // remove leading slash if exists
-    if (substr($filename, 0, 1) == '/') {
-      $filename = substr($filename, 1, 0);
-    }
+		// remove leading slash if exists
+		if (substr($filename, 0, 1) == '/') {
+			$filename = substr($filename, 1, 0);
+		}
 
-    $this -> _filename = $filename;
+		$this -> _filename = $filename;
 
-    return $this;
-  }
+		return $this;
+	}
 
-  public function setEntries($entries)
-  {
-    if (!is_array($entries)) {
-      throw new exception('setEntries() method expecs an array of objects');
-    }
+	public function setEntries ($entries)
+	{
+		if (!is_array($entries)) {
+			throw new exception('setEntries() method expecs an array of objects');
+		}
 
-    foreach ($entries AS $entry) {
-      if (!is_object($entry) || !get_class($entry) == 'xml_sitemap_entry') {
-        throw new exception('setEntries() method expects an aray of xml_sitemap_entry objects');
-      }
-    }
-    $this -> _entries = $entries;
+		foreach ($entries AS $entry) {
+			if (!is_object($entry) || !get_class($entry) == 'xml_sitemap_entry') {
+				throw new exception('setEntries() method expects an aray of xml_sitemap_entry objects');
+			}
+		}
+		$this -> _entries = $entries;
 
-    return $this;
-  }
+		return $this;
+	}
 
-  /**
-   * make sure we can proceed without issues
-   */
-  public function sanityCheck()
-  {
-    if (!strlen($this -> _filename) > 0) {
-      exit('Error: sitemap filename not set in configuration object');
-    }
+	/**
+	 * make sure we can proceed without issues
+	 */
+	public function sanityCheck ()
+	{
+		if (!strlen($this -> _filename) > 0) {
+			exit('Error: sitemap filename not set in configuration object');
+		}
 
-    if (!strlen($this -> _domain) > 0) {
-      exit('Error: domain not set in configuration object');
-    }
-  }
+		if (!strlen($this -> _domain) > 0) {
+			exit('Error: domain not set in configuration object');
+		}
+	}
 }
 
 class xml_sitemap_entry
 {
-  private $_loc;
-  private $_priority;
-  private $_changefreq;
-  private $_lastmod;
+	private $_loc;
+	private $_priority;
+	private $_changefreq;
+	private $_lastmod;
 
-  private $_frequencies = array ( 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never' );
-  private $_priorities  = array ( '0.0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0' );
+	private $_frequencies = array ('always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never');
+	private $_priorities  = array ('0.0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0');
 
-  public function __construct($loc, $priority, $changefreq = "", $lastmod = '')
-  {
-    $this -> _setLoc($loc);
-    $this -> _setPriority($priority);
+	public function __construct ($loc, $priority, $changefreq = "", $lastmod = '')
+	{
+		$this -> _setLoc($loc);
+		$this -> _setPriority($priority);
 
-    if (strlen($changefreq) > 0) {
-      $this -> _setChangefreq($changefreq);
-    }
-    if (strlen($lastmod) > 0) {
-      $this -> _setLastmod($lastmod);
-    }
-  }
+		if (strlen($changefreq) > 0) {
+			$this -> _setChangefreq($changefreq);
+		}
+		if (strlen($lastmod) > 0) {
+			$this -> _setLastmod($lastmod);
+		}
+	}
 
-  private function _setLoc($loc)
-  {
-    $this -> _loc = $loc;
+	private function _setLoc ($loc)
+	{
+		$this -> _loc = $loc;
 
-    return $this;
-  }
+		return $this;
+	}
 
-  private function _setPriority($priority)
-  {
-    $priority = trim($priority);
-    if (!in_array($priority, $this -> _priorities)) {
-      throw new Exception('setPriority() method is expecting a value between 0.0 and 1.0');
-    } else {
-      $this -> _priority = trim($priority);
-    }
+	private function _setPriority ($priority)
+	{
+		$priority = trim($priority);
+		if (!in_array($priority, $this -> _priorities)) {
+			throw new Exception('setPriority() method is expecting a value between 0.0 and 1.0');
+		} else {
+			$this -> _priority = trim($priority);
+		}
 
-    return $this;
-  }
+		return $this;
+	}
 
-  private function _setChangefreq($changefreq)
-  {
-    $changefreq = strtolower(trim($changefreq));
+	private function _setChangefreq ($changefreq)
+	{
+		$changefreq = strtolower(trim($changefreq));
 
-    if (!in_array($changefreq, $this -> _frequencies)) {
-      throw new Exception('setChangefreq() method is expecting a value such as hourly daily, weekly etc');
-    } else {
-      $this -> _changefreq = $changefreq;
-    }
+		if (!in_array($changefreq, $this -> _frequencies)) {
+			throw new Exception('setChangefreq() method is expecting a value such as hourly daily, weekly etc');
+		} else {
+			$this -> _changefreq = $changefreq;
+		}
 
-    return $this;
-  }
+		return $this;
+	}
 
-  private function _setLastmod($lastmod)
-  {
-    $arr = date_parse($lastmod);
-    if (!checkdate($arr['month'], $arr['day'], $arr['year'])) {
-      throw new Exception('setLastmod() method expects a valid date');
-    } else {
-      $this -> _lastmod =
-        sprintf('%s-%s-%s', $arr['year'], $arr['month'], $arr['day']);
-    }
+	private function _setLastmod ($lastmod)
+	{
+		$arr = date_parse($lastmod);
+		if (!checkdate($arr['month'], $arr['day'], $arr['year'])) {
+			throw new Exception('setLastmod() method expects a valid date');
+		} else {
+			$this -> _lastmod =
+				sprintf('%s-%s-%s', $arr['year'], $arr['month'], $arr['day']);
+		}
 
-    return $this;
-  }
+		return $this;
+	}
 
-  public function get($arg)
-  {
-    switch ($arg) {
-      case 'loc':
-        return $this -> _getLoc();
-      case 'priority':
-        return $this -> _getPriority();
-      case 'changefreq':
-        return $this -> _getChangefreq();
-      case 'lastmod':
-        return $this -> _getLastmod();
-      case 'frequencies':
-        return $this -> _frequencies;
-      case 'priorities':
-        return $this -> _priorities;
-      default:
-        throw new Exception('get() method in class: ' . __CLASS__ . ' did not recognize the argument');
-    }
-  }
+	public function get ($arg)
+	{
+		switch ($arg) {
+			case 'loc':
+				return $this -> _getLoc();
+			case 'priority':
+				return $this -> _getPriority();
+			case 'changefreq':
+				return $this -> _getChangefreq();
+			case 'lastmod':
+				return $this -> _getLastmod();
+			case 'frequencies':
+				return $this -> _frequencies;
+			case 'priorities':
+				return $this -> _priorities;
+			default:
+				throw new Exception('get() method in class: ' . __CLASS__ . ' did not recognize the argument');
+		}
+	}
 
-  private function _getLoc()
-  {
-    return $this -> _loc;
-  }
+	private function _getLoc ()
+	{
+		return $this -> _loc;
+	}
 
-  private function _getPriority()
-  {
-    if (!strlen($this -> _priority) > 0) {
-      return '0.5';
-    } else {
-      return $this -> _priority;
-    }
-  }
+	private function _getPriority ()
+	{
+		if (!strlen($this -> _priority) > 0) {
+			return '0.5';
+		} else {
+			return $this -> _priority;
+		}
+	}
 
-  private function _getChangefreq()
-  {
-    if (!strlen($this -> _changefreq) > 0) {
-      return 'monthly';
-    } else {
-      return $this -> _changefreq;
-    }
-  }
+	private function _getChangefreq ()
+	{
+		if (!strlen($this -> _changefreq) > 0) {
+			return 'monthly';
+		} else {
+			return $this -> _changefreq;
+		}
+	}
 
-  private function _getLastmod()
-  {
-    // set default values
-    if (!strlen($this -> _lastmod) > 0) {
-      return date('Y-m-d');
-    } else {
-      return $this -> _lastmod;
-    }
-  }
+	private function _getLastmod ()
+	{
+		// set default values
+		if (!strlen($this -> _lastmod) > 0) {
+			return date('Y-m-d');
+		} else {
+			return $this -> _lastmod;
+		}
+	}
 }
 
 class xml_sitemap_generator
 {
-  private $_conf;
-  private $_blocks;
-  private $_xml;
+	private $_conf;
+	private $_blocks;
+	private $_xml;
 
-  public function __construct(xml_sitemap_generator_config $conf)
-  {
-    $this -> _conf = $conf;
-  }
+	public function __construct (xml_sitemap_generator_config $conf)
+	{
+		$this -> _conf = $conf;
+	}
 
-  /**
-   * exists to maintain legacy interface,
-   * other than that, it is not needed.
-   */
-  public function build()
-  {
-    $this -> _build();
-  }
+	/**
+	 * exists to maintain legacy interface,
+	 * other than that, it is not needed.
+	 */
+	public function build ()
+	{
+		$this -> _build();
+	}
 
-  private function _build()
-  {
-    $this -> _conf -> sanityCheck();
-    $this -> _append($this -> _buildHeader());
-    $this -> _append($this -> _buildBlocks());
-    $this -> _append($this -> _buildFooter());
-  }
+	private function _build ()
+	{
+		$this -> _conf -> sanityCheck();
+		$this -> _append($this -> _buildHeader());
+		$this -> _append($this -> _buildBlocks());
+		$this -> _append($this -> _buildFooter());
+	}
 
-  private function _append($xml)
-  {
-    $this -> _xml .= $xml;
-  }
+	private function _append ($xml)
+	{
+		$this -> _xml .= $xml;
+	}
 
-  private function _buildHeader()
-  {
-    $header = '<' . '?' . 'xml version="1.0" encoding="UTF-8"?' . '>' . "\n";
-    $header .= '<urlset ';
-    $header .= 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+	private function _buildHeader ()
+	{
+		$header = '<' . '?' . 'xml version="1.0" encoding="UTF-8"?' . '>' . "\n";
+		$header .= '<urlset ';
+		$header .= 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-    return $header;
-  }
+		return $header;
+	}
 
-  private function _buildBlocks()
-  {
-    foreach ($this -> _conf -> get('entries') AS $entry) {
-      $this -> _blocks .= $this -> _buildEntry($entry);
-    }
+	private function _buildBlocks ()
+	{
+		foreach ($this -> _conf -> get('entries') AS $entry) {
+			$this -> _blocks .= $this -> _buildEntry($entry);
+		}
 
-    return $this -> _blocks;
-  }
+		return $this -> _blocks;
+	}
 
-  private function _buildEntry(xml_sitemap_entry $entry)
-  {
+	private function _buildEntry (xml_sitemap_entry $entry)
+	{
 
-    global $setting;
+		global $setting;
 
-    if ($setting["sitehttps"]) {
-      $loc = sprintf("https://%s%s",
-        $this -> _conf -> get('domain'), $entry -> get('loc'));
-    } else {
-      $loc = sprintf("http://%s%s",
-        $this -> _conf -> get('domain'), $entry -> get('loc'));
-    }
+		if ($setting["sitehttps"]) {
+			$loc = sprintf("https://%s%s",
+				$this -> _conf -> get('domain'), $entry -> get('loc'));
+		} else {
+			$loc = sprintf("http://%s%s",
+				$this -> _conf -> get('domain'), $entry -> get('loc'));
+		}
 
-    return sprintf("<url>\n%s%s%s%s</url>\n",
-      $this -> _buildLine('loc', $loc),
-      $this -> _buildLine('priority', $entry -> get('priority')),
-      $this -> _buildLine('changefreq', $entry -> get('changefreq')),
-      $this -> _buildLine('lastmod', $entry -> get('lastmod')));
-  }
+		return sprintf("<url>\n%s%s%s%s</url>\n",
+			$this -> _buildLine('loc', $loc),
+			$this -> _buildLine('priority', $entry -> get('priority')),
+			$this -> _buildLine('changefreq', $entry -> get('changefreq')),
+			$this -> _buildLine('lastmod', $entry -> get('lastmod')));
+	}
 
-  private function _buildLine($tagname, $content)
-  {
-    if (!$this -> _is_utf8($content)) {
-      $content = trim(utf8_encode($content));
-    }
+	private function _buildLine ($tagname, $content)
+	{
+		if (!$this -> _is_utf8($content)) {
+			$content = trim(utf8_encode($content));
+		}
 
-    return sprintf("\t<%s>%s</%s>\n",
-      $tagname, $content, $tagname);
-  }
+		return sprintf("\t<%s>%s</%s>\n",
+			$tagname, $content, $tagname);
+	}
 
-  private function _is_utf8($str)
-  {
-    // function borrowed from:
-    // http://w3.org/International/questions/qa-forms-utf-8.html
+	private function _is_utf8 ($str)
+	{
+		// function borrowed from:
+		// http://w3.org/International/questions/qa-forms-utf-8.html
 
-    return preg_match('%^(?:
+		return preg_match('%^(?:
               [\x09\x0A\x0D\x20-\x7E]            # ASCII
             | [\xC2-\xDF][\x80-\xBF]             # non-overlong 2-byte
             |  \xE0[\xA0-\xBF][\x80-\xBF]        # excluding overlongs
@@ -343,44 +343,44 @@ class xml_sitemap_generator
             | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
             |  \xF4[\x80-\x8F][\x80-\xBF]{2}     # plane 16
         )*$%xs', $str);
-  }
+	}
 
-  private function _buildFooter()
-  {
-    return '</urlset>' . "\n";
-  }
+	private function _buildFooter ()
+	{
+		return '</urlset>' . "\n";
+	}
 
-  /**
-   * retrieve XML sitemap as a string
-   * @return unknown
-   */
-  public function getXml()
-  {
-    $this -> _build();
+	/**
+	 * retrieve XML sitemap as a string
+	 * @return unknown
+	 */
+	public function getXml ()
+	{
+		$this -> _build();
 
-    return $this -> _xml;
-  }
+		return $this -> _xml;
+	}
 
-  public function toString()
-  {
-    $this -> _build();
+	public function toString ()
+	{
+		$this -> _build();
 
-    return $this -> _xml;
-  }
+		return $this -> _xml;
+	}
 
-  /**
-   * write XML sitemap to disk
-   */
-  public function write()
-  {
-    $this -> _build();
+	/**
+	 * write XML sitemap to disk
+	 */
+	public function write ()
+	{
+		$this -> _build();
 
-    if (!file_put_contents($this -> _conf -> get('filepath'), $this -> _xml)) {
-      throw new Exception('cound not write file: ' . $this -> _conf -> get('filepath') . "\n");
-    }
+		if (!file_put_contents($this -> _conf -> get('filepath'), $this -> _xml)) {
+			throw new Exception('cound not write file: ' . $this -> _conf -> get('filepath') . "\n");
+		}
 
-    return ($this -> _xml);
-  }
+		return ($this -> _xml);
+	}
 
 
 }

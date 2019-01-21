@@ -27,7 +27,8 @@
  * 13. ACE Editor style
  * 14. Charts
  * 15. Colors
- * 16. Noname components
+ * 16. Progressbar
+ * 17. Noname components
  
 -------------------------------------------------------------------*/
 /* 01. Bootstrap modification
@@ -631,6 +632,8 @@
 }
 .stacked .pluginname {
   background-color: #F9F9F9;
+  height: 30px;
+  padding: 8px;
 }
 .stacked > [class*="col-"] {
   padding-left: 0;
@@ -1187,8 +1190,8 @@ div.dataTables_wrapper div.dataTables_paginate {
 .bootbox.modal .modal-content {
   border: none;
   border-radius: 0;
-  border-top-left-radius: .3rem;
-  border-top-right-radius: .3rem;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
 }
 .bootbox.modal .modal-content .modal-header {
   text-align: left;
@@ -4314,7 +4317,25 @@ div.mce-edit-area {
 .text-default-100:focus {
   color: #333 !important;
 }
-/* 16. Noname Components
+/* 16. Progressbar
+ ========================================================================*/
+#pace {
+  background-color: rgba(0, 0, 0, 0.85);
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1010;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#pace .pace .pace-progress {
+  background: #29D;
+  color: #29D;
+  height: 14px;
+}
+/* 17. Noname Components
  ========================================================================*/
 /* Login Page */
 .lost-pwd {
@@ -4496,6 +4517,41 @@ div.mce-edit-area {
 }
 .text-regular {
   font-weight: 400;
+}
+/* ------------------------------------------------------------------------------
+ *  # Statistic count block
+ * ---------------------------------------------------------------------------- */
+.tile_count .tile_stats_count {
+  margin-bottom: 10px;
+  border-bottom: 0;
+  padding: 0 10px 0 20px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tile_count .tile_stats_count::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 65px;
+  border-left: 2px solid #ADB2B5;
+  margin-top: 10px;
+}
+.tile_count .tile_stats_count:first-child::before {
+  border-left: 0;
+}
+.tile_count .tile_stats_count span {
+  font-size: 13px;
+  font-weight: 400;
+  color: #73879C;
+}
+.tile_count .tile_stats_count .count {
+  font-size: 40px;
+  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+  line-height: 47px;
+  font-weight: 600;
+  color: #73879C;
 }
 /* ------------------------------------------------------------------------------
  *  # Sidebar layouts

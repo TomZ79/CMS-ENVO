@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
-if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die("Nothing to see here");
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die("Nothing to see here");
 
 // EN: Set the JSON header content-type
 // CZ: Nastavení záhlaví JSON
@@ -22,51 +22,51 @@ $id        = $_POST['id'];
 $positions = $_POST['positions'];
 
 // Define basic variable
-$envodata = array();
+$envodata = array ();
 
 if (!is_numeric($id) && !is_array($positions)) {
 
-  // Data for JSON
-  $envodata = array(
-    'status'     => 'error_E02',
-    'status_msg' => 'There is no content for the update',
-  );
+	// Data for JSON
+	$envodata = array (
+		'status'     => 'error_E02',
+		'status_msg' => 'There is no content for the update',
+	);
 
 } else {
 
-  foreach ($positions as $k => $v) {
-    $strVals[] = 'WHEN ' . (int)$v . ' THEN ' . ((int)$k + 1) . PHP_EOL;
-  }
+	foreach ($positions as $k => $v) {
+		$strVals[] = 'WHEN ' . (int)$v . ' THEN ' . ((int)$k + 1) . PHP_EOL;
+	}
 
-  if (!$strVals) {
-    // Data for JSON
-    $envodata = array(
-      'status'     => 'error_E03',
-      'status_msg' => 'There is no content for the update',
-    );
-  } else {
+	if (!$strVals) {
+		// Data for JSON
+		$envodata = array (
+			'status'     => 'error_E03',
+			'status_msg' => 'There is no content for the update',
+		);
+	} else {
 
-    // We are using the CASE SQL operator to update the categories positions en masse:
-    $result = $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET exorder = CASE id
+		// We are using the CASE SQL operator to update the categories positions en masse:
+		$result = $envodb -> query('UPDATE ' . DB_PREFIX . 'pluginhooks SET exorder = CASE id
 				' . join($strVals) . '
 				ELSE exorder
 				END');
 
-    if ($result) {
-      // Data for JSON
-      $envodata = array(
-        'status'     => 'success',
-        'status_msg' => 'Update the categories positions was successful',
-      );
-    } else {
-      // Data for JSON
-      $envodata = array(
-        'status'     => 'error_E01',
-        'status_msg' => 'Update the categories positions was incorrect',
-      );
-    }
+		if ($result) {
+			// Data for JSON
+			$envodata = array (
+				'status'     => 'success',
+				'status_msg' => 'Update the categories positions was successful',
+			);
+		} else {
+			// Data for JSON
+			$envodata = array (
+				'status'     => 'error_E01',
+				'status_msg' => 'Update the categories positions was incorrect',
+			);
+		}
 
-  }
+	}
 
 }
 

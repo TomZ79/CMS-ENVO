@@ -34,45 +34,61 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setti
 
 ?>
 
+<?php if ($setting["downloadlivesearch"]) { ?>
+	<div class="row mb-4">
+		<div class="col">
+			<div class="searchbox-title">
+				<h4 class="text-right mb-0">Live Search</h4>
+				<h6 class="text-right text-muted">(rychlé vyhledávání)</h6>
+			</div>
+			<div class="searchbox" style="position: relative;">
+				<div class="input-group">
+					<input type="text" class="form-control" id="ajaxlivesearch" autocomplete="off" placeholder="Zadejte hledaný název ..." data-articleid="" data-articlevarname="">
+					<div class="input-group-append">
+						<button type="button" id="ajaxliveshow" class="btn btn-light text-1 text-uppercase">Zobrazit</button>
+					</div>
+				</div>
+				<div id="searchresult" style="display: none;border: 2px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;border-radius: .25rem;border-top: none;"></div>
+			</div>
+		</div>
+	</div>
+<?php } ?>
+
 <?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) { ?>
-  <div class="col-sm-12">
-    <table class="table table-sm">
-      <thead>
-      <tr>
-        <th class="col-sm-3">Název</th>
-        <th class="col-sm-3">Datum vložení</th>
-        <th class="col-sm-6">Popis</th>
-      </tr>
-      </thead>
-      <tbody>
 
-      <?php foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
-        <tr>
-          <td><a href="<?= $v["parseurl"] ?>"><?= envo_cut_text($v["title"], 30, "") ?></a></td>
-          <td>
-            <?php if ($v["showdate"]) echo $v["created"]; ?>
-          </td>
-          <td>
-            <?php
-            if (!empty($v["file"]) || !empty($v["extfile"])) {
-              // EN: If exist some file
-              // CZ: Pokud existuje soubor
-              echo envo_cut_text($v["contentshort"], 40, "...");
-            } else {
-              // EN: If not exist some file
-              // CZ: Pokud neexistuje soubor
-              echo '<span><i class="fas fa-exclamation-circle mr-2"></i>' . $tld["downl_frontend"]["downl16"] . '</span>';
-            }
+	<div class="col-sm-12">
+		<table class="table table-sm">
+			<thead>
+			<tr>
+				<th class="col-sm-9">Název</th>
+				<th class="col-sm-3 text-center">Datum vložení</th>
+			</tr>
+			</thead>
+			<tbody>
 
-            ?>
-          </td>
-        </tr>
-      <?php } ?>
+			<?php foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
+				<tr>
+					<td><?= envo_extension_icon($v["extfile"]) ?>
+						<a href="<?= $v["parseurl"] ?>"><?= envo_cut_text($v["title"], 40, "") ?></a></td>
+					<td class="text-center">
+						<?php if ($v["showdate"]) echo $v["created"]; ?>
+					</td>
+				</tr>
+			<?php } ?>
 
-      </tbody>
-    </table>
-  </div>
+			</tbody>
+		</table>
+	</div>
+
+<?php } else { ?>
+
+	<div class="col-sm-12">
+		<div class="alert bg-info text-white"><i class="fas fa-exclamation-circle mr-2"></i> <?= $tld["downl_frontend"]["downl17"] ?>
+		</div>
+	</div>
 
 <?php } ?>
+
+<?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

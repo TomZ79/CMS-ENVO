@@ -18,15 +18,15 @@
 
 if ($page == 'blank-plugin') {
 
-  echo PHP_EOL . "\t";
-  echo '<!-- Start CSS Blank Plugin -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- Start CSS Blank Plugin -->';
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Plugin Css style
-  echo $Html -> addStylesheet(BASE_URL_ORIG . 'plugins/blank_plugin/admin/css/style.blank_plugin.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Plugin Css style
+	echo $Html -> addStylesheet('/plugins/blank_plugin/admin/css/style.blank_plugin.min.css');
 
-  echo PHP_EOL . "\t";
-  echo '<!-- End CSS Blank Plugin -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- End CSS Blank Plugin -->';
 
 }
 

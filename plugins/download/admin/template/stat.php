@@ -57,12 +57,12 @@ while ($rwresdlh3 = $resdlh3 -> fetch_assoc()) {
     <div class="table-responsive">
       <table class="table table-striped table-hover table-statis-200">
         <thead>
-        <tr>
-          <th><?= $tld["downl_box_table"]["downltb10"] ?></th>
-          <th><?= $tld["downl_box_table"]["downltb11"] ?></th>
-          <th><?= $tld["downl_box_table"]["downltb12"] ?></th>
-          <th><?= $tld["downl_box_table"]["downltb13"] ?></th>
-          <th><?= $tld["downl_box_table"]["downltb14"] ?></th>
+        <tr class="d-flex">
+          <th class="col"><?= $tld["downl_box_table"]["downltb10"] ?></th>
+          <th class="col-sm-4"><?= $tld["downl_box_table"]["downltb11"] ?></th>
+          <th class="col"><?= $tld["downl_box_table"]["downltb12"] ?></th>
+          <th class="col-sm-3"><?= $tld["downl_box_table"]["downltb13"] ?></th>
+          <th class="col"><?= $tld["downl_box_table"]["downltb14"] ?></th>
         </tr>
         </thead>
         <tbody>
@@ -73,12 +73,12 @@ while ($rwresdlh3 = $resdlh3 -> fetch_assoc()) {
           $rwresdl = $resdl -> fetch_assoc();
           ?>
 
-          <tr>
-            <td><?= $dle["fileid"] ?></td>
-            <td><?= $rwresdl["title"] ?></td>
-            <td><?= $dle["email"] ?></td>
-            <td><?= $dle["filename"] ?></td>
-            <td><?= $dle["time"] ?></td>
+          <tr class="d-flex">
+            <td class="col"><?= $dle["fileid"] ?></td>
+            <td class="col-sm-4"><?= $rwresdl["title"] ?></td>
+            <td class="col"><?= $dle["email"] ?></td>
+            <td class="col-sm-3 text-truncate"><?= $dle["filename"] ?></td>
+            <td class="col"><?= $dle["time"] ?></td>
           </tr>
         <?php } ?>
 

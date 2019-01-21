@@ -46,17 +46,16 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting';
             </div>
             <div class="searchbox" style="position: relative;">
               <div class="input-group">
-                <input type="text" class="form-control" id="ajaxlivesearch" autocomplete="off" placeholder="Zadejte hledaný název ..." data-articleid="">
+                <input type="text" class="form-control" id="ajaxlivesearch" autocomplete="off" placeholder="Zadejte hledaný název ..." data-articleid="" data-articlevarname="">
                 <div class="input-group-append">
                   <button type="button" id="ajaxliveshow" class="btn btn-light text-1 text-uppercase">Zobrazit</button>
                 </div>
               </div>
-              <div id="searchresult" style="display: none;border: 1px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;"></div>
+              <div id="searchresult" style="display: none;border: 2px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;border-radius: .25rem;border-top: none;"></div>
             </div>
           </div>
         </div>
       <?php } ?>
-
 
       <div class="row">
         <div class="col">

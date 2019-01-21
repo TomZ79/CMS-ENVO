@@ -16,16 +16,16 @@
 
 $(function () {
 
-  $('body').addClass('overflow-hidden');
+	$('body').addClass('overflow-hidden');
 
-  // Switch buttons from "Log In" to "Forget password"
-  $('.lost-pwd').click(function (event) {
-    event.preventDefault();
-    $('.loginF').slideToggle();
-    $('.forgotP').toggleClass('hide');
-  });
+	// Switch buttons from "Log In" to "Forget password"
+	$('.lost-pwd').click(function (event) {
+		event.preventDefault();
+		$('.loginF').slideToggle();
+		$('.forgotP').toggleClass('hide');
+	});
 
-  $('#form-login').validate();
-  $('#form-email').validate();
+	$('#form-login').validate();
+	$('#form-email').validate();
 
 });

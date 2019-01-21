@@ -18,13 +18,13 @@
 
 if ($page == 'logs') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Log of user login -->';
+	echo PHP_EOL . '<!-- Start JS AKP Log of user login -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.logs.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.logs.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP Log of user login -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Log of user login -->' . PHP_EOL;
 
 }
 

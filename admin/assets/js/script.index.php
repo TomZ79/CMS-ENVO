@@ -18,20 +18,20 @@
 
 if ($page == '') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Dashboard -->';
+	echo PHP_EOL . '<!-- Start JS AKP Dashboard -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  //
-  echo $Html->addScript('assets/js/global_js/todo.min.js');
-  //
-  echo $Html->addScript('assets/plugins/highcharts/v6.1.1/highcharts.js');
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.index.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	//
+	echo $Html -> addScript('assets/js/global_js/todo.min.js');
+	//
+	echo $Html -> addScript('assets/plugins/highcharts/v6.1.1/highcharts.js');
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.index.min.js');
 
-  echo PHP_EOL;
+	echo PHP_EOL;
 
-  // Highcharts
-  $str = <<<EOT
+	// Highcharts
+	$str = <<<EOT
 <script>
 
 // Run script after Pace is done
@@ -178,9 +178,9 @@ Pace.on('done', function() {
 </script>
 EOT;
 
-  echo $str;
+	echo $str;
 
-  echo PHP_EOL . '<!-- End JS AKP Dashboard -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Dashboard -->' . PHP_EOL;
 
 }
 

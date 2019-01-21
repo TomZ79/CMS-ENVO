@@ -10,7 +10,7 @@
 
 <?php if ($page == ENVO_PLUGIN_VAR_TV_TOWER) { ?>
 
-  <script src="/assets/plugins/jquery-sumoselect/3.0.2/js/jquery.sumoselect.min.js"></script>
-  <script src="/plugins/tv_tower/assets/js/script.js"></script>
+	<script src="/assets/plugins/jquery-sumoselect/3.0.2/js/jquery.sumoselect.min.js"></script>
+	<script src="/plugins/tv_tower/assets/js/script.js"></script>
 
 <?php } ?>

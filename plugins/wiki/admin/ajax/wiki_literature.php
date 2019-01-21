@@ -15,9 +15,9 @@ header('Content-Type: application/json;charset=utf-8');
 
 // CHECK REQUEST METHOD
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $input = filter_input_array(INPUT_POST);
+	$input = filter_input_array(INPUT_POST);
 } else {
-  $input = filter_input_array(INPUT_GET);
+	$input = filter_input_array(INPUT_GET);
 }
 
 // PHP CODE and DB
@@ -32,22 +32,22 @@ $row    = $result -> fetch_assoc();
 $row_cnt = $result -> num_rows;
 
 if ($row_cnt > 0) {
-  // Count of Contact exists
+	// Count of Contact exists
 
-  $envodata = array (
-    'status'     => 'success',
-    'status_msg' => '',
-    'data'       => $row['id']
-  );
+	$envodata = array (
+		'status'     => 'success',
+		'status_msg' => '',
+		'data'       => $row['id']
+	);
 
 } else {
-  // Count of Contact NOT exists
+	// Count of Contact NOT exists
 
-  $envodata = array (
-    'status'     => 'success',
-    'status_msg' => '',
-    'data'       => 0
-  );
+	$envodata = array (
+		'status'     => 'success',
+		'status_msg' => '',
+		'data'       => 0
+	);
 
 }
 

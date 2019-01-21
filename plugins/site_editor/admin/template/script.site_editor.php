@@ -18,13 +18,13 @@
 
 if ($page == 'site-editor') {
 
-  echo PHP_EOL . '<!-- Start JS Site Editor -->';
+	echo PHP_EOL . '<!-- Start JS Site Editor -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/site_editor/admin/js/script.site_editor.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/site_editor/admin/js/script.site_editor.min.js');
 
-  echo PHP_EOL . '<!-- End JS Site Editor -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS Site Editor -->' . PHP_EOL;
 
 }
 

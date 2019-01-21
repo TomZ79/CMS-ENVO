@@ -15,9 +15,9 @@ header('Content-Type: application/json;charset=utf-8');
 
 // CHECK REQUEST METHOD
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $_POST = filter_input_array(INPUT_POST);
+	$_POST = filter_input_array(INPUT_POST);
 } else {
-  $_POST = filter_input_array(INPUT_GET);
+	$_POST = filter_input_array(INPUT_GET);
 }
 
 // PHP CODE and DB
@@ -29,59 +29,60 @@ $title = $_POST['search'];
 
 if (isset($_POST['search'])) {
 
-  // Search query
-  $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'wiki WHERE title LIKE "%' . $title . '%" LIMIT 10');
-  $row    = $result -> fetch_assoc();
+	// Search query
+	$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'wiki WHERE title LIKE "%' . $title . '%" LIMIT 10');
+	$row    = $result -> fetch_assoc();
 
-  // EN: Determine the number of rows in the result from DB
-  // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result -> num_rows;
+	// EN: Determine the number of rows in the result from DB
+	// CZ: Určení počtu řádků ve výsledku z DB
+	$row_cnt = $result -> num_rows;
 
 
-  if ($row_cnt > 0) {
-    // Number of Entrance exists
+	if ($row_cnt > 0) {
+		// Number of Entrance exists
 
-    $data_array = array ();
+		$data_array = array ();
 
-    // Search query
-    $result1 = $envodb -> query('SELECT id, title FROM ' . DB_PREFIX . 'wiki WHERE title LIKE "%' . $title . '%" LIMIT 10');
+		// Search query
+		$result1 = $envodb -> query('SELECT id, title, varname FROM ' . DB_PREFIX . 'wiki WHERE title LIKE "%' . $title . '%" LIMIT 10');
 
-    // Search the plugin name and id
-    $result2 = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "WIKI"');
-    $row2    = $result2 -> fetch_assoc();
+		// Search the plugin name and id
+		$result2 = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "WIKI"');
+		$row2    = $result2 -> fetch_assoc();
 
-    $result3 = $envodb -> query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($row2['id']) . '"');
-    $row3    = $result3 -> fetch_assoc();
+		$result3 = $envodb -> query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($row2['id']) . '"');
+		$row3    = $result3 -> fetch_assoc();
 
-    while ($row1 = $result1 -> fetch_assoc()) {
+		while ($row1 = $result1 -> fetch_assoc()) {
 
-      $data_array[] = array (
-        'id'    => $row1["id"],
-        'title' => $row1["title"],
-      );
+			$data_array[] = array (
+				'id'      => $row1["id"],
+				'title'   => $row1["title"],
+				'varname' => $row1["varname"]
+			);
 
-    }
+		}
 
-    // Data for JSON
-    $envodata = array (
-      'status'             => 'success',
-      'status_msg'         => 'Count of rows in DB: ' . $row_cnt,
-      'plugin_id'          => $row2['id'],
-      'plugin_cat_name'    => $row3['name'],
-      'plugin_cat_varname' => $row3['varname'],
-      'data'               => $data_array
-    );
+		// Data for JSON
+		$envodata = array (
+			'status'             => 'success',
+			'status_msg'         => 'Count of rows in DB: ' . $row_cnt,
+			'plugin_id'          => $row2['id'],
+			'plugin_cat_name'    => $row3['name'],
+			'plugin_cat_varname' => $row3['varname'],
+			'data'               => $data_array
+		);
 
-  } else {
-    // Number of Entrance NOT exists
+	} else {
+		// Number of Entrance NOT exists
 
-    // Data for JSON
-    $envodata = array (
-      'status'     => 'error_E01',
-      'status_msg' => 'Not found rows in DB'
-    );
+		// Data for JSON
+		$envodata = array (
+			'status'     => 'error_E01',
+			'status_msg' => 'Not found rows in DB'
+		);
 
-  }
+	}
 }
 
 // RETURN JSON OUTPUT

@@ -6,7 +6,7 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSURLMAPPING)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESSURLMAPPING)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -26,103 +26,103 @@ $envotable = DB_PREFIX . 'urlmapping';
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
-  case 'new':
-    // ADD NEW URL MAPPING
+	case 'new':
+		// ADD NEW URL MAPPING
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			// EN: Default Variable
+			// CZ: Hlavní proměnné
+			$defaults = $_POST;
 
-      if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
-        $errors['e1'] = $tlum['urlmap_error']['urler'];
-      }
+			if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
+				$errors['e1'] = $tlum['urlmap_error']['urler'];
+			}
 
-      if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
-        $errors['e2'] = $tlum['urlmap_error']['urler1'];
-      }
+			if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
+				$errors['e2'] = $tlum['urlmap_error']['urler1'];
+			}
 
-      if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
-        $errors['e3'] = $tlum['urlmap_error']['urler2'];
-      }
+			if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
+				$errors['e3'] = $tlum['urlmap_error']['urler2'];
+			}
 
-      if (count($errors) == 0) {
+			if (count($errors) == 0) {
 
-        /* EN: Convert value
-         * smartsql - secure method to insert form data into a MySQL DB
-         * ------------------
-         * CZ: Převod hodnot
-         * smartsql - secure method to insert form data into a MySQL DB
-        */
-        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
+				/* EN: Convert value
+				 * smartsql - secure method to insert form data into a MySQL DB
+				 * ------------------
+				 * CZ: Převod hodnot
+				 * smartsql - secure method to insert form data into a MySQL DB
+				*/
+				$result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                   urlold = "' . smartsql($defaults['envo_oldurl']) . '",
                   urlnew = "' . smartsql($defaults['envo_newurl']) . '",
                   baseurl = "' . smartsql($defaults['envo_baseurl']) . '",
                   redirect = "' . smartsql($defaults['envo_redirect']) . '",
                   time = NOW()');
 
-        $rowid = $envodb->envo_last_id();
+				$rowid = $envodb -> envo_last_id();
 
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=newbh&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&id=' . $rowid . '&status=s');
-        }
-      } else {
-        $errors['e'] = $tl['urlmap_error']['urler'];
-        $errors      = $errors;
-      }
-    }
+				if (!$result) {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=newbh&status=e');
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&id=' . $rowid . '&status=s');
+				}
+			} else {
+				$errors['e'] = $tl['urlmap_error']['urler'];
+				$errors      = $errors;
+			}
+		}
 
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlum["urlmap_title"]["urlt1"];
-    $SECTION_DESC  = $tlum["urlmap_desc"]["urld1"];
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = $tlum["urlmap_title"]["urlt1"];
+		$SECTION_DESC  = $tlum["urlmap_desc"]["urld1"];
 
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'new.php';
+		// EN: Load the php template
+		// CZ: Načtení php template (šablony)
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'new.php';
 
-    break;
-  case 'edit':
-    // EDIT URL MAPPING
+		break;
+	case 'edit':
+		// EDIT URL MAPPING
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			// EN: Default Variable
+			// CZ: Hlavní proměnné
+			$defaults = $_POST;
 
-      if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
-        $errors['e1'] = $tlum['urlmap_error']['urler'];
-      }
+			if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
+				$errors['e1'] = $tlum['urlmap_error']['urler'];
+			}
 
-      if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
-        $errors['e2'] = $tlum['urlmap_error']['urler1'];
-      }
+			if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
+				$errors['e2'] = $tlum['urlmap_error']['urler1'];
+			}
 
-      if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
-        $errors['e3'] = $tlum['urlmap_error']['urler1'];
-      }
+			if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
+				$errors['e3'] = $tlum['urlmap_error']['urler1'];
+			}
 
-      if (count($errors) == 0) {
+			if (count($errors) == 0) {
 
-        if ($defaults['envo_baseurl'] == 1) {
-          $urlnew = '';
-        } else {
-          $urlnew = smartsql($defaults['envo_newurl']);
-        }
+				if ($defaults['envo_baseurl'] == 1) {
+					$urlnew = '';
+				} else {
+					$urlnew = smartsql($defaults['envo_newurl']);
+				}
 
-        /* EN: Convert value
-         * smartsql - secure method to insert form data into a MySQL DB
-         * ------------------
-         * CZ: Převod hodnot
-         * smartsql - secure method to insert form data into a MySQL DB
-        */
-        $result = $envodb->query('UPDATE ' . $envotable . ' SET
+				/* EN: Convert value
+				 * smartsql - secure method to insert form data into a MySQL DB
+				 * ------------------
+				 * CZ: Převod hodnot
+				 * smartsql - secure method to insert form data into a MySQL DB
+				*/
+				$result = $envodb -> query('UPDATE ' . $envotable . ' SET
                       urlold = "' . smartsql($defaults['envo_oldurl']) . '",
                       urlnew = "' . $urlnew . '",
                       baseurl = "' . smartsql($defaults['envo_baseurl']) . '",
@@ -130,171 +130,171 @@ switch ($page1) {
                       time = NOW()
                       WHERE id = "' . smartsql($page2) . '"');
 
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&id=' . $page2 . '&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&id=' . $page2 . '&status=s');
-        }
+				if (!$result) {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&id=' . $page2 . '&status=e');
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&id=' . $page2 . '&status=s');
+				}
 
-      } else {
-        $errors['e'] = $tl['urlmap_error']['urler'];
-        $errors      = $errors;
-      }
-    }
+			} else {
+				$errors['e'] = $tl['urlmap_error']['urler'];
+				$errors      = $errors;
+			}
+		}
 
-    // Get the data
-    $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+		// Get the data
+		$ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlum["urlmap_title"]["urlt2"];
-    $SECTION_DESC  = $tlum["urlmap_desc"]["urld2"];
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = $tlum["urlmap_title"]["urlt2"];
+		$SECTION_DESC  = $tlum["urlmap_desc"]["urld2"];
 
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
+		// EN: Load the php template
+		// CZ: Načtení php template (šablony)
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
 
-    break;
-  case 'lock':
-    // LOCK URL MAPPING
+		break;
+	case 'lock':
+		// LOCK URL MAPPING
 
-    $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
+		$result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
-    if (!$result) {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
-    } else {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s');
-    }
+		if (!$result) {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
+		} else {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s');
+		}
 
-    break;
-  case 'delete':
-    // DELETE URL MAPPING
+		break;
+	case 'delete':
+		// DELETE URL MAPPING
 
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+		if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      // Delete the Content
-      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+			// Delete the Content
+			$result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
-      if (!$result) {
-        // EN: Redirect page
-        // CZ: Přesměrování stránky s notifikací - chybné
-        envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
-      } else {
-        // EN: Redirect page
-        // CZ: Přesměrování stránky s notifikací - úspěšné
-        /*
-        NOTIFIKACE:
-        'status=s'    - Záznam úspěšně uložen
-        'status1=s1'  - Záznam úspěšně odstraněn
-        */
-        envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s1');
-      }
+			if (!$result) {
+				// EN: Redirect page
+				// CZ: Přesměrování stránky s notifikací - chybné
+				envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
+			} else {
+				// EN: Redirect page
+				// CZ: Přesměrování stránky s notifikací - úspěšné
+				/*
+				NOTIFIKACE:
+				'status=s'    - Záznam úspěšně uložen
+				'status1=s1'  - Záznam úspěšně odstraněn
+				*/
+				envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s1');
+			}
 
-    } else {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=ene');
-    }
-    break;
-  default:
-    // MAIN PAGE OF PLUGIN - LIST OF URL MAPPING
+		} else {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=ene');
+		}
+		break;
+	default:
+		// MAIN PAGE OF PLUGIN - LIST OF URL MAPPING
 
-    // ----------- ERROR: REDIRECT PAGE ------------
-    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+		// ----------- ERROR: REDIRECT PAGE ------------
+		// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
 
-    // EN: If not exist value in 'case', redirect page to 404
-    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
-    $pagearray = array ('new', 'edit', 'lock', 'delete');
-    if (!empty($page1) && !is_numeric($page1)) {
-      if (in_array($page1, $pagearray)) {
-        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
-      }
-    }
+		// EN: If not exist value in 'case', redirect page to 404
+		// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+		$pagearray = array ('new', 'edit', 'lock', 'delete');
+		if (!empty($page1) && !is_numeric($page1)) {
+			if (in_array($page1, $pagearray)) {
+				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+			}
+		}
 
-    // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
-    // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
+		// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+		// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_urlmapping'])) {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_urlmapping'])) {
+			// EN: Default Variable
+			// CZ: Hlavní proměnné
+			$defaults = $_POST;
 
-      if (isset($defaults['delete'])) {
+			if (isset($defaults['delete'])) {
 
-        $deleteuser = $defaults['envo_delete_urlmapping'];
+				$deleteuser = $defaults['envo_delete_urlmapping'];
 
-        for ($i = 0; $i < count($deleteuser); $i++) {
-          $deleted = $deleteuser[$i];
-          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
-        }
+				for ($i = 0; $i < count($deleteuser); $i++) {
+					$deleted = $deleteuser[$i];
+					$result  = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($deleted) . '"');
+				}
 
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky s notifikací - chybné
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky s notifikací - úspěšné
-          /*
-          NOTIFIKACE:
-          'status=s'    - Záznam úspěšně uložen
-          'status1=s1'  - Záznam úspěšně odstraněn
-          */
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s1');
-        }
+				if (!$result) {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky s notifikací - chybné
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky s notifikací - úspěšné
+					/*
+					NOTIFIKACE:
+					'status=s'    - Záznam úspěšně uložen
+					'status1=s1'  - Záznam úspěšně odstraněn
+					*/
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s1');
+				}
 
-      }
+			}
 
-      if (isset($defaults['lock'])) {
+			if (isset($defaults['lock'])) {
 
-        $lockuser = $defaults['envo_delete_urlmapping'];
+				$lockuser = $defaults['envo_delete_urlmapping'];
 
-        for ($i = 0; $i < count($lockuser); $i++) {
-          $locked = $lockuser[$i];
+				for ($i = 0; $i < count($lockuser); $i++) {
+					$locked = $lockuser[$i];
 
-          // Delete the pics associated with the Nivo Slider
-          $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
-        }
+					// Delete the pics associated with the Nivo Slider
+					$result = $envodb -> query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+				}
 
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s');
-        }
+				if (!$result) {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=e');
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s');
+				}
 
-      }
+			}
 
-    }
+		}
 
-    // EN: Get all the data of URL Mapping
-    // CZ: Získání všech dat pro URL Mapování
-    $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id ASC');
-    while ($row = $result->fetch_assoc()) {
-      // EN: Insert each record into array
-      // CZ: Vložení získaných dat do pole
-      $ENVO_UM_ALL[] = $row;
-    }
+		// EN: Get all the data of URL Mapping
+		// CZ: Získání všech dat pro URL Mapování
+		$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id ASC');
+		while ($row = $result -> fetch_assoc()) {
+			// EN: Insert each record into array
+			// CZ: Vložení získaných dat do pole
+			$ENVO_UM_ALL[] = $row;
+		}
 
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlum["urlmap_title"]["urlt"];
-    $SECTION_DESC  = $tlum["urlmap_desc"]["urld"];
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = $tlum["urlmap_title"]["urlt"];
+		$SECTION_DESC  = $tlum["urlmap_desc"]["urld"];
 
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'mapping.php';
+		// EN: Load the php template
+		// CZ: Načtení php template (šablony)
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'mapping.php';
 }
 
 ?>

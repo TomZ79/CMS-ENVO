@@ -18,25 +18,25 @@
 
 if ($page == 'news') {
 
-  echo PHP_EOL . '<!-- Start JS AKP News -->';
+	echo PHP_EOL . '<!-- Start JS AKP News -->';
 
-  // Setting variable for Jquery external script
-  ?>
+	// Setting variable for Jquery external script
+	?>
 
-  <script>
-    // Add to Global settings javascript object
-    globalSettings['pageID2'] = <?=(!empty($page2) && is_numeric($page2) ? $page2 : '""')?>;
-  </script>
+	<script>
+		// Add to Global settings javascript object
+		globalSettings['pageID2'] = <?=(!empty($page2) && is_numeric($page2) ? $page2 : '""')?>;
+	</script>
 
-  <?php
+	<?php
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.news.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin ACE Editor
+	echo $Html -> addScript('assets/plugins/ace/ace.js');
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.news.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP News -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP News -->' . PHP_EOL;
 
 }
 

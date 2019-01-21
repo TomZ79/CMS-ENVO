@@ -25,7 +25,7 @@ if ($page == 'blog') {
   // Plugin DataTable
   echo $Html -> addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
   // Plugin Css style
-  echo $Html -> addStylesheet(BASE_URL_ORIG . 'plugins/blog/admin/css/style.blog.min.css');
+  echo $Html -> addStylesheet('/plugins/blog/admin/css/style.blog.min.css');
 
   echo PHP_EOL . "\t";
   echo '<!-- End CSS Blog -->';

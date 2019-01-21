@@ -18,17 +18,17 @@
 
 if ($page == 'tv-tower') {
 
-  echo PHP_EOL . "\t";
-  echo '<!-- Start CSS TV Tower -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- Start CSS TV Tower -->';
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Plugin DataTable
-  echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
-  // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/tv_tower/admin/css/style.tv_tower.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Plugin DataTable
+	echo $Html -> addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
+	// Plugin Css style
+	echo $Html -> addStylesheet('/plugins/tv_tower/admin/css/style.tv_tower.min.css');
 
-  echo PHP_EOL . "\t";
-  echo '<!-- End CSS TV Tower -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- End CSS TV Tower -->';
 
 }
 

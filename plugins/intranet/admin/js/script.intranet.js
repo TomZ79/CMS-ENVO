@@ -39,6 +39,14 @@ $wrapLimitRange = {
   max: aceEditor.acewraplimit
 };
 
+function aceboolean(param) {
+  if (param == '1') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 if ($('#htmleditor').length) {
   var htmlACE = ace.edit('htmleditor');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
@@ -46,13 +54,16 @@ if ($('#htmleditor').length) {
   htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE.setOptions({
     // session options
-    mode: "ace/mode/html",
+    mode: "ace/mode/html_ruby",
     tabSize: aceEditor.acetabSize,
     useSoftTabs: true,
-    highlightActiveLine: aceEditor.aceactiveline,
+    indentedSoftWrap: false,
+    highlightActiveLine: aceboolean(aceEditor.aceactiveline),
     // renderer options
+    showPrintMargin: false,
+    fontSize: aceEditor.fontSize,
     showInvisibles: aceEditor.aceinvisible,
-    showGutter: aceEditor.acegutter
+    showGutter: aceboolean(aceEditor.acegutter)
   });
   // This is to remove following warning message on console:
   // Automatically scrolling cursor into view after selection change this will be disabled in the next version

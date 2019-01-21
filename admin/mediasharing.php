@@ -18,23 +18,23 @@ $ENVO_SETTING = envo_get_setting_val('mediasharing');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // EN: Default Variable
-  // CZ: Hlavní proměnné
-  $defaults = $_POST;
+	// EN: Default Variable
+	// CZ: Hlavní proměnné
+	$defaults = $_POST;
 
-  if (isset($_POST['btnSave'])) {
-    // EN: If button "Save Changes" clicked
-    // CZ: Pokud bylo stisknuto tlačítko "Uložit"
+	if (isset($_POST['btnSave'])) {
+		// EN: If button "Save Changes" clicked
+		// CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-    if (count($errors) == 0) {
+		if (count($errors) == 0) {
 
-      /* EN: Convert value
-       * smartsql - secure method to insert form data into a MySQL DB
-       * ------------------
-       * CZ: Převod hodnot
-       * smartsql - secure method to insert form data into a MySQL DB
-      */
-      $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+			/* EN: Convert value
+			 * smartsql - secure method to insert form data into a MySQL DB
+			 * ------------------
+			 * CZ: Převod hodnot
+			 * smartsql - secure method to insert form data into a MySQL DB
+			*/
+			$result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "md_facebook" THEN "' . smartsql($defaults['envo_md_facebook']) . '"
                     WHEN "md_googleplus" THEN "' . smartsql($defaults['envo_md_googleplus']) . '"
                     WHEN "md_instagram" THEN "' . smartsql($defaults['envo_md_instagram']) . '"
@@ -49,26 +49,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 END
                   WHERE varname IN ("md_facebook","md_googleplus","md_instagram","md_twitter","md_youtube","md_vimeo","md_email","md_mediaSize","md_iconSize","md_mediatheme","md_mediahover")');
 
-      if (!$result) {
-        // EN: Redirect page
-        // CZ: Přesměrování stránky
-        envo_redirect(BASE_URL . 'index.php?p=mediasharing&status=e');
-      } else {
-        // EN: Redirect page
-        // CZ: Přesměrování stránky
-        envo_redirect(BASE_URL . 'index.php?p=mediasharing&status=s');
-      }
-    } else {
+			if (!$result) {
+				// EN: Redirect page
+				// CZ: Přesměrování stránky
+				envo_redirect(BASE_URL . 'index.php?p=mediasharing&status=e');
+			} else {
+				// EN: Redirect page
+				// CZ: Přesměrování stránky
+				envo_redirect(BASE_URL . 'index.php?p=mediasharing&status=s');
+			}
+		} else {
 
-      $errors['e'] = $tl['general_error']['generror'] . '<br>';
-      $errors      = $errors;
-    }
+			$errors['e'] = $tl['general_error']['generror'] . '<br>';
+			$errors      = $errors;
+		}
 
-  } else {
-    // EN: If no button pressed
-    // CZ: Pokud nebylo stisknuto žádné tlačítko
+	} else {
+		// EN: If no button pressed
+		// CZ: Pokud nebylo stisknuto žádné tlačítko
 
-  }
+	}
 }
 
 // EN: Title and Description

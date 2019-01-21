@@ -18,15 +18,15 @@
 
 if ($page == 'register-form') {
 
-  echo PHP_EOL . '<!-- Start JS Register Form -->';
+	echo PHP_EOL . '<!-- Start JS Register Form -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
-  // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/register_form/admin/js/script.register_form.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin ACE Editor
+	echo $Html -> addScript('assets/plugins/ace/ace.js');
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/register_form/admin/js/script.register_form.min.js');
 
-  echo PHP_EOL . '<!-- End JS Register Form -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS Register Form -->' . PHP_EOL;
 
 }
 

@@ -513,7 +513,7 @@
       }).on('select2:open', function () {
         $.fn.scrollbar && $('.select2-results__options').scrollbar({
           ignoreMobile: false
-        })
+        }).parent().addClass('scrollbar-inner');
       });
     });
   }
@@ -534,8 +534,9 @@
           width: '100%'
         }).on('select2:open', function () {
           $.fn.scrollbar && $('.select2-results__options').scrollbar({
-            ignoreMobile: false
-          })
+            ignoreMobile: false,
+            debug: true
+          }).parent().addClass('scrollbar-inner');
         });
       });
     } else {

@@ -23,6 +23,12 @@ $BASE_URL       = $_SERVER['HTTP_HOST'];
 $ENVO_TEMPLATE  = $setting["sitestyle"];
 $REQUEST_URI    = ENVO_PARSE_REQUEST;
 $FORGOT_LOGIN   = (isset($errorfp) && !empty($errorfp) ? '1' : '0');
+if (ENVO_USERID && $envouser -> envoSuperAdminAccess(ENVO_USERID)) {
+  $ENVO_DISABLEMOUSE = '1';
+} else {
+  $ENVO_DISABLEMOUSE = '0';
+}
+
 
 // GENERATED JAVASCRIPT FILE
 //---------------------------
@@ -47,15 +53,16 @@ echo <<<EOT
  */
  
 // Global options
-envoWeb.envo_url_orig = '{$BASE_URL_ORIG}';
 envoWeb.envo_url = '{$BASE_URL}';
+envoWeb.envo_url_orig = '{$BASE_URL_ORIG}';
 envoWeb.envo_lang = '{$site_language}';
 envoWeb.envo_jslang = '{$jslangdata_output}';
 envoWeb.envo_template = '{$ENVO_TEMPLATE}';
 envoWeb.envo_search_link = '{$ENVO_SEARCH_LINK}';
-envoWeb.request_uri = '{$REQUEST_URI}';
 envoWeb.envo_quickedit = '{$tl["global_text"]["gtxt6"]}';
 envoWeb.envo_forgotlogin = '{$FORGOT_LOGIN}';
+envoWeb.request_uri = '{$REQUEST_URI}';
+envoWeb.envo_disablemouse = '{$ENVO_DISABLEMOUSE}';
 
 // Name of options - Example
 var Name = {

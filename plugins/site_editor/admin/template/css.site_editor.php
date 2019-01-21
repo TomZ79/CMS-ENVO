@@ -18,15 +18,15 @@
 
 if ($page == 'site-editor') {
 
-  echo PHP_EOL . "\t";
-  echo '<!-- Start CSS Site Editor -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- Start CSS Site Editor -->';
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/site_editor/admin/css/style.site_editor.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Plugin Css style
+	echo $Html -> addStylesheet('/plugins/site_editor/admin/css/style.site_editor.min.css');
 
-  echo PHP_EOL . "\t";
-  echo '<!-- End CSS Site Editor -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- End CSS Site Editor -->';
 
 }
 

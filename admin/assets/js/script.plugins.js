@@ -38,66 +38,77 @@
  ========================================= */
 // Set WrapLimitRange from generated_admin_js.php
 $wrapLimitRange = {
-  min: aceEditor.acewraplimit,
-  max: aceEditor.acewraplimit
+	min: aceEditor.acewraplimit,
+	max: aceEditor.acewraplimit
 };
 
-if ($('#htmleditor').length) {
-  var htmlACE = ace.edit('htmleditor');
-  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
-  htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
-  htmlACE.setOptions({
-    // session options
-    mode: "ace/mode/php",
-    tabSize: aceEditor.acetabSize,
-    useSoftTabs: true,
-    highlightActiveLine: aceEditor.aceactiveline,
-    // renderer options
-    showInvisibles: aceEditor.aceinvisible,
-    showGutter: aceEditor.acegutter
-  });
-  // This is to remove following warning message on console:
-  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-  // set editor.$blockScrolling = Infinity to disable this message
-  htmlACE.$blockScrolling = Infinity;
+function aceboolean(param) {
+  if (param == '1') {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-  texthtmlef = $('#envo_phpcode').val();
-  htmlACE.session.setValue(texthtmlef);
+if ($('#htmleditor').length) {
+	var htmlACE = ace.edit('htmleditor');
+	htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
+	htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
+	htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
+	htmlACE.setOptions({
+		// session options
+		mode: "ace/mode/php",
+		tabSize: aceEditor.acetabSize,
+		useSoftTabs: true,
+    indentedSoftWrap: false,
+    highlightActiveLine: aceboolean(aceEditor.aceactiveline),
+		// renderer options
+    showPrintMargin: false,
+    fontSize: aceEditor.fontSize,
+    showInvisibles: aceEditor.aceinvisible,
+    showGutter: aceboolean(aceEditor.acegutter)
+	});
+	// This is to remove following warning message on console:
+	// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+	// set editor.$blockScrolling = Infinity to disable this message
+	htmlACE.$blockScrolling = Infinity;
+
+	texthtmlef = $('#envo_phpcode').val();
+	htmlACE.session.setValue(texthtmlef);
 }
 
 $(function () {
 
-  /* Submit Form
-   ========================================= */
-  $('form').submit(function () {
-    $('#envo_phpcode').val(htmlACE.getValue());
-  });
+	/* Submit Form
+	 ========================================= */
+	$('form').submit(function () {
+		$('#envo_phpcode').val(htmlACE.getValue());
+	});
 
-  /* Check all checkbox */
-  $('#envo_delete_all').click(function () {
-    var checkedStatus = this.checked;
-    if (checkedStatus) {
-      $('#button_delete').prop('disabled', false);
-    } else {
-      $('#button_delete').attr('disabled',true);
-    }
-    $('.highlight').each(function () {
-      $(this).prop('checked', checkedStatus);
-    });
-  });
+	/* Check all checkbox */
+	$('#envo_delete_all').click(function () {
+		var checkedStatus = this.checked;
+		if (checkedStatus) {
+			$('#button_delete').prop('disabled', false);
+		} else {
+			$('#button_delete').attr('disabled', true);
+		}
+		$('.highlight').each(function () {
+			$(this).prop('checked', checkedStatus);
+		});
+	});
 
-  /* Disable submit button if checkbox is not checked */
-  $('.highlight').change(function () {
-    if (this.checked) {
-      $('#button_delete').prop('disabled', false);
-    } else {
-      if ($('.highlight').filter(':checked').length < 1){
-        $('#envo_delete_all').prop('checked', false);
-        $('#button_delete').attr('disabled',true);
-      }
-    }
-  });
+	/* Disable submit button if checkbox is not checked */
+	$('.highlight').change(function () {
+		if (this.checked) {
+			$('#button_delete').prop('disabled', false);
+		} else {
+			if ($('.highlight').filter(':checked').length < 1) {
+				$('#envo_delete_all').prop('checked', false);
+				$('#button_delete').attr('disabled', true);
+			}
+		}
+	});
 
 });
 
@@ -106,48 +117,48 @@ $(function () {
 
 $(function () {
 
-  var element = $('#ENVOModal');
+	var element = $('#ENVOModal');
 
-  // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
-  window.closeModal = function () {
-    element.modal('hide');
-  };
+	// Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
+	window.closeModal = function () {
+		element.modal('hide');
+	};
 
-  // Show iFrame in Bootstrap modal  - Install and Uninstall
-  $('.plugInst').on('click', function (e) {
-    e.preventDefault();
-    $frameSrc = $(this).attr('href');
+	// Show iFrame in Bootstrap modal  - Install and Uninstall
+	$('.plugInst').on('click', function (e) {
+		e.preventDefault();
+		$frameSrc = $(this).attr('href');
 
-    element.on('shown.bs.modal', function (e) {
+		element.on('shown.bs.modal', function (e) {
 
-      $(this).find('.modal-dialog').addClass('modal-w-90p');
-      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+			$(this).find('.modal-dialog').addClass('modal-w-90p');
+			$(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
 
-    }).on('hidden.bs.modal', function (e) {
+		}).on('hidden.bs.modal', function (e) {
 
-      window.location.reload();
+			window.location.reload();
 
-    }).modal('show');
+		}).modal('show');
 
-  });
+	});
 
-  // Show iFrame in Bootstrap modal - Help
-  $('.plugHelp').on('click', function (e) {
-    e.preventDefault();
-    $frameSrc = $(this).attr('href');
+	// Show iFrame in Bootstrap modal - Help
+	$('.plugHelp').on('click', function (e) {
+		e.preventDefault();
+		$frameSrc = $(this).attr('href');
 
-    element.on('shown.bs.modal', function (e) {
+		element.on('shown.bs.modal', function (e) {
 
-      $(this).find('.modal-dialog').addClass('modal-w-90p');
-      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+			$(this).find('.modal-dialog').addClass('modal-w-90p');
+			$(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
 
-    }).on('hidden.bs.modal', function (e) {
+		}).on('hidden.bs.modal', function (e) {
 
-      $(this).find('.body-content').html('');
+			$(this).find('.body-content').html('');
 
-    }).modal('show');
+		}).modal('show');
 
-  });
+	});
 
 });
 
@@ -157,30 +168,30 @@ $(function () {
 
 $(function () {
 
-  // If exist 'table' -> init Plugin DataTable
-  if ($('#hooks_table').length > 0) {
-    $('#hooks_table').dataTable({
-      // Language
-      "language": {
-        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
-      },
+	// If exist 'table' -> init Plugin DataTable
+	if ($('#hooks_table').length > 0) {
+		$('#hooks_table').dataTable({
+			// Language
+			"language": {
+				"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+			},
 
-      "order": [],
-      "columnDefs": [{
-        "targets": 'no-sort',
-        "orderable": false
-      }],
-      // Page lenght
-      "pageLength": dataTablesSettings.pageLenght,
-      // Show entries
-      //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
-      // Design Table items
-      "dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>",
-      // Init bootstrap responsive table for mobile
-      "initComplete": function (settings, json) {
-        $(this).wrap('<div class="table-responsive"></div>');
-      }
-    });
-  }
+			"order": [],
+			"columnDefs": [{
+				"targets": 'no-sort',
+				"orderable": false
+			}],
+			// Page lenght
+			"pageLength": dataTablesSettings.pageLenght,
+			// Show entries
+			//"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
+			// Design Table items
+			"dom": "<'row'<'col-sm-6'<'pull-left m-b-20'f>><'col-sm-6'<'pull-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-7'i><'col-sm-5'p>>",
+			// Init bootstrap responsive table for mobile
+			"initComplete": function (settings, json) {
+				$(this).wrap('<div class="table-responsive"></div>');
+			}
+		});
+	}
 
 });

@@ -1,4 +1,4 @@
-/* 16. Noname Components
+/* 17. Noname Components
  ========================================================================*/
 /* Login Page */
 .lost-pwd {
@@ -208,6 +208,42 @@
 
 .text-regular {
   font-weight: 400;
+}
+
+/* ------------------------------------------------------------------------------
+ *  # Statistic count block
+ * ---------------------------------------------------------------------------- */
+.tile_count .tile_stats_count {
+  margin-bottom: 10px;
+  border-bottom: 0;
+  padding: 0 10px 0 20px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 65px;
+    border-left: 2px solid #ADB2B5;
+    margin-top: 10px;
+  }
+  &:first-child::before {
+    border-left: 0;
+  }
+  span {
+    font-size: 13px;
+    font-weight: 400;
+    color: #73879C;
+  }
+  .count {
+    font-size: 40px;
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    line-height: 47px;
+    font-weight: 600;
+    color: #73879C;
+  }
 }
 
 /* ------------------------------------------------------------------------------
@@ -476,7 +512,7 @@
 }
 
 @media (min-width: 769px) {
-  .sidebar-scroll{
+  .sidebar-scroll {
     &.affix {
       margin-top: 50px;
       overflow-y: auto;
@@ -485,8 +521,9 @@
       bottom: 85px;
     }
   }
+
   .sidebar-default {
-    border: 1px solid rgba(0,0,0,0.07);
+    border: 1px solid rgba(0, 0, 0, 0.07);
     display: table-cell;
     vertical-align: top;
     width: 260px;

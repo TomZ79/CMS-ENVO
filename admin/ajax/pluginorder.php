@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
-if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die("Nothing to see here");
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die("Nothing to see here");
 
 // EN: Set the JSON header content-type
 // CZ: Nastavení záhlaví JSON
@@ -22,12 +22,12 @@ $id        = $_POST['id'];
 $positions = $_POST['positions'];
 
 // Define basic variable
-$envodata = array();
+$envodata = array ();
 
 if (!is_numeric($id) && !is_array($positions)) {
 
 	// Data for JSON
-	$envodata = array(
+	$envodata = array (
 		'status'     => 'error_E02',
 		'status_msg' => 'There is no content for the update',
 	);
@@ -40,27 +40,27 @@ if (!is_numeric($id) && !is_array($positions)) {
 
 	if (!$strVals) {
 		// Data for JSON
-		$envodata = array(
+		$envodata = array (
 			'status'     => 'error_E03',
 			'status_msg' => 'There is no content for the update',
 		);
 	} else {
 
 		// We are using the CASE SQL operator to update the plugin positions en masse:
-		$result = $envodb->query('UPDATE '.DB_PREFIX.'plugins SET pluginorder = CASE id
-				'.join($strVals).'
+		$result = $envodb -> query('UPDATE ' . DB_PREFIX . 'plugins SET pluginorder = CASE id
+				' . join($strVals) . '
 				ELSE pluginorder
 				END');
 
 		if ($result) {
 			// Data for JSON
-			$envodata = array(
+			$envodata = array (
 				'status'     => 'success',
 				'status_msg' => 'Update the plugin positions was successful',
 			);
 		} else {
 			// Data for JSON
-			$envodata = array(
+			$envodata = array (
 				'status'     => 'error_E01',
 				'status_msg' => 'Update the plugin positions was incorrect',
 			);

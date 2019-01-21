@@ -18,20 +18,20 @@
 
 $(function () {
 
-  $('#sollist-sharing').sollist({
-    pixelsBetweenItems: sollist.pixels,
-    size: sollist.size,
-    theme: sollist.theme,
-    hoverEffect: sollist.hoverEffect,
-    profiles: {
-      facebook: '',
-      googleplus: '',
-      instagram: '',
-      twitter: '',
-      youtube: '',
-      vimeo: '',
-      email: ''
-    }
-  });
+	$('#sollist-sharing').sollist({
+		pixelsBetweenItems: sollist.pixels,
+		size: sollist.size,
+		theme: sollist.theme,
+		hoverEffect: sollist.hoverEffect,
+		profiles: {
+			facebook: '',
+			googleplus: '',
+			instagram: '',
+			twitter: '',
+			youtube: '',
+			vimeo: '',
+			email: ''
+		}
+	});
 
 });

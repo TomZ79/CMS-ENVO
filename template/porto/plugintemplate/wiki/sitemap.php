@@ -19,23 +19,23 @@
 
 if (ENVO_PLUGIN_ACCESS_WIKI && $ENVO_WIKI_ALL) {
 
-  echo '<div class="col">';
+	echo '<div class="col">';
 
-  echo '<h4 class="font-weight-bold text-3 mb-1 mt-2">' . ENVO_PLUGIN_NAME_WIKI . '</h4>';
+	echo '<h4 class="font-weight-bold text-3 mb-1 mt-2">' . ENVO_PLUGIN_NAME_WIKI . '</h4>';
 
-  if (isset($ENVO_WIKI_ALL) && is_array($ENVO_WIKI_ALL)) {
+	if (isset($ENVO_WIKI_ALL) && is_array($ENVO_WIKI_ALL)) {
 
-    echo '<ul class="list list-icons list-icons-sm">';
+		echo '<ul class="list list-icons list-icons-sm">';
 
-    foreach ($ENVO_WIKI_ALL as $fla) {
-      echo '<li><a href="' . $fla["parseurl"] . '"><i class="far fa-file"></i>' . envo_cut_text($fla["title"], 35, "...") . '</a></li>';
-    }
+		foreach ($ENVO_WIKI_ALL as $fla) {
+			echo '<li><a href="' . $fla["parseurl"] . '"><i class="far fa-file"></i>' . envo_cut_text($fla["title"], 35, "...") . '</a></li>';
+		}
 
-    echo '</ul>';
+		echo '</ul>';
 
-  }
+	}
 
-  echo '</div>';
+	echo '</div>';
 }
 
 ?>

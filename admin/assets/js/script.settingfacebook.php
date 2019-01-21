@@ -18,15 +18,15 @@
 
 if ($page == 'settingfacebook') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Setting Facebook -->';
+	echo PHP_EOL . '<!-- Start JS AKP Setting Facebook -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.settingfacebook.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin ACE Editor
+	echo $Html -> addScript('assets/plugins/ace/ace.js');
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.settingfacebook.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP Setting Facebook -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Setting Facebook -->' . PHP_EOL;
 
 }
 

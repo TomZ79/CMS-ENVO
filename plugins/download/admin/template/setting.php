@@ -317,6 +317,33 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', $tlf["faq_box_content"]["faqbc38"]);
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="radio radio-success">
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html -> addRadio('envo_downllivesearch', '1', ($setting["downloadlivesearch"] == '1') ? TRUE : FALSE, 'envo_downllivesearch1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html -> addLabel('envo_downllivesearch1', $tl["checkbox"]["chk"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html -> addRadio('envo_downllivesearch', '0', ($setting["downloadlivesearch"] == '0') ? TRUE : FALSE, 'envo_downllivesearch2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html -> addLabel('envo_downllivesearch2', $tl["checkbox"]["chk1"]);
+													?>
+
+												</div>
+											</div>
+										</div>
                     <div class="row-form">
                       <div class="col-sm-5">
 

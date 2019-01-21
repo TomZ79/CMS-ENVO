@@ -6,11 +6,11 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ .
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
 if (!ENVO_USERID) die($php_errormsg);
 
-if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -18,10 +18,10 @@ $succesfully = 0;
 // EN: Import the language file
 // CZ: Import jazykových souborů
 if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
-  $site_language = $setting["lang"];
+	$tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+	$site_language = $setting["lang"];
 }
 
 ?>
@@ -29,90 +29,89 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><?=$tl["installtemplate"]["itpl"] . ' - PORTO Template'?></title>
-  <meta charset="utf-8">
-  <!-- BEGIN Vendor CSS-->
-  <link href="/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-  <!-- BEGIN Pages CSS-->
-  <link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
-  <link class="main-stylesheet" href="/admin/pages/css/pages.min.css?=v3.0.2" rel="stylesheet" type="text/css"/>
-  <!-- BEGIN CUSTOM MODIFICATION -->
-  <style type="text/css">
-    /* Fix 'jumping scrollbar' issue */
-    @media screen and (min-width: 960px) {
-      html {
-        margin-left: calc(100vw - 100%);
-        margin-right: 0;
-      }
-    }
+	<title><?= $tl["installtemplate"]["itpl"] . ' - PORTO Template' ?></title>
+	<meta charset="utf-8">
+	<!-- BEGIN Vendor CSS-->
+	<link href="/assets/plugins/bootstrap/bootstrapv4/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN Pages CSS-->
+	<link href="/admin/pages/css/pages-icons.css?=v3.0.0" rel="stylesheet" type="text/css">
+	<link class="main-stylesheet" href="/admin/pages/css/pages.min.css?=v3.0.2" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
 
-    /* Main body */
-    body {
-      background: transparent;
-    }
-  </style>
-  <!-- BEGIN VENDOR JS -->
-  <?php
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
-  echo $Html->addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html->addScript('/assets/plugins/popover/1.14.1/popper.min.js');
-  echo $Html->addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
-  ?>
-  <!-- BEGIN CORE TEMPLATE JS -->
-  <?php
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  echo $Html->addScript('/admin/pages/js/pages.min.js');
-  ?>
+		/* Main body */
+		body {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<?php
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+	echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
+	echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+	echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
+	?>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<?php
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	echo $Html -> addScript('/admin/pages/js/pages.min.js');
+	?>
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 m-t-20">
-      <div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
-        <h3 class="semi-bold text-white"><?=$tl["installtemplate"]["itpl"] . ' - PORTO Template'?></h3>
-      </div>
-      <hr>
+	<div class="row">
+		<div class="col-sm-12 m-t-20">
+			<div class="jumbotron bg-master pt-1 pl-3 pb-1 pr-3">
+				<h3 class="semi-bold text-white"><?= $tl["installtemplate"]["itpl"] . ' - PORTO Template' ?></h3>
+			</div>
+			<hr>
 
-      <!-- Check if the plugin is already installed -->
-      <?php
+			<!-- Check if the plugin is already installed -->
+			<?php
 
-      $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_porto"');
-      if ($envodb->affected_rows > 0) { ?>
+			$envodb -> query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_porto"');
+			if ($envodb -> affected_rows > 0) { ?>
 
-        <!-- Info - check if template is installed -->
-        <div class="alert alert-info fade show">
-          <?=$tl["installtemplate"]["itpl1"]?>
-        </div>
+				<!-- Info - check if template is installed --><div class="alert alert-info fade show">
+					<?= $tl["installtemplate"]["itpl1"] ?>
+				</div>
 
-        <!-- Plugin is not installed let's display the installation script -->
-      <?php } else {
-        if (isset($_POST['install'])) {
+				<!-- Plugin is not installed let's display the installation script -->
+			<?php } else {
+				if (isset($_POST['install'])) {
 
-          // Delete old entries
-          $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "porto"');
+					// Delete old entries
+					$envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "porto"');
 
-          // EN: Set admin lang of plugin
-          // CZ: Nastavení jazyka pro administrační rozhraní pluginu
-          $adminlang = 'if (file_exists(APP_PATH.\'template/porto/lang/\'.$site_language.\'.ini\')) {
+					// EN: Set admin lang of plugin
+					// CZ: Nastavení jazyka pro administrační rozhraní pluginu
+					$adminlang = 'if (file_exists(APP_PATH.\'template/porto/lang/\'.$site_language.\'.ini\')) {
     $tlporto = parse_ini_file(APP_PATH.\'template/porto/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlporto = parse_ini_file(APP_PATH.\'template/porto/lang/en.ini\', true);
 }';
 
-          // EN: Set site lang of plugin
-          // CZ: Nastavení jazyka pro webové rozhraní pluginu
-          $sitelang = 'if (file_exists(APP_PATH.\'template/porto/lang/\'.$site_language.\'.ini\')) {
+					// EN: Set site lang of plugin
+					// CZ: Nastavení jazyka pro webové rozhraní pluginu
+					$sitelang = 'if (file_exists(APP_PATH.\'template/porto/lang/\'.$site_language.\'.ini\')) {
     $tlporto = parse_ini_file(APP_PATH.\'template/porto/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlporto = parse_ini_file(APP_PATH.\'template/porto/lang/en.ini\', true);
 }';
 
-          // EN: Set html data to insert
-          // CZ: Nastavení HTML dat pro vložení
-          $footerblocktext1 = '
+					// EN: Set html data to insert
+					// CZ: Nastavení HTML dat pro vložení
+					$footerblocktext1 = '
 <div class="col-sm-8">
   <div class="row">
     <div class="col-sm-4">
@@ -159,27 +158,27 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 </div>
 ';
 
-          // Insert data into pluginhooks
-          $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+					// Insert data into pluginhooks
+					$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_lang", "PORTO Template Site Language", "' . $sitelang . '", "tpl_porto", 1, 4, "0", NOW()),
 (NULL, "php_admin_lang", "PORTO Template Admin Language", "' . $adminlang . '", "tpl_porto", 1, 4, "0", NOW())');
 
-          // Insert tables into settings
-          /* Table of BASIC varname - NOT REMOVE
-           * ------------------
-           * sidebar_location_tpl => info about sidebar location
-           * cms_tpl => basic info about installed template
-           * styleswitcher_tpl => show or hide styleswitcher in site
-           */
-          $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+					// Insert tables into settings
+					/* Table of BASIC varname - NOT REMOVE
+					 * ------------------
+					 * sidebar_location_tpl => info about sidebar location
+					 * cms_tpl => basic info about installed template
+					 * styleswitcher_tpl => show or hide styleswitcher in site
+					 */
+					$envodb -> query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("sidebar_location_tpl", "porto", "left", "left", "input", "free", "tpl_porto"),
 ("styleswitcher_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 ("cms_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 
 
-("skin_porto_tpl", "porto", "default", "default", "input", "free", "tpl_porto"),
+("skin_porto_tpl", "porto", "default", "default", "select", "free", "tpl_porto"),
 ("header_porto_tpl", "porto", "header-area navbar-fixed-top", "header-area navbar-fixed-top", "input", "free", "tpl_porto"),
-("navi_porto_tpl", "porto", "header-effect-shrink", "header-effect-shrink", "input", "free", "tpl_porto"),
+("navi_porto_tpl", "porto", "header-effect-shrink", "header-effect-shrink", "select", "free", "tpl_porto"),
 ("sitemapShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 ("sitemapLinks_porto_tpl", "porto", "sitemap", "sitemap", "input", "free", "tpl_porto"),
 ("loginShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
@@ -207,34 +206,58 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
 ("googlefooterShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 ("googlefooterLinks_porto_tpl", "porto", "https://plus.google.com/", "https://plus.google.com/", "input", "free", "tpl_porto"),
 ("instagramfooterShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
-("instagramfooterLinks_porto_tpl", "porto", "https://www.instagram.com/", "https://www.instagram.com/", "input", "free", "tpl_porto")
+("instagramfooterLinks_porto_tpl", "porto", "https://www.instagram.com/", "https://www.instagram.com/", "input", "free", "tpl_porto"),
+
+("pageheader_porto_tpl", "porto", "page-header-classic, page-header-md", "page-header-classic, page-header-md", "select", "free", "tpl_porto")
 
 ');
 
-          $succesfully = 1;
+					$envodb -> query("CREATE TABLE " . DB_PREFIX . "portotplheader_img (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `catid` varchar(100) NOT NULL DEFAULT 0,
+  `img` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-          ?>
-          <!-- Alert Template installed - succes -->
-          <div class="alert alert-success fade show">
-            <?=$tl["installtemplate"]["itpl2"]?>
-          </div>
-          <!-- Button Close Modal -->
-          <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">
-            <?=$tl["installtemplate"]["itpl4"]?>
-          </button>
-        <?php }
-        if (!$succesfully) { ?>
-          <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-            <!-- Install button -->
-            <button type="submit" name="install" class="btn btn-primary btn-block">
-              <?=$tl["installtemplate"]["itpl3"]?>
-            </button>
-          </form>
-        <?php }
-      } ?>
+					$envodb -> query("INSERT INTO " . DB_PREFIX . "portotplheader_img VALUES
+(1, '', ''),
+(2, '', ''),
+(3, '', ''),
+(4, '', ''),
+(5, '', ''),
+(6, '', ''),
+(7, '', ''),
+(8, '', ''),
+(9, '', ''),
+(10, '', ''),
+(11, '', ''),
+(12, '', ''),
+(13, '', ''),
+(14, '', ''),
+(15, '', '')");
 
-    </div>
-  </div>
+					$succesfully = 1;
+
+					?>
+					<!-- Alert Template installed - succes --><div class="alert alert-success fade show">
+						<?= $tl["installtemplate"]["itpl2"] ?>
+					</div><!-- Button Close Modal -->
+					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">
+						<?= $tl["installtemplate"]["itpl4"] ?>
+					</button>
+				<?php }
+				if (!$succesfully) { ?>
+					<form name="company" method="post" action="install.php" enctype="multipart/form-data">
+						<!-- Install button -->
+						<button type="submit" name="install" class="btn btn-primary btn-block">
+							<?= $tl["installtemplate"]["itpl3"] ?>
+						</button>
+					</form>
+				<?php }
+			} ?>
+
+		</div>
+	</div>
 
 </div>
 </body>

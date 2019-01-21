@@ -2,26 +2,26 @@
 
 class ENVO_usergroup
 {
-  private $data;
-  private $envovar = 0;
+	private $data;
+	private $envovar = 0;
 
-  public function __construct($row)
-  {
-    /*
-    /	The constructor
-    */
+	public function __construct ($row)
+	{
+		/*
+		/	The constructor
+		*/
 
-    $this->data = $row;
-  }
+		$this -> data = $row;
+	}
 
-  function getVar($envovar)
-  {
-    // Setting up an alias, so we don't have to write $this->data every time:
-    $d = $this->data;
+	function getVar ($envovar)
+	{
+		// Setting up an alias, so we don't have to write $this->data every time:
+		$d = $this -> data;
 
-    if (!empty($d[$envovar])) return $d[$envovar];
+		if (!empty($d[$envovar])) return $d[$envovar];
 
-  }
+	}
 
 }
 

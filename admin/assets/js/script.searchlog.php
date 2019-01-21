@@ -18,13 +18,13 @@
 
 if ($page == 'searchlog') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Search Log -->';
+	echo PHP_EOL . '<!-- Start JS AKP Search Log -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.searchlog.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.searchlog.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP Search Log -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Search Log -->' . PHP_EOL;
 
 }
 

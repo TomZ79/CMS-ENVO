@@ -18,12 +18,12 @@ class ENVO_hooks
 
 		$envohooks = array ();
 		global $envodb;
-		$result = $envodb->query ('SELECT * FROM ' . DB_PREFIX . 'pluginhooks' . $sqlwhere . ' ORDER BY exorder ASC');
-		while ($row = $result->fetch_assoc ()) {
+		$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks' . $sqlwhere . ' ORDER BY exorder ASC');
+		while ($row = $result -> fetch_assoc()) {
 			$envohooks[] = $row;
 		}
 
-		$this->data = $envohooks;
+		$this -> data = $envohooks;
 	}
 
 	public static function EnvoAllhooks ()
@@ -36,32 +36,32 @@ class ENVO_hooks
 	function EnvoGetarray ()
 	{
 		// Setting up an alias, so we don't have to write $this->data every time:
-		$d = $this->data;
+		$d = $this -> data;
 
 		return $d;
 
 	}
 
-  function EnvoGethook ($hook, $plugin = '')
-  {
-    // Setting up an alias, so we don't have to write $this->data every time:
-    $d = $this->data;
+	function EnvoGethook ($hook, $plugin = '')
+	{
+		// Setting up an alias, so we don't have to write $this->data every time:
+		$d = $this -> data;
 
-    foreach ($d as $c) {
-      if (!empty($plugin)) {
-        if ($c['hook_name'] == $hook && $c['product'] == $plugin) {
-          $case["phpcode"] = $c['phpcode'];
-          $case["id"] = $c['id'];
-        }
-      } else {
-        if ($c['hook_name'] == $hook) {
-          $case[] = array ('phpcode' => $c['phpcode'], 'id' => $c['id']);
-        }
-      }
-    }
+		foreach ($d as $c) {
+			if (!empty($plugin)) {
+				if ($c['hook_name'] == $hook && $c['product'] == $plugin) {
+					$case["phpcode"] = $c['phpcode'];
+					$case["id"]      = $c['id'];
+				}
+			} else {
+				if ($c['hook_name'] == $hook) {
+					$case[] = array ('phpcode' => $c['phpcode'], 'id' => $c['id']);
+				}
+			}
+		}
 
-    if (!empty($case)) return $case;
-  }
+		if (!empty($case)) return $case;
+	}
 
 }
 

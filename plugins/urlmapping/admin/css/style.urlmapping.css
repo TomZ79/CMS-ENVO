@@ -19,18 +19,20 @@
  Example:  <td class="ellipsis"><span>This Text Overflows and is too large for its cell.</span></td>
  */
 .ellipsis {
-  position: relative;
+	position: relative;
 }
+
 .ellipsis:before {
-  content: '&nbsp;';
-  visibility: hidden;
+	content: '&nbsp;';
+	visibility: hidden;
 }
+
 .ellipsis span {
-  position: absolute;
-  left: 8px;
-  right: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
+	position: absolute;
+	left: 8px;
+	right: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-right: 10px;
 }

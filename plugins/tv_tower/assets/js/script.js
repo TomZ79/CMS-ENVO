@@ -29,147 +29,147 @@ var jslangdata = JSON.parse(envoWeb.envo_jslang);
 (function ($) {
 // PROGRAM WIZARD
 
-  // Init SumoSelect plugin
-  $('#selectTrans').SumoSelect({
-    placeholder: jslangdata.btnplaceholder1,
-    captionFormat:'{0} ' + jslangdata.captionformat,
-    captionFormatAllSelected:'{0} - ' + jslangdata.captionformatall,
-    locale: [jslangdata.locale1, jslangdata.locale2, jslangdata.locale3],
-    selectAll: true
-  });
-  $('#selectChannel').SumoSelect({
-    placeholder: jslangdata.btnplaceholder2,
-    captionFormat:'{0} ' + jslangdata.captionformat,
-    captionFormatAllSelected:'{0} - ' + jslangdata.captionformatall,
-    locale: [jslangdata.locale1, jslangdata.locale2, jslangdata.locale3],
-    selectAll: true
-  });
+	// Init SumoSelect plugin
+	$('#selectTrans').SumoSelect({
+		placeholder: jslangdata.btnplaceholder1,
+		captionFormat: '{0} ' + jslangdata.captionformat,
+		captionFormatAllSelected: '{0} - ' + jslangdata.captionformatall,
+		locale: [jslangdata.locale1, jslangdata.locale2, jslangdata.locale3],
+		selectAll: true
+	});
+	$('#selectChannel').SumoSelect({
+		placeholder: jslangdata.btnplaceholder2,
+		captionFormat: '{0} ' + jslangdata.captionformat,
+		captionFormatAllSelected: '{0} - ' + jslangdata.captionformatall,
+		locale: [jslangdata.locale1, jslangdata.locale2, jslangdata.locale3],
+		selectAll: true
+	});
 
-  // Select TV Tower - change function
-  $('#selectTrans').on('change', function () {
-    // Getting selection value
-    var transID = $(this).val();
+	// Select TV Tower - change function
+	$('#selectTrans').on('change', function () {
+		// Getting selection value
+		var transID = $(this).val();
 
-    if (transID) {
+		if (transID) {
 
-      // Get programs by value from selection
-      $.ajax({
-        url: '/plugins/tv_tower/ajax/selectchannel.php',
-        type: 'POST',
-        datatype: 'json',
-        data: {
-          transId: transID
-        },
-        success: function (data) {
-          var $select = $('#selectChannel');
-          $select.empty();
+			// Get programs by value from selection
+			$.ajax({
+				url: '/plugins/tv_tower/ajax/selectchannel.php',
+				type: 'POST',
+				datatype: 'json',
+				data: {
+					transId: transID
+				},
+				success: function (data) {
+					var $select = $('#selectChannel');
+					$select.empty();
 
-          var res = $.parseJSON(data);
-          // console.log(data);
+					var res = $.parseJSON(data);
+					// console.log(data);
 
-          $.each(res, function (key, data) {
-            // console.log(key);
+					$.each(res, function (key, data) {
+						// console.log(key);
 
-            var $optgroup = $("<optgroup>", {label: key});
-            $optgroup.appendTo($select);
+						var $optgroup = $("<optgroup>", {label: key});
+						$optgroup.appendTo($select);
 
-            $.each(data, function (key, data) {
-              // console.log(key);
+						$.each(data, function (key, data) {
+							// console.log(key);
 
-              $.each(data, function (index, data) {
-                // console.log('TowerID: ', data['towerid']);
-                // console.log('TowerNAME: ', data['towername']);
-                // console.log('ChannelID: ', data['channelid']);
-                // console.log('ChannelNUMBER: ', data['channelnumber']);
+							$.each(data, function (index, data) {
+								// console.log('TowerID: ', data['towerid']);
+								// console.log('TowerNAME: ', data['towername']);
+								// console.log('ChannelID: ', data['channelid']);
+								// console.log('ChannelNUMBER: ', data['channelnumber']);
 
-                var $option = $("<option>", {
-                  text: data['channelnumber'] + ' K',
-                  value: data['towerid'] + ',' + data['channelid'] + ',' + data['channelnumber']
-                });
-                $option.appendTo($optgroup);
+								var $option = $("<option>", {
+									text: data['channelnumber'] + ' K',
+									value: data['towerid'] + ',' + data['channelid'] + ',' + data['channelnumber']
+								});
+								$option.appendTo($optgroup);
 
-              })
-            });
-          });
+							})
+						});
+					});
 
-          $('#selectChannel')[0].sumo.reload();
-        }
-      });
-    } else {
-      $('#selectChannel').html('');
-      $('#selectChannel')[0].sumo.reload();
-    }
+					$('#selectChannel')[0].sumo.reload();
+				}
+			});
+		} else {
+			$('#selectChannel').html('');
+			$('#selectChannel')[0].sumo.reload();
+		}
 
-  });
+	});
 
-  $('#searchprogram').click(function () {
-    var channelIDs = $('#selectChannel').val();
+	$('#searchprogram').click(function () {
+		var channelIDs = $('#selectChannel').val();
 
-    if (channelIDs) {
-      $('#resultData').empty();
-      $('#bounceLoader').show();
+		if (channelIDs) {
+			$('#resultData').empty();
+			$('#bounceLoader').show();
 
-      $.ajax({
-        url: '/plugins/tv_tower/ajax/selectchannel2.php',
-        type: 'POST',
-        datatype: 'html',
-        data: {
-          channelIDs: channelIDs
-        },
-        success: function (data) {
+			$.ajax({
+				url: '/plugins/tv_tower/ajax/selectchannel2.php',
+				type: 'POST',
+				datatype: 'html',
+				data: {
+					channelIDs: channelIDs
+				},
+				success: function (data) {
 
-          setTimeout(function () {
-            $('#bounceLoader').hide();
-            $('#resultData').append(data);
-          }, 1500);
+					setTimeout(function () {
+						$('#bounceLoader').hide();
+						$('#resultData').append(data);
+					}, 1500);
 
-        }
-      });
-    } else {
-      $('#resultData').html('<div class="alert alert-danger">Vyberte kanál ze seznamu kanálů</div>');
-    }
+				}
+			});
+		} else {
+			$('#resultData').html('<div class="alert alert-danger">Vyberte kanál ze seznamu kanálů</div>');
+		}
 
-  });
+	});
 
 
-  $('#exportprogram').click(function () {
-    var channelIDs = $('#selectChannel').val();
+	$('#exportprogram').click(function () {
+		var channelIDs = $('#selectChannel').val();
 
-    if (channelIDs) {
-      $('#resultData').empty();
-      $('#bounceLoader').show();
+		if (channelIDs) {
+			$('#resultData').empty();
+			$('#bounceLoader').show();
 
-      $.ajax({
-        url: '/plugins/tv_tower/pdf_programlist_ajax.php',
-        type: 'POST',
-        dataType: 'json',
-        data: {
-          channelIDs: channelIDs
-        },
-        success: function (response) {
+			$.ajax({
+				url: '/plugins/tv_tower/pdf_programlist_ajax.php',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					channelIDs: channelIDs
+				},
+				success: function (response) {
 
-          setTimeout(function () {
-            $('#bounceLoader').hide();
+					setTimeout(function () {
+						$('#bounceLoader').hide();
 
-            if(response.URL){
-              $('#resultData').html('Export seznamu programů do PDF proběhl úspěšně');
+						if (response.URL) {
+							$('#resultData').html('Export seznamu programů do PDF proběhl úspěšně');
 
-              // Initiate download using direct path to file
-              window.location = response.URL;
-            } else{
-              $('#resultData').html(response.ERROR);
-            }
+							// Initiate download using direct path to file
+							window.location = response.URL;
+						} else {
+							$('#resultData').html(response.ERROR);
+						}
 
-          }, 1500);
+					}, 1500);
 
-        }
-      });
+				}
+			});
 
-    } else {
-      $('#resultData').html('<div class="alert alert-danger">Vyberte kanál ze seznamu kanálů</div>');
-    }
+		} else {
+			$('#resultData').html('<div class="alert alert-danger">Vyberte kanál ze seznamu kanálů</div>');
+		}
 
-  });
+	});
 
 })(jQuery);
 
@@ -181,67 +181,67 @@ var jslangdata = JSON.parse(envoWeb.envo_jslang);
 (function ($) {
 // PROGRAM LIST
 
-  // Init Boostrap Popover
-  $('[data-toggle="popover"]').popover({
-    html : true,
-    trigger: 'hover',
-    placement: 'top',
-    container: 'body'
-  });
+	// Init Boostrap Popover
+	$('[data-toggle="popover"]').popover({
+		html: true,
+		trigger: 'hover',
+		placement: 'top',
+		container: 'body'
+	});
 
-  // Init SumoSelect plugin
-  $('.sumoselect').SumoSelect();
+	// Init SumoSelect plugin
+	$('.sumoselect').SumoSelect();
 
-  // BOOTSTRAP-EXPAND table rows
-  $('.table-expandable').each(function () {
-    var table = $(this);
-    if (table.children('tbody').children('tr').hasClass('noresult')) {
+	// BOOTSTRAP-EXPAND table rows
+	$('.table-expandable').each(function () {
+		var table = $(this);
+		if (table.children('tbody').children('tr').hasClass('noresult')) {
 
-    } else {
-      table.children('thead').children('tr').append('<th></th>');
-      table.children('tbody').children('tr').filter(':odd').hide();
-      table.children('tbody').children('tr').filter(':even').click(function () {
-        var element = $(this);
-        element.toggleClass('active');
-        element.next('tr').toggle('fast');
-        element.find(".table-expandable-arrow").toggleClass("up");
-      });
-      table.children('tbody').children('tr').filter(':even').each(function () {
-        var element = $(this);
-        element.append('<td><div class="table-expandable-arrow"></div></td>');
-      });
-    }
-  });
+		} else {
+			table.children('thead').children('tr').append('<th></th>');
+			table.children('tbody').children('tr').filter(':odd').hide();
+			table.children('tbody').children('tr').filter(':even').click(function () {
+				var element = $(this);
+				element.toggleClass('active');
+				element.next('tr').toggle('fast');
+				element.find(".table-expandable-arrow").toggleClass("up");
+			});
+			table.children('tbody').children('tr').filter(':even').each(function () {
+				var element = $(this);
+				element.append('<td><div class="table-expandable-arrow"></div></td>');
+			});
+		}
+	});
 
-  // FILTER TABLE BY MUX - TRANSMITTER
-  $('select[id^="SelectTrans"]').on('change', function () {
-    // Get the value of the select box
-    var val = $(this).find("option:selected").val();
+	// FILTER TABLE BY MUX - TRANSMITTER
+	$('select[id^="SelectTrans"]').on('change', function () {
+		// Get the value of the select box
+		var val = $(this).find("option:selected").val();
 
-    // Get parent div by transmitter
-    var parentel = $(this).parents('div[id^="tramsmitter-"]');
-    console.log(parentel);
+		// Get parent div by transmitter
+		var parentel = $(this).parents('div[id^="tramsmitter-"]');
+		console.log(parentel);
 
-    // Show all tr rows in transmitter table
-    parentel.find('div[id^="Transmitter"] table tbody tr').show();
+		// Show all tr rows in transmitter table
+		parentel.find('div[id^="Transmitter"] table tbody tr').show();
 
-    // Show all the rows
-    $('.table-expandable').each(function () {
-      var table = $(this);
-      table.children('tbody').children('tr').filter(':odd').hide();
-    });
-    // If there is a value hide all the rows except the ones with a data-year of that value
-    if (val) {
-      // Find tr with 'data-mux' in parent div
-      parentel.find('div[id^="Transmitter"] table tbody tr').not($('tbody tr[data-mux="' + val + '"]')).hide();
-      $('.table-expandable').each(function () {
-        var table = $(this);
-        table.children('tbody').children('tr').filter(':odd').hide();
-        // Remove class from Bootstrap expand table rows
-        table.find(".table-expandable-arrow").removeClass("up");
-        table.find(".active").removeClass("active");
-      });
-    }
-  });
+		// Show all the rows
+		$('.table-expandable').each(function () {
+			var table = $(this);
+			table.children('tbody').children('tr').filter(':odd').hide();
+		});
+		// If there is a value hide all the rows except the ones with a data-year of that value
+		if (val) {
+			// Find tr with 'data-mux' in parent div
+			parentel.find('div[id^="Transmitter"] table tbody tr').not($('tbody tr[data-mux="' + val + '"]')).hide();
+			$('.table-expandable').each(function () {
+				var table = $(this);
+				table.children('tbody').children('tr').filter(':odd').hide();
+				// Remove class from Bootstrap expand table rows
+				table.find(".table-expandable-arrow").removeClass("up");
+				table.find(".active").removeClass("active");
+			});
+		}
+	});
 
 })(jQuery);

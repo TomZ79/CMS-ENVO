@@ -1,0 +1,45 @@
+# Keywords blacklist for "php-spam-filter"
+# Any regular expression syntax can be used here
+# 	(without the delimiters)
+# All keywords are case insensitive.
+# Lines starting with '#' are ignored.
+
+Accept credit cards
+Access for free
+Believe me
+Billing address
+Cards accepted
+Double your cash
+Earn from home
+Earn money
+Earn per month
+Earn per week
+Eliminate debt
+Extra cash
+Financial freedom
+Find a hot woman
+for good sex
+Free grant money
+Free information
+Free installation
+Free membership
+Free priority mail
+Fuck tonight
+Get started now
+Hot and juicy women
+Hot women for good sex
+Join millions
+Limited time
+Make money
+Multi level marketing
+Notspam
+Save big money
+Spam
+What are you waiting for
+Winner
+Women for sex
+You’re a winner
+Hy there,
+Just click http
+Amazingoffering for you
+Just click on the link below

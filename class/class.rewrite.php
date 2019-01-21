@@ -3,251 +3,254 @@
 class ENVO_rewrite
 {
 
-  private
-    $url_seg;
-  private
-    $data = array();
-
-  // This constructor can be used for all classes:
-
-  public function __construct($url)
-  {
-
-    $this->url = $url;
-  }
-
-  public static function envoParseurl($var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = '', $tabs = '')
-  {
-
-    // Set v to zero
-    $v = $v1 = $v2 = $v3 = $v4 = $v5 = $t = '';
-
-    // Check if is/not apache and create url
-    if (!ENVO_USE_APACHE) {
-
-      if ($var1) {
-        $v = '&amp;sp=' . htmlspecialchars($var1);
-      }
-      if ($var2) {
-        $v1 = '&amp;ssp=' . htmlspecialchars($var2);
-      }
-      if ($var3) {
-        $v2 = '&amp;sssp=' . htmlspecialchars($var3);
-      }
-
-      if ($var4) {
-        $v3 = '&amp;ssssp=' . htmlspecialchars($var4);
-      }
-
-      if ($var5) {
-        $v4 = '&amp;sssssp=' . htmlspecialchars($var5);
-      }
-
-      if ($tabs) {
-        $t = '#' . htmlspecialchars($tabs);
-      }
-
-      // If not apache add some stuff to the url
-      if ($var) {
-        $var = 'index.php?p=' . htmlspecialchars($var);
-      } else {
-        $var = '/';
-      }
-
-      // Now se the var for none apache
-      $varname = $var . $v . $v1 . $v2 . $v3 . $v4 . $t;
-
-    } else {
-
-      if ($var1) {
-        $v = '/' . $var1;
-      }
-      if ($var2) {
-        $v1 = '/' . $var2;
-      }
-      if ($var3) {
-        $v2 = '/' . $var3;
-      }
-      if ($var4) {
-        $v3 = '/' . $var4;
-      }
-      if ($var5) {
-        $v4 = '/' . $var5;
-      }
-      if ($tabs) {
-        $t = '#' . $tabs;
-      }
+	private
+		$url_seg;
+	private
+		$data = array ();
+
+	// This constructor can be used for all classes:
+
+	public function __construct ($url)
+	{
+
+		$this -> url = $url;
+	}
+
+	public static function envoParseurl ($var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = '', $tabs = '')
+	{
+
+		// Set v to zero
+		$v = $v1 = $v2 = $v3 = $v4 = $v5 = $t = '';
+
+		// Check if is/not apache and create url
+		if (!ENVO_USE_APACHE) {
+
+			if ($var1) {
+				$v = '&amp;sp=' . htmlspecialchars($var1);
+			}
+			if ($var2) {
+				$v1 = '&amp;ssp=' . htmlspecialchars($var2);
+			}
+			if ($var3) {
+				$v2 = '&amp;sssp=' . htmlspecialchars($var3);
+			}
+
+			if ($var4) {
+				$v3 = '&amp;ssssp=' . htmlspecialchars($var4);
+			}
+
+			if ($var5) {
+				$v4 = '&amp;sssssp=' . htmlspecialchars($var5);
+			}
+
+			if ($tabs) {
+				$t = '#' . htmlspecialchars($tabs);
+			}
+
+			// If not apache add some stuff to the url
+			if ($var) {
+				$var = 'index.php?p=' . htmlspecialchars($var);
+			} else {
+				$var = '/';
+			}
+
+			// Now se the var for none apache
+			$varname = $var . $v . $v1 . $v2 . $v3 . $v4 . $t;
+
+		} else {
+
+			if ($var1) {
+				$v = '/' . $var1;
+			}
+			if ($var2) {
+				$v1 = '/' . $var2;
+			}
+			if ($var3) {
+				$v2 = '/' . $var3;
+			}
+			if ($var4) {
+				$v3 = '/' . $var4;
+			}
+			if ($var5) {
+				$v4 = '/' . $var5;
+			}
+			if ($tabs) {
+				$t = '#' . $tabs;
+			}
 
-      // if not apache add some stuff to the url
-      $var = $var;
+			// if not apache add some stuff to the url
+			$var = $var;
 
-      // Now se the var for none apache
-      $varname = '/' . htmlspecialchars($var . $v . $v1 . $v2 . $v3 . $v4 . $t);
+			// Now se the var for none apache
+			$varname = '/' . htmlspecialchars($var . $v . $v1 . $v2 . $v3 . $v4 . $t);
 
-    }
+		}
 
-    if (!empty($varname)) return $varname;
+		if (!empty($varname)) return $varname;
 
-  }
+	}
 
-  public static function envoParseurlpaginate($var)
-  {
+	public static function envoParseurlpaginate ($var)
+	{
 
-    $varname = '';
+		$varname = '';
 
-    if ($var != 1) {
-      // Check if is/not apache and create url
-      if (!ENVO_USE_APACHE && $var) {
-        // Now se the var for none apache
-        $varname = '&amp;page=' . $var;
-      } elseif (ENVO_PAGINATE_ADMIN) {
-        // Now se the var for admin
-        $varname = '&amp;page=' . $var;
-      } else {
-        // Now se the var for seo apache
-        $varname = '/' . $var;
-      }
-    }
+		if ($var != 1) {
+			// Check if is/not apache and create url
+			if (!ENVO_USE_APACHE && $var) {
+				// Now se the var for none apache
+				$varname = '&amp;page=' . $var;
+			} elseif (ENVO_PAGINATE_ADMIN) {
+				// Now se the var for admin
+				$varname = '&amp;page=' . $var;
+			} else {
+				// Now se the var for seo apache
+				$varname = '/' . $var;
+			}
+		}
 
-    return $varname;
+		return $varname;
 
-  }
+	}
 
-  public static function envoVideourlparser($url, $where)
-  {
+	public static function envoVideourlparser ($url, $where)
+	{
 
-    // Parse URL
-    $purl = parse_url($url);
+		// Parse URL
+		$purl = parse_url($url);
 
-    // Find host
-    $host = $purl['host'];
+		// Find host
+		$host = $purl['host'];
 
-    // Check if youtube
-    if ($host == 'www.youtube.com') {
+		// Check if youtube
+		if ($host == 'www.youtube.com') {
 
-      if (preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $match)) {
-        $vid = $match[1];
+			if (preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $match)) {
+				$vid = $match[1];
 
-        if ($where == 'admin') {
-          return 'http://www.youtube.com/v/' . $vid;
-        } else {
-          return 'http://www.youtube.com/embed/' . $vid;
-        }
+				if ($where == 'admin') {
+					return 'http://www.youtube.com/v/' . $vid;
+				} else {
+					return 'http://www.youtube.com/embed/' . $vid;
+				}
 
-      } else {
+			} else {
 
-        return $url;
-      }
+				return $url;
+			}
 
-      // Check the new video url
-    } else if ($host == 'youtu.be') {
+			// Check the new video url
+		} else if ($host == 'youtu.be') {
 
-      if (preg_match('/http:\/\/youtu\.be\/(.*)/i', $url, $match)) {
-        $vid = $match[1];
+			if (preg_match('/http:\/\/youtu\.be\/(.*)/i', $url, $match)) {
+				$vid = $match[1];
 
-        if ($where == 'admin') {
-          return 'http://www.youtube.com/v/' . $vid;
-        } else {
-          return 'http://www.youtube.com/embed/' . $vid;
-        }
+				if ($where == 'admin') {
+					return 'http://www.youtube.com/v/' . $vid;
+				} else {
+					return 'http://www.youtube.com/embed/' . $vid;
+				}
 
-      } else {
+			} else {
 
-        return $url;
-      }
+				return $url;
+			}
 
-      // Check if Vimeo
-    } else if ($host == 'vimeo.com' || $host == 'www.vimeo.com') {
+			// Check if Vimeo
+		} else if ($host == 'vimeo.com' || $host == 'www.vimeo.com') {
 
-      if (preg_match('~^http://(?:www\.)?vimeo\.com/(?:clip:)?(\d+)~', $url, $match)) {
-        $vid = $match[1];
+			if (preg_match('~^http://(?:www\.)?vimeo\.com/(?:clip:)?(\d+)~', $url, $match)) {
+				$vid = $match[1];
 
-        if ($where == 'admin') {
-          return 'http://vimeo.com/moogaloop.swf?clip_id=' . $vid;
-        } else {
-          return 'http://player.vimeo.com/video/' . $vid . '?portrait=0';
-        }
+				if ($where == 'admin') {
+					return 'http://vimeo.com/moogaloop.swf?clip_id=' . $vid;
+				} else {
+					return 'http://player.vimeo.com/video/' . $vid . '?portrait=0';
+				}
 
-      } else {
+			} else {
 
-        return $url;
-      }
+				return $url;
+			}
 
-      // Nothing just return the url
-    } else {
+			// Nothing just return the url
+		} else {
 
-      return $url;
+			return $url;
 
-    }
+		}
 
-  }
+	}
 
-  public function envoGetseg($var)
-  {
+	public function envoGetseg ($var)
+	{
 
-    if (ENVO_USE_APACHE) {
+		if (ENVO_USE_APACHE) {
 
-      $url  = str_replace(_APP_MAIN_DIR, '', $this->url);
-      $_tmp = explode('?', $url);
-      $url  = $_tmp[0];
+			// Make a URL lowercase
+			$this -> url = trim(strtolower($this -> url));
 
-      if ($url = explode('/', $url)) {
-        foreach ($url as $d) {
-          if ($d) {
-            $data[] = $d;
-          }
-        }
-      }
+			$url  = str_replace(_APP_MAIN_DIR, '', $this -> url);
+			$_tmp = explode('?', $url);
+			$url  = $_tmp[0];
 
-      if (!empty($data[$var])) $url_seg = $data[$var];
+			if ($url = explode('/', $url)) {
+				foreach ($url as $d) {
+					if ($d) {
+						$data[] = $d;
+					}
+				}
+			}
 
-    } else {
+			if (!empty($data[$var])) $url_seg = $data[$var];
 
-      // get the url and parse it
-      $parseurl = parse_url($this->url);
+		} else {
 
-      // get only the query
-      $parameters = $parseurl["query"];
-      parse_str($parameters, $data);
+			// get the url and parse it
+			$parseurl = parse_url($this -> url);
 
-      // Now we have to set the array to basic keys
-      if (!empty($data)) foreach ($data as $d) {
-        $data[] = $d;
-      }
+			// get only the query
+			$parameters = $parseurl["query"];
+			parse_str($parameters, $data);
 
-      if (!empty($data[$var])) $url_seg = $data[$var];
-    }
+			// Now we have to set the array to basic keys
+			if (!empty($data)) foreach ($data as $d) {
+				$data[] = $d;
+			}
 
-    if (!empty($url_seg)) return $url_seg;
-  }
+			if (!empty($data[$var])) $url_seg = $data[$var];
+		}
 
-  public function envoGetsegAdmin($var)
-  {
+		if (!empty($url_seg)) return $url_seg;
+	}
 
-    // get the url and parse it
-    $parseurl = parse_url($this->url);
+	public function envoGetsegAdmin ($var)
+	{
 
-    if (!empty($parseurl["query"])) {
-      // get only the query
-      $parameters = $parseurl["query"];
-      parse_str($parameters, $data);
+		// get the url and parse it
+		$parseurl = parse_url($this -> url);
 
-      // Now we have to set the array to basic keys
-      foreach ($data as $d) {
-        $data[] = $d;
-      }
+		if (!empty($parseurl["query"])) {
+			// get only the query
+			$parameters = $parseurl["query"];
+			parse_str($parameters, $data);
 
-      if (!empty($data[$var])) return $data[$var];
+			// Now we have to set the array to basic keys
+			foreach ($data as $d) {
+				$data[] = $d;
+			}
 
-    }
-  }
+			if (!empty($data[$var])) return $data[$var];
 
-  public function envoRealrequest()
-  {
-    $r = str_replace(_APP_MAIN_DIR, '', $this->url);
+		}
+	}
 
-    return $r;
-  }
+	public function envoRealrequest ()
+	{
+		$r = str_replace(_APP_MAIN_DIR, '', $this -> url);
+
+		return $r;
+	}
 }
 
 ?>

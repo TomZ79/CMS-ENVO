@@ -18,15 +18,15 @@
 
 if ($page == 'template') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Template -->';
+	echo PHP_EOL . '<!-- Start JS AKP Template -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin ACE Editor
-  echo $Html->addScript('assets/plugins/ace/ace.js');
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.template.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin ACE Editor
+	echo $Html -> addScript('assets/plugins/ace/ace.js');
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.template.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP Template -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Template -->' . PHP_EOL;
 
 }
 

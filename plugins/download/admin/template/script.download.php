@@ -52,7 +52,7 @@ if ($page == 'download') {
   echo $Html -> addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
   echo $Html -> addScript('assets/js/global_js/catorder.min.js');
   // Plugin Javascript
-  echo $Html -> addScript(BASE_URL_ORIG . 'plugins/download/admin/js/script.download.min.js');
+  echo $Html -> addScript('/plugins/download/admin/js/script.download.min.js');
 
   echo PHP_EOL . '<!-- End JS Download -->' . PHP_EOL;
 

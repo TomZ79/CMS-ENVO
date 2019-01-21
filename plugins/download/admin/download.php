@@ -153,11 +153,13 @@ switch ($page1) {
            * ------------------
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
+           * url_slug  - friendly URL slug from a string
           */
           $result = $envodb -> query('INSERT INTO ' . $envotable . ' SET
                     catid = "' . smartsql($catid) . '",
                     candownload = "' . smartsql($permission) . '",
                     title = "' . smartsql($defaults['envo_title']) . '",
+                    varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
                     content = "' . smartsql($defaults['envo_content']) . '",
                     dl_css = "' . smartsql($defaults['envo_css']) . '",
                     dl_javascript = "' . smartsql($defaults['envo_javascript']) . '",
@@ -395,16 +397,19 @@ switch ($page1) {
             $catid = join(',', $defaults['envo_catid']);
           }
 
+
           /* EN: Convert value
            * smartsql - secure method to insert form data into a MySQL DB
            * ------------------
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
+           * url_slug  - friendly URL slug from a string
           */
           $result = $envodb -> query('UPDATE ' . $envotable . ' SET
                         catid = "' . smartsql($catid) . '",
                         candownload = "' . smartsql($permission) . '",
                         title = "' . smartsql($defaults['envo_title']) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
                         content = "' . smartsql($defaults['envo_content']) . '",
                         dl_css = "' . smartsql($defaults['envo_css']) . '",
                         dl_javascript = "' . smartsql($defaults['envo_javascript']) . '",
@@ -558,7 +563,8 @@ switch ($page1) {
         $ENVO_TAGLIST = envo_get_tags($pageID, ENVO_PLUGIN_DOWNLOAD);
       }
 
-      // Get the sort orders for the grid
+			// EN: Getting data from DB for the grid of page
+			// CZ: Získání dat z DB pro mřížku stránky
       $grid = $envodb -> query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($pageID) . '" ORDER BY orderid ASC');
       while ($grow = $grid -> fetch_assoc()) {
         // EN: Insert each record into array
@@ -853,11 +859,18 @@ switch ($page1) {
 
           $count = 1;
 
+          // Set column "maincat" to null in DB
+					$result = $envodb -> query('UPDATE ' . $envotable1 . ' SET maincat = "0"');
+
           foreach ($_POST['menuItem'] as $k => $v) {
 
             if (!is_numeric($v)) $v = 0;
 
             $result = $envodb -> query('UPDATE ' . $envotable1 . ' SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
+
+            if ($v > 0) {
+							$result = $envodb -> query('UPDATE ' . $envotable1 . ' SET maincat = "1" WHERE id = "' . smartsql($v) . '"');
+						}
 
             $count++;
 
@@ -1063,10 +1076,11 @@ switch ($page1) {
                     WHEN "downloadpagemid" THEN "' . smartsql($defaults['envo_mid']) . '"
                     WHEN "downloadpageitem" THEN "' . smartsql($defaults['envo_item']) . '"
                     WHEN "downloadrss" THEN "' . smartsql($defaults['envo_rssitem']) . '"
+                    WHEN "downloadlivesearch" THEN "' . smartsql($defaults['envo_downllivesearch']) . '"
                     WHEN "download_css" THEN "' . smartsql($defaults['envo_css']) . '"
                     WHEN "download_javascript" THEN "' . smartsql($defaults['envo_javascript']) . '"
                   END
-                  WHERE varname IN ("downloadtitle","downloaddesc","downloadorder","downloaddateformat","downloadtimeformat","downloadurl","downloadpath", "downloadpathext", "downloadtwitter","downloadpagemid","downloadpageitem","downloadrss","download_css","download_javascript")');
+                  WHERE varname IN ("downloadtitle","downloaddesc","downloadorder","downloaddateformat","downloadtimeformat","downloadurl","downloadpath", "downloadpathext", "downloadtwitter","downloadpagemid","downloadpageitem","downloadrss","downloadlivesearch","download_css","download_javascript")');
 
         // Save order for sidebar widget
         if (isset($defaults['envo_hookshow_new']) && is_array($defaults['envo_hookshow_new'])) {
@@ -1172,7 +1186,8 @@ switch ($page1) {
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
     $ENVO_SETTING_VAL = envo_get_setting_val('download');
 
-    // Get the sort orders for the grid
+		// EN: Getting data from DB for the grid of page
+		// CZ: Získání dat z DB pro mřížku stránky
     $grid = $envodb -> query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = "' . smartsql(ENVO_PLUGIN_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid -> fetch_assoc()) {
       // EN: Insert each record into array
@@ -1362,22 +1377,8 @@ switch ($page1) {
 
     }
 
-    // Get all downloads out
-    $getTotal = envo_get_total($envotable, '', '', '');
-
-    if ($getTotal != 0) {
-      // Paginator
-      $pages                   = new ENVO_paginator;
-      $pages -> items_total    = $getTotal;
-      $pages -> mid_range      = $setting["adminpagemid"];
-      $pages -> items_per_page = $setting["adminpageitem"];
-      $pages -> envo_get_page  = $page1;
-      $pages -> envo_where     = 'index.php?p=download';
-      $pages -> paginate();
-      $ENVO_PAGINATE = $pages -> display_pages();
-
-      $ENVO_DOWNLOAD_ALL = envo_get_downloads($pages -> limit, '', $envotable);
-    }
+		// Get all downloads out
+		$ENVO_DOWNLOAD_ALL = envo_get_downloads('', '', $envotable);
 
     // EN: Title and Description
     // CZ: Titulek a Popis

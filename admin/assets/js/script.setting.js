@@ -18,15 +18,15 @@
 
 $(function () {
 
-  $('input[name=envo_smpt]:radio').change(function () {
-    if ($('input[name=envo_smpt]:checked').val() == "1") {
-      $('#smtpsettings').show();
+	$('input[name=envo_smpt]:radio').change(function () {
+		if ($('input[name=envo_smpt]:checked').val() == "1") {
+			$('#smtpsettings').show();
 
-    } else if ($('input[name=envo_smpt]:checked').val() == "0") {
-      $('#smtpsettings').hide();
+		} else if ($('input[name=envo_smpt]:checked').val() == "0") {
+			$('#smtpsettings').hide();
 
-    }
-  });
+		}
+	});
 
 });
 
@@ -36,6 +36,6 @@ $(function () {
 
 $(function () {
 
-  $('.txtautogrow').autoGrow();
+	$('.txtautogrow').autoGrow();
 
 });

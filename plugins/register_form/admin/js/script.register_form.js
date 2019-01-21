@@ -37,67 +37,80 @@
  ========================================= */
 // Set WrapLimitRange from generated_admin_js.php
 $wrapLimitRange = {
-  min: aceEditor.acewraplimit,
-  max: aceEditor.acewraplimit
+	min: aceEditor.acewraplimit,
+	max: aceEditor.acewraplimit
 };
 
+function aceboolean(param) {
+  if (param == '1') {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 if ($('#htmleditorlight').length > 0) {
-  var htmlACE = ace.edit('htmleditorlight');
-  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
-  htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
-  htmlACE.setOptions({
+	var htmlACE = ace.edit('htmleditorlight');
+	htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
+	htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
+	htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
+	htmlACE.setOptions({
     // session options
-    mode: "ace/mode/html",
+    mode: "ace/mode/html_ruby",
     tabSize: aceEditor.acetabSize,
     useSoftTabs: true,
-    highlightActiveLine: aceEditor.aceactiveline,
+    indentedSoftWrap: false,
+    highlightActiveLine: aceboolean(aceEditor.aceactiveline),
     // renderer options
+    showPrintMargin: false,
+    fontSize: aceEditor.fontSize,
     showInvisibles: aceEditor.aceinvisible,
-    showGutter: aceEditor.acegutter
-  });
-  // This is to remove following warning message on console:
-  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-  // set editor.$blockScrolling = Infinity to disable this message
-  htmlACE.$blockScrolling = Infinity;
+    showGutter: aceboolean(aceEditor.acegutter)
+	});
+	// This is to remove following warning message on console:
+	// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+	// set editor.$blockScrolling = Infinity to disable this message
+	htmlACE.$blockScrolling = Infinity;
 
-  texthtml = $("#envo_editor_light").val();
-  htmlACE.session.setValue(texthtml);
+	texthtml = $("#envo_editor_light").val();
+	htmlACE.session.setValue(texthtml);
 }
 
 if ($('#htmleditorlight1').length > 0) {
-  var htmlACE1 = ace.edit("htmleditorlight1");
-  htmlACE1.setTheme('ace/theme/' + aceEditor.acetheme);
-  htmlACE1.session.setUseWrapMode(aceEditor.aceactivewrap);
-  htmlACE1.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
-  htmlACE1.setOptions({
+	var htmlACE1 = ace.edit("htmleditorlight1");
+	htmlACE1.setTheme('ace/theme/' + aceEditor.acetheme);
+	htmlACE1.session.setUseWrapMode(aceEditor.aceactivewrap);
+	htmlACE1.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
+	htmlACE1.setOptions({
     // session options
-    mode: "ace/mode/html",
+    mode: "ace/mode/html_ruby",
     tabSize: aceEditor.acetabSize,
     useSoftTabs: true,
-    highlightActiveLine: aceEditor.aceactiveline,
+    indentedSoftWrap: false,
+    highlightActiveLine: aceboolean(aceEditor.aceactiveline),
     // renderer options
+    showPrintMargin: false,
+    fontSize: aceEditor.fontSize,
     showInvisibles: aceEditor.aceinvisible,
-    showGutter: aceEditor.acegutter
-  });
-  // This is to remove following warning message on console:
-  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-  // set editor.$blockScrolling = Infinity to disable this message
-  htmlACE1.$blockScrolling = Infinity;
+    showGutter: aceboolean(aceEditor.acegutter)
+	});
+	// This is to remove following warning message on console:
+	// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+	// set editor.$blockScrolling = Infinity to disable this message
+	htmlACE1.$blockScrolling = Infinity;
 
-  texthtml = $("#envo_editor_light1").val();
-  htmlACE1.session.setValue(texthtml);
+	texthtml = $("#envo_editor_light1").val();
+	htmlACE1.session.setValue(texthtml);
 }
 
 $(function () {
-  /* Submit Form
-   ========================================= */
-  $('form').submit(function () {
-    if ($('#envo_editor_light').length > 0) {
-      $("#envo_editor_light").val(htmlACE.getValue());
-      $("#envo_editor_light1").val(htmlACE1.getValue());
-    }
-  });
+	/* Submit Form
+	 ========================================= */
+	$('form').submit(function () {
+		if ($('#envo_editor_light').length > 0) {
+			$("#envo_editor_light").val(htmlACE.getValue());
+			$("#envo_editor_light1").val(htmlACE1.getValue());
+		}
+	});
 
 });

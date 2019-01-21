@@ -15,9 +15,9 @@ $_SESSION['envo_lastURL'] = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_SITEMAP,
 // CZ: Načtení všech php dat z Hook podle jména Hook pro mapu stránek
 $hooksitemap = $envohooks -> EnvoGethook("php_sitemap");
 if ($hooksitemap) {
-  foreach ($hooksitemap as $th) {
-    eval($th['phpcode']);
-  }
+	foreach ($hooksitemap as $th) {
+		eval($th['phpcode']);
+	}
 }
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
@@ -26,16 +26,18 @@ $PAGE_TITLE     = $setting["sitemaptitle"];
 $PAGE_CONTENT   = $setting["sitemapdesc"];
 $PAGE_SHOWTITLE = 1;
 
-// Get the sort orders for the grid
+// EN: Getting data from DB for the grid of page
+// CZ: Získání dat z DB pro mřížku stránky
 $ENVO_HOOK_SIDE_GRID = FALSE;
 $grid                = $envodb -> query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_SITEMAP . ' ORDER BY orderid ASC');
 while ($grow = $grid -> fetch_assoc()) {
-  // EN: Insert each record into array
-  // CZ: Vložení získaných dat do pole
-  $ENVO_HOOK_SIDE_GRID[] = $grow;
+	// EN: Insert each record into array
+	// CZ: Vložení získaných dat do pole
+	$ENVO_HOOK_SIDE_GRID[] = $grow;
 }
 
-// Now get the new meta keywords and description maker
+// EN: Creatting the new meta keywords and description maker
+// CZ: Vytváření nových meta klíčových slov a popisovačů
 $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base ::envoCleanurl(ENVO_PLUGIN_NAME_SITEMAP) . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 $PAGE_DESCRIPTION = $setting["metadesc"];
 

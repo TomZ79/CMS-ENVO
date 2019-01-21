@@ -18,15 +18,15 @@
 
 if ($page == 'urlmapping') {
 
-  echo PHP_EOL . '<!-- Start JS URL Mapping -->';
+	echo PHP_EOL . '<!-- Start JS URL Mapping -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin DataTable
-  echo $Html->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
-  // Plugin Javascript
-  echo $Html->addScript(BASE_URL_ORIG . 'plugins/urlmapping/admin/js/script.urlmapping.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin DataTable
+	echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/urlmapping/admin/js/script.urlmapping.min.js');
 
-  echo PHP_EOL . '<!-- End JS URL Mapping -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS URL Mapping -->' . PHP_EOL;
 
 }
 

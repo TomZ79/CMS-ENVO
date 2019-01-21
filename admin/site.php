@@ -13,23 +13,23 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // EN: Default Variable
-  // CZ: Hlavní proměnné
-  $defaults = $_POST;
+	// EN: Default Variable
+	// CZ: Hlavní proměnné
+	$defaults = $_POST;
 
-  if (empty($defaults['envo_title'])) {
-    $errors['e2'] = $tl['general_error']['generror11'] . '<br>';
-  }
+	if (empty($defaults['envo_title'])) {
+		$errors['e2'] = $tl['general_error']['generror11'] . '<br>';
+	}
 
-  if (count($errors) == 0) {
+	if (count($errors) == 0) {
 
-    /* EN: Convert value
-     * smartsql - secure method to insert form data into a MySQL DB
-     * ------------------
-     * CZ: Převod hodnot
-     * smartsql - secure method to insert form data into a MySQL DB
-    */
-    $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+		/* EN: Convert value
+		 * smartsql - secure method to insert form data into a MySQL DB
+		 * ------------------
+		 * CZ: Převod hodnot
+		 * smartsql - secure method to insert form data into a MySQL DB
+		*/
+		$result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                 WHEN "offline" THEN ' . $defaults['envo_online'] . '
                 WHEN "offline_page" THEN "' . smartsql($defaults['envo_offpage']) . '"
                 WHEN "notfound_page" THEN "' . smartsql($defaults['envo_pagenotfound']) . '"
@@ -42,22 +42,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               END
               WHERE varname IN ("offline","offline_page","notfound_page","title","metadesc","metakey","metaauthor","robots","copyright")');
 
-    if (!$result) {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      envo_redirect(BASE_URL . 'index.php?p=site&status=e');
-    } else {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      envo_redirect(BASE_URL . 'index.php?p=site&status=s');
-    }
+		if (!$result) {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=site&status=e');
+		} else {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=site&status=s');
+		}
 
-  } else {
+	} else {
 
-    $errors['e'] = $tl['general_error']['generror'] . '<br>';
-    $errors      = $errors;
+		$errors['e'] = $tl['general_error']['generror'] . '<br>';
+		$errors      = $errors;
 
-  }
+	}
 }
 
 // Offline page categories

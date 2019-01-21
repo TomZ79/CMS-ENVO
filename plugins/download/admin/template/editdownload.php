@@ -568,7 +568,7 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-sm-12">
-                        <select name="envo_catid[]" multiple="multiple" class="form-control">
+                        <select name="envo_catid[]" multiple="multiple" class="form-control" size="10">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -578,7 +578,13 @@ if ($errors) { ?>
                           if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
 
                             $selected = (in_array($z["id"], explode(',', $ENVO_FORM_DATA["catid"]))) ? TRUE : FALSE;
-                            echo $Html -> addOption($z["id"], $z["name"], $selected);
+
+														if ($z["catparent"] > 0) {
+															echo $Html -> addOption($z["id"], '-- ' . $z["name"], $selected);
+														} else {
+															echo $Html -> addOption($z["id"], $z["name"], $selected, '', '', array ('style' => 'font-weight: bold;padding: 5px 0;'));
+														}
+
 
                           }
                           ?>

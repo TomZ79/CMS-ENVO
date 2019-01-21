@@ -23,7 +23,7 @@ if (isset($tpl_customcss)) {
 	$customCSS = "../assets/css/stylesheet.css,../css/editorcustom.css";
 }
 // Tiny Editor Javascript
-echo $Html->addScript('assets/js/tiny.editor.min.js');
+echo $Html -> addScript('assets/js/tiny.editor.min.js');
 
 // New line in source code
 echo PHP_EOL;

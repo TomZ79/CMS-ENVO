@@ -18,13 +18,13 @@
 
 if ($page == 'sitemap') {
 
-  echo PHP_EOL . '<!-- Start JS AKP Sitemap -->';
+	echo PHP_EOL . '<!-- Start JS AKP Sitemap -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html->addScript('assets/js/script.sitemap.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('assets/js/script.sitemap.min.js');
 
-  echo PHP_EOL . '<!-- End JS AKP Sitemap -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS AKP Sitemap -->' . PHP_EOL;
 
 }
 

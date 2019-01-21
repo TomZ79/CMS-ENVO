@@ -18,17 +18,17 @@
 
 if ($page == 'urlmapping') {
 
-  echo PHP_EOL . "\t";
-  echo '<!-- Start CSS URL Mapping -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- Start CSS URL Mapping -->';
 
-  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-  // Plugin DataTable
-  echo $Html->addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
-  // Plugin Css style
-  echo $Html->addStylesheet(BASE_URL_ORIG . 'plugins/urlmapping/admin/css/style.urlmapping.min.css');
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	// Plugin DataTable
+	echo $Html -> addStylesheet('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css');
+	// Plugin Css style
+	echo $Html -> addStylesheet('/plugins/urlmapping/admin/css/style.urlmapping.min.css');
 
-  echo PHP_EOL . "\t";
-  echo '<!-- End CSS URL Mapping -->';
+	echo PHP_EOL . "\t";
+	echo '<!-- End CSS URL Mapping -->';
 
 }
 

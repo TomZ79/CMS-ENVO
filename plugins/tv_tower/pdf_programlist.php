@@ -17,56 +17,56 @@ $envotable3 = DB_PREFIX . 'tvtowerexporthistory';
 
 // EN: Getting date of last update of programs
 // CZ: Získání data poslední aktualizace programů
-$resulttime = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
-$rowtime    = $resulttime->fetch_assoc();
+$resulttime = $envodb -> query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
+$rowtime    = $resulttime -> fetch_assoc();
 
 // EN: Set value
 // CZ: Nastavení hodnot
-$html = '';
+$html      = '';
 $timetoday = date('d-m-Y', time());
-$maxtime      = date('d.m.Y', strtotime($rowtime['maxTime']));
+$maxtime   = date('d.m.Y', strtotime($rowtime['maxTime']));
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // EN: Create new PDF document
 $mpdf = new mPDF(
-  '',           // mode - default ''
-  'A4',         // format - A4, for example, default ''
-  9,            // font size - default 0
-  'dejavusans', // default font family
-  '15',         // margin_left
-  '15',         // margin right
-  '15',         // margin top
-  '20',         // margin bottom
-  '0',          // margin header
-  '10',          // margin footer
-  'L');         // L - landscape, P - portrait
+	'',           // mode - default ''
+	'A4',         // format - A4, for example, default ''
+	9,            // font size - default 0
+	'dejavusans', // default font family
+	'15',         // margin_left
+	'15',         // margin right
+	'15',         // margin top
+	'20',         // margin bottom
+	'0',          // margin header
+	'10',          // margin footer
+	'L');         // L - landscape, P - portrait
 
 // EN: Specify the initial Display Mode when the PDF file is opened in Adobe Reader
-$mpdf->SetDisplayMode('fullpage');
+$mpdf -> SetDisplayMode('fullpage');
 
 // EN: Set document information
-$mpdf->SetCreator('Bluesat.cz');
-$mpdf->SetAuthor('Bluesat.cz');
-$mpdf->SetTitle('Programová nabídka');
-$mpdf->SetSubject('Programová nabídka');
+$mpdf -> SetCreator('Bluesat.cz');
+$mpdf -> SetAuthor('Bluesat.cz');
+$mpdf -> SetTitle('Programová nabídka');
+$mpdf -> SetSubject('Programová nabídka');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // EN: Sets a page footer
-$footer = array(
-  'L' => array(
-    'content'    => '{DATE j-m-Y} | Bluesat.cz',
-    'font-size'  => 10,
-    'font-style' => '',
-  ),
-  'R' => array(
-    'content'    => '{PAGENO} / {nb}',
-    'font-size'  => 10,
-    'font-style' => '',
-  ),
+$footer = array (
+	'L' => array (
+		'content'    => '{DATE j-m-Y} | Bluesat.cz',
+		'font-size'  => 10,
+		'font-style' => '',
+	),
+	'R' => array (
+		'content'    => '{PAGENO} / {nb}',
+		'font-size'  => 10,
+		'font-style' => '',
+	),
 );
-$mpdf->SetFooter($footer, 'O');
+$mpdf -> SetFooter($footer, 'O');
 
 $html = '<style>
 
@@ -104,7 +104,7 @@ $html = '<style>
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
 // EN: Add a new page
-$mpdf->AddPage();
+$mpdf -> AddPage();
 
 $html .= '<div class="center-div">
             <div><img src="/_files/bluesat/logo-bluesat.png"></div>
@@ -112,12 +112,12 @@ $html .= '<div class="center-div">
            </div>';
 
 // EN: Write html
-$mpdf->WriteHTML($html);
+$mpdf -> WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
 // EN: Add a new page
-$mpdf->AddPage();
+$mpdf -> AddPage();
 
 $html = '<div><h2>Seznam vysílačů pro Karlovarský kraj</h2></div>';
 
@@ -129,10 +129,10 @@ $html .= '<tr>
 
 // EN: Getting the data about the TV Tower
 // CZ: Získání dat o televizním vysílači
-$result = $envodb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
+$result = $envodb -> query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
 
-for ($i = 1; $row = $result->fetch_assoc(); ++$i) {
-  $html .= '<tr>
+for ($i = 1; $row = $result -> fetch_assoc(); ++$i) {
+	$html .= '<tr>
               <td style="text-align: center;">' . $i . '</td>
               <td style="padding-left: 20px;">' . $row['station'] . ' - ' . $row['name'] . '</td>
             </tr>';
@@ -141,21 +141,21 @@ for ($i = 1; $row = $result->fetch_assoc(); ++$i) {
 $html .= '</table>';
 
 // EN: Write html
-$mpdf->WriteHTML($html);
+$mpdf -> WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
 // EN: Add a new page
-$mpdf->AddPage();
+$mpdf -> AddPage();
 
 // EN: If exist row in DB get Maxtime
-$num_results  = $envodb->query('SELECT id FROM ' . $envotable2);
-if ($num_results->num_rows !== 0) {
-  $resulttime  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
-  $rowtime     = $resulttime->fetch_assoc();
-  $maxtime = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime['maxTime']));
+$num_results = $envodb -> query('SELECT id FROM ' . $envotable2);
+if ($num_results -> num_rows !== 0) {
+	$resulttime = $envodb -> query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
+	$rowtime    = $resulttime -> fetch_assoc();
+	$maxtime    = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime['maxTime']));
 } else {
-  $maxtime = '';
+	$maxtime = '';
 }
 
 // EN: Create html
@@ -164,14 +164,14 @@ $html .= '<div><h4>' . $maxtime . '</h4></div>';
 
 // EN: Getting the data about the TV Tower
 // CZ: Získání dat o televizním vysílači
-$result1 = $envodb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
-while ($row1 = $result1->fetch_assoc()) {
+$result1 = $envodb -> query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
+while ($row1 = $result1 -> fetch_assoc()) {
 
-  $html .= '<div>';
-  $html .= '<div><h3>' . $row1['station'] . ' - ' . $row1['name'] . '</h3></div>';
+	$html .= '<div>';
+	$html .= '<div><h3>' . $row1['station'] . ' - ' . $row1['name'] . '</h3></div>';
 
-  $html .= '<table class="table">';
-  $html .= '<tr>
+	$html .= '<table class="table">';
+	$html .= '<tr>
               <th style="width: 29%;font-weight:bold;background-color: #037acc;color: #FFF;">Název programu</th>
               <th style="width: 13%;font-weight:bold;background-color: #037acc;color: #FFF;">TV/R</th>
               <th style="width: 8%;font-weight:bold;background-color: #037acc;color: #FFF;">Kanál</th>
@@ -180,17 +180,17 @@ while ($row1 = $result1->fetch_assoc()) {
               <th style="width: 15%;font-weight:bold;background-color: #037acc;color: #FFF;">Technologie vysílání</th>
             </tr>';
 
-  // EN: Getting the data about the channel of TV Tower
-  // CZ: Získání dat o kanálu televizního vysílače
-  $result2 = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE towerid = ' . $row1['id'] . ' ORDER BY number ASC');
-  while ($row2 = $result2->fetch_assoc()) {
+	// EN: Getting the data about the channel of TV Tower
+	// CZ: Získání dat o kanálu televizního vysílače
+	$result2 = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE towerid = ' . $row1['id'] . ' ORDER BY number ASC');
+	while ($row2 = $result2 -> fetch_assoc()) {
 
-    // EN: Getting the data about the programs of channel
-    // CZ: Získání dat o programech z kanálu
-    $result3 = $envodb->query('SELECT * FROM ' . $envotable2 . ' WHERE channelid = ' . $row2['id'] . ' ORDER BY id ASC');
-    while ($row3 = $result3->fetch_assoc()) {
+		// EN: Getting the data about the programs of channel
+		// CZ: Získání dat o programech z kanálu
+		$result3 = $envodb -> query('SELECT * FROM ' . $envotable2 . ' WHERE channelid = ' . $row2['id'] . ' ORDER BY id ASC');
+		while ($row3 = $result3 -> fetch_assoc()) {
 
-      $html .= '<tr>
+			$html .= '<tr>
                   <td>' . $row3['name'] . '</td>
                   <td>' . (($row3['tvr'] == '1') ? 'TV' : (($row3['tvr'] == '2') ? 'Stream TV' : 'Radio')) . '</td>
                   <td>' . $row2['number'] . ' K</td>
@@ -198,17 +198,17 @@ while ($row1 = $result1->fetch_assoc()) {
                   <td>' . $row2['sitename'] . '</td>
                   <td>' . $row2['type'] . '</td>
                 </tr>';
-    }
+		}
 
-  }
+	}
 
-  $html .= '</table>';
-  $html .= '</div>';
+	$html .= '</table>';
+	$html .= '</div>';
 
 }
 
 // EN: Create html
-$mpdf->writeHTML($html);
+$mpdf -> writeHTML($html);
 
 // - - - - - - - - - - - - - - - - STATISTIC - - - - - - - - - - - - -
 
@@ -216,20 +216,20 @@ $mpdf->writeHTML($html);
 $dluserid = 0;
 $dlemail  = "guest";
 if (ENVO_USERID) {
-  $dluserid = ENVO_USERID;
-  $dlemail  = $envouser->getVar("email");
+	$dluserid = ENVO_USERID;
+	$dlemail  = $envouser -> getVar("email");
 }
 
 // EN: Get the users ip address
 $ipa = get_ip_address();
 
 // EN: Insert data to DB
-$envodb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-programova-nabidka-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
+$envodb -> query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-programova-nabidka-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 
 // EN: Output a PDF file directly to the browser
-$mpdf->Output('Bluesat-programova-nabidka-' . $timetoday . '.pdf', 'D');
+$mpdf -> Output('Bluesat-programova-nabidka-' . $timetoday . '.pdf', 'D');
 
 exit;
 
