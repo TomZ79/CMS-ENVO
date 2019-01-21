@@ -18,36 +18,36 @@ $SearchInput = strip_tags(smartsql(strtolower($_GET['q'])));
 
 // Narrow down search, only three charactars and more
 if (strlen($SearchInput) >= 3) {
-  $url       = $_GET['url'];
-  $urldetail = $_GET['url_detail'];
+	$url       = $_GET['url'];
+	$urldetail = $_GET['url_detail'];
 
-  $blog = new ENVO_search($SearchInput);
-  $blog -> envoSetTable('blog', "");
-  $blog -> envoAndor("OR");
-  $blog -> envoFieldActive("active");
-  $blog -> envoFieldTitle("title");
-  $blog -> envoFieldCut("content");
-  $blog -> envoFieldstoSearch(array ( 'title', 'content' ));
-  $blog -> envoFieldstoSelect("id, title, content");
+	$blog = new ENVO_search($SearchInput);
+	$blog -> envoSetTable('blog', "");
+	$blog -> envoAndor("OR");
+	$blog -> envoFieldActive("active");
+	$blog -> envoFieldTitle("title");
+	$blog -> envoFieldCut("content");
+	$blog -> envoFieldstoSearch(array ('title', 'content'));
+	$blog -> envoFieldstoSelect("id, title, content");
 
-  $blogarray = $blog -> set_result($urldetail, 'blog-article', $_GET['seo']);
+	$blogarray = $blog -> set_result($urldetail, 'blog-article', $_GET['seo']);
 
-  if (isset($blogarray) && is_array($blogarray)) {
-    ENVO_search ::search_cloud($SearchInput);
-    $text = '';
-    foreach ($blogarray as $row) {
+	if (isset($blogarray) && is_array($blogarray)) {
+		ENVO_search ::search_cloud($SearchInput);
+		$text = '';
+		foreach ($blogarray as $row) {
 
-      // Now display the countries
-      $text .= '
+			// Now display the countries
+			$text .= '
 	<div class="ajaxsResult">
 		<h4><a href="' . (ENVO_USE_APACHE ? substr($url, 0, -1) : $url) . str_replace(BASE_URL, '', $row['parseurl']) . '">' . $row['title'] . '</a></h4>
 		<p>' . $row['content'] . '</p>
 	</div>
 	';
-    }
-  }
+		}
+	}
 
-  echo $text;
+	echo $text;
 
 }
 

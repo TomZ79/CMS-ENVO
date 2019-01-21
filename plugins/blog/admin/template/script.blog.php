@@ -18,43 +18,43 @@
 
 if ($page == 'blog') {
 
-  echo PHP_EOL . '<!-- Start JS Blog -->';
+	echo PHP_EOL . '<!-- Start JS Blog -->';
 
-  // Setting variable for Jquery external script
-  if (isset($ENVO_FORM_DATA["catimg"])) {
-    $str = $ENVO_FORM_DATA["catimg"];
+	// Setting variable for Jquery external script
+	if (isset($ENVO_FORM_DATA["catimg"])) {
+		$str = $ENVO_FORM_DATA["catimg"];
 
-    if (strpos($str, 'glyphicons ') !== FALSE) {
-      $categoryimg = str_replace('glyphicons ', '', $ENVO_FORM_DATA["catimg"]);
-    } else {
-      $categoryimg = str_replace('fa ', '', $ENVO_FORM_DATA["catimg"]);
-    }
-  } else {
-    $categoryimg = 'fa-font';
-  }
-  ?>
+		if (strpos($str, 'glyphicons ') !== FALSE) {
+			$categoryimg = str_replace('glyphicons ', '', $ENVO_FORM_DATA["catimg"]);
+		} else {
+			$categoryimg = str_replace('fa ', '', $ENVO_FORM_DATA["catimg"]);
+		}
+	} else {
+		$categoryimg = 'fa-font';
+	}
+	?>
 
-  <script>
+	<script>
     // Add to Global settings javascript object
     iconPicker['icon'] = <?=json_encode($categoryimg)?>;
     globalSettings['pageID2'] = <?=(!empty($page2) && is_numeric($page2) ? $page2 : '""')?>;
-  </script>
+	</script>
 
-  <?php
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin ACE Editor
-  echo $Html -> addScript('assets/plugins/ace/ace.js');
-  // Plugin Slug
-  echo $Html -> addScript('assets/js/global_js/slug.min.js');
-  // Categories plugin and script
-  echo $Html -> addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
-  echo $Html -> addScript('assets/js/global_js/catorder.min.js');
-  // Plugin DataTable
-  echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
-  // Plugin Javascript
-  echo $Html -> addScript('/plugins/blog/admin/js/script.blog.js');
+	<?php
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin ACE Editor
+	echo $Html -> addScript('assets/plugins/ace/ace.js');
+	// Plugin Slug
+	echo $Html -> addScript('assets/js/global_js/slug.min.js');
+	// Categories plugin and script
+	echo $Html -> addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
+	echo $Html -> addScript('assets/js/global_js/catorder.min.js');
+	// Plugin DataTable
+	echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/blog/admin/js/script.blog.js');
 
-  echo PHP_EOL . '<!-- End JS Blog -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS Blog -->' . PHP_EOL;
 
 }
 

@@ -18,13 +18,13 @@
 
 if ($page == 'blank-plugin') {
 
-  echo PHP_EOL . '<!-- Start JS Blank Plugin -->';
+	echo PHP_EOL . '<!-- Start JS Blank Plugin -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Plugin Javascript
-  echo $Html -> addScript('/plugins/blank_plugin/admin/js/script.blank_plugin.min.js');
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Plugin Javascript
+	echo $Html -> addScript('/plugins/blank_plugin/admin/js/script.blank_plugin.min.js');
 
-  echo PHP_EOL . '<!-- End JS Blank Plugin -->' . PHP_EOL;
+	echo PHP_EOL . '<!-- End JS Blank Plugin -->' . PHP_EOL;
 
 }
 

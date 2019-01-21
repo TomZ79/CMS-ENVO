@@ -23,77 +23,77 @@ $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/blank_plugin/admin/template/';
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
 
-  case 'setting':
-    // SETTING
+	case 'setting':
+		// SETTING
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			// EN: Default Variable
+			// CZ: Hlavní proměnné
+			$defaults = $_POST;
 
-      if (count($errors) == 0) {
+			if (count($errors) == 0) {
 
-        /* EN: Convert value
-         * smartsql - secure method to insert form data into a MySQL DB
-         * ------------------
-         * CZ: Převod hodnot
-         * smartsql - secure method to insert form data into a MySQL DB
-        */
-        $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+				/* EN: Convert value
+				 * smartsql - secure method to insert form data into a MySQL DB
+				 * ------------------
+				 * CZ: Převod hodnot
+				 * smartsql - secure method to insert form data into a MySQL DB
+				*/
+				$result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "blankplugintitle" THEN "' . smartsql($defaults['envo_title']) . '"
                   END
                   WHERE varname IN ("blankplugintitle")');
 
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blank-plugin&sp=setting&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blank-plugin&sp=setting&status=s');
-        }
-      } else {
-        $errors['e'] = $tl['general_error']['generror'] . '<br>';
-        $errors      = $errors;
-      }
-    }
+				if (!$result) {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=blank-plugin&sp=setting&status=e');
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=blank-plugin&sp=setting&status=s');
+				}
+			} else {
+				$errors['e'] = $tl['general_error']['generror'] . '<br>';
+				$errors      = $errors;
+			}
+		}
 
-    // EN: Import important settings for the template from the DB
-    // CZ: Importuj důležité nastavení pro šablonu z DB
-    $ENVO_SETTING = envo_get_setting('blankplugin');
+		// EN: Import important settings for the template from the DB
+		// CZ: Importuj důležité nastavení pro šablonu z DB
+		$ENVO_SETTING = envo_get_setting('blankplugin');
 
-    // EN: Import important settings for the template from the DB (only VALUE)
-    // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $ENVO_SETTING_VAL = envo_get_setting_val('blankplugin');
+		// EN: Import important settings for the template from the DB (only VALUE)
+		// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+		$ENVO_SETTING_VAL = envo_get_setting_val('blankplugin');
 
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlbp["bp_sec_title"]["bpt"];
-    $SECTION_DESC  = $tlbp["bp_sec_desc"]["bpd"];
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = $tlbp["bp_sec_title"]["bpt"];
+		$SECTION_DESC  = $tlbp["bp_sec_desc"]["bpd"];
 
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bp_setting.php';
+		// EN: Load the php template
+		// CZ: Načtení php template (šablony)
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bp_setting.php';
 
-    break;
-  default:
-    // MAIN PAGE OF PLUGIN - LIST
+		break;
+	default:
+		// MAIN PAGE OF PLUGIN - LIST
 
-    // ----------- ERROR: REDIRECT PAGE ------------
-    // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+		// ----------- ERROR: REDIRECT PAGE ------------
+		// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
 
-    // EN: If not exist value in 'case', redirect page to 404
-    // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
-    $pagearray = array ( 'setting' );
-    if (!empty($page1) && !is_numeric($page1)) {
-      if (in_array($page1, $pagearray)) {
-        envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
-      }
-    }
+		// EN: If not exist value in 'case', redirect page to 404
+		// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+		$pagearray = array ('setting');
+		if (!empty($page1) && !is_numeric($page1)) {
+			if (in_array($page1, $pagearray)) {
+				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+			}
+		}
 
-  // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
-  // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
+	// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+	// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
 }
 

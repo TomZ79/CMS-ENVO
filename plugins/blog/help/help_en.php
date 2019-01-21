@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Blog Plugin Documentation</title>
+	<meta charset="utf-8">
+	<title>Blog Plugin Documentation</title>
 
-  <!-- ======= FONTS ======= -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
+	<!-- ======= FONTS ======= -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
-  <!-- ======= CSS STYLE ======= -->
-  <!-- Code-prettify -->
-  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
-  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
-  <!-- Main style -->
-  <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
+	<!-- ======= CSS STYLE ======= -->
+	<!-- Code-prettify -->
+	<link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
+	<script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
+	<!-- Main style -->
+	<link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
 
 
-  <!--[if lt IE 9]>
-  <script src="/admin/assets/doc/js/html5.js"></script>
-  <![endif]-->
+	<!--[if lt IE 9]>
+	<script src="/admin/assets/doc/js/html5.js"></script>
+	<![endif]-->
 
 </head>
 <body>
 
 <header>
-  <h1>Documentation - Plugin Blog</h1>
-  <div class="clear"></div>
+	<h1>Documentation - Plugin Blog</h1>
+	<div class="clear"></div>
 </header>
 
 <nav id="subnav">
-  <h3>Content</h3>
-  <h3>Current chapter: <span id="curnav" class="light"> About Plugin </span></h3>
+	<h3>Content</h3>
+	<h3>Current chapter: <span id="curnav" class="light"> About Plugin </span></h3>
 </nav>
 
 <aside>
-  <nav>
-    <ul id="sidebar">
-      <li class="active">
-        <span>About Plugin</span>
-        <ul>
-          <li data-deeplink="about-plugin" class="active">About Plugin</li>
-          <li data-deeplink="folders-files">Folder-Files</li>
-          <li data-deeplink="changelog">Changelog</li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+	<nav>
+		<ul id="sidebar">
+			<li class="active">
+				<span>About Plugin</span>
+				<ul>
+					<li data-deeplink="about-plugin" class="active">About Plugin</li>
+					<li data-deeplink="folders-files">Folder-Files</li>
+					<li data-deeplink="changelog">Changelog</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
 </aside>
 
 <div id="content">
-  <div>
+	<div>
 
-    <!-- About Plugin -->
-    <section class="active">
+		<!-- About Plugin -->
+		<section class="active">
 
-      <!-- About Plugin -->
-      <article class="active">
-        <h4>About Plugin</h4>
+			<!-- About Plugin -->
+			<article class="active">
+				<h4>About Plugin</h4>
 
-      </article>
+			</article>
 
-      <!-- Folders and Files -->
-      <article>
-        <h4>Folders and Files</h4>
+			<!-- Folders and Files -->
+			<article>
+				<h4>Folders and Files</h4>
 
-      </article>
+			</article>
 
-      <!-- Changelog -->
-      <article>
-        <h4>Changelog</h4>
-        <h5>v 1.1</h5>
-        <pre class="prettyprint">
+			<!-- Changelog -->
+			<article>
+				<h4>Changelog</h4>
+				<h5>v 1.1</h5>
+				<pre class="prettyprint">
 // # List of new components
 // ------------------------------
 
@@ -93,15 +93,15 @@
 [removed] Remove unnecessary code
 				</pre>
 
-        <h5>v 1.0</h5>
-        <p>Basic initial</p>
+				<h5>v 1.0</h5>
+				<p>Basic initial</p>
 
 
-      </article>
+			</article>
 
-    </section>
+		</section>
 
-  </div>
+	</div>
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
