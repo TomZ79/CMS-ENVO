@@ -1,0 +1,76 @@
+/* 26. Dialog FX
+ ========================================================================*/
+.item-details {
+  z-index: 1080;
+}
+
+.item-details .dialog__content {
+  width: 845px;
+  max-width: 845px;
+  padding: 0;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.item-details .dialog__content .dialog__overview {
+  min-height: 516px;
+  height: 100%;
+  position: relative;
+}
+
+.item-details .dialog__content .dialog__overview .buy-now {
+  position: absolute;
+  bottom: 20px;
+  right: 35px;
+}
+
+.item-details .dialog__content .dialog__overview .item-slideshow .slide {
+  width: 516px;
+  height: 516px;
+  display: block;
+  overflow: hidden;
+}
+
+.item-details .dialog__content .dialog__footer {
+  height: 75px;
+}
+
+.item-details .dialog__content .dialog__footer .price {
+  margin: 0;
+  padding: 0;
+  line-height: 75px;
+}
+
+.item-details .dialog__content .dialog__footer .separator {
+  position: relative;
+}
+
+.item-details .dialog__content .dialog__footer .separator:after {
+  content: "";
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  height: 27px;
+  right: 0;
+  top: 24px;
+}
+
+.item-details .dialog__content .dialog__footer .recommended li {
+  overflow: hidden;
+}
+
+.item-details .dialog__content .dialog__footer .recommended li a {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
+.item-details .dialog__content .dialog__footer .recommended li img {
+  width: 100%;
+}
+
+.item-details .dialog__content .close {
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+}

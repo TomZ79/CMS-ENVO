@@ -160,7 +160,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "faq"');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `faq`');
 
-						$envodb -> query('DROP TABLE ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories');
+						$envodb -> query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories');
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showfaq');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news DROP showfaq');

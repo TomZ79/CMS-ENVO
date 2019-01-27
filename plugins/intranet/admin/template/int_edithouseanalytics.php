@@ -594,7 +594,7 @@ if ($errors) { ?>
                       ?>
 
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4">l
                       <div class="radio radio-success">
 
                         <?php

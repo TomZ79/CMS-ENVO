@@ -84,6 +84,13 @@ echo $Html -> addDoctype('html5');
 			include_once APP_PATH . $headt['phpcode'];
 		} ?>
 
+		<!-- HEADER JS -->
+		<?php
+		// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+		echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+		echo $Html -> addScript('assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5');
+		?>
+
 	</head>
 <body class="fixed-header overlay-disabled" data-spy="scroll">
 	<!-- PACE PRELOADER -->

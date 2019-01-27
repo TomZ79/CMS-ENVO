@@ -156,7 +156,7 @@ if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "urlmapping"');
 
 						/* Remove tables with data */
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'urlmapping');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'urlmapping');
 
 					}
 

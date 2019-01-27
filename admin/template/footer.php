@@ -82,10 +82,10 @@
 	}
 </script>
 
+<!-- FOOTER JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html -> addScript('assets/plugins/pace/pace.min.js?=v1.0.2');
-echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
 echo $Html -> addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
 echo $Html -> addScript('assets/plugins/modernizr.custom.js?=v2.8.3');
 echo $Html -> addScript('../assets/plugins/popover/1.14.1/popper.min.js');
@@ -93,7 +93,6 @@ echo $Html -> addScript('../assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootst
 echo $Html -> addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
 echo $Html -> addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
 echo $Html -> addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');
-echo $Html -> addScript('assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5');
 echo $Html -> addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js?=v4.4.0');
 echo $Html -> addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js?=v0.8.0');
 echo $Html -> addScript('assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js');

@@ -160,7 +160,7 @@ if (file_exists(APP_PATH . 'plugins/wiki/admin/lang/' . $site_language . '.ini')
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "wiki"');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `wiki`');
 
-						$envodb -> query('DROP TABLE ' . DB_PREFIX . 'wiki, ' . DB_PREFIX . 'wikicategories');
+						$envodb -> query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'wiki, ' . DB_PREFIX . 'wikicategories');
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showwiki');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news DROP showwiki');

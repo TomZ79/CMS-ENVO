@@ -160,15 +160,15 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
 						/* Remove tables */
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvtower');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvchannel');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvprogram');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidtv');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidr');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersids');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtoweronid');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowernid');
-						// $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowerexporthistory');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowertvtower');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowertvchannel');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowertvprogram');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowersidtv');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowersidr');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowersids');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtoweronid');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowernid');
+						// $envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'tvtowerexporthistory');
 
 					}
 

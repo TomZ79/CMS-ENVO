@@ -159,7 +159,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "download"');
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "download"');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`');
-						$envodb -> query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
+						$envodb -> query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showdownload');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news DROP showdownload');

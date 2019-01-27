@@ -171,7 +171,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showregister');
 						$envodb -> query('ALTER TABLE ' . DB_PREFIX . 'news DROP showregister');
 						$envodb -> query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 1 WHERE id = 3');
-						$envodb -> query('DROP TABLE ' . DB_PREFIX . 'registeroptions');
+						$envodb -> query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'registeroptions');
 
 					}
 

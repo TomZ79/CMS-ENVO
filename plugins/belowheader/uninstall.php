@@ -159,7 +159,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 						$envodb -> query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "belowheader"');
 
 						/* Remove tables with data */
-						$envodb -> query('DROP TABLE ' . DB_PREFIX . 'belowheader');
+						$envodb -> query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'belowheader');
 
 					}
 

@@ -1,0 +1,39 @@
+/*------------------------------------------------------------------
+[29. Fileuploader Plugin]
+*/
+
+.form-status {
+  .progressbar-holder {
+    height: 4px;
+    background-color: #E9ECEE;
+    background-image: none;
+    box-shadow: none;
+    filter: none;
+    .progressbar {
+      height: 100%;
+      width: 0;
+      background-color: #0AA699;
+      background-image: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .fileuploader-input {
+    flex-direction: column;
+    .fileuploader-input-caption {
+      width: 100%;
+      margin: 0 0 20px 0;
+      text-align: center;
+    }
+    .fileuploader-input-button {
+      text-align: center;
+    }
+  }
+
+  .btn-upload {
+    float: none !important;
+    display: block;
+    width: 100%;
+  }
+}
