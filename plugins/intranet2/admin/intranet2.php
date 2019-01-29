@@ -24,8 +24,11 @@ $envotable2  = DB_PREFIX . 'int2_housetasks';
 $envotable3  = DB_PREFIX . 'int2_houseent';
 $envotable4  = DB_PREFIX . 'int2_housedocu';
 $envotable5  = DB_PREFIX . 'int2_houseimg';
+$envotable6  = DB_PREFIX . 'int2_houseserv';
+$envotable7  = DB_PREFIX . 'int2_housenotifications';
+$envotable8  = DB_PREFIX . 'int2_housenotificationug';
 $envotable20 = DB_PREFIX . 'int2_settings_city';
-$envotable21 = DB_PREFIX . 'int2_settings_cityarea';
+$envotable21 = DB_PREFIX . 'int2_settings_ku';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -63,7 +66,7 @@ switch ($page1) {
 
 						// EN: Check if ic of house isn't empty
 						// CZ: Kontrola jestli je zadáné ič
-						if (empty($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
+						if (!isset($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
 							$errors['e2'] = $tlint['int_error']['interror8'] . '<br>';
 						}
 
@@ -96,15 +99,9 @@ switch ($page1) {
 
 							// EN: Get city area name
 							// CZ:
-							if (!empty($defaults['envo_housecityarea'])) {
-								$result = $envodb -> query('SELECT city_area FROM ' . $envotable21 . ' WHERE id = "' . smartsql($defaults['envo_housecityarea']) . '" LIMIT 1 ');
-								$envocityarea = $result -> fetch_assoc();
-							}
-
-							// EN: Trim values
-							// CZ:
-							if (!empty($defaults['envo_housefname'])) {
-								$housefname = trim($defaults['envo_housefname'], '"');
+							if (!empty($defaults['envo_houseku'])) {
+								$result     = $envodb -> query('SELECT ku FROM ' . $envotable21 . ' WHERE id = "' . smartsql($defaults['envo_houseku']) . '" LIMIT 1 ');
+								$envocityku = $result -> fetch_assoc();
 							}
 
 							// EN: New folder of house for documents, images and other ...
@@ -134,13 +131,13 @@ House created: ' . date('Y-m-d H:i:s') . '
 
 INFO ABOUT HOUSE
 -----------------------------------------------
-Name:     ' . $defaults['envo_housename'] . '
-Street:   ' . $defaults['envo_housestreet'] . '
-City:     ' . $envocity["city"] . '
-Area:     ' . $envocityarea["city_area"] . '
-PSČ:      ' . $defaults['envo_housepsc'] . '
-IČ:       ' . $defaults['envo_houseic'] . '
-Folder:   ' . $pathfolder . '
+Jméno:     						' . $defaults['envo_housename'] . '
+Ulice:   							' . $defaults['envo_housestreet'] . '
+Město:     						' . $envocity["city"] . '
+Katastrální území:    ' . envocityku["ku"] . '
+PSČ:      						' . $defaults['envo_housepsc'] . '
+IČ:       						' . $defaults['envo_houseic'] . '
+Složka domu:   				' . $pathfolder . '
                         ';
 								$data = iconv(mb_detect_encoding($data, mb_detect_order(), true), 'UTF-8', $data);
 								file_put_contents(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/house_info.txt', $data);
@@ -161,11 +158,11 @@ Folder:   ' . $pathfolder . '
                         headquarters = "' . smartsql($defaults['envo_househeadquarters']) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
-                        cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
+                        ku = "' . smartsql($defaults['envo_houseku']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
-                        housefname = "' . $housefname . '",
+                        housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
                         housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
@@ -215,25 +212,29 @@ Folder:   ' . $pathfolder . '
 					);
 				}
 
-				// EN: Getting the data about the cityarea in region
-				// CZ: Získání dat o městských částí v regionu
-				$resultcityarea = $envodb -> query('SELECT 
+				// EN: Getting the data about the katastrální území
+				// CZ: Získání dat o katastrálních území
+				$resultku = $envodb -> query('SELECT 
                                         t1.id,
                                         t1.city,
                                         t2.id,
                                         t2.city_id,
-                                        t2.city_area
+                                        t2.ku,
+                                        t2.ku_code
                                       FROM
                                         cms_int2_settings_city t1
                                       LEFT JOIN 
-                                        cms_int2_settings_cityarea t2
+                                        cms_int2_settings_ku t2
                                           ON t1.id = t2.city_id
-                                        ORDER BY t2.city_area');
-				while ($rowcityarea = $resultcityarea -> fetch_assoc()) {
+                                        ORDER BY t2.ku');
+				while ($rowku = $resultku -> fetch_assoc()) {
 					// EN: Insert each record into array
 					// CZ: Vložení získaných dat do pole
-					$ENVO_CITY_AREA[] = $rowcityarea;
+					$ENVO_KU[] = $rowku;
 				}
+
+				// Sort array
+				$ENVO_KU = sort_array_mutlidim($ENVO_KU, 'city ASC');
 
 				// Get all usergroup's for active plugin
 				$ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet2');
@@ -275,7 +276,7 @@ Folder:   ' . $pathfolder . '
 
 							// EN: Check if ic of house isn't empty
 							// CZ: Kontrola jestli je zadáné ič
-							if (empty($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
+							if (!isset($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
 								$errors['e2'] = $tlint['int_error']['interror8'] . '<br>';
 							}
 
@@ -300,12 +301,6 @@ Folder:   ' . $pathfolder . '
 									$admtime = '';
 								}
 
-								// EN: Trim values
-								// CZ:
-								if (!empty($defaults['envo_housefname'])) {
-									$housefname = trim($defaults['envo_housefname'], '"');
-								}
-
 								/* EN: Convert value
 								 * smartsql - secure method to insert form data into a MySQL DB
 								 * url_slug  - friendly URL slug from a string
@@ -320,11 +315,11 @@ Folder:   ' . $pathfolder . '
                         headquarters = "' . smartsql($defaults['envo_househeadquarters']) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
-                        cityarea = "' . smartsql($defaults['envo_housecityarea']) . '",
+                        ku = "' . smartsql($defaults['envo_houseku']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
-                        housefname = "' . $housefname . '",
+                        housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
                         housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
@@ -382,25 +377,29 @@ Folder:   ' . $pathfolder . '
 						);
 					}
 
-					// EN: Getting the data about the cityarea in region
-					// CZ: Získání dat o městských částí v regionu
-					$resultcityarea = $envodb -> query('SELECT 
+					// EN: Getting the data about the katastrální území
+					// CZ: Získání dat o katastrálních území
+					$resultku = $envodb -> query('SELECT 
                                         t1.id,
                                         t1.city,
                                         t2.id,
                                         t2.city_id,
-                                        t2.city_area
+                                        t2.ku,
+                                        t2.ku_code
                                       FROM
                                         cms_int2_settings_city t1
                                       LEFT JOIN 
-                                        cms_int2_settings_cityarea t2
+                                        cms_int2_settings_ku t2
                                           ON t1.id = t2.city_id
-                                        ORDER BY t2.city_area');
-					while ($rowcityarea = $resultcityarea -> fetch_assoc()) {
+                                        ORDER BY t2.ku');
+					while ($rowku = $resultku -> fetch_assoc()) {
 						// EN: Insert each record into array
 						// CZ: Vložení získaných dat do pole
-						$ENVO_CITY_AREA[] = $rowcityarea;
+						$ENVO_KU[] = $rowku;
 					}
+
+					// Sort array
+					$ENVO_KU = sort_array_mutlidim($ENVO_KU, 'city ASC');
 
 					// EN: Get all the data for the form - Entrance
 					// CZ: Získání všech dat pro formulář - Vchody
@@ -474,7 +473,8 @@ Folder:   ' . $pathfolder . '
 					 * 3. Delete records from DB 'int2_houseent'
 					 * 4. Delete records from DB 'int2_housetasks'
 					 * 5. Delete records from DB 'int2_housedocu'
-					 * 6. Delete all files and folder
+					 * 6. Delete records from DB 'int2_houseimg'
+					 * 7. Delete all files and folder
 					*/
 
 					// EN: 1. Get data for deleting - main folder
@@ -503,6 +503,10 @@ Folder:   ' . $pathfolder . '
 						// EN: 5. Delete row from DB 'int2_housedocu' - Documents
 						// CZ: 5. Odstranění záznamu z DB 'int2_housedocu' - Dokumenty
 						$envodb -> query('DELETE FROM ' . $envotable4 . ' WHERE houseid = "' . smartsql($pageID) . '"');
+
+						// EN: XX. Delete row from DB 'int2_houseimg' - Photogallery
+						// CZ: XX. Odstranění záznamu z DB 'int2_houseimg' - Fotogalerie
+						$envodb -> query('DELETE FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '"');
 
 						// EN: 6. Delete files, folder
 						// CZ: 6. Odstranění souborů a složek
@@ -556,6 +560,18 @@ Folder:   ' . $pathfolder . '
 		}
 
 		break;
+	case 'katastr':
+
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = 'Intranet 2 - Katastr';
+		$SECTION_DESC  = '';
+
+		// EN: Load the php template
+		// CZ: Načtení php template (šablony)
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_katastr.php';
+
+		break;
 	case 'maps':
 
 		// EN: Title and Description
@@ -566,6 +582,315 @@ Folder:   ' . $pathfolder . '
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
 		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_maps.php';
+
+		break;
+	case 'notification':
+		// INTRANET NOTIFICATION
+
+		switch ($page2) {
+			case 'newnotification':
+				// ADD NEW NOTIFICATION TO DB
+
+				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+					// EN: Default Variable
+					// CZ: Hlavní proměnné
+					$defaults = $_POST;
+
+					if (isset($_POST['btnSave'])) {
+
+						// EN: Check if name of house isn't empty
+						// CZ: Kontrola jestli je zadáný název domu
+						if (empty($defaults['envo_title'])) {
+							$errors['e1'] = $tlint2['int_error']['interror7'] . '<br>';
+						}
+
+						// EN: All checks are OK without Errors - Start the form processing
+						// CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+						if (count($errors) == 0) {
+
+							// Permissions
+							if (!isset($defaults['envo_permission'])) {
+								$permission = 0;
+							} elseif (in_array(0, $defaults['envo_permission'])) {
+								$permission = 0;
+							} else {
+								$permission = join(',', $defaults['envo_permission']);
+							}
+
+							/* EN: Convert value
+							 * smartsql - secure method to insert form data into a MySQL DB
+							 * url_slug  - friendly URL slug from a string
+							 * ------------------
+							 * CZ: Převod hodnot
+							 * smartsql - secure method to insert form data into a MySQL DB
+							 * url_slug  - friendly URL slug from a string
+							*/
+							$result = $envodb -> query('INSERT INTO ' . $envotable7 . ' SET 
+                        name = "' . smartsql($defaults['envo_title']) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
+                        type = "' . smartsql($defaults['envo_type']) . '",
+                        shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
+                        permission = "' . smartsql($permission) . '",
+                        created = NOW(),
+                        updated = NOW()');
+
+							$rowid = $envodb -> envo_last_id();
+
+							// EN: User group access for notification
+							// CZ: Přístup jednotlivých uživatelských skupin k notifikaci
+							if (!isset($defaults['envo_permission'])) {
+								// EN: Usergroup not exists
+								// CZ: Uživatelská skupina neexistuje
+
+								$envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $rowid . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        created = NOW(),
+                        updated = NOW()');
+
+							} elseif (in_array(0, $defaults['envo_permission'])) {
+								// EN: Usergroup exists, selection contains '0' value
+								// CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
+
+								$envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $rowid . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        created = NOW(),
+                        updated = NOW()');
+
+							} else {
+								// EN: Usergoup exists, selection contains array
+								// CZ: Uživatelská skupina existuje, výběr obsahuje pole
+
+								foreach ($defaults['envo_permission'] as $permission) {
+									$envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $rowid . '",
+                        usergroup_id = "' . $permission . '",
+                        unread = "0",
+                        created = NOW(),
+                        updated = NOW()');
+								}
+
+							}
+
+							if (!$result) {
+								// EN: Redirect page
+								// CZ: Přesměrování stránky
+								envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&ssp=newnotification&status=e');
+							} else {
+								// EN: Redirect page
+								// CZ: Přesměrování stránky
+								envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&ssp=editnotification&id=' . $rowid . '&status=s');
+							}
+
+						} else {
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
+							$errors      = $errors;
+						}
+					}
+				}
+
+				// Get all usergroup's for active plugin
+				$ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet2');
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t5"];
+				$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d5"];
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_newnotification.php';
+
+				break;
+			case 'editnotification':
+				// EDIT NOTIFICATION
+
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$pageID = $page3;
+
+				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
+
+					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+						// EN: Default Variable
+						// CZ: Hlavní proměnné
+						$defaults = $_POST;
+
+						if (isset($_POST['btnSave'])) {
+
+							// EN: Check if name of house isn't empty
+							// CZ: Kontrola jestli je zadáný název domu
+							if (empty($defaults['envo_title'])) {
+								$errors['e1'] = $tlint2['int_error']['interror7'] . '<br>';
+							}
+
+							// EN: All checks are OK without Errors - Start the form processing
+							// CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+							if (count($errors) == 0) {
+
+								// Permissions
+								if (!isset($defaults['envo_permission'])) {
+									$permission = 0;
+								} elseif (in_array(0, $defaults['envo_permission'])) {
+									$permission = 0;
+								} else {
+									$permission = join(',', $defaults['envo_permission']);
+								}
+
+								/* EN: Convert value
+								 * smartsql - secure method to insert form data into a MySQL DB
+								 * url_slug  - friendly URL slug from a string
+								 * ------------------
+								 * CZ: Převod hodnot
+								 * smartsql - secure method to insert form data into a MySQL DB
+								 * url_slug  - friendly URL slug from a string
+								*/
+								$result = $envodb -> query('UPDATE ' . $envotable7 . ' SET
+                        name = "' . smartsql($defaults['envo_title']) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array ( 'transliterate' => TRUE )) . '",
+                        type = "' . smartsql($defaults['envo_type']) . '",
+                        shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
+                        permission = "' . smartsql($permission) . '",
+                        updated = NOW()
+                        WHERE id = "' . smartsql($pageID) . '"');
+
+								// EN: Delete user group acces for notification by 'id'
+								// CZ: Odstranění přístupu uživatelské skupiny pro notifikaci podle 'id'
+								$envodb -> query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
+
+								// EN: User group access for notification
+								// CZ: Přístup jednotlivých uživatelských skupin k notifikaci
+								if (!isset($defaults['envo_permission'])) {
+									// EN: Usergroup not exists
+									// CZ: Uživatelská skupina neexistuje
+
+									$envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $pageID . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        updated = NOW()');
+
+								} elseif (in_array(0, $defaults['envo_permission'])) {
+									// EN: Usergroup exists, selection contains '0' value
+									// CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
+
+									$envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $pageID . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        updated = NOW()');
+
+								} else {
+									// EN: Usergoup exists, selection contains array
+									// CZ: Uživatelská skupina existuje, výběr obsahuje pole
+
+									foreach ($defaults['envo_permission'] as $permission) {
+										$envodb -> query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $pageID . '",
+                        usergroup_id = "' . $permission . '",
+                        unread = "0",
+                        updated = NOW()');
+									}
+
+								}
+
+								if (!$result) {
+									// EN: Redirect page
+									// CZ: Přesměrování stránky
+									envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&ssp=editnotification&id=' . $pageID . '&status=e');
+								} else {
+									// EN: Redirect page
+									// CZ: Přesměrování stránky
+									envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&ssp=editnotification&id=' . $pageID . '&status=s');
+								}
+
+							} else {
+								$errors['e'] = $tl['general_error']['generror'] . '<br>';
+								$errors      = $errors;
+							}
+
+						}
+					}
+
+					// Get all usergroup's for active plugin
+					$ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet2');
+
+					// EN: Get all the data for the form - Notification
+					// CZ: Získání všech dat pro formulář - Notifikace
+					$ENVO_FORM_DATA = envo_get_data($pageID, $envotable7);
+
+					// EN: Title and Description
+					// CZ: Titulek a Popis
+					$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t6"];
+					$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d6"];
+
+					// EN: Load the php template
+					// CZ: Načtení php template (šablony)
+					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_editnotification.php';
+
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&status=ene');
+				}
+
+				break;
+			case 'delete':
+				// DELETE NOTIFICATION FROM DB
+
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$pageID = $page3;
+
+				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
+
+					// Delete the Content
+					$result = $envodb -> query('DELETE FROM ' . $envotable7 . ' WHERE id = "' . smartsql($pageID) . '"');
+					$result = $envodb -> query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
+
+					if (!$result) {
+						// EN: Redirect page
+						// CZ: Přesměrování stránky s notifikací - chybné
+						envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&status=e');
+					} else {
+						// EN: Redirect page
+						// CZ: Přesměrování stránky s notifikací - úspěšné
+						/*
+						NOTIFIKACE:
+						'status=s'    - Záznam úspěšně uložen
+						'status1=s1'  - Záznam úspěšně odstraněn
+						*/
+						envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&status=s&status1=s1');
+					}
+
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=notification&status=ene');
+				}
+				break;
+			default:
+				// LIST OF NOTIFICATIONS
+
+				// EN: Getting the data about the Houses
+				// CZ: Získání dat o bytových domech
+				$ENVO_NOTIFICATION_ALL = envo_get_notification_info($envotable7);
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t4"];
+				$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d4"];
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_notification.php';
+
+		}
 
 		break;
 	case 'setting':

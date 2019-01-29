@@ -645,7 +645,7 @@ class HTML_Element
 	 *
 	 * @return  string
 	 */
-	function addOption ($value, $text, $selected = NULL, $id = NULL, $class = NULL, $attributes = array ())
+	function addOption ($value = NULL, $text = NULL, $selected = NULL, $id = NULL, $class = NULL, $attributes = array ())
 	{
 
 		$id    = (empty($id) ? '' : ' id="' . $id . '"');

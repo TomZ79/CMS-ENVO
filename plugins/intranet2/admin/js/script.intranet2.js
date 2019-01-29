@@ -8,6 +8,11 @@
  * =======================================================================
  */
 
+/**
+ * @description Setting for debug
+ */
+var debug = true;
+
 /* 00. JQUERY CODE SNIPPET TO GET THE DYNAMIC VARIABLE
  ======================================================================== */
 /* jQuery code snippet to get the dynamic variables stored in the url as parameters and
@@ -45,748 +50,71 @@ var page = $.urlParam('p');
 var page1 = $.urlParam('sp');
 var page2 = $.urlParam('ssp');
 
-/**
- * @description Setting for debug
- */
-var debug = true;
-
-/**
- * @description Click Task Header - House
- */
-function clickTaskHeader () {
-  $header = $(this);
-  //getting text element
-  $text = $header.children('span.collapsetask');
-  //getting the next element
-  $content = $header.next().next();
-  //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-  $content.slideToggle(500, function () {
-    //execute this after slideToggle is done
-    //change text of header based on visibility of content div
-    $text.text(function () {
-      //change text based on condition
-      return $content.is(':visible') ? '-' : '+';
-    });
-  });
+if (debug) {
+  console.log('Jquery Parse URL | Data => pageID - ' + pageID + ' | page - ' + page + ' | page1 - ' + page1 + ' | page2 - ' + page2 + '')
 }
 
-/**
- * @description Jquery Function - DialogFX Open - Task - House
- * @example
- * Attribute 'data-dialog' in button => ID of dialog 'div' block
- * -----------------
- * <button class="" id="" type="button" data-dialog="DialogNew"></button>
+/** 00. Basic config for plugin's administration
+ ========================================================================*/
+
+/** ACE Editor
+ * Initialisation of ACE Editor
+ * @require: ACE Editor Plugin
  *
- *  <div id="DialogNew" class="dialog dialog-details">
- *    <div class="dialog__overlay"></div>
- *    <div class="dialog__content">
- *      <div class="container-fluid">
- *        <div class="row dialog__overview">
+ * Set variable in php file as array
+ * @param: 'aceEditor.acetheme' from generated_admin_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_admin_js.php
+ * @param: 'aceEditor.acetabSize' from generated_admin_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_admin_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_admin_js.php
+ * @param: 'aceEditor.acegutter' from generated_admin_js.php
  *
- *        </div>
- *      </div>
- *      <button class="close action top-right" type="button" data-dialog-close>
- *        <i class="pg-close fs-14"></i>
- *      </button>
- *    </div>
- *  </div>
- *  @calling_action
- *  element -> element for getting street
- *  $('#elementID').click(openDialogNewEnt);
- */
-function openDialogNewTask (event) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get Data-Dialog and value
-  DataDialog = $(this).attr('data-dialog');
-  var houseID = pageID;
-
-  if (debug) {
-    console.log('Add New Task Click fn | Dialog ID: ' + DataDialog);
-  }
-
-  // Show progress circle
-  $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
-
-  // Load content do DIV
-  setTimeout(function () {
-
-    $('#' + DataDialog + ' .dialog__overview').load('/plugins/intranet2/admin/ajax/content_new_task.php', function (responseTxt, statusTxt, xhr) {
-
-      if (statusTxt == "success") {
-        if (debug) {
-          console.log('Loading content | External content loaded successfully!');
-        }
-
-        // Init TinyMCE
-
-        // Fix for NS_ERROR_UNEXPECTED in Mozilla
-        try {
-          tinymce.remove("textarea.envoEditorSmall");
-        } catch (e) {
-        }
-        initializeTinyMce('textarea.envoEditorSmall', 300);
-
-        // Init Select2 plugin
-        $('#' + DataDialog + ' .selectpicker').select2({
-          minimumResultsForSearch: -1,
-          dropdownParent: $('.page-content-wrapper'),
-          dropdownCssClass: 'zindex1060'
-        });
-
-        // Init DateTimePicker
-        initializeDateTimePicker('input[name=envo_addtasktime]');
-        initializeDateTimePicker('input[name=envo_addtaskreminder]');
-
-      }
-
-      if (statusTxt == "error") {
-        if (debug) {
-          console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
-        }
-      }
-
-    });
-
-  }, 1000);
-
-
-  // Open DialogFX
-  dialogEl = document.getElementById(DataDialog);
-  dlg = new DialogFx(dialogEl, {
-    onOpenDialog: function (instance) {
-      // Open DialogFX
-      if (debug) {
-        console.log('DialogFX: OPEN');
-      }
-    },
-    onCloseDialog: function (instance) {
-      // Close DialogFX
-      if (debug) {
-        console.log('DialogFX: CLOSE');
-      }
-
-      //
-      $('#' + DataDialog + ' .dialog__overview').html('');
-      // Disable 'button'
-      $('#saveTask').attr('disabled', false);
-    }
-  });
-  dlg.toggle(dlg);
-
-  return false;
-}
-
-/**
- * @description Jquery Function - DialogFX Open - Task - House
- * @example
- * Attribute 'data-dialog' in button => ID of dialog 'div' block
- * -----------------
- * <button class="dialog-open" type="button" data-dialog="DialogEdit"></button>
+ * @example: Example add other variable setting to aceEditor object in script.download.php
  *
- *  <div id="DialogEdit" class="dialog item-details">
- *    <div class="dialog__overlay"></div>
- *    <div class="dialog__content">
- *      <div class="container-fluid">
- *        <div class="row dialog__overview">
- *          <!-- Data over AJAX  -->
- *        </div>
- *      </div>
- *      <button class="close action top-right" type="button" data-dialog-close>
- *        <i class="pg-close fs-14"></i>
- *      </button>
- *    </div>
- *  </div>
- */
-function openDialogEditTask (event) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
+ * <script>
+ *  // Add to aceEditor settings javascript object
+ *  aceEditor['otherconfigvariable'] = <?=json_encode($othervalue)?>;
+ * </script>
+ ========================================= */
+// Set WrapLimitRange from generated_admin_js.php
+$wrapLimitRange = {
+  min: aceEditor.acewraplimit,
+  max: aceEditor.acewraplimit
+};
 
-  // Get Data-Dialog
-  DataDialog = $(this).attr('data-dialog');
-  // Get ID of Task
-  var taskID = $(this).attr('data-id');
-
-  // Ajax
-  $.ajax({
-    url: "/plugins/intranet2/admin/ajax/int2_table_dialog_task.php",
-    type: "POST",
-    datatype: 'html',
-    data: {
-      taskID: taskID
-    },
-    beforeSend: function () {
-
-      // Show progress circle
-      $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
-
-    },
-    success: function (data) {
-
-      setTimeout(function () {
-        // Add html data to 'div'
-        $('#' + DataDialog + ' .dialog__overview').hide().html(data).fadeIn(900);
-
-        // Init TinyMCE
-
-        // Fix for NS_ERROR_UNEXPECTED in Mozilla
-        try {
-          tinymce.remove("textarea.envoEditorSmall");
-        } catch (e) {
-        }
-        initializeTinyMce('textarea.envoEditorSmall', 300);
-
-        // Init Select2 plugin
-        $('#' + DataDialog + ' .selectpicker').select2({
-          minimumResultsForSearch: -1,
-          dropdownParent: $('.page-content-wrapper'),
-          dropdownCssClass: 'zindex1060'
-        });
-
-        // Init DateTimePicker
-        initializeDateTimePicker('input[name=envo_edittasktime]');
-        initializeDateTimePicker('input[name=envo_edittaskreminder]');
-
-      }, 1000);
-
-    },
-    error: function () {
-
-    },
-    complete: function () {
-
-
-    }
-  });
-
-  // Open DialogFX
-  dialogEl = document.getElementById(DataDialog);
-  dlg = new DialogFx(dialogEl, {
-    onOpenDialog: function (instance) {
-      // Open DialogFX
-      if (debug) {
-        console.log('DialogFX: OPEN');
-      }
-    },
-    onCloseDialog: function (instance) {
-      // Close DialogFX
-      if (debug) {
-        console.log('DialogFX: CLOSE');
-      }
-
-      //
-      $('#' + DataDialog + ' .dialog__overview').html('');
-    }
-  });
-  dlg.toggle(dlg);
-
-  return false;
-}
-
-/**
- * @description Jquery Function - Delete Task from DB - House
- * @example
- * Attribute 'data-id' in button => ID is id of image in DB
- * -----------------
- * <button class="deleteTask" type="button" data-id="id_of_task_in_DB"></button>
- *
- */
-function deleteTask (taskID) {
-
-  // Ajax
-  $.ajax({
-    url: "/plugins/intranet2/admin/ajax/int2_table_delete_task.php",
-    type: "POST",
-    datatype: 'json',
-    data: {
-      taskID: taskID
-    },
-    success: function (data) {
-
-      if (data.status == 'delete_success') {
-        // IF DATA SUCCESS
-
-        // Removes elements from the Isotope instance and DOM
-        $('#task_' + data.data[0].id).remove();
-
-        // Notification
-        setTimeout(function () {
-          $.notify({
-            // options
-            message: '<strong>Success:</strong> ' + data.status_msg
-          }, {
-            // settings
-            type: 'success',
-            delay: 2000
-          });
-        }, 1000);
-
-      } else {
-        // IF DATA ERROR
-
-        // Notification
-        setTimeout(function () {
-          $.notify({
-            // options
-            message: '<strong>Error:</strong> ' + data.status_msg
-          }, {
-            // settings
-            type: 'danger',
-            delay: 5000
-          });
-        }, 1000);
-
-      }
-    },
-    complete: function () {
-
-    },
-    error: function () {
-
-    }
-  });
-
-  return false;
-}
-
-function confirmDeleteTask (event) {
-// Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get ID of Task
-  var taskID = $(this).attr('data-id');
-
-  // Show Message
-  bootbox.setLocale(envoWeb.envo_lang);
-  bootbox.confirm({
-    title: "Potvrzení o odstranění!",
-    message: $(this).attr('data-confirm-deltask'),
-    className: "bootbox-confirm-del",
-    animate: true,
-    buttons: {
-      confirm: {
-        className: 'btn-success'
-      },
-      cancel: {
-        className: 'btn-danger'
-      }
-    },
-    callback: function (result) {
-      if (result == true) {
-        if (debug) {
-          console.log('Delete Task - ID: ' + taskID);
-        }
-        deleteTask(taskID);
-      }
-    }
-  });
-
-  return false;
-}
-
-/**
- * @description Jquery Function - DialogFX Open - Entrance - House
- * @example
- * Attribute 'data-dialog' in button => ID of dialog 'div' block
- * -----------------
- * <button class="" id="" type="button" data-dialog="DialogNew"></button>
- *
- *  <div id="DialogNew" class="dialog dialog-details">
- *    <div class="dialog__overlay"></div>
- *    <div class="dialog__content">
- *      <div class="container-fluid">
- *        <div class="row dialog__overview">
- *
- *        </div>
- *      </div>
- *      <button class="close action top-right" type="button" data-dialog-close>
- *        <i class="pg-close fs-14"></i>
- *      </button>
- *    </div>
- *  </div>
- *  @calling_action
- *  element -> element for getting street
- *  $('#elementID').click({ element: 'nameofelement' }, openDialogNewEnt);
- */
-function openDialogNewEnt (event) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get Data-Dialog and value
-  DataDialog = $(this).attr('data-dialog');
-  var houseID = pageID;
-  var entrance = $(event.data.element);
-  var entranceval = entrance.val();
-
-  if (debug) {
-    console.log('Add New Entrance Click fn | Dialog ID: ' + DataDialog);
-  }
-
-  if (entranceval.length) {
-
-    // Show progress circle
-    $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
-
-    // Remove border for input - success
-    entrance.parent().removeClass('has-error');
-
-    setTimeout(function () {
-
-      // Load content do DIV
-      $('#' + DataDialog + ' .dialog__overview').load('/plugins/intranet2/admin/ajax/content_new_ent.php', function (responseTxt, statusTxt, xhr) {
-
-        if (statusTxt == "success") {
-          if (debug) {
-            console.log('Loading content | External content loaded successfully!');
-          }
-
-          //  Add data
-          $('#' + DataDialog + ' input[name="envo_entstreet"]').val(entranceval);
-
-          // Init function
-          $('.getgps').click(getGPS_Data);
-        }
-
-        if (statusTxt == "error") {
-          if (debug) {
-            console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
-          }
-        }
-
-      });
-
-    }, 1000);
-
-
-    // Open DialogFX
-    dialogEl = document.getElementById(DataDialog);
-    dlg = new DialogFx(dialogEl, {
-      onOpenDialog: function (instance) {
-        // Open DialogFX
-        if (debug) {
-          console.log('DialogFX: OPEN');
-        }
-      },
-      onCloseDialog: function (instance) {
-        // Close DialogFX
-        if (debug) {
-          console.log('DialogFX: CLOSE');
-        }
-
-        // Clearing
-        entrance.val('');
-        $('#' + DataDialog + ' .dialog__overview').html('');
-        // Disable 'button'
-        $('#saveEnt').attr('disabled', false);
-      }
-    });
-    dlg.toggle(dlg);
-
+function aceboolean (param) {
+  if (param == '1') {
+    return true;
   } else {
-    // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        message: '<strong>Error:</strong> ' + 'Zadejte ulici a číslo vchodu.'
-      }, {
-        // settings
-        type: 'danger',
-        delay: 5000
-      });
-    }, 1000);
-
-    // Add border for input - error
-    entrance.parent().addClass('has-error');
+    return false;
   }
-
-  return false;
 }
 
-/**
- * @description Jquery Function - DialogFX Open - Entrance - House
- * @example
- * Attribute 'data-dialog' in button => ID of dialog 'div' block
- * -----------------
- * <button class="" type="button" data-dialog="DialogEdit"></button>
- *
- *  <div id="DialogEdit" class="dialog item-details">
- *    <div class="dialog__overlay"></div>
- *    <div class="dialog__content">
- *      <div class="container-fluid">
- *        <div class="row dialog__overview">
- *          <!-- Data over AJAX  -->
- *        </div>
- *      </div>
- *      <button class="close action top-right" type="button" data-dialog-close>
- *        <i class="pg-close fs-14"></i>
- *      </button>
- *    </div>
- *  </div>
- *  @calling_action
- *  element -> element for getting street
- *  $('#elementID').click(openDialogEditEnt);
- */
-function openDialogEditEnt (event) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get Data-Dialog and value
-  DataDialog = $(this).attr('data-dialog');
-  // Get ID of Task
-  var entID = $(this).attr('data-id');
-
-  // Ajax
-  $.ajax({
-    url: "/plugins/intranet2/admin/ajax/int2_table_dialog_ent.php",
-    type: "POST",
-    datatype: 'html',
-    data: {
-      entID: entID
-    },
-    beforeSend: function () {
-
-      // Show progress circle
-      $('#entDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
-
-    },
-    success: function (data) {
-
-      setTimeout(function () {
-        // Add html data to 'div'
-        $('#entDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
-
-      }, 1000);
-
-    },
-    error: function () {
-
-    },
-    complete: function () {
-
-
-    }
+if ($('#htmleditor').length) {
+  var htmlACE = ace.edit('htmleditor');
+  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
+  htmlACE.session.setUseWrapMode(aceEditor.aceactivewrap);
+  htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
+  htmlACE.setOptions({
+    // session options
+    mode: "ace/mode/html_ruby",
+    tabSize: aceEditor.acetabSize,
+    useSoftTabs: true,
+    indentedSoftWrap: false,
+    highlightActiveLine: aceboolean(aceEditor.aceactiveline),
+    // renderer options
+    showPrintMargin: false,
+    fontSize: aceEditor.fontSize,
+    showInvisibles: aceEditor.aceinvisible,
+    showGutter: aceboolean(aceEditor.acegutter)
   });
+  // This is to remove following warning message on console:
+  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
+  // set editor.$blockScrolling = Infinity to disable this message
+  htmlACE.$blockScrolling = Infinity;
 
-  // Open DialogFX
-  dialogEl = document.getElementById(DataDialog);
-  dlg = new DialogFx(dialogEl, {
-    onOpenDialog: function (instance) {
-      // Open DialogFX
-      if (debug) {
-        console.log('DialogFX: OPEN');
-      }
-    },
-    onCloseDialog: function (instance) {
-      // Close DialogFX
-      if (debug) {
-        console.log('DialogFX: CLOSE');
-      }
-
-      //
-      $('#' + DataDialog + ' .dialog__overview').html('');
-    }
-  });
-  dlg.toggle(dlg);
-
-  return false;
-}
-
-/**
- * @description Jquery Function - Delete Entrance from DB
- * @example
- * Attribute 'data-id' in button => ID is id of entrance in DB
- * -----------------
- * <button class="deleteEnt" type="button" data-id="id_of_ent_in_DB"></button>
- *
- */
-function deleteEnt (entID) {
-
-  // Ajax
-  $.ajax({
-    url: "/plugins/intranet2/admin/ajax/int2_table_delete_ent.php",
-    type: "POST",
-    datatype: 'json',
-    data: {
-      entID: entID
-    },
-    success: function (data) {
-
-      if (data.status == 'delete_success') {
-        // IF DATA SUCCESS
-
-        // Removes elements from the Isotope instance and DOM
-        $('#ent_' + data.data[0].id).remove();
-
-        // Notification
-        setTimeout(function () {
-          $.notify({
-            // options
-            message: '<strong>Success:</strong> ' + data.status_msg
-          }, {
-            // settings
-            type: 'success',
-            delay: 2000
-          });
-        }, 1000);
-
-      } else {
-        // IF DATA ERROR
-
-        // Notification
-        setTimeout(function () {
-          $.notify({
-            // options
-            message: '<strong>Error:</strong> ' + data.status_msg
-          }, {
-            // settings
-            type: 'danger',
-            delay: 5000
-          });
-        }, 1000);
-
-      }
-    },
-    complete: function () {
-
-    },
-    error: function () {
-
-    }
-  });
-
-  return false;
-}
-
-function confirmDeleteEnt (event) {
-// Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get ID of Ent
-  var entID = $(this).attr('data-id');
-
-  // Show Message
-  bootbox.setLocale(envoWeb.envo_lang);
-  bootbox.confirm({
-    title: "Potvrzení o odstranění!",
-    message: $(this).attr('data-confirm-delent'),
-    className: "bootbox-confirm-del",
-    animate: true,
-    buttons: {
-      confirm: {
-        className: 'btn-success'
-      },
-      cancel: {
-        className: 'btn-danger'
-      }
-    },
-    callback: function (result) {
-      if (result == true) {
-        if (debug) {
-          console.log('Delete Entrance - ID: ' + entID);
-        }
-        deleteEnt(entID);
-      }
-    }
-  });
-
-  return false;
-}
-
-/**
- * @description Jquery Function - DialogFX Open - Image - House
- * @example
- * Attribute 'data-dialog' in button => ID of dialog 'div' block
- * -----------------
- * <button class="" type="button" data-dialog="DialogEdit"></button>
- *
- *  <div id="DialogEdit" class="dialog item-details">
- *    <div class="dialog__overlay"></div>
- *    <div class="dialog__content">
- *      <div class="container-fluid">
- *        <div class="row dialog__overview">
- *          <!-- Data over AJAX  -->
- *        </div>
- *      </div>
- *      <button class="close action top-right" type="button" data-dialog-close>
- *        <i class="pg-close fs-14"></i>
- *      </button>
- *    </div>
- *  </div>
- */
-function openDialogEditImg(event) {
-  // Stop, the default action of the event will not be triggered
-  event.preventDefault();
-
-  // Get Data-Dialog and value
-  DataDialog = $(this).attr('data-dialog');
-  // Get ID of image
-  var imageID = $(this).parents(":eq(4)").attr('id');
-
-  // Ajax
-  $.ajax({
-    url: "/plugins/intranet2/admin/ajax/int2_table_dialog_img.php",
-    type: "POST",
-    datatype: 'html',
-    data: {
-      imageID: imageID
-    },
-    beforeSend: function () {
-
-      // Show progress circle
-      $('#imgitemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
-
-    },
-    success: function (data) {
-
-      setTimeout(function () {
-        // Add html data to 'div'
-        $('#imgitemDetails .dialog__overview').hide().html(data).fadeIn(900);
-
-        // Init Select2 plugin
-        $('#info1 .selectpicker').select2({
-          minimumResultsForSearch: -1,
-          dropdownParent: $('.page-content-wrapper'),
-          dropdownCssClass: 'zindex1060'
-        });
-
-        // Call function for edit description - textarea
-        $('#editimgdesc').click(editImgDesc);
-        $('#closeimgdesc').click(closeImgDesc);
-        $('#saveimgdesc').click(saveImgDesc);
-
-        // Call function for edit description - textarea
-        $('#editimgcat').click(editImgCat);
-        $('#closeimgcat').click(closeImgCat);
-        $('#saveimgcat').click(saveImgCat);
-
-      }, 1000);
-
-    },
-    error: function () {
-
-    }
-  });
-
-  // Open DialogFX
-  dialogEl = document.getElementById(DataDialog);
-  dlg = new DialogFx(dialogEl, {
-    onOpenDialog: function (instance) {
-      // Open DialogFX
-      if (debug) {
-        console.log('DialogFX: OPEN');
-      }
-    },
-    onCloseDialog: function (instance) {
-      // Close DialogFX
-      if (debug) {
-        console.log('DialogFX: CLOSE');
-      }
-    }
-  });
-  dlg.toggle(dlg);
-
-  return false;
+  var texthtml = $('#envo_editor').val();
+  htmlACE.session.setValue(texthtml);
 }
 
 /**
@@ -797,6 +125,10 @@ function openDialogEditImg(event) {
 function getGPS_Data (event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
+
+  if (debug) {
+    console.log('----------- fn getGPS_Data -----------')
+  }
 
   // Getting parent 'id'
   var parent = $(this).parents(':eq(4)').attr('id');
@@ -835,7 +167,7 @@ function getGPS_Data (event) {
         }
 
         // Set ikatastr text for input
-        var ikatastr = 'https://www.ikatastr.cz/#kde=' + data.lat + ',' + data.lon + ',19&mapa=zakladni&vrstvy=parcelybudovy&info=' + data.lat + ',' + data.lon;
+        var ikatastr = 'https://www.ikatastr.cz/#kde=' + data.lat + ',' + data.lon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + data.lat + ',' + data.lon;
 
         // Add data to 'input'
         $('#' + parent + ' input[name=envo_housegpslat]').val(data.lat).css('background-color', '#FFF5CC');
@@ -972,11 +304,10 @@ function formatFileSize (bytes) {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   if (page2 != null) {
-
     initializeTinyMce('textarea.envoEditorLarge', '200');
-
   }
 
 });
@@ -986,6 +317,31 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
+
+  /**
+   * @description  Convert miliseconds to time
+   */
+
+  function msToTime (s) {
+
+    // Pad to 2 or 3 digits, default is 2
+    function pad (n, z) {
+      z = z || 2;
+      return ('00' + n).slice(-z);
+    }
+
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+
+    // return pad(hrs) + ':' + pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
+    return pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
+  }
+
 
   /**
    * @description   Change links to ARES - JUSTICE by 'IČ'
@@ -995,7 +351,8 @@ $(function () {
     // Get value
     var getic = $.trim($(this).val()).replace(/\s/g, '');
 
-    $('#ares_res a').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_res.cgi?ico=' + getic + '&jazyk=cz&xml=1');
+    $('#ares_res a:first').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_res.cgi?ico=' + getic + '&jazyk=cz&xml=1');
+    $('#ares_res a:last-child').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_vreo.cgi?ico=' + getic + '&jazyk=cz&xml=1');
     $('#justice_vor a').attr('href', 'https://or.justice.cz/ias/ui/rejstrik-$firma?ico=' + getic + '&jenPlatne=VSECHNY');
 
   });
@@ -1057,9 +414,16 @@ $(function () {
    * @description   Load data from ARES by 'IČ'
    */
   $('#loadAres').click(function (e) {
+    // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
+    if (debug) {
+      console.log('----------- fn #loadAres click -----------')
+    }
+
+    // Get value
     var ic = $.trim($('input[name="envo_dataares"]').val()).replace(/\s/g, '');
+    var ajaxTime = new Date().getTime();
 
     // Ajax
     $.ajax({
@@ -1068,9 +432,41 @@ $(function () {
       dataType: "json",
       data: "ic=" + ic,
       cache: false,
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#loadingdata_ares').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+
+      },
       success: function (data) {
 
         if (data.status == 'upload_success') {
+
+          // Hide Ares loading progress
+          $('#loadingdata_ares').hide();
+          $('#loadingdata_ares').html('');
+
+          // Put data to aresoutput
+          var divdata = '';
+          divdata += '<div class="col-sm-12"><h5>Získaná data z Ares databáze</h5><hr>' +
+            '<p><strong>' + data.status_msg + '</strong></p>' +
+            '<p>Doba načtení dat z ARESu: <span id="ajaxTime"></span></p><hr>' +
+            '<table class="table">' +
+            '<tbody>' +
+            '<tr>' +
+            '<th style="border-top: none;border-bottom: 1px solid #DEE2E6;" class="col-sm-4">Název</th>' +
+            '<td class="col-sm-8">' + data.name + '</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<th style="border-top: none;border-bottom: 1px solid #DEE2E6;" class="col-sm-4">Katastrální území</th>' +
+            '<td class="col-sm-8">' + data.katastralniuzemi + '</td>' +
+            '</tr>' +
+            '</tbody>' +
+            '</table>' +
+            '</div>';
+
+          $('#aresoutput').html('').prepend(divdata).show();
 
           // Add data to 'input' - for House and House Analytics
           $('input[name=envo_housename]').val('SVJ domu .....');
@@ -1118,31 +514,53 @@ $(function () {
           }, 8000);
 
           // Change 'attr' in anchor
-          $('#ares_res a').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_res.cgi?ico=' + ic + '&jazyk=cz&xml=1');
+          $('#ares_res a:first').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_res.cgi?ico=' + ic + '&jazyk=cz&xml=1');
+          $('#ares_res a:last-child').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_vreo.cgi?ico=' + ic + '&jazyk=cz&xml=1');
           $('#justice_vor a').attr('href', 'https://or.justice.cz/ias/ui/rejstrik-$firma?ico=' + ic + '&jenPlatne=VSECHNY');
-
-          // Alert status message
-          alert(data.status_msg + '\r\n\n' + 'NÁZEV: ' + data.name);
+          // Checkbox prop
+          $('input[name=envo_houseares][value="1"]').prop('checked',true);
+          $('input[name=envo_housejustice][value="1"]').prop('checked',true);
+          // Show anchor
+          $('#ares_res,#justice_vor').show();
 
         } else {
 
-          // Alert status message
-          alert(data.status_msg);
+          // Hide Ares loading progress
+          $('#loadingdata_ares').hide();
+          $('#loadingdata_ares').html('');
+
+          // Put data to aresoutput
+          var divdata = '';
+          divdata += '<div class="col-sm-12"><h5>Výstup z Ares</h5>' +
+            '<p><strong>' + data.status_msg + '</strong></p><hr>' +
+            '</div>';
+
+          $('#aresoutput').html('').prepend(divdata).show();
 
         }
 
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        var totalTime = Math.floor(new Date().getTime() - ajaxTime);
+        $('#ajaxTime').html(msToTime(totalTime));
       }
     });
 
-  });
+  })
+  ;
 
-});
+})
+;
 
 /** 00. DateTimePicker
  * @require: DateTimePicker Plugin
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   /* DateTimePicker
    ========================================= */
@@ -1155,6 +573,7 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   // Init Datatable plugin
   $('#int2_table').dataTable({
@@ -1181,6 +600,7 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   /* Check all checkbox */
   $('#envo_delete_all').click(function () {
@@ -1213,6 +633,7 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   function selecthouse (event) {
     // Stop, the default action of the event will not be triggered
@@ -1266,6 +687,10 @@ $(function () {
   $('#houseSelect').on('click', function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #houseSelect click -----------')
+    }
 
     var altura = $(window).height() - 155; //value corresponding to the modal heading + footer
     $('#ENVOModalPlugin .modal-body').css({"height": altura, "overflow-y": "auto"});
@@ -1329,10 +754,15 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   $('.copyadress').click(function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn .copyadress click -----------')
+    }
 
     // Getting value
     var street1 = $('input[name=envo_housestreet]').val();
@@ -1380,6 +810,363 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
+
+  /**
+   * @description Click Task Header - House
+   */
+  function clickTaskHeader () {
+
+    if (debug) {
+      console.log('----------- fn clickTaskHeader -----------')
+    }
+
+    var header = $(this);
+    //getting text element
+    var text = header.children('span.collapsetask');
+    //getting the next element
+    var content = header.next().next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    content.slideToggle(500, function () {
+      //execute this after slideToggle is done
+      //change text of header based on visibility of content div
+      text.text(function () {
+        //change text based on condition
+        return content.is(':visible') ? '-' : '+';
+      });
+    });
+  }
+
+  /**
+   * @description Jquery Function - DialogFX Open - Task - House
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" id="" type="button" data-dialog="DialogNew"></button>
+   *
+   *  <div id="DialogNew" class="dialog dialog-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   *  @calling_action
+   *  element -> element for getting street
+   *  $('#elementID').click(openDialogNewEnt);
+   */
+  function openDialogNewTask (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogNewTask -----------')
+    }
+
+    // Get Data-Dialog and value
+    var DataDialog = $(this).attr('data-dialog');
+    var houseID = pageID;
+
+    if (debug) {
+      console.log('Add New Task Click fn | Dialog ID: ' + DataDialog);
+    }
+
+    // Show progress circle
+    $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+    // Load content do DIV
+    setTimeout(function () {
+
+      $('#' + DataDialog + ' .dialog__overview').load('/plugins/intranet2/admin/ajax/content_new_task.php', function (responseTxt, statusTxt, xhr) {
+
+        if (statusTxt == "success") {
+          if (debug) {
+            console.log('Loading content | External content loaded successfully!');
+          }
+
+          // Init TinyMCE
+
+          // Fix for NS_ERROR_UNEXPECTED in Mozilla
+          try {
+            tinymce.remove("textarea.envoEditorSmall");
+          } catch (e) {
+          }
+          initializeTinyMce('textarea.envoEditorSmall', 300);
+
+          // Init Select2 plugin
+          $('#' + DataDialog + ' .selectpicker').select2({
+            minimumResultsForSearch: -1,
+            dropdownParent: $('.page-content-wrapper'),
+            dropdownCssClass: 'zindex1060'
+          });
+
+          // Init DateTimePicker
+          initializeDateTimePicker('input[name=envo_addtasktime]');
+          initializeDateTimePicker('input[name=envo_addtaskreminder]');
+
+        }
+
+        if (statusTxt == "error") {
+          if (debug) {
+            console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
+          }
+        }
+
+      });
+
+    }, 1000);
+
+
+    // Open DialogFX
+    var dialogEl = document.getElementById(DataDialog);
+    var dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        if (debug) {
+          console.log('DialogFX: OPEN');
+        }
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        if (debug) {
+          console.log('DialogFX: CLOSE');
+        }
+
+        //
+        $('#' + DataDialog + ' .dialog__overview').html('');
+        // Disable 'button'
+        $('#saveTask').attr('disabled', false);
+      }
+    });
+    dlg.toggle(dlg);
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - DialogFX Open - Task - House
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="dialog-open" type="button" data-dialog="DialogEdit"></button>
+   *
+   *  <div id="DialogEdit" class="dialog item-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *          <!-- Data over AJAX  -->
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   */
+  function openDialogEditTask (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogEditTask -----------')
+    }
+
+    // Get Data-Dialog
+    var DataDialog = $(this).attr('data-dialog');
+    // Get ID of Task
+    var taskID = $(this).attr('data-id');
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet2/admin/ajax/int2_table_dialog_task.php",
+      type: "POST",
+      datatype: 'html',
+      data: {
+        taskID: taskID
+      },
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data) {
+
+        setTimeout(function () {
+          // Add html data to 'div'
+          $('#' + DataDialog + ' .dialog__overview').hide().html(data).fadeIn(900);
+
+          // Init TinyMCE
+
+          // Fix for NS_ERROR_UNEXPECTED in Mozilla
+          try {
+            tinymce.remove("textarea.envoEditorSmall");
+          } catch (e) {
+          }
+          initializeTinyMce('textarea.envoEditorSmall', 300);
+
+          // Init Select2 plugin
+          $('#' + DataDialog + ' .selectpicker').select2({
+            minimumResultsForSearch: -1,
+            dropdownParent: $('.page-content-wrapper'),
+            dropdownCssClass: 'zindex1060'
+          });
+
+          // Init DateTimePicker
+          initializeDateTimePicker('input[name=envo_edittasktime]');
+          initializeDateTimePicker('input[name=envo_edittaskreminder]');
+
+        }, 1000);
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+
+
+      }
+    });
+
+    // Open DialogFX
+    var dialogEl = document.getElementById(DataDialog);
+    var dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        if (debug) {
+          console.log('DialogFX: OPEN');
+        }
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        if (debug) {
+          console.log('DialogFX: CLOSE');
+        }
+
+        //
+        $('#' + DataDialog + ' .dialog__overview').html('');
+      }
+    });
+    dlg.toggle(dlg);
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - Delete Task from DB - House
+   * @example
+   * Attribute 'data-id' in button => ID is id of image in DB
+   * -----------------
+   * <button class="deleteTask" type="button" data-id="id_of_task_in_DB"></button>
+   *
+   */
+  function deleteTask (taskID) {
+
+    if (debug) {
+      console.log('----------- fn deleteTask -----------')
+    }
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet2/admin/ajax/int2_table_delete_task.php",
+      type: "POST",
+      datatype: 'json',
+      data: {
+        taskID: taskID
+      },
+      success: function (data) {
+
+        if (data.status == 'delete_success') {
+          // IF DATA SUCCESS
+
+          // Removes elements from the Isotope instance and DOM
+          $('#task_' + data.data[0].id).remove();
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Error:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+        }
+      },
+      complete: function () {
+
+      },
+      error: function () {
+
+      }
+    });
+
+    return false;
+  }
+
+  function confirmDeleteTask (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn confirmDeleteTask -----------')
+    }
+
+    // Get ID of Task
+    var taskID = $(this).attr('data-id');
+
+    // Show Message
+    bootbox.setLocale(envoWeb.envo_lang);
+    bootbox.confirm({
+      title: "Potvrzení o odstranění!",
+      message: $(this).attr('data-confirm-deltask'),
+      className: "bootbox-confirm-del",
+      animate: true,
+      buttons: {
+        confirm: {
+          className: 'btn-success'
+        },
+        cancel: {
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result == true) {
+          if (debug) {
+            console.log('Delete Task - ID: ' + taskID);
+          }
+          deleteTask(taskID);
+        }
+      }
+    });
+
+    return false;
+  }
 
   /**
    * @description  Show task description in task list
@@ -1397,6 +1184,10 @@ $(function () {
   $('#saveTask').on('click', function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #saveTask click -----------')
+    }
 
     // Storing $(this) in a variable
     var $this = $(this);
@@ -1518,7 +1309,7 @@ $(function () {
               // Apply the plugin to the container
               $('#task_notify_add').pgNotification({
                 style: 'bar',
-                message: data.status_msg,
+                message: '<strong>Success:</strong> ' + data.status_msg,
                 position: 'top',
                 timeout: 2000,
                 type: 'success',
@@ -1535,7 +1326,7 @@ $(function () {
               // Apply the plugin to the container
               $('#task_notify_add').pgNotification({
                 style: 'bar',
-                message: data.status_msg,
+                message: '<strong>Error:</strong> ' + data.status_msg,
                 position: 'top',
                 timeout: 2000,
                 type: 'danger',
@@ -1579,6 +1370,10 @@ $(function () {
   $('#udpateTask').on('click', function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #udpateTask click -----------')
+    }
 
     // Get value
     var taskID = $('input[name=envo_edittaskid]').val();
@@ -1690,7 +1485,7 @@ $(function () {
               // Apply the plugin to the container
               $('#task_notify_edit').pgNotification({
                 style: 'bar',
-                message: data.status_msg,
+                message: '<strong>Success:</strong> ' + data.status_msg,
                 position: 'top',
                 timeout: 2000,
                 type: 'success',
@@ -1747,6 +1542,347 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
+
+  /**
+   * @description Jquery Function - DialogFX Open - Entrance - House
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" id="" type="button" data-dialog="DialogNew"></button>
+   *
+   *  <div id="DialogNew" class="dialog dialog-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   *  @calling_action
+   *  element -> element for getting street
+   *  $('#elementID').click({ element: 'nameofelement' }, openDialogNewEnt);
+   */
+  function openDialogNewEnt (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogNewEnt -----------')
+    }
+
+    // Get Data-Dialog and value
+    var DataDialog = $(this).attr('data-dialog');
+    var houseID = pageID;
+    var entrance = $(event.data.element);
+    var entranceval = entrance.val();
+
+    if (debug) {
+      console.log('Add New Entrance Click fn | Dialog ID: ' + DataDialog);
+    }
+
+    if (entranceval.length) {
+
+      // Show progress circle
+      $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      // Remove border for input - success
+      entrance.parent().removeClass('has-error');
+
+      setTimeout(function () {
+
+        // Load content do DIV
+        $('#' + DataDialog + ' .dialog__overview').load('/plugins/intranet2/admin/ajax/content_new_ent.php', function (responseTxt, statusTxt, xhr) {
+
+          if (statusTxt == "success") {
+            if (debug) {
+              console.log('Loading content | External content loaded successfully!');
+            }
+
+            //  Add data
+            $('#' + DataDialog + ' input[name="envo_entstreet"]').val(entranceval);
+
+            // Init function
+            $('.getgps').click(getGPS_Data);
+          }
+
+          if (statusTxt == "error") {
+            if (debug) {
+              console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
+            }
+          }
+
+        });
+
+      }, 1000);
+
+
+      // Open DialogFX
+      var dialogEl = document.getElementById(DataDialog);
+      var dlg = new DialogFx(dialogEl, {
+        onOpenDialog: function (instance) {
+          // Open DialogFX
+          if (debug) {
+            console.log('DialogFX: OPEN');
+          }
+        },
+        onCloseDialog: function (instance) {
+          // Close DialogFX
+          if (debug) {
+            console.log('DialogFX: CLOSE');
+          }
+
+          // Clearing
+          entrance.val('');
+          $('#' + DataDialog + ' .dialog__overview').html('');
+          // Disable 'button'
+          $('#saveEnt').attr('disabled', false);
+        }
+      });
+      dlg.toggle(dlg);
+
+    } else {
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          message: '<strong>Error:</strong> ' + 'Zadejte ulici a číslo vchodu.'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Add border for input - error
+      entrance.parent().addClass('has-error');
+    }
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - DialogFX Open - Entrance - House
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" type="button" data-dialog="DialogEdit"></button>
+   *
+   *  <div id="DialogEdit" class="dialog item-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *          <!-- Data over AJAX  -->
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   *  @calling_action
+   *  element -> element for getting street
+   *  $('#elementID').click(openDialogEditEnt);
+   */
+  function openDialogEditEnt (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogEditEnt -----------')
+    }
+
+    // Get Data-Dialog and value
+    var DataDialog = $(this).attr('data-dialog');
+    // Get ID of Task
+    var entID = $(this).attr('data-id');
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet2/admin/ajax/int2_table_dialog_ent.php",
+      type: "POST",
+      datatype: 'html',
+      data: {
+        entID: entID
+      },
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#entDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data, statusTxt) {
+
+        setTimeout(function () {
+
+            if (statusTxt == "success") {
+              if (debug) {
+                console.log('Loading content | External content loaded successfully!');
+              }
+
+              // Add html data to 'div'
+              $('#entDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+              // Init function
+              $('.getgps').click(getGPS_Data);
+            }
+
+            if (statusTxt == "error") {
+              if (debug) {
+                console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
+              }
+            }
+
+        }, 1000);
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+
+
+      }
+    });
+
+    // Open DialogFX
+    var dialogEl = document.getElementById(DataDialog);
+    var dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        if (debug) {
+          console.log('DialogFX: OPEN');
+        }
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        if (debug) {
+          console.log('DialogFX: CLOSE');
+        }
+
+        //
+        $('#' + DataDialog + ' .dialog__overview').html('');
+      }
+    });
+    dlg.toggle(dlg);
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - Delete Entrance from DB
+   * @example
+   * Attribute 'data-id' in button => ID is id of entrance in DB
+   * -----------------
+   * <button class="deleteEnt" type="button" data-id="id_of_ent_in_DB"></button>
+   *
+   */
+  function deleteEnt (entID) {
+
+    if (debug) {
+      console.log('----------- fn deleteEnt -----------')
+    }
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet2/admin/ajax/int2_table_delete_ent.php",
+      type: "POST",
+      datatype: 'json',
+      data: {
+        entID: entID
+      },
+      success: function (data) {
+
+        if (data.status == 'delete_success') {
+          // IF DATA SUCCESS
+
+          // Removes elements from the Isotope instance and DOM
+          $('#ent_' + data.data[0].id).remove();
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Error:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+        }
+      },
+      complete: function () {
+
+      },
+      error: function () {
+
+      }
+    });
+
+    return false;
+  }
+
+  function confirmDeleteEnt (event) {
+// Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn confirmDeleteEnt -----------')
+    }
+
+    // Get ID of Ent
+    var entID = $(this).attr('data-id');
+
+    // Show Message
+    bootbox.setLocale(envoWeb.envo_lang);
+    bootbox.confirm({
+      title: "Potvrzení o odstranění!",
+      message: $(this).attr('data-confirm-delent'),
+      className: "bootbox-confirm-del",
+      animate: true,
+      buttons: {
+        confirm: {
+          className: 'btn-success'
+        },
+        cancel: {
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result == true) {
+          if (debug) {
+            console.log('Delete Entrance - ID: ' + entID);
+          }
+          deleteEnt(entID);
+        }
+      }
+    });
+
+    return false;
+  }
 
   /**
    * @description   Add New Entrance
@@ -1760,157 +1896,174 @@ $(function () {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
+    if (debug) {
+      console.log('----------- fn #saveEnt click -----------')
+    }
+
     // Storing $(this) in a variable
     var $this = $(this);
     // Getting parent 'id'
-    var parent = $(this).parents(':eq(4)').attr('id');
+    var parent = $this.parents(':eq(3)').attr('id');
     // Get value
     var houseID = pageID;
     var street = $('#' + parent + ' input[name=envo_entstreet]').val();
-    var elevator = $('#' + parent + ' input[name=envo_entelevator]').val();
+    var elevator = $('#' + parent + ' input[name=envo_entelevator]:checked').val();
     var apartment = $('#' + parent + ' input[name=envo_entapartment]').val();
-    var gpslat = $('#' + parent + ' input[name=envo_housegpslat]').val();
-    var gpslng = $('#' + parent + ' input[name=envo_housegpslng]').val();
+    var gpslat = $('#' + parent + ' input[name=envo_housegpslat]');
+    var gpslatval = gpslat.val();
+    var gpslng = $('#' + parent + ' input[name=envo_housegpslng]');
+    var gpslngval = gpslng.val();
     var katastr = $('#' + parent + ' input[name=envo_houseikatastr]').val();
 
     if (debug) {
-      console.log('Save Entrance Click fn | Data => houseID - ' + houseID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslat + ' | gpslng - ' + gpslng + ' | katastr - ' + katastr);
+      console.log('Save Entrance Click fn | Data => parentID - ' + parent + ' | houseID - ' + houseID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslatval + ' | gpslng - ' + gpslngval + ' | katastr - ' + katastr);
     }
 
-    // Ajax
-    $.ajax({
-      type: "POST",
-      url: "/plugins/intranet2/admin/ajax/int2_table_addnew_ent.php",
-      datatype: 'json',
-      data: {
-        houseID: houseID,
-        street: street,
-        elevator: elevator,
-        apartment: apartment,
-        gpslat: gpslat,
-        gpslng: gpslng,
-        katastr: katastr
-      },
-      success: function (data) {
+    if (gpslatval.length || gpslngval.length) {
 
-        if (data.status == 'success') {
-          // IF DATA SUCCESS
+      // Ajax
+      $.ajax({
+        type: "POST",
+        url: "/plugins/intranet2/admin/ajax/int2_table_addnew_ent.php",
+        datatype: 'json',
+        data: {
+          houseID: houseID,
+          street: street,
+          elevator: elevator,
+          apartment: apartment,
+          gpslat: gpslatval,
+          gpslng: gpslngval,
+          katastr: katastr
+        },
+        success: function (data) {
 
-          var str = JSON.stringify(data);
-          var result = JSON.parse(str);
+          if (data.status == 'success') {
+            // IF DATA SUCCESS
 
-          var divdata = '';
-          var dataID = '';
+            var str = JSON.stringify(data);
+            var result = JSON.parse(str);
 
-          $.each(result, function (key, data) {
+            var divdata = '';
+            var dataID = '';
 
-            if (key === 'data') {
+            $.each(result, function (key, data) {
 
-              $.each(data, function (index, data) {
+              if (key === 'data') {
 
-                dataID = data["id"];
+                $.each(data, function (index, data) {
 
-                divdata += '<div class="box box-success"  id="ent_' + dataID + '">' +
-                  '<div class="box-header with-border"><h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3></div>' +
-                  '<div class="box-body no-padding">' +
-                  '<div class="block">' +
-                  '<div class="block-content">' +
-                  '<div class="col-sm-6 p-3">' +
-                  '<table class="table table-hover table-condensed">' +
-                  '<caption style="caption-side: top;">' +
-                  '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
-                  '' +
-                  '</caption>' +
-                  '<tbody>' +
-                  '<tr>' +
-                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<strong>GPS - Latitude</strong>' +
-                  '</th>' +
-                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<span>' + data["gpslat"] + '</span>' +
-                  '</td>' +
-                  '</tr>' +
-                  '<tr>' +
-                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<strong>GPS - Longitude</strong>' +
-                  '</th>' +
-                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<span>' + data["gpslng"] + '</span>' +
-                  '</td>' +
-                  '</tr>' +
-                  '</tbody>' +
-                  '</table>' +
-                  '</div>' +
-                  '<div class="col-sm-6 p-3">' +
-                  '' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="box-footer">' +
-                  '<button type="button" class="btn btn-danger  float-right deleteEnt" data-confirm-delent="Jste si jistý, že chcete odstranit vchod <strong>' + data["street"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + dataID + '"><i class="fa fa-trash-o"></i> Odstranění vchodu</button>' +
-                  '<button type="button" id="editEnt" class="btn btn-default float-right m-r-20 editEnt" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="entDialogEdit" data-id="' + dataID + '"><i class="fa fa-edit"></i> Editace vchodu</button>' +
-                  '</div>' +
-                  '</div>';
+                  dataID = data["id"];
 
-              })
+                  divdata += '<div class="box box-success"  id="ent_' + dataID + '">' +
+                    '<div class="box-header with-border"><h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3></div>' +
+                    '<div class="box-body no-padding">' +
+                    '<div class="block">' +
+                    '<div class="block-content">' +
+                    '<div class="col-sm-6 p-3">' +
+                    '<table class="table table-hover table-condensed">' +
+                    '<caption style="caption-side: top;">' +
+                    '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
+                    '' +
+                    '</caption>' +
+                    '<tbody>' +
+                    '<tr>' +
+                    '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>GPS - Latitude</strong>' +
+                    '</th>' +
+                    '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + data["gpslat"] + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>GPS - Longitude</strong>' +
+                    '</th>' +
+                    '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + data["gpslng"] + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '</div>' +
+                    '<div class="col-sm-6 p-3">' +
+                    '' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="box-footer">' +
+                    '<button type="button" class="btn btn-danger  float-right deleteEnt" data-confirm-delent="Jste si jistý, že chcete odstranit vchod <strong>' + data["street"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + dataID + '"><i class="fa fa-trash-o"></i> Odstranění vchodu</button>' +
+                    '<button type="button" id="editEnt" class="btn btn-default float-right m-r-20 editEnt" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="entDialogEdit" data-id="' + dataID + '"><i class="fa fa-edit"></i> Editace vchodu</button>' +
+                    '</div>' +
+                    '</div>';
 
+                })
+
+              }
+
+            });
+
+            // Remove DIV element - Alert
+            var divalert = $('#entlist .alert.bg-info');
+
+            if (divalert) {
+              divalert.parent().remove();
             }
 
-          });
+            // Put data to DIV
+            $('#entlist').prepend(divdata);
 
-          // Remove DIV element - Alert
-          var divalert = $('#entlist .alert.bg-info');
+            // Call function
+            $('#ent_' + dataID + ' .editEnt').click(openDialogEditEnt);
+            $('#ent_' + dataID + ' .deleteEnt').click(confirmDeleteEnt);
 
-          if (divalert) {
-            divalert.parent().remove();
+            // Disable 'button'
+            $this.attr('disabled', true);
+
+            // Notification
+            // Apply the plugin to the container
+            $('#ent_notify_add').pgNotification({
+              style: 'bar',
+              message: '<strong>Success:</strong> ' + data.status_msg,
+              position: 'top',
+              timeout: 2000,
+              type: 'success',
+              showClose: false
+            }).show();
+
+          } else {
+            // IF DATA ERROR
+
+            // Disable 'button'
+            $this.attr('disabled', true);
+
+            // Notification
+            // Apply the plugin to the container
+            $('#ent_notify_add').pgNotification({
+              style: 'bar',
+              message: '<strong>Error:</strong> ' + data.status_msg,
+              position: 'top',
+              timeout: 2000,
+              type: 'danger',
+              showClose: false
+            }).show();
+
           }
 
-          // Put data to DIV
-          $('#entlist').prepend(divdata);
-
-          // Call function
-          $('#ent_' + dataID + ' .editEnt').click(openDialogEditEnt);
-          $('#ent_' + dataID + ' .deleteEnt').click(confirmDeleteEnt);
-
-          // Disable 'button'
-          $this.attr('disabled', true);
-
-          // Notification
-          // Apply the plugin to the container
-          $('#ent_notify_add').pgNotification({
-            style: 'bar',
-            message: data.status_msg,
-            position: 'top',
-            timeout: 2000,
-            type: 'success',
-            showClose: false
-          }).show();
-
-        } else {
-          // IF DATA ERROR
-
-          // Disable 'button'
-          $this.attr('disabled', true);
-
-          // Notification
-          // Apply the plugin to the container
-          $('#ent_notify_add').pgNotification({
-            style: 'bar',
-            message: data.status_msg,
-            position: 'top',
-            timeout: 2000,
-            type: 'danger',
-            showClose: false
-          }).show();
+        },
+        error: function () {
 
         }
+      });
 
-      },
-      error: function () {
-
+    } else {
+      // Set border for input - error
+      gpslat.parent().addClass('has-error');
+      gpslng.parent().addClass('has-error');
+      if (debug) {
+        console.log('Save Ent Click fn | Error E01')
       }
-    });
+    }
 
   });
 
@@ -1926,144 +2079,163 @@ $(function () {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
+    if (debug) {
+      console.log('----------- fn #udpateEnt click -----------')
+    }
+
     // Storing $(this) in a variable
     var $this = $(this);
     // Getting parent 'id'
-    var parent = $(this).parents(':eq(4)').attr('id');
+    var parent = $this.parents(':eq(3)').attr('id');
     // Get value
-    var entID = $('input[name=envo_editentid]').val();
+    var entID = $('#' + parent + ' input[name=envo_editentid]').val();
     var street = $('#' + parent + ' input[name=envo_entstreet]').val();
-    var elevator = $('#' + parent + ' input[name=envo_entelevator]').val();
+    var elevator = $('#' + parent + ' input[name=envo_entelevator]:checked').val();
     var apartment = $('#' + parent + ' input[name=envo_entapartment]').val();
-    var gpslat = $('#' + parent + ' input[name=envo_housegpslat]').val();
-    var gpslng = $('#' + parent + ' input[name=envo_housegpslng]').val();
+    var gpslat = $('#' + parent + ' input[name=envo_housegpslat]');
+    var gpslatval = gpslat.val();
+    var gpslng = $('#' + parent + ' input[name=envo_housegpslng]');
+    var gpslngval = gpslng.val();
     var katastr = $('#' + parent + ' input[name=envo_houseikatastr]').val();
 
-    // Ajax
-    $.ajax({
-      type: 'POST',
-      url: '/plugins/intranet2/admin/ajax/int2_table_update_ent.php',
-      datatype: 'json',
-      data: {
-        entID: entID,
-        street: street,
-        elevator: elevator,
-        apartment: apartment,
-        gpslat: gpslat,
-        gpslng: gpslng,
-        katastr: katastr
-      },
-      success: function (data) {
+    if (debug) {
+      console.log('Update Entrance Click fn | Data => parentID - ' + parent + ' | entID - ' + entID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslatval + ' | gpslng - ' + gpslngval + ' | katastr - ' + katastr);
+    }
 
-        if (data.status == 'update_success') {
-          // IF DATA SUCCESS
+    if (gpslatval.length || gpslngval.length) {
 
-          var str = JSON.stringify(data);
-          var result = JSON.parse(str);
+      // Ajax
+      $.ajax({
+        type: 'POST',
+        url: '/plugins/intranet2/admin/ajax/int2_table_update_ent.php',
+        datatype: 'json',
+        data: {
+          entID: entID,
+          street: street,
+          elevator: elevator,
+          apartment: apartment,
+          gpslat: gpslatval,
+          gpslng: gpslngval,
+          katastr: katastr
+        },
+        success: function (data) {
 
-          var divdata = '';
-          var dataID = '';
+          if (data.status == 'update_success') {
+            // IF DATA SUCCESS
 
-          $.each(result, function (key, data) {
+            var str = JSON.stringify(data);
+            var result = JSON.parse(str);
 
-            if (key === 'data') {
+            var divdata = '';
+            var dataID = '';
 
-              $.each(data, function (index, data) {
+            $.each(result, function (key, data) {
 
-                if (debug) {
-                  console.log('Save Task Ent fn | Ajax -> Key data[id]: ' + data['id']);
-                }
+              if (key === 'data') {
 
-                dataID = data["id"];
+                $.each(data, function (index, data) {
 
-                divdata += '<div class="box box-success"  id="ent_' + dataID + '">' +
-                  '<div class="box-header with-border"><h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3></div>' +
-                  '<div class="box-body no-padding">' +
-                  '<div class="block">' +
-                  '<div class="block-content">' +
-                  '<div class="col-sm-6 p-3">' +
-                  '<table class="table table-hover table-condensed">' +
-                  '<caption style="caption-side: top;">' +
-                  '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
-                  '' +
-                  '</caption>' +
-                  '<tbody>' +
-                  '<tr>' +
-                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<strong>GPS - Latitude</strong>' +
-                  '</th>' +
-                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<span>' + data["gpslat"] + '</span>' +
-                  '</td>' +
-                  '</tr>' +
-                  '<tr>' +
-                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<strong>GPS - Longitude</strong>' +
-                  '</th>' +
-                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
-                  '<span>' + data["gpslng"] + '</span>' +
-                  '</td>' +
-                  '</tr>' +
-                  '</tbody>' +
-                  '</table>' +
-                  '</div>' +
-                  '<div class="col-sm-6 p-3">' +
-                  '' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="box-footer">' +
-                  '<button type="button" class="btn btn-danger  float-right deleteEnt" data-confirm-delent="Jste si jistý, že chcete odstranit vchod <strong>' + data["street"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + dataID + '"><i class="fa fa-trash-o"></i> Odstranění vchodu</button>' +
-                  '<button type="button" id="editEnt" class="btn btn-default float-right m-r-20 editEnt" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="entDialogEdit" data-id="' + dataID + '"><i class="fa fa-edit"></i> Editace vchodu</button>' +
-                  '</div>' +
-                  '</div>';
+                  if (debug) {
+                    console.log('Save Task Ent fn | Ajax -> Key data[id]: ' + data['id']);
+                  }
 
-              })
+                  dataID = data["id"];
 
-            }
+                  divdata += '<div class="box-header with-border"><h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3></div>' +
+                    '<div class="box-body no-padding">' +
+                    '<div class="block">' +
+                    '<div class="block-content">' +
+                    '<div class="col-sm-6 p-3">' +
+                    '<table class="table table-hover table-condensed">' +
+                    '<caption style="caption-side: top;">' +
+                    '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
+                    '' +
+                    '</caption>' +
+                    '<tbody>' +
+                    '<tr>' +
+                    '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>GPS - Latitude</strong>' +
+                    '</th>' +
+                    '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + data["gpslat"] + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>GPS - Longitude</strong>' +
+                    '</th>' +
+                    '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + data["gpslng"] + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '</div>' +
+                    '<div class="col-sm-6 p-3">' +
+                    '' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="box-footer">' +
+                    '<button type="button" class="btn btn-danger  float-right deleteEnt" data-confirm-delent="Jste si jistý, že chcete odstranit vchod <strong>' + data["street"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + dataID + '"><i class="fa fa-trash-o"></i> Odstranění vchodu</button>' +
+                    '<button type="button" id="editEnt" class="btn btn-default float-right m-r-20 editEnt" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="entDialogEdit" data-id="' + dataID + '"><i class="fa fa-edit"></i> Editace vchodu</button>' +
+                    '</div>';
 
-          });
+                })
 
-          // Put data to DIV
-          $('#ent_' + dataID).html(divdata);
+              }
 
-          // Call function
-          $('#ent_' + dataID + ' .editEnt').click(openDialogEditEnt);
-          $('#ent_' + dataID + ' .deleteEnt').click(confirmDeleteEnt);
+            });
 
-          // Notification
-          // Apply the plugin to the container
-          $('#ent_notify_edit').pgNotification({
-            style: 'bar',
-            message: data.status_msg,
-            position: 'top',
-            timeout: 2000,
-            type: 'success',
-            showClose: false
-          }).show();
+            // Put data to DIV
+            $('#ent_' + dataID).html(divdata);
 
-        } else {
-          // IF DATA ERROR
+            // Call function
+            $('#ent_' + dataID + ' .editEnt').click(openDialogEditEnt);
+            $('#ent_' + dataID + ' .deleteEnt').click(confirmDeleteEnt);
 
-          // Notification
-          // Apply the plugin to the container
-          $('#ent_notify_edit').pgNotification({
-            style: 'bar',
-            message: data.status_msg,
-            position: 'top',
-            timeout: 2000,
-            type: 'danger',
-            showClose: false
-          }).show();
+            // Notification
+            // Apply the plugin to the container
+            $('#ent_notify_edit').pgNotification({
+              style: 'bar',
+              message: '<strong>Success:</strong> ' + data.status_msg,
+              position: 'top',
+              timeout: 2000,
+              type: 'success',
+              showClose: false
+            }).show();
+
+          } else {
+            // IF DATA ERROR
+
+            // Notification
+            // Apply the plugin to the container
+            $('#ent_notify_edit').pgNotification({
+              style: 'bar',
+              message: '<strong>Error:</strong> ' + data.status_msg,
+              position: 'top',
+              timeout: 2000,
+              type: 'danger',
+              showClose: false
+            }).show();
+
+          }
+
+        },
+        error: function () {
 
         }
+      });
 
-      },
-      error: function () {
-
+    } else {
+      // Set border for input - error
+      gpslat.parent().addClass('has-error');
+      gpslng.parent().addClass('has-error');
+      if (debug) {
+        console.log('Update Ent Click fn | Error E01')
       }
-    });
+    }
 
   });
 
@@ -2078,6 +2250,7 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   // Clear button
   $('.file-clear').click(function () {
@@ -2115,7 +2288,7 @@ $(function () {
  ========================================================================*/
 
 $(function () {
-
+  'use strict';
 
   /**
    * @description  Upload documents
@@ -2123,6 +2296,10 @@ $(function () {
   $("#uploadBtnDocu").on('click', (function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #uploadBtnDocu click -----------')
+    }
 
     // Get Data - value
     var desc = $('input[name="envo_descdocu"]');
@@ -2140,10 +2317,12 @@ $(function () {
     form_data.append('houseID', pageID);
     form_data.append('description', descval);
 
-    if (descval.length) {
+    // Remove all error texts
+    $('.has-error-text').remove();
+    // Remove error borders for input
+    desc.parent().removeClass('has-error');
 
-      // Remove border for input - success
-      desc.parent().removeClass('has-error');
+    if (descval.length) {
 
       // Hide output
       $('#docuoutput').hide();
@@ -2307,6 +2486,16 @@ $(function () {
 
       // Add border for input - error
       desc.parent().addClass('has-error');
+      // Show error texts
+      $('<div/>', {
+        class: 'has-error-text',
+        css: {
+          fontWeight: 'normal',
+          color: '#C10000',
+          position: 'absolute'
+        },
+        text: 'Vyplňte označenou položku'
+      }).appendTo(desc.parent());
     }
 
   }));
@@ -2316,18 +2505,19 @@ $(function () {
 /* 00. PHOTO GALLERY - ISOTOPE, UPLOAD
  ========================================================================*/
 $(function () {
+  'use strict';
 
   /**
    * @description  Debounce so filtering doesn't happen every millisecond
    */
-  function debounce(fn, threshold) {
+  function debounce (fn, threshold) {
     var timeout;
-    return function debounced() {
+    return function debounced () {
       if (timeout) {
         clearTimeout(timeout);
       }
 
-      function delayed() {
+      function delayed () {
         fn();
         timeout = null;
       }
@@ -2337,11 +2527,218 @@ $(function () {
   }
 
   /**
+   * @description Jquery Function - DialogFX Open - Image - House
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" type="button" data-dialog="DialogEdit"></button>
+   *
+   *  <div id="DialogEdit" class="dialog item-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *          <!-- Data over AJAX  -->
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   */
+  function openDialogEditImg (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogEditImg -----------')
+    }
+
+    // Get Data-Dialog and value
+    var DataDialog = $(this).attr('data-dialog');
+    // Get ID of image
+    var imageID = $(this).parents(":eq(4)").attr('id');
+    var imageSuffixID = parseInt(/^.*\_(\d+)$/.exec(imageID)[1]);
+
+    if (debug) {
+      console.log('Image ID from DIV: ' + imageSuffixID)
+    }
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet2/admin/ajax/int2_table_dialog_img.php",
+      type: "POST",
+      datatype: 'html',
+      data: {
+        imageID: imageSuffixID
+      },
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#imgDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data) {
+
+        setTimeout(function () {
+          // Add html data to 'div'
+          $('#imgDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+          // Init Select2 plugin
+          $('#info1 .selectpicker').select2({
+            minimumResultsForSearch: -1,
+            dropdownParent: $('.page-content-wrapper'),
+            dropdownCssClass: 'zindex1060'
+          });
+
+        }, 1000);
+
+      },
+      error: function () {
+
+      }
+    });
+
+    // Open DialogFX
+    var dialogEl = document.getElementById(DataDialog);
+    var dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        if (debug) {
+          console.log('DialogFX: OPEN');
+        }
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        if (debug) {
+          console.log('DialogFX: CLOSE');
+        }
+      }
+    });
+    dlg.toggle(dlg);
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - Delete Image from DB - House
+   * @example
+   * Attribute 'data-id' in button => ID is id of image in DB
+   * -----------------
+   * <button class="delete-img" type="button" data-id="id_of_image_in_DB"></button>
+   *
+   */
+  function deleteImg (imageID) {
+
+    if (debug) {
+      console.log('----------- fn deleteImg -----------')
+    }
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet2/admin/ajax/int2_table_delete_img.php",
+      type: "POST",
+      datatype: 'json',
+      data: {
+        imageID: imageID
+      },
+      success: function (data) {
+
+        if (data.status == 'delete_success') {
+          // IF DATA SUCCESS
+
+          // Removes elements from the Photo Isotope instance and DOM
+          var $removeItem = $('#gallery_1_' + data.data[0].id);
+          $gallery.isotope('remove', $removeItem).isotope('layout');
+          // Removes elements from Photo List
+          $('#gallery_0_' + data.data[0].id).remove();
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Error:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+        }
+      },
+      complete: function () {
+
+      },
+      error: function () {
+
+      }
+    });
+
+    return false;
+  }
+
+  function confirmdeleteImg (event) {
+// Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn confirmdeleteImg -----------')
+    }
+
+    // Get ID of Task
+    var imageID = $(this).attr('data-id');
+
+    // Show Message
+    bootbox.setLocale(envoWeb.envo_lang);
+    bootbox.confirm({
+      title: "Potvrzení o odstranění!",
+      message: $(this).attr('data-confirm-delimg'),
+      className: "bootbox-confirm-del",
+      animate: true,
+      buttons: {
+        confirm: {
+          className: 'btn-success'
+        },
+        cancel: {
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result == true) {
+          if (debug) {
+            console.log('Delete Image - ID: ' + imageID);
+          }
+          deleteImg(imageID);
+        }
+      }
+    });
+
+    return false;
+  }
+
+  /**
    * @description  Isotop and searching
    * @require: Isotope plugin - isotope.metafizzy.co
    */
 
-  // Quick search regex
+    // Quick search regex
   var qsRegex;
   // Filter for the buttons
   var buttonFilter;
@@ -2358,10 +2755,6 @@ $(function () {
     },
     filter: function () {
 
-      if (debug) {
-        console.log('Isotop Photo Gallery | SearchResult: ' + searchResult);
-      }
-
       var $this = $(this);
       var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
       var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
@@ -2369,6 +2762,15 @@ $(function () {
     }
   });
 
+  // Use value of search field to filter
+  var $quicksearch = $('#quicksearch').keyup(debounce(function () {
+    qsRegex = new RegExp($quicksearch.val(), 'gi');
+    $gallery.isotope();
+  }));
+
+  /**
+   * @description
+   */
   $('#imagefilters').on('click', '.filter', function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
@@ -2379,18 +2781,17 @@ $(function () {
     $gallery.isotope();
   });
 
-  // Use value of search field to filter
-  var $quicksearch = $('#quicksearch').keyup(debounce(function () {
-    qsRegex = new RegExp($quicksearch.val(), 'gi');
-    $gallery.isotope();
-  }));
-
-  // Change is-checked class on buttons
+  /**
+   * @description Change is-checked class on buttons
+   */
   $('#imagefilters .filter').on('click', function () {
     $('#imagefilters').find('.active').removeClass('active');
     $(this).addClass('active');
   });
 
+  /**
+   * @description  Relayout Isotop
+   */
   $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
@@ -2423,14 +2824,21 @@ $(function () {
   }));
 
   /**
-   * @description  Upload images
+   * @description  Upload image
    */
   $("#uploadBtnImg").on('click', (function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
-    // Setting for debug
-    var debug = true;
+    if (debug) {
+      console.log('----------- fn #uploadBtnImg click -----------')
+    }
+
+    // Get Data - value
+    var desc = $('input[name="envo_descimg"]');
+    var descval = desc.val();
+    var cat = $('select[name="envo_imgcategory"]');
+    var catval = cat.val();
     // Get Data - properties of file from file field
     var file_data = $('#fileinput_img').prop('files')[0];
     // Get Data - value of folder from file field
@@ -2446,168 +2854,317 @@ $(function () {
     form_data.append('houseID', pageID);
     form_data.append('imageCategory', imgcat);
 
-    // Hide output
-    $('#imgoutput').hide();
-    // Show progress info
-    $('#imgprogress').show();
-    // Reset
-    $("#imgpercent").html('0%');
+    // Remove all error texts
+    $('.has-error-text').remove();
+    // Remove error borders for input
+    cat.parent().removeClass('has-error');
+    desc.parent().removeClass('has-error');
 
-    // Ajax
-    $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_upload_img.php",
-      type: "POST",
-      data: form_data,
-      contentType: false,
-      cache: false,
-      processData: false,
-      beforeSend: function () {
+    if (catval.length) {
+      if (descval.length) {
 
-      },
-      xhr: function () {
-        var xhr = new window.XMLHttpRequest();
-        //Upload progress bar
-        xhr.upload.addEventListener("progress", function (evt) {
-          // Make sure we can compute the length
-          if (evt.lengthComputable) {
+        // Hide output
+        $('#imgoutput').hide();
+        // Show progress info
+        $('#imgprogress').show();
+        // Reset
+        $('#imgpercent').html('0%');
 
-            var loaded = evt.loaded;
-            var total = evt.total;
+        // Ajax
+        $.ajax({
+          url: "/plugins/intranet2/admin/ajax/int2_table_upload_img.php",
+          type: "POST",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          beforeSend: function () {
 
-            // Append progress percentage
-            var percent = (loaded / total) * 100;
-            var percentComplete = percent.toFixed(2) + '%';
+          },
+          xhr: function () {
+            var xhr = new window.XMLHttpRequest();
+            //Upload progress bar
+            xhr.upload.addEventListener("progress", function (evt) {
+              // Make sure we can compute the length
+              if (evt.lengthComputable) {
 
-            // Bytes received
-            var byteRec = formatFileSize(loaded);
+                var loaded = evt.loaded;
+                var total = evt.total;
 
-            // Total bytes
-            var totalByte = formatFileSize(total);
+                // Append progress percentage
+                var percent = (loaded / total) * 100;
+                var percentComplete = percent.toFixed(2) + '%';
 
-            // Progress output
-            $('#imgprogressbar').css('width', percentComplete);
-            $('#imgpercent').html(percentComplete);
-            $('#imgbyterec').html(byteRec);
-            $('#imgbytetotal').html(totalByte);
+                // Bytes received
+                var byteRec = formatFileSize(loaded);
 
-          }
-        }, false);
+                // Total bytes
+                var totalByte = formatFileSize(total);
 
-        return xhr;
-      },
-      success: function (data) {
+                // Progress output
+                $('#imgprogressbar').css('width', percentComplete);
+                $('#imgpercent').html(percentComplete);
+                $('#imgbyterec').html(byteRec);
+                $('#imgbytetotal').html(totalByte);
 
-        console.log(data);
+              }
+            }, false);
 
-        if (data.status == 'upload_success') {
-          // IF DATA SUCCESS
+            return xhr;
+          },
+          success: function (data) {
 
-          $('#imgoutput').html('<div class="alert alert-success" role="alert">' +
-            '<button class="close" data-dismiss="alert"></button>' +
-            '<strong>Success: </strong>' + data.status_msg +
-            '</div>');
+            if (data.status == 'upload_success') {
+              // IF DATA SUCCESS
 
-          var str = JSON.stringify(data);
-          var result = JSON.parse(str);
+              $('#imgoutput').html('<div class="alert alert-success" role="alert">' +
+                '<button class="close" data-dismiss="alert"></button>' +
+                '<strong>Success: </strong>' + data.status_msg +
+                '</div>');
 
-          var divdata = '';
+              var str = JSON.stringify(data);
+              var result = JSON.parse(str);
 
-          $.each(result, function (key, data) {
-            // console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+              var divdata = '';
 
-            if (key === 'data') {
+              $.each(result, function (key, data) {
 
-              $.each(data, function (index, data) {
+                if (key === 'data') {
 
-                // Create new Isotope item elements
-                var $isotopeContent = $('' +
-                  '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
-                  '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
-                  '<div class="overlays full-width">' +
-                  '<div class="row full-height">' +
-                  '<div class="col-5 full-height">' +
-                  '<div class="text font-montserrat">' + data["filenamethumb"].substring(data["filenamethumb"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
-                  '</div>' +
-                  '<div class="col-7 full-height">' +
-                  '<div class="text">' +
-                  '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '">' +
-                  '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
-                  '</a>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img mr-1" type="button" data-dialog="imgitemDetails"><i class="fa fa-edit"></i></button>' +
-                  '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"  data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"><i class="fa fa-trash"></i></button>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="full-width padding-10">' +
-                  '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
-                  '</div>' +
-                  '</div>');
+                  $.each(data, function (index, data) {
 
-                // Isotope Plugin
-                // Adds and lays out newly prepended item elements at the beginning of layout
-                // Prepend items to gallery
-                $('#gallery_envo_1').prepend($isotopeContent)
-                // Add and lay out newly prepended items
-                  .isotope('prepended', $isotopeContent);
+                    // Create new Isotope item elements
+                    var $isotopeContent = $('' +
+                      '<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
+                      '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
+                      '<div class="overlays full-width">' +
+                      '<div class="row full-height">' +
+                      '<div class="col-5 full-height">' +
+                      '<div class="text font-montserrat">' + data["filenamethumb"].substring(data["filenamethumb"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
+                      '</div>' +
+                      '<div class="col-7 full-height">' +
+                      '<div class="text">' +
+                      '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '">' +
+                      '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
+                      '</a>' +
+                      '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img mr-1" type="button" data-dialog="imgDialogEdit"><i class="fa fa-edit"></i></button>' +
+                      '<button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' + data["id"] + '"  data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?"><i class="fa fa-trash"></i></button>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '<div class="full-width padding-10">' +
+                      '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                      '</div>' +
+                      '</div>');
 
-                // Call dialogFX function for button
-                var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
-                elClass.find('.dialog-open-img').click(openDialogEditImg);
-                elClass.find('.delete-img').click(confirmdeleteImg);
+                    // Isotope Plugin
+                    // Adds and lays out newly prepended item elements at the beginning of layout
+                    // Prepend items to gallery
+                    $gallery.prepend($isotopeContent).isotope('prepended', $isotopeContent);
 
+                    // Call dialogFX function for button
+                    var elClass = $('#gallery_1_' + data["id"] + '.gallery-item-' + data["id"]);
+                    elClass.find('.dialog-open-img').click(openDialogEditImg);
+                    elClass.find('.delete-img').click(confirmdeleteImg);
+
+
+                  });
+
+                }
 
               });
 
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: '<strong>Error:</strong> ' + data.status_msg
+                }, {
+                  // settings
+                  type: 'success',
+                  delay: 2000
+                });
+              }, 1000);
+
+            } else if (data.status.indexOf('upload_error') != -1) {
+              // IF DATA ERROR
+
+              $('#imgoutput').html('<div class="alert alert-danger" role="alert">' +
+                '<button class="close" data-dismiss="alert"></button>' +
+                '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+                '</div>');
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: '<strong>Error:</strong> ' + data.status_msg
+                }, {
+                  // settings
+                  type: 'danger',
+                  delay: 2000
+                });
+              }, 1000);
+
             }
 
+          },
+          error: function () {
+
+          },
+          complete: function () {
+            $('#imgprogress').hide();
+            $('#imgprogressbar').css('width', '');
+            $('#imgoutput').show();
+          }
+        });
+
+      } else {
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: '<strong>Error:</strong> ' + 'Zadejte popis souboru.'
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
           });
+        }, 1000);
+
+        // Add border for input - error
+        desc.parent().addClass('has-error');
+        // Show error texts
+        $('<div/>', {
+          class: 'has-error-text',
+          css: {
+            fontWeight: 'normal',
+            color: '#C10000',
+            position: 'absolute'
+          },
+          text: 'Vyplňte označenou položku'
+        }).appendTo(desc.parent());
+      }
+    } else {
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          message: '<strong>Error:</strong> ' + 'Vyberte kategorii.'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Add border for input - error
+      cat.parent().addClass('has-error');
+      // Show error texts
+      $('<div/>', {
+        class: 'has-error-text',
+        css: {
+          fontWeight: 'normal',
+          color: '#C10000',
+          position: 'absolute'
+        },
+        text: 'Vyplňte označenou položku'
+      }).appendTo(cat.parent());
+    }
+
+
+  }));
+
+  /**
+   * @description  Delete image
+   */
+  $('.delete-img').click(confirmdeleteImg);
+
+  /**
+   * @description  Edit Image
+   */
+  $('.dialog-open-img').click(openDialogEditImg);
+
+  /**
+   * @description   Update Image
+   */
+  $('#udpateImg').on('click', function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #udpateImg click -----------')
+    }
+
+    // Get value
+    var imageID = $('input[name=envo_editimgid]').val();
+    var descImage = $('#desc').val();
+    var shortdescImage = $('#shortdesc').val();
+    var catImage = $('select[name="envo_imgcategory_dialog"]').val();
+
+    // Ajax
+    $.ajax({
+      type: 'POST',
+      url: '/plugins/intranet2/admin/ajax/int2_table_update_img.php',
+      datatype: 'json',
+      data: {
+        imageID: imageID,
+        descImage: descImage,
+        shortdescImage: shortdescImage,
+        catImage: catImage
+      },
+      success: function (data) {
+
+        if (data.status == 'update_success') {
+          // IF DATA SUCCESS
+
+          // Edit Time
+          $('#timeedit').html(data.data[0].timeedit);
+
+          // Add data.shortdescription to Isotop item
+          var elClass0 = $('#gallery_1_' + data.data[0].id + '.gallery-item-' + data.data[0].id);
+          elClass0.find('.shortdesc').text(data.data[0].shortdescription);
+
+          // Add data.category to Isotop item
+          var elClass1 = $('#gallery_1_' + data.data[0].id).attr('class').split(" ")[0];
+          $('#gallery_1_' + data.data[0].id + '.' + elClass1).removeClass().addClass(elClass1 + ' ' + data.data[0].category);
 
           // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              message: '<strong>Error:</strong> ' + data.status_msg
-            }, {
-              // settings
-              type: 'success',
-              delay: 2000
-            });
-          }, 1000);
+          // Apply the plugin to the container
+          $('#img_notify_edit').pgNotification({
+            style: 'bar',
+            message: '<strong>Success:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'success',
+            showClose: false
+          }).show();
 
-        } else if (data.status.indexOf('upload_error') != -1) {
+        } else {
           // IF DATA ERROR
 
-          $('#imgoutput').html('<div class="alert alert-danger" role="alert">' +
-            '<button class="close" data-dismiss="alert"></button>' +
-            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
-            '</div>');
-
           // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              message: '<strong>Error:</strong> ' + data.status_msg
-            }, {
-              // settings
-              type: 'danger',
-              delay: 2000
-            });
-          }, 1000);
+          // Apply the plugin to the container
+          $('#img_notify_edit').pgNotification({
+            style: 'bar',
+            message: '<strong>Error:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'danger',
+            showClose: false
+          }).show();
 
         }
 
       },
       error: function () {
 
-      },
-      complete: function () {
-        $('#imgprogress').hide();
-        $('#imgprogressbar').css('width', '');
-        $('#imgoutput').show();
       }
     });
-  }));
+
+  });
+
 
 });
 /** 00. xxxx

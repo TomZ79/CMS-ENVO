@@ -170,7 +170,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_settings_region');
 						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_settings_district');
 						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_settings_city');
-						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_settings_cityarea');
+						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_settings_ku');
 						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_settings_estatemanagement');
 						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_house');
 						$envodb->query('DROP TABLE IF EXISTS ' . DB_PREFIX . 'int2_houseent');

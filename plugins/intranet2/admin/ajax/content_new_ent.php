@@ -48,12 +48,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 							// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 							echo $Html -> addRadio('envo_entelevator', '1', FALSE, 'envo_entelevator1');
 							// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-							echo $Html -> addLabel('envo_entelevator1', $tl["checkbox"]["chk"]);
+							echo $Html -> addLabel('envo_entelevator1', 'Ano');
 
 							// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-							echo $Html -> addRadio('envo_entelevator', '0', TRUE, 'envo_entelevator2');
+							echo $Html -> addRadio('envo_entelevator', '0', FALSE, 'envo_entelevator2');
 							// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-							echo $Html -> addLabel('envo_entelevator2', $tl["checkbox"]["chk1"]);
+							echo $Html -> addLabel('envo_entelevator2', 'Ne');
+
+							// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+							echo $Html -> addRadio('envo_entelevator', '2', TRUE, 'envo_entelevator3');
+							// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+							echo $Html -> addLabel('envo_entelevator3', 'Není známo');
 							?>
 
 						</div>
@@ -129,7 +134,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 							<?php
 							// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-							echo $Html -> addInput('text', 'envo_housegpslat', '', '', 'form-control', array ('readonly' => 'readonly'));
+							echo $Html -> addInput('text', 'envo_housegpslat', '', '', 'form-control');
 							?>
 
 						</div>
@@ -155,7 +160,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 							<?php
 							// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-							echo $Html -> addInput('text', 'envo_housegpslng', '', '', 'form-control', array ('readonly' => 'readonly'));
+							echo $Html -> addInput('text', 'envo_housegpslng', '', '', 'form-control');
 							?>
 
 						</div>

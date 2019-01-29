@@ -73,6 +73,10 @@
 	z-index: 100;
 }
 
+.dialog-details .dialog__content .dialog__footer {
+	border-top: 2px solid #CCC;
+}
+
 @media (max-width: 767px) {
 	.dialog-details .dialog__content {
 		height: 90%;

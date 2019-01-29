@@ -66,7 +66,7 @@ if (!function_exists('array_group_by')) {
 }
 
 // Group data by the "gender" key
-$ENVO_CITY_AREA = array_group_by($ENVO_CITY_AREA, "city");
+$ENVO_KU = array_group_by($ENVO_KU, "city");
 
 ?>
 
@@ -131,16 +131,20 @@ if ($errors) { ?>
 
 <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
 	<!-- Fixed Button for save form -->
-	<div class="savebutton hidden-xs">
+	<div class="savebutton hidden-xs" style="width: 310px;">
 
 		<?php
 		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
 		echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ('data-loading-text' => $tl["button"]["btn41"]));
 		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 		echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house&amp;ssp=newhouse', 'Nový Dům', '', 'btn btn-info button');
 		?>
 
 	</div>
+
+	<div id="loadingdata_ares" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
 
 	<!-- Form Content -->
 	<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -336,13 +340,16 @@ if ($errors) { ?>
 										</div>
 										<div class="col-sm-8">
 											<div class="form-group m-0">
-												<select name="envo_housecity" class="form-control selectpicker" data-search-select2="true">
+												<select name="envo_housecity" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr města">
 
 													<?php
 													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 													$selected = ($ENVO_FORM_DATA["city"] == '0') ? TRUE : FALSE;
 
-													echo $Html -> addOption('0', '----------------', $selected);
+													// First blank option
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html -> addOption();
+
 													if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
 
 														echo $Html -> addOption($c["id"], $c["city"], ($c["id"] == $ENVO_FORM_DATA["city"]) ? TRUE : FALSE);
@@ -365,19 +372,19 @@ if ($errors) { ?>
 										</div>
 										<div class="col-sm-8">
 											<div class="form-group m-0">
-												<select name="envo_housecityarea" class="form-control selectpicker" data-search-select2="true">
+												<select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">
 
 													<?php
 													//
-													$selected = ($ENVO_FORM_DATA["cityarea"] == '0') ? TRUE : FALSE;
+													$selected = ($ENVO_FORM_DATA["ku"] == '0') ? TRUE : FALSE;
 
 													// First blank option
 													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-													echo $Html -> addOption('0', '----------------', $selected);
+													echo $Html -> addOption();
 
-													foreach ($ENVO_CITY_AREA as $keycity => $cityitem) {
+													foreach ($ENVO_KU as $keyku => $itemku) {
 
-														foreach ($cityitem as $item) {
+														foreach ($itemku as $item) {
 															// Get City ID from first item - is same for all items
 															$cityid = $item["city_id"];
 															// Break loop after first iteration
@@ -385,12 +392,12 @@ if ($errors) { ?>
 														}
 
 														// to know what's in $item
-														echo '<optgroup label="' . $keycity . '" data-cityname="' . $keycity . '" data-cityid="' . $cityid . '">';
+														echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
 
-														foreach ($cityitem as $cityarea) {
+														foreach ($itemku as $item) {
 
 															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-															echo $Html -> addOption($cityarea["id"], $cityarea["city_area"], ($cityarea["id"] == $ENVO_FORM_DATA["cityarea"]) ? TRUE : FALSE, '', '', array ('data-cityareaname' => $cityarea["city_area"], 'data-cityareaid' => $cityarea["id"]));
+															echo $Html -> addOption($item["id"], $item["ku"], ($item["id"] == $ENVO_FORM_DATA["ku"]) ? TRUE : FALSE, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"]));
 
 														}
 
@@ -753,6 +760,7 @@ if ($errors) { ?>
 											</div>
 										</div>
 									</div>
+									<div id="aresoutput" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
 								</div>
 							</div>
 						</div>
@@ -1607,9 +1615,6 @@ if ($errors) { ?>
 						</div>
 						<div class="box-body">
 							<div class="row" style="padding: 12px 12px 0 12px; background-color: #FEF6DD;">
-								<div class="col-sm-3">
-
-								</div>
 								<div class="col-sm-5">
 									<div class="bold">
 										Výběr souboru
@@ -1646,6 +1651,7 @@ if ($errors) { ?>
 
 											<?php
 											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											echo $Html -> addOption();
 											echo $Html -> addOption('*', 'Bez kategorie');
 											echo $Html -> addOption('exploration', 'Obhlídka');
 											echo $Html -> addOption('installation', 'Instalace');
@@ -1655,6 +1661,19 @@ if ($errors) { ?>
 											?>
 
 										</select>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="bold">
+										Krátký popis
+									</div>
+									<div class="form-group  m-t-10">
+
+										<?php
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html -> addInput('text', 'envo_descimg', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
+										?>
+
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -1729,7 +1748,7 @@ if ($errors) { ?>
 												// Loop photos array
 												foreach ($subarray['photos'] as $imgarray) {
 
-													echo '<div id="' . $imgarray["id"] . '" class="gallery-item-' . $imgarray["id"] . ' ' . $imgarray["category"] . ' float-left" data-width="1" data-height="1" style="margin: 5px;">';
+													echo '<div id="gallery_0_' . $imgarray["id"] . '" class="gallery-item-' . $imgarray["id"] . ' ' . $imgarray["category"] . ' float-left" data-width="1" data-height="1" style="margin: 5px;">';
 
 													echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" alt=""></div>';
 
@@ -1783,10 +1802,11 @@ if ($errors) { ?>
 									?>
 
 									<ul id="imagefilters">
-										<li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
-										<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
-										<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+										<li><a href="javascript:;" class="filter" data-filter="*">Bez kategorie</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".exploration">Obhlídka</a></li>
 										<li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
 										<li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
 									</ul>
 
@@ -1805,20 +1825,19 @@ if ($errors) { ?>
 									</p>
 								</div>
 								<div class="col-sm-9">
+									<div id="gallery_envo_1" class="gallery_envo">
 
-									<?php
-									if (!empty($ENVO_FORM_DATA_IMG) && is_array($ENVO_FORM_DATA_IMG)) {
+										<?php
+										if (!empty($ENVO_FORM_DATA_IMG) && is_array($ENVO_FORM_DATA_IMG)) {
 
-										echo '<div id="gallery_envo_1" class="gallery_envo">';
+											foreach ($ENVO_FORM_DATA_IMG as $img) {
 
-										foreach ($ENVO_FORM_DATA_IMG as $img) {
+												echo '<div id="gallery_1_' . $img["id"] . '" class="gallery-item-' . $img["id"] . ' ' . $img["category"] . '" data-width="1" data-height="1">';
 
-											echo '<div id="' . $img["id"] . '" class="gallery-item-' . $img["id"] . ' ' . $img["category"] . '" data-width="1" data-height="1">';
-
-											echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt=""></div>';
+												echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt=""></div>';
 
 
-											echo '<div class="overlays">
+												echo '<div class="overlays">
                                 <div class="row full-height">
                                   <div class="col-5 full-height">
                                     <div class="text font-montserrat">' . strtoupper(pathinfo($img["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
@@ -1830,7 +1849,7 @@ if ($errors) { ?>
                                          <i class="pg-image"></i>
                                         </button>
                                       </a>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgitemDetails" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace Informací">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgDialogEdit" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace Informací">
                                         <i class="fa fa-edit"></i>
                                       </button>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '" data-confirm-delimg="Jste si jistý, že chcete odstranit obrázek?" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit">
@@ -1841,18 +1860,21 @@ if ($errors) { ?>
                                 </div>
                               </div>';
 
-											echo '<div class="full-width padding-10">';
+												echo '<div class="full-width padding-10">';
 
-											echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $img["shortdescription"] . '</p>';
+												echo '<p class="bold">Krátký Popis</p><p class="shortdesc">' . $img["shortdescription"] . '</p>';
 
-											echo '</div>';
+												echo '</div>';
 
-											echo '</div>';
+												echo '</div>';
 
-										}
+											}
 
-										echo '</div>';
-									} else { ?>
+										} ?>
+
+									</div>
+
+									<?php  if (!$ENVO_FORM_DATA_IMG) { ?>
 
 										<div class="col-sm-12 m-t-20">
 
@@ -1865,20 +1887,27 @@ if ($errors) { ?>
 
 									<?php } ?>
 
-									<div id="imgitemDetails" class="dialog item-details">
+									<div id="imgDialogEdit" class="dialog dialog-details">
 										<div class="dialog__overlay"></div>
 										<div class="dialog__content">
 											<div class="container-fluid">
-												<div class="row dialog__overview">
+												<div class="row dialog__overview" style="margin-right: -30px;margin-left: -30px;">
 													<!-- Data over AJAX  -->
 												</div>
 											</div>
-											<button class="closedialog action top-right" type="button" data-dialog-close>
-												<i class="pg-close fs-30"></i>
-											</button>
+											<div class="dialog__footer">
+												<div class="col-sm-12 p-l-20 p-r-20">
+
+													<?php
+													// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+													echo $Html -> addButton('button', '', 'Uložit', '', 'udpateImg', 'btn btn-success m-t-20 m-l-20 float-right');
+													echo $Html -> addButton('button', '', 'Zavřít', '', '', 'btn btn-info m-t-20 float-right action', array ('data-dialog-close' => ''));
+													?>
+
+												</div>
+											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>

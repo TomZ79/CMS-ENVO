@@ -42,16 +42,20 @@ $valid_extensions = array (
 $pathfull = APP_PATH . '/' . ENVO_FILES_DIRECTORY . $_REQUEST['folderpath'] . '/documents/';
 
 if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
-	$filename = $_FILES['file']['name'];
-	$tmp      = $_FILES['file']['tmp_name'];
+	// Get the name of the file
+	$name = $_FILES['file']['name'];
+	// Get the temp name of the file
+	$tmp_name      = $_FILES['file']['tmp_name'];
+// Get the size of the file
+	$size = $_FILES['file']['size'];
 
 	// EN: Getting the extension of the uploaded file
 	// CZ: Získání přípony uplodovaného souboru
-	$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+	$ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 
 	// EN: Rename a file - add a random number
 	// CZ:
-	$final_file = strtolower(rand(1000, 100000) . '_' . $filename);
+	$final_file = strtolower(rand(1000, 100000) . '_' . $name);
 
 	// EN:
 	$fullpath = $_REQUEST['folderpath'] . '/documents/' . $final_file;
@@ -63,7 +67,7 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
 	 * @size    $stat['size']    |  Size in bytes
 	 *
 	 */
-	$stat = stat($tmp);
+	$stat = stat($tmp_name);
 	$time = $stat['mtime'];
 	$size = $stat['size'];
 
@@ -72,10 +76,10 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
 	if (in_array($ext, $valid_extensions)) {
 		$pathfull = $pathfull . $final_file;
 
-		if (move_uploaded_file($tmp, $pathfull)) {
+		if (move_uploaded_file($tmp_name, $pathfull)) {
 
 			// Insert info about file into DB
-			$envodb -> query('INSERT ' . DB_PREFIX . 'int2_housedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "' . $_REQUEST['description'] . '", fname = "' . $filename . '", fullpath = "' . $fullpath . '", ftime = "' . $time . '", fsize = "' . $size . '", created = NOW(), updated = NOW()');
+			$envodb -> query('INSERT ' . DB_PREFIX . 'int2_housedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "' . $_REQUEST['description'] . '", fname = "' . $name . '", fullpath = "' . $fullpath . '", ftime = "' . $time . '", fsize = "' . $size . '", created = NOW(), updated = NOW()');
 
 			// Get all files for house
 			$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_housedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');

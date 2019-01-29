@@ -27,14 +27,20 @@ if ($ic) {
 		$data = $xml -> children($ns['are']);
 		$el   = $data -> children($ns['D']) -> VBAS;
 
+		if (strval($el -> AA -> CO)) {
+			$ulice = strval($el -> AA -> NU) . ' ' . strval($el -> AA -> CD) . '/' . strval($el -> AA -> CO);
+		} else {
+			$ulice = strval($el -> AA -> NU) . ' ' . strval($el -> AA -> CD);
+		}
+
 		if (strval($el -> ICO) == $ic) {
 			$envodata['status']           = 'upload_success';
 			$envodata['status_msg']       = 'ARES: IČ společnosti bylo nalezeno a data byla stažena';
-			$envodata['name']             = strval($el -> OF);
+			$envodata['name']             = trim(strval($el -> OF), '"');
 			$envodata['ic']               = strval($el -> ICO);
 			$envodata['dic']              = strval($el -> DIC);
 			$envodata['spolecnost']       = strval($el -> OF);
-			$envodata['ulice']            = strval($el -> AA -> NU) . ' ' . strval($el -> AA -> CD) . '/' . strval($el -> AA -> CO);
+			$envodata['ulice']            = $ulice;
 			$envodata['mesto']            = strval($el -> AA -> N);
 			$envodata['katastralniuzemi'] = strval($el -> AA -> NCO);
 			$envodata['psc']              = strval($el -> AA -> PSC);

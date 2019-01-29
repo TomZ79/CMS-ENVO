@@ -33,10 +33,10 @@ if ($row["katastr"]) {
 
 if ($row["gpslat"] && $row["gpslng"]) {
 	$mapycz = 'http://www.mapy.cz/#q=' . $row["gpslat"] . '%2C' . $row["gpslng"];
-	$osm = 'https://www.openstreetmap.org/?mlat=' . $row["gpslat"] . '&amp;mlon=' . $row["gpslng"] . '&amp;zoom=16#map=18/' . $row["gpslat"] . '/' . $row["gpslng"];
+	$osm    = 'https://www.openstreetmap.org/?mlat=' . $row["gpslat"] . '&amp;mlon=' . $row["gpslng"] . '&amp;zoom=16#map=18/' . $row["gpslat"] . '/' . $row["gpslng"];
 } else {
 	$mapycz = '';
-	$osm = '';
+	$osm    = '';
 }
 
 if ($result) {
@@ -63,10 +63,12 @@ if ($result) {
 						</div>
 						<div class="col-sm-8">
 							<div class="radio radio-success">
-								<input type="radio" name="envo_entelevator" id="envo_entelevator1" value="1" ' . ($row["elevator"] = 1 ? "checked='checked'" : "") . '>
+								<input type="radio" name="envo_entelevator" id="envo_entelevator1" value="1" ' . ($row["elevator"] == "1" ? "checked='checked'" : "") . '>
 								<label for="envo_entelevator1">Ano</label>
-								<input type="radio" name="envo_entelevator" id="envo_entelevator2" value="0" ' . ($row["elevator"] = 0 ? "checked='checked'" : "") . '>
+								<input type="radio" name="envo_entelevator" id="envo_entelevator2" value="0" ' . ($row["elevator"] == "0" ? "checked='checked'" : "") . '>
 								<label for="envo_entelevator2">Ne</label>
+								<input type="radio" name="envo_entelevator" id="envo_entelevator3" value="2" ' . ($row["elevator"] == "2" ? "checked='checked'" : "") . '>
+								<label for="envo_entelevator3">Není známo</label>
 							</div>
 						</div>
 					</div>
@@ -86,17 +88,17 @@ if ($result) {
 				</div>
 				<div class="clearfix">
 					<div class="row-form p-t-10 p-b-10">
-						<div class="col-sm-4">
-							<strong>GPS - Koordináty</strong>
-						</div>
-						<div class="col-sm-8">
-							<div class="form-group m-0">
-								<a href="' . $mapycz . '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>
-								<span class="m-l-10 m-r-10">|</span>
-								<a href="' . $osm . '" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>
-							</div>
+					<div class="col-sm-4">
+						<strong>GPS - Koordináty</strong>
+					</div>
+					<div class="col-sm-8">
+						<div class="form-group m-0">
+							<a href="https://www.latlong.net/" target="NewGPS">LATLONG.net</a>
+							<span class="m-l-10 m-r-10">|</span>
+							<a href="#" class="getgps"><strong>Získat GPS z OpenStreetMap</strong></a>
 						</div>
 					</div>
+				</div>
 					<div class="row-form">
 						<div class="col-sm-4">
 							<strong>GPS - Latitude</strong>
@@ -116,6 +118,18 @@ if ($result) {
 							<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0px; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
 							<div class="form-group m-0">
 								<input type="text" name="envo_housegpslng" class="form-control" value="' . $row["gpslng"] . '">
+							</div>
+						</div>
+					</div>
+					<div class="row-form p-t-10 p-b-10">
+						<div class="col-sm-4">
+							<strong>GPS - Mapy</strong>
+						</div>
+						<div class="col-sm-8">
+							<div class="form-group m-0">
+								<a href="' . $mapycz . '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>
+								<span class="m-l-10 m-r-10">|</span>
+								<a href="' . $osm . '" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>
 							</div>
 						</div>
 					</div>
@@ -139,6 +153,7 @@ if ($result) {
 							<strong>iKatastr - Link</strong>
 						</div>
 						<div class="col-sm-8">
+							<div class="loadingdata_ikatastr" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0px; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
 							<div class="form-group m-0 ikatastrlink">
 								<a href="' . $katastr . '" target="WindowKATASTR">Zobrazit informace z Katastru</a>
 							</div>

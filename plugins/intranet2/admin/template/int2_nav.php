@@ -25,7 +25,7 @@ if ($page1 == 'house') {
 			<span class="icon-thumbnail"><?= text_clipping_lower($tlint2["int2_menu"]["int2m2"]) ?></span>
 			<ul class="sub-menu" <?= $styleint_1 ?>>
 
-				<li class="<?= (($page == 'intranet2' && $page1 == 'house') || ($page == 'intranet2' && $page1 == 'newhouse')) ? 'submenu-active' : '' ?>">
+				<li class="<?= (($page == 'intranet2' && $page1 == 'house' && !$page2) || ($page == 'intranet2' && $page2 == 'newhouse')) ? 'submenu-active' : '' ?>">
 
 					<?php
 					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -58,13 +58,13 @@ if ($page1 == 'house') {
 					</li>
 				<?php } ?>
 
-				<li class="<?= ($page == 'intranet' && $page1 == 'house' && $page2 == 'wizard') ? 'submenu-active' : '' ?>">
+				<li class="<?= ($page == 'intranet2' && $page1 == 'house' && $page2 == 'wizard') ? 'submenu-active' : '' ?>">
 
 					<?php
 					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house&amp;ssp=edithouse&amp;id=' . $page2, $tlint2["int2_menu"]["int2m6"]);
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house&amp;ssp=wizard', 'Průvodce');
 					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-					echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m6"]), 'icon-thumbnail');
+					echo $Html -> addTag('span', text_clipping_lower('Průvodce'), 'icon-thumbnail');
 					?>
 
 				</li>
@@ -84,6 +84,54 @@ if ($page1 == 'house') {
 			?>
 
 		</li>
+
+		<li class="list-divider"></li>
+
+		<li class="<?= ($page == 'intranet2' && $page1 == 'katastr') ? 'submenu-active' : '' ?>">
+
+			<?php
+			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=katastr', 'Katastr');
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html -> addTag('span', text_clipping_lower('Katastr'), 'icon-thumbnail');
+			?>
+
+		</li>
+
+		<li class="list-divider"></li>
+
+		<li class="<?= (($page == 'intranet2' && $page1 == 'notification') || ($page == 'intranet2' && $page1 == 'newnotification')) ? 'submenu-active' : '' ?>">
+
+			<?php
+			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=notification', $tlint2["int2_menu"]["int2m7"]);
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m7"]), 'icon-thumbnail');
+			?>
+
+		</li>
+		<li class="<?= ($page == 'intranet2' && $page1 == 'notification' && $page2 == 'newnotification') ? 'submenu-active' : '' ?>">
+
+			<?php
+			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=notification&amp;ssp=newnotification', $tlint2["int2_menu"]["int2m8"]);
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m8"]), 'icon-thumbnail');
+			?>
+
+		</li>
+		<?php if ($page == 'intranet2' && $page1 == 'notification' && $page2 == 'editnotification') { ?>
+			<li class="<?= ($page == 'intranet2' && $page1 == 'notification' && $page2 == 'editnotification') ? 'submenu-active' : '' ?>">
+
+				<?php
+				// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+				echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=notification&amp;ssp=editnotification&amp;id=' . $page2, $tlint2["int2_menu"]["int2m9"]);
+				// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+				echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m9"]), 'icon-thumbnail');
+				?>
+
+			</li>
+		<?php } ?>
 
 		<li class="list-divider"></li>
 

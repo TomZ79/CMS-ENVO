@@ -34,7 +34,6 @@ $dateformat       = $envo_setting_val['int2dateformat'];
 // Update row in DB
 // Insert info about service into DB
 $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseent SET 
-                          houseid = "' . $houseID . '",  
                           street = "' . $street . '", 
                           elevator = "' . $elevator . '", 
                           apartment = "' . $apartment . '", 

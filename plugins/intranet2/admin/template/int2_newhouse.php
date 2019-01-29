@@ -66,7 +66,7 @@ if (!function_exists('array_group_by')) {
 }
 
 // Group data by the "gender" key
-$ENVO_CITY_AREA = array_group_by($ENVO_CITY_AREA, "city");
+$ENVO_KU = array_group_by($ENVO_KU, "city");
 
 ?>
 
@@ -127,6 +127,8 @@ if ($errors) { ?>
 			?>
 
 		</div>
+
+		<div id="loadingdata_ares" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
 
 		<!-- Form Content -->
 		<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -274,13 +276,16 @@ if ($errors) { ?>
 											</div>
 											<div class="col-sm-8">
 												<div class="form-group m-0">
-													<select name="envo_housecity" class="form-control selectpicker" data-search-select2="true">
+													<select name="envo_housecity" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr města">
 
 														<?php
 														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 														$selected = ((isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] == '0')) || !isset($_REQUEST["envo_housecity"])) ? TRUE : FALSE;
 
-														echo $Html -> addOption('0', '----------------', $selected);
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption();
+
 														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
 
 															if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
@@ -307,7 +312,7 @@ if ($errors) { ?>
 
 												<?php
 												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html -> addTag('strong', 'Město - čtvrť');
+												echo $Html -> addTag('strong', 'Katastrální území');
 												?>
 
 											</div>
@@ -315,31 +320,31 @@ if ($errors) { ?>
 
 												<?php
 												// Start - Select Tag
-												echo '<div class="form-group m-0"><select name="envo_housecityarea" class="form-control selectpicker" data-search-select2="true">';
+												echo '<div class="form-group m-0"><select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">';
 
 												//
-												$selected = ((isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] == '0')) || !isset($_REQUEST["envo_housecityarea"])) ? TRUE : FALSE;
+												$selected = ((isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] == '0')) || !isset($_REQUEST["envo_houseku"])) ? TRUE : FALSE;
 
 												// First blank option
 												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-												echo $Html -> addOption('0', '----------------', $selected);
+												echo $Html -> addOption();
 
-												foreach ($ENVO_CITY_AREA as $keycity => $cityitem) {
+												foreach ($ENVO_KU as $keyku => $itemku) {
 
-													foreach ($cityitem as $item) {
+													foreach ($itemku as $item) {
 														// Get City ID from first item - is same for all items
 														$cityid = $item["city_id"];
 														// Break loop after first iteration
 														break;
 													}
 
-													// to know what's in $item
-													echo '<optgroup label="' . $keycity . '" data-cityname="' . $keycity . '" data-cityid="' . $cityid . '">';
+													// To know what's in $item
+													echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
 
-													foreach ($cityitem as $cityarea) {
+													foreach ($itemku as $item) {
 
-														if (isset($_REQUEST["envo_housecityarea"]) && ($_REQUEST["envo_housecityarea"] != '0')) {
-															if (isset($_REQUEST["envo_housecityarea"]) && ($cityarea["id"] == $_REQUEST["envo_housecityarea"])) {
+														if (isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] != '0')) {
+															if (isset($_REQUEST["envo_houseku"]) && ($item["id"] == $_REQUEST["envo_houseku"])) {
 																$selected = TRUE;
 															} else {
 																$selected = FALSE;
@@ -349,7 +354,7 @@ if ($errors) { ?>
 														}
 
 														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-														echo $Html -> addOption($cityarea["id"], $cityarea["city_area"], $selected, '', '', array ('data-cityareaname' => $cityarea["city_area"], 'data-cityareaid' => $cityarea["id"]));
+														echo $Html -> addOption($item["id"], $item["ku"], $selected, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"]));
 
 													}
 
@@ -722,6 +727,7 @@ if ($errors) { ?>
 												</div>
 											</div>
 										</div>
+										<div id="aresoutput" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
 									</div>
 								</div>
 							</div>

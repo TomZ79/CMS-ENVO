@@ -36,289 +36,299 @@ $maxDimens = 1200;
 $compress = 80;
 
 // Valid the valid file extensions
-$valid_extensions = array ( 'jpg', 'jpeg', 'png', 'gif' );
+$valid_extensions = array ('jpg', 'jpeg', 'png', 'gif');
 
 // Upload image, creating thumbnails and insert data to DB
 if (isset($_FILES['file'])) {
-  // Get the name of the file
-  $name = $_FILES['file']['name'];
-  // Get the temp name of the file
-  $tmp_name = $_FILES['file']['tmp_name'];
-  // Get the size of the file
-  $size = $_FILES['file']['size'];
+	// Get the name of the file
+	$name = $_FILES['file']['name'];
+	// Get the temp name of the file
+	$tmp_name = $_FILES['file']['tmp_name'];
 
-  // Get uploaded file's extension and name
-  $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-  $filename = pathinfo($name, PATHINFO_FILENAME);
-  // Can upload same image using rand function for original image and thumbs
-  $rand = rand(1000, 1000000);
-  $name_original = strtolower($rand . '_' . $filename . '_original.' . $ext);
-  $name_thumbs = strtolower($rand . '_' . $filename . '_thumbs.' . $ext);
-  // Setting main image folder
-  $mainfolder = $_REQUEST['folderpath'] . '/images/';
-  // Setting image path - original and thumbs
-  $pathimg_original = $mainfolder . $name_original;
-  $pathimg_thumbs = $mainfolder . $name_thumbs;
-  // Set Upload directory - original and thumbs
-  $pathimgfull_original = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_original;
-  $pathimgfull_thumbs = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_thumbs;
-  //  The dimensions with the file type and a height/width - thumbs
-  list($width_o, $height_o, $type, $attr) = getimagesize($tmp_name);
+	// Get uploaded file's extension and name
+	$ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+	$filename = pathinfo($name, PATHINFO_FILENAME);
+	// Can upload same image using rand function for original image and thumbs
+	$rand          = rand(1000, 1000000);
+	$name_original = strtolower($rand . '_' . $filename . '_original.' . $ext);
+	$name_thumbs   = strtolower($rand . '_' . $filename . '_thumbs.' . $ext);
+	// Setting main image folder
+	$mainfolder = $_REQUEST['folderpath'] . '/images/';
+	// Setting image path - original and thumbs
+	$pathimg_original = $mainfolder . $name_original;
+	$pathimg_thumbs   = $mainfolder . $name_thumbs;
+	// Set Upload directory - original and thumbs
+	$pathimgfull_original = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_original;
+	$pathimgfull_thumbs   = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_thumbs;
 
-  // Check's dimensions of uploaded image
-  if ($width_o > $minDimens || $height_o > $minDimens) {
+	//  The dimensions with the file type and a height/width - thumbs
+	list($width_o, $height_o, $type, $attr) = getimagesize($tmp_name);
 
-    // Check's valid format
-    if (in_array($ext, $valid_extensions)) {
+	/**
+	 * EN: Getting uploaded file info
+	 * CZ:
+	 * @time     $stat['mtime']  |  Last modified time as Unix timestamp
+	 * @size     $stat['size']   |  Size in bytes
+	 *
+	 */
+	$stat = stat($tmp_name);
+	$time = $stat['mtime'];
+	$size = $stat['size'];
 
-      if (move_uploaded_file($tmp_name, $pathimgfull_original)) {
-        // CREATE THUMBNAIL - COVNERT IMAGE TO JPG
+	// Check's dimensions of uploaded image
+	if ($width_o > $minDimens || $height_o > $minDimens) {
 
-        // Set variable, get images size
-        // The getimagesize() function is used to find the size of any given image file and return the dimensions along with the file type
-        $thumbs_file = $pathimgfull_thumbs;
-        $original_file = $pathimgfull_original;
-        list($width_o, $height_o) = getimagesize($original_file);
-        $ratio = $width_o / $height_o;
+		// Check's valid format
+		if (in_array($ext, $valid_extensions)) {
 
-        // If image have EXIF data
-        $exifData = @exif_read_data($original_file);
-        // Exif data for DB
-        $exifmake = $exifData['Make'];
-        $exifmodel = $exifData['Model'];
-        $exifsoftware = $exifData['Software'];
-        $exifimagewidth = $exifData['ExifImageWidth'];
-        $exifimageheight = $exifData['ExifImageLength'];
-        $exiforientation = $exifData['Orientation'];
-        $exifcreatedate = $exifData['DateTimeOriginal'];
-        // Fix Orientation Function
-        function rotateExif($imagesource, $orientation)
-        {
-          if (!empty($orientation)) {
-            switch ($orientation) {
-              case 1:
-                // Horizontal (normal)
-                $image = $imagesource;
-                break;
-              case 2:
-                // Mirror horizontal
+			if (move_uploaded_file($tmp_name, $pathimgfull_original)) {
+				// CREATE THUMBNAIL - COVNERT IMAGE TO JPG
 
-                break;
-              case 3:
-                // Rotate 180
-                $image = imagerotate($imagesource, 180, 0);
-                break;
-              case 4:
-                // Mirror vertical
+				// Set variable, get images size
+				// The getimagesize() function is used to find the size of any given image file and return the dimensions along with the file type
+				$thumbs_file   = $pathimgfull_thumbs;
+				$original_file = $pathimgfull_original;
+				list($width_o, $height_o) = getimagesize($original_file);
+				$ratio = $width_o / $height_o;
 
-                break;
-              case 5:
-                // Mirror horizontal and rotate 270 CW
+				// If image have EXIF data
+				$exifData = @exif_read_data($original_file);
+				// Exif data for DB
+				$exifmake        = $exifData['Make'];
+				$exifmodel       = $exifData['Model'];
+				$exifsoftware    = $exifData['Software'];
+				$exifimagewidth  = $exifData['ExifImageWidth'];
+				$exifimageheight = $exifData['ExifImageLength'];
+				$exiforientation = $exifData['Orientation'];
+				$exifcreatedate  = $exifData['DateTimeOriginal'];
+				// Fix Orientation Function
+				function rotateExif ($imagesource, $orientation)
+				{
+					if (!empty($orientation)) {
+						switch ($orientation) {
+							case 1:
+								// Horizontal (normal)
+								$image = $imagesource;
+								break;
+							case 2:
+								// Mirror horizontal
 
-                break;
-              case 6:
-                // Rotate 90 CW
-                $image = imagerotate($imagesource, -90, 0);
-                break;
-              case 7:
-                // Mirror horizontal and rotate 90 CW
+								break;
+							case 3:
+								// Rotate 180
+								$image = imagerotate($imagesource, 180, 0);
+								break;
+							case 4:
+								// Mirror vertical
 
-                break;
-              case 8:
-                // Rotate 270 CW
-                $image = imagerotate($imagesource, 90, 0);
-                break;
-              default:
-                $image = $imagesource;
-            }
-          }
+								break;
+							case 5:
+								// Mirror horizontal and rotate 270 CW
 
-          return $image;
-        }
+								break;
+							case 6:
+								// Rotate 90 CW
+								$image = imagerotate($imagesource, -90, 0);
+								break;
+							case 7:
+								// Mirror horizontal and rotate 90 CW
 
-        // Set image new dimensions
-        if ($width_o > $maxDimens || $height_o > $maxDimens) {
+								break;
+							case 8:
+								// Rotate 270 CW
+								$image = imagerotate($imagesource, 90, 0);
+								break;
+							default:
+								$image = $imagesource;
+						}
+					}
 
-          if ($ratio > 1) {
-            // widht > height
-            if ($width_o > $height_o) {
-              // Landscape (Na šířku)
-              $width_n = $maxDimens;
-              $height_n = $maxDimens / $ratio;
-            }
-          } else if ($ratio < 1) {
-            // width < height
-            if ($width_o < $height_o) {
-              // Portrait (Na výšku)
-              $width_n = $maxDimens * $ratio;
-              $height_n = $maxDimens;
-            }
-          } else {
-            // width == height
-            $width_n = $maxDimens;
-            $height_n = $maxDimens;
-          }
+					return $image;
+				}
 
-        } else {
-          if ($ratio > 1) {
-            // widht > height
-            if ($width_o > $height_o) {
-              // Landscape (Na šířku)
-              $width_n = $maxDimens;
-              $height_n = $maxDimens / $ratio;
-            }
-          } else if ($ratio < 1) {
-            // width < height
-            if ($width_o < $height_o) {
-              // Portrait (Na výšku)
-              $width_n = $maxDimens * $ratio;
-              $height_n = $maxDimens;
-            }
-          } else {
-            // width == height
-            $width_n = $width_o;
-            $height_n = $height_o;
-          }
+				// Set image new dimensions
+				if ($width_o > $maxDimens || $height_o > $maxDimens) {
 
-        }
+					if ($ratio > 1) {
+						// widht > height
+						if ($width_o > $height_o) {
+							// Landscape (Na šířku)
+							$width_n  = $maxDimens;
+							$height_n = $maxDimens / $ratio;
+						}
+					} else if ($ratio < 1) {
+						// width < height
+						if ($width_o < $height_o) {
+							// Portrait (Na výšku)
+							$width_n  = $maxDimens * $ratio;
+							$height_n = $maxDimens;
+						}
+					} else {
+						// width == height
+						$width_n  = $maxDimens;
+						$height_n = $maxDimens;
+					}
 
-        // Resize output image file from the given image
-        switch ($ext) {
-          case 'jpg':
-          case 'jpeg':
+				} else {
+					if ($ratio > 1) {
+						// widht > height
+						if ($width_o > $height_o) {
+							// Landscape (Na šířku)
+							$width_n  = $maxDimens;
+							$height_n = $maxDimens / $ratio;
+						}
+					} else if ($ratio < 1) {
+						// width < height
+						if ($width_o < $height_o) {
+							// Portrait (Na výšku)
+							$width_n  = $maxDimens * $ratio;
+							$height_n = $maxDimens;
+						}
+					} else {
+						// width == height
+						$width_n  = $width_o;
+						$height_n = $height_o;
+					}
 
-            // Fix for JPEG warnings for PHP smaller than 7.1.0 - Invalid SOS parameters for sequential JPEG
-            // For PHP 7.1.0 - The default of gd.jpeg_ignore_warning has been changed from 0 to 1.
-            ini_set('gd.jpeg_ignore_warning', 1);
+				}
 
-            // Get image from file
-            $src = imagecreatefromjpeg($original_file);
+				// Resize output image file from the given image
+				switch ($ext) {
+					case 'jpg':
+					case 'jpeg':
 
-            // Create a new thumbnail image
-            $dst = imagecreatetruecolor($width_n, $height_n);
+						// Fix for JPEG warnings for PHP smaller than 7.1.0 - Invalid SOS parameters for sequential JPEG
+						// For PHP 7.1.0 - The default of gd.jpeg_ignore_warning has been changed from 0 to 1.
+						ini_set('gd.jpeg_ignore_warning', 1);
 
-            // Copy and resize part of an image with resampling
-            imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
+						// Get image from file
+						$src = imagecreatefromjpeg($original_file);
 
-            // Rotate image if image have Exif Data
-            if (!empty($exiforientation)) {
-              $dst = rotateExif($dst, $exiforientation);
-            }
+						// Create a new thumbnail image
+						$dst = imagecreatetruecolor($width_n, $height_n);
 
-            // Output the image - imagejpeg( $resource_image, $destination, $quality )
-            imagejpeg($dst, $thumbs_file, $compress);
+						// Copy and resize part of an image with resampling
+						imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
 
-            break;
-          case 'png':
+						// Rotate image if image have Exif Data
+						if (!empty($exiforientation)) {
+							$dst = rotateExif($dst, $exiforientation);
+						}
 
-            // Get image from file
-            $src = imagecreatefrompng($original_file);
+						// Output the image - imagejpeg( $resource_image, $destination, $quality )
+						imagejpeg($dst, $thumbs_file, $compress);
 
-            // Create a new thumbnail image
-            $dst = imagecreatetruecolor($width_n, $height_n);
+						break;
+					case 'png':
 
-            // Preserve transparency
-            imagecolortransparent($dst, imagecolorallocatealpha($dst, 0, 0, 0, 127));
-            imagealphablending($dst, FALSE);
-            imagesavealpha($dst, TRUE);
+						// Get image from file
+						$src = imagecreatefrompng($original_file);
 
-            // Copy and resize part of an image with resampling
-            imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
+						// Create a new thumbnail image
+						$dst = imagecreatetruecolor($width_n, $height_n);
 
-            // Output the image - imagepng ( $resource_image, $destination )
-            imagepng($dst, $thumbs_file);
+						// Preserve transparency
+						imagecolortransparent($dst, imagecolorallocatealpha($dst, 0, 0, 0, 127));
+						imagealphablending($dst, FALSE);
+						imagesavealpha($dst, TRUE);
 
-            break;
-          case 'gif':
+						// Copy and resize part of an image with resampling
+						imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
 
-            // Get image from file
-            $src = imagecreatefromgif($original_file);
+						// Output the image - imagepng ( $resource_image, $destination )
+						imagepng($dst, $thumbs_file);
 
-            // Create a new thumbnail image
-            $dst = imagecreatetruecolor($width_n, $height_n);
+						break;
+					case 'gif':
 
-            // Preserve transparency
-            imagecolortransparent($dst, imagecolorallocatealpha($dst, 0, 0, 0, 127));
-            imagealphablending($dst, FALSE);
-            imagesavealpha($dst, TRUE);
+						// Get image from file
+						$src = imagecreatefromgif($original_file);
 
-            // Copy and resize part of an image with resampling
-            imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
+						// Create a new thumbnail image
+						$dst = imagecreatetruecolor($width_n, $height_n);
 
-            // Output the image - imagegif  ( $resource_image, $destination )
-            imagegif($dst, $thumbs_file);
+						// Preserve transparency
+						imagecolortransparent($dst, imagecolorallocatealpha($dst, 0, 0, 0, 127));
+						imagealphablending($dst, FALSE);
+						imagesavealpha($dst, TRUE);
 
-            break;
-        }
+						// Copy and resize part of an image with resampling
+						imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
 
-        // Free memory - destroy an image
-        imagedestroy($src);
-        imagedestroy($dst);
+						// Output the image - imagegif  ( $resource_image, $destination )
+						imagegif($dst, $thumbs_file);
 
-        // Insert info about image into DB
-        $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_houseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '", created = NOW(), updated = NOW()');
+						break;
+				}
 
-        // Get last row ID from DB
-        $rowid = $envodb -> envo_last_id();
+				// Free memory - destroy an image
+				imagedestroy($src);
+				imagedestroy($dst);
 
-        // Getting info uploaded image from DB
-        $result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_houseimg WHERE id = "' . $rowid . '"');
-        $row1 = $result1 -> fetch_assoc();
+				// Insert info about image into DB
+				$result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_houseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", ftime = "' . $time . '", fsize = "' . $size . '", exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '", created = NOW(), updated = NOW()');
 
-        $data_array[] = array (
-          'id'               => $row1["id"],
-          'shortdescription' => $row1["shortdescription"],
-          'description'      => $row1["description"],
-          'filenamethumb'    => $row1["filenamethumb"],
-          'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
-          'category'         => $row1["category"],
-          'exifmake'         => $row1["exifmake"],
-          'exifmodel'        => $row1["exifmodel"],
-          'exifsoftware'     => $row1["exifsoftware"],
-          'exifimagewidth'   => $row1["exifimagewidth"],
-          'exifimageheight'  => $row1["exifimageheight"],
-          'exiforientation'  => $row1["exiforientation"],
-          'exifcreatedate'   => $row1["exifcreatedate"],
-          'created'      => $row1["created"],
-          'updated'         => $row1["updated"],
-        );
+				// Get last row ID from DB
+				$rowid = $envodb -> envo_last_id();
 
-        // Data for JSON
-        $envodata = array (
-          'status'     => 'upload_success',
-          'status_msg' => 'Image upload was successful.',
-          'data'       => $data_array
-        );
+				// Getting info uploaded image from DB
+				$result1 = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_houseimg WHERE id = "' . $rowid . '"');
+				$row1    = $result1 -> fetch_assoc();
 
-      } else {
-        // Data for JSON
-        $envodata = array (
-          'status'     => 'upload_error_E04',
-          'status_msg' => 'Unable to move image.'
-        );
-      }
+				$data_array[] = array (
+					'id'               => $row1["id"],
+					'shortdescription' => $row1["shortdescription"],
+					'description'      => $row1["description"],
+					'filenamethumb'    => $row1["filenamethumb"],
+					'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+					'category'         => $row1["category"],
+					'exifmake'         => $row1["exifmake"],
+					'exifmodel'        => $row1["exifmodel"],
+					'exifsoftware'     => $row1["exifsoftware"],
+					'exifimagewidth'   => $row1["exifimagewidth"],
+					'exifimageheight'  => $row1["exifimageheight"],
+					'exiforientation'  => $row1["exiforientation"],
+					'exifcreatedate'   => $row1["exifcreatedate"],
+					'created'          => $row1["created"],
+					'updated'          => $row1["updated"],
+				);
 
-    } else {
-      // Data for JSON
-      $envodata = array (
-        'status'     => 'upload_error_E03',
-        'status_msg' => 'Please upload only valid images ' . implode(", ", $valid_extensions) . '.'
-      );
-    }
+				// Data for JSON
+				$envodata = array (
+					'status'     => 'upload_success',
+					'status_msg' => 'Image upload was successful.',
+					'data'       => $data_array
+				);
 
-  } else {
-    // Data for JSON
-    $envodata = array (
-      'status'     => 'upload_error_E02',
-      'status_msg' => 'Minimum image dimensions is ' . $minDimens . ' px'
-    );
-  }
+			} else {
+				// Data for JSON
+				$envodata = array (
+					'status'     => 'upload_error_E04',
+					'status_msg' => 'Unable to move image.'
+				);
+			}
+
+		} else {
+			// Data for JSON
+			$envodata = array (
+				'status'     => 'upload_error_E03',
+				'status_msg' => 'Please upload only valid images ' . implode(", ", $valid_extensions) . '.'
+			);
+		}
+
+	} else {
+		// Data for JSON
+		$envodata = array (
+			'status'     => 'upload_error_E02',
+			'status_msg' => 'Minimum image dimensions is ' . $minDimens . ' px'
+		);
+	}
 } else {
-  // Data for JSON
-  $envodata = array (
-    'status'     => 'upload_error_E01',
-    'status_msg' => 'The uploaded image does not exist.'
-  );
+	// Data for JSON
+	$envodata = array (
+		'status'     => 'upload_error_E01',
+		'status_msg' => 'The uploaded image does not exist.'
+	);
 }
 
 // RETURN JSON OUTPUT
