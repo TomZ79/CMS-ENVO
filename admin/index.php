@@ -3,6 +3,10 @@
 // Prevent direct php access
 define('ENVO_ADMIN_PREVENT_ACCESS', 1);
 
+// EN: Error reporting, if install folder exists
+// CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
+if (is_dir('../install')) die('Please delete or rename install folder  => [' . __DIR__ . '/index.php]');
+
 // Access not allowed
 $ENVO_PROVED = FALSE;
 
@@ -43,18 +47,6 @@ if ($page && $page != '404') $_SESSION['ENVORedirect'] = $_SERVER['REQUEST_URI']
 
 // All other user will be redirect to the homepage, nothing else to do for this people
 if (ENVO_USERID && !ENVO_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
-
-/* =====================================================
- *  XXX
- * ===================================================== */
-// EN: Import the language file
-// CZ: Import jazykových souborů
-if ($setting["lang"] != $site_language && file_exists(ROOT_ADMIN . 'lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(ROOT_ADMIN . 'lang/' . $site_language . '.ini', TRUE);
-} else {
-	$tl            = parse_ini_file(ROOT_ADMIN . 'lang/' . $setting["lang"] . '.ini', TRUE);
-	$site_language = $setting["lang"];
-}
 
 /* =====================================================
  *  XXX

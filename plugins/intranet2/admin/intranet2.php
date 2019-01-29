@@ -61,13 +61,19 @@ switch ($page1) {
 						// EN: Check if name of house isn't empty
 						// CZ: Kontrola jestli je zadáný název domu
 						if (empty($defaults['envo_housename'])) {
-							$errors['e1'] = $tlint['int_error']['interror'] . '<br>';
+							$errors['e1'] = $tlint2['int2_error']['int2error'] . '<br>';
 						}
 
 						// EN: Check if ic of house isn't empty
 						// CZ: Kontrola jestli je zadáné ič
 						if (!isset($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
-							$errors['e2'] = $tlint['int_error']['interror8'] . '<br>';
+							$errors['e2'] = $tlint2['int2_error']['int2error8'] . '<br>';
+						}
+
+						// EN: Check if the ic exists
+						// CZ: Kontrola jestli ič existuje
+						if (isset($defaults['envo_houseic']) && is_numeric($defaults['envo_houseic']) && envo_house_exist($defaults['envo_houseic'], $envotable)) {
+							$errors['e3'] = $tlint2['int2_error']['int2error5'] . '<br>';
 						}
 
 						// EN: All checks are OK without Errors - Start the form processing
@@ -271,13 +277,13 @@ Složka domu:   				' . $pathfolder . '
 							// EN: Check if name of house isn't empty
 							// CZ: Kontrola jestli je zadáný název domu
 							if (empty($defaults['envo_housename'])) {
-								$errors['e1'] = $tlint['int_error']['interror'] . '<br>';
+								$errors['e1'] = $tlint2['int2_error']['int2error'] . '<br>';
 							}
 
 							// EN: Check if ic of house isn't empty
 							// CZ: Kontrola jestli je zadáné ič
 							if (!isset($defaults['envo_houseic']) || !is_numeric($defaults['envo_houseic'])) {
-								$errors['e2'] = $tlint['int_error']['interror8'] . '<br>';
+								$errors['e2'] = $tlint2['int2_error']['int2error8'] . '<br>';
 							}
 
 							// EN: All checks are OK without Errors - Start the form processing
@@ -601,7 +607,7 @@ Složka domu:   				' . $pathfolder . '
 						// EN: Check if name of house isn't empty
 						// CZ: Kontrola jestli je zadáný název domu
 						if (empty($defaults['envo_title'])) {
-							$errors['e1'] = $tlint2['int_error']['interror7'] . '<br>';
+							$errors['e1'] = $tlint2['int2_error']['int2error7'] . '<br>';
 						}
 
 						// EN: All checks are OK without Errors - Start the form processing
@@ -725,7 +731,7 @@ Složka domu:   				' . $pathfolder . '
 							// EN: Check if name of house isn't empty
 							// CZ: Kontrola jestli je zadáný název domu
 							if (empty($defaults['envo_title'])) {
-								$errors['e1'] = $tlint2['int_error']['interror7'] . '<br>';
+								$errors['e1'] = $tlint2['int2_error']['int2error7'] . '<br>';
 							}
 
 							// EN: All checks are OK without Errors - Start the form processing

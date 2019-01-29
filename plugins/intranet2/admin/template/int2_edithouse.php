@@ -366,7 +366,7 @@ if ($errors) { ?>
 
 											<?php
 											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-											echo $Html -> addTag('strong', 'Město - čtvrť');
+											echo $Html -> addTag('strong', 'Katastrální území');
 											?>
 
 										</div>

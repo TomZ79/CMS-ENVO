@@ -442,6 +442,7 @@ $(function () {
       success: function (data) {
 
         if (data.status == 'upload_success') {
+          // IF DATA SUCCESS
 
           // Hide Ares loading progress
           $('#loadingdata_ares').hide();
@@ -524,6 +525,7 @@ $(function () {
           $('#ares_res,#justice_vor').show();
 
         } else {
+          // IF DATA ERROR
 
           // Hide Ares loading progress
           $('#loadingdata_ares').hide();
@@ -532,10 +534,22 @@ $(function () {
           // Put data to aresoutput
           var divdata = '';
           divdata += '<div class="col-sm-12"><h5>Výstup z Ares</h5>' +
-            '<p><strong>' + data.status_msg + '</strong></p><hr>' +
+            '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p><hr>' +
             '</div>';
 
           $('#aresoutput').html('').prepend(divdata).show();
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Error:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
 
         }
 

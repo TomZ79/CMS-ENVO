@@ -100,7 +100,8 @@ if ($errors) { ?>
         // options
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];?>'
+					if (isset($errors["e2"])) echo $errors["e2"];
+					if (isset($errors["e3"])) echo $errors["e3"];?>'
       }, {
         // settings
         type: 'danger',

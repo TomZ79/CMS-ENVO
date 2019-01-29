@@ -9,10 +9,6 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_USER_NOTICE);     // Web development (Vý
 // CZ: Data pro připojení do DB
 require_once 'include/db.php';
 
-// EN: Error reporting, if install folder exists
-// CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
-if (is_dir('install')) die('Please delete or rename install folder.');
-
 // EN: Error reporting, if files directory does not exists
 // CZ: Zobrazení chybového hlášení, pokud neexistuje složka souborů
 if (!ENVO_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
@@ -31,6 +27,7 @@ define("URL_SEPARATOR", '/');         // Value '/'
 define("US", URL_SEPARATOR);          // Value '/'
 define("DS", DIRECTORY_SEPARATOR);    // Value '/'
 define("PS", PATH_SEPARATOR);         // Value ':'
+// The full path to the root directory WITH a trailing DS
 define('ROOT', __DIR__ . '/');
 
 // EN: Setting of absolute path
@@ -49,7 +46,7 @@ if (isset($_SERVER['SCRIPT_NAME'])) {
 // -----------------------------------------------------------------------
 // EN: Get the DB class
 // CZ:
-require_once 'class/class.db.php';
+require_once ROOT . 'class/class.db.php';
 
 // EN: MySQLi connection
 // CZ:
@@ -58,21 +55,21 @@ $envodb -> set_charset("utf8");
 
 // EN: Important all Class and functions
 // CZ: Import všech tříd a funkcí
-include_once 'include/functions.php';
-include_once 'class/class.envobase.php';
-include_once 'class/PHPMailerAutoload.php';
-include_once 'class/class.userlogin.php';
-include_once 'class/class.users.php';
-include_once 'class/class.usergroup.php';
-include_once 'class/class.plugins.php';
-include_once 'class/class.hooks.php';
-include_once 'class/class.paginator.php';
-include_once 'class/class.tags.php';
-include_once 'class/class.resizeimage.php';
-include_once 'class/class.debug.php';
-include_once 'class/class.htmlelement.php';
+include_once ROOT . 'include/functions.php';
+include_once ROOT . 'class/class.envobase.php';
+include_once ROOT . 'class/PHPMailerAutoload.php';
+include_once ROOT . 'class/class.userlogin.php';
+include_once ROOT . 'class/class.users.php';
+include_once ROOT . 'class/class.usergroup.php';
+include_once ROOT . 'class/class.plugins.php';
+include_once ROOT . 'class/class.hooks.php';
+include_once ROOT . 'class/class.paginator.php';
+include_once ROOT . 'class/class.tags.php';
+include_once ROOT . 'class/class.resizeimage.php';
+include_once ROOT . 'class/class.debug.php';
+include_once ROOT . 'class/class.htmlelement.php';
 // Include the main mPDF library
-require 'class/mpdf/vendor/autoload.php';
+require ROOT . 'class/mpdf/vendor/autoload.php';
 
 // Create instance of HTML_Form from htmlelement.php Class
 $Html = new HTML_Element();
@@ -172,7 +169,7 @@ if ($envouserrow) {
 	// Only the Admin's in the config can have access
 	if (ENVO_USERID && $envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) {
 		define('ENVO_ADMINACCESS', TRUE);
-		$_SESSION['JAKLoggedInAdmin'] = TRUE;
+		$_SESSION['ENVOLoggedInAdmin'] = TRUE;
 	} else {
 		define('ENVO_ADMINACCESS', FALSE);
 	}

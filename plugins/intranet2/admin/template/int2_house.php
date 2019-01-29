@@ -139,7 +139,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array ('data-confirm-control' => sprintf($tlint["int_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty, servisy, úkoly).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+								echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house&amp;ssp=delete&amp;id=' . $h["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array ('data-confirm-control' => sprintf($tlint2["int2_notification"]["delhouse"], $h["name"]) . ' Odstraněním záznamu z databáze budou odstraněny i přidružené soubory (fotografie, videa, dokumenty, servisy, úkoly).', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 								?>
 
 							</td>

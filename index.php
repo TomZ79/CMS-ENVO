@@ -1,7 +1,11 @@
 <?php
 
-// prevent direct php access
+// Prevent direct php access
 define('ENVO_PREVENT_ACCESS', 1);
+
+// EN: Error reporting, if install folder exists
+// CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
+if (is_dir('install')) die('Please delete or rename install folder.  => [' . __DIR__ . '/index.php]');
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...

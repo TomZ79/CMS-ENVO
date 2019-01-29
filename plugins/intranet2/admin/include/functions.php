@@ -391,8 +391,12 @@ function envo_house_exist($ic, $table)
 
   // EN: SQL Query
   // CZ: SQL Dotaz
-  $result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE housefic = "' . smartsql($ic) . '" LIMIT 1');
-  if ($result -> affected_rows === 1) {
+  $result = $envodb -> query('SELECT id FROM ' . $table . ' WHERE ic = "' . smartsql($ic) . '" LIMIT 1');
+	// EN: Determine the number of rows in the result from DB
+	// CZ: Určení počtu řádků ve výsledku z DB
+	$row_cnt = $result -> num_rows;
+
+	if ($row_cnt > 0) {
     return TRUE;
   } else {
     return FALSE;
