@@ -164,9 +164,10 @@ Složka domu:   				' . $pathfolder . '
                         headquarters = "' . smartsql($defaults['envo_househeadquarters']) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
-                        ku = "' . smartsql($defaults['envo_houseku']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
+                        ku = "' . smartsql($defaults['envo_houseku']) . '",
+                        objcode = "' . smartsql($defaults['envo_houseobjcode']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
                         housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
@@ -321,10 +322,11 @@ Složka domu:   				' . $pathfolder . '
                         headquarters = "' . smartsql($defaults['envo_househeadquarters']) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
                         city = "' . smartsql($defaults['envo_housecity']) . '",
-                        ku = "' . smartsql($defaults['envo_houseku']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
+                        ku = "' . smartsql($defaults['envo_houseku']) . '",
+                        objcode = "' . smartsql($defaults['envo_houseobjcode']) . '",
                         housefname = "' . smartsql($defaults['envo_housefname']) . '",
                         housefstreet = "' . smartsql($defaults['envo_housefstreet']) . '",
                         housefcity = "' . smartsql($defaults['envo_housefcity']) . '",
@@ -580,14 +582,34 @@ Složka domu:   				' . $pathfolder . '
 		break;
 	case 'maps':
 
-		// EN: Title and Description
-		// CZ: Titulek a Popis
-		$SECTION_TITLE = 'Intranet 2 - Mapy';
-		$SECTION_DESC  = '';
+		switch ($page2) {
+			case 'maps1':
+				// MAPS 1
 
-		// EN: Load the php template
-		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_maps.php';
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = 'Intranet 2 - Mapy';
+				$SECTION_DESC  = '';
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_maps1.php';
+				break;
+			case 'maps2':
+				// MAPS 2
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = 'Intranet 2 - Mapy';
+				$SECTION_DESC  = '';
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_maps2.php';
+				break;
+			default:
+
+		}
 
 		break;
 	case 'notification':

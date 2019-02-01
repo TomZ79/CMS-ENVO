@@ -66,7 +66,7 @@ if (!function_exists('array_group_by')) {
 }
 
 // Group data by the "gender" key
-$ENVO_KU = array_group_by($ENVO_KU, "city");
+$ENVO_KU = array_group_by($ENVO_KU, 'city');
 
 ?>
 
@@ -129,7 +129,7 @@ if ($errors) { ?>
 
 		</div>
 
-		<div id="loadingdata_ares" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
+		<div id="loadingdata" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
 
 		<!-- Form Content -->
 		<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -223,6 +223,7 @@ if ($errors) { ?>
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
 													echo $Html -> addInput('text', 'envo_housename', (isset($_REQUEST["envo_housename"]) ? $_REQUEST["envo_housename"] : ''), '', 'form-control');
 													?>
+
 												</div>
 											</div>
 										</div>
@@ -306,68 +307,6 @@ if ($errors) { ?>
 
 													</select>
 												</div>
-											</div>
-										</div>
-										<div class="row-form">
-											<div class="col-sm-4">
-
-												<?php
-												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html -> addTag('strong', 'Katastrální území');
-												?>
-
-											</div>
-											<div class="col-sm-8">
-
-												<?php
-												// Start - Select Tag
-												echo '<div class="form-group m-0"><select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">';
-
-												//
-												$selected = ((isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] == '0')) || !isset($_REQUEST["envo_houseku"])) ? TRUE : FALSE;
-
-												// First blank option
-												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-												echo $Html -> addOption();
-
-												foreach ($ENVO_KU as $keyku => $itemku) {
-
-													foreach ($itemku as $item) {
-														// Get City ID from first item - is same for all items
-														$cityid = $item["city_id"];
-														// Break loop after first iteration
-														break;
-													}
-
-													// To know what's in $item
-													echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
-
-													foreach ($itemku as $item) {
-
-														if (isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] != '0')) {
-															if (isset($_REQUEST["envo_houseku"]) && ($item["id"] == $_REQUEST["envo_houseku"])) {
-																$selected = TRUE;
-															} else {
-																$selected = FALSE;
-															}
-														} else {
-															$selected = FALSE;
-														}
-
-														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-														echo $Html -> addOption($item["id"], $item["ku"], $selected, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"]));
-
-													}
-
-													echo '</optgroup>';
-
-												}
-
-												// End - Select Tag
-												echo '</select></div>';
-
-												?>
-
 											</div>
 										</div>
 										<div class="row-form">
@@ -611,8 +550,10 @@ if ($errors) { ?>
 												<select name="envo_permission[]" multiple="multiple" class="form-control">
 
 													<?php
+													// Main select is usergroup 1 - Administrator
+
 													// Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-													$selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
+													$selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))))) ? TRUE : FALSE;
 
 													echo $Html -> addOption('0', 'Všechny skupiny', $selected);
 													if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
@@ -623,6 +564,8 @@ if ($errors) { ?>
 															} else {
 																$selected = TRUE;
 															}
+														} else if ($v["id"] == '3') {
+															$selected = TRUE;
 														} else {
 															$selected = FALSE;
 														}
@@ -800,6 +743,118 @@ if ($errors) { ?>
 								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
 								?>
 
+							</div>
+						</div>
+						<div class="box box-success">
+							<div class="box-header with-border">
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html -> addTag('h3', 'Katastrální mapy', 'box-title');
+								?>
+
+							</div>
+							<div class="box-body">
+								<div class="block">
+									<div class="block-content">
+										<div class="row-form">
+											<div class="col-sm-12 text-center">
+
+												<?php
+												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+												echo $Html -> addButton('button', '', 'Načíst data z ČÚZK', '', 'loadKatastr', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', 'Načíst kód objektu', '', 'loadObjCode', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', 'iKatastr online', '', 'loadIkatastr', 'btn btn-danger m-b-10');
+
+												?>
+
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-4">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Katastrální území');
+												?>
+
+											</div>
+											<div class="col-sm-8">
+
+												<?php
+												// Start - Select Tag
+												echo '<div class="form-group m-0"><select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">';
+
+												//
+												$selected = ((isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] == '0')) || !isset($_REQUEST["envo_houseku"])) ? TRUE : FALSE;
+
+												// First blank option
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html -> addOption();
+
+												foreach ($ENVO_KU as $keyku => $itemku) {
+
+													foreach ($itemku as $item) {
+														// Get City ID from first item - is same for all items
+														$cityid = $item["city_id"];
+														// Break loop after first iteration
+														break;
+													}
+
+													// To know what's in $item
+													echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
+
+													foreach ($itemku as $item) {
+
+														if (isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] != '0')) {
+															if (isset($_REQUEST["envo_houseku"]) && ($item["id"] == $_REQUEST["envo_houseku"])) {
+																$selected = TRUE;
+															} else {
+																$selected = FALSE;
+															}
+														} else {
+															$selected = FALSE;
+														}
+
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption($item["id"], $item["ku"], $selected, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"], 'data-kucode' => $item["ku_code"]));
+
+													}
+
+													echo '</optgroup>';
+
+												}
+
+												// End - Select Tag
+												echo '</select></div>';
+
+												?>
+
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-4">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Kód objektu');
+												?>
+
+											</div>
+											<div class="col-sm-8">
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_houseobjcode', (isset($_REQUEST["envo_houseobjcode"]) ? $_REQUEST["envo_houseobjcode"] : ''), '', 'form-control');
+													?>
+
+												</div>
+											</div>
+										</div>
+										<div id="katastroutput" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

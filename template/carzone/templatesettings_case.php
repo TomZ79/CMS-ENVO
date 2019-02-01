@@ -100,7 +100,7 @@ while ($row = $result->fetch_assoc ()) {
 	if (strlen ($row['value']) != strlen (filter_var ($row['value'], FILTER_SANITIZE_STRING))) {
 		$defvar = htmlspecialchars_decode (htmlspecialchars ($row['value']));
 	} else {
-		$defvar = $row["value"];
+		$defvar = $row['value'];
 	}
 
 	$envotpl[ $row['varname'] ] = $defvar;

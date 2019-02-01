@@ -121,7 +121,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 								<?= $h["street"] ?>
 							</td>
 							<td>
-								<?= $h["housefcity"] ?>
+								<?= $h["city"] ?>
 							</td>
 							<td>
 								<?= $h["ic"] ?>

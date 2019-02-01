@@ -87,7 +87,7 @@ echo $Html -> addDoctype('html5');
 		<!-- HEADER JS -->
 		<?php
 		// Add Html Element -> addScript (Arguments: src, optional assoc. array)
-		echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
+		echo $Html -> addScript('/assets/plugins/jquery/jquery-3.2.1.min.js');
 		echo $Html -> addScript('assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5');
 		?>
 

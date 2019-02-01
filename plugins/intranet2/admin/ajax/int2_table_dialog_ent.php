@@ -93,7 +93,7 @@ if ($result) {
 					</div>
 					<div class="col-sm-8">
 						<div class="form-group m-0">
-							<a href="https://www.latlong.net/" target="NewGPS">LATLONG.net</a>
+							<a href="https://mapy.cz" class="mapycz" target="MapGPS">MAPY.cz</a>
 							<span class="m-l-10 m-r-10">|</span>
 							<a href="#" class="getgps"><strong>Získat GPS z OpenStreetMap</strong></a>
 						</div>
@@ -104,7 +104,7 @@ if ($result) {
 							<strong>GPS - Latitude</strong>
 						</div>
 						<div class="col-sm-8">
-							<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0px; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
+							<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
 							<div class="form-group m-0">
 								<input type="text" name="envo_housegpslat" class="form-control" value="' . $row["gpslat"] . '">
 							</div>
@@ -115,7 +115,7 @@ if ($result) {
 							<strong>GPS - Longitude</strong>
 						</div>
 						<div class="col-sm-8">
-							<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0px; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
+							<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
 							<div class="form-group m-0">
 								<input type="text" name="envo_housegpslng" class="form-control" value="' . $row["gpslng"] . '">
 							</div>
@@ -143,8 +143,9 @@ if ($result) {
 							<strong>iKatastr</strong>
 						</div>
 						<div class="col-sm-8">
+						<div class="loadingdata_ikatastr" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
 							<div class="form-group m-0 ikatastr">
-								<input type="text" name="envo_houseikatastr" class="form-control" value="' . $row["katastr"] . '">
+								<input type="text" name="envo_houseikatastr" class="form-control" value="' . $row["katastr"] . '" readonly>
 							</div>
 						</div>
 					</div>
@@ -153,9 +154,10 @@ if ($result) {
 							<strong>iKatastr - Link</strong>
 						</div>
 						<div class="col-sm-8">
-							<div class="loadingdata_ikatastr" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0px; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
 							<div class="form-group m-0 ikatastrlink">
-								<a href="' . $katastr . '" target="WindowKATASTR">Zobrazit informace z Katastru</a>
+								<a href="' . $katastr . '" class="ikatastr" target="WindowKATASTR">Zobrazit informace z Katastru</a>
+								<span class="m-l-10 m-r-10">|</span>
+								<a href="#" id="getkatastrlink"><strong>Získat odkaz z GPS pozic</strong></a>
 							</div>
 						</div>
 					</div>

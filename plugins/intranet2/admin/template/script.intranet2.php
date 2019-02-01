@@ -16,7 +16,7 @@
  *
  */
 
-if ($page == 'intranet2') {
+if ($page == 'intranet2' && $page1 != 'maps' && $page2 != 'maps2') {
 
 	echo PHP_EOL . '<!-- Start JS INTRANET2 Plugin -->';
 
@@ -41,6 +41,8 @@ if ($page == 'intranet2') {
 	echo $Html -> addScript('assets/plugins/codrops-dialogFx/dialogFx.min.js');
 	// Plugin Isotope
 	echo $Html -> addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
+	// JTSK_Converter
+	echo $Html -> addScript('/plugins/intranet2/admin/js/converter.js');
 	// Plugin Javascript
 	echo $Html -> addScript('/plugins/intranet2/admin/js/script.intranet2.js');
 
@@ -53,7 +55,7 @@ echo PHP_EOL;
 ?>
 
 
-<?php if ($page == 'intranet2' && $page1 == 'maps') { ?>
+<?php if ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps1') { ?>
 
 	<!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
 	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
@@ -64,7 +66,7 @@ echo PHP_EOL;
     /* https://mediarealm.com.au/articles/openstreetmap-openlayers-map-markers/ */
 
     /**
-		 * @description Settings for new map
+     * @description Settings for new map
      */
     var map;
     // GPS Position - Latitude
@@ -76,17 +78,17 @@ echo PHP_EOL;
     // Scale line control
     var scaleLineControl = new ol.control.ScaleLine({
       units: 'metric'
-		});
+    });
 
     /**
-		 * @description Initialize OSM map
+     * @description Initialize OSM map
      */
     function initialize_map () {
       // Create the new map
       map = new ol.Map({
-				// Target -> div 'id'
+        // Target -> div 'id'
         target: 'map',
-				// Setup layers
+        // Setup layers
         layers: [
           // Set up the OSM layer
           new ol.layer.Tile({
@@ -121,11 +123,8 @@ echo PHP_EOL;
       });
     }
 
-
-
-
     /**
-		 * @description Add redpoint to the OSM map
+     * @description Add redpoint to the OSM map
      * @param lat
      * @param lng
      */
@@ -149,14 +148,14 @@ echo PHP_EOL;
         })
       });
 
-      $('#layer1').change(function() {
+      $('#layer1').change(function () {
         $(this).prop('checked', vectorRedLayer.setVisible(this.checked));
       });
       map.addLayer(vectorRedLayer);
     }
 
     /**
-		 * @description Add bluepoint to the OSM map
+     * @description Add bluepoint to the OSM map
      * @param lat
      * @param lng
      */
@@ -179,7 +178,7 @@ echo PHP_EOL;
           })
         })
       });
-      $('#layer2').change(function() {
+      $('#layer2').change(function () {
         $(this).prop('checked', vectorBlueLayer.setVisible(this.checked));
       });
       map.addLayer(vectorBlueLayer);
@@ -195,8 +194,8 @@ echo PHP_EOL;
 																				 e.gpslng,
 																				 h.administration
 																			FROM
-																			 		' . DB_PREFIX  . 'int2_houseent e
-																			LEFT JOIN ' . DB_PREFIX  . 'int2_house h ON e.houseid = h.id;
+																			 		' . DB_PREFIX . 'int2_houseent e
+																			LEFT JOIN ' . DB_PREFIX . 'int2_house h ON e.houseid = h.id;
 		
 		');
 			while ($row = $result -> fetch_assoc()) {
@@ -215,3 +214,242 @@ echo PHP_EOL;
 	</script>
 
 <?php } ?>
+
+<?php if ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps2') { ?>
+
+	<script>
+    $(document).ready(function () {
+
+      /**
+			 * @description Init Pages Cards
+       */
+      $('.card').card();
+
+      /**
+			 * @description
+       */
+      $('#searchAres').click(function (e) {
+        // Stop, the default action of the event will not be triggered
+        e.preventDefault();
+
+        console.log('----------- fn #searchAres click -----------');
+
+        // Get value
+        var ares_ico = $.trim($('input[name="ares_ico"]').val()).replace(/\s/g, '');
+        var ajaxTime = new Date().getTime();
+
+				// Ajax
+        $.ajax({
+          url: '/plugins/intranet2/admin/ajax/searchares.php',
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            ares_ico: ares_ico
+          },
+          cache: false,
+          beforeSend: function () {
+
+            // Show progress circle
+            $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+
+          },
+          success: function (data) {
+
+            // Ajax time
+            var totalTime = Math.floor(new Date().getTime() - ajaxTime);
+            var totalTime = msToTime(totalTime);
+						console.log('ajaxAresTime | Success Time: ' + totalTime)
+
+            if (data.status == 'upload_success') {
+              // IF DATA SUCCESS
+
+              // Loading data progress
+              $('#loadingdata').hide().html('');
+
+
+
+            } else {
+              // IF DATA ERROR
+
+              // Hide Ares loading progress
+              $('#loadingdata').hide().html('');
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  icon: 'fa fa-exclamation',
+                  message: '<strong>Error:</strong> ' + data.status_msg
+                }, {
+                  // settings
+                  type: 'danger',
+                  delay: 2000
+                });
+              }, 1000);
+
+            }
+
+          },
+          error: function () {
+
+          },
+          complete: function () {
+
+          }
+        });
+
+
+      });
+    });
+	</script>
+
+
+<?php } ?>
+
+<script>
+  $(document).ready(function () {
+
+    /**
+		 *
+     */
+    $('#loadObjCode').click(function (e) {
+      // Stop, the default action of the event will not be triggered
+      e.preventDefault();
+
+      console.log('----------- fn #loadObjCode click -----------');
+
+      // Get value
+      var street = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
+      var city = $.trim($('select[name="envo_housecity"] option:selected').text()).replace(/\s/g, '+');
+      var datagps = street + ',' + city;
+      var ajaxTime = new Date().getTime();
+
+      // Ajax
+      $.ajax({
+        url: 'https://nominatim.openstreetmap.org/search?q=' + datagps + '&format=json&addressdetails=1',
+        dataType: 'json',
+        timeout: 30000,
+        success: function (data) {
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+          var wgslat = data[0].lat;
+          var wgslon = data[0].lon;
+
+          console.log('OpenStreetMaps | GPS data - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+
+          $.ajax({
+            url: 'https://services.cuzk.cz/wfs/inspire-bu-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Building',
+            dataType: 'xml',
+            success: function (data) {
+
+              // Ajax time
+              var totalTime = Math.floor(new Date().getTime() - ajaxTime);
+              var totalTime = msToTime(totalTime);
+              if (debug) {
+                console.log('ajaxKatastrTime | Success Time: ' + totalTime)
+              }
+
+              // Extract relevant data from XML
+              var buId = data.getElementsByTagName("base:localId")[0];
+              var name = data.getElementsByTagName("bu-base:name")[0];
+              name && (name = (name = name.getElementsByTagName("gn:text")) ? name[0].textContent : null);
+              var buVdpId = data.getElementsByTagName("bu-base:reference")[0].textContent;
+
+              console.log('buId: ' + buId.innerHTML);
+              console.log('buTag: ' + name);
+              console.log('buVdpId: ' + buVdpId);
+
+              // Data variable for output DIV
+              var divdata = '';
+              divdata += '<div  class="col-sm-12">' +
+                '<h5>Získaná data z databáze ČÚZK</h5><hr>' +
+                '<p><strong>ČÚZK: GPS data byla nalezena a data byla stažena</strong></p>' +
+                '<p>Doba zpracování požadavku: <span id="ajaxKatastrTime2">' + totalTime + '</span></p><hr>' +
+                '<p><strong>buId: </strong> ' + buId.innerHTML + '</p>' +
+                '<p><strong>Kód objektu (buVdpId): </strong> ' + buVdpId + '</p>' +
+                '<p><strong>Stavba na pozemku (buTag): </strong> ' + name + '</p>' +
+                '<p><strong>Detail stavebního objektu: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' + buVdpId + '" target="WindowCUZK">Zobrazit detail objektu na CÚZK</a></p><hr>' +
+                '</div>';
+
+              // Output Data
+              $('#katastroutput').html('').prepend(divdata).show();
+              $('input[name="envo_houseobjcode"]').val(buVdpId).css('background-color', '#FFF5CC');
+
+              // Remove background color from 'input'
+              setTimeout(function () {
+                $('input[name="envo_houseobjcode"]').css('background-color', '#FFF');
+              }, 8000);
+
+            },
+            error: function (data) {
+              console.log('Error loading XML data');
+            }
+          });
+
+        },
+        error: function () {
+
+        },
+        complete: function () {
+
+        }
+      });
+
+    });
+
+    /**
+		 *
+     */
+    $('#loadIkatastr').click(function (e) {
+      // Stop, the default action of the event will not be triggered
+      e.preventDefault();
+
+      console.log('----------- fn #loadIkatastr click -----------');
+
+      // Get value
+      var street = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
+      var city = $.trim($('select[name="envo_housecity"] option:selected').text()).replace(/\s/g, '+');
+      var datagps = street + ',' + city;
+
+      // Ajax
+      $.ajax({
+        url: 'https://nominatim.openstreetmap.org/search?q=' + datagps + '&format=json&addressdetails=1',
+        dataType: 'json',
+        timeout: 30000,
+        success: function (data) {
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+          var wgslat = data[0].lat;
+          var wgslon = data[0].lon;
+
+          console.log('OpenStreetMaps | GPS data - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+
+          // Set ikatastr text for input
+          var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
+
+          // Data variable for output DIV
+          var divdata = '';
+          divdata += '<div  class="col-sm-12">' +
+            '<h5>iKatastr - Link</h5><hr>' +
+            '<p><a href="' + ikatastr + '" target="WindowKATASTR">Zobrazit informace z Katastru</a></p><hr>' +
+            '</div>';
+
+          // Output Data
+          $('#katastroutput').html('').prepend(divdata).show();
+
+        },
+        error: function () {
+
+        },
+        complete: function () {
+
+        }
+      });
+
+    });
+
+  });
+</script>

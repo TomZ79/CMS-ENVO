@@ -42,3 +42,9 @@ if ($page == 'intranet2') {
 // New line in source code
 echo PHP_EOL;
 ?>
+
+<?php if ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps2') { ?>
+
+
+
+<?php } ?>

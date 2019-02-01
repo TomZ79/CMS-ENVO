@@ -23,7 +23,6 @@ while ($row = $result -> fetch_assoc()) {
 	$house_array['headquarters']     = $row['headquarters'];
 	$house_array['street']           = $row['street'];
 	$house_array['city']             = $row['city'];
-	$house_array['cityarea']         = $row['cityarea'];
 	$house_array['psc']              = $row['psc'];
 	$house_array['ic']               = $row['ic'];
 	$house_array['state']            = $row['state'];

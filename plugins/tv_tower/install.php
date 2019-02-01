@@ -91,7 +91,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
 	echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
 	echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-	echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+	echo $Html -> addScript('/assets/plugins/popper/1.14.1/popper.min.js');
 	echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
 	?>
 	<!-- BEGIN CORE TEMPLATE JS -->

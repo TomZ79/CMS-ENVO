@@ -97,7 +97,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
   echo $Html -> addScript('/admin/assets/plugins/modernizr.custom.js?=v2.8.3');
-  echo $Html -> addScript('/assets/plugins/popover/1.14.1/popper.min.js');
+  echo $Html -> addScript('/assets/plugins/popper/1.14.1/popper.min.js');
   echo $Html -> addScript('/assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
   ?>
   <!-- BEGIN CORE TEMPLATE JS -->
@@ -320,10 +320,11 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `headquarters` varchar(255) NULL DEFAULT NULL,
   `street` varchar(255) NULL DEFAULT NULL,
   `city` int(11) NULL DEFAULT NULL,
-  `ku` int(11) NULL DEFAULT NULL,
   `psc` varchar(100) NULL DEFAULT NULL,
   `ic` varchar(100) NULL DEFAULT NULL,
   `state` varchar(255) NULL DEFAULT NULL,
+  `ku` int(11) NULL DEFAULT NULL,
+  `objcode` varchar(100) NULL DEFAULT NULL,
   `administration` int(1) UNSIGNED NOT NULL DEFAULT 0,
   `administrationdate` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `ares` int(1) NOT NULL DEFAULT 0,

@@ -78,7 +78,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 							<?php
 							// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-							echo $Html -> addInput('text', 'envo_entapartment', '', '', 'form-control');
+							echo $Html -> addInput('text', 'envo_entapartment', '0', '', 'form-control');
 							?>
 
 						</div>
@@ -103,12 +103,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 							<?php
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-							echo $Html -> addAnchor('https://www.latlong.net/', 'LATLONG.net', '', '', array ('target' => 'NewGPS'));
+							echo $Html -> addAnchor('https://mapy.cz', 'MAPY.cz', '', 'mapycz', array ('target' => 'MapGPS'));
 							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 							echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 							echo $Html -> addAnchor('#', '<strong>Získat GPS z OpenStreetMap</strong>', '', 'getgps');
-							// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
 							?>
 
 						</div>
@@ -234,6 +233,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 							<?php
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 							echo $Html -> addAnchor('https://www.ikatastr.cz/', 'Zobrazit informace z Katastru', '', 'ikatastr', array ('target' => 'WindowKATASTR'));
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
+							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+							echo $Html -> addAnchor('#', '<strong>Získat odkaz z GPS pozic</strong>', 'getkatastrlink', '');
 							?>
 
 						</div>

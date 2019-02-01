@@ -8,6 +8,11 @@ if ($page1 == 'house') {
 	$classint2subsection1 = 'open active';
 	$styleint_1           = 'style="display: block;"';
 }
+
+if ($page1 == 'maps') {
+	$classint2subsection2 = 'open active';
+	$styleint_2           = 'style="display: block;"';
+}
 ?>
 <li class="<?= $classint2section ?>">
 
@@ -72,17 +77,35 @@ if ($page1 == 'house') {
 			</ul>
 		</li>
 
-		<li class="list-divider"></li>
+		<li class="<?= $classint2subsection2 ?>">
+			<a href="javascript:;">Mapové podklady
+				<span class="arrow <?= $classint2subsection2 ?>"></span></a>
+			<span class="icon-thumbnail"><?= text_clipping_lower('Mapové podklady') ?></span>
+			<ul class="sub-menu" <?= $styleint_2 ?>>
 
-		<li class="<?= ($page == 'intranet2' && $page1 == 'maps') ? 'submenu-active' : '' ?>">
+				<li class="<?= ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps1') ? 'submenu-active' : '' ?>">
 
-			<?php
-			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=maps', 'Mapové podklady');
-			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-			echo $Html -> addTag('span', text_clipping_lower('Mapové podklady'), 'icon-thumbnail');
-			?>
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=maps&amp;ssp=maps1', 'Mapa domů v DB');
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower('Mapa domů v DB'), 'icon-thumbnail');
+					?>
 
+				</li>
+				<li class="<?= ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps2') ? 'submenu-active' : '' ?>">
+
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=maps&amp;ssp=maps2', 'Katastrální mapa');
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower('Katastrální mapa'), 'icon-thumbnail');
+					?>
+
+				</li>
+
+
+			</ul>
 		</li>
 
 		<li class="list-divider"></li>

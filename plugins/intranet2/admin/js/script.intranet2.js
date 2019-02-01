@@ -130,6 +130,8 @@ function getGPS_Data (event) {
     console.log('----------- fn getGPS_Data -----------')
   }
 
+  // Disable 'button'
+  $('#saveEnt').attr('disabled', true);
   // Getting parent 'id'
   var parent = $(this).parents(':eq(4)').attr('id');
   // Street and City from Form
@@ -150,31 +152,48 @@ function getGPS_Data (event) {
     beforeSend: function () {
 
       // Show progress text
-      $('#' + parent + ' .loadingdata_gps').html('Načítání ... Prosím počkejte');
-      $('#' + parent + ' .loadingdata_gps').css('visibility', 'visible');
-      $('#' + parent + ' .loadingdata_ikatastr').html('Načítání ... Prosím počkejte');
-      $('#' + parent + ' .loadingdata_ikatastr').css('visibility', 'visible');
+      $('#' + parent + ' .loadingdata_gps').html('Načítání ... Prosím počkejte').css('visibility', 'visible');
+      $('#' + parent + ' .loadingdata_ikatastr').html('Načítání ... Prosím počkejte').css('visibility', 'visible');
     },
     success: function (data) {
 
-      var str = JSON.stringify(data);
-      var result = JSON.parse(str);
+      /**
+       * @description Check if JSON format is empty
+       * Works for any Object Including JSON(key value pair) or Array.
+       * var arr = [];
+       * var jsonObj = {};
+       */
+      if (jQuery.isEmptyObject(data)) {
+        // JSON object is empty
+        if (debug) {
+          console.log('NO GPS DATA | Empty JSON Object');
+        }
 
-      $.each(result, function (key, data) {
+        // Add data to 'input'
+        $('#' + parent + ' input[name=envo_housegpslat]').val('NO GPS DATA').css('background-color', '#FCC');
+        $('#' + parent + ' input[name=envo_housegpslng]').val('NO GPS DATA').css('background-color', '#FCC');
+        $('#' + parent + ' input[name=envo_houseikatastr]').val('NO GPS DATA').css('background-color', '#FCC');
+
+      } else {
+
+        var str = JSON.stringify(data);
+        var result = JSON.parse(str);
+        var wgslat = data[0].lat;
+        var wgslon = data[0].lon;
 
         if (debug) {
-          console.log('GPS Click fn | OpenStreetMaps | GPS data - Latitude: ' + data.lat + ' / Longitude: ' + data.lon);
+          console.log('GPS Click fn | OpenStreetMaps | GPS data - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
         }
 
         // Set ikatastr text for input
-        var ikatastr = 'https://www.ikatastr.cz/#kde=' + data.lat + ',' + data.lon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + data.lat + ',' + data.lon;
+        var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
 
         // Add data to 'input'
-        $('#' + parent + ' input[name=envo_housegpslat]').val(data.lat).css('background-color', '#FFF5CC');
-        $('#' + parent + ' input[name=envo_housegpslng]').val(data.lon).css('background-color', '#FFF5CC');
+        $('#' + parent + ' input[name=envo_housegpslat]').val(wgslat).css('background-color', '#FFF5CC');
+        $('#' + parent + ' input[name=envo_housegpslng]').val(wgslon).css('background-color', '#FFF5CC');
         $('#' + parent + ' input[name=envo_houseikatastr]').val(ikatastr).css('background-color', '#FFF5CC');
 
-        // Remove background color from 'input'
+        // Change background color - default color
         setTimeout(function () {
           $('#' + parent + ' input[name=envo_housegpslat]').css('background-color', '#FFF');
           $('#' + parent + ' input[name=envo_housegpslng]').css('background-color', '#FFF');
@@ -182,32 +201,58 @@ function getGPS_Data (event) {
         }, 8000);
 
         // Change 'attr' in anchor
-        $('#' + parent + ' .gps_link a.mapycz').attr('href', 'http://www.mapy.cz/#q=' + data.lat + '%2C' + data.lon);
-        $('#' + parent + ' .gps_link a.openstreet').attr('href', 'https://www.openstreetmap.org/?mlat=' + data.lat + '&mlon=' + data.lon + '&zoom=16#map=18/' + data.lat + '/' + data.lon);
+        $('#' + parent + ' .gps_link a.mapycz').attr('href', 'http://www.mapy.cz/#q=' + wgslat + '%2C' + wgslon);
+        $('#' + parent + ' .gps_link a.openstreet').attr('href', 'https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon);
         $('#' + parent + ' .ikatastrlink a.ikatastr').attr('href', ikatastr);
 
         // Show 'div'
         $('#' + parent + ' .gps_link').show();
 
-      });
+      }
 
       // Hide progress text
       setTimeout(function () {
-        $('#' + parent + ' .loadingdata_gps').css('visibility', 'hidden');
-        $('#' + parent + ' .loadingdata_ikatastr').css('visibility', 'hidden');
+        $('#' + parent + ' .loadingdata_gps').html('').css('visibility', 'hidden');
+        $('#' + parent + ' .loadingdata_ikatastr').html('').css('visibility', 'hidden');
       }, 1000);
 
     },
     error: function () {
       // Hide progress text
       setTimeout(function () {
-        $('#' + parent + ' .loadingdata_gps').css('visibility', 'hidden');
-        $('#' + parent + ' .loadingdata_ikatastr').css('visibility', 'hidden');
+        $('#' + parent + ' .loadingdata_gps').html('').css('visibility', 'hidden');
+        $('#' + parent + ' .loadingdata_ikatastr').html('').css('visibility', 'hidden');
       }, 1000);
+    },
+    complete: function () {
+      // Enable 'button'
+      $('#saveEnt').attr('disabled', false);
     }
   });
 
-  return false;
+}
+
+/**
+ * @description  Convert miliseconds to time
+ */
+
+function msToTime (s) {
+
+  // Pad to 2 or 3 digits, default is 2
+  function pad (n, z) {
+    z = z || 2;
+    return ('00' + n).slice(-z);
+  }
+
+  var ms = s % 1000;
+  s = (s - ms) / 1000;
+  var secs = s % 60;
+  s = (s - secs) / 60;
+  var mins = s % 60;
+  var hrs = (s - mins) / 60;
+
+  // return pad(hrs) + ':' + pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
+  return pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
 }
 
 /**
@@ -320,30 +365,6 @@ $(function () {
   'use strict';
 
   /**
-   * @description  Convert miliseconds to time
-   */
-
-  function msToTime (s) {
-
-    // Pad to 2 or 3 digits, default is 2
-    function pad (n, z) {
-      z = z || 2;
-      return ('00' + n).slice(-z);
-    }
-
-    var ms = s % 1000;
-    s = (s - ms) / 1000;
-    var secs = s % 60;
-    s = (s - secs) / 60;
-    var mins = s % 60;
-    var hrs = (s - mins) / 60;
-
-    // return pad(hrs) + ':' + pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
-    return pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
-  }
-
-
-  /**
    * @description   Change links to ARES - JUSTICE by 'IČ'
    */
   $('input[name="envo_houseic"]').on('keyup keypress input paste change', function () {
@@ -427,32 +448,40 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/ares.php",
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      data: "ic=" + ic,
+      url: '/plugins/intranet2/admin/ajax/ares.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        ic: ic
+      },
       cache: false,
       beforeSend: function () {
 
         // Show progress circle
-        $('#loadingdata_ares').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
 
 
       },
       success: function (data) {
 
+        // Ajax time
+        var totalTime = Math.floor(new Date().getTime() - ajaxTime);
+        var totalTime = msToTime(totalTime);
+        if (debug) {
+          console.log('ajaxAresTime | Success Time: ' + totalTime)
+        }
+
         if (data.status == 'upload_success') {
           // IF DATA SUCCESS
 
-          // Hide Ares loading progress
-          $('#loadingdata_ares').hide();
-          $('#loadingdata_ares').html('');
+          // Loading data progress
+          $('#loadingdata').hide().html('');
 
-          // Put data to aresoutput
+          // Data variable for output
           var divdata = '';
-          divdata += '<div class="col-sm-12"><h5>Získaná data z Ares databáze</h5><hr>' +
+          divdata += '<div class="col-sm-12"><h5>Získaná data z databáze Ares</h5><hr>' +
             '<p><strong>' + data.status_msg + '</strong></p>' +
-            '<p>Doba načtení dat z ARESu: <span id="ajaxTime"></span></p><hr>' +
+            '<p>Doba zpracování požadavku: <span id="ajaxAresTime">' + totalTime + '</span></p><hr>' +
             '<table class="table">' +
             '<tbody>' +
             '<tr>' +
@@ -467,18 +496,20 @@ $(function () {
             '</table>' +
             '</div>';
 
+          // Output Data
           $('#aresoutput').html('').prepend(divdata).show();
 
-          // Add data to 'input' - for House and House Analytics
+          // Add data to element
           $('input[name=envo_housename]').val('SVJ domu .....');
           $('input[name=envo_househeadquarters]').val(
             data.ulice + ', ' + data.mesto + ' - ' + data.katastralniuzemi + ', PSČ ' + data.psc
           ).css('background-color', '#FFF5CC');
           $('input[name=envo_houseic]').val(data.ic).css('background-color', '#FFF5CC');
           $('input[name=envo_housestreet]').val(data.ulice).css('background-color', '#FFF5CC');
+          $('select[name="envo_housecity"]').val(data.mesto_id);
+          $('select[name="envo_housecity"] + span span.select2-selection').css('background-color', '#FFF5CC');
           $('input[name=envo_housepsc]').val(data.psc).css('background-color', '#FFF5CC');
 
-          // Add data to 'input' - only for House
           if ($('input[name=envo_housefname]').length) {
             $('input[name=envo_housefname]').val(data.name).css('background-color', '#FFF5CC');
           }
@@ -498,20 +529,27 @@ $(function () {
             $('input[name=envo_housefdic]').val(data.dic).css('background-color', '#FFF5CC');
           }
 
-          // Remove backgroung color from 'input'
+          // Change background color - default color
           setTimeout(function () {
-            // Add background color for House Analytics
-            $('input[name=envo_househeadquarters]').css('background-color', '#FFF');
-            $('input[name=envo_housestreet]').css('background-color', '#FFF');
-            $('input[name=envo_houseic]').css('background-color', '#FFF');
-            $('input[name=envo_housepsc]').css('background-color', '#FFF');
-            // Add background color for House
-            $('input[name=envo_housefname]').css('background-color', '#FFF');
-            $('input[name=envo_housefstreet]').css('background-color', '#FFF');
-            $('input[name=envo_housefcity]').css('background-color', '#FFF');
-            $('input[name=envo_housefpsc]').css('background-color', '#FFF');
-            $('input[name=envo_housefic]').css('background-color', '#FFF');
-            $('input[name=envo_housefdic]').css('background-color', '#FFF');
+            // Selector array
+            var array = [
+              'input[name=envo_househeadquarters]',
+              'input[name=envo_housestreet]',
+              'select[name="envo_housecity"] + span span.select2-selection',
+              'input[name=envo_housepsc]',
+              'input[name=envo_houseic]',
+              'input[name=envo_housefname]',
+              'input[name=envo_housefstreet]',
+              'input[name=envo_housefcity]',
+              'input[name=envo_housefpsc]',
+              'input[name=envo_housefic]',
+              'input[name=envo_housefdic]'
+            ];
+            var element = $(array.join(', '));
+            // Change background color
+            element.css({
+              'background-color': '#FFF'
+            });
           }, 8000);
 
           // Change 'attr' in anchor
@@ -519,30 +557,36 @@ $(function () {
           $('#ares_res a:last-child').attr('href', 'https://wwwinfo.mfcr.cz/cgi-bin/ares/darv_vreo.cgi?ico=' + ic + '&jazyk=cz&xml=1');
           $('#justice_vor a').attr('href', 'https://or.justice.cz/ias/ui/rejstrik-$firma?ico=' + ic + '&jenPlatne=VSECHNY');
           // Checkbox prop
-          $('input[name=envo_houseares][value="1"]').prop('checked',true);
-          $('input[name=envo_housejustice][value="1"]').prop('checked',true);
+          $('input[name=envo_houseares][value="1"]').prop('checked', true);
+          $('input[name=envo_housejustice][value="1"]').prop('checked', true);
           // Show anchor
           $('#ares_res,#justice_vor').show();
+
+          // ReInit Select2 plugin
+          $('select[name=envo_housecity]').trigger('change');
 
         } else {
           // IF DATA ERROR
 
           // Hide Ares loading progress
-          $('#loadingdata_ares').hide();
-          $('#loadingdata_ares').html('');
+          $('#loadingdata').hide().html('');
 
-          // Put data to aresoutput
+          // Data variable for output
           var divdata = '';
           divdata += '<div class="col-sm-12"><h5>Výstup z Ares</h5>' +
-            '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p><hr>' +
+            '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
+            '<p>Doba zpracování požadavku: <span id="ajaxAresTime">' + totalTime + '</span></p><hr>' +
+            '<p>' + data.status_info + '</p>' +
             '</div>';
 
+          // Output Data
           $('#aresoutput').html('').prepend(divdata).show();
 
           // Notification
           setTimeout(function () {
             $.notify({
               // options
+              icon: 'fa fa-exclamation',
               message: '<strong>Error:</strong> ' + data.status_msg
             }, {
               // settings
@@ -558,16 +602,142 @@ $(function () {
 
       },
       complete: function () {
-        var totalTime = Math.floor(new Date().getTime() - ajaxTime);
-        $('#ajaxTime').html(msToTime(totalTime));
+
       }
     });
 
-  })
-  ;
+  });
 
-})
-;
+  /**
+   * @description   Load data from Katastr by GPS
+   */
+  $('#loadKatastr').click(function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #loadKatastr click -----------')
+    }
+
+    // Get value
+    var street = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
+    var city = $.trim($('select[name="envo_housecity"] option:selected').text()).replace(/\s/g, '+');
+    var datagps = street + ',' + city;
+    var converter = new JTSK_Converter();
+    var ajaxTime = new Date().getTime();
+
+    // Ajax
+    $.ajax({
+      url: 'https://nominatim.openstreetmap.org/search?q=' + datagps + '&format=json&addressdetails=1',
+      dataType: 'json',
+      timeout: 30000,
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+
+      },
+      success: function (data) {
+
+        var str = JSON.stringify(data);
+        var result = JSON.parse(str);
+        var wgslat = data[0].lat;
+        var wgslon = data[0].lon;
+
+        if (debug) {
+          console.log('#loadKatastr Click fn | OpenStreetMaps | GPS data - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+        }
+
+        var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
+        var substrX = jtsk.y;
+        var substrX = substrX.toFixed(2);
+        var x = substrX.split('.')[0];
+        var substrY = jtsk.x;
+        var substrY = substrY.toFixed(2);
+        var y = substrY.split('.')[0];
+
+        if (debug) {
+          console.log(jtsk);
+          console.log('WGS84.lat : ' + wgslat);
+          console.log('WGS84.lon : ' + wgslon);
+          console.log('JTSK.x : ' + jtsk.y);
+          console.log('JTSK.y : ' + jtsk.x);
+          console.log('WGS84.lat - JTSK.x : ' + y);
+          console.log('WGS84.lon - JTSK.y : ' + x);
+        }
+
+        // Ajax
+        $.ajax({
+          url: "/plugins/intranet2/admin/ajax/katastr.php",
+          type: 'POST',
+          dataType: 'html',
+          data: {
+            x: x,
+            y: y
+          },
+          cache: false,
+          success: function (data) {
+
+            // Find KU Name/Code in 'data'
+            var ku_nc = $(data).find('#ku_nc').text();
+            if (debug) {
+              console.log('Finding Data | KU Name + Code: ' + ku_nc)
+            }
+
+            // Setting value
+            var ku_code = ku_nc.match(/\d+/);
+            if (debug) {
+              console.log('KU Data | KU Code: ' + ku_code)
+            }
+
+            // Ajax time
+            var totalTime = Math.floor(new Date().getTime() - ajaxTime);
+            var totalTime = msToTime(totalTime);
+            if (debug) {
+              console.log('ajaxKatastrTime | Success Time: ' + totalTime)
+            }
+
+            // Loading data progress
+            $('#loadingdata').hide().html('');
+            // Output Data
+            $('#katastroutput').html('').prepend(data).show();
+            // Ajax time
+            $('#ajaxKatastrTime1').html(totalTime);
+            // Add data to element
+            $('select[name="envo_houseku"] option[data-kucode="' + ku_code + '"]').attr('selected', 'selected');
+            $('select[name="envo_houseku"] + span span.select2-selection').css('background-color', '#FFF5CC');
+
+            // ReInit Select2 plugin
+            $('select[name=envo_houseku]').trigger('change');
+
+            // Change background color - default color
+            setTimeout(function () {
+              $('select[name="envo_houseku"] + span span.select2-selection').css('background-color', '#FFF');
+            }, 8000);
+
+          },
+          error: function () {
+
+          },
+          complete: function () {
+
+          }
+        });
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+
+      }
+    });
+
+    return false;
+
+  });
+});
 
 /** 00. DateTimePicker
  * @require: DateTimePicker Plugin
@@ -670,7 +840,6 @@ $(function () {
         $('input[name="envo_househeadquarters"]').val(res.headquarters);
         $('input[name="envo_housestreet"]').val(res.street);
         $('select[name="envo_housecity"]').val(res.city);
-        $('select[name="envo_housecityarea"]').val(res.cityarea);
         $('input[name="envo_housepsc"]').val(res.psc);
         $('input[name="envo_houseic"]').val(res.ic);
         $('input[name="envo_dataares"]').val(res.ic);
@@ -683,9 +852,13 @@ $(function () {
         $('select[name="envo_estatemanagement"]').val(res.estatemanagement);
 
         // ReInit Select2 plugin
-        $('select[name=envo_housecity]').trigger('change');
-        $('select[name=envo_housecityarea]').trigger('change');
-        $('select[name=envo_estatemanagement]').trigger('change');
+        // Selector array
+        var array = [
+          'select[name=envo_housecity]',
+          'select[name=envo_estatemanagement]'
+        ];
+        var element = $(array.join(', '));
+        element.trigger('change');
 
         // Hide modal
         $("#ENVOModalPlugin").modal('hide');
@@ -954,7 +1127,7 @@ $(function () {
 
         //
         $('#' + DataDialog + ' .dialog__overview').html('');
-        // Disable 'button'
+        // Enable 'button'
         $('#saveTask').attr('disabled', false);
       }
     });
@@ -999,8 +1172,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_dialog_task.php",
-      type: "POST",
+      url: '/plugins/intranet2/admin/ajax/int2_table_dialog_task.php',
+      type: 'POST',
       datatype: 'html',
       data: {
         taskID: taskID
@@ -1089,8 +1262,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_delete_task.php",
-      type: "POST",
+      url: '/plugins/intranet2/admin/ajax/int2_table_delete_task.php',
+      type: 'POST',
       datatype: 'json',
       data: {
         taskID: taskID
@@ -1122,6 +1295,7 @@ $(function () {
           setTimeout(function () {
             $.notify({
               // options
+              icon: 'fa fa-exclamation',
               message: '<strong>Error:</strong> ' + data.status_msg
             }, {
               // settings
@@ -1225,8 +1399,8 @@ $(function () {
 
         // Ajax
         $.ajax({
-          type: "POST",
-          url: "/plugins/intranet2/admin/ajax/int2_table_addnew_task.php",
+          url: '/plugins/intranet2/admin/ajax/int2_table_addnew_task.php',
+          type: 'POST',
           datatype: 'json',
           data: {
             houseID: houseID,
@@ -1406,8 +1580,8 @@ $(function () {
 
         // Ajax
         $.ajax({
-          type: 'POST',
           url: '/plugins/intranet2/admin/ajax/int2_table_update_task.php',
+          type: 'POST',
           datatype: 'json',
           data: {
             taskID: taskID,
@@ -1559,6 +1733,41 @@ $(function () {
   'use strict';
 
   /**
+   * @description Jquery function for getting iKatastr Link
+   * @param event
+   */
+  function getiKatastr_Link(event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn getiKatastr_Link -----------')
+    }
+
+    // Getting parent 'id'
+    var parent = $(this).parents(':eq(4)').attr('id');
+    // Street and City from Form
+    var wgslat = $.trim($('#' + parent + ' input[name="envo_housegpslat"]').val());
+    var wgslon = $.trim($('#' + parent + ' input[name="envo_housegpslng"]').val());
+
+    if (debug) {
+      console.log('getiKatastr_Link fn | Parent ID: ' + parent);
+      console.log('getiKatastr_Link fn | OpenStreetMaps | GPS data - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+    }
+
+    // Set ikatastr text for input
+    var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
+
+    // Add data to 'input'
+    $('#' + parent + ' input[name=envo_houseikatastr]').val(ikatastr);
+    // Change 'attr' in anchor
+    $('#' + parent + ' .ikatastrlink a.ikatastr').attr('href', ikatastr);
+
+
+
+  }
+
+  /**
    * @description Jquery Function - DialogFX Open - Entrance - House
    * @example
    * Attribute 'data-dialog' in button => ID of dialog 'div' block
@@ -1623,6 +1832,8 @@ $(function () {
 
             // Init function
             $('.getgps').click(getGPS_Data);
+            $('#getkatastrlink').click(getiKatastr_Link);
+
           }
 
           if (statusTxt == "error") {
@@ -1654,7 +1865,7 @@ $(function () {
           // Clearing
           entrance.val('');
           $('#' + DataDialog + ' .dialog__overview').html('');
-          // Disable 'button'
+          // Enable 'button'
           $('#saveEnt').attr('disabled', false);
         }
       });
@@ -1665,6 +1876,7 @@ $(function () {
       setTimeout(function () {
         $.notify({
           // options
+          icon: 'fa fa-exclamation',
           message: '<strong>Error:</strong> ' + 'Zadejte ulici a číslo vchodu.'
         }, {
           // settings
@@ -1719,8 +1931,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_dialog_ent.php",
-      type: "POST",
+      url: '/plugins/intranet2/admin/ajax/int2_table_dialog_ent.php',
+      type: 'POST',
       datatype: 'html',
       data: {
         entID: entID
@@ -1735,23 +1947,24 @@ $(function () {
 
         setTimeout(function () {
 
-            if (statusTxt == "success") {
-              if (debug) {
-                console.log('Loading content | External content loaded successfully!');
-              }
-
-              // Add html data to 'div'
-              $('#entDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
-
-              // Init function
-              $('.getgps').click(getGPS_Data);
+          if (statusTxt == "success") {
+            if (debug) {
+              console.log('Loading content | External content loaded successfully!');
             }
 
-            if (statusTxt == "error") {
-              if (debug) {
-                console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
-              }
+            // Add html data to 'div'
+            $('#entDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+            // Init function
+            $('.getgps').click(getGPS_Data);
+            $('#getkatastrlink').click(getiKatastr_Link);
+          }
+
+          if (statusTxt == "error") {
+            if (debug) {
+              console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
             }
+          }
 
         }, 1000);
 
@@ -1805,8 +2018,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_delete_ent.php",
-      type: "POST",
+      url: '/plugins/intranet2/admin/ajax/int2_table_delete_ent.php',
+      type: 'POST',
       datatype: 'json',
       data: {
         entID: entID
@@ -1838,6 +2051,7 @@ $(function () {
           setTimeout(function () {
             $.notify({
               // options
+              icon: 'fa fa-exclamation',
               message: '<strong>Error:</strong> ' + data.status_msg
             }, {
               // settings
@@ -1860,7 +2074,7 @@ $(function () {
   }
 
   function confirmDeleteEnt (event) {
-// Stop, the default action of the event will not be triggered
+    // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     if (debug) {
@@ -1937,8 +2151,8 @@ $(function () {
 
       // Ajax
       $.ajax({
-        type: "POST",
-        url: "/plugins/intranet2/admin/ajax/int2_table_addnew_ent.php",
+        url: '/plugins/intranet2/admin/ajax/int2_table_addnew_ent.php',
+        type: 'POST',
         datatype: 'json',
         data: {
           houseID: houseID,
@@ -1969,7 +2183,10 @@ $(function () {
                   dataID = data["id"];
 
                   divdata += '<div class="box box-success"  id="ent_' + dataID + '">' +
-                    '<div class="box-header with-border"><h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3></div>' +
+                    '<div class="box-header with-border">' +
+                    '<h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3>' +
+                    '<span class="float-right bold">Ent ID ' + dataID + '</span>' +
+                    '</div>' +
                     '<div class="box-body no-padding">' +
                     '<div class="block">' +
                     '<div class="block-content">' +
@@ -2120,8 +2337,8 @@ $(function () {
 
       // Ajax
       $.ajax({
-        type: 'POST',
         url: '/plugins/intranet2/admin/ajax/int2_table_update_ent.php',
+        type: 'POST',
         datatype: 'json',
         data: {
           entID: entID,
@@ -2464,6 +2681,7 @@ $(function () {
             setTimeout(function () {
               $.notify({
                 // options
+                icon: 'fa fa-exclamation',
                 message: '<strong>Error:</strong> ' + data.status_msg
               }, {
                 // settings
@@ -2490,6 +2708,7 @@ $(function () {
       setTimeout(function () {
         $.notify({
           // options
+          icon: 'fa fa-exclamation',
           message: '<strong>Error:</strong> ' + 'Zadejte popis souboru.'
         }, {
           // settings
@@ -2581,8 +2800,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_dialog_img.php",
-      type: "POST",
+      url: '/plugins/intranet2/admin/ajax/int2_table_dialog_img.php',
+      type: 'POST',
       datatype: 'html',
       data: {
         imageID: imageSuffixID
@@ -2651,8 +2870,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/admin/ajax/int2_table_delete_img.php",
-      type: "POST",
+      url: '/plugins/intranet2/admin/ajax/int2_table_delete_img.php',
+      type: 'POST',
       datatype: 'json',
       data: {
         imageID: imageID
@@ -2687,6 +2906,7 @@ $(function () {
           setTimeout(function () {
             $.notify({
               // options
+              icon: 'fa fa-exclamation',
               message: '<strong>Error:</strong> ' + data.status_msg
             }, {
               // settings
@@ -3013,6 +3233,7 @@ $(function () {
               setTimeout(function () {
                 $.notify({
                   // options
+                  icon: 'fa fa-exclamation',
                   message: '<strong>Error:</strong> ' + data.status_msg
                 }, {
                   // settings
@@ -3039,6 +3260,7 @@ $(function () {
         setTimeout(function () {
           $.notify({
             // options
+            icon: 'fa fa-exclamation',
             message: '<strong>Error:</strong> ' + 'Zadejte popis souboru.'
           }, {
             // settings
@@ -3065,6 +3287,7 @@ $(function () {
       setTimeout(function () {
         $.notify({
           // options
+          icon: 'fa fa-exclamation',
           message: '<strong>Error:</strong> ' + 'Vyberte kategorii.'
         }, {
           // settings
@@ -3119,8 +3342,8 @@ $(function () {
 
     // Ajax
     $.ajax({
-      type: 'POST',
       url: '/plugins/intranet2/admin/ajax/int2_table_update_img.php',
+      type: 'POST',
       datatype: 'json',
       data: {
         imageID: imageID,

@@ -1,0 +1,258 @@
+/*******************************************************************************
+** Obecné styly pro ARES
+*******************************************************************************/
+HTML { _overflow-x: hidden; }
+
+BODY {
+	font-family: Arial, sans-serif; 
+	font-size: x-small; 
+	fo\nt-size: small;   /* zkraceny Tantekuv hack */
+  /*background-image: url('img/img_test.gif');       /* pouze pro oznaceni testovaci verze - odstranit pro ostrou */
+	/*background-attachment: fixed;                    /* pouze pro oznaceni testovaci verze - odstranit pro ostrou */
+}
+
+H6 {  font-size: .8em;  margin: 0.1em 0px 0.1em 0px; }
+H5 {	font-size: 1em; 	margin: 0.1em 0px 0.1em 0px; }
+H4 {  font-size: 1.1em; margin: 0.2em 0px 0.2em 0px; }
+H3 { 	font-size: 1.2em; margin: 0.3em 0px 0.3em 0px; }
+H2 {	font-size: 1.3em; margin: 0.4em 0px 0.4em 0px; }
+H1 {	font-size: 1.4em; margin: 0.5em 0px 0.5em 0px; }
+P { }
+STRONG { }
+A {color: #012462; font-weight: bold; }
+A:hover { color: #3062BF; }
+IMG { border: 0px; }
+UL { margin-top: 0px; margin-bottom: .5em;}
+LI { }
+
+.PrinterOnly { display: none; }
+.CPrintHidden { display: none; }
+.CPrintVisible { display: block; margin: 1em; text-align: center; }
+
+.line02 { border-bottom: .2pt solid #B2C7D4; margin: 2pt 0; }
+.line10 { border-bottom: 1pt  solid #B2C7D4; margin: 2pt 0; }
+.line15 { border-bottom: 1.5pt solid #B2C7D4; margin: 2pt 0; }
+.line20 { border-bottom: 2pt  solid #B2C7D4; margin: 2pt 0; }
+
+/*******************************************************************************
+** TABULKA
+** tøídy pro formátování obecných tabulek
+*******************************************************************************/
+TABLE {
+	border: 3px double #7a88b1;	
+	border-collapse: collapse;
+}
+
+TH {
+	border: 1px solid #7a88b1;
+	border-bottom: 3px double #7a88b1;
+	background-color: #B2C7D4;
+	padding: 2px 5px 2px 5px;
+	text-align: center;
+}
+
+TD {
+	border: 1px solid #7a88b1;
+	padding: 2px 5px 2px 5px;
+}
+
+TD A { color: #012462; font-weight: bold; }
+TD A:hover { color: #3062BF; }
+
+.TNowrap { white-space: nowrap; }
+.TCenter { margin: 0 auto; }
+
+
+.TInvisible { border: 0px; }
+.TInvisible TD { border: 0px; }
+.TWidthAuto { width: auto; }
+.TWidthAuto TD { width: auto; }
+
+.TSpacer { height: .8em; }
+
+
+.row1 { background-color: #F6F8FC; }
+.row2 { background-color: #E9EFF8; }
+
+/*******************************************************************************
+** TEXT
+** tøídy pro formátování textu
+*******************************************************************************/
+.TBold { font-weight: bold; }
+.TItalic { font-style: italic; }
+
+/*******************************************************************************
+** ODSTAVEC
+** tøídy pro formátování odstavce a radkovych ramu
+*******************************************************************************/
+.PIndent      { text-indent: 1.2em; } /* vynucene odsazeni prvniho radku */
+.PAlignCenter	{ text-align: center; }
+.PAlignLeft   {	text-align: left; }
+.PAlignRight  { text-align: right; }
+.PVAlignTop   { vertical-align: top; }
+
+.PNote { margin: 0 auto; width: 70%; text-align: center; font-size: .9em; color: #848484; padding: 0px; font-style: italic; }
+.PNoteI { margin: 0 auto; width: 70%; text-align: center; font-size: .9em; padding: 0px; font-weight: bold; color: #990000; font-style: italic; }
+.PI { font-weight: bold; color: #990000; }
+/*******************************************************************************
+** BLOKY
+** Blok, obaleny vertikalnimi carami a nahore se stinovanou hlavickou
+*******************************************************************************/
+.BBlockMain {
+  width: 95%;
+  overflow: hidden;
+  border-left: 1px solid #B2C7D4;
+  border-right: 1px solid #B2C7D4;
+  border-bottom: 1px solid #B2C7D4;
+  margin: 10px auto;
+  background: url('img/img_blockbody_background.gif') 0 30px #F6F8FC repeat-x;
+}
+
+.BBlockHead {
+  width: 100%;
+  position: relative;
+  background-image: url('img/img_blockhead_background.gif');
+  background-repeat: repeat-x;
+  background-color: #7A88B1;
+  height: 25px;
+  padding-top: 5px;
+  font-family: Arial, Sans-serif;
+  font-size: 16px;      
+  font-weight: bold;
+}
+
+.BBlockBody {
+  overflow: hidden;
+  padding: 20px 0px 20px 0px;
+  margin: 0 10px;
+  text-align: left;
+}
+.BBlockHead .BPrint {
+  font-size: .8em;
+  color: black;  
+  position: absolute;
+  top: .5em;
+  right: 2em;
+}
+
+.BBlockHead .BPrint A {
+  color: black;  
+}
+
+.BBlockHead .BBlockHeadTitle {
+  white-space: nowrap;
+  color: white;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+
+.BBlockHead .BBlockHeadTitleS {
+  white-space: nowrap;
+  color: #333333;
+  position: absolute;
+  top: 8px;
+  left: 6px;
+}
+
+.BBlockBody p {	/* odstavce v blocích */
+	margin: 3px 0px 5px 0px;
+	text-align: justify;
+}
+
+.BBlockBody a {
+	color: #012462;
+	font-weight: bold;
+}
+
+.BBlockBody a:hover {
+	color: #3062BF;
+}
+
+/*******************************************************************************
+** BLOKY pro vypis chyb
+** Blok, obaleny vertikalnimi carami a nahore se stinovanou hlavickou
+*******************************************************************************/
+.BErrMain {
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid #B2C7D4;
+}
+
+.BErrHead {
+  background-color: #E9EFF8;
+  font-weight: bold;
+  padding: 3px 30px 3px 30px;
+  border-bottom: 1px solid #B2C7D4;
+}
+
+.BErrBody {
+  background-color: #F6F8FC;
+  padding: 10px 20px 10px 20px;
+}
+
+.BErrBody DIV {
+  margin: .5em 0;
+}
+
+.BErrBody TABLE {
+  border: 0;
+}
+
+.BErrBody TD {
+  border: 0;
+}
+
+
+/*******************************************************************************
+** Specifické prvky
+** Tlachatka apod.
+*******************************************************************************/
+
+.aresButt {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	margin-left: .5em;
+	margin-right: .5em;
+	size: 1em;
+	background-color: #3B5686;
+	color: #FFFFFF;
+	border-bottom-color: #3B4D6B;
+	border-right-color: #3B4D6B;
+	border-top-color: #5873A1;
+	border-left-color: #5873A1;
+	font-weight: bold;
+}
+
+.TSubjName { font-weight: bold; }
+.XMLe { color: firebrick;  } /* pojmenovani elementu XML */
+.XMLe:before {content: '<';}
+.XMLe:after  {content: '>';} /* pojmenovani elementu XML */
+
+/* Nastaveni vzhledu odkazu - neodkazu v ciselnicich */
+.c1 { }
+.c2 { color: #012462; font-weight: bold; text-decoration: underline; cursor: pointer; }
+.c2:hover { color: #3062BF; }
+.c2h { color: #3062BF; font-weight: bold; text-decoration: underline; cursor: pointer; }
+
+/*******************************************************************************
+** Helpy
+** - ostylování dlouhých textù, jak jsou napøíklad helpy
+*******************************************************************************/
+
+.BHelp P { margin: 0; padding: 0px 0px 5px 0px; text-align: justify; }
+.BHelp H3 { margin-bottom: 0; font-size: 1em; }
+.BHelp UL { margin-top: .1em; }
+.BHelp HR { border: 0; background-color: #B2C7D4; color: #B2C7D4; height: 1px; }
+.BHelp .z5 { font-style: italic; padding: 20px 0px 10px 10px; }
+.BHelp .poznamka { font-size: .8em; font-style: italic; margin-bottom: .5em; }
+.BHelp .lvl1 { margin-left: 0px; }
+.BHelp .lvl2 { margin-left: 10px; }
+.BHelp .lvl3 { margin-left: 30px; }
+.BHelp .lvl4 { margin-left: 40px; }
+.BHelp .PExample { font-family: monospace; }
+.BHelp CODE { font-size: 1em; color: maroon; font-weight: bold; }
+.BHelp TD { vertical-align: top; }
+.BHelp TD CODE { line-height: 1.4em; }
+

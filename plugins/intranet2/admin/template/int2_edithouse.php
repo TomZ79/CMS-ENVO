@@ -1,68 +1,65 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
-
-if (!function_exists('array_group_by')) {
-	/**
-	 * Groups an array by a given key.
-	 *
-	 * Groups an array into arrays by a given key, or set of keys, shared between all array members.
-	 *
-	 * Based on {@author Jake Zatecky}'s {@link https://github.com/jakezatecky/array_group_by array_group_by()} function.
-	 * This variant allows $key to be closures.
-	 *
-	 * www: https://gist.github.com/mcaskill/baaee44487653e1afc0d
-	 *
-	 * @param array $array   The array to have grouping performed on.
-	 * @param mixed $key,... The key to group or split by. Can be a _string_,
-	 *                       an _integer_, a _float_, or a _callable_.
-	 *
-	 *                       If the key is a callback, it must return
-	 *                       a valid key from the array.
-	 *
-	 *                       If the key is _NULL_, the iterated element is skipped.
-	 *
-	 *                       ```
-	 *                       string|int callback ( mixed $item )
-	 *                       ```
-	 *
-	 * @return array|null Returns a multidimensional array or `null` if `$key` is invalid.
-	 */
-	function array_group_by (array $array, $key)
-	{
-		if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
-			trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
-			return null;
-		}
-		$func = (!is_string($key) && is_callable($key) ? $key : null);
-		$_key = $key;
-		// Load the new array, splitting by the target key
-		$grouped = [];
-		foreach ($array as $value) {
-			$key = null;
-			if (is_callable($func)) {
-				$key = call_user_func($func, $value);
-			} elseif (is_object($value) && isset($value ->{$_key})) {
-				$key = $value ->{$_key};
-			} elseif (isset($value[$_key])) {
-				$key = $value[$_key];
-			}
-			if ($key === null) {
-				continue;
-			}
-			$grouped[$key][] = $value;
-		}
-		// Recursively build a nested grouping if more parameters are supplied
-		// Each grouped array value is grouped according to the next sequential key
-		if (func_num_args() > 2) {
-			$args = func_get_args();
-			foreach ($grouped as $key => $value) {
-				$params        = array_merge([$value], array_slice($args, 2, func_num_args()));
-				$grouped[$key] = call_user_func_array('array_group_by', $params);
-			}
-		}
-		return $grouped;
+/**
+ * Groups an array by a given key.
+ *
+ * Groups an array into arrays by a given key, or set of keys, shared between all array members.
+ *
+ * Based on {@author Jake Zatecky}'s {@link https://github.com/jakezatecky/array_group_by array_group_by()} function.
+ * This variant allows $key to be closures.
+ *
+ * www: https://gist.github.com/mcaskill/baaee44487653e1afc0d
+ *
+ * @param array $array   The array to have grouping performed on.
+ * @param mixed $key,... The key to group or split by. Can be a _string_,
+ *                       an _integer_, a _float_, or a _callable_.
+ *
+ *                       If the key is a callback, it must return
+ *                       a valid key from the array.
+ *
+ *                       If the key is _NULL_, the iterated element is skipped.
+ *
+ *                       ```
+ *                       string|int callback ( mixed $item )
+ *                       ```
+ *
+ * @return array|null Returns a multidimensional array or `null` if `$key` is invalid.
+ */
+function array_group_by (array $array, $key)
+{
+	if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
+		trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
+		return null;
 	}
+	$func = (!is_string($key) && is_callable($key) ? $key : null);
+	$_key = $key;
+	// Load the new array, splitting by the target key
+	$grouped = [];
+	foreach ($array as $value) {
+		$key = null;
+		if (is_callable($func)) {
+			$key = call_user_func($func, $value);
+		} elseif (is_object($value) && isset($value ->{$_key})) {
+			$key = $value ->{$_key};
+		} elseif (isset($value[$_key])) {
+			$key = $value[$_key];
+		}
+		if ($key === null) {
+			continue;
+		}
+		$grouped[$key][] = $value;
+	}
+	// Recursively build a nested grouping if more parameters are supplied
+	// Each grouped array value is grouped according to the next sequential key
+	if (func_num_args() > 2) {
+		$args = func_get_args();
+		foreach ($grouped as $key => $value) {
+			$params        = array_merge([$value], array_slice($args, 2, func_num_args()));
+			$grouped[$key] = call_user_func_array('array_group_by', $params);
+		}
+	}
+	return $grouped;
 }
 
 // Group data by the "gender" key
@@ -144,7 +141,7 @@ if ($errors) { ?>
 
 	</div>
 
-	<div id="loadingdata_ares" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
+	<div id="loadingdata" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
 
 	<!-- Form Content -->
 	<ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -355,56 +352,6 @@ if ($errors) { ?>
 														echo $Html -> addOption($c["id"], $c["city"], ($c["id"] == $ENVO_FORM_DATA["city"]) ? TRUE : FALSE);
 
 													}
-													?>
-
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="row-form">
-										<div class="col-sm-4">
-
-											<?php
-											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-											echo $Html -> addTag('strong', 'Katastrální území');
-											?>
-
-										</div>
-										<div class="col-sm-8">
-											<div class="form-group m-0">
-												<select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">
-
-													<?php
-													//
-													$selected = ($ENVO_FORM_DATA["ku"] == '0') ? TRUE : FALSE;
-
-													// First blank option
-													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-													echo $Html -> addOption();
-
-													foreach ($ENVO_KU as $keyku => $itemku) {
-
-														foreach ($itemku as $item) {
-															// Get City ID from first item - is same for all items
-															$cityid = $item["city_id"];
-															// Break loop after first iteration
-															break;
-														}
-
-														// to know what's in $item
-														echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
-
-														foreach ($itemku as $item) {
-
-															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-															echo $Html -> addOption($item["id"], $item["ku"], ($item["id"] == $ENVO_FORM_DATA["ku"]) ? TRUE : FALSE, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"]));
-
-														}
-
-														echo '</optgroup>';
-
-													}
-
 													?>
 
 												</select>
@@ -832,6 +779,106 @@ if ($errors) { ?>
 							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
 							?>
 
+						</div>
+					</div>
+					<div class="box box-success">
+						<div class="box-header with-border">
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h3', 'Katastrální mapy', 'box-title');
+							?>
+
+						</div>
+						<div class="box-body">
+							<div class="block">
+								<div class="block-content">
+									<div class="row-form">
+										<div class="col-sm-12 text-center">
+
+											<?php
+											// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+											echo $Html -> addButton('button', '', 'Načíst data z ČÚZK', '', 'loadKatastr', 'btn btn-danger m-b-10 m-r-10');
+											echo $Html -> addButton('button', '', 'Načíst kód objektu', '', 'loadObjCode', 'btn btn-danger m-b-10 m-r-10');
+											echo $Html -> addButton('button', '', 'iKatastr online', '', 'loadIkatastr', 'btn btn-danger m-b-10');
+
+											?>
+
+										</div>
+									</div>
+									<div class="row-form">
+										<div class="col-sm-4">
+
+											<?php
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html -> addTag('strong', 'Katastrální území');
+											?>
+
+										</div>
+										<div class="col-sm-8">
+											<div class="form-group m-0">
+												<select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">
+
+													<?php
+													//
+													$selected = ($ENVO_FORM_DATA["ku"] == '0') ? TRUE : FALSE;
+
+													// First blank option
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html -> addOption();
+
+													foreach ($ENVO_KU as $keyku => $itemku) {
+
+														foreach ($itemku as $item) {
+															// Get City ID from first item - is same for all items
+															$cityid = $item["city_id"];
+															// Break loop after first iteration
+															break;
+														}
+
+														// to know what's in $item
+														echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
+
+														foreach ($itemku as $item) {
+
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html -> addOption($item["id"], $item["ku"], ($item["id"] == $ENVO_FORM_DATA["ku"]) ? TRUE : FALSE, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"], 'data-kucode' => $item["ku_code"]));
+
+														}
+
+														echo '</optgroup>';
+
+													}
+
+													?>
+
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="row-form">
+										<div class="col-sm-4">
+
+											<?php
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html -> addTag('strong', 'Kód objektu');
+											?>
+
+										</div>
+										<div class="col-sm-8">
+											<div class="form-group m-0">
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('text', 'envo_houseobjcode', $ENVO_FORM_DATA["objcode"], '', 'form-control');
+												?>
+
+											</div>
+										</div>
+									</div>
+									<div id="katastroutput" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1874,7 +1921,7 @@ if ($errors) { ?>
 
 									</div>
 
-									<?php  if (!$ENVO_FORM_DATA_IMG) { ?>
+									<?php if (!$ENVO_FORM_DATA_IMG) { ?>
 
 										<div class="col-sm-12 m-t-20">
 
