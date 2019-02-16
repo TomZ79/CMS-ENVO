@@ -38,7 +38,7 @@ echo $Html -> addDoctype('html5');
 		//FileInput
 		echo $Html -> addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css?=v4.3.7', 'screen');
 		// Bootstrap Select
-		echo $Html -> addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
+		echo $Html -> addStylesheet('/assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
 		// Bootstrap TagsInput
 		echo $Html -> addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css?=v0.8.0', 'screen');
 		// Bootstrap DateTimePicker
@@ -87,14 +87,14 @@ echo $Html -> addDoctype('html5');
 		<!-- HEADER JS -->
 		<?php
 		// Add Html Element -> addScript (Arguments: src, optional assoc. array)
-		echo $Html -> addScript('/assets/plugins/jquery/jquery-3.2.1.min.js');
+		echo $Html -> addScript('/assets/plugins/jquery/jquery-1.11.1.min.js');
 		echo $Html -> addScript('assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5');
 		?>
 
 	</head>
-<body class="fixed-header overlay-disabled" data-spy="scroll">
+<body class="fixed-header overlay-disabled">
 	<!-- PACE PRELOADER -->
-	<div id="pace" class="active"></div>
+	<div id="pace"></div>
 <?php if ($ENVO_PROVED) { ?>
 
 	<!-- BEGIN SIDEBAR -->

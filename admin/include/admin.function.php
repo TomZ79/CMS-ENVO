@@ -725,7 +725,7 @@ function envo_build_menu_admin ($parent, $menu, $lang, $title1, $title2, $title3
  *     2) transliteration causes a loss of information
  *
  * @author  Sean Murphy <sean@iamseanmurphy.com>
- * @license http://creativecommons.org/publicdomain/zero/1.0/
+ * @license https://gist.github.com/sgmurphy/3098978
  *
  * @param string $str
  * @param array $options

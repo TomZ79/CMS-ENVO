@@ -1303,9 +1303,6 @@ div.dataTables_wrapper div.dataTables_paginate {
   border-color: #F22823 !important;
 }
 /* -----------------------------------------------------------------------
- *  # Bootstrap Pace Plugin - modification
- * -----------------------------------------------------------------------*/
-/* -----------------------------------------------------------------------
  *  # Bootstrap DateTimePicker Plugin  - modification
  * -----------------------------------------------------------------------*/
 .bootstrap-datetimepicker-widget ul > li {
@@ -4334,6 +4331,12 @@ div.mce-edit-area {
   background: #29D;
   color: #29D;
   height: 14px;
+}
+.pace-running #pace {
+  display: block;
+}
+.pace-done #pace {
+  display: none;
 }
 /* 17. Noname Components
  ========================================================================*/

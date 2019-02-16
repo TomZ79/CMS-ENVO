@@ -146,6 +146,7 @@ $envodata .= '
     </div>
   </div>
   <input type="hidden" name="envo_editimgid" value="' . $row["id"] . '">
+  <input type="hidden" name="" id="imgfolderoriginal_path" value="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenameoriginal"] . '">
 	<!-- END CONTENT -->
 </div>
                ';

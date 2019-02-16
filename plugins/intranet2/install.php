@@ -222,6 +222,10 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
         $insertphpcode = 'if (isset($defaults[\'envo_int2\'])) {
 	$insert .= \'intranet2 = \"\'.$defaults[\'envo_int2\'].\'\",\'; }';
 
+				// EN: Insert code into admin/index.php
+				// CZ: Vložení kódu do admin/index.php
+				$insertadminindex = 'plugins/intranet2/admin/template/stat.php';
+
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
         $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
@@ -230,7 +234,8 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 (NULL, "tpl_admin_head", "Intranet2 Plugin Admin CSS", "plugins/' . $pluginname . '/admin/template/css.intranet2.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Intranet2 Plugin Usergroup New", "plugins/' . $pluginname . '/admin/template/usergroup_new.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Intranet2 Plugin Usergroup Edit", "plugins/' . $pluginname . '/admin/template/usergroup_edit.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_usergroup", "Intranet2 Plugin Usergroup SQL", "' . $insertphpcode . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW())');
+(NULL, "php_admin_usergroup", "Intranet2 Plugin Usergroup SQL", "' . $insertphpcode . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_index", "Intranet2 Statistics Admin", "' . $insertadminindex . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),');
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
@@ -249,38 +254,74 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 (NULL, "Intranet2", "' . $pluginname . '", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
 				/**
-				 * EN: Create table for plugin (Settings - Region)
-				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Kraj)
+				 * EN: Create table for plugin (Settings - Region by ČÚZK)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Kraj dle ČÚZK)
+				 *
+				 * @description
+				 * Číselník krajů dle ČÚZK (Český úřad zeměměřický a katastrální)
+				 * @link
+				 * https://www.cuzk.cz/Uvod/Produkty-a-sluzby/RUIAN/2-Poskytovani-udaju-RUIAN-ISUI-VDP/Ciselniky-ISUI/Vyssi-uzemni-prvky-a-uzemne-evidencni-jednotky.aspx#UI_VUSC
 				 */
 				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_region (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `region` varchar(255) NULL DEFAULT NULL,
-  `region_ku_code` varchar(255) NULL DEFAULT NULL,
+  `region_name` varchar(255) NULL DEFAULT NULL,
+  `region_cuzk_code` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
 				/**
-				 * EN: Create table for plugin (Settings - District)
-				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Okres)
+				 * EN: Create table for plugin (Settings - District by ČÚZK)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Okres dle ČÚZK)
+				 *
+				 * @description
+				 * Číselník okresů dle ČÚZK (Český úřad zeměměřický a katastrální)
+				 * @link
+				 * https://www.cuzk.cz/Uvod/Produkty-a-sluzby/RUIAN/2-Poskytovani-udaju-RUIAN-ISUI-VDP/Ciselniky-ISUI/Vyssi-uzemni-prvky-a-uzemne-evidencni-jednotky.aspx#UI_OKRES
 				 */
 				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_district (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `region_id` int(11) NULL DEFAULT NULL,
-  `district` varchar(255) NULL DEFAULT NULL,
-  `district_ku_code` varchar(255) NULL DEFAULT NULL,
+  `region_cuzk_code` varchar(255) NULL DEFAULT NULL,
+  `district_name` varchar(255) NULL DEFAULT NULL,
+  `district_cuzk_code` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
 				/**
-				 * EN: Create table for plugin (Settings - City)
-				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Město)
+				 * EN: Create table for plugin (Settings - City by ČÚZK)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Město dle ČÚZK)
+				 *
+				 * @description
+				 * Číselník obcí dle ČÚZK (Český úřad zeměměřický a katastrální)
+				 * @link
+				 * https://www.cuzk.cz/Uvod/Produkty-a-sluzby/RUIAN/2-Poskytovani-udaju-RUIAN-ISUI-VDP/Ciselniky-ISUI/Nizsi-uzemni-prvky-a-uzemne-evidencni-jednotky/Obce.aspx?feed=RSS
 				 */
 				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_city (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `region_id` int(11) NULL DEFAULT NULL,
+  `region_cuzk_code` varchar(255) NULL DEFAULT NULL,
   `district_id` int(11) NULL DEFAULT NULL,
-  `city` varchar(255) NULL DEFAULT NULL,
-  `city_ku_code` varchar(255) NULL DEFAULT NULL,
+  `district_cuzk_code` varchar(255) NULL DEFAULT NULL,
+  `city_name` varchar(255) NULL DEFAULT NULL,
+  `city_cuzk_code` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for plugin (Settings - Street for City by ČÚZK)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Ulice pro města ČÚZK)
+				 *
+				 * @description
+				 * Číselník ulis dle ČÚZK (Český úřad zeměměřický a katastrální)
+				 * @link
+				 * https://www.cuzk.cz/Uvod/Produkty-a-sluzby/RUIAN/2-Poskytovani-udaju-RUIAN-ISUI-VDP/Ciselniky-ISUI/Nizsi-uzemni-prvky-a-uzemne-evidencni-jednotky/Ulice.aspx?feed=RSS
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_street (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) NULL DEFAULT NULL,
+  `city_cuzk_code` varchar(255) NULL DEFAULT NULL,
+  `street_name` varchar(255) NULL DEFAULT NULL,
+  `street_cuzk_code` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
@@ -288,13 +329,117 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 				 * EN: Create table for plugin (Settings - Katastrální území)
 				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Katastrální území)
 				 */
+				/**
+				 * EN: Create table for plugin (Settings - Katastrální území by ČÚZK)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Katastrální území dle ČÚZK)
+				 *
+				 * @description
+				 * Číselník katastrálních území dle ČÚZK (Český úřad zeměměřický a katastrální)
+				 * @link
+				 * https://www.cuzk.cz/Uvod/Produkty-a-sluzby/RUIAN/2-Poskytovani-udaju-RUIAN-ISUI-VDP/Ciselniky-ISUI/Nizsi-uzemni-prvky-a-uzemne-evidencni-jednotky/Katastralni-uzemi.aspx
+				 */
 				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_ku (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `region_id` int(11) NULL DEFAULT NULL,
+  `region_cuzk_code` varchar(255) NULL DEFAULT NULL,
   `district_id` int(11) NULL DEFAULT NULL,
+  `district_cuzk_code` varchar(255) NULL DEFAULT NULL,
   `city_id` int(11) NULL DEFAULT NULL,
-  `ku` varchar(255) NULL DEFAULT NULL,
-  `ku_code` varchar(255) NULL DEFAULT NULL,
+  `city_cuzk_code` varchar(255) NULL DEFAULT NULL,
+  `ku_name` varchar(255) NULL DEFAULT NULL,
+  `ku_cuzk_code` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for plugin (Settings - Statistical data of the house)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Statistická data domu)
+				 *
+				 * @id										integer			| Primary key
+				 * @houseid								integer			| ID bytového domu
+				 * @b_structure						integer			| ID druhu konstrukce stavebního objektu dle ISÚI | table 'int2_settings_building_structure'
+				 * @b_structure_upl				integer			| Upload dat z databáze kurzy.cz
+				 * @p_construction				integer			| ID Období výstavby nebo rekonstrukce domu dle SLDB | table 'int2_settings_period_construction'
+				 * @p_construction_upl		integer			| Upload dat z databáze kurzy.cz
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_statistical_data (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) DEFAULT NULL,
+  `b_structure` int(10) DEFAULT NULL,
+  `b_structure_upl` varchar(255) NULL DEFAULT NULL,
+  `p_construction` int(10) DEFAULT NULL,
+  `p_construction_upl` varchar(255) NULL DEFAULT NULL,
+  `p_typehouse` int(10) DEFAULT NULL,
+  `p_typehouse_upl` varchar(255) NULL DEFAULT NULL,
+  `p_typeuse` int(10) DEFAULT NULL,
+  `p_typeuse_upl` varchar(255) NULL DEFAULT NULL,
+  `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for plugin (Settings - Types of building structure construction by ISÚI)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Druhy konstrukcí stavebního objektu dle ISÚI)
+				 *
+				 * @description
+				 * Druhy stavebních konstrukcí dle číselníku ISÚI (Informační systém územní identifikace)
+				 * @link
+				 * https://www.cuzk.cz/Uvod/Produkty-a-sluzby/RUIAN/2-Poskytovani-udaju-RUIAN-ISUI-VDP/Ciselniky-ISUI/Atributy-stavebniho-objektu.aspx#CE_DRUH_KONSTRUKCE
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_building_structure (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `shortname` varchar(255) NULL DEFAULT NULL,
+  `description` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for plugin (Settings - Period of construction or reconstruction of the house by SLDB)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Období výstavby nebo rekonstrukce domu dle SLDB)
+				 *
+				 * @description
+				 * Období výstavby nebo rekonstrukce domu dle SLDB (Sčítání lidu, domů a bytů)
+				 * @link
+				 * https://www.czso.cz/csu/rso/obdobi_vystavby_domu_dle_sldb
+				 * http://apl.czso.cz/iSMS/cisdet.jsp?kodcis=3044&delka_strany=30
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_period_construction (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for plugin (Settings - Type of house by SLDB)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Druh domu dle SLDB)
+				 *
+				 * @description
+				 * Druh domu dle SLDB (Sčítání lidu, domů a bytů)
+				 * @link
+				 * https://www.czso.cz/csu/rso/druh_domu_dle_sldb
+				 * http://apl.czso.cz/iSMS/cisdet.jsp?kodcis=3041&delka_strany=30
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_type_house (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for plugin (Settings - Building use type by ISÚI)
+				 * CZ: Vytvoření tabulky pro plugin (Nastavení - Typ využití budovy dle ISÚI)
+				 *
+				 * @description
+				 * Typ využití budovy dle ISÚI (Informační systém územní identifikace)
+				 * @link
+				 * https://www.czso.cz/csu/rso/typ_vyuziti_budovy
+				 * http://apl.czso.cz/iSMS/cisdet.jsp?kodcis=75&delka_strany=30
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_settings_type_use (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
@@ -323,8 +468,9 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `psc` varchar(100) NULL DEFAULT NULL,
   `ic` varchar(100) NULL DEFAULT NULL,
   `state` varchar(255) NULL DEFAULT NULL,
-  `ku` int(11) NULL DEFAULT NULL,
-  `objcode` varchar(100) NULL DEFAULT NULL,
+  `cuzk_city` varchar(100) NULL DEFAULT NULL,
+  `cuzk_ku_id` int(11) NULL DEFAULT NULL,
+  `cuzk_objcode` varchar(100) NULL DEFAULT NULL,
   `administration` int(1) UNSIGNED NOT NULL DEFAULT 0,
   `administrationdate` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `ares` int(1) NOT NULL DEFAULT 0,
@@ -500,7 +646,19 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `usergroup_id` varchar(100) NOT NULL DEFAULT 0,
   `unread`  varchar(255) NOT NULL DEFAULT 0,
   `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
-  `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				// EN: Create table for plugin (House - Log)
+				// CZ: Vytvoření tabulky pro plugin (Bytový dům - Log)
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_houselog (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_host` mediumtext NOT NULL,
+  `remote_addr` varchar(255) NOT NULL DEFAULT \'\',
+  `request_uri` varchar(255) NOT NULL DEFAULT \'\',
+  `houseedit_id` int(10) DEFAULT NULL,
+  `housenew_id` int(10) DEFAULT NULL,
+  `log_date` timestamp NOT NULL DEFAULT NOW(),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

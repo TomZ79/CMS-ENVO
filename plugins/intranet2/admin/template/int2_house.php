@@ -54,7 +54,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 <?php } ?>
 
 <!-- Fixed Button for save form -->
-<div class="savebutton-medium hidden-xs">
+<div class="savebutton-small hidden-xs">
 
 	<?php
 	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -85,7 +85,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 							</div>
 						</th>
 						<th style="width:36%">Název</th>
-						<th style="width:20%">Ulice</th>
+						<th style="width:20%">Sídlo</th>
 						<th style="width:10%">Město</th>
 						<th class="no-sort" style="width:20%">IČ</th>
 						<th class="no-sort" style="width:5%"></th>
@@ -121,7 +121,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 								<?= $h["street"] ?>
 							</td>
 							<td>
-								<?= $h["city"] ?>
+								<?= $h["city_name"] ?>
 							</td>
 							<td>
 								<?= $h["ic"] ?>

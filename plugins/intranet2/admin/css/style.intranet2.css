@@ -9,6 +9,30 @@
  * INDEX:
  */
 
+
+.savebutton .btn,
+.savebutton-medium .btn,
+.savebutton-small .btn {
+	margin: 10px 8px;
+}
+
+/* XX. Highlight for DataTables Plugin
+======================================================================== */
+/* SearchHighlight Plugin for DataTables */
+table.dataTable span.highlight {
+	background-color: #FFBF00;
+	padding: 0 2px;
+	color: #000;
+}
+
+/* Mark.js DataTables
+======================================================================== */
+.mark, mark {
+	background-color: #FFBF00;
+	padding: 0 2px;
+	color: #000;
+}
+
 /* XX. Fullscreen modal
 ======================================================================== */
 .modal-fullscreen .modal-dialog {

@@ -34,7 +34,10 @@ $valid_extensions = array (
 	'xlsx',   // Excel workbook
 	'xlsm',   // Excel macro-enabled workbook
 	'pdf',    // Adobe Acrobat
-	'ai'      // Adobe Illustrator
+	'ai',     // Adobe Illustrator
+	'jpg', 	  // JPG Image
+	'jpeg',	  // JPEG Image
+	'png',	  // PNG Image
 );
 
 // EN: Setting a folder to upload file

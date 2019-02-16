@@ -1,0 +1,16 @@
+/*
+ * CMS ENVO
+ * CSS for Plugin Intranet2 - Frontend
+ * Copyright (c) 2016 - 2018 Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Css Template: Limitless v2.1
+ * Theme : Default
+ * Author: BluesatKV
+ * Email: bluesatkv@gmail.com
+ * =======================================================================*/
+
+/* 00. Layouts
+ ========================================================================*/
+.sidebar:not(.sidebar-component) .sidebar-content {
+	overflow-y: auto;
+}

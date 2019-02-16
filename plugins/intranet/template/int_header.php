@@ -42,7 +42,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   // Scrollbar
   echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.css');
   // DataTables (Stylesheet only for pages which contains 'table')
-  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2') || ($page1 == 'houseanalytics' && empty($page2))) echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
+  if (($page1 == 'house' && empty($page2)) || ($page1 == 'house' && $page2 == 'searchdvbt2') || ($page1 == 'houseanalytics' && empty($page2)))  echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
   // Icon technology fonts
   echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'fonts/fonts.css');
   //
@@ -258,7 +258,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
       <!-- END MINI-PROFILE -->
       <!-- BEGIN SIDEBAR MENU -->
       <p class="menu-title sm">MENU </p>
-      <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_nav.php'; ?>
+      <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_nav.php'; ?>
       <div class="clearfix"></div>
       <!-- END SIDEBAR MENU -->
     </div>

@@ -141,6 +141,79 @@ if ($page2 == "e") { ?>
 												</div>
 											</div>
 										</div>
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', $tlint2["int2_box_content"]["int2bc1"]);
+												echo $Html -> addTag('span', '*', 'star-item text-danger-800 m-l-10');
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="form-group m-0<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+													<select name="envo_date" class="form-control selectpicker">
+
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['int2dateformat'] == '') ? TRUE : FALSE);
+
+														echo $Html -> addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($ENVO_SETTING_VAL['int2dateformat'] == 'd.m.Y') ? TRUE : FALSE);
+														echo $Html -> addOption('d F Y', 'd F Y (01 January 2017)', ($ENVO_SETTING_VAL['int2dateformat'] == 'd F Y') ? TRUE : FALSE);
+														echo $Html -> addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($ENVO_SETTING_VAL['int2dateformat'] == 'l m.Y') ? TRUE : FALSE);
+														echo $Html -> addOption('l F Y', 'l F Y (Monday January 2017)', ($ENVO_SETTING_VAL['int2dateformat'] == 'l F Y') ? TRUE : FALSE);
+														?>
+
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', $tlint2["int2_box_content"]["int2bc2"]);
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="form-group m-0">
+													<select name="envo_time" class="form-control selectpicker">
+
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['int2timeformat'] == '') ? TRUE : FALSE);
+														?>
+
+														<optgroup label="<?= $tl["selection"]["sel111"] ?>">
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html -> addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - h:i A') ? TRUE : FALSE);
+															echo $Html -> addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+															echo $Html -> addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - g:i A') ? TRUE : FALSE);
+															echo $Html -> addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+															?>
+
+														</optgroup>
+														<optgroup label="<?= $tl["selection"]["sel112"] ?>">
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html -> addOption(' - H:i', ' - H:i ( - 13:00)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - H:i') ? TRUE : FALSE);
+															echo $Html -> addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - H:i:s') ? TRUE : FALSE);
+															echo $Html -> addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($ENVO_SETTING_VAL['int2timeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+															?>
+
+														</optgroup>
+
+													</select>
+
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

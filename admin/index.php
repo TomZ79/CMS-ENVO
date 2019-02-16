@@ -121,7 +121,7 @@ if (ENVO_USERID) {
 		define('ENVO_PLUGIN_' . $plname, $pl['id']);
 
 		// Get the access out into define
-		define('ENVO_ACCESS' . $plname, $pl['access']);
+		define('ENVO_ACCESS_' . $plname, $pl['access']);
 
 		// then load the php code
 		eval($pl['phpcode']);

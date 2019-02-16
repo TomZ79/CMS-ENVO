@@ -22,8 +22,9 @@ header('Content-Type: application/json;charset=utf-8');
 
 
 // Define basic variable
-define('ARES', 'http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico=');
-$ic       = filter_var($_REQUEST['ic'], FILTER_SANITIZE_STRING);
+$ic = filter_var($_REQUEST['ic'], FILTER_SANITIZE_NUMBER_INT);
+// Define http ARES
+define('ARES', 'http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico=' . $ic);
 $envodata = array ();
 
 // EN: Check if '$value' exists in table -> IČ
@@ -46,8 +47,8 @@ if ($row_cnt === 1) {
 
 if (!$icControl) {
 
-	// Getting XML file
-	$file = @file_get_contents(ARES . $ic);
+	// Read the contents of the XML remote file into a string -> variable
+	$file = @file_get_contents(ARES);
 
 	// Convert a well-formed XML string into a SimpleXMLElement object
 	if ($file) $xml = @simplexml_load_string($file);
@@ -69,7 +70,7 @@ if (!$icControl) {
 
 			// ID mesta
 			$str    = strval($el -> AA -> N);
-			$result = $envodb -> query('SELECT id, city FROM ' . DB_PREFIX . 'int2_settings_city WHERE city ="' . $str . '" ');
+			$result = $envodb -> query('SELECT id, city_name FROM ' . DB_PREFIX . 'int2_settings_city WHERE city_name ="' . $str . '" ');
 			$row    = $result -> fetch_assoc();
 
 			if (strval($el -> ICO) == $ic) {

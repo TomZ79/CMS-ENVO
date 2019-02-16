@@ -109,6 +109,9 @@ $envodata .= '
           <p id="timeedit">' . $row["timeedit"] . '</p>
         </div>
       </div>
+      <div>
+      <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenameoriginal"] . '" class="btn btn-info btn-block" download="">Stáhnout Originál</a>
+</div>
     </div>
     <div class="tab-pane fade" id="info2" role="tabpanel" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <p><strong>Main Folder</strong></p>

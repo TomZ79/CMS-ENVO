@@ -1705,28 +1705,9 @@ $(function () {
       plugins: [
         "advlist autolink link image lists charmap preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "save table contextmenu directionality emoticons paste textcolor responsivefilemanager bootstrap "
+        "save table contextmenu directionality emoticons paste textcolor responsivefilemanager "
       ],
-      bootstrapConfig: {
-        'type': 'dropdownMenu',
-        'dropdownText': 'Bootstrap Elements',
-        'bootstrapElements': {
-          'btn': true,
-          'icon': true,
-          'image': true,
-          'table': true,
-          'template': true,
-          'breadcrumb': true,
-          'pagination': true,
-          'pager': true,
-          'label': true,
-          'badge': true,
-          'alert': true,
-          'panel': true,
-          'snippet': true
-        }
-      },
-      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | preview | forecolor backcolor | bootstrap",
+      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | preview | forecolor backcolor",
       statusbar: false,
       image_advtab: true,
       relative_urls: false,

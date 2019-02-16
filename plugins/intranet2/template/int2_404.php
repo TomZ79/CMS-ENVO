@@ -1,4 +1,4 @@
-<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_header.php'; ?>
+<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_header.php'; ?>
 
   <div class="row">
     <div class="col-sm-12">
@@ -23,4 +23,4 @@
     </div>
   </div>
 
-<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_footer.php'; ?>
+<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_footer.php'; ?>

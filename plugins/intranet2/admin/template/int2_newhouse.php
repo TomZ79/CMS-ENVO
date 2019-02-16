@@ -66,7 +66,7 @@ if (!function_exists('array_group_by')) {
 }
 
 // Group data by the "gender" key
-$ENVO_KU = array_group_by($ENVO_KU, 'city');
+$ENVO_KU = array_group_by($ENVO_KU, 'city_name');
 
 ?>
 
@@ -111,20 +111,21 @@ if ($errors) { ?>
 	</script>
 <?php } ?>
 
+
 	<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
 		<!-- Fixed Button for save form -->
-		<div class="savebutton hidden-xs" style="width: 590px;">
+		<div class="savebutton hidden-xs" style="width: 538px;">
 
 			<?php
 			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-			echo $Html -> addAnchor('https://www.ikatastr.cz/', 'iKatastr', '', 'btn btn-info button', array ('target' => 'WindowKATASTR', 'style' => 'margin: 10px 8px;'));
+			echo $Html -> addAnchor('https://www.ikatastr.cz/', 'iKatastr', '', 'btn btn-info button', array ('target' => 'WindowKATASTR'));
 			// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-			echo $Html -> addButton('button', '', 'Kopírovat adresu', '', '', 'btn btn-info copyadress', array ('style' => 'margin: 10px 8px;'));
-			echo $Html -> addButton('button', '', 'Kopírovat data domu', '', 'houseSelect', 'btn btn-info', array ('style' => 'margin: 10px 8px;'));
+			echo $Html -> addButton('button', '', 'Kopírovat adresu', '', '', 'btn btn-info copyadress');
+			echo $Html -> addButton('button', '', 'Kopírovat data domu', '', 'houseSelect', 'btn btn-info');
 			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-			echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ('data-loading-text' => $tl["button"]["btn41"], 'style' => 'margin: 10px 8px;'));
+			echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ('data-loading-text' => $tl["button"]["btn41"]));
 			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button', array ('style' => 'margin: 10px 8px;'));
+			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
 			?>
 
 		</div>
@@ -143,14 +144,14 @@ if ($errors) { ?>
 					<span class="text">Detail</span>
 				</a>
 			</li>
-			<li class="nav-item next">
+			<li class="nav-item">
 				<a href="#cmsPage3" class="" data-toggle="tab">
 					<span class="text">Popis/Složky</span>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="#cmsPage4" class="" data-toggle="tab">
-					<span class="text">Kontakty</span>
+					<span class="text">Správa</span>
 				</a>
 			</li>
 			<li class='nav-item dropdown collapsed-menu hidden'>
@@ -258,12 +259,22 @@ if ($errors) { ?>
 											</div>
 											<div class="col-sm-8">
 												<div class="form-group m-0">
+													<div class="input-group">
 
-													<?php
-													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html -> addInput('text', 'envo_housestreet', (isset($_REQUEST["envo_housestreet"]) ? $_REQUEST["envo_housestreet"] : ''), '', 'form-control');
-													?>
+														<?php
+														// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+														echo $Html -> addInput('text', 'envo_housestreet', (isset($_REQUEST["envo_housestreet"]) ? $_REQUEST["envo_housestreet"] : ''), '', 'form-control');
+														?>
 
+														<span class="input-group-append">
+
+																	<?php
+																	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+																	echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-clipboard"></i>', '', 'input-group-addon', array ('onclick' => 'copyToClipboard(\'input[name=envo_housestreet]\')'));
+																	?>
+
+																</span>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -286,12 +297,12 @@ if ($errors) { ?>
 
 														// First blank option
 														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-														echo $Html -> addOption();
+														echo $Html -> addOption('', '', $selected);
 
 														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
 
 															if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
-																if (isset($_REQUEST["envo_housecity"]) && ($c == $_REQUEST["envo_housecity"])) {
+																if (isset($_REQUEST["envo_housecity"]) && ($c["id"] == $_REQUEST["envo_housecity"])) {
 																	$selected = TRUE;
 																} else {
 																	$selected = FALSE;
@@ -300,7 +311,7 @@ if ($errors) { ?>
 																$selected = FALSE;
 															}
 
-															echo $Html -> addOption($c["id"], $c["city"], $selected);
+															echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
 
 														}
 														?>
@@ -616,7 +627,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html -> addInput('text', 'envo_dataares', '', '', 'form-control', array ('placeholder' => 'Zadejte IČ'));
+													echo $Html -> addInput('text', 'envo_dataares', ($ENVO_ICO_SELECTED ? $ENVO_ICO_SELECTED : ''), '', 'form-control', array ('placeholder' => 'Zadejte IČ'));
 													?>
 
 												</div>
@@ -671,7 +682,7 @@ if ($errors) { ?>
 												</div>
 											</div>
 										</div>
-										<div id="aresoutput" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
+										<div id="outputaresdate" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
 									</div>
 								</div>
 							</div>
@@ -745,52 +756,114 @@ if ($errors) { ?>
 
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="cmsPage2" role="tabpanel">
+				<div class="row">
+					<div class="col-sm-5">
 						<div class="box box-success">
 							<div class="box-header with-border">
 
 								<?php
 								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-								echo $Html -> addTag('h3', 'Katastrální mapy', 'box-title');
+								echo $Html -> addTag('h3', 'Katastr', 'box-title');
 								?>
 
 							</div>
 							<div class="box-body">
 								<div class="block">
 									<div class="block-content">
-										<div class="row-form">
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="alert alert-info" role="alert">
+													<strong>Info: </strong>Automatické načtení dat přepíše zadané hodnoty
+												</div>
+											</div>
+										</div>
+										<div class="row">
 											<div class="col-sm-12 text-center">
 
 												<?php
 												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-												echo $Html -> addButton('button', '', 'Načíst data z ČÚZK', '', 'loadKatastr', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', 'Načíst kód objektu', '', 'loadObjCode', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', 'iKatastr online', '', 'loadIkatastr', 'btn btn-danger m-b-10');
-
+												echo $Html -> addButton('button', '', '<strong>1.</strong> ČÚZK', '', 'loadCuzk', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', '<strong>2.</strong> Kód objektu', '', 'loadObjCode', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', '<strong>3.</strong> iKatastr', '', 'loadIkatastr', 'btn btn-danger m-b-10 m-r-10');
 												?>
 
 											</div>
+											<div class="col-sm-12">
+												<hr>
+											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-sm-4">
+											<div class="col-sm-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Obec');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Český úřad zeměměřický a katastrální</strong><br>', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
+												?>
+
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group m-0">
+													<select name="envo_house_cuzk_city" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">
+
+														<?php
+
+														//
+														$selected = ((isset($_REQUEST["envo_house_cuzk_city"]) && ($_REQUEST["envo_house_cuzk_city"] == '0')) || !isset($_REQUEST["envo_house_cuzk_city"])) ? TRUE : FALSE;
+
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', '', $selected);
+
+														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
+
+															if (isset($_REQUEST["envo_house_cuzk_city"]) && ($_REQUEST["envo_house_cuzk_city"] != '0')) {
+																if (isset($_REQUEST["envo_house_cuzk_city"]) && ($c["id"] == $_REQUEST["envo_house_cuzk_city"])) {
+																	$selected = TRUE;
+																} else {
+																	$selected = FALSE;
+																}
+															} else {
+																$selected = FALSE;
+															}
+
+															echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+														}
+														?>
+
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-6">
 
 												<?php
 												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 												echo $Html -> addTag('strong', 'Katastrální území');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Český úřad zeměměřický a katastrální</strong><br>', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
 												?>
 
 											</div>
-											<div class="col-sm-8">
+											<div class="col-sm-6">
 
 												<?php
 												// Start - Select Tag
-												echo '<div class="form-group m-0"><select name="envo_houseku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">';
+												echo '<div class="form-group m-0"><select name="envo_house_cuzk_ku" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr katastrálního území">';
 
 												//
-												$selected = ((isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] == '0')) || !isset($_REQUEST["envo_houseku"])) ? TRUE : FALSE;
+												$selected = ((isset($_REQUEST["envo_house_cuzk_ku"]) && ($_REQUEST["envo_house_cuzk_ku"] == '0')) || !isset($_REQUEST["envo_house_cuzk_ku"])) ? TRUE : FALSE;
 
 												// First blank option
 												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-												echo $Html -> addOption();
+												echo $Html -> addOption('', '', $selected);
 
 												foreach ($ENVO_KU as $keyku => $itemku) {
 
@@ -802,12 +875,12 @@ if ($errors) { ?>
 													}
 
 													// To know what's in $item
-													echo '<optgroup label="' . $keyku . '" data-cityname="' . $keyku . '" data-cityid="' . $cityid . '">';
+													echo '<optgroup label="' . $keyku . '" data-city_name="' . $keyku . '" data-city_id="' . $cityid . '">';
 
 													foreach ($itemku as $item) {
 
-														if (isset($_REQUEST["envo_houseku"]) && ($_REQUEST["envo_houseku"] != '0')) {
-															if (isset($_REQUEST["envo_houseku"]) && ($item["id"] == $_REQUEST["envo_houseku"])) {
+														if (isset($_REQUEST["envo_house_cuzk_ku"]) && ($_REQUEST["envo_house_cuzk_ku"] != '0')) {
+															if (isset($_REQUEST["envo_house_cuzk_ku"]) && ($item["id"] == $_REQUEST["envo_house_cuzk_ku"])) {
 																$selected = TRUE;
 															} else {
 																$selected = FALSE;
@@ -817,7 +890,7 @@ if ($errors) { ?>
 														}
 
 														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-														echo $Html -> addOption($item["id"], $item["ku"], $selected, '', '', array ('data-kuname' => $item["ku"], 'data-kuid' => $item["id"], 'data-kucode' => $item["ku_code"]));
+														echo $Html -> addOption($item["id"], $item["ku_name"], $selected, '', '', array ('data-ku_name' => $item["ku_name"], 'data-ku_id' => $item["id"], 'data-ku_cuzk_code' => $item["ku_cuzk_code"]));
 
 													}
 
@@ -833,26 +906,305 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-sm-4">
+											<div class="col-sm-6">
 
 												<?php
 												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 												echo $Html -> addTag('strong', 'Kód objektu');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Český úřad zeměměřický a katastrální</strong><br>', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
 												?>
 
 											</div>
-											<div class="col-sm-8">
+											<div class="col-sm-6">
 												<div class="form-group m-0">
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html -> addInput('text', 'envo_houseobjcode', (isset($_REQUEST["envo_houseobjcode"]) ? $_REQUEST["envo_houseobjcode"] : ''), '', 'form-control');
+													echo $Html -> addInput('text', 'envo_house_cuzk_objcode', (isset($_REQUEST["envo_house_cuzk_objcode"]) ? $_REQUEST["envo_house_cuzk_objcode"] : ''), '', 'form-control', array ('readonly' => 'readonly'));
 													?>
 
 												</div>
 											</div>
 										</div>
-										<div id="katastroutput" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
+										<div class="row-form p-t-10 p-b-10">
+											<div class="col-sm-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Detail stavebního objektu');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Český úřad zeměměřický a katastrální</strong><br>Odkaz na detail stavebního objektu bude vygenerován až po zadání kódu objektu', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
+												?>
+
+											</div>
+											<div class="col-sm-6" id="cuzk_objdetail_link">
+
+												<?php
+
+												if (isset($_REQUEST["envo_house_cuzk_objcode"])) {
+													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+													echo $Html -> addAnchor('http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' . $_REQUEST["cuzk_house_cuzk_objcode"], 'Zobrazit detail objektu', '', array ('target' => 'WindowCUZK'));
+												} else {
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html -> addTag('span', '<span class="bold text-warning-dark">Nenalezeno číslo objektu</span>', 'bold text-warning-dark');
+												}
+
+												?>
+
+											</div>
+										</div>
+										<div id="outputajaxdata_katastr" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="box box-success">
+							<div class="box-header with-border">
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html -> addTag('h3', 'Statistika', 'box-title');
+								?>
+
+							</div>
+							<div class="box-body">
+								<div class="block">
+									<div class="block-content">
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="alert alert-info" role="alert">
+													<strong>Info: </strong>Automatické načtení dat přepíše zadané hodnoty
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-12 text-center">
+
+												<?php
+												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+												echo $Html -> addButton('button', '', '<strong>1.</strong> Statistika', '', 'loadStatistic', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', 'Test GPS', '', 'testgps', 'btn btn-danger m-b-10');
+
+												?>
+
+											</div>
+											<div class="col-sm-12">
+												<hr>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Typ využití budovy');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Informační systém územní identifikace</strong><br>Strukturu využití budovy', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
+												?>
+
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group m-0">
+													<select name="envo_housetypeuse" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr typu využití">
+
+														<?php
+														//
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														$selected = ((isset($_REQUEST["envo_housetypeuse"]) && ($_REQUEST["envo_housetypeuse"] == '0')) || !isset($_REQUEST["envo_housetypeuse"])) ? TRUE : FALSE;
+
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', '', $selected);
+
+														if (isset($ENVO_TYPE_USE) && is_array($ENVO_TYPE_USE)) foreach ($ENVO_TYPE_USE as $tu) {
+
+															if (isset($_REQUEST["envo_housetypeuse"]) && ($_REQUEST["envo_housetypeuse"] != '0')) {
+																if (isset($_REQUEST["envo_housetypeuse"]) && ($tu["id"] == $_REQUEST["envo_housetypeuse"])) {
+																	$selected = TRUE;
+																} else {
+																	$selected = FALSE;
+																}
+															} else {
+																$selected = FALSE;
+															}
+
+															echo $Html -> addOption($tu["id"], $tu["name"], $selected, '', '');
+
+														}
+
+														?>
+
+													</select>
+												</div>
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('hidden', 'envo_houseperiodconstruction_upl', '', '', 'form-control');
+												?>
+
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Období výstavby nebo rekonstrukce');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Sčítání lidu, domů a bytů</strong><br>Za období výstavby se považuje období, kdy byl dům předán do užívání (tzn. kolaudace).<br>Za rekonstrukci je považována stavební činnost, při níž byla část nosných nebo obvodových zdí nahrazena novými nebo <br>došlo-li k přístavbě domu, která je větší než dům původní a <br>přitom byly modernizovány i byty.', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
+												?>
+
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group m-0">
+													<select name="envo_houseperiodconstruction" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr období">
+
+														<?php
+														//
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														$selected = ((isset($_REQUEST["envo_houseperiodconstruction"]) && ($_REQUEST["envo_houseperiodconstruction"] == '0')) || !isset($_REQUEST["envo_houseperiodconstruction"])) ? TRUE : FALSE;
+
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', '', $selected);
+
+														if (isset($ENVO_PERIOD_CONSTRUCTION) && is_array($ENVO_PERIOD_CONSTRUCTION)) foreach ($ENVO_PERIOD_CONSTRUCTION as $pc) {
+
+															if (isset($_REQUEST["envo_houseperiodconstruction"]) && ($_REQUEST["envo_houseperiodconstruction"] != '0')) {
+																if (isset($_REQUEST["envo_houseperiodconstruction"]) && ($pc["id"] == $_REQUEST["envo_houseperiodconstruction"])) {
+																	$selected = TRUE;
+																} else {
+																	$selected = FALSE;
+																}
+															} else {
+																$selected = FALSE;
+															}
+
+															echo $Html -> addOption($pc["id"], $pc["name"], $selected, '', '');
+
+														}
+
+														?>
+
+													</select>
+												</div>
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('hidden', 'envo_houseperiodconstruction_upl', '', '', 'form-control');
+												?>
+
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Materiál nosných zdí budovy');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Informační systém územní identifikace</strong><br>Atribut stavebního objektu', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
+												?>
+
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group m-0">
+													<select name="envo_housebuildingstructure" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr materiálu">
+
+														<?php
+														//
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														$selected = ((isset($_REQUEST["envo_housebuildingstructure"]) && ($_REQUEST["envo_housebuildingstructure"] == '0')) || !isset($_REQUEST["envo_housebuildingstructure"])) ? TRUE : FALSE;
+
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', '', $selected);
+
+
+														if (isset($ENVO_BUILDING_STRUCTURE) && is_array($ENVO_BUILDING_STRUCTURE)) foreach ($ENVO_BUILDING_STRUCTURE as $bs) {
+
+															if (isset($_REQUEST["envo_housebuildingstructure"]) && ($_REQUEST["envo_housebuildingstructure"] != '0')) {
+																if (isset($_REQUEST["envo_housebuildingstructure"]) && ($bs["id"] == $_REQUEST["envo_housebuildingstructure"])) {
+																	$selected = TRUE;
+																} else {
+																	$selected = FALSE;
+																}
+															} else {
+																$selected = FALSE;
+															}
+
+															echo $Html -> addOption($bs["id"], $bs["name"], $selected, '', '');
+
+														}
+
+														?>
+
+													</select>
+												</div>
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('hidden', 'envo_housebuildingstructure_upl', '', '', 'form-control');
+												?>
+
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Druh domu');
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => '<strong>Sčítání lidu, domů a bytů</strong><br>Druh domu dle SLDB představuje převažující využití domu <br>pro bytové a ubytovací účely dle sčítání lidu, domů a bytů.', 'data-original-title' => $tlint2["int2_help"]["int2h"]));
+												?>
+
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group m-0">
+													<select name="envo_housetype" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr druhu domu">
+
+														<?php
+														//
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														$selected = ((isset($_REQUEST["envo_housetype"]) && ($_REQUEST["envo_housetype"] == '0')) || !isset($_REQUEST["envo_housetype"])) ? TRUE : FALSE;
+
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', '', $selected);
+
+
+														if (isset($ENVO_TYPE_HOUSE) && is_array($ENVO_TYPE_HOUSE)) foreach ($ENVO_TYPE_HOUSE as $th) {
+
+															if (isset($_REQUEST["envo_housetype"]) && ($_REQUEST["envo_housetype"] != '0')) {
+																if (isset($_REQUEST["envo_housetype"]) && ($th["id"] == $_REQUEST["envo_housetype"])) {
+																	$selected = TRUE;
+																} else {
+																	$selected = FALSE;
+																}
+															} else {
+																$selected = FALSE;
+															}
+
+															echo $Html -> addOption($th["id"], $th["name"], $selected, '', '');
+
+														}
+
+														?>
+
+													</select>
+												</div>
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('hidden', 'envo_housetype_upl', '', '', 'form-control');
+												?>
+											</div>
+										</div>
+										<div id="outputajaxdata_statistics" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
 									</div>
 								</div>
 							</div>
@@ -860,7 +1212,66 @@ if ($errors) { ?>
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane fade" id="cmsPage2" role="tabpanel">
+			<div class="tab-pane fade" id="cmsPage3" role="tabpanel">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box box-success">
+							<div class="box-header with-border">
+								<div class="row">
+									<div class="d-flex align-items-center">
+
+										<?php
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html -> addTag('h3', 'Popis a složky domu', 'box-title');
+										?>
+
+									</div>
+								</div>
+							</div>
+							<div class="box-body">
+								<div class="block">
+									<div class="block-content">
+										<div class="row-form p-t-10 p-b-10">
+											<div class="col-sm-3">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Složka domu');
+												?>
+
+											</div>
+											<div class="col-sm-9">
+												<span>Složky domu budou vytvořeny po uložení dat.</span>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-12">
+
+												<?php
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('', '<strong>Popis bytového domu</strong>', array ('class' => 'm-b-10'));
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html -> addTextarea('envo_housedescription', (isset($_REQUEST["envo_housedescription"]) ? $_REQUEST["envo_housedescription"] : ''), '10', '', array ('class' => 'form-control envoEditorLarge'));
+												?>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box-footer">
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								?>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="cmsPage4" role="tabpanel">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="box box-success">
@@ -992,123 +1403,10 @@ if ($errors) { ?>
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane fade" id="cmsPage3" role="tabpanel">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="box box-success">
-							<div class="box-header with-border">
-								<div class="row">
-									<div class="d-flex align-items-center">
-
-										<?php
-										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-										echo $Html -> addTag('h3', 'Popis a složky domu', 'box-title');
-										?>
-
-									</div>
-								</div>
-							</div>
-							<div class="box-body">
-								<div class="block">
-									<div class="block-content">
-										<div class="row-form p-t-10 p-b-10">
-											<div class="col-sm-3">
-
-												<?php
-												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html -> addTag('strong', 'Složka domu');
-												?>
-
-											</div>
-											<div class="col-sm-9">
-												<span>Složky domu budou vytvořeny po uložení dat.</span>
-											</div>
-										</div>
-										<div class="row-form">
-											<div class="col-sm-12">
-
-												<?php
-												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-												echo $Html -> addLabel('', '<strong>Popis bytového domu</strong>', array ('class' => 'm-b-10'));
-												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-												echo $Html -> addTextarea('envo_housedescription', (isset($_REQUEST["envo_housedescription"]) ? $_REQUEST["envo_housedescription"] : ''), '10', '', array ('class' => 'form-control envoEditorLarge'));
-												?>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="box-footer">
-
-								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
-								?>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="cmsPage4" role="tabpanel">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="box box-success">
-							<div class="box-header with-border">
-
-								<?php
-								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-								echo $Html -> addTag('h3', 'Hlavní kontakty domu', 'box-title');
-								?>
-
-							</div>
-							<div class="box-body">
-								<div class="block">
-									<div class="block-content">
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="row-form">
-													<div class="col-sm-2">
-
-														<?php
-														// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-														echo $Html -> addTag('strong', 'Email');
-														?>
-
-													</div>
-													<div class="col-sm-10">
-														<div class="form-group m-0">
-
-															<?php
-															// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-															echo $Html -> addInput('text', 'envo_houseemail', (isset($_REQUEST["envo_houseemail"]) ? $_REQUEST["envo_houseemail"] : ''), '', 'form-control');
-															?>
-
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="box-footer">
-
-								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
-								?>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 
-
 	</form>
+
 
 <?php
 include_once APP_PATH . 'plugins/intranet2/admin/template/selecthouse_modal.php';

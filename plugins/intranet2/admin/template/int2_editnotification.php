@@ -107,6 +107,46 @@ if ($errors) { ?>
               <div class="box-body">
                 <div class="block">
                   <div class="block-content">
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Datum Zápisu');
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_created', $ENVO_FORM_DATA["created"], '', 'form-control', array ('readonly' => 'readonly'));
+													?>
+
+												</div>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Datum Poslední Změny');
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_updated', $ENVO_FORM_DATA["updated"], '', 'form-control', array ('readonly' => 'readonly'));
+													?>
+
+												</div>
+											</div>
+										</div>
                     <div class="row-form">
                       <div class="col-sm-5">
 

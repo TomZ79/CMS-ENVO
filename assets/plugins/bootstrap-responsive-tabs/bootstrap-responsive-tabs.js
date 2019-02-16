@@ -7,9 +7,8 @@ var TabManager = {
     var tabs = parent;
     var tabsHeight = tabs.innerHeight();
 
-    //
-    if (tabsHeight >= 45) {
-      while (tabsHeight > 45) {
+    if (tabsHeight > 44) {
+      while (tabsHeight > 44) {
         var children = tabs.children('li:not(:last-child)');
         var count = children.length;
 
@@ -25,12 +24,12 @@ var TabManager = {
 
         tabsHeight = tabs.innerHeight();
       }
-    }
-    else {
+    } else {
       var count = 0;
-      while (tabsHeight < 45 && (tabs.children('li').length > 0) && count++ < 20) {
+      while (tabsHeight < 44 && (tabs.children('li').length > 0) && count++ < 20) {
         var collapsed = tabs.find('.collapsed-tabs').children('a');
         var count = collapsed.length;
+
         if (count) {
           // Create the new tab item.
           var item = $(collapsed[0]);
@@ -48,7 +47,7 @@ var TabManager = {
           break;
         }
       }
-      if (tabsHeight > 45) {
+      if (tabsHeight > 44) {
         // Double chk height again.
         TabManager.initialize(parent);
       }

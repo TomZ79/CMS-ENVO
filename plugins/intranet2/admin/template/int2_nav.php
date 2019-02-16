@@ -13,6 +13,12 @@ if ($page1 == 'maps') {
 	$classint2subsection2 = 'open active';
 	$styleint_2           = 'style="display: block;"';
 }
+
+if ($page1 == 'search_db') {
+	$classint2subsection3 = 'open active';
+	$styleint_3           = 'style="display: block;"';
+}
+
 ?>
 <li class="<?= $classint2section ?>">
 
@@ -63,17 +69,6 @@ if ($page1 == 'maps') {
 					</li>
 				<?php } ?>
 
-				<li class="<?= ($page == 'intranet2' && $page1 == 'house' && $page2 == 'wizard') ? 'submenu-active' : '' ?>">
-
-					<?php
-					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house&amp;ssp=wizard', 'Průvodce');
-					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-					echo $Html -> addTag('span', text_clipping_lower('Průvodce'), 'icon-thumbnail');
-					?>
-
-				</li>
-
 			</ul>
 		</li>
 
@@ -93,22 +88,8 @@ if ($page1 == 'maps') {
 					?>
 
 				</li>
-				<li class="<?= ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps2') ? 'submenu-active' : '' ?>">
-
-					<?php
-					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=maps&amp;ssp=maps2', 'Katastrální mapa');
-					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-					echo $Html -> addTag('span', text_clipping_lower('Katastrální mapa'), 'icon-thumbnail');
-					?>
-
-				</li>
-
-
 			</ul>
 		</li>
-
-		<li class="list-divider"></li>
 
 		<li class="<?= ($page == 'intranet2' && $page1 == 'katastr') ? 'submenu-active' : '' ?>">
 
@@ -120,6 +101,37 @@ if ($page1 == 'maps') {
 			?>
 
 		</li>
+
+		<li class="<?= $classint2subsection3 ?>">
+			<a href="javascript:;">Vyhledávání v DB
+				<span class="arrow <?= $classint2subsection3 ?>"></span></a>
+			<span class="icon-thumbnail"><?= text_clipping_lower('Vyhledávání v DB') ?></span>
+			<ul class="sub-menu" <?= $styleint_3 ?>>
+
+				<li class="<?= ($page == 'intranet2' && $page1 == 'search_db' && $page2 == 'ares') ? 'submenu-active' : '' ?>">
+
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=search_db&amp;ssp=ares', 'Ares');
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower('Ares'), 'icon-thumbnail');
+					?>
+
+				</li>
+				<li class="<?= ($page == 'intranet2' && $page1 == 'search_db' && $page2 == 'justice') ? 'submenu-active' : '' ?>">
+
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=search_db&amp;ssp=justice', 'Justice');
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower('Justice'), 'icon-thumbnail');
+					?>
+
+				</li>
+
+			</ul>
+		</li>
+
 
 		<li class="list-divider"></li>
 
@@ -165,6 +177,19 @@ if ($page1 == 'maps') {
 			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=setting', $tlint2["int2_menu"]["int2m1"]);
 			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 			echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m1"]), 'icon-thumbnail');
+			?>
+
+		</li>
+
+		<li class="list-divider"></li>
+
+		<li class="<?= ($page == 'intranet2' && $page1 == 'help') ? 'submenu-active' : '' ?>">
+
+			<?php
+			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=help', 'Nápověda');
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html -> addTag('span', text_clipping_lower('Nápověda'), 'icon-thumbnail');
 			?>
 
 		</li>

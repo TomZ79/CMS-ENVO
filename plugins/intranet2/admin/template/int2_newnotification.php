@@ -87,6 +87,26 @@ if ($errors) { ?>
               <div class="box-body">
                 <div class="block">
                   <div class="block-content">
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Datum Zápisu');
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_created', (isset($_REQUEST["envo_created"]) ? $_REQUEST["envo_created"] : date("Y-m-d H:i:s")), '', 'form-control', array ('readonly' => 'readonly'));
+													?>
+
+												</div>
+											</div>
+										</div>
                     <div class="row-form">
                       <div class="col-sm-5">
 

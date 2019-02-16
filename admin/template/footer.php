@@ -72,10 +72,10 @@
 
 <script>
 	// Pace.min.js config
-	window.paceOptions = {
+  paceOptions = {
 		target: '#pace',
     ajax: false,
-    document: true,
+    document: false,
     eventLag: false,
 		restartOnPushState: false,
 		restartOnRequestAfter: false
@@ -90,8 +90,8 @@ echo $Html -> addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery
 echo $Html -> addScript('assets/plugins/modernizr.custom.js?=v2.8.3');
 echo $Html -> addScript('../assets/plugins/popper/1.14.1/popper.min.js');
 echo $Html -> addScript('../assets/plugins/bootstrap/bootstrapv4/4.0.0/js/bootstrap.min.js');
-echo $Html -> addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
-echo $Html -> addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
+echo $Html -> addScript('/assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js?=v4.0.3');
+echo $Html -> addScript('/assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js?=v4.0.3');
 echo $Html -> addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');
 echo $Html -> addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js?=v4.4.0');
 echo $Html -> addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js?=v0.8.0');
@@ -104,7 +104,7 @@ echo $Html -> addScript('assets/plugins/jquery-bez/1.0.11/jquery.bez.min.js?=v1.
 echo $Html -> addScript('assets/plugins/imagesloaded/4.1.3/imagesloaded.pkgd.min.js?=v4.1.3');
 echo $Html -> addScript('assets/plugins/jquery-actual/1.0.19/jquery.actual.min.js?=v1.0.19');
 echo $Html -> addScript('assets/plugins/jquery-scrollbar/0.2.11/jquery.scrollbar.min.js?=v0.2.11');
-echo $Html -> addScript('../assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.min.js');
+echo $Html -> addScript('../assets/plugins/bootstrap-responsive-tabs/bootstrap-responsive-tabs.js');
 // Plugin DataTable
 if ($page == 'plugins' || $page == 'page' || $page == 'news' || $page == 'users' || $page == 'usergroup' || $page == 'tags') {
 	echo $Html -> addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js');

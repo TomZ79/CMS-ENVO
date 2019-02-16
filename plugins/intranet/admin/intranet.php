@@ -4,9 +4,10 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
+
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESSINTRANET)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser -> envoModuleAccess(ENVO_USERID, ENVO_ACCESS_INTRANET)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -558,7 +559,7 @@ IČ:       ' . $defaults['envo_housefic'] . '
         // CZ: Hlavní proměnné
         $pageID = $page3;
 
-        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable13)) {
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
           /* EN: Delete all records
            * 1. Get data for deleting
            * 2. Delete records from DB 'int_house'
@@ -631,13 +632,13 @@ IČ:       ' . $defaults['envo_housefic'] . '
             'status=s'    - Záznam úspěšně uložen
             'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houseanalytics&status=s&status1=s1');
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=house&status=s&status1=s1');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=houseanalytics&status=ene');
+          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=house&status=ene');
         }
 
         break;

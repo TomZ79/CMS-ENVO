@@ -43,7 +43,7 @@
 			<div class = "<?= ($ENVO_GROUP_ACCESS_ANALYTICS ? 'col-md-3 col-sm-6' : 'col-md-4 col-sm-6') ?> spacing-bottom-sm spacing-bottom">
 				<div class = "tiles blue added-margin">
 					<div class = "tiles-body">
-						<div class = "tiles-title"> BYTOVÉ DOMY VE SPRÁVĚ</div>
+						<div class = "tiles-title">BYTOVÉ DOMY V DATABÁZI</div>
 						<div class = "heading">
 							<span class = "animate-number"
 										data-value = "<?= $ENVO_COUNTS ?>"
@@ -54,7 +54,7 @@
 									 data-percentage = "<?= $ENVO_PERCENT ?>"></div>
 						</div>
 						<div class = "description">
-							<span class = "text-white mini-description ">Počet domů <span class = "blend">ve správě</span> <br>JSOU ve správě</span>
+							<span class = "text-white mini-description ">Počet domů (objektů) <span class = "blend">v databázi</span> <br>Celkový počet SVJ (objektů)</span>
 						</div>
 					</div>
 				</div>

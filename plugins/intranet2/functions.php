@@ -13,47 +13,57 @@
  * @param $usergroupid
  * @return array
  */
-function envo_get_house_info($table1, $table2, $ext_seo, $usergroupid, $filter1 = NULL)
+function envo_get_house_info ($table1, $table2, $ext_seo, $usergroupid, $filter1 = NULL)
 {
-  global $envodb;
-  $envodata = array ();
+	global $envodb;
+	$envodata = array ();
 
-  $sql = '';
-  if ($filter1) $sql = ' WHERE ' . $filter1;
+	$sql = '';
+	if ($filter1) $sql = ' WHERE ' . $filter1;
 
-  // EN: SQL Query
-  // CZ: SQL Dotaz
-  $result = $envodb -> query('SELECT t1.*, t2.city FROM ' . $table1 . ' t1 LEFT JOIN ' . $table2 . ' t2 ON t1.city = t2.id ' . $sql . 'ORDER BY t1.id ASC');
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	// $result = $envodb -> query('SELECT t1.*, t2.city FROM ' . $table1 . ' t1 LEFT JOIN ' . $table2 . ' t2 ON t1.city = t2.id ' . $sql . ' ORDER BY t1.id ASC');
+	$result = $envodb -> query('SELECT 
+																		t1.*,
+																		t2.city_name
+																	FROM
+																		' . $table1 . ' t1
+																	LEFT JOIN 
+																		' . $table2 . ' t2
+																			ON t1.city = t2.id
+																			' . $sql . '
+																		ORDER BY t1.id ASC');
 
-  while ($row = $result -> fetch_assoc()) {
+	while ($row = $result -> fetch_assoc()) {
 
-    // Array of strings with permission of each house
-    $usergrouparray = explode(',', $row['permission']);
+		// Array of strings with permission of each house
+		$usergrouparray = explode(',', $row['permission']);
 
-    // Check if 'usergroupid' is in permission array or if is 'usergroupid' = 3 (administrator group) or permission is 0
-    if (in_array($usergroupid, $usergrouparray) || $usergroupid == 3 || $row['permission'] == 0) {
+		// Check if 'usergroupid' is in permission array or if is 'usergroupid' = 3 (administrator group) or permission is 0
+		if (in_array($usergroupid, $usergrouparray) || $usergroupid == 3 || $row['permission'] == 0) {
 
-      // There should be always a varname in categories and check if seo is valid
-      $seo = '';
-      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['id'], $seo);
+			// There should be always a varname in categories and check if seo is valid
+			$seo = '';
+			if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+			$parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2 . '/house', 'h', $row['id'], $seo);
 
-      // EN: Insert each record into array
-      // CZ: Vložení získaných dat do pole
-      $envodata[] = array (
-        'id'       => $row['id'],
-        'name'     => $row['name'],
-        'street'   => $row['street'],
-        'city'     => $row['city'],
-        'parseurl' => $parseurl,
-      );
-    }
+			// EN: Insert each record into array
+			// CZ: Vložení získaných dat do pole
+			$envodata[] = array (
+				'id'        => $row['id'],
+				'name'      => $row['name'],
+				'street'    => $row['street'],
+				'city_name' => $row['city_name'],
+				'parseurl'  => $parseurl,
+			);
+		}
 
-  }
+	}
 
-  // EN: Returning values from function
-  // CZ: Vrácení hodnot z funkce
-  if (isset($envodata)) return $envodata;
+	// EN: Returning values from function
+	// CZ: Vrácení hodnot z funkce
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -84,124 +94,124 @@ function envo_get_house_info($table1, $table2, $ext_seo, $usergroupid, $filter1 
  * @param $dateformat
  * @return array
  */
-function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
+function envo_get_task_info ($usergroupid, $ext_seo, $tabs, $dateformat)
 {
-  global $envodb;
-  $envodata = array ();
+	global $envodb;
+	$envodata = array ();
 
-  // EN: SQL settings for all user groups without 'Administrator'
-  // CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
-  if ($usergroupid != 3) {
-    $sql = 'WHERE 
-            FIND_IN_SET(0, ' . DB_PREFIX . 'int_house.permission) <> 0
+	// EN: SQL settings for all user groups without 'Administrator'
+	// CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
+	if ($usergroupid != 3) {
+		$sql = 'WHERE 
+            FIND_IN_SET(0, ' . DB_PREFIX . 'int2_house.permission) <> 0
             OR
-            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int_house.permission) <> 0';
-  }
+            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int2_house.permission) <> 0';
+	}
 
-  // EN: SQL Query
-  // CZ: SQL Dotaz
-  $result = $envodb -> query('
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	$result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'int_housetasks.*, ' . DB_PREFIX . 'int_house.name, ' . DB_PREFIX . 'int_house.varname
+            ' . DB_PREFIX . 'int2_housetasks.*, ' . DB_PREFIX . 'int2_house.name, ' . DB_PREFIX . 'int2_house.varname
             
             FROM 
-            ' . DB_PREFIX . 'int_housetasks
+            ' . DB_PREFIX . 'int2_housetasks
             
             INNER JOIN
-            ' . DB_PREFIX . 'int_house
+            ' . DB_PREFIX . 'int2_house
             
             ON
-            ' . DB_PREFIX . 'int_housetasks.houseid = ' . DB_PREFIX . 'int_house.id
+            ' . DB_PREFIX . 'int2_housetasks.houseid = ' . DB_PREFIX . 'int2_house.id
             
             ' . $sql . '
             
             AND 
-            ' . DB_PREFIX . 'int_housetasks.reminder < NOW()
+            ' . DB_PREFIX . 'int2_housetasks.reminder < NOW()
             
             AND 
-            ' . DB_PREFIX . 'int_housetasks.time > NOW()
+            ' . DB_PREFIX . 'int2_housetasks.time > NOW()
             
             AND
-            ' . DB_PREFIX . 'int_housetasks.status < 3
+            ' . DB_PREFIX . 'int2_housetasks.status < 3
             
             ORDER BY priority DESC, id DESC 
             
             ');
 
-  // EN: Determine the number of rows in the result from DB
-  // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result -> num_rows;
-  $envodata['count_of_task'] = $row_cnt;
+	// EN: Determine the number of rows in the result from DB
+	// CZ: Určení počtu řádků ve výsledku z DB
+	$row_cnt                   = $result -> num_rows;
+	$envodata['count_of_task'] = $row_cnt;
 
-  while ($row = $result -> fetch_assoc()) {
+	while ($row = $result -> fetch_assoc()) {
 
-    // EN: URL parsing
-    // CZ: Parsování URL adresy
-    $seo = '';
-    if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
-    $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
+		// EN: URL parsing
+		// CZ: Parsování URL adresy
+		$seo = '';
+		if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+		$parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2 . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
 
-    // EN: Change number to string
-    // CZ: Změna čísla na text
-    switch ($row['priority']) {
-      case '0':
-        $priority = '<span class="label">Nedůležitá</span>';
-        break;
-      case '1':
-        $priority = '<span class="label">Nízká priorita</span>';
-        break;
-      case '2':
-        $priority = '<span class="label label-warning">Střední priorita</span>';
-        break;
-      case '3':
-        $priority = '<span class="label label-important">Vysoká priorita</span>';
-        break;
-      case '4':
-        $priority = '<span class="label label-important">Nejvyšší priorita</span>';
-        break;
-    }
+		// EN: Change number to string
+		// CZ: Změna čísla na text
+		switch ($row['priority']) {
+			case '0':
+				$priority = '<span class="label">Nedůležitá</span>';
+				break;
+			case '1':
+				$priority = '<span class="label">Nízká priorita</span>';
+				break;
+			case '2':
+				$priority = '<span class="label label-warning">Střední priorita</span>';
+				break;
+			case '3':
+				$priority = '<span class="label label-important">Vysoká priorita</span>';
+				break;
+			case '4':
+				$priority = '<span class="label label-important">Nejvyšší priorita</span>';
+				break;
+		}
 
-    switch ($row['status']) {
-      case '0':
-        $status = 'Žádný status';
-        break;
-      case '1':
-        $status = 'Zápis';
-        break;
-      case '2':
-        $status = 'V řešení';
-        break;
-      case '3':
-        $status = 'Vyřešeno - Uzavřeno';
-        break;
-      case '4':
-        $status = 'Stornováno';
-        break;
-    }
+		switch ($row['status']) {
+			case '0':
+				$status = 'Žádný status';
+				break;
+			case '1':
+				$status = 'Zápis';
+				break;
+			case '2':
+				$status = 'V řešení';
+				break;
+			case '3':
+				$status = 'Vyřešeno - Uzavřeno';
+				break;
+			case '4':
+				$status = 'Stornováno';
+				break;
+		}
 
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = array (
-      'id'            => $row['id'],
-      'houseid'       => $row['houseid'],
-      'housename'     => $row['name'],
-      'houseparseurl' => $parseurl,
-      'priority'      => $priority,
-      'status'        => $status,
-      'title'         => $row['title'],
-      'description'   => $row['description'],
-      'reminder'      => date($dateformat, strtotime($row['reminder'])),
-      'time'          => date($dateformat, strtotime($row['time'])),
-      'created'       => $row['created'],
-      'updated'       => $row['updated'],
-    );
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = array (
+			'id'            => $row['id'],
+			'houseid'       => $row['houseid'],
+			'housename'     => $row['name'],
+			'houseparseurl' => $parseurl,
+			'priority'      => $priority,
+			'status'        => $status,
+			'title'         => $row['title'],
+			'description'   => $row['description'],
+			'reminder'      => date($dateformat, strtotime($row['reminder'])),
+			'time'          => date($dateformat, strtotime($row['time'])),
+			'created'       => $row['created'],
+			'updated'       => $row['updated'],
+		);
 
-  }
+	}
 
-  // EN: Returning values from function
-  // CZ: Vrácení hodnot z funkce
-  if (isset($envodata)) return $envodata;
+	// EN: Returning values from function
+	// CZ: Vrácení hodnot z funkce
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -218,121 +228,121 @@ function envo_get_task_info($usergroupid, $ext_seo, $tabs, $dateformat)
  * @param $dateformat
  * @return array
  */
-function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
+function envo_get_task_delayed_info ($usergroupid, $ext_seo, $tabs, $dateformat)
 {
-  global $envodb;
-  $envodata = array ();
+	global $envodb;
+	$envodata = array ();
 
-  // EN: SQL settings for all user groups without 'Administrator'
-  // CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
-  if ($usergroupid != 3) {
-    $sql = 'WHERE 
-            FIND_IN_SET(0, ' . DB_PREFIX . 'int_house.permission) <> 0
+	// EN: SQL settings for all user groups without 'Administrator'
+	// CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
+	if ($usergroupid != 3) {
+		$sql = 'WHERE 
+            FIND_IN_SET(0, ' . DB_PREFIX . 'int2_house.permission) <> 0
             OR
-            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int_house.permission) <> 0';
-  }
+            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int2_house.permission) <> 0';
+	}
 
-  // EN: SQL Query
-  // CZ: SQL Dotaz
-  $result = $envodb -> query('
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	$result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'int_housetasks.*, ' . DB_PREFIX . 'int_house.name, ' . DB_PREFIX . 'int_house.varname
+            ' . DB_PREFIX . 'int2_housetasks.*, ' . DB_PREFIX . 'int2_house.name, ' . DB_PREFIX . 'int2_house.varname
             
             FROM 
-            ' . DB_PREFIX . 'int_housetasks
+            ' . DB_PREFIX . 'int2_housetasks
             
             INNER JOIN
-            ' . DB_PREFIX . 'int_house
+            ' . DB_PREFIX . 'int2_house
             
             ON
-            ' . DB_PREFIX . 'int_housetasks.houseid = ' . DB_PREFIX . 'int_house.id
+            ' . DB_PREFIX . 'int2_housetasks.houseid = ' . DB_PREFIX . 'int2_house.id
             
             ' . $sql . '
             
             AND 
-            ' . DB_PREFIX . 'int_housetasks.time < NOW()
+            ' . DB_PREFIX . 'int2_housetasks.time < NOW()
             
             AND
-            ' . DB_PREFIX . 'int_housetasks.status < 3
+            ' . DB_PREFIX . 'int2_housetasks.status < 3
             
             ORDER BY priority DESC, id DESC 
             
             ');
 
-  // EN: Determine the number of rows in the result from DB
-  // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result -> num_rows;
-  $envodata['count_of_task'] = $row_cnt;
+	// EN: Determine the number of rows in the result from DB
+	// CZ: Určení počtu řádků ve výsledku z DB
+	$row_cnt                   = $result -> num_rows;
+	$envodata['count_of_task'] = $row_cnt;
 
-  while ($row = $result -> fetch_assoc()) {
+	while ($row = $result -> fetch_assoc()) {
 
-    // EN: URL parsing
-    // CZ: Parsování URL adresy
-    $seo = '';
-    if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
-    $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
+		// EN: URL parsing
+		// CZ: Parsování URL adresy
+		$seo = '';
+		if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+		$parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2 . '/house', 'h', $row['houseid'], $seo, '', '', $tabs);
 
-    // EN: Change number to string
-    // CZ: Změna čísla na text
-    switch ($row['priority']) {
-      case '0':
-        $priority = '<span class="label">Nedůležitá</span>';
-        break;
-      case '1':
-        $priority = '<span class="label">Nízká priorita</span>';
-        break;
-      case '2':
-        $priority = '<span class="label label-warning">Střední priorita</span>';
-        break;
-      case '3':
-        $priority = '<span class="label label-important">Vysoká priorita</span>';
-        break;
-      case '4':
-        $priority = '<span class="label label-important">Nejvyšší priorita</span>';
-        break;
-    }
+		// EN: Change number to string
+		// CZ: Změna čísla na text
+		switch ($row['priority']) {
+			case '0':
+				$priority = '<span class="label">Nedůležitá</span>';
+				break;
+			case '1':
+				$priority = '<span class="label">Nízká priorita</span>';
+				break;
+			case '2':
+				$priority = '<span class="label label-warning">Střední priorita</span>';
+				break;
+			case '3':
+				$priority = '<span class="label label-important">Vysoká priorita</span>';
+				break;
+			case '4':
+				$priority = '<span class="label label-important">Nejvyšší priorita</span>';
+				break;
+		}
 
-    switch ($row['status']) {
-      case '0':
-        $status = 'Žádný status';
-        break;
-      case '1':
-        $status = 'Zápis';
-        break;
-      case '2':
-        $status = 'V řešení';
-        break;
-      case '3':
-        $status = 'Vyřešeno - Uzavřeno';
-        break;
-      case '4':
-        $status = 'Stornováno';
-        break;
-    }
+		switch ($row['status']) {
+			case '0':
+				$status = 'Žádný status';
+				break;
+			case '1':
+				$status = 'Zápis';
+				break;
+			case '2':
+				$status = 'V řešení';
+				break;
+			case '3':
+				$status = 'Vyřešeno - Uzavřeno';
+				break;
+			case '4':
+				$status = 'Stornováno';
+				break;
+		}
 
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = array (
-      'id'            => $row['id'],
-      'houseid'       => $row['houseid'],
-      'housename'     => $row['name'],
-      'houseparseurl' => $parseurl,
-      'priority'      => $priority,
-      'status'        => $status,
-      'title'         => $row['title'],
-      'description'   => $row['description'],
-      'reminder'      => date($dateformat, strtotime($row['reminder'])),
-      'time'          => date($dateformat, strtotime($row['time'])),
-      'created'       => $row['created'],
-      'updated'       => $row['updated'],
-    );
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = array (
+			'id'            => $row['id'],
+			'houseid'       => $row['houseid'],
+			'housename'     => $row['name'],
+			'houseparseurl' => $parseurl,
+			'priority'      => $priority,
+			'status'        => $status,
+			'title'         => $row['title'],
+			'description'   => $row['description'],
+			'reminder'      => date($dateformat, strtotime($row['reminder'])),
+			'time'          => date($dateformat, strtotime($row['time'])),
+			'created'       => $row['created'],
+			'updated'       => $row['updated'],
+		);
 
-  }
+	}
 
-  // EN: Returning values from function
-  // CZ: Vrácení hodnot z funkce
-  if (isset($envodata)) return $envodata;
+	// EN: Returning values from function
+	// CZ: Vrácení hodnot z funkce
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -370,73 +380,73 @@ function envo_get_task_delayed_info($usergroupid, $ext_seo, $tabs, $dateformat)
  *  )
  *
  */
-function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $timeformat)
+function envo_get_notification_unread ($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
-  global $envodb;
-  $envodata = array ();
+	global $envodb;
+	$envodata = array ();
 
-  // EN: SQL Query
-  // CZ: SQL Dotaz
-  $result = $envodb -> query('
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	$result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'int_housenotifications.*
+            ' . DB_PREFIX . 'int2_housenotifications.*
             
             FROM 
-            ' . DB_PREFIX . 'int_housenotifications
+            ' . DB_PREFIX . 'int2_housenotifications
             
             INNER JOIN
-            ' . DB_PREFIX . 'int_housenotificationug
+            ' . DB_PREFIX . 'int2_housenotificationug
             
             ON
-            ' . DB_PREFIX . 'int_housenotificationug.notification_id = ' . DB_PREFIX . 'int_housenotifications.id
+            ' . DB_PREFIX . 'int2_housenotificationug.notification_id = ' . DB_PREFIX . 'int2_housenotifications.id
             
             WHERE
-            ' . DB_PREFIX . 'int_housenotificationug.usergroup_id = ' . $usergroupid . '
+            ' . DB_PREFIX . 'int2_housenotificationug.usergroup_id = ' . $usergroupid . '
             
             AND
-            ' . DB_PREFIX . 'int_housenotificationug.unread = 0
+            ' . DB_PREFIX . 'int2_housenotificationug.unread = 0
             
             ORDER BY id DESC
             
             ');
 
-  // EN: Determine the number of rows in the result from DB
-  // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result -> num_rows;
+	// EN: Determine the number of rows in the result from DB
+	// CZ: Určení počtu řádků ve výsledku z DB
+	$row_cnt = $result -> num_rows;
 
-  // Add count to array
-  $envodata[] = array (
-    'count'     => $row_cnt,
-    'count_msg' => ''
-  );
+	// Add count to array
+	$envodata[] = array (
+		'count'     => $row_cnt,
+		'count_msg' => ''
+	);
 
-  if ($row_cnt > 0) {
-    while ($row = $result -> fetch_assoc()) {
-      // There should be always a varname in notification and check if seo is valid
-      $seo = '';
-      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
+	if ($row_cnt > 0) {
+		while ($row = $result -> fetch_assoc()) {
+			// There should be always a varname in notification and check if seo is valid
+			$seo = '';
+			if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+			$parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2 . '/notification', 'n', $row['id'], $seo);
 
-      // EN: Insert each record into array
-      // CZ: Vložení získaných dat do pole
-      $envodata[] = array (
-        'id'               => $row['id'],
-        'name'             => $row['name'],
-        'varname'          => $row['varname'],
-        'type'             => $row['type'],
-        'shortdescription' => $row['shortdescription'],
-        'created'          => date($dateformat . $timeformat, strtotime($row['created'])),
-        'parseurl'         => $parseurl,
-      );
-    }
-  } else {
+			// EN: Insert each record into array
+			// CZ: Vložení získaných dat do pole
+			$envodata[] = array (
+				'id'               => $row['id'],
+				'name'             => $row['name'],
+				'varname'          => $row['varname'],
+				'type'             => $row['type'],
+				'shortdescription' => $row['shortdescription'],
+				'created'          => date($dateformat . $timeformat, strtotime($row['created'])),
+				'parseurl'         => $parseurl,
+			);
+		}
+	} else {
 
-  }
+	}
 
-  // EN: Returning values from function
-  // CZ: Vrácení hodnot z funkce
-  if (isset($envodata)) return $envodata;
+	// EN: Returning values from function
+	// CZ: Vrácení hodnot z funkce
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -454,62 +464,62 @@ function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $time
  * @return array
  *
  */
-function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timeformat)
+function envo_get_notification_all ($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
-  global $envodb;
-  $envodata = array ();
+	global $envodb;
+	$envodata = array ();
 
-  // EN: SQL Query
-  // CZ: SQL Dotaz
-  $result = $envodb -> query('
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	$result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'int_housenotifications.*
+            ' . DB_PREFIX . 'int2_housenotifications.*
             
             FROM 
-            ' . DB_PREFIX . 'int_housenotifications
+            ' . DB_PREFIX . 'int2_housenotifications
             
             INNER JOIN
-            ' . DB_PREFIX . 'int_housenotificationug
+            ' . DB_PREFIX . 'int2_housenotificationug
             
             ON
-            ' . DB_PREFIX . 'int_housenotificationug.notification_id = ' . DB_PREFIX . 'int_housenotifications.id
+            ' . DB_PREFIX . 'int2_housenotificationug.notification_id = ' . DB_PREFIX . 'int2_housenotifications.id
             
             WHERE
-            ' . DB_PREFIX . 'int_housenotificationug.usergroup_id = ' . $usergroupid . '
+            ' . DB_PREFIX . 'int2_housenotificationug.usergroup_id = ' . $usergroupid . '
             
             ORDER BY id DESC
             
             ');
 
-  // EN: Determine the number of rows in the result from DB
-  // CZ: Určení počtu řádků ve výsledku z DB
-  $row_cnt = $result -> num_rows;
+	// EN: Determine the number of rows in the result from DB
+	// CZ: Určení počtu řádků ve výsledku z DB
+	$row_cnt = $result -> num_rows;
 
-  if ($row_cnt > 0) {
-    while ($row = $result -> fetch_assoc()) {
-      // There should be always a varname in notification and check if seo is valid
-      $seo = '';
-      if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
-      $parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
+	if ($row_cnt > 0) {
+		while ($row = $result -> fetch_assoc()) {
+			// There should be always a varname in notification and check if seo is valid
+			$seo = '';
+			if ($ext_seo) $seo = ENVO_base ::envoCleanurl($row['varname']);
+			$parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2 . '/notification', 'n', $row['id'], $seo);
 
-      // EN: Insert each record into array
-      // CZ: Vložení získaných dat do pole
-      $envodata[] = array (
-        'name'     => $row['name'],
-        'type'     => $row['type'],
-        'content'  => $row['content'],
-        'created'  => date($dateformat . $timeformat, strtotime($row['created'])),
-        'parseurl' => $parseurl,
-      );
-    }
-  } else {
+			// EN: Insert each record into array
+			// CZ: Vložení získaných dat do pole
+			$envodata[] = array (
+				'name'     => $row['name'],
+				'type'     => $row['type'],
+				'content'  => $row['content'],
+				'created'  => date($dateformat . $timeformat, strtotime($row['created'])),
+				'parseurl' => $parseurl,
+			);
+		}
+	} else {
 
-  }
+	}
 
-  // EN: Returning values from function
-  // CZ: Vrácení hodnot z funkce
-  if (isset($envodata)) return $envodata;
+	// EN: Returning values from function
+	// CZ: Vrácení hodnot z funkce
+	if (isset($envodata)) return $envodata;
 }
 
 /**
@@ -523,41 +533,41 @@ function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timefor
  * @param $filename       string    | name of file
  * @return bool|string
  */
-function envo_extension_icon($filename)
+function envo_extension_icon ($filename)
 {
-  $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+	$extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
-  switch ($extension) {
-    case ('doc'):
-      return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
-      break;
-    case ('docx'):
-      return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
-      break;
-    case ('docm'):
-      return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
-      break;
-    case ('xls'):
-      return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
-      break;
-    case ('xlsx'):
-      return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
-      break;
-    case ('xlsm'):
-      return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
-      break;
-    case 'pdf':
-      return '<i class="fa fa-file-pdf fa-2x" style="color:#EE3226;"></i>';
-      break;
-    case ('jpg'):
-      return '<i class="fa fa-file-image fa-2x" style="color:#000;"></i>';
-      break;
-    case ('ai'):
-      return '<i class="techicon-adobe-ai fa-2x"></i>';
-      break;
-    default:
-      return FALSE;
-  }
+	switch ($extension) {
+		case ('doc'):
+			return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
+			break;
+		case ('docx'):
+			return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
+			break;
+		case ('docm'):
+			return '<i class="fa fa-file-word fa-2x" style="color:#2B5796;"></i>';
+			break;
+		case ('xls'):
+			return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
+			break;
+		case ('xlsx'):
+			return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
+			break;
+		case ('xlsm'):
+			return '<i class="fa fa-file-excel fa-2x" style="color:#1E7145;"></i>';
+			break;
+		case 'pdf':
+			return '<i class="fa fa-file-pdf fa-2x" style="color:#EE3226;"></i>';
+			break;
+		case ('jpg'):
+			return '<i class="fa fa-file-image fa-2x" style="color:#000;"></i>';
+			break;
+		case ('ai'):
+			return '<i class="techicon-adobe-ai fa-2x"></i>';
+			break;
+		default:
+			return FALSE;
+	}
 }
 
 ?>
