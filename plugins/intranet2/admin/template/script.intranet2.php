@@ -19,7 +19,7 @@
 echo PHP_EOL . "\t";
 echo '<!-- Start JS INTRANET2 Plugin -->';
 
-if ($page == 'intranet2' && $page1 == 'house' && $page2 == '') {
+if ($page == 'intranet2' && $page1 == 'house' && $page2 == 'houselist') {
 
 	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
 	// Plugin DataTable
@@ -261,12 +261,12 @@ echo PHP_EOL;
             var city = '';
             $.each(json.address, function (key, value) {
 
-              house_number = json.address["house_number"];
+              house_number = json.address['house_number'];
               // Split a string into an array of substrings
               corientacni = house_number.split('/')[0];
               cpopisne = house_number.split('/')[1];
-              road = json.address["road"];
-              city = json.address["city"];
+              road = json.address['road'];
+              city = json.address['city'];
 
             });
 
@@ -393,12 +393,12 @@ echo PHP_EOL;
             var city = '';
             $.each(json.address, function (key, value) {
 
-              house_number = json.address["house_number"];
+              house_number = json.address['house_number'];
               // Split a string into an array of substrings
               corientacni = house_number.split('/')[0];
               cpopisne = house_number.split('/')[1];
-              road = json.address["road"];
-              city = json.address["city"];
+              road = json.address['road'];
+              city = json.address['city'];
 
             });
 
@@ -449,10 +449,13 @@ echo PHP_EOL;
                   divdata += '<tbody>';
 
                   $.each(data, function (key, value) {
-
+                    countdata = data.count_data;
                     if (key === 'data') {
-                      divdata += '<tr><td>' + value.ico + '</td><td>' + value.ojm + '</td></tr>';
-                      countdata = value.count_data;
+
+                      $.each(value, function (key1, value1) {
+                        divdata += '<tr><td>' + value1.ico + '</td><td>' + value1.ojm + '</td></tr>';
+                      });
+
                     }
 
                   });

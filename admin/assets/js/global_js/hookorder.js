@@ -16,6 +16,7 @@
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   $('.envo_hooks_move').sortable({
     // Jquery UI Sortable config

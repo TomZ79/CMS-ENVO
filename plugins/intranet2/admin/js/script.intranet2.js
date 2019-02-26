@@ -131,13 +131,18 @@ function getGPS_Data (event) {
   }
 
   // Disable 'button'
-  $('#saveEnt').attr('disabled', true);
+  if ($('#saveEnt').length) {
+    $('#saveEnt').attr('disabled', true);
+  }
+  if ($('#udpateEnt').length) {
+    $('#udpateEnt').attr('disabled', true);
+  }
   // Getting parent 'id'
   var parent = $(this).parents(':eq(4)').attr('id');
   // Street and City from Form
   var street = $('#' + parent + ' input[name="envo_entstreet"]').val();
   var streettrim = $.trim(street).replace(/\s/g, '+');
-  var city = $('select[name="envo_housecity"] option:selected').text();
+  var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
   var citytrim = $.trim(city).replace(/\s/g, '+');
 
   if (debug) {
@@ -224,6 +229,13 @@ function getGPS_Data (event) {
       setTimeout(function () {
         $('#' + parent + ' .loadingdata_gps').html('').css('visibility', 'hidden');
         $('#' + parent + ' .loadingdata_ikatastr').html('').css('visibility', 'hidden');
+        // Enable 'button'
+        if ($('#saveEnt').length) {
+          $('#saveEnt').attr('disabled', false);
+        }
+        if ($('#udpateEnt').length) {
+          $('#udpateEnt').attr('disabled', false);
+        }
       }, 1000);
 
     },
@@ -239,8 +251,6 @@ function getGPS_Data (event) {
       }
     },
     complete: function () {
-      // Enable 'button'
-      $('#saveEnt').attr('disabled', false);
     }
   });
 
@@ -276,7 +286,7 @@ function initializeTinyMce (selector, height) {
     selector = 'textarea';
   }
 
-  if (selector.length) {
+  if ( $(selector).length) {
     tinymce.init({
       selector: selector,
       theme: "modern",
@@ -364,7 +374,7 @@ function formatFileSize (bytes) {
  * @callaction
  * <button onclick="copyToClipboard('#p1')">Copy TEXT 1</button>
  */
-function copyToClipboard(element) {
+function copyToClipboard (element) {
   var temp = $('<input>');
   $('body').append(temp);
   temp.val($(element).val()).select();
@@ -511,6 +521,8 @@ $(function () {
         ic: ic
       },
       cache: false,
+      // Timeout 20s
+      timeout: 20000,
       beforeSend: function () {
 
         // Show progress circle
@@ -551,7 +563,7 @@ $(function () {
           $('#outputaresdate').html('').prepend(divdata).show();
 
           // Add data to element
-          $('input[name=envo_housename]').val('SVJ domu .....');
+          $('input[name=envo_housename]').val('SVJ domu ');
           $('input[name=envo_househeadquarters]').val(
             data.ulice + ', ' + data.mesto + ' - ' + data.katastralniuzemi + ', PSČ ' + data.psc
           ).css('background-color', '#FFF5CC');
@@ -621,6 +633,7 @@ $(function () {
           $('#ajaxTime').html(totalTime);
           if (debug) {
             console.log('ajaxTime | Success Time: ' + totalTime);
+            console.log($('select[name="envo_housecity"]').find(':selected').data('city_name'));
           }
           // Loading data progress
           $('#loadingdata').hide().html('');
@@ -664,9 +677,20 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
+
+        // Loading data progress
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-2" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
+
         if (debug) {
           console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
         }
+
+        if (textStatus === 'timeout') {
+          if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
+        } else {
+          if (debug) console.log(textStatus + ': ' + errorThrown);
+        }
+
       },
       complete: function () {
 
@@ -689,7 +713,7 @@ $(function () {
     // Get value
     var street = $('input[name="envo_housestreet"]').val();
     var streettrim = $.trim(street).replace(/\s/g, '+');
-    var city = $('input[name="envo_housefcity"]').val();
+    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
     var citytrim = $.trim(city).replace(/\s/g, '+');
     var converter = new JTSK_Converter();
     // Ajax time
@@ -848,10 +872,15 @@ $(function () {
     // Get value
     var street = $('input[name="envo_housestreet"]').val();
     var streettrim = $.trim(street).replace(/\s/g, '+');
-    var city = $('input[name="envo_housefcity"]').val();
+    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
     var citytrim = $.trim(city).replace(/\s/g, '+');
+    var converter = new JTSK_Converter();
     // Ajax time
     var ajaxTime = new Date().getTime();
+
+    if (debug) {
+      console.log('Data from FORM => street:' + streettrim + ' | city: ' + citytrim);
+    }
 
     // Ajax
     $.ajax({
@@ -884,6 +913,72 @@ $(function () {
         if (debug) {
           console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
         }
+
+
+        var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
+
+        var strX = jtsk.y;
+        // Convert a number into a string - only two decimals
+        var substrX = strX.toFixed(2);
+        // Split a string into an array of substrings
+        var x = substrX.split('.')[0];
+
+        var strY = jtsk.x;
+        // Convert a number into a string - only two decimals
+        var substrY = strY.toFixed(2);
+        // Split a string into an array of substrings
+        var y = substrY.split('.')[0];
+
+        if (debug) {
+          console.log(jtsk);
+          console.log('WGS84.lat: ' + wgslat);
+          console.log('WGS84.lon: ' + wgslon);
+          console.log('JTSK.x: ' + jtsk.y);
+          console.log('JTSK.y: ' + jtsk.x);
+          console.log('WGS84.lat -> JTSK.x: ' + substrX);
+          console.log('WGS84.lon -> JTSK.y: ' + substrY);
+        }
+
+        $.ajax({
+          url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
+          type: 'POST',
+          dataType: 'xml',
+          cache: false,
+          success: function (data) {
+
+            // Extract relevant data from XML
+            var adId = data.getElementsByTagName("base:localId")[0];
+            var adIdtxt = adId.innerHTML;
+
+            if (debug) {
+              console.log('adId: ' + adIdtxt);
+              console.log('Links: http://vdp.cuzk.cz/vdp/ruian/adresnimista/' + adIdtxt.split('.')[1]);
+            }
+          },
+          error: function () {
+
+          },
+          complete: function () {
+
+          }
+        });
+
+        $.ajax({
+          url: 'https://services.cuzk.cz/wfs/inspire-cp-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=CadastralParcel',
+          type: 'POST',
+          dataType: 'xml',
+          cache: false,
+          success: function (data) {
+
+
+          },
+          error: function () {
+
+          },
+          complete: function () {
+
+          }
+        });
 
         $.ajax({
           url: 'https://services.cuzk.cz/wfs/inspire-bu-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Building',
@@ -944,9 +1039,22 @@ $(function () {
 
           },
           error: function (jqXHR, textStatus, errorThrown) {
+
+            // Loading data progress
+            $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem ČÚZK</span><span style="color: #C10000; font-weight: 700;">Server ČÚZK neodpovídá -> obnovte stránku a zkuste hledání později!</span></div></div>');
+
             if (debug) {
-              console.log('Error loading XML data');
+              console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
             }
+
+            if (textStatus === 'timeout') {
+              if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
+            } else {
+              if (debug) console.log(textStatus + ': ' + errorThrown);
+            }
+          },
+          complete: function () {
+
           }
         });
 
@@ -977,7 +1085,7 @@ $(function () {
     // Get value
     var street = $('input[name="envo_housestreet"]').val();
     var streettrim = $.trim(street).replace(/\s/g, '+');
-    var city = $('input[name="envo_housefcity"]').val();
+    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
     var citytrim = $.trim(city).replace(/\s/g, '+');
     // Ajax time
     var ajaxTime = new Date().getTime();
@@ -1152,7 +1260,7 @@ $(function () {
 
     // Get value
     var street = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
-    var city = $.trim($('input[name="envo_housefcity"]').val()).replace(/\s/g, '+');
+    var city = $.trim($('select[name="envo_housecity"]').find(':selected').data('city_name')).replace(/\s/g, '+');
     // Ajax time
     var ajaxTime = new Date().getTime();
 
@@ -1171,7 +1279,7 @@ $(function () {
       beforeSend: function () {
 
         // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">GPS</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
 
 
       },
@@ -1441,7 +1549,7 @@ $(function () {
     } else {
       var street2 = '';
     }
-    var city = $('select[name=envo_housecity]').find('option:selected').text();
+    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
 
     if (street2.length > 0) {
       var adress = street2 + ', ' + city;
@@ -2109,7 +2217,7 @@ $(function () {
 
                     dataID = data["id"];
 
-                    if (data["description"] > 0) {
+                    if (data["description"].length > 0) {
                       description = data["description"];
                     } else {
                       description = '<span class="bold text-warning-dark">Úkol nemá popis</span>';
@@ -3559,7 +3667,7 @@ $(function () {
     /**
      * @description  Relayout Isotop
      */
-    $('a[href="#cmsPage10"]').on('shown.bs.tab', function (e) {
+    $('a[href="#cmsPage11"]').on('shown.bs.tab', function (e) {
       $gallery.isotope('layout');
     });
   }

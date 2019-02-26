@@ -25,6 +25,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 	<!-- Mobile Specific Metas
 	================================================== -->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
 
 	<!-- CSS and FONTS
 	================================================== -->
@@ -43,13 +44,18 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 	echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/layout.css');
 	echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/components.css');
 	echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/colors.css');
-	//
-	if ($page1 == 'house' && !empty($page2)) {
-		// Plugin Fancybox
-		echo $Html -> addStylesheet('/assets/plugins/fancybox/3.4.1/css/jquery.fancybox.min.css');
+	// Plugins
+	if ($page1 == 'house' && $page2 == 'houselist') {
 		// Plugin DialogFX
 		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
 		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
+		// DataTables (Stylesheet only for pages which contains 'table')
+		echo $Html -> addStylesheet('https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css');
+	}
+
+	if ($page1 == 'house' && $page2 == 'h' && !empty($page3)) {
+		// Plugin Fancybox
+		echo $Html -> addStylesheet('/assets/plugins/fancybox/3.4.1/css/jquery.fancybox.min.css');
 		// Plugin Fileuploader
 		echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/font/font-fileuploader.min.css');
 		echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/jquery.fileuploader.min.css');
@@ -62,14 +68,8 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 	<?php
 	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 	// Main Custom StyleSheet
-	echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/custom.min.css');
+	echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/custom.css');
 	?>
-
-	<style>
-		.input-group-addon:last-child .arrow:before {
-			left: -14px;
-		}
-	</style>
 
 	<!-- END CORE CSS FRAMEWORK -->
 </head>
@@ -77,10 +77,10 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 <!-- BEGIN BODY -->
 <body class="navbar-top">
 
-<!-- Main navbar -->
+<!-- MAIN NAVBAR -->
 <div class="navbar navbar-expand-md navbar-light fixed-top">
 
-	<!-- Header with logos -->
+	<!-- HEADER -->
 	<div class="navbar-header navbar-dark d-none d-md-flex align-items-md-center">
 		<div class="navbar-brand navbar-brand-md">
 			<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2) ?>" class="d-inline-block">
@@ -94,10 +94,10 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 			</a>
 		</div>
 	</div>
-	<!-- /header with logos -->
+	<!-- /HEADER -->
 
 
-	<!-- Mobile controls -->
+	<!-- MOBILE CONTROLS -->
 	<div class="d-flex flex-1 d-md-none">
 		<div class="navbar-brand mr-auto">
 			<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2) ?>" class="d-inline-block">
@@ -113,10 +113,10 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 			<i class="icon-paragraph-justify3"></i>
 		</button>
 	</div>
-	<!-- /mobile controls -->
+	<!-- /MOBILE CONTROLS -->
 
 
-	<!-- Navbar content -->
+	<!-- NAVBAR -->
 	<div class="collapse navbar-collapse" id="navbar-mobile">
 		<ul class="navbar-nav">
 			<li class="nav-item">
@@ -158,24 +158,21 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 									// CZ: Spuštění foreach smyčky na pole u druhé položky - První položka je informace o počtu oznámení
 									foreach (array_slice($ENVO_NOTIFICATION, 1) as $en) {
 
-										// Start - Notification
+										// Notification
 										echo '<li class="media ' . $en["type"] . '">';
 										echo '<div class="media-body">';
-										// Start - Heading
-										echo '<div class="heading">';
-										echo '<a href="' . $en["parseurl"] . '">' . $en["name"] . '</a>';
+										// Start - Title
+										echo '<div class="media-title">';
+										echo '<a href="' . $en["parseurl"] . '">';
+										echo '<span class="font-weight-semibold">' . $en["name"] . '</span>';
+										echo '<span class="text-muted float-right font-size-sm">' . $en["created"] . '</span>';
+										echo '</a>';
 										echo '</div>';
-										// End - Heading
-										// Start - Description
-										echo '<div class="description">';
+										// Description
+										echo '<div class="text-muted">';
 										echo $en["shortdescription"];
 										echo '</div>';
 										// End - Description
-										// Start - Date
-										echo '<div class="date pull-left">';
-										echo $en["created"];
-										echo '</div>';
-										// End - Date
 										echo '</div>';
 										echo '</li>';
 										// End - Notification
@@ -185,7 +182,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 								} else {
 									// Start - Notification not exists
 									echo '<li class="media">';
-									echo 'Žádná notifikace k zobrazení';
+									echo '<span class="alert border-0 p-2 w-100 mb-0 font-weight-semibold text-orange-800 alpha-orange">Žádná notifikace k zobrazení</span>';
 									echo '</li>';
 									// End - Notification not exists
 								}
@@ -224,18 +221,18 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 			</li>
 		</ul>
 	</div>
-	<!-- /navbar content -->
+	<!-- /NAVBAR -->
 
 </div>
-<!-- /main navbar -->
+<!-- /MAIN NAVBAR -->
 
-<!-- Page content -->
+<!-- PAGE CONTENT -->
 <div class="page-content">
 
-	<!-- Main sidebar -->
+	<!-- MAIN SIDEBAR -->
 	<div class="sidebar sidebar-dark sidebar-main sidebar-fixed sidebar-expand-md">
 
-		<!-- Sidebar mobile toggler -->
+		<!-- SIDEBAR MOBILE TOGGLER -->
 		<div class="sidebar-mobile-toggler text-center">
 			<a href="#" class="sidebar-mobile-main-toggle">
 				<i class="icon-arrow-left8"></i>
@@ -246,13 +243,13 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 				<i class="icon-screen-normal"></i>
 			</a>
 		</div>
-		<!-- /sidebar mobile toggler -->
+		<!-- /SIDEBAR MOBILE TOGGLER -->
 
 
-		<!-- Sidebar content -->
+		<!-- SIDEBAR CONTENT -->
 		<div class="sidebar-content">
 
-			<!-- User menu -->
+			<!-- USER MENU -->
 			<div class="sidebar-user-material">
 				<div class="sidebar-user-material-body">
 					<div class="card-body text-center">
@@ -265,23 +262,23 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 				</div>
 
 			</div>
-			<!-- /user menu -->
+			<!-- /USER MENU -->
 
 
-			<!-- Main navigation -->
+			<!-- MAIN NAVIGATION -->
 			<div class="card card-sidebar-mobile">
 				<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_nav.php'; ?>
 			</div>
-			<!-- /main navigation -->
+			<!-- /MAIN NAVIGATION -->
 
 		</div>
-		<!-- /sidebar content -->
+		<!-- /SIDEBAR CONTENT -->
 
 	</div>
-	<!-- /main sidebar -->
+	<!-- /MAIN SIDEBAR -->
 
 
-	<!-- Main content -->
+	<!-- MAIN CONTENT -->
 	<div class="content-wrapper">
 
 
@@ -308,9 +305,9 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 					</div>
 				</div>
 			</div>
-			<!-- END PAGE HEADER -->
+			<!-- /PAGE HEADER -->
 		<?php } ?>
 
 
-		<!-- Content area -->
+		<!-- CONTENT AREA -->
 		<div class="content pt-0">

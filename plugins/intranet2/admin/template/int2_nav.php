@@ -36,16 +36,28 @@ if ($page1 == 'search_db') {
 			<span class="icon-thumbnail"><?= text_clipping_lower($tlint2["int2_menu"]["int2m2"]) ?></span>
 			<ul class="sub-menu" <?= $styleint_1 ?>>
 
-				<li class="<?= (($page == 'intranet2' && $page1 == 'house' && !$page2) || ($page == 'intranet2' && $page2 == 'newhouse')) ? 'submenu-active' : '' ?>">
+				<li class="<?= (($page == 'intranet2' && $page1 == 'house' && !$page2)) ? 'submenu-active' : '' ?>">
 
 					<?php
 					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tlint2["int2_menu"]["int2m3"]);
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tlint2["int2_menu"]["int2m10"]);
 					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-					echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m3"]), 'icon-thumbnail');
+					echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m10"]), 'icon-thumbnail');
 					?>
 
 				</li>
+				<?php if ($page == 'intranet2' && $page1 == 'house' && $page2 == 'houselist') { ?>
+					<li class="<?= ($page == 'intranet2' && $page1 == 'house' && $page2 == 'houselist') ? 'submenu-active' : '' ?>">
+
+						<?php
+						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+						echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tlint2["int2_menu"]["int2m3"]);
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html -> addTag('span', text_clipping_lower($tlint2["int2_menu"]["int2m3"]), 'icon-thumbnail');
+						?>
+
+					</li>
+				<?php } ?>
 				<li class="<?= ($page == 'intranet2' && $page1 == 'house' && $page2 == 'newhouse') ? 'submenu-active' : '' ?>">
 
 					<?php
@@ -57,7 +69,7 @@ if ($page1 == 'search_db') {
 
 				</li>
 				<?php if ($page == 'intranet2' && $page1 == 'house' && $page2 == 'edithouse') { ?>
-					<li class="<?= ($page == 'intranet' && $page1 == 'house' && $page2 == 'edithouse') ? 'submenu-active' : '' ?>">
+					<li class="<?= ($page == 'intranet2' && $page1 == 'house' && $page2 == 'edithouse') ? 'submenu-active' : '' ?>">
 
 						<?php
 						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

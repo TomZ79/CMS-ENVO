@@ -605,4 +605,33 @@ function write_mysql_log ($remote_addr, $request_uri, $user_host, $houseeditID, 
 	}
 }
 
+/**
+ * Multiple delimiters in explode
+ *
+ * @param $delimiters
+ * @param $string
+ * @return array
+ *
+ * @call $exploded = multiexplode(array(',','.','|',':'),$string);
+ */
+function multiexplode ($delimiters, $string)
+{
+	$ready  = str_replace($delimiters, $delimiters[0], $string);
+	$launch = explode($delimiters[0], $ready);
+	return $launch;
+}
+
+/**
+ * Simple slug function
+ * @param $data
+ * @return mixed|string
+ */
+function simpleslug ($string)
+{
+	$data_slug = trim($string, ' ');
+	$search    = array ('/', '\\', ':', ';', '!', '@', '#', '$', '%', '^', '*', '(', ')', '_', '=', '{', '}', '[', ']', '"', "'", '<', '>', '?', '~', '`', '&', '.');
+	$data_slug = str_replace($search, ',', $data_slug);
+	return $data_slug;
+}
+
 ?>

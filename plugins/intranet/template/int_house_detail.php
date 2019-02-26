@@ -52,7 +52,6 @@
           <span class="text">Videogalerie</span>
         </a>
       </li>
-
     </ul>
 
     <div class="tab-content" style="padding-top: 20px;">

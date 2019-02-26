@@ -19,7 +19,7 @@
 echo PHP_EOL . "\t";
 echo '<!-- Start CSS INTRANET2 Plugin -->';
 
-if ($page == 'intranet2' && $page1 == 'house' && $page2 == '') {
+if ($page == 'intranet2' && $page1 == 'house' && $page2 == 'houselist') {
 
 	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 	// Plugin DataTable

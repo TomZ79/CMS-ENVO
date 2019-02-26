@@ -1,6 +1,24 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
+/**
+ * @description Check if key is null
+ * @param $var
+ * @return string
+ */
+function nonzero($var){
+	$i = '0';
+	foreach ($var as $v) {
+		if ($v["int2analytics"] == '1') {
+			$i++;
+		}
+	}
+
+	return $i;
+}
+?>
+
+<?php
 // EN: The data was successfully stored in DB
 // CZ: Data byla úspěšně uložena do DB
 if ($page2 == "s") { ?>
@@ -231,7 +249,67 @@ if ($page2 == "e") { ?>
 			</div>
 			<div class="tab-pane fade" id="cmsPage2" role="tabpanel">
 				<div class="row">
+					<div class="col-sm-6">
+						<div class="box box-success">
+							<div class="box-header with-border">
 
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
+								echo 'Přístupová práva';
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => 'Stiskněte a držte <br>klávesu CTRL nebo SHIFT <br>pro výběr více položek', 'data-original-title' => 'Nápověda'));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html -> endTag('h3');
+								?>
+
+							</div>
+							<div class="box-body">
+								<div class="block">
+									<div class="block-content">
+										<p>Přístupová práva jednotlivých uživatelů podle uživatelské skupiny do frontend rozhraní analýzy bytových domů.</p>
+										<div class="row-form">
+											<div class="col-sm-12">
+												<select name="envo_permission[]" multiple="multiple" class="form-control" size="10">
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = (empty($ENVO_SETTING_PERMISSION) || empty(nonzero($ENVO_SETTING_PERMISSION))) ? TRUE : FALSE;
+
+													echo $Html -> addOption('0', 'Žádná skupina', $selected);
+													if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
+
+														if (isset($ENVO_SETTING_PERMISSION) && is_array($ENVO_SETTING_PERMISSION)) foreach ($ENVO_SETTING_PERMISSION as $ep) {
+
+															if ($v["id"] == $ep["id"]) {
+
+																// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																$selected = ($ep["int2analytics"] == '1') ? TRUE : FALSE;
+
+																echo $Html -> addOption($v["id"], $v["name"], $selected);
+															}
+
+														}
+
+													}
+													?>
+
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box-footer">
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+								?>
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="tab-pane fade" id="cmsPage3" role="tabpanel">

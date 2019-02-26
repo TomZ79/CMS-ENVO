@@ -1,33 +1,39 @@
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_header.php'; ?>
 
-<div class="col-sm-12">
-	<div class="grid simple">
-		<div class="grid-body no-border padding-30">
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card">
 
 			<?php
 			if (!empty($ENVO_NOTIFICATION_DETAIL) && is_array($ENVO_NOTIFICATION_DETAIL)) {
-				foreach ($ENVO_NOTIFICATION_DETAIL as $ndetail) {
+			foreach ($ENVO_NOTIFICATION_DETAIL
 
-					echo '<h3 class="all-caps">' . $ndetail["name"] . '</h3>';
-					echo '<div class="m-b-30"><strong>Datum zadání: </strong><i>' . $ndetail["created"] . '</i></div>';
-					echo '<div>' . $ndetail["content"] . '</div>';
-					echo '<div class="m-t-30">';
-					echo '<form method="post" action="' . $_SERVER["REQUEST_URI"] . '">';
+			as $ndetail) { ?>
 
+			<div class="card-header">
+				<h3 class="card-title font-weight-semibold"><?= $ndetail["name"] ?></h3>
+			</div>
+
+			<div class="card-body">
+				<p><strong>Datum: </strong><i><?= $ndetail["created"] ?></i></p>
+				<p><?= $ndetail["content"] ?></p>
+				<form method="post" action="<?= $_SERVER["REQUEST_URI"] ?>">
+
+					<?php
 					if ($ndetail["unread"] == 0) {
 
 						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-						echo $Html -> addButtonSubmit('btnRead', 'Označit jako přečtené', '', 'btn btn-success btn-sm pull-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+						echo $Html -> addButtonSubmit('btnRead', 'Označit jako přečtené', '', 'btn bg-teal-400 float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
 
 					}
+					?>
 
-					echo '</form>';
-					echo '</div>';
+				</form>
 
-				}
-			}
-			?>
+				<?php }
+				} ?>
 
+			</div>
 		</div>
 	</div>
 </div>

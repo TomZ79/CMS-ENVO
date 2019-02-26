@@ -23,7 +23,6 @@ function envo_get_house_info ($table1, $table2, $ext_seo, $usergroupid, $filter1
 
 	// EN: SQL Query
 	// CZ: SQL Dotaz
-	// $result = $envodb -> query('SELECT t1.*, t2.city FROM ' . $table1 . ' t1 LEFT JOIN ' . $table2 . ' t2 ON t1.city = t2.id ' . $sql . ' ORDER BY t1.id ASC');
 	$result = $envodb -> query('SELECT 
 																		t1.*,
 																		t2.city_name
@@ -567,6 +566,152 @@ function envo_extension_icon ($filename)
 			break;
 		default:
 			return FALSE;
+	}
+}
+
+
+/**
+ * Perform a simple text replace
+ * This should be used when the string does not contain HTML
+ * (off by default)
+ */
+define('STR_HIGHLIGHT_SIMPLE', 1);
+
+/**
+ * Only match whole words in the string
+ * (off by default)
+ */
+define('STR_HIGHLIGHT_WHOLEWD', 2);
+
+/**
+ * Case sensitive matching
+ * (off by default)
+ */
+define('STR_HIGHLIGHT_CASESENS', 4);
+
+/**
+ * Overwrite links if matched
+ * This should be used when the replacement string is a link
+ * (off by default)
+ */
+define('STR_HIGHLIGHT_STRIPLINKS', 8);
+
+/**
+ * Highlight a string in text without corrupting HTML tags
+ *
+ * @author      Aidan Lister <aidan@php.net>
+ * @version     3.1.1
+ * @link        http://aidanlister.com/2004/04/highlighting-a-search-string-in-html-text/
+ * @param       string $text         Haystack - The text to search
+ * @param       array|string $needle Needle - The string to highlight
+ * @param       bool $options        Bitwise set of options
+ * @param       array $highlight     Replacement string
+ * @return      Text with needle highlighted
+ */
+function str_highlight ($text, $needle, $class = null, $options = null, $highlight = null)
+{
+	$needle = explode(',', $needle);
+
+	// Default highlighting
+	if ($highlight === null) {
+		if ($class === null) {
+			$highlight = '<strong>\1</strong>';
+		} else {
+			$highlight = '<span class="' . $class . '">\1</span>';
+		}
+	}
+
+	// Select pattern to use
+	if ($options & STR_HIGHLIGHT_SIMPLE) {
+		$pattern    = '#(%s)#';
+		$sl_pattern = '#(%s)#';
+	} else {
+		$pattern    = '#(?!<.*?)(%s)(?![^<>]*?>)#';
+		$sl_pattern = '#<a\s(?:.*?)>(%s)</a>#';
+	}
+
+	// Case sensitivity
+	if (!($options & STR_HIGHLIGHT_CASESENS)) {
+		$pattern    .= 'i';
+		$sl_pattern .= 'i';
+	}
+
+	$needle = (array)$needle;
+	foreach ($needle as $needle_s) {
+		$needle_s = preg_quote($needle_s);
+
+		// Escape needle with optional whole word check
+		if ($options & STR_HIGHLIGHT_WHOLEWD) {
+			$needle_s = '\b' . $needle_s . '\b';
+		}
+
+		// Strip links
+		if ($options & STR_HIGHLIGHT_STRIPLINKS) {
+			$sl_regex = sprintf($sl_pattern, $needle_s);
+			$text     = preg_replace($sl_regex, '\1', $text);
+		}
+
+		$regex = sprintf($pattern, $needle_s);
+		$text  = preg_replace($regex, $highlight, $text);
+	}
+
+	return $text;
+}
+
+/**
+ * Multiple delimiters in explode
+ *
+ * @param $delimiters
+ * @param $string
+ * @return array
+ *
+ * @call $exploded = multiexplode(array(',','.','|',':'),$string);
+ */
+function multiexplode ($delimiters, $string)
+{
+	$ready  = str_replace($delimiters, $delimiters[0], $string);
+	$launch = explode($delimiters[0], $ready);
+	return $launch;
+}
+
+/**
+ * Simple slug function
+ * @param $data
+ * @return mixed|string
+ */
+function simpleslug ($string)
+{
+	$data_slug = trim($string, ' ');
+	$search    = array ('/', '\\', ':', ';', '!', '@', '#', '$', '%', '^', '*', '(', ')', '_', '=', '{', '}', '[', ']', '"', "'", '<', '>', '?', '~', '`', '&', '.');
+	$data_slug = str_replace($search, ',', $data_slug);
+	return $data_slug;
+}
+
+/**
+ * EN: Check if row exist and user has permission to see it!
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @return bool
+ *
+ */
+function envo_analytics_access ($envovar)
+{
+	global $envodb;
+	$result = $envodb -> query('SELECT int2analytics FROM ' . DB_PREFIX . 'usergroup WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
+	if ($envodb -> affected_rows === 1) {
+		$row = $result -> fetch_assoc();
+		if ($row['int2analytics'] == 1 || $envovar == 3) {
+			return TRUE;
+		}
+	} else {
+		return FALSE;
 	}
 }
 

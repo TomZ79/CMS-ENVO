@@ -16,8 +16,8 @@
 /** 01. Automatic page load progress bar
  * @require: Pace.js Plugin
  ========================================================================*/
-
 $(function () {
+  'use strict';
 
 	Pace.on('done', function () {
 		// Animate Background
@@ -55,7 +55,7 @@ $.AdminEnvo.options = {
  * options above.
  */
 $(function () {
-	"use strict";
+  'use strict';
 
 	// Easy access to options
 	var o = $.AdminEnvo.options;
@@ -324,7 +324,6 @@ $(function () {
  * @require: without external plugin
  ========================================================================*/
 (function ($) {
-
 	'use strict';
 
 	// Initializes search overlay plugin.
@@ -1299,19 +1298,15 @@ $('.cms-help').popover({
 
 /* 00. Counter trigger
  ======================================================================== */
-// Run script after Pace is done
-Pace.on('done', function () {
-	if ($('.counter').length) {
-		$('.counter').each(function (index, val) {
-			var $this = $(this);
-			if ($(window).width() > 1024) {
-				$this.html(0);
-				increment($this);
-			}
-		});
-
-	}
-});
+if ($('.counter').length) {
+  $('.counter').each(function (index, val) {
+    var $this = $(this);
+    if ($(window).width() > 1024) {
+      $this.html(0);
+      increment($this);
+    }
+  });
+}
 
 /* Counter Increment */
 function increment (obj) {

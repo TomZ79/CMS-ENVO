@@ -246,7 +246,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
-        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `' . $pluginname . '` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+        $envodb -> query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `' . $pluginname . '` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `int2analytics` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `' . $pluginname . '`');
 
         // EN: Insert data to table 'categories' (create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
@@ -476,7 +476,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `ares` int(1) NOT NULL DEFAULT 0,
   `justice` int(1) NOT NULL DEFAULT 0,
   `housejusticelaw` text NULL DEFAULT NULL,
-  `housedescription` varchar(255) NULL DEFAULT NULL,
+  `housedescription` text NULL DEFAULT NULL,
   `mainemail` varchar(255) NULL DEFAULT NULL,
   `contactcontrol` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `housefname` varchar(255) NULL DEFAULT NULL,
@@ -488,6 +488,8 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `estatemanagement` int(5) NOT NULL DEFAULT 0,
   `folder` varchar(100) NULL DEFAULT NULL,
+  `blacklist` int(1) NOT NULL DEFAULT 0,
+  `blacklistdesc` varchar(500) NULL DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   PRIMARY KEY (`id`)

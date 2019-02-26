@@ -35,8 +35,6 @@ if ($page == '') {
 <script>
 
 // Run script after Pace is done
-Pace.on('done', function() {
-
   var envochart;
   var envochart1;
   
@@ -174,7 +172,6 @@ Pace.on('done', function() {
     }]
   });
   
-});
 </script>
 EOT;
 

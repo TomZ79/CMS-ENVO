@@ -29,6 +29,7 @@ $envotable7  = DB_PREFIX . 'int2_housenotifications';
 $envotable8  = DB_PREFIX . 'int2_housenotificationug';
 $envotable20 = DB_PREFIX . 'int2_settings_city';
 $envotable21 = DB_PREFIX . 'int2_settings_ku';
+$envotable22 = DB_PREFIX . 'int2_settings_district';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -103,7 +104,7 @@ switch ($page1) {
 							// EN:
 							// CZ:
 							if (!empty($defaults['envo_house_cuzk_city'])) {
-								$result   = $envodb -> query('SELECT city_name, city_cuzk_code FROM ' . $envotable20 . ' WHERE id = "' . smartsql($defaults['envo_house_cuzk_city']) . '" LIMIT 1 ');
+								$result       = $envodb -> query('SELECT city_name, city_cuzk_code FROM ' . $envotable20 . ' WHERE id = "' . smartsql($defaults['envo_house_cuzk_city']) . '" LIMIT 1 ');
 								$envocuzkcity = $result -> fetch_assoc();
 							}
 
@@ -188,6 +189,8 @@ Složka domu:   				' . $pathfolder . '
                         administrationdate = "' . $admtime . '",
                         housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
                         folder = "' . $pathfolder . '",
+                        blacklist = "' . smartsql($defaults['envo_houseblacklist']) . '",
+                        blacklistdesc = "' . smartsql($defaults['envo_houseblacklistdesc']) . '",
                         created = "' . smartsql($defaults['envo_created']) . '",
                         updated = "' . smartsql($defaults['envo_created']) . '"');
 
@@ -217,12 +220,12 @@ Složka domu:   				' . $pathfolder . '
 								// EN: Write to log
 								// CZ: Zápis dat do logu
 								// Get IP address
-								if( ($remote_addr = $_SERVER['REMOTE_ADDR']) == '') {
+								if (($remote_addr = $_SERVER['REMOTE_ADDR']) == '') {
 									$remote_addr = "REMOTE_ADDR_UNKNOWN";
 								}
 
 								// Get requested script
-								if( ($request_uri = $_SERVER['REQUEST_URI']) == '') {
+								if (($request_uri = $_SERVER['REQUEST_URI']) == '') {
 									$request_uri = "REQUEST_URI_UNKNOWN";
 								}
 
@@ -248,18 +251,20 @@ Složka domu:   				' . $pathfolder . '
 
 				// EN: Getting the data about the city
 				// CZ: Získání dat o městech
-				$envocity = envo_get_region('', 'id, city_name, city_cuzk_code', $envotable20, 'city_name ASC', 1);
-
-				// Convert multidimensional array into single array
-				$ENVO_CITY = [];
-				foreach ($envocity as $ec) {
-					$ENVO_CITY[] = array (
-						'id'             => $ec['id'],
-						'city_name'      => $ec['city_name'],
-						'city_cuzk_code' => $ec['city_cuzk_code'],
-					);
+				$envocity = $envodb -> query('SELECT 
+                                        t1.*,
+                                        t2.district_name
+                                      FROM
+                                        ' . $envotable20 . ' t1
+                                      LEFT JOIN 
+                                        ' . $envotable22 . ' t2
+                                          ON t1.district_id = t2.id
+                                        ORDER BY t1.city_name ASC');
+				while ($rowcity = $envocity -> fetch_assoc()) {
+					// EN: Insert each record into array
+					// CZ: Vložení získaných dat do pole
+					$ENVO_CITY[] = $rowcity;
 				}
-
 				// EN: Getting the data about the katastrální území
 				// CZ: Získání dat o katastrálních území
 				$resultku = $envodb -> query('SELECT 
@@ -419,6 +424,8 @@ Složka domu:   				' . $pathfolder . '
                         administrationdate = "' . $admtime . '",
                         housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
                         mainemail = "' . smartsql($defaults['envo_houseemail']) . '",
+                        blacklist = "' . smartsql($defaults['envo_houseblacklist']) . '",
+                        blacklistdesc = "' . smartsql($defaults['envo_houseblacklistdesc']) . '",
                         created = "' . smartsql($defaults['envo_created']) . '",
                         updated = NOW()
                         WHERE id = "' . smartsql($pageID) . '"');
@@ -466,12 +473,12 @@ Složka domu:   				' . $pathfolder . '
 									// EN: Write to log
 									// CZ: Zápis dat do logu
 									// Get IP address
-									if( ($remote_addr = $_SERVER['REMOTE_ADDR']) == '') {
+									if (($remote_addr = $_SERVER['REMOTE_ADDR']) == '') {
 										$remote_addr = "REMOTE_ADDR_UNKNOWN";
 									}
 
 									// Get requested script
-									if( ($request_uri = $_SERVER['REQUEST_URI']) == '') {
+									if (($request_uri = $_SERVER['REQUEST_URI']) == '') {
 										$request_uri = "REQUEST_URI_UNKNOWN";
 									}
 
@@ -501,16 +508,19 @@ Složka domu:   				' . $pathfolder . '
 
 					// EN: Getting the data about the city
 					// CZ: Získání dat o městech
-					$envocity = envo_get_region('', 'id, city_name, city_cuzk_code', $envotable20, 'city_name ASC', 1);
-
-					// Convert multidimensional array into single array
-					$ENVO_CITY = [];
-					foreach ($envocity as $ec) {
-						$ENVO_CITY[] = array (
-							'id'             => $ec['id'],
-							'city_name'      => $ec['city_name'],
-							'city_cuzk_code' => $ec['city_cuzk_code'],
-						);
+					$envocity = $envodb -> query('SELECT 
+                                        t1.*,
+                                        t2.district_name
+                                      FROM
+                                        ' . $envotable20 . ' t1
+                                      LEFT JOIN 
+                                        ' . $envotable22 . ' t2
+                                          ON t1.district_id = t2.id
+                                        ORDER BY t1.city_name ASC');
+					while ($rowcity = $envocity -> fetch_assoc()) {
+						// EN: Insert each record into array
+						// CZ: Vložení získaných dat do pole
+						$ENVO_CITY[] = $rowcity;
 					}
 
 					// EN: Getting the data about the katastrální území
@@ -721,12 +731,200 @@ Složka domu:   				' . $pathfolder . '
 				}
 
 				break;
-			default:
+			case 'houselist':
 				// HOUSE LIST
 
-				// EN: Getting the data about the Houses
-				// CZ: Získání dat o bytových domech
-				$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20);
+				switch ($page3) {
+					case 'city':
+						// HOUSE LIST - RECORDS BY CITY
+
+						// EN: Default Variable
+						// CZ: Hlavní proměnné
+						$pageID = $page4;
+
+						if (is_numeric($pageID) && envo_row_exist($pageID, $envotable20)) {
+
+							// EN: Getting the data about the Houses by usergroupid
+							// CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
+							$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20, 't1.city = ' . $pageID);
+
+							// EN: Breadcrumbs activation
+							// CZ: Aktivace Breadcrumbs
+							$BREADCRUMBS = TRUE;
+
+							// EN: Title and Description
+							// CZ: Titulek a Popis
+							$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
+							$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d7"];
+
+							// EN: Load the php template
+							// CZ: Načtení php template (šablony)
+							$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+						} else {
+
+							envo_redirect($backtoplugin);
+
+						}
+
+						break;
+					case 'estatemanagement':
+						// HOUSE LIST - RECORDS BY ESTATEMANAGEMENT
+
+						// EN: Default Variable
+						// CZ: Hlavní proměnné
+						$pageID = $page4;
+
+						if (is_numeric($pageID) && envo_row_exist($pageID, $envotable1)) {
+
+							// EN: Getting the data about the Houses by usergroupid
+							// CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
+							$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20, 't1.estatemanagement = ' . $pageID);
+
+							// EN: Breadcrumbs activation
+							// CZ: Aktivace Breadcrumbs
+							$BREADCRUMBS = TRUE;
+
+							// EN: Title and Description
+							// CZ: Titulek a Popis
+							$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
+							$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d7"];
+
+							// EN: Load the php template
+							// CZ: Načtení php template (šablony)
+							$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+						} else {
+
+							envo_redirect($backtoplugin);
+
+						}
+
+						break;
+					case 'livesearch':
+						// HOUSE LIST - RECORDS BY SEARCH
+
+						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+							// EN: Default Variable
+							// CZ: Hlavní proměnné
+							$defaults = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+							// EN: Getting the data about the Houses
+							// CZ: Získání dat o bytových domech
+							$search = $defaults['searchtext'];
+							// Slug by charatcter maps
+							$search_slug = simpleslug($search);
+							// Create array by multiexplode function
+							$search_list = multiexplode(array (',', ', ', '|', ':', '+', '-', ' '), $search_slug);
+							$string_impl = implode(',', $search_list);
+							$sql         = '';
+							if (count($search_list) >= 1) {
+								for ($i = 0; $i < count($search_list); $i++) {
+									if ($i == 0) {
+										$sql = 't1.name LIKE "%' . $search_list[0] . '%" ';
+									} else {
+										$sql .= 'AND t1.name LIKE "%' . $search_list[$i] . '%" ';
+									}
+								}
+							}
+
+							$result = $envodb -> query('SELECT
+																		t1.*,
+																		t2.city_name
+																	FROM
+																		' . $envotable . ' t1
+																	LEFT JOIN 
+																		' . $envotable20 . ' t2
+																			ON t1.city = t2.id
+																	WHERE ' . $sql . ' COLLATE utf8_czech_ci 
+																	ORDER BY t1.id ASC');
+
+							while ($row = $result -> fetch_assoc()) {
+
+								// EN: Insert each record into array
+								// CZ: Vložení získaných dat do pole
+								$ENVO_HOUSE_ALL[] = array (
+									'id'         => $row['id'],
+									'name'       => $row['name'],
+									'street'     => $row['street'],
+									'city_name'  => $row['city_name'],
+									'ic'         => $row['ic'],
+									'searchtext' => $string_impl
+								);
+							}
+
+						}
+
+						// EN: Breadcrumbs activation
+						// CZ: Aktivace Breadcrumbs
+						$BREADCRUMBS = TRUE;
+
+						// EN: Title and Description
+						// CZ: Titulek a Popis
+						$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
+						$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d7"];
+
+						// EN: Load the php template
+						// CZ: Načtení php template (šablony)
+						$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+						break;
+					default:
+						// HOUSE LIST - ALL RECORDS
+
+						// ----------- ERROR: REDIRECT PAGE ------------
+						// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+						// EN: If not exist value in 'case', redirect page to 404
+						// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+						if (!empty($page3)) {
+							if ($page3 != 'city' || $page3 != 'estatemanagement' || $page3 != 'livesearch') {
+								envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+							}
+						}
+
+						// EN: Getting the data about the Houses
+						// CZ: Získání dat o bytových domech
+						$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20);
+
+						// EN: Breadcrumbs activation
+						// CZ: Aktivace Breadcrumbs
+						$BREADCRUMBS = TRUE;
+
+						// EN: Title and Description
+						// CZ: Titulek a Popis
+						$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
+						$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d7"];
+
+						// EN: Load the php template
+						// CZ: Načtení php template (šablony)
+						$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+				}
+				break;
+			default:
+				// HOUSE SEARCHING
+
+				// ----------- ERROR: REDIRECT PAGE ------------
+				// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+				// EN: If not exist value in 'case', redirect page to 404
+				// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+				if (!empty($page2)) {
+					if ($page2 != 'newhouse' || $page2 != 'edithouse' || $page2 != 'delete' || $page2 != 'houselist') {
+						envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+					}
+				}
+
+				// EN: Getting the data about the Období výstavby domu
+				// CZ: Získání dat o Období výstavby domu
+				$result = $envodb -> query('SELECT * FROM ' . $envotable1);
+				while ($row = $result -> fetch_assoc()) {
+					// EN: Insert each record into array
+					// CZ: Vložení získaných dat do pole
+					$ENVO_MANAGEMENT[] = $row;
+				}
+
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
@@ -776,19 +974,21 @@ Složka domu:   				' . $pathfolder . '
 			case 'ares':
 				// SEARCH ARES
 
-
 				// EN: Getting the data about the city
 				// CZ: Získání dat o městech
-				$envocity = envo_get_region('', 'id, city_name, city_cuzk_code', $envotable20, 'city_name ASC', 1);
-
-				// Convert multidimensional array into single array
-				$ENVO_CITY = [];
-				foreach ($envocity as $ec) {
-					$ENVO_CITY[] = array (
-						'id'             => $ec['id'],
-						'city_name'      => $ec['city_name'],
-						'city_cuzk_code' => $ec['city_cuzk_code'],
-					);
+				$envocity = $envodb -> query('SELECT 
+                                        t1.*,
+                                        t2.district_name
+                                      FROM
+                                        ' . $envotable20 . ' t1
+                                      LEFT JOIN 
+                                        ' . $envotable22 . ' t2
+                                          ON t1.district_id = t2.id
+                                        ORDER BY t1.city_name ASC');
+				while ($rowcity = $envocity -> fetch_assoc()) {
+					// EN: Insert each record into array
+					// CZ: Vložení získaných dat do pole
+					$ENVO_CITY[] = $rowcity;
 				}
 
 				// EN: Title and Description
@@ -805,16 +1005,19 @@ Složka domu:   				' . $pathfolder . '
 
 				// EN: Getting the data about the city
 				// CZ: Získání dat o městech
-				$envocity = envo_get_region('', 'id, city_name, city_cuzk_code', $envotable20, 'city_name ASC', 1);
-
-				// Convert multidimensional array into single array
-				$ENVO_CITY = [];
-				foreach ($envocity as $ec) {
-					$ENVO_CITY[] = array (
-						'id'             => $ec['id'],
-						'city_name'      => $ec['city_name'],
-						'city_cuzk_code' => $ec['city_cuzk_code'],
-					);
+				$envocity = $envodb -> query('SELECT 
+                                        t1.*,
+                                        t2.district_name
+                                      FROM
+                                        ' . $envotable20 . ' t1
+                                      LEFT JOIN 
+                                        ' . $envotable22 . ' t2
+                                          ON t1.district_id = t2.id
+                                        ORDER BY t1.city_name ASC');
+				while ($rowcity = $envocity -> fetch_assoc()) {
+					// EN: Insert each record into array
+					// CZ: Vložení získaných dat do pole
+					$ENVO_CITY[] = $rowcity;
 				}
 
 				// EN: Title and Description
@@ -1164,6 +1367,29 @@ Složka domu:   				' . $pathfolder . '
 					// CZ: Přesměrování stránky
 					envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=setting&status=e');
 				} else {
+
+					// EN: Set permissions for Analytics
+					// CZ: Nastavení přístupových práv do analýzy
+					if (!isset($defaults['envo_permission'])) {
+
+						$envodb -> query('UPDATE ' . DB_PREFIX . 'usergroup SET
+                        int2analytics = "0"');
+
+					} elseif (in_array(0, $defaults['envo_permission'])) {
+
+						$envodb -> query('UPDATE ' . DB_PREFIX . 'usergroup SET
+                        int2analytics = "0"');
+
+					} else {
+
+						$permission = join(',', $defaults['envo_permission']);
+						$envodb -> query('UPDATE ' . DB_PREFIX . 'usergroup SET
+                        int2analytics = "0"');
+						$envodb -> query('UPDATE ' . DB_PREFIX . 'usergroup SET
+                        int2analytics = "1"
+                        WHERE id IN (' . $permission . ')');
+					}
+
 					// EN: Redirect page
 					// CZ: Přesměrování stránky
 					envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=setting&status=s');
@@ -1177,6 +1403,16 @@ Složka domu:   				' . $pathfolder . '
 		// EN: Import important settings for the template from the DB
 		// CZ: Importuj důležité nastavení pro šablonu z DB
 		$ENVO_SETTING = envo_get_setting('intranet2');
+
+		// EN: Get all usergroup's for active plugin
+		// CZ:
+		$ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet2');
+
+		// Get permission for Analytics
+		$result = $envodb -> query('SELECT id, name, int2analytics FROM ' . DB_PREFIX . 'usergroup');
+		while ($row = $result -> fetch_assoc()) {
+			$ENVO_SETTING_PERMISSION[] = $row;
+		}
 
 		// EN: Import important settings for the template from the DB (only VALUE)
 		// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)

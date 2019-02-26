@@ -67,6 +67,15 @@ echo $Html -> addDoctype('html5');
 		// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 		echo $Html -> addStylesheet('assets/css/style.min.css');
 		?>
+		<style>
+			button:disabled,
+			button[disabled]{
+				background-color: #CCC !important;
+				border-color: #CCC !important;
+				color: #000 !important;
+				cursor: no-drop;
+			}
+		</style>
 
 		<!--[if lte IE 9]>
 		<link href="pages/css/ie9.css" rel="stylesheet" type="text/css"/>

@@ -68,6 +68,9 @@ if (!function_exists('array_group_by')) {
 // Group data by the "gender" key
 $ENVO_KU = array_group_by($ENVO_KU, 'city_name');
 
+// Group data by the key
+$ENVO_CITY = array_group_by($ENVO_CITY, 'district_name');
+
 ?>
 
 <?php
@@ -299,20 +302,40 @@ if ($errors) { ?>
 														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 														echo $Html -> addOption('', '', $selected);
 
-														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
 
-															if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
-																if (isset($_REQUEST["envo_housecity"]) && ($c["id"] == $_REQUEST["envo_housecity"])) {
-																	$selected = TRUE;
-																} else {
-																	$selected = FALSE;
+														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) {
+															foreach ($ENVO_CITY as $keydistrict => $districtitem) {
+
+																foreach ($districtitem as $item) {
+																	// Get District ID from first item - is same for all items
+																	$districtid = $item["district_id"];
+																	// Break loop after first iteration
+																	break;
 																}
-															} else {
-																$selected = FALSE;
+
+																// to know what's in $item
+																echo '<optgroup label="Okres ' . $keydistrict . '" data-district_name="' . $keydistrict . '" data-district_id="' . $districtid . '">';
+
+																foreach ($districtitem as $c) {
+
+																	if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
+																		if (isset($_REQUEST["envo_housecity"]) && ($c["id"] == $_REQUEST["envo_housecity"])) {
+																			$selected = TRUE;
+																		} else {
+																			$selected = FALSE;
+																		}
+																	} else {
+																		$selected = FALSE;
+																	}
+
+																	// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																	echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_id' => $c["id"], 'data-city_name' => $c["city_name"], 'data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+																}
+
+																echo '</optgroup>';
+
 															}
-
-															echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
-
 														}
 														?>
 
@@ -820,20 +843,39 @@ if ($errors) { ?>
 														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 														echo $Html -> addOption('', '', $selected);
 
-														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
+														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) {
+															foreach ($ENVO_CITY as $keydistrict => $districtitem) {
 
-															if (isset($_REQUEST["envo_house_cuzk_city"]) && ($_REQUEST["envo_house_cuzk_city"] != '0')) {
-																if (isset($_REQUEST["envo_house_cuzk_city"]) && ($c["id"] == $_REQUEST["envo_house_cuzk_city"])) {
-																	$selected = TRUE;
-																} else {
-																	$selected = FALSE;
+																foreach ($districtitem as $item) {
+																	// Get District ID from first item - is same for all items
+																	$districtid = $item["district_id"];
+																	// Break loop after first iteration
+																	break;
 																}
-															} else {
-																$selected = FALSE;
+
+																// to know what's in $item
+																echo '<optgroup label="Okres ' . $keydistrict . '" data-district_name="' . $keydistrict . '" data-district_id="' . $districtid . '">';
+
+																foreach ($districtitem as $c) {
+
+																	if (isset($_REQUEST["envo_house_cuzk_city"]) && ($_REQUEST["envo_house_cuzk_city"] != '0')) {
+																		if (isset($_REQUEST["envo_house_cuzk_city"]) && ($c["id"] == $_REQUEST["envo_house_cuzk_city"])) {
+																			$selected = TRUE;
+																		} else {
+																			$selected = FALSE;
+																		}
+																	} else {
+																		$selected = FALSE;
+																	}
+
+																	// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																	echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_id' => $c["id"], 'data-city_name' => $c["city_name"], 'data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+																}
+
+																echo '</optgroup>';
+
 															}
-
-															echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
-
 														}
 														?>
 
@@ -921,7 +963,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html -> addInput('text', 'envo_house_cuzk_objcode', (isset($_REQUEST["envo_house_cuzk_objcode"]) ? $_REQUEST["envo_house_cuzk_objcode"] : ''), '', 'form-control', array ('readonly' => 'readonly'));
+													echo $Html -> addInput('text', 'envo_house_cuzk_objcode', (isset($_REQUEST["envo_house_cuzk_objcode"]) ? $_REQUEST["envo_house_cuzk_objcode"] : ''), '', 'form-control');
 													?>
 
 												</div>
@@ -1386,6 +1428,69 @@ if ($errors) { ?>
 													?>
 
 												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box-footer">
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								?>
+
+							</div>
+						</div>
+						<div class="box box-success">
+							<div class="box-header with-border">
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html -> addTag('h3', 'Blacklist', 'box-title');
+								?>
+
+							</div>
+							<div class="box-body">
+								<div class="block">
+									<div class="block-content">
+										<div class="row-form">
+											<div class="col-sm-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Umístění v blacklistu');
+												?>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="radio radio-success">
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html -> addRadio('envo_houseblacklist', '1', ((isset($_REQUEST["envo_houseblacklist"]) && $_REQUEST["envo_houseblacklist"] == '1')) ? TRUE : FALSE, 'envo_houseblacklist1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html -> addLabel('envo_houseblacklist1', $tl["checkbox"]["chk"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html -> addRadio('envo_houseblacklist', '0', ((isset($_REQUEST["envo_houseblacklist"]) && $_REQUEST["envo_houseblacklist"] == '0') || !isset($_REQUEST["envo_houseblacklist"])) ? TRUE : FALSE, 'envo_houseblacklist2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html -> addLabel('envo_houseblacklist2', $tl["checkbox"]["chk1"]);
+													?>
+
+												</div>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-sm-12">
+
+												<?php
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('', '<strong>Důvod umístění na blacklistu</strong>', array ('class' => 'm-b-10'));
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html -> addTextarea('envo_houseblacklistdesc', (isset($_REQUEST["envo_houseblacklistdesc"]) ? isset($_REQUEST["envo_houseblacklistdesc"]) : ''), '4', '', array ('class' => 'form-control'));
+												?>
+
 											</div>
 										</div>
 									</div>

@@ -1,5 +1,75 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
+<?php
+
+if (!function_exists('array_group_by')) {
+	/**
+	 * Groups an array by a given key.
+	 *
+	 * Groups an array into arrays by a given key, or set of keys, shared between all array members.
+	 *
+	 * Based on {@author Jake Zatecky}'s {@link https://github.com/jakezatecky/array_group_by array_group_by()} function.
+	 * This variant allows $key to be closures.
+	 *
+	 * www: https://gist.github.com/mcaskill/baaee44487653e1afc0d
+	 *
+	 * @param array $array The array to have grouping performed on.
+	 * @param mixed $key,... The key to group or split by. Can be a _string_,
+	 *                       an _integer_, a _float_, or a _callable_.
+	 *
+	 *                       If the key is a callback, it must return
+	 *                       a valid key from the array.
+	 *
+	 *                       If the key is _NULL_, the iterated element is skipped.
+	 *
+	 *                       ```
+	 *                       string|int callback ( mixed $item )
+	 *                       ```
+	 *
+	 * @return array|null Returns a multidimensional array or `null` if `$key` is invalid.
+	 */
+	function array_group_by(array $array, $key)
+	{
+		if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
+			trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
+			return null;
+		}
+		$func = (!is_string($key) && is_callable($key) ? $key : null);
+		$_key = $key;
+		// Load the new array, splitting by the target key
+		$grouped = [];
+		foreach ($array as $value) {
+			$key = null;
+			if (is_callable($func)) {
+				$key = call_user_func($func, $value);
+			} elseif (is_object($value) && isset($value ->{$_key})) {
+				$key = $value ->{$_key};
+			} elseif (isset($value[$_key])) {
+				$key = $value[$_key];
+			}
+			if ($key === null) {
+				continue;
+			}
+			$grouped[$key][] = $value;
+		}
+		// Recursively build a nested grouping if more parameters are supplied
+		// Each grouped array value is grouped according to the next sequential key
+		if (func_num_args() > 2) {
+			$args = func_get_args();
+			foreach ($grouped as $key => $value) {
+				$params        = array_merge([ $value ], array_slice($args, 2, func_num_args()));
+				$grouped[$key] = call_user_func_array('array_group_by', $params);
+			}
+		}
+		return $grouped;
+	}
+}
+
+// Group data by the key
+$ENVO_CITY = array_group_by($ENVO_CITY, 'district_name');
+
+?>
+
 	<div id="loadingdata" style="min-height: 100%;position: absolute;z-index: 10;top: 0;left: 0;min-width: 100%;padding-left: 7px;background-color: rgba(255, 255, 255, 0.9);display: none;align-items: center;justify-content: center;"></div>
 
 	<div class="card card-default" id="card-help">
@@ -234,11 +304,31 @@
 										// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 										echo $Html -> addOption();
 
-										if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
+										if (isset($ENVO_CITY) && is_array($ENVO_CITY)) {
+											foreach ($ENVO_CITY as $keydistrict => $districtitem) {
 
-											echo $Html -> addOption($c["city_cuzk_code"], $c["city_name"], '', '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
+												foreach ($districtitem as $item) {
+													// Get District ID from first item - is same for all items
+													$districtid = $item["district_id"];
+													// Break loop after first iteration
+													break;
+												}
 
+												// to know what's in $item
+												echo '<optgroup label="Okres ' . $keydistrict . '" data-district_name="' . $keydistrict . '" data-district_id="' . $districtid . '">';
+
+												foreach ($districtitem as $c) {
+
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html -> addOption($c["city_cuzk_code"], $c["city_name"], '', '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+												}
+
+												echo '</optgroup>';
+
+											}
 										}
+
 										?>
 
 									</select>

@@ -258,7 +258,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
       <!-- END MINI-PROFILE -->
       <!-- BEGIN SIDEBAR MENU -->
       <p class="menu-title sm">MENU </p>
-      <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_nav.php'; ?>
+      <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_nav.php'; ?>
       <div class="clearfix"></div>
       <!-- END SIDEBAR MENU -->
     </div>

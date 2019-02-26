@@ -18,6 +18,7 @@
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   $('.sortable').nestedSortable({
     // Nested Sortable config
@@ -64,10 +65,11 @@ $(function () {
  ========================================================================*/
 
 $(function () {
+  'use strict';
 
   $('.save-menu').on('click', function () {
-    mlist = $(this).data('menu');
-    serialized = $('#' + mlist).nestedSortable('serialize');
+    var mlist = $(this).data('menu');
+    var serialized = $('#' + mlist).nestedSortable('serialize');
 
     /* Sending the form fileds to any post request: */
     var request = $.ajax({

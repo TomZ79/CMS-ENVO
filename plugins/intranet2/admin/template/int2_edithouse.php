@@ -68,6 +68,9 @@ if (!function_exists('array_group_by')) {
 // Group data by the "gender" key
 $ENVO_KU = array_group_by($ENVO_KU, 'city_name');
 
+// Group data by the key
+$ENVO_CITY = array_group_by($ENVO_CITY, 'district_name');
+
 ?>
 
 <?php
@@ -128,6 +131,17 @@ if ($errors) { ?>
     }, 1000);
 	</script>
 <?php } ?>
+
+<?php
+
+if ($ENVO_FORM_DATA["blacklist"] == '1') {
+	echo '<div class="alert alert-danger" role="alert">
+					<button class="close" data-dismiss="alert"></button>
+					<strong>Varování: </strong>Bytový dům je umístěn na blacklistu. Důvod umístění je uveden na kartě "Správa".
+				</div>';
+}
+
+?>
 
 <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
 	<!-- Fixed Button for save form -->
@@ -364,11 +378,31 @@ if ($errors) { ?>
 													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 													echo $Html -> addOption('', '', $selected);
 
-													if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
+													if (isset($ENVO_CITY) && is_array($ENVO_CITY)) {
+														foreach ($ENVO_CITY as $keydistrict => $districtitem) {
 
-														echo $Html -> addOption($c["id"], $c["city_name"], ($c["id"] == $ENVO_FORM_DATA["city"]) ? TRUE : FALSE, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
+															foreach ($districtitem as $item) {
+																// Get District ID from first item - is same for all items
+																$districtid = $item["district_id"];
+																// Break loop after first iteration
+																break;
+															}
 
+															// to know what's in $item
+															echo '<optgroup label="Okres ' . $keydistrict . '" data-district_name="' . $keydistrict . '" data-district_id="' . $districtid . '">';
+
+															foreach ($districtitem as $c) {
+
+																// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																echo $Html -> addOption($c["id"], $c["city_name"], ($c["id"] == $ENVO_FORM_DATA["city"]) ? TRUE : FALSE, '', '', array ('data-city_id' => $c["id"], 'data-city_name' => $c["city_name"], 'data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+															}
+
+															echo '</optgroup>';
+
+														}
 													}
+
 													?>
 
 												</select>
@@ -861,11 +895,31 @@ if ($errors) { ?>
 													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
 													echo $Html -> addOption('', '', $selected);
 
-													if (isset($ENVO_CITY) && is_array($ENVO_CITY)) foreach ($ENVO_CITY as $c) {
+													if (isset($ENVO_CITY) && is_array($ENVO_CITY)) {
+														foreach ($ENVO_CITY as $keydistrict => $districtitem) {
 
-														echo $Html -> addOption($c["id"], $c["city_name"], ($c["id"] == $ENVO_FORM_DATA["cuzk_city"]) ? TRUE : FALSE, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
+															foreach ($districtitem as $item) {
+																// Get District ID from first item - is same for all items
+																$districtid = $item["district_id"];
+																// Break loop after first iteration
+																break;
+															}
 
+															// to know what's in $item
+															echo '<optgroup label="Okres ' . $keydistrict . '" data-district_name="' . $keydistrict . '" data-district_id="' . $districtid . '">';
+
+															foreach ($districtitem as $c) {
+
+																// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																echo $Html -> addOption($c["id"], $c["city_name"], ($c["id"] == $ENVO_FORM_DATA["cuzk_city"]) ? TRUE : FALSE, '', '', array ('data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+															}
+
+															echo '</optgroup>';
+
+														}
 													}
+
 													?>
 
 												</select>
@@ -940,7 +994,7 @@ if ($errors) { ?>
 
 												<?php
 												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-												echo $Html -> addInput('text', 'envo_house_cuzk_objcode', $ENVO_FORM_DATA["cuzk_objcode"], '', 'form-control', array ('readonly' => 'readonly'));
+												echo $Html -> addInput('text', 'envo_house_cuzk_objcode', $ENVO_FORM_DATA["cuzk_objcode"], '', 'form-control');
 												?>
 
 											</div>
@@ -1369,6 +1423,69 @@ if ($errors) { ?>
 												?>
 
 											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="box-footer">
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							?>
+
+						</div>
+					</div>
+					<div class="box box-success">
+						<div class="box-header with-border">
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h3', 'Blacklist', 'box-title');
+							?>
+
+						</div>
+						<div class="box-body">
+							<div class="block">
+								<div class="block-content">
+									<div class="row-form">
+										<div class="col-sm-5">
+
+											<?php
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html -> addTag('strong', 'Umístění v blacklistu');
+											?>
+
+										</div>
+										<div class="col-sm-7">
+											<div class="radio radio-success">
+
+												<?php
+												// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+												echo $Html -> addRadio('envo_houseblacklist', '1', ($ENVO_FORM_DATA["blacklist"] == '1') ? TRUE : FALSE, 'envo_houseblacklist1');
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('envo_houseblacklist1', $tl["checkbox"]["chk"]);
+
+												// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+												echo $Html -> addRadio('envo_houseblacklist', '0', ($ENVO_FORM_DATA["blacklist"] == '0') ? TRUE : FALSE, 'envo_houseblacklist2');
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('envo_houseblacklist2', $tl["checkbox"]["chk1"]);
+												?>
+
+											</div>
+										</div>
+									</div>
+									<div class="row-form">
+										<div class="col-sm-12">
+
+											<?php
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html -> addLabel('', '<strong>Důvod umístění na blacklistu</strong>', array ('class' => 'm-b-10'));
+											// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+											echo $Html -> addTextarea('envo_houseblacklistdesc', $ENVO_FORM_DATA["blacklistdesc"], '4', '', array ('class' => 'form-control'));
+											?>
+
 										</div>
 									</div>
 								</div>

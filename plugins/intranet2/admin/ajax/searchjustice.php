@@ -36,7 +36,7 @@ define('REFRESH_TIME', 3600 * 24 * $n_day);
 // Path for cache files
 define('TMP_PATH', APP_PATH . 'plugins/intranet2/admin/tmp/');
 // Define http JUSTICE
-define('JUSTICE', 'https://or.justice.cz/ias/ui/rejstrik-$firma?p%3A%3Asubmit=x&.%2Frejstrik-%24firma=&nazev=spo&ico=&obec=' . urlencode($justice_obec) . '&ulice=' . $justice_ulice . '+' . $justice_corientacni . '%2F' . $justice_cpopisne . '&forma=&oddil=&vlozka=&soud=&polozek=' . $justice_maxcount . '&typHledani=CONTAINS&jenPlatne=' . $justice_filtr);
+define('JUSTICE', 'https://or.justice.cz/ias/ui/rejstrik-$firma?p%3A%3Asubmit=x&.%2Frejstrik-%24firma=&nazev=spol&ico=&obec=' . urlencode($justice_obec) . '&ulice=' . $justice_ulice . '+' . $justice_corientacni . '%2F' . $justice_cpopisne . '&forma=&oddil=&vlozka=&soud=&polozek=' . $justice_maxcount . '&typHledani=CONTAINS&jenPlatne=' . $justice_filtr);
 // Set locale cached file
 $localFile = TMP_PATH . 'justice.preloaded.' . md5($justice_maxcount . $justice_filtr . $justice_obec . $justice_ulice . $justice_corientacni . $justice_cpopisne) . '.tmp';
 
@@ -104,6 +104,7 @@ if ($file) {
 		// Use DomXPath
 		$xpath = new DomXPath($dom);
 
+		/*
 		$parentNode1 = $xpath -> query('//h2[contains(text(),"Počet")]/span') -> item(0);
 		$count_data  = $parentNode1 -> nodeValue;
 
@@ -112,12 +113,22 @@ if ($file) {
 
 		$parentNode3 = $xpath -> query('//th[contains(text(),"IČO")]/following-sibling::td') -> item(0);
 		$ico         = $parentNode3 -> nodeValue;
+		*/
+
+		$parentNode2 = $xpath -> query('//th[contains(text(),"subjekt")][1]/following-sibling::td[1]');
+		$parentNode3 = $xpath -> query('//th[contains(text(),"IČO")][1]/following-sibling::td[1]');
 
 
-		$data_array = array (
-			'ojm' => trim($ojm),
-			'ico' => trim($ico)
-		);
+		$i = 0;
+		foreach ($parentNode2 as $item2) {
+			$item3          = $parentNode3 -> item($i) -> nodeValue;
+			$data_array[$i] = array (
+				'ojm' => trim($item2 -> nodeValue),
+				'ico' => trim($item3),
+			);
+			$i++;
+		}
+		$count_data = $i;
 
 		$envodata = array (
 			'status'      => 'upload_success',
