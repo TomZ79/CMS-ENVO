@@ -120,14 +120,14 @@ if ($('#htmleditor').length) {
 /**
  * @description Jquery Function - Get GPS Coordinates from OpenStreeMaps
  * @callaction
- * $('#elementID').click(getGPS_Data);
+ * $('#elementID').click(getGPS_Data_OSM);
  */
-function getGPS_Data (event) {
+function getGPS_Data_OSM (event) {
   // Stop, the default action of the event will not be triggered
   event.preventDefault();
 
   if (debug) {
-    console.log('----------- fn getGPS_Data -----------')
+    console.log('----------- fn getGPS_Data_OSM -----------')
   }
 
   // Disable 'button'
@@ -216,7 +216,7 @@ function getGPS_Data (event) {
         }, 8000);
 
         // Change 'attr' in anchor
-        $('#' + parent + ' .gps_link a.mapycz').attr('href', 'http://www.mapy.cz/#q=' + wgslat + '%2C' + wgslon);
+        $('#' + parent + ' .gps_link a.mapycz').attr('href', 'https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat);
         $('#' + parent + ' .gps_link a.openstreet').attr('href', 'https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon);
         $('#' + parent + ' .ikatastrlink a.ikatastr').attr('href', ikatastr);
 
@@ -473,7 +473,7 @@ $(function () {
   /**
    * @description   Get GPS Coordinates from OpenStreeMaps
    */
-  $('.getgps').click(getGPS_Data);
+  $('.getgps').click(getGPS_Data_OSM);
 
   /**
    * @description   Get GPS Coordinates from OpenStreeMaps
@@ -679,7 +679,7 @@ $(function () {
       error: function (jqXHR, textStatus, errorThrown) {
 
         // Loading data progress
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-2" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-3" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
 
         if (debug) {
           console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
@@ -718,6 +718,10 @@ $(function () {
     var converter = new JTSK_Converter();
     // Ajax time
     var ajaxTime = new Date().getTime();
+
+    if (debug) {
+      console.log('Data for Ajax => streettrim: ' + streettrim + ' / citytrim: ' + citytrim);
+    }
 
     // Ajax
     $.ajax({
@@ -1250,19 +1254,25 @@ $(function () {
   /**
    *
    */
-  $('#testgps').click(function (e) {
+  $('#testgps_osm').click(function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #testgps click -----------');
+      console.log('----------- fn #Testgps_osm click -----------');
     }
 
     // Get value
-    var street = $.trim($('input[name="envo_housestreet"]').val()).replace(/\s/g, '+');
-    var city = $.trim($('select[name="envo_housecity"]').find(':selected').data('city_name')).replace(/\s/g, '+');
+    var street = $('input[name="envo_housestreet"]').val();
+    var streettrim = $.trim(street).replace(/\s\s+/g, '+');
+    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
+    var citytrim = $.trim(city).replace(/\s\s+/g, '+');
     // Ajax time
     var ajaxTime = new Date().getTime();
+
+    if (debug) {
+      console.log('Testgps_osm Click fn | Adress: ' + street + ', ' + city);
+    }
 
     // Ajax
     $.ajax({
@@ -1270,29 +1280,102 @@ $(function () {
       type: 'POST',
       dataType: 'json',
       data: {
-        street: street,
-        city: city
+        street: streettrim,
+        city: citytrim
       },
       cache: false,
       // Timeout 20s
       timeout: 20000,
       beforeSend: function () {
 
-        // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">GPS</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
-
-
       },
       success: function (data) {
+
+        // Get variable
+        var wgslat = data['data'].lat;
+        var wgslon = data['data'].lon;
 
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         if (debug) {
           console.log('ajaxTime | Success Time: ' + totalTime);
+          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
         }
 
-        // Loading data progress
-        $('#loadingdata').hide().html('');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        if (debug) {
+          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+        }
+      },
+      complete: function () {
+
+      }
+    });
+
+  });
+
+  /**
+   *
+   */
+  $('#testgps_mapy').click(function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #Testgps_mapy click -----------');
+    }
+
+    // Get value
+    var street = $('input[name="envo_housestreet"]').val();
+    var streettrim = $.trim(street).replace(/\s\s+/g, '+');
+    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
+    var citytrim = $.trim(city).replace(/\s\s+/g, '+');
+    // Ajax time
+    var ajaxTime = new Date().getTime();
+
+    if (debug) {
+      console.log('Testgps_mapy Click fn | Adress: ' + street + ', ' + city);
+    }
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/gpscoordinates_mapy.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        street: streettrim,
+        city: citytrim
+      },
+      cache: false,
+      // Timeout 20s
+      timeout: 20000,
+      beforeSend: function () {
+
+      },
+      success: function (data) {
+
+        // Parse JSON data
+        var str = JSON.stringify(data);
+        var result = JSON.parse(str);
+
+        var wgslat, wgslon = '';
+
+        // Get variable
+        $.each(data.data, function (item) {
+
+          console.log (data.data[item]);
+
+          wgslat = data.data[item].y;
+          wgslon = data.data[item].x;
+
+        });
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('ajaxTime | Success Time: ' + totalTime);
+          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+        }
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -2436,7 +2519,7 @@ $(function () {
             $('#' + DataDialog + ' input[name="envo_entstreet"]').val(entranceval);
 
             // Init function
-            $('.getgps').click(getGPS_Data);
+            $('.getgps').click(getGPS_Data_OSM);
             $('#getkatastrlink').click(getiKatastr_Link);
 
           }
@@ -2561,7 +2644,7 @@ $(function () {
             $('#entDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
 
             // Init function
-            $('.getgps').click(getGPS_Data);
+            $('.getgps').click(getGPS_Data_OSM);
             $('#getkatastrlink').click(getiKatastr_Link);
           }
 
@@ -2738,6 +2821,8 @@ $(function () {
 
     // Storing $(this) in a variable
     var $this = $(this);
+    // Disable 'button'
+    $this.attr('disabled', true);
     // Getting parent 'id'
     var parent = $this.parents(':eq(3)').attr('id');
     // Get value
@@ -2803,7 +2888,9 @@ $(function () {
                     '<table class="table table-hover table-condensed">' +
                     '<caption style="caption-side: top;">' +
                     '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
-                    '' +
+                    '<a href="https://mapy.cz/zakladni?x=' + data["gpslng"] + '&y=' + data["gpslat"] + '&z=18&l=0&source=coor&id=' + data["gpslng"] + '%2C' + data["gpslat"] + '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>' +
+                    '<span class="m-l-10 m-r-10">|</span>' +
+                    '<a href="https://www.openstreetmap.org/?mlat=' + data["gpslat"] + '&amp;mlon=12.7325868&amp;zoom=16#map=18/' + data["gpslat"] + '/12.7325868" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>' +
                     '</caption>' +
                     '<tbody>' +
                     '<tr>' +
@@ -2857,9 +2944,6 @@ $(function () {
             $('#ent_' + dataID + ' .editEnt').click(openDialogEditEnt);
             $('#ent_' + dataID + ' .deleteEnt').click(confirmDeleteEnt);
 
-            // Disable 'button'
-            $this.attr('disabled', true);
-
             // Notification
             // Apply the plugin to the container
             $('#ent_notify_add').pgNotification({
@@ -2873,9 +2957,6 @@ $(function () {
 
           } else {
             // IF DATA ERROR
-
-            // Disable 'button'
-            $this.attr('disabled', true);
 
             // Notification
             // Apply the plugin to the container
@@ -4150,7 +4231,6 @@ $(function () {
 
                 $.each(value, function (key1, value1) {
                   divdata += '<tr><td>' + value1.ico + '</td><td>' + value1.ojm + '</td><td>' + value1.jmn + '</td></tr>';
-
                 });
 
               }
@@ -4203,7 +4283,7 @@ $(function () {
         error: function (jqXHR, textStatus, errorThrown) {
 
           // Loading data progress
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="color: #C10000; font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span></div></div>');
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-3" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
 
           if (debug) {
             console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
@@ -4407,7 +4487,7 @@ $(function () {
         error: function (jqXHR, textStatus, errorThrown) {
 
           // Loading data progress
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="color: #C10000; font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span></div></div>');
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-3" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
 
           if (debug) {
             console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);

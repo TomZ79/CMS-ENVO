@@ -75,6 +75,9 @@ echo $Html -> addDoctype('html5');
 				color: #000 !important;
 				cursor: no-drop;
 			}
+			code {
+				font-size: 1em;
+			}
 		</style>
 
 		<!--[if lte IE 9]>

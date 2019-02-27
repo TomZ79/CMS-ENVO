@@ -131,12 +131,13 @@ if ($file) {
 		$count_data = $i;
 
 		$envodata = array (
-			'status'      => 'upload_success',
-			'status_msg'  => 'JUSTICE: Vyhledávání bylo ÚSPĚŠNÉ a data byla stažena',
-			'status_info' => '',
-			'http'        => JUSTICE,
-			'count_data'  => $count_data,
-			'data'        => $data_array
+			'status'        => 'upload_success',
+			'status_msg'    => 'JUSTICE: Vyhledávání bylo ÚSPĚŠNÉ a data byla stažena',
+			'status_info'   => '',
+			'tmp_directory' => TMP_PATH,
+			'http'          => JUSTICE,
+			'count_data'    => $count_data,
+			'data'          => $data_array
 		);
 	}
 

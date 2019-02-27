@@ -103,6 +103,7 @@ if ($file) {
 				'status'        => 'upload_success',
 				'status_msg'    => 'ARES: Vyhledávání bylo ÚSPĚŠNÉ a data byla stažena',
 				'status_info'   => '',
+				'tmp_directory' => TMP_PATH,
 				'http'          => ARES,
 				'search_string' => $searchstring,
 				'count_data'    => $count_data,

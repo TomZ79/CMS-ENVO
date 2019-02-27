@@ -583,18 +583,21 @@ function folder_exist ($folder)
 	return ($path !== false AND is_dir($path)) ? $path : false;
 }
 
-function write_mysql_log ($remote_addr, $request_uri, $user_host, $houseeditID, $housenewID)
+//function write_mysql_log ($remote_ipaddr, $request_uri, $user_host, $user_agent, $houseeditID, $housenewID)
+function write_mysql_log ($user_host, $remote_ipaddr, $request_uri, $user_agent, $user_action, $houseeditID, $housenewID)
 {
 	global $envodb;
 
 	// EN: SQL Query
 	// CZ: SQL Dotaz
 	$result = $envodb -> query('INSERT INTO ' . DB_PREFIX . 'int2_houselog SET 
-                        remote_addr = "' . smartsql($remote_addr) . '",
-                        request_uri = "' . smartsql($request_uri) . '",
-                        houseedit_id = "' . smartsql($houseeditID) . '",
-                        housenew_id = "' . smartsql($housenewID) . '",
-                        user_host = "' . smartsql($user_host) . '"');
+                        user_host 		= "' . smartsql($user_host) . '",
+                        remote_ipaddr = "' . smartsql($remote_ipaddr) . '",
+                      	request_uri 	= "' . smartsql($request_uri) . '",
+                        user_agent 		= "' . smartsql($user_agent) . '",
+                        user_action 		= "' . smartsql($user_action) . '",
+                        houseedit_id 	= "' . smartsql($houseeditID) . '",
+                        housenew_id 	= "' . smartsql($housenewID) . '"');
 
 	// $rowid = $envodb -> envo_last_id();
 

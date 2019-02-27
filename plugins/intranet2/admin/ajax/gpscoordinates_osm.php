@@ -20,10 +20,15 @@ header('Content-Type: application/json;charset=utf-8');
 // PHP CODE and DB
 //-------------------------
 // Define basic variable
-$street     = filter_var($_REQUEST['street'], FILTER_SANITIZE_STRING);
-$city       = filter_var($_REQUEST['city'], FILTER_SANITIZE_STRING);
-$envodata   = array ();
-$data_array = array ();
+$street        = filter_var($_REQUEST['street'], FILTER_SANITIZE_STRING);
+$city          = filter_var($_REQUEST['city'], FILTER_SANITIZE_STRING);
+$envodata      = array ();
+$data_array    = array ();
+$data_allarray = array ();
+$searchstring  = array (
+	'street' => $street,
+	'city'   => $city,
+);
 
 // Refresh time in cache
 $n_day = 60;
@@ -84,6 +89,8 @@ if ($file) {
 	$json = json_decode($file, true);
 	if ($json) {
 
+		$data_allarray = $json;
+
 		$data_array = array (
 			'lat' => $json[0]['lat'],
 			'lon' => $json[0]['lon'],
@@ -94,6 +101,9 @@ if ($file) {
 			'status_msg'    => 'GPS OSM: Vyhledávání bylo ÚSPĚŠNÉ a data byla stažena',
 			'status_info'   => '',
 			'tmp_directory' => TMP_PATH,
+			'http'          => OSM,
+			'search_string' => $searchstring,
+			'data_all'      => $data_allarray,
 			'data'          => $data_array
 		);
 

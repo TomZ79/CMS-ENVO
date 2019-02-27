@@ -656,8 +656,10 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_houselog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_host` mediumtext NOT NULL,
-  `remote_addr` varchar(255) NOT NULL DEFAULT \'\',
+  `remote_ipaddr` varchar(255) NOT NULL DEFAULT \'\',
   `request_uri` varchar(255) NOT NULL DEFAULT \'\',
+  `user_agent` varchar(255) NOT NULL DEFAULT NULL,
+  `user_action` varchar(100) NOT NULL DEFAULT NULL,
   `houseedit_id` int(10) DEFAULT NULL,
   `housenew_id` int(10) DEFAULT NULL,
   `log_date` timestamp NOT NULL DEFAULT NOW(),

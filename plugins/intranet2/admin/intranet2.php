@@ -220,8 +220,13 @@ Složka domu:   				' . $pathfolder . '
 								// EN: Write to log
 								// CZ: Zápis dat do logu
 								// Get IP address
-								if (($remote_addr = $_SERVER['REMOTE_ADDR']) == '') {
-									$remote_addr = "REMOTE_ADDR_UNKNOWN";
+								if (($remote_ipaddr = $_SERVER['REMOTE_ADDR']) == '') {
+									$remote_ipaddr = "REMOTE_ADDR_UNKNOWN";
+								}
+
+								// Get User agent
+								if (($user_agent = $_SERVER['HTTP_USER_AGENT']) == '') {
+									$user_agent = "REMOTE_USERAGENT_UNKNOWN";
 								}
 
 								// Get requested script
@@ -229,7 +234,7 @@ Složka domu:   				' . $pathfolder . '
 									$request_uri = "REQUEST_URI_UNKNOWN";
 								}
 
-								write_mysql_log($remote_addr, $request_uri, ENVO_USERID, '', $rowid);
+								write_mysql_log(ENVO_USERID, $remote_ipaddr, $request_uri,  $user_agent, $page2, '', $rowid);
 
 								// EN: Redirect page
 								// CZ: Přesměrování stránky
@@ -351,6 +356,7 @@ Složka domu:   				' . $pathfolder . '
 				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
 					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
 						// EN: Default Variable
 						// CZ: Hlavní proměnné
 						$defaults = $_POST;
@@ -473,8 +479,13 @@ Složka domu:   				' . $pathfolder . '
 									// EN: Write to log
 									// CZ: Zápis dat do logu
 									// Get IP address
-									if (($remote_addr = $_SERVER['REMOTE_ADDR']) == '') {
-										$remote_addr = "REMOTE_ADDR_UNKNOWN";
+									if (($remote_ipaddr = $_SERVER['REMOTE_ADDR']) == '') {
+										$remote_ipaddr = "REMOTE_ADDR_UNKNOWN";
+									}
+
+									// Get User agent
+									if (($user_agent = $_SERVER['HTTP_USER_AGENT']) == '') {
+										$user_agent = "REMOTE_USERAGENT_UNKNOWN";
 									}
 
 									// Get requested script
@@ -482,7 +493,9 @@ Složka domu:   				' . $pathfolder . '
 										$request_uri = "REQUEST_URI_UNKNOWN";
 									}
 
-									write_mysql_log($remote_addr, $request_uri, ENVO_USERID, $pageID, '');
+									$resultC = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houselog SET  user_action = "edithouse" WHERE houseedit_id > 0 ');
+
+									write_mysql_log(ENVO_USERID, $remote_ipaddr, $request_uri,  $user_agent, $page2, $pageID, '');
 
 									// EN: Redirect page
 									// CZ: Přesměrování stránky

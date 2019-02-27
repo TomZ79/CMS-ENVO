@@ -67,6 +67,18 @@
 					</li>
 				</ul>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#programing">
+					<span class="title bold">Programování</span>
+				</a>
+				<ul class="sub-menu no-padding">
+					<li class="nav-item">
+						<a class="nav-link" href="#programing_mapycz">
+							<span class="title">Mapy.cz</span>
+						</a>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 </nav>
@@ -130,25 +142,49 @@
 
 	</section>
 
-	<!-- Vydledávání v DB -->
+	<!-- Vyhledávání v DB -->
 	<section id="searchindb" class="scrollspyoffset">
-		<h2 class="text-center">Vydledávání v DB</h2>
+		<h2 class="text-center">Vyhledávání v DB</h2>
 		<hr>
 
 	</section>
 
-	<!-- Vydledávání v DB - Ares -->
+	<!-- Vyhledávání v DB - Ares -->
 	<section id="searchindb_ares" class="scrollspyoffset">
 		<h4 class="m-t-50">Ares</h4>
 		<hr>
 
 	</section>
 
-	<!-- Vydledávání v DB - Justice -->
+	<!-- Vyhledávání v DB - Justice -->
 	<section id="searchindb_justice" class="scrollspyoffset">
 		<h4 class="m-t-50">Justice</h4>
 		<hr>
 
+	</section>
+
+	<!-- Programování -->
+	<section id="programing" class="scrollspyoffset">
+		<h2 class="text-center">Programování</h2>
+		<hr>
+
+	</section>
+
+	<!-- Mapy.cz -->
+	<section id="programing_mapycz" class="scrollspyoffset">
+		<h4 class="m-t-50">Mapy.cz</h4>
+		<hr>
+		<h5 class="semi-bold">Odkazy na mapové podklady</h5>
+		<p><strong>1.</strong> Základní odkaz</p>
+		<p><code class="font-normal">http://mapy.cz/zakladni?x=15&y=50&z=6&l=0</code></p>
+		<p>základní parametry:</p>
+		<ul>
+			<li><strong>zakladni</strong> – typ mapy (můžete použít také <strong>turisticka, cykloturisticka, dopravni, letni, zimni, fotografie, letecka, letecka-2006, letecka-2003</strong> a <strong>19stoleti</strong>)</li>
+			<li><strong>x=15</strong> – zeměpisná délka středu mapy ve stupních a (v anglickém formátu s tečkou namísto desetinné čárky: 15.12345)</li>
+			<li><strong>y=50</strong> – zeměpisná šířka středu mapy ve stupních</li>
+			<li><strong>z=6</strong> – míra přiblížení (3 až 16/19 podle typu mapy)</li>
+			<li><strong>l=0</strong> – nepovinný parametr pro skrytí postranního panelu</li>
+		</ul>
 	</section>
 
 </div>

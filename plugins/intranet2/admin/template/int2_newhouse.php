@@ -1028,7 +1028,8 @@ if ($errors) { ?>
 												<?php
 												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
 												echo $Html -> addButton('button', '', '<strong>1.</strong> Statistika', '', 'loadStatistic', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', 'Test GPS', '', 'testgps', 'btn btn-danger m-b-10');
+												echo $Html -> addButton('button', '', 'GPS OSM', '', 'testgps_osm', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', 'GPS MAPY.cz', '', 'testgps_mapy', 'btn btn-danger m-b-10');
 
 												?>
 

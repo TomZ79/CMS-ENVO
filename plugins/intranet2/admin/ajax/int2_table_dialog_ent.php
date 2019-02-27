@@ -32,7 +32,7 @@ if ($row["katastr"]) {
 }
 
 if ($row["gpslat"] && $row["gpslng"]) {
-	$mapycz = 'http://www.mapy.cz/#q=' . $row["gpslat"] . '%2C' . $row["gpslng"];
+	$mapycz = 'https://mapy.cz/zakladni?x=' . $row["gpslng"] . '&y=' . $row["gpslat"] . '&z=18&l=0&source=coor&id=' . $row["gpslng"] . '%2C' . $row["gpslat"];
 	$osm    = 'https://www.openstreetmap.org/?mlat=' . $row["gpslat"] . '&amp;mlon=' . $row["gpslng"] . '&amp;zoom=16#map=18/' . $row["gpslat"] . '/' . $row["gpslng"];
 } else {
 	$mapycz = '';

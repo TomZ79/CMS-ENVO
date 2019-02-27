@@ -934,7 +934,7 @@ switch ($page1) {
        * ===================================================== */
 			// EN: Get the data about delayed Task
 			// CZ: Získání dat o zpožděných Úkolech
-			$ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs3', $ENVO_SETTING_VAL['int2dateformat'], $ENVO_SETTING_VAL['int2timeformat']);
+			$ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs6', $ENVO_SETTING_VAL['int2dateformat'], $ENVO_SETTING_VAL['int2timeformat']);
 
 			// Count of all records
 			$ENVO_TASK_DELAY_COUNTS = $ENVO_HOUSE_TASK_DELAY['count_of_task'];
@@ -943,7 +943,7 @@ switch ($page1) {
 
 			// EN: Get the data about active Task
 			// CZ: Získání dat o aktivních Úkolech
-			$ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs3', $ENVO_SETTING_VAL['int2dateformat'], $ENVO_SETTING_VAL['int2timeformat']);
+			$ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs6', $ENVO_SETTING_VAL['int2dateformat'], $ENVO_SETTING_VAL['int2timeformat']);
 
 			// Count of all records
 			$ENVO_TASK_COUNTS = $ENVO_HOUSE_TASK['count_of_task'];

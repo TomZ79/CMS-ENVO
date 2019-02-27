@@ -1430,7 +1430,7 @@ $envodb -> query("INSERT INTO " . DB_PREFIX . "int2_settings_street VALUES
 /**
  * @description Add data to table 'int2_settings_ku'  - Katastrální území
  */
-// District (Okres) Karlovy Vary -> id=23 -> cuzkcode=3403
+// District (Okres) Karlovy Vary -> id=23 -> cuzkcode=3403  PART I
 $envodb -> query("INSERT INTO " . DB_PREFIX . "int2_settings_ku VALUES
 (1, 4, 51, 23, 3403, 1, 554979, 'Abertamy','600016'),
 (2, 4, 51, 23, 3403, 52, 555711, 'Albeřice u Hradiště','917923'),
@@ -1762,6 +1762,42 @@ $envodb -> query("INSERT INTO " . DB_PREFIX . "int2_settings_ku VALUES
 (327, 4, 51, 58, 3409, 78, 560499, 'Zlatá u Kynšperka nad Ohří', 678635),
 (328, 4, 51, 58, 3409, 62, 560294, 'Žitná u Březové', 670502)");
 
+// District (Okres) Karlovy Vary -> id=23 -> cuzkcode=3403  PART II
+$envodb -> query("INSERT INTO " . DB_PREFIX . "int2_settings_ku VALUES
+(350, 4, 51, 23, 3403, 13, 537918, 'Vysoká u Dalovic', 624608),
+(351, 4, 51, 23, 3403, 13, 537918, 'Všeborovice', 624594),
+(352, 4, 51, 23, 3403, 3, 554995, 'Vodná u Bečova nad Teplou', 601284),
+(353, 4, 51, 23, 3403, 4, 555029, 'Údrč', 772640),
+(354, 4, 51, 23, 3403, 19, 555177, 'Tureč u Hradiště', 990329),
+(355, 4, 51, 23, 3403, 19, 555177, 'Žďár u Hradiště', 990388),
+(356, 4, 51, 23, 3403, 10, 555207, 'Žďárek u Chyší', 655601),
+(357, 4, 51, 23, 3403, 27, 555347, 'Kyselka u Hradiště', 930024),
+(358, 4, 51, 23, 3403, 30, 555380, 'Vysoká Štola', 634549),
+(359, 4, 51, 23, 3403, 33, 555428, 'Vykmanov u Ostrova', 715841),
+(360, 4, 51, 23, 3403, 43, 555584, 'Stráž u Hradiště I', 929981),
+(361, 4, 51, 23, 3403, 43, 555584, 'Stráž u Hradiště II', 929999),
+(362, 4, 51, 23, 3403, 44, 555592, 'Žalmanov', 757284),
+(363, 4, 51, 23, 3403, 46, 555622, 'Zbraslav u Štědré', 791784),
+(364, 4, 51, 23, 3403, 49, 555681, 'Útvina', 775703),
+(365, 4, 51, 23, 3403, 50, 555690, 'Valeč u Hradiště', 992399),
+(366, 4, 51, 23, 3403, 50, 555690, 'Valeč v Čechách', 776581),
+(367, 4, 51, 23, 3403, 50, 555690, 'Velký Hlavákov', 688631),
+(368, 4, 51, 23, 3403, 51, 555703, 'Velichov', 777943),
+(369, 4, 51, 23, 3403, 52, 555711, 'Týniště', 780294),
+(370, 4, 51, 23, 3403, 52, 555711, 'Vahaneč', 780308),
+(371, 4, 51, 23, 3403, 52, 555711, 'Verušičky', 780316),
+(372, 4, 51, 23, 3403, 52, 555711, 'Záhoří u Verušiček', 780324),
+(373, 4, 51, 23, 3403, 53, 555738, 'Vojkovice nad Ohří', 784559),
+(374, 4, 51, 23, 3403, 53, 555738, 'Vojkovice u Hradiště I', 930008),
+(375, 4, 51, 23, 3403, 53, 555738, 'Vojkovice u Hradiště II', 930016),
+(376, 4, 51, 23, 3403, 56, 555762, 'Verušice', 797758),
+(377, 4, 51, 23, 3403, 56, 555762, 'Veselov', 780952),
+(378, 4, 51, 23, 3403, 56, 555762, 'Vladořice', 706957),
+(379, 4, 51, 23, 3403, 56, 555762, 'Záhořice', 706965),
+(380, 4, 51, 23, 3403, 56, 555762, 'Žlutice', 797766),
+(381, 4, 51, 23, 3403, 54, 566675, 'Vrbice u Valče', 785911),
+(382, 4, 51, 23, 3403, 55, 578029, 'Vysoká Pec u Nejdku', 702668),
+(383, 4, 51, 23, 3403, 26, 578045, 'Vrch', 673951)");
 
 /**
  * @description Add data to table 'int2_settings_building_structure' - Types of building structure construction (Druhy konstrukcí stavebního objektu)

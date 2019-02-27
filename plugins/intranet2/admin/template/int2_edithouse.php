@@ -1059,7 +1059,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 											<?php
 											// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
 											echo $Html -> addButton('button', '', '<strong>1.</strong> Statistika', '', 'loadStatistic', 'btn btn-danger m-b-10 m-r-10');
-											echo $Html -> addButton('button', '', 'Test GPS', '', 'testgps', 'btn btn-danger m-b-10');
+											echo $Html -> addButton('button', '', 'GPS OSM', '', 'testgps_osm', 'btn btn-danger m-b-10 m-r-10');
+											echo $Html -> addButton('button', '', 'GPS MAPY.cz', '', 'testgps_mapy', 'btn btn-danger m-b-10');
 
 											?>
 
@@ -1559,7 +1560,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 															// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 															echo $Html -> addTag('span', '<strong>GPS - Koordináty</strong>', 'm-r-20');
 															// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-															echo $Html -> addAnchor('http://www.mapy.cz/#q=' . $e["gpslat"] . '%2C' . $e["gpslng"], 'Zobrazit na Mapy.cz', '', 'mapycz', array ('target' => 'MapGPS'));
+															echo $Html -> addAnchor('https://mapy.cz/zakladni?x=' . $e["gpslng"] . '&y=' . $e["gpslat"] . '&z=18&l=0&source=coor&id=' . $e["gpslng"] . '%2C' . $e["gpslat"], 'Zobrazit na Mapy.cz', '', 'mapycz', array ('target' => 'MapGPS'));
 															// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 															echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
 															// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

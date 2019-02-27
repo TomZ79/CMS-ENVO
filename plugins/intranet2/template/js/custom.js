@@ -151,3 +151,32 @@ $(function () {
 
 });
 
+/** 00. Bootstrap 4: Keep selected tab on page refresh
+ ========================================================================*/
+
+$(function () {
+  'use strict';
+
+  $('#responsiveTabs a').click(function (event) {
+    event.preventDefault();
+    $(this).tab('show');
+  });
+
+  /**
+   * On load of the page: switch to the currently selected tab
+   * @type {string}
+   */
+  var hash = window.location.hash;
+  $('#responsiveTabs a[href="' + hash + '"]').tab('show');
+
+  /**
+   * Hash on clicking a tab
+   */
+  $(document).on('show.bs.tab', '#responsiveTabs [data-toggle="tab"]', function (event) {
+    // store the currently selected tab in the hash value
+    var id = $(event.target).attr('href').substr(1);
+    window.location.hash = id;
+
+  });
+});
+
