@@ -1,19 +1,14 @@
 /*
  * CMS ENVO
  * JS for Facebook Gallery - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Initialisation fo Fileinput Plugin
- * 02. Toggle list and grid view
- *
  */
 
-/** 01. Initialisation fo Fileinput Plugin
+/** INITIALISATION FILEINPUT
  * @require: FileInput Plugin
  ========================================================================*/
 
@@ -53,7 +48,7 @@ $(function () {
 });
 
 
-/** 02. Toggle list and grid view
+/** TOGGLE LIST AND GRID VIEW
  * @require: without external plugin
  ========================================================================*/
 

@@ -42,7 +42,7 @@ echo <<<EOT
 /*
  * CMS ENVO
  * PHP Generated javascript file with variable for external js files  - FRONTEND
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com

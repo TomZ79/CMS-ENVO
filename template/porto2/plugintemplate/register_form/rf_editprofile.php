@@ -86,7 +86,7 @@
 
                     </div>
                     <div class="col-md-4">
-                      <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="stuffR" name="stuffR">
+                      <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" id="stuffR" name="stuffR">
                     </div>
                   </div>
                 </form>
@@ -135,7 +135,7 @@
 
                     </div>
                     <div class="col-md-4">
-                      <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="email_passR" name="email_passR">
+                      <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" id="email_passR" name="email_passR">
                     </div>
                   </div>
                 </form>
@@ -166,7 +166,7 @@
                       </div>
                     </div>
 
-                    <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="avatarR" name="avatarR">
+                    <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" id="avatarR" name="avatarR">
                   </div>
                   <div class="row">
                     <h4 class="heading-primary text-uppercase mb-md">
@@ -215,7 +215,7 @@
                       </div>
                     </div>
 
-                    <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="avatarS" name="avatarS">
+                    <input type="submit" value="<?= $tlrf["rf_frontend_button"]["btn"] ?>" class="btn btn-primary pull-right mb-xl" id="avatarS" name="avatarS">
                   </div>
                 </form>
               </div>

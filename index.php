@@ -47,14 +47,14 @@ define('ENVO_PARSE_SUCCESS', html_entity_decode(ENVO_rewrite ::envoParseurl('suc
 
 // EN: Get the language file from the Hook by  name of Hook
 // CZ: Načtení jazykového souboru z Hook podle jména Hook
-$hooklang = $envohooks -> EnvoGethook("php_lang");
+$hooklang = $envohooks -> EnvoGethook('php_lang');
 if ($hooklang) foreach ($hooklang as $hlang) {
 	eval($hlang['phpcode']);
 }
 
 // EN: Get all the php Hook by name of Hook for 'index top'
 // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-$indexhook = $envohooks -> EnvoGethook("php_index_top");
+$indexhook = $envohooks -> EnvoGethook('php_index_top');
 if ($indexhook) {
 	foreach ($indexhook as $it) {
 		eval($it['phpcode']);

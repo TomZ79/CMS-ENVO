@@ -34,7 +34,7 @@
 		<h5><?= str_replace("%s", $ENVO_USERNAME, $tl["lpage_text"]["lpaget"]) ?></h5>
 
 		<div>
-			<a href="<?= $P_USR_LOGOUT ?>" class="btn btn-danger btn-block" data-loading-text="Odesílání...">
+			<a href="<?= $P_USR_LOGOUT ?>" class="btn btn-danger btn-block">
 				<?= $tl["button"]["btn9"] ?>
 			</a>
 		</div>

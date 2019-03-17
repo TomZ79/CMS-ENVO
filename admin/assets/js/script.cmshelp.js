@@ -1,19 +1,16 @@
 /*
  * CMS ENVO
  * JS for Help - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Search icons
- *
  */
 
 
-/** 01. Search icons
+/** SEARCH ICONS
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {

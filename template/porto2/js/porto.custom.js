@@ -190,27 +190,6 @@
 
 /*
  |--------------------------------------------------------------------------
- | DATA LOADING TEXT IN BUTTON
- |--------------------------------------------------------------------------
- */
-(function () {
-  // Button in form with validation (fix for email)
-  $("form").submit(function (e) {
-    if ($(this).valid()) {
-      var $btn = $(this).find('input[data-loading-text]');
-      $btn.button('loading');
-      return true;
-    }
-  });
-
-  // Anchor
-  $('a[data-loading-text]').click(function () {
-    $(this).button('loading');
-  });
-}());
-
-/*
- |--------------------------------------------------------------------------
  | NECESSARY CODE !!!
  | bootstrap3-showmanyslideonecarousel - v1.0.0 - 2015-03-27
  | https://github.com/rtpHarry/Bootstrap3-ShowManySlideOneCarousel

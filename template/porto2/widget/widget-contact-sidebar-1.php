@@ -53,7 +53,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<input type="submit" value="Odeslat zprávu" class="btn btn-primary mb-xl" data-loading-text="Odesílání...">
+				<input type="submit" value="Odeslat zprávu" class="btn btn-primary mb-xl">
 
 				<div class="alert alert-success hidden" id="contactSuccess">
 					<strong>Děkujeme!</strong> Vaše zpráva nám byla úspěšně odeslána. Budeme Vás kontaktovat co nejdříve.

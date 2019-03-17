@@ -38,6 +38,11 @@ $compress = 80;
 // Valid the valid file extensions
 $valid_extensions = array ('jpg', 'jpeg', 'png', 'gif');
 
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$envo_setting_val = envo_get_setting_val('intranet2');
+$dateformat       = $envo_setting_val['int2dateformat'];
+
 // Upload image, creating thumbnails and insert data to DB
 if (isset($_FILES['file'])) {
 	// Get the name of the file
@@ -276,21 +281,22 @@ if (isset($_FILES['file'])) {
 				$row1    = $result1 -> fetch_assoc();
 
 				$data_array[] = array (
-					'id'               => $row1["id"],
-					'shortdescription' => $row1["shortdescription"],
-					'description'      => $row1["description"],
-					'filenamethumb'    => $row1["filenamethumb"],
-					'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
-					'category'         => $row1["category"],
-					'exifmake'         => $row1["exifmake"],
-					'exifmodel'        => $row1["exifmodel"],
-					'exifsoftware'     => $row1["exifsoftware"],
-					'exifimagewidth'   => $row1["exifimagewidth"],
-					'exifimageheight'  => $row1["exifimageheight"],
-					'exiforientation'  => $row1["exiforientation"],
-					'exifcreatedate'   => $row1["exifcreatedate"],
-					'created'          => $row1["created"],
-					'updated'          => $row1["updated"],
+					'id'                    => $row1["id"],
+					'shortdescription'      => $row1["shortdescription"],
+					'description'           => $row1["description"],
+					'filenamethumb'         => $row1["filenamethumb"],
+					'filethumbpath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+					'category'              => $row1["category"],
+					'exifmake'              => $row1["exifmake"],
+					'exifmodel'             => $row1["exifmodel"],
+					'exifsoftware'          => $row1["exifsoftware"],
+					'exifimagewidth'        => $row1["exifimagewidth"],
+					'exifimageheight'       => $row1["exifimageheight"],
+					'exiforientation'       => $row1["exiforientation"],
+					'exifcreatedate'        => $row1["exifcreatedate"],
+					'exifcreatedate_format' => date($dateformat, strtotime($row1["exifcreatedate"])),
+					'created'               => $row1["created"],
+					'updated'               => $row1["updated"],
 				);
 
 				// Data for JSON

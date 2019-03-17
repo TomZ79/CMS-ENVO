@@ -92,10 +92,15 @@ if ($result) {
 						<strong>GPS - Koordináty</strong>
 					</div>
 					<div class="col-sm-8">
-						<div class="form-group m-0">
-							<a href="https://mapy.cz" class="mapycz" target="MapGPS">MAPY.cz</a>
+						<div class="float-left">
+							<a href="#" class="getgpsosm"><strong>GPS OSM</strong></a>
 							<span class="m-l-10 m-r-10">|</span>
-							<a href="#" class="getgps"><strong>Získat GPS z OpenStreetMap</strong></a>
+							<a href="#" class="getgpsmapycz"><strong>GPS MAPY.cz</strong></a>	
+						</div>
+						<div class="float-right" id="gpslink">
+							<a href="' . $mapycz . '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>
+							<span class="m-l-10 m-r-10">|</span>
+							<a href="' . $osm . '" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>
 						</div>
 					</div>
 				</div>
@@ -121,18 +126,7 @@ if ($result) {
 							</div>
 						</div>
 					</div>
-					<div class="row-form p-t-10 p-b-10">
-						<div class="col-sm-4">
-							<strong>GPS - Mapy</strong>
-						</div>
-						<div class="col-sm-8">
-							<div class="form-group m-0">
-								<a href="' . $mapycz . '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>
-								<span class="m-l-10 m-r-10">|</span>
-								<a href="' . $osm . '" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>
-							</div>
-						</div>
-					</div>
+					<div id="outputajaxdata_gps" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
 				</div>
 				<div class="clearfix">
 					<hr>
@@ -155,13 +149,14 @@ if ($result) {
 						</div>
 						<div class="col-sm-8">
 							<div class="form-group m-0 ikatastrlink">
-								<a href="' . $katastr . '" class="ikatastr" target="WindowKATASTR">Zobrazit informace z Katastru</a>
-								<span class="m-l-10 m-r-10">|</span>
 								<a href="#" id="getkatastrlink"><strong>Získat odkaz z GPS pozic</strong></a>
+								<span class="m-l-10 m-r-10">|</span>
+								<a href="' . $katastr . '" class="ikatastr" target="WindowKATASTR">Zobrazit informace z Katastru</a>
 							</div>
 						</div>
 					</div>
 				</div>
+			
 				<input type="hidden" name="envo_editentid" value="' . $row["id"] . '">
 				<!-- END CONTENT -->
 			</div>

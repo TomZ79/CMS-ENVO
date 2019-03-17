@@ -2,7 +2,7 @@
  * CMS ENVO
  * CSS Template - Admin Pages with custom modification
  * Override Pages default styles or create your own styles here
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Css Template: Pages v3.0.2
  * Theme : Default
@@ -293,7 +293,7 @@
   display: inline-block;
   font-size: 18px;
   margin: 0;
-  line-height: 1;
+  /* line-height: 1; */
 }
 .box-header > .fa,
 .box-header > .glyphicon,
@@ -887,37 +887,16 @@ select[disabled] {
  *  # Button  - modification
  * -----------------------------------------------------------------------*/
 /* Button for global Save form */
-.savebutton,
-.actionbutton {
+.actionbtn-block {
   position: fixed;
   right: 0;
   top: 71px;
   z-index: 690;
   background: #F0F0F0;
-  width: 220px;
+  /* width: 220px; */
   height: 50px;
 }
-.savebutton-small {
-  position: fixed;
-  right: 0;
-  top: 71px;
-  z-index: 690;
-  background: #F0F0F0;
-  width: 114px;
-  height: 50px;
-}
-.savebutton-medium {
-  position: fixed;
-  right: 0;
-  top: 71px;
-  z-index: 690;
-  background: #F0F0F0;
-  width: 145px;
-  height: 50px;
-}
-.savebutton .btn,
-.savebutton-small .btn,
-.savebutton-medium .btn {
+.actionbtn-block .btn {
   margin: 10px 17px;
   padding: 5px 10px;
   font-size: 12px;

@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/test.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/content_new_ent.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 ?>
@@ -99,15 +99,27 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 					</div>
 					<div class="col-sm-8">
-						<div class="form-group m-0">
+						<div class="float-left">
 
 							<?php
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-							echo $Html -> addAnchor('https://mapy.cz', 'MAPY.cz', '', 'mapycz', array ('target' => 'MapGPS'));
+							echo $Html -> addAnchor('#', '<strong>GPS OSM</strong>', '', 'getgpsosm');
 							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 							echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-							echo $Html -> addAnchor('#', '<strong>Získat GPS z OpenStreetMap</strong>', '', 'getgps');
+							echo $Html -> addAnchor('#', '<strong>GPS MAPY.cz</strong>', '', 'getgpsmapycz');
+							?>
+
+						</div>
+						<div class="float-right" id="gpslink" style="display: none;">
+
+							<?php
+							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+							echo $Html -> addAnchor('#', 'Zobrazit na Mapy.cz', '', 'mapycz', array ('target' => 'MapGPS'));
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
+							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+							echo $Html -> addAnchor('#', 'Zobrazit na OpenStreetMaps', '', 'openstreet', array ('target' => 'MapGPS'));
 							?>
 
 						</div>
@@ -165,28 +177,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 						</div>
 					</div>
 				</div>
-				<div class="row-form p-t-10 p-b-10 gps_link" style="display: none;">
-					<div class="col-sm-4">
-
-						<?php
-						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html -> addTag('strong', 'GPS - Mapy');
-						?>
-
-					</div>
-					<div class="col-sm-8">
-
-						<?php
-						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-						echo $Html -> addAnchor('#', 'Zobrazit na Mapy.cz', '', 'mapycz', array ('target' => 'MapGPS'));
-						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
-						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-						echo $Html -> addAnchor('#', 'Zobrazit na OpenStreetMaps', '', 'openstreet', array ('target' => 'MapGPS'));
-						?>
-
-					</div>
-				</div>
+				<div id="outputajaxdata_gps" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
 			</div>
 			<div class="clearfix">
 				<hr>
@@ -232,11 +223,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 							<?php
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-							echo $Html -> addAnchor('https://www.ikatastr.cz/', 'Zobrazit informace z Katastru', '', 'ikatastr', array ('target' => 'WindowKATASTR'));
+							echo $Html -> addAnchor('#', '<strong>Získat odkaz z GPS pozic</strong>', 'getkatastrlink', '');
 							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 							echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-							echo $Html -> addAnchor('#', '<strong>Získat odkaz z GPS pozic</strong>', 'getkatastrlink', '');
+							echo $Html -> addAnchor('https://www.ikatastr.cz/', 'Zobrazit informace z Katastru', '', 'ikatastr', array ('target' => 'WindowKATASTR'));
+
 							?>
 
 						</div>

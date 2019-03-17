@@ -32,14 +32,14 @@ if (!function_exists('array_group_by')) {
 	{
 		if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
 			trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
-			return null;
+			return NULL;
 		}
-		$func = (!is_string($key) && is_callable($key) ? $key : null);
+		$func = (!is_string($key) && is_callable($key) ? $key : NULL);
 		$_key = $key;
 		// Load the new array, splitting by the target key
 		$grouped = [];
 		foreach ($array as $value) {
-			$key = null;
+			$key = NULL;
 			if (is_callable($func)) {
 				$key = call_user_func($func, $value);
 			} elseif (is_object($value) && isset($value ->{$_key})) {
@@ -47,7 +47,7 @@ if (!function_exists('array_group_by')) {
 			} elseif (isset($value[$_key])) {
 				$key = $value[$_key];
 			}
-			if ($key === null) {
+			if ($key === NULL) {
 				continue;
 			}
 			$grouped[$key][] = $value;
@@ -321,7 +321,7 @@ $ENVO_CITY = array_group_by($ENVO_CITY, 'district_name');
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('', 'Vyhledat podle Adresy', '', 'btn btn-info ml-2 float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('', 'Vyhledat podle Adresy', '', 'btn btn-info ml-2 float-right');
 								?>
 
 							</div>

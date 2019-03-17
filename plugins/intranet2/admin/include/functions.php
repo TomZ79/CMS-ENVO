@@ -131,7 +131,7 @@ function envo_get_house_info ($table1, $table2, $filter1 = NULL)
  * @return array
  *
  */
-function envo_get_house_contact ($id, $table)
+function envo_get_house_contact ($id, $table, $dateformat)
 {
 
 	global $envodb;
@@ -140,10 +140,56 @@ function envo_get_house_contact ($id, $table)
 	// EN: SQL Query
 	// CZ: SQL Dotaz
 	$result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+
 	while ($row = $result -> fetch_assoc()) {
+		switch ($row['status']) {
+			case '0':
+				$status = 'Bez funkce';
+				break;
+			case '1':
+				$status = 'Předseda';
+				break;
+			case '2':
+				$status = 'Místopředseda';
+				break;
+			case '3':
+				$status = 'Člen výboru';
+				break;
+		}
+		switch ($row['gender']) {
+			case '0':
+				$gender = '';
+				break;
+			case '1':
+				$gender = 'Muž';
+				break;
+			case '2':
+				$gender = 'Žena';
+				break;
+		}
+		if ($row['gender'] == 0) $genderimg = '/_files/userfiles/standard.png';
+		if ($row['gender'] == 1) $genderimg = '/_files/userfiles/avatar4.png';
+		if ($row['gender'] == 2) $genderimg = '/_files/userfiles/avatar7.png';
+
+
 		// EN: Insert each record into array
 		// CZ: Vložení získaných dat do pole
-		$envodata[] = $row;
+		$envodata[] = array (
+			'id'          => $row['id'],
+			'houseid'     => $row['houseid'],
+			'degree'      => $row['degree'],
+			'name'        => $row['name'],
+			'surname'     => $row['surname'],
+			'address'     => $row['address'],
+			'phone'       => $row['phone'],
+			'email'       => $row['email'],
+			'status'      => $status,
+			'birthdate'   => (!empty((int)$row['birthdate']) ? date($dateformat, strtotime($row['birthdate'])) : ''),
+			'gender'      => $gender,
+			'genderimg'   => $genderimg,
+			'description' => $row['description'],
+
+		);
 	}
 
 	if (isset($envodata)) return $envodata;
@@ -341,7 +387,7 @@ function envo_get_house_image ($id, $table)
 
 	// EN: SQL Query
 	// CZ: SQL Dotaz
-	$result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+	$result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY exifcreatedate DESC');
 	while ($row = $result -> fetch_assoc()) {
 		// EN: Insert each record into array
 		// CZ: Vložení získaných dat do pole
@@ -414,6 +460,73 @@ function envo_house_exist ($ic, $table)
 }
 
 /**
+ * EN: Getting the data about the Contract without limit
+ * CZ: Získání dat o zakázkách bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    02/2019
+ *
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_contract_info ($table)
+{
+	global $envodb;
+	$envodata = array ();
+
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	$result = $envodb -> query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = array (
+			'id'             => $row['id'],
+			'number'         => $row['number'],
+			'object'         => $row['object'],
+			'contractbudget' => $row['contractbudget'],
+			'contractprice'  => $row['contractprice'],
+			'status'         => $row['status']
+		);
+	}
+
+	if (isset($envodata)) return $envodata;
+}
+
+/**
+ * EN: Getting the data about the documents of Contract without limit
+ * CZ: Získání dat o dokumentech zakázek bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    02/2019
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
+function envo_get_contract_documents ($id, $table)
+{
+
+	global $envodb;
+	$envodata = array ();
+
+	// EN: SQL Query
+	// CZ: SQL Dotaz
+	$result = $envodb -> query('SELECT * FROM ' . $table . ' WHERE contractid = "' . smartsql($id) . '" ORDER BY id ASC');
+	while ($row = $result -> fetch_assoc()) {
+		// EN: Insert each record into array
+		// CZ: Vložení získaných dat do pole
+		$envodata[] = $row;
+	}
+
+	if (isset($envodata)) return $envodata;
+}
+
+/**
  * EN: Getting the data about the Notification without limit
  * CZ: Získání dat o Notifikacích bez limitu
  *
@@ -436,7 +549,15 @@ function envo_get_notification_info ($table)
 	while ($row = $result -> fetch_assoc()) {
 		// EN: Insert each record into array
 		// CZ: Vložení získaných dat do pole
-		$envodata[] = array ('id' => $row['id'], 'name' => $row['name'], 'type' => $row['type'], 'shortdescription' => $row['shortdescription'], 'content' => $row['content'], 'permission' => $row['permission'], 'created' => date("d.m.Y", strtotime($row["created"])));
+		$envodata[] = array (
+			'id'               => $row['id'],
+			'name'             => $row['name'],
+			'type'             => $row['type'],
+			'shortdescription' => $row['shortdescription'],
+			'content'          => $row['content'],
+			'permission'       => $row['permission'],
+			'created'          => date("d.m.Y", strtotime($row["created"]))
+		);
 	}
 
 	if (isset($envodata)) return $envodata;
@@ -450,9 +571,9 @@ function envo_get_notification_info ($table)
  * @version 1.0.0
  * @date    09/2017
  *
- * @param $table          string
- * @param $column1        string
- * @param null $column2   string
+ * @param      $table          string
+ * @param      $column1        string
+ * @param null $column2        string
  * @return array
  *
  */
@@ -580,7 +701,7 @@ function folder_exist ($folder)
 	$path = realpath($folder);
 
 	// If it exist, check if it's a directory
-	return ($path !== false AND is_dir($path)) ? $path : false;
+	return ($path !== FALSE AND is_dir($path)) ? $path : FALSE;
 }
 
 //function write_mysql_log ($remote_ipaddr, $request_uri, $user_host, $user_agent, $houseeditID, $housenewID)

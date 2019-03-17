@@ -9,6 +9,55 @@
  * Email: bluesatkv@gmail.com
  * =======================================================================*/
 
+/**
+ * @description  Copy to Clipboard
+ * @callaction
+ * <input type="text" id="target" value="TEXT 1">
+ * <button data-toggle="tooltipEnvo" data-placement="bottom" data-original-title="Zkopírovat" onclick="copyToClipboard('#target', this)">Copy TEXT 1</button>
+ */
+function copyToClipboard (target, e) {
+
+  console.log('----------- fn copyToClipboard -----------');
+
+  // ------------ Basic variable
+
+  // Storing in a variable
+  var $this = $(e);
+  var copyTest = document.queryCommandSupported('copy');
+  var elOriginalText = $this.attr('data-original-title');
+
+  console.log($this);
+  console.log('Element - original text:' + elOriginalText);
+
+  // ------------ Jquery code
+
+  if (copyTest === true) {
+
+    var copyArea = document.createElement('input');
+    copyArea.value = $(target).val();
+    document.body.appendChild(copyArea);
+    copyArea.select();
+
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'Zkopírováno !' : 'Oops, nezkopírováno !';
+      $this.attr('data-original-title', msg).tooltip('show');
+    } catch (err) {
+      console.log('Oops, není možné zkopírovat');
+    }
+
+    document.body.removeChild(copyArea);
+
+    $this.attr('data-original-title', elOriginalText);
+
+  } else {
+
+    // Fallback if browser doesn't support .execCommand('copy')
+    window.prompt('Zkopírovat do schránky: Ctrl+C or Command+C, Enter');
+
+  }
+}
+
 /** 00. PROTOTYPE CONSTRUCTOR FUNCTION
  ========================================================================*/
 

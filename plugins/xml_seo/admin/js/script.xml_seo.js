@@ -1,18 +1,14 @@
 /*
  * CMS ENVO
  * JS for Plugin XML Seo - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Step Form wizard initialisation
- *
  */
 
-/** 01. Step Form wizard initialisation
+/** FORM WIZARD INITIALISATION
  * @require: Step Form Wizard plugin
  ========================================================================*/
 

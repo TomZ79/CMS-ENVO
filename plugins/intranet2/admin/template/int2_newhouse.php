@@ -32,14 +32,14 @@ if (!function_exists('array_group_by')) {
 	{
 		if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
 			trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
-			return null;
+			return NULL;
 		}
-		$func = (!is_string($key) && is_callable($key) ? $key : null);
+		$func = (!is_string($key) && is_callable($key) ? $key : NULL);
 		$_key = $key;
 		// Load the new array, splitting by the target key
 		$grouped = [];
 		foreach ($array as $value) {
-			$key = null;
+			$key = NULL;
 			if (is_callable($func)) {
 				$key = call_user_func($func, $value);
 			} elseif (is_object($value) && isset($value ->{$_key})) {
@@ -47,7 +47,7 @@ if (!function_exists('array_group_by')) {
 			} elseif (isset($value[$_key])) {
 				$key = $value[$_key];
 			}
-			if ($key === null) {
+			if ($key === NULL) {
 				continue;
 			}
 			$grouped[$key][] = $value;
@@ -116,8 +116,8 @@ if ($errors) { ?>
 
 
 	<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
-		<!-- Fixed Button for save form -->
-		<div class="savebutton hidden-xs" style="width: 538px;">
+		<!-- Action button block -->
+		<div class="actionbtn-block d-none d-sm-block">
 
 			<?php
 			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -126,7 +126,7 @@ if ($errors) { ?>
 			echo $Html -> addButton('button', '', 'Kopírovat adresu', '', '', 'btn btn-info copyadress');
 			echo $Html -> addButton('button', '', 'Kopírovat data domu', '', 'houseSelect', 'btn btn-info');
 			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-			echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ('data-loading-text' => $tl["button"]["btn41"]));
+			echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
 			?>
@@ -273,7 +273,7 @@ if ($errors) { ?>
 
 																	<?php
 																	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-																	echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-clipboard"></i>', '', 'input-group-addon', array ('onclick' => 'copyToClipboard(\'input[name=envo_housestreet]\')'));
+																	echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-clipboard"></i>', '', 'input-group-addon', array ('onclick' => 'copyToClipboard(\'input[name=envo_housestreet]\', this)', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'right', 'data-original-title' => 'Zkopírovat'));
 																	?>
 
 																</span>
@@ -411,7 +411,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -555,7 +555,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -619,7 +619,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -713,7 +713,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -774,7 +774,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -784,13 +784,191 @@ if ($errors) { ?>
 			</div>
 			<div class="tab-pane fade" id="cmsPage2" role="tabpanel">
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-sm-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
 
 								<?php
 								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-								echo $Html -> addTag('h3', 'Katastr', 'box-title');
+								echo $Html -> addTag('h3', '<strong>1.</strong>	Načtení Hlavních GPS souřadnic', 'box-title');
+								?>
+
+							</div>
+							<div class="box-body">
+								<div class="block">
+									<div class="block-content" id="gpscoordinate">
+										<div class="row-form" style="padding: 12px 5px;">
+											<div class="col-sm-4">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Základní adresa pro vyhledání GPS souřadnic');
+												?>
+
+											</div>
+											<div class="col-sm-1 text-center">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Ulice');
+												?>
+
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_house_maingpsstreet', (isset($_REQUEST["envo_house_cuzk_objcode"]) ? $_REQUEST["envo_house_maingpsstreet"] : ''), '', 'form-control');
+													?>
+
+												</div>
+											</div>
+											<div class="col-sm-1 text-center">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Město');
+												?>
+
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group m-0">
+													<select name="envo_house_maingpscity" class="form-control selectpicker" data-search-select2="true" data-placeholder="Výběr města">
+
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														$selected = ((isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] == '0')) || !isset($_REQUEST["envo_housecity"])) ? TRUE : FALSE;
+
+														// First blank option
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html -> addOption('', '', $selected);
+
+
+														if (isset($ENVO_CITY) && is_array($ENVO_CITY)) {
+															foreach ($ENVO_CITY as $keydistrict => $districtitem) {
+
+																foreach ($districtitem as $item) {
+																	// Get District ID from first item - is same for all items
+																	$districtid = $item["district_id"];
+																	// Break loop after first iteration
+																	break;
+																}
+
+																// to know what's in $item
+																echo '<optgroup label="Okres ' . $keydistrict . '" data-district_name="' . $keydistrict . '" data-district_id="' . $districtid . '">';
+
+																foreach ($districtitem as $c) {
+
+																	if (isset($_REQUEST["envo_housecity"]) && ($_REQUEST["envo_housecity"] != '0')) {
+																		if (isset($_REQUEST["envo_housecity"]) && ($c["id"] == $_REQUEST["envo_housecity"])) {
+																			$selected = TRUE;
+																		} else {
+																			$selected = FALSE;
+																		}
+																	} else {
+																		$selected = FALSE;
+																	}
+
+																	// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																	echo $Html -> addOption($c["id"], $c["city_name"], $selected, '', '', array ('data-city_id' => $c["id"], 'data-city_name' => $c["city_name"], 'data-city_cuzk_code' => $c["city_cuzk_code"]));
+
+																}
+
+																echo '</optgroup>';
+
+															}
+														}
+														?>
+
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="row-form" style="padding: 12px 5px;">
+											<div class="col-sm-3 text-center">
+
+												<?php
+												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+												echo $Html -> addButton('button', '', 'GPS OSM', '', 'gps_osm', 'btn btn-danger m-r-10', array ('disabled' => 'disabled'));
+												echo $Html -> addButton('button', '', 'GPS MAPY.cz', '', 'gps_mapy', 'btn btn-danger');
+
+												?>
+
+											</div>
+											<div class="col-sm-1">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Latitude');
+												?>
+
+											</div>
+											<div class="col-sm-2">
+												<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_house_maingpslat', (isset($_REQUEST["envo_house_maingpslat"]) ? $_REQUEST["envo_house_maingpslat"] : ''), '', 'form-control');
+													?>
+
+												</div>
+											</div>
+											<div class="col-sm-1">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html -> addTag('strong', 'Longitude');
+												?>
+
+											</div>
+											<div class="col-sm-2">
+												<div class="loadingdata_gps" style="visibility: hidden; min-height: 100%; position: absolute; z-index: 10; top: 0; left: 3px; min-width: 100%; padding-left: 7px; background-color: rgba(255, 255, 255, 0.9);display: flex;align-items: center;justify-content: center;"></div>
+												<div class="form-group m-0">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html -> addInput('text', 'envo_house_maingpslng', (isset($_REQUEST["envo_house_maingpslng"]) ? $_REQUEST["envo_house_maingpslng"] : ''), '', 'form-control');
+													?>
+
+												</div>
+											</div>
+											<div class="col-sm-3 text-center mainmaps">
+
+												<?php
+
+												if (!empty($_REQUEST["envo_house_maingpslat"]) && !empty($_REQUEST["envo_house_maingpslng"])) {
+													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+													echo $Html -> addAnchor('https://mapy.cz/zakladni?x=' . $_REQUEST["envo_house_maingpslng"] . '&y=' . $_REQUEST["envo_house_maingpslat"] . '&z=18&l=0&source=coor&id=' . $_REQUEST["envo_house_maingpslng"] . '%2C' . $_REQUEST["envo_house_maingpslat"], 'Mapy.cz', '', 'mapycz', array ('target' => 'MapGPS'));
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
+													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+													echo $Html -> addAnchor('https://www.openstreetmap.org/?mlat=' . $_REQUEST["envo_house_maingpslat"] . '&amp;mlon=' . $_REQUEST["envo_house_maingpslng"] . '&amp;zoom=18#map=18/' . $_REQUEST["envo_house_maingpslat"] . '/' . $_REQUEST["envo_house_maingpslng"], 'OpenStreetMaps', '', 'openstreet', array ('target' => 'MapGPS'));
+												} else {
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html -> addTag('span', '<span class="bold text-warning-dark">Nelze zobrazit mapu (žádné GPS souřadnice)</span>', 'bold text-warning-dark');
+												}
+
+												?>
+
+											</div>
+										</div>
+										<div id="outputajaxdata_gps" class="row p-3" style="background-color: #FFF5CC;display: none;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box box-success">
+							<div class="box-header with-border">
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html -> addTag('h3', '<strong>2.</strong>	Katastr', 'box-title');
 								?>
 
 							</div>
@@ -800,7 +978,7 @@ if ($errors) { ?>
 										<div class="row">
 											<div class="col-sm-12">
 												<div class="alert alert-info" role="alert">
-													<strong>Info: </strong>Automatické načtení dat přepíše zadané hodnoty
+													<strong>Info: </strong>Automatické načtení dat přepíše po uložení zadané hodnoty
 												</div>
 											</div>
 										</div>
@@ -810,8 +988,9 @@ if ($errors) { ?>
 												<?php
 												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
 												echo $Html -> addButton('button', '', '<strong>1.</strong> ČÚZK', '', 'loadCuzk', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', '<strong>2.</strong> Kód objektu', '', 'loadObjCode', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', '<strong>3.</strong> iKatastr', '', 'loadIkatastr', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', '<strong>2.</strong> Kód objektu I', '', 'loadObjCode1', 'btn btn-danger m-b-10 m-r-10', array ('disabled' => 'disabled'));
+												echo $Html -> addButton('button', '', '<strong>3.</strong> Kód objektu II', '', 'loadObjCode2', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', 'iKatastr', '', 'loadIkatastr', 'btn btn-danger m-b-10 m-r-10');
 												?>
 
 											</div>
@@ -1002,13 +1181,13 @@ if ($errors) { ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-7">
+					<div class="col-sm-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 
 								<?php
 								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-								echo $Html -> addTag('h3', 'Statistika', 'box-title');
+								echo $Html -> addTag('h3', '<strong>3.</strong>	Statistika', 'box-title');
 								?>
 
 							</div>
@@ -1016,9 +1195,9 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row">
-											<div class="col-sm-12">
+											<div class="col-sm-12 text-center">
 												<div class="alert alert-info" role="alert">
-													<strong>Info: </strong>Automatické načtení dat přepíše zadané hodnoty
+													<strong>Info: </strong>Automatické načtení dat přepíše po uložení zadané hodnoty
 												</div>
 											</div>
 										</div>
@@ -1027,10 +1206,8 @@ if ($errors) { ?>
 
 												<?php
 												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-												echo $Html -> addButton('button', '', '<strong>1.</strong> Statistika', '', 'loadStatistic', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', 'GPS OSM', '', 'testgps_osm', 'btn btn-danger m-b-10 m-r-10');
-												echo $Html -> addButton('button', '', 'GPS MAPY.cz', '', 'testgps_mapy', 'btn btn-danger m-b-10');
-
+												echo $Html -> addButton('button', '', '<strong>1.</strong> Statistika I', '', 'loadStatistic1', 'btn btn-danger m-b-10 m-r-10');
+												echo $Html -> addButton('button', '', '<strong>2.</strong> Statistika II', '', 'loadStatistic2', 'btn btn-danger m-b-10', array ('disabled' => 'disabled'));
 												?>
 
 											</div>
@@ -1306,7 +1483,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -1358,6 +1535,18 @@ if ($errors) { ?>
 												</select>
 											</div>
 										</div>
+										<div class="row-form">
+											<div class="col-sm-12">
+
+												<?php
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('', '<strong>Doplňující text</strong>', array ('class' => 'm-b-10'));
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html -> addTextarea('envo_estatemanagementdesc', (isset($_REQUEST["envo_estatemanagementdesc"]) ? $_REQUEST["envo_estatemanagementdesc"] : ''), '4', '', array ('class' => 'form-control'));
+												?>
+
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1365,7 +1554,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -1425,7 +1614,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html -> addInput('text', 'envo_datedministration', (isset($_REQUEST["envo_datedministration"])) ? $_REQUEST["envo_datedministration"] : '', 'datepickerTime', 'form-control', array ('readonly' => 'readonly'));
+													echo $Html -> addInput('text', 'envo_datedministration', (isset($_REQUEST["envo_datedministration"]) ? $_REQUEST["envo_datedministration"] : ''), 'datepickerTime', 'form-control', array ('readonly' => 'readonly'));
 													?>
 
 												</div>
@@ -1438,7 +1627,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -1501,7 +1690,7 @@ if ($errors) { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>

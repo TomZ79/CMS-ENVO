@@ -28,7 +28,7 @@ if (isset($_POST['act'])) {
 		$config['filefolder']     = $_POST['filefolder'];
 
 		$root = $_SERVER['DOCUMENT_ROOT'];
-		$f    = fopen($root . "/include/db.ini", "w");
+		$f    = fopen($root . '/include/db.ini', 'w');
 		foreach ($config as $name => $value) {
 			fwrite($f, "$name = \"$value\"\n");
 		}

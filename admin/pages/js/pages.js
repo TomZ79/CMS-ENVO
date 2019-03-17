@@ -1,4 +1,12 @@
 /*
+ * CMS ENVO
+ * MAIN JS for Admin Control Panel with custom modification
+ * Copyright (c) 2016 - 2019 Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Author: BluesatKV
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ *
  * List of Error:
  * -----------------------------------------
  * E01: Scrollbar Plugin not exist
@@ -518,12 +526,12 @@
     });
   }
 
-  /** @function initCustomSelect2Plugin
+  /** @function initSelect2PluginV2
    * @description Initialize select2 dropdown
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
    * @requires select2.js version 4.0.x
    */
-  Pages.prototype.initCustomSelect2Plugin = function (context) {
+  Pages.prototype.initSelect2PluginV2 = function (context) {
     // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
     if ((typeof $.fn.select2 !== 'undefined' && $.isFunction($.fn.select2)) || typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) {
       $.fn.select2 && $('.selectpicker', context).each(function () {
@@ -789,7 +797,7 @@
     // init plugins
     this.initTooltipPlugin();
     this.initSelect2Plugin();
-    this.initCustomSelect2Plugin();
+    this.initSelect2PluginV2();
     this.initScrollBarPlugin();
     this.initSwitcheryPlugin();
     this.initSelectFxPlugin();

@@ -217,6 +217,10 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 } else {
   $tlint2 = parse_ini_file(APP_PATH.\'plugins/' . $pluginname . '/lang/en.ini\', true);
 }';
+				// EN: Hook System - Index: set files for other uses
+				// CZ: Hook System - Index: nastavení používaných souborů
+				$index_top = 'include_once APP_PATH . \'plugins/' . $pluginname . '/hooks/hook_index_top.php\';';
+
         // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
         // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
         $insertphpcode = 'if (isset($defaults[\'envo_int2\'])) {
@@ -229,13 +233,14 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
         $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_admin_lang", "Intranet2 Plugin Admin Language", "' . $adminlang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_lang", "Intranet2 Plugin Site Language", "' . $sitelang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Intranet2 Plugin Admin CSS", "plugins/' . $pluginname . '/admin/template/css.intranet2.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_usergroup", "Intranet2 Plugin Usergroup New", "plugins/' . $pluginname . '/admin/template/usergroup_new.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_usergroup_edit", "Intranet2 Plugin Usergroup Edit", "plugins/' . $pluginname . '/admin/template/usergroup_edit.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_usergroup", "Intranet2 Plugin Usergroup SQL", "' . $insertphpcode . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_index", "Intranet2 Statistics Admin", "' . $insertadminindex . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),');
+(NULL, "php_admin_lang", "Intranet2 Admin Language", "' . $adminlang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Intranet2 Site Language", "' . $sitelang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Intranet2 Admin CSS", "plugins/' . $pluginname . '/admin/template/css.intranet2.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Intranet2 Usergroup New", "plugins/' . $pluginname . '/admin/template/usergroup_new.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Intranet2 Usergroup Edit", "plugins/' . $pluginname . '/admin/template/usergroup_edit.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_usergroup", "Intranet2 Usergroup SQL", "' . $insertphpcode . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_index", "Intranet2 Statistics Admin", "' . $insertadminindex . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_index_top", "Intranet2 Index", "' . $index_top . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW())');
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
@@ -485,8 +490,13 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `housefpsc` varchar(255) NULL DEFAULT NULL,
   `housefic` varchar(100) NULL DEFAULT NULL,
   `housefdic` varchar(100) NULL DEFAULT NULL,
+  `maingpsstreet` varchar(255) NULL DEFAULT NULL,
+  `maingpscity` int(11) NULL DEFAULT NULL,
+  `maingpslat` varchar(100) NULL DEFAULT NULL,
+  `maingpslng` varchar(100) NULL DEFAULT NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `estatemanagement` int(5) NOT NULL DEFAULT 0,
+  `estatemanagementdesc` varchar(500) NULL DEFAULT NULL,
   `folder` varchar(100) NULL DEFAULT NULL,
   `blacklist` int(1) NOT NULL DEFAULT 0,
   `blacklistdesc` varchar(500) NULL DEFAULT NULL,
@@ -510,6 +520,28 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `katastr` varchar(255) NULL DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for House - Contacts list
+				 * CZ: Vytvoření tabulky pro Bytový dům - Kontakty
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_housecontacts (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) DEFAULT NULL,
+  `degree` varchar(100) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `status` int(10) DEFAULT NULL,
+  `birthdate` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  `gender` int(10) NULL DEFAULT NULL,
+  `description` text NULL DEFAULT NULL,
+  `created` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
@@ -663,6 +695,52 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `houseedit_id` int(10) DEFAULT NULL,
   `housenew_id` int(10) DEFAULT NULL,
   `log_date` timestamp NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for Contract
+				 * CZ: Vytvoření tabulky pro Zakázky
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_contract (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `number` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
+  `object` varchar(255) NULL DEFAULT NULL,
+  `subject` varchar(255) NULL DEFAULT NULL,
+  `contractbudget` varchar(255) NULL DEFAULT NULL,
+  `contractprice` decimal(12, 2) NOT NULL,
+  `status` varchar(100) NULL DEFAULT NULL,
+  `description` text NULL DEFAULT NULL,
+  `plannedmonths_start` int(2) UNSIGNED NOT NULL DEFAULT 0,
+  `plannedyear_start` int(5) UNSIGNED NOT NULL DEFAULT 0,
+  `plannedmonths_end` int(2) UNSIGNED NOT NULL DEFAULT 0,
+  `plannedyear_end` int(5) UNSIGNED NOT NULL DEFAULT 0,
+  `folder` varchar(100) NULL DEFAULT NULL,
+  `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for Contract - Documents
+				 * CZ: Vytvoření tabulky pro Zakázky - Dokumentace
+				 *
+				 * @id			integer			| Primary key
+				 * @ftime		integer			| Unixtime value from stat() function (Unixtima in seconds)
+				 * @fsize		integer			| Value from stat() function (size of file in bytes)
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_contractdocu (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contractid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `description` varchar(255) NULL DEFAULT NULL,
+  `fname` varchar(255) NULL DEFAULT NULL,
+  `fullpath` varchar(255) NULL DEFAULT NULL,
+  `ftime` int NOT NULL,
+  `fsize` int NOT NULL,
+  `created` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
+  `updated` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

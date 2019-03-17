@@ -20,8 +20,6 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 $objcode = filter_var($_REQUEST['objcode'], FILTER_SANITIZE_NUMBER_INT);
 // Define http STATISTIC
 define('STATISTIC', 'https://regiony.kurzy.cz/katastr/o' . $objcode . '/stats/');
-
-
 $file = file_get_contents(STATISTIC);
 $file = mb_convert_encoding($file, 'utf-8', mb_detect_encoding($file));
 // The fix: mb_convert_encoding conversion
@@ -77,9 +75,9 @@ if (!$dom -> loadHTML($file)) {
 
 	$envodata .= '
 			<div  class="col-sm-12">
-			<h5>Získaná Statistická data dle adresy sídla</h5>
+			<h5>Získaná Statistická data dle kódu objektu</h5>
 			<hr>
-			<p><strong>STATISTIKA: Data byla stažena</strong></p>
+			<p><strong>STATISTIKA: Data byla nalezena a stažena</strong></p>
 			<p>Doba zpracování požadavku: <span id="ajaxTime_statistics"></span></p><hr>
 			<p>Vybrané číslo objektu pro vyhledání dat: ' . $objcode . '</p><hr>
 	';

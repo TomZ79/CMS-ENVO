@@ -1,8 +1,8 @@
 /*
  *
  * CMS ENVO - PORTO TEMPLATE
- * CSS with custom modification
- * Copyright © 2018  Bluesat.cz
+ * JS with custom modification
+ * Copyright © 2018 - 2019  Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
@@ -419,10 +419,5 @@ $(function () {
     $('#SignInF').removeClass('active').hide();
     $('#LostPwdF').addClass('active').show();
   }
-
-  $('.save').click(function () {
-    var btn = $(this);
-    btn.val($(this).data("loading-text"));
-  });
 
 });

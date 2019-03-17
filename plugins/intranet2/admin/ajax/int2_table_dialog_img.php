@@ -86,7 +86,7 @@ $envodata .= '
 							<div class="form-group m-0">
 								<select name="envo_imgcategory_dialog" class="form-control selectpicker" style="width:100%;" data-placeholder="Výběr kategorie">
 									<option value=""></option>
-									<option value="*">Bez kategorie</option>
+									<option value="*" ' . ($row["category"] == "*" ? "selected" : "") . '>Bez kategorie</option>
 									<option value="exploration" ' . ($row["category"] == "exploration" ? "selected" : "") . '>Obhlídka</option>
 									<option value="installation" ' . ($row["category"] == "installation" ? "selected" : "") . '>Instalace</option>
 									<option value="reconstruction" ' . ($row["category"] == "reconstruction" ? "selected" : "") . '>Rekonstrukce</option>

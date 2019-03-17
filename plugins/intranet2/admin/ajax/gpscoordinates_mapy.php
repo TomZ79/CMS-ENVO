@@ -25,7 +25,7 @@ function xmlToArray ($xml, $options = array ())
 		'namespaceSeparator' => ':',//you may want this to be something other than a colon
 		'attributePrefix'    => '@',   //to distinguish between attributes and nodes with the same name
 		'alwaysArray'        => array (),   //array of xml tag names which should always become arrays
-		'autoArray'          => true,        //only create arrays for tags which appear more than once
+		'autoArray'          => false,        //only create arrays for tags which appear more than once
 		'textContent'        => '$',       //key used for the text content of elements
 		'autoText'           => true,         //skip textContent key if node has no attributes or child nodes
 		'keySearch'          => false,       //optional search and replace on tag and attribute names
@@ -185,18 +185,25 @@ if ($file) {
 	$xml = simplexml_load_string($file);
 	if ($xml) {
 
-		$data_allarray = xmlToArray($xml);
-
 		// Getting array from XML file
-		foreach ($data_allarray as $array) {
-			foreach ($array as $point) {
-				foreach ($point as $key => $value) {
-					if ($key == 'item') {
-						$data_array[] = $value;
+		$data_allarray = xmlToArray($xml);
+		$i             = 0;
+		foreach ($data_allarray as $result) {
+			foreach ($result as $point) {
+				foreach ($point as $point1) {
+					foreach ($point1 as $key => $value) {
+						if ($key == 'item') {
+							foreach ($value as $item) {
+								$data_array[] = $item;
+								$i++;
+							}
+						}
 					}
 				}
 			}
 		}
+		$count_data = $i;
+
 		$data_array = replaceKeys($data_array);
 
 		$envodata = array (
@@ -206,6 +213,7 @@ if ($file) {
 			'tmp_directory' => TMP_PATH,
 			'http'          => MAPY,
 			'search_string' => $searchstring,
+			'count_data'    => $count_data,
 			'data_all'      => $data_allarray,
 			'data'          => $data_array
 		);

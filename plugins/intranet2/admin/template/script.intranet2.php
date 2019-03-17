@@ -19,7 +19,7 @@
 echo PHP_EOL . "\t";
 echo '<!-- Start JS INTRANET2 Plugin -->';
 
-if ($page == 'intranet2' && $page1 == 'house' && $page2 == 'houselist') {
+if ($page == 'intranet2' && (($page1 == 'house' && $page2 == 'houselist') || ($page1 == 'contract' && $page2 == 'contractlist'))) {
 
 	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
 	// Plugin DataTable
@@ -66,13 +66,28 @@ if ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps1') {
 	echo $Html -> addScript('https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js');
 	// The line below is only needed for old environments like Internet Explorer and Android 4.x
 	echo $Html -> addScript('https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL');
-	echo $Html -> addScript('https://unpkg.com/ol-contextmenu');
+	echo $Html -> addScript('https://cdn.jsdelivr.net/npm/ol-contextmenu@3.3.0/dist/ol-contextmenu.min.js');
 
 }
 
 if ($page == 'intranet2' && ($page1 == 'maps' || $page2 == 'edithouse' || $page2 == 'newhouse')) {
 	// JTSK_Converter
 	echo $Html -> addScript('/plugins/intranet2/admin/js/converter.js');
+}
+
+if ($page == 'intranet2' && $page1 == 'contract' && ($page2 == 'newcontract' || $page2 == 'editcontract')) {
+
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	// Load 'ace.js'  - only for selected pages
+	if ($setting["adv_editor"] && !empty($page2)) {
+		// Plugin ACE Editor
+		echo $Html -> addScript('assets/plugins/ace/ace.js');
+	}
+	// TinyMCE Plugin
+	if (!empty($page2)) {
+		echo $Html -> addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
+	}
+
 }
 
 echo PHP_EOL . "\t";
@@ -408,7 +423,7 @@ echo PHP_EOL;
 
             // Ajax
             $.ajax({
-              url: '/plugins/intranet2/admin/ajax/searchjustice.php',
+              url: '/plugins/intranet2/admin/ajax/searchjustice_maps.php',
               type: 'POST',
               dataType: 'json',
               data: {
@@ -696,10 +711,6 @@ echo PHP_EOL;
       $(window).on("load", function () {
         initialize_map();
 
-        /**
-         *
-         */
-
 				<?php
 				// $result = $envodb -> query('SELECT gpslat, gpslng FROM ' . DB_PREFIX  . 'int2_houseent');
 				$result = $envodb -> query('SELECT
@@ -713,9 +724,9 @@ echo PHP_EOL;
 
 				while ($row = $result -> fetch_assoc()) {
 					if ($row["administration"] == '1') {
-						echo 'add_map_bluepoint(' . $row["gpslat"] . ', ' . $row["gpslng"] . ');';
+						// echo 'add_map_bluepoint(' . $row["gpslat"] . ', ' . $row["gpslng"] . ');';
 					} else {
-						echo 'add_map_redpoint(' . $row["gpslat"] . ', ' . $row["gpslng"] . ');';
+						// echo 'add_map_redpoint(' . $row["gpslat"] . ', ' . $row["gpslng"] . ');';
 					}
 
 				}
@@ -755,209 +766,6 @@ echo PHP_EOL;
         $('.ol-full-screen').toggleClass('notactive');
       });
 
-
-    });
-	</script>
-
-<?php } ?>
-
-<?php if ($page == 'intranet2' && $page1 == 'search_db' && $page2 == 'justice') { ?>
-
-	<script>
-    $(document).ready(function () {
-
-      /**
-       * @description   Search object by address in JUSTICE
-       */
-      $('#searchJusticeOther').submit(function (e) {
-        // Stop, the default action of the event will not be triggered
-        e.preventDefault();
-
-        console.log('----------- fn #searchJusticeOther submit -----------');
-
-        // Get value
-        var form = $(this);
-        var justice_maxcount = $('#justice_maxcount');
-        var justice_maxcountval = justice_maxcount.val();
-        var justice_subject = $('input[name="justice_subject"]');
-        var justice_subjectval = $.trim(justice_subject.val());
-        var justice_obec = $('select[name="justice_obec"]');
-        var justice_obecval = $.trim(justice_obec.val());
-        var justice_ulice = $('select[name="justice_ulice"]');
-        var justice_uliceval = $.trim(justice_ulice.val());
-        var justice_corientacni = $('input[name="justice_corientacni"]');
-        var justice_corientacnival = $.trim(justice_corientacni.val());
-        var justice_cpopisne = $('input[name="justice_cpopisne"]');
-        var justice_cpopisneval = $.trim(justice_cpopisne.val());
-        var justice_record = $('input[name=recordDb]:checked');
-        var justice_recordval = justice_record.val();
-        // Ajax time
-        var ajaxTime = new Date().getTime();
-        // Remove all error texts
-        $('.has-error-text').remove();
-        // Remove error borders for input
-        justice_subject.parent().removeClass('has-error');
-
-        if (justice_subjectval.length && (justice_subjectval.length >= 3)) {
-
-          // Ajax
-          $.ajax({
-            url: '/plugins/intranet2/admin/ajax/searchjustice_other.php',
-            type: form.attr('method'),
-            dataType: 'json',
-            data: {
-              justice_maxcount: justice_maxcountval,
-              justice_filtr: 'PLATNE',
-              justice_stype: 'CONTAINS',
-              justice_subject: justice_subjectval,
-              justice_obec: justice_obecval,
-              justice_ulice: justice_uliceval,
-              justice_corientacni: justice_corientacnival,
-              justice_cpopisne: justice_cpopisneval,
-              justice_record: justice_recordval
-            },
-            cache: false,
-            // Timeout 20s
-            timeout: 20000,
-            beforeSend: function () {
-
-              // Show progress circle
-              $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">JUSTICE</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
-
-            },
-            success: function (data) {
-
-              // Parse JSON data
-              var str = JSON.stringify(data);
-              var result = JSON.parse(str);
-
-              // Ajax time
-              var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-              console.log('ajaxTime | Success Time: ' + totalTime);
-
-              // Loading data progress
-              $('#loadingdata').hide().html('');
-
-              if (data.status == 'upload_success') {
-                // IF DATA SUCCESS
-
-                // Data variable for output
-                var divdata = '';
-                divdata += '<p><strong>' + data.status_msg + '</strong></p>' +
-                  '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p><hr>';
-                divdata += '<table class="table">';
-                divdata += '<thead><tr><th>IČ</th><th>Název subjektu</th><th>Sídlo</th></tr></thead>';
-                divdata += '<tbody>';
-
-                $.each(data, function (key, value) {
-
-                  if (key === 'data') {
-
-                    $.each(value, function (key1, value1) {
-                      divdata += '<tr><td><a href="https://www.bluesat.cz/admin/index.php?p=intranet2&sp=house&ssp=newhouse&ico=' + value1.ico + '" class="createhouse bold" target="windowNewHouse">' + value1.ico + '</a></td><td>' + value1.ojm + '</td><td>' + value1.jmn + '</td></tr>';
-
-                    });
-
-                  }
-
-                });
-
-                divdata += '</tbody></table>';
-
-              } else {
-                // IF DATA ERROR
-
-                // Data variable for output
-                var divdata = '';
-                divdata += '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
-                  '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></p><hr>' +
-                  '<p>' + data.status_info + '</p>';
-
-                // Notification
-                setTimeout(function () {
-                  $.notify({
-                    // options
-                    icon: 'fa fa-exclamation',
-                    message: '<strong>Error:</strong> ' + data.status_msg
-                  }, {
-                    // settings
-                    type: 'danger',
-                    delay: 2000
-                  });
-                }, 1000);
-
-              }
-
-              // Output Data
-              $('#outputjusticedata').html('').prepend(divdata);
-              // Ajax time
-              $('#ajaxTime').html(totalTime);
-              //
-              if ($('.createhouse')[0]){
-                $('.createhouse').on('click', function () {
-                  $(this).css({
-                    'text-decoration': 'line-through',
-										'font-weight': '400',
-										'color': 'gray'
-									});
-                });
-              }
-
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-
-              // Loading data progress
-              $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">JUSTICE</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Justice</span><span style="color: #C10000; font-weight: 700;">Server Justice neodpovídá -> obnovte stránku a zkuste hledání později!</span></div></div>');
-
-              if (debug) {
-                console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
-              }
-
-              if (textStatus === 'timeout') {
-                if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
-              } else {
-                if (debug) console.log(textStatus + ': ' + errorThrown);
-              }
-
-            },
-            complete: function () {
-
-            }
-          });
-
-        } else {
-
-          // Notification
-          setTimeout(function () {
-            $.notify({
-              // options
-              icon: 'fa fa-exclamation',
-              message: '<strong>Error:</strong> Zadejte název subjektu.'
-            }, {
-              // settings
-              type: 'danger',
-              delay: 5000
-            });
-          }, 1000);
-
-          // Add border for input - error
-          justice_subject.parent().addClass('has-error');
-          // Show error texts
-          $('<div/>', {
-            class: 'has-error-text',
-            css: {
-              fontWeight: 'normal',
-              color: '#C10000',
-              position: ''
-            },
-            text: 'Vyplňte označenou položku'
-          }).appendTo(justice_subject.parents(':eq(1)'));
-
-          console.log('#searchJusticeOther submit fn | Error E01')
-
-        }
-
-      });
 
     });
 	</script>
@@ -1019,31 +827,6 @@ echo PHP_EOL;
 
 <script>
   $(document).ready(function () {
-    // Add smooth scrolling on all links inside the navbar
-    $("#navigation a").on('click', function (event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-
-        // Store hash
-        var hash = this.hash;
-
-        console.log(hash);
-
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('.inner-content').animate({
-          scrollTop: $(hash).offset().top
-        }, 800, function () {
-
-          // Add hash (#) to URL when done scrolling (default click behavior)
-          window.location.hash = hash;
-        });
-        return false;
-      }  // End if
-    });
-
     // Add class for content (important for scrollbar)
     $('.page-content-wrapper').addClass('full-height');
     $('.page-content-wrapper .content').addClass('full-height');
@@ -1063,15 +846,15 @@ echo PHP_EOL;
     // Add scrollspy to <body>
     $('#inner-content').scrollspy({
 			target: "#navigation",
-			offset: 50
+			offset: 60
     });
   });
 </script>
 
 <style type="text/css">
 	.scrollspyoffset {
-		padding-top: 56px;
-		margin-top: -56px;
+		padding-top: 10px;
+		margin-top: -10px;
 	}
 </style>
 

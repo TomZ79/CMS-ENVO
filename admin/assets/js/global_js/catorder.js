@@ -1,19 +1,14 @@
 /*
  * CMS ENVO
  * JS - Catorder - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Sortable Initialisation
- * 02. Save sortable menu
- *
  */
 
-/** 01. Sortable Initialisation
+/** SORTABLE INITIALISATION
  * @require: jQuery UI Nested Sortable
  ========================================================================*/
 
@@ -60,8 +55,8 @@ $(function () {
 
 });
 
-/** 02. Save sortable menu
- * @require: Bootstrap Notify
+/** SAVE SORTABLE MENU
+ * @require: Bootstrap Notify, jQuery UI Nested Sortable
  ========================================================================*/
 
 $(function () {

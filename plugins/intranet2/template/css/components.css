@@ -2091,6 +2091,32 @@ img ~ .legitRipple-ripple {
  *  Styles related to user login - logins, registration, password revovery, unlock etc.
  *
  * ---------------------------------------------------------------------------- */
+.login-cover {
+	overflow: hidden;
+	background: url('/plugins/intranet2/template/img/login_bg.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.login-form {
+	width: 100%;
+}
+
+.login-form .nav-item:first-child .nav-link {
+	border-top-left-radius: 0.125rem;
+}
+
+.login-form .nav-item:last-child .nav-link {
+	border-top-right-radius: 0.125rem;
+}
+
+@media (min-width: 576px) {
+	.login-form {
+		width: 20rem;
+	}
+}
 /* ------------------------------------------------------------------------------
  *
  *  # Timeline

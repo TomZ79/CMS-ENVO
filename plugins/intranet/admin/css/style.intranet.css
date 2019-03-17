@@ -1,17 +1,14 @@
 /*
  * CMS ENVO
  * CSS for Plugin Intranet - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- *
  */
 
-/* XX. Fullscreen modal
+/* Fullscreen modal
 ======================================================================== */
 .modal-fullscreen .modal-dialog {
   margin: 0 auto;
@@ -27,7 +24,7 @@
   border-radius: 0;
 }
 
-/* XX. Strikeout TR in Table
+/* Strikeout TR in Table
 ======================================================================== */
 td {
   position: relative;
@@ -47,7 +44,7 @@ tr.strikeout td:before {
   width: 100%;
 }
 
-/* XX. Tasks
+/* Tasks
 ======================================================================== */
 /* Table */
 .table-task {
@@ -160,7 +157,7 @@ div[class^="task_"] .taskcontent .taskdescription {
   background: #FFF;;
 }
 
-/* XX. UI SORTABLE TABLE
+/* UI SORTABLE TABLE
 ======================================================================== */
 #table_uisortable tbody tr:not(:first-child) {
   cursor: move;
@@ -174,7 +171,7 @@ div[class^="task_"] .taskcontent .taskdescription {
   background: none;
 }
 
-/* XX. TABLEDIT
+/* TABLEDIT
 ======================================================================== */
 #tablecontacts tbody tr td,
 #tableentrance tbody tr td,
@@ -232,7 +229,7 @@ table[id^="tableapartment"] tbody tr td:first-child,
   color: rgba(98, 98, 98, 0.6);
 }
 
-/* XX. PHOTO GALLER
+/* PHOTO GALLER
 ======================================================================== */
 /* Fix for transition of button */
 .btn {

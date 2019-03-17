@@ -19,6 +19,11 @@ if ($page1 == 'search_db') {
 	$styleint_3           = 'style="display: block;"';
 }
 
+if ($page1 == 'contract' && ($page2 == '!' || $page2 == 'newcontract' || $page2 == 'editcontract')) {
+	$classint2subsection4 = 'open active';
+	$styleint_4           = 'style="display: block;"';
+}
+
 ?>
 <li class="<?= $classint2section ?>">
 
@@ -30,6 +35,9 @@ if ($page1 == 'search_db') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlint2["int2_menu"]["int2m2"] ?></div>
+		</li>
 		<li class="<?= $classint2subsection1 ?>">
 			<a href="javascript:;"><?= $tlint2["int2_menu"]["int2m2"] ?>
 				<span class="arrow <?= $classint2subsection1 ?>"></span></a>
@@ -147,6 +155,81 @@ if ($page1 == 'search_db') {
 
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;">Zakázky</div>
+		</li>
+
+		<li class="<?= $classint2subsection4 ?>">
+			<a href="javascript:;">Zakázky
+				<span class="arrow <?= $classint2subsection4 ?>"></span></a>
+			<span class="icon-thumbnail"><?= text_clipping_lower('Zakázky') ?></span>
+			<ul class="sub-menu" <?= $styleint_4 ?>>
+
+				<li class="<?= (($page == 'intranet2' && $page1 == 'contract' && !$page2)) ? 'submenu-active' : '' ?>">
+
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=contract', 'Vyhledání zakázky');
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower('Vyhledání zakázky'), 'icon-thumbnail');
+					?>
+
+				</li>
+				<?php if ($page == 'intranet2' && $page1 == 'contract' && $page2 == 'contractlist') { ?>
+					<li class="<?= ($page == 'intranet2' && $page1 == 'contract' && $page2 == 'contractlist') ? 'submenu-active' : '' ?>">
+
+						<?php
+						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+						echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=contract', 'Seznam zakázek');
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html -> addTag('span', text_clipping_lower('Seznam zakázek'), 'icon-thumbnail');
+						?>
+
+					</li>
+				<?php } ?>
+				<li class="<?= ($page == 'intranet2' && $page1 == 'contract' && $page2 == 'newcontract') ? 'submenu-active' : '' ?>">
+
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=contract&amp;ssp=newcontract', 'Nová zakázka');
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower('Nová zakázka'), 'icon-thumbnail');
+					?>
+
+				</li>
+				<?php if ($page == 'intranet2' && $page1 == 'contract' && $page2 == 'editcontract') { ?>
+					<li class="<?= ($page == 'intranet2' && $page1 == 'contract' && $page2 == 'editcontract') ? 'submenu-active' : '' ?>">
+
+						<?php
+						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+						echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=contract&amp;ssp=editcontract&amp;id=' . $page2, 'Editace zakázky');
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html -> addTag('span', text_clipping_lower('Editace zakázky'), 'icon-thumbnail');
+						?>
+
+					</li>
+				<?php } ?>
+
+			</ul>
+		</li>
+
+		<li class="<?= ($page == 'intranet2' && $page1 == 'contract' && $page2 == 'reports') ? 'submenu-active' : '' ?>">
+
+			<?php
+			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+			echo $Html -> addAnchor('index.php?p=intranet2&amp;sp=contract&amp;ssp=reports', 'Report');
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html -> addTag('span', text_clipping_lower('Report'), 'icon-thumbnail');
+			?>
+
+		</li>
+
+		<li class="list-divider"></li>
+
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlint2["int2_menu"]["int2m7"] ?></div>
+		</li>
+
 		<li class="<?= (($page == 'intranet2' && $page1 == 'notification') || ($page == 'intranet2' && $page1 == 'newnotification')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -157,6 +240,7 @@ if ($page1 == 'search_db') {
 			?>
 
 		</li>
+
 		<li class="<?= ($page == 'intranet2' && $page1 == 'notification' && $page2 == 'newnotification') ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -167,6 +251,7 @@ if ($page1 == 'search_db') {
 			?>
 
 		</li>
+
 		<?php if ($page == 'intranet2' && $page1 == 'notification' && $page2 == 'editnotification') { ?>
 			<li class="<?= ($page == 'intranet2' && $page1 == 'notification' && $page2 == 'editnotification') ? 'submenu-active' : '' ?>">
 
@@ -182,6 +267,10 @@ if ($page1 == 'search_db') {
 
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlint2["int2_menu"]["int2m1"] ?></div>
+		</li>
+
 		<li class="<?= ($page == 'intranet2' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -194,6 +283,10 @@ if ($page1 == 'search_db') {
 		</li>
 
 		<li class="list-divider"></li>
+
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;">Nápověda</div>
+		</li>
 
 		<li class="<?= ($page == 'intranet2' && $page1 == 'help') ? 'submenu-active' : '' ?>">
 

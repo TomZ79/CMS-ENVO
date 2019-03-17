@@ -1,20 +1,15 @@
 /*
  * CMS ENVO
  * JS for Plugin URL Mapping - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- * 02.
- * 03. Datatable config
- *
  */
 
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 $(function () {
@@ -61,7 +56,8 @@ $(function () {
 
 });
 
-/* 03. Datatable config
+/** DATATABLE INITIALISATION
+ * @require: DataTable Plugin
  ========================================================================*/
 
 $(function () {

@@ -23,7 +23,7 @@
 					if ($ndetail["unread"] == 0) {
 
 						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-						echo $Html -> addButtonSubmit('btnRead', 'Označit jako přečtené', '', 'btn bg-teal-400 float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+						echo $Html -> addButtonSubmit('btnRead', 'Označit jako přečtené', '', 'btn bg-teal-400 float-right');
 
 					}
 					?>

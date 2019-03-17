@@ -1,19 +1,16 @@
 /*
  * CMS ENVO
  * JS for Settings - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Show/Hide block form SMTP settings
- * 02. AutoGrow text block
  */
 
 
-/** 01. Show/Hide block form SMTP settings
+/** SHOW/HIDE BLOCK - SMTP SETTINGS
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {
@@ -30,7 +27,7 @@ $(function () {
 
 });
 
-/** 02. AutoGrow text block
+/** AUTOGROW TEXT BLOCK
  * @require: AutoGrow Plugin
  ========================================================================*/
 

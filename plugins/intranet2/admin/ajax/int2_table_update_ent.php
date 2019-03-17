@@ -24,7 +24,7 @@ $elevator  = $_POST['elevator'];
 $apartment = $_POST['apartment'];
 $gpslat    = $_POST['gpslat'];
 $gpslng    = $_POST['gpslng'];
-$katastr   = $_POST['katastr'];
+$ikatastr   = $_POST['ikatastr'];
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
@@ -39,7 +39,7 @@ $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseent SET
                           apartment = "' . $apartment . '", 
                           gpslat = "' . $gpslat . '", 
                           gpslng = "' . $gpslng . '", 
-                          katastr = "' . $katastr . '", 
+                          katastr = "' . $ikatastr . '", 
                           updated = NOW()
                           WHERE id = "' . $entID . '"');
 

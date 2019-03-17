@@ -139,7 +139,7 @@ and also iPads specifically.
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor($hs["parseurl"], str_highlight($hs["name"], $hs["searchtext"], 'text-orange-800 font-weight-bold'));
+									echo $Html -> addAnchor($hs["parseurl"], str_highlight($hs["name"], $hs["searchtext"], 'text-orange-800 font-weight-bold', STR_HIGHLIGHT_STRIPLINKS));
 									?>
 
 								</td>

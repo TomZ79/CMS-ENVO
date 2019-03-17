@@ -9,6 +9,10 @@ $CHECK_USR_SESSION = session_id();
 // -------- DATA FOR ALL FRONTEND PAGES --------
 // -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
 
+// EN: Show content in template only the user have access (SuperAdmin always has access)
+// CZ:
+$ENVO_MODULES_ACCESS = $envouser -> envoModuleAccess(ENVO_USERID, '1,2');
+
 // EN: Set base plugin folder - template
 // CZ: Nastavení základní složky pluginu - šablony
 $BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/intranet2/template/';
@@ -69,6 +73,7 @@ $envotable4  = DB_PREFIX . 'int2_houseserv';
 $envotable5  = DB_PREFIX . 'int2_housedocu';
 $envotable6  = DB_PREFIX . 'int2_houseimg';
 $envotable7  = DB_PREFIX . 'int2_housevideo';
+$envotable8  = DB_PREFIX . 'int2_housecontacts';
 $envotable10 = DB_PREFIX . 'int2_housenotifications';
 $envotable11 = DB_PREFIX . 'int2_housenotificationug';
 $envotable12 = DB_PREFIX . 'int2_settings_city';
@@ -344,7 +349,7 @@ switch ($page1) {
 
 				break;
 			case 'h':
-				// INFO ABOUT HOUSE
+				// HOUSE DETAIL
 
 				// EN: Default Variable
 				// CZ: Hlavní proměnné
@@ -398,6 +403,50 @@ switch ($page1) {
 							// EN: Insert each record into array
 							// CZ: Vložení získaných dat do pole
 							$ENVO_HOUSE_ENT[] = $row;
+						}
+
+						// EN: Get the data of Contacts
+						// CZ: Získání dat o Kontaktech
+						$result = $envodb -> query('SELECT * FROM ' . $envotable8 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+						// EN: Determine the number of rows in the result from DB
+						// CZ: Určení počtu řádků ve výsledku z DB
+						$row_cnt = $result -> num_rows;
+						$ENVO_HOUSE_CONT['count_of_cont'] = $row_cnt;
+
+						while ($row = $result -> fetch_assoc()) {
+							// EN: Change number to string
+							// CZ: Změna čísla na text
+							switch ($row['status']) {
+								case '0':
+									$status = 'Bez funkce';
+									break;
+								case '1':
+									$status = 'Předseda';
+									break;
+								case '2':
+									$status = 'Místopředseda';
+									break;
+								case '3':
+									$status = 'Člen výboru';
+									break;
+							}
+
+							// EN: Insert each record into array
+							// CZ: Vložení získaných dat do pole
+							$ENVO_HOUSE_CONT[] = array (
+								'id'          => $row['id'],
+								'houseid'     => $row['houseid'],
+								'degree'      => $row['degree'],
+								'name'        => $row['name'],
+								'surname'     => $row['surname'],
+								'address'     => $row['address'],
+								'phone'       => $row['phone'],
+								'email'       => $row['email'],
+								'status'      => $status,
+								'birthdate'   => (!empty((int)$row['birthdate']) ? date($ENVO_SETTING_VAL['int2dateformat'], strtotime($row['birthdate'])) : ''),
+								'description' => $row['description'],
+							);
+
 						}
 
 						// EN: Get the data of Tasks
@@ -515,6 +564,7 @@ switch ($page1) {
 
 				break;
 			default:
+				// HOUSE SEARCHING
 
 				// ----------- ERROR: REDIRECT PAGE ------------
 				// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------

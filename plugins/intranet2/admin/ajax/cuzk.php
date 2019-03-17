@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/katastr.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/cuzk.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Include the functions
@@ -20,7 +20,7 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 $x      = intval($_REQUEST['x']);
 $y      = intval($_REQUEST['y']);
 $street = filter_var($_REQUEST['street'], FILTER_SANITIZE_STRING);
-$city   = filter_var($_REQUEST['$city'], FILTER_SANITIZE_STRING);
+$city   = filter_var($_REQUEST['city'], FILTER_SANITIZE_STRING);
 // Define http KATASTR
 define('KATASTR', 'http://nahlizenidokn.cuzk.cz/MapaIdentifikace.aspx?l=KN&x=-' . $x . '&y=-' . $y);
 // Read the contents of the HTML remote file into a string -> variable
@@ -59,7 +59,7 @@ if (!$dom -> loadHTML($file)) {
 			<div  class="col-sm-12">
 			<h5>Získaná data z databáze ČÚZK dle adresy sídla</h5>
 			<hr>
-			<p><strong>ČÚZK: GPS data byla nalezena a data byla stažena</strong></p>
+			<p><strong>ČÚZK: Data byla nalezena a stažena</strong></p>
 			<p>Doba zpracování požadavku: <span id="ajaxTime_katastr"></span></p><hr>
 			<p>Vybraná adresa pro vyhledání dat: ' . $street . ', ' . $city . '</p><hr>
 	';

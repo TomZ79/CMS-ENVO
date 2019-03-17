@@ -101,10 +101,7 @@ function envo_get_task_info ($usergroupid, $ext_seo, $tabs, $dateformat)
 	// EN: SQL settings for all user groups without 'Administrator'
 	// CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
 	if ($usergroupid != 3) {
-		$sql = 'WHERE 
-            FIND_IN_SET(0, ' . DB_PREFIX . 'int2_house.permission) <> 0
-            OR
-            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int2_house.permission) <> 0';
+		$sql = 'WHERE ' . DB_PREFIX . 'int2_house.permission LIKE "%0%" OR ' . DB_PREFIX . 'int2_house.permission LIKE "%' . $usergroupid . '%"';
 	}
 
 	// EN: SQL Query
@@ -235,10 +232,7 @@ function envo_get_task_delayed_info ($usergroupid, $ext_seo, $tabs, $dateformat)
 	// EN: SQL settings for all user groups without 'Administrator'
 	// CZ: Nastavení SQL pro všechny uživatelské skupiny bez skupiny 'Administrator'
 	if ($usergroupid != 3) {
-		$sql = 'WHERE 
-            FIND_IN_SET(0, ' . DB_PREFIX . 'int2_house.permission) <> 0
-            OR
-            FIND_IN_SET(' . $usergroupid . ', ' . DB_PREFIX . 'int2_house.permission) <> 0';
+		$sql = 'WHERE ' . DB_PREFIX . 'int2_house.permission LIKE "%0%" OR ' . DB_PREFIX . 'int2_house.permission LIKE "%' . $usergroupid . '%"';
 	}
 
 	// EN: SQL Query
@@ -246,7 +240,9 @@ function envo_get_task_delayed_info ($usergroupid, $ext_seo, $tabs, $dateformat)
 	$result = $envodb -> query('
             SELECT 
             
-            ' . DB_PREFIX . 'int2_housetasks.*, ' . DB_PREFIX . 'int2_house.name, ' . DB_PREFIX . 'int2_house.varname
+            ' . DB_PREFIX . 'int2_housetasks.*,
+            ' . DB_PREFIX . 'int2_house.name,
+            ' . DB_PREFIX . 'int2_house.varname
             
             FROM 
             ' . DB_PREFIX . 'int2_housetasks
@@ -259,7 +255,7 @@ function envo_get_task_delayed_info ($usergroupid, $ext_seo, $tabs, $dateformat)
             
             ' . $sql . '
             
-            AND 
+            AND
             ' . DB_PREFIX . 'int2_housetasks.time < NOW()
             
             AND
@@ -602,19 +598,19 @@ define('STR_HIGHLIGHT_STRIPLINKS', 8);
  * @author      Aidan Lister <aidan@php.net>
  * @version     3.1.1
  * @link        http://aidanlister.com/2004/04/highlighting-a-search-string-in-html-text/
- * @param       string $text         Haystack - The text to search
- * @param       array|string $needle Needle - The string to highlight
- * @param       bool $options        Bitwise set of options
- * @param       array $highlight     Replacement string
+ * @param       string       $text      Haystack - The text to search
+ * @param       array|string $needle    Needle - The string to highlight
+ * @param       bool         $options   Bitwise set of options
+ * @param       array        $highlight Replacement string
  * @return      Text with needle highlighted
  */
-function str_highlight ($text, $needle, $class = null, $options = null, $highlight = null)
+function str_highlight ($text, $needle, $class = NULL, $options = NULL, $highlight = NULL)
 {
 	$needle = explode(',', $needle);
 
 	// Default highlighting
-	if ($highlight === null) {
-		if ($class === null) {
+	if ($highlight === NULL) {
+		if ($class === NULL) {
 			$highlight = '<strong>\1</strong>';
 		} else {
 			$highlight = '<span class="' . $class . '">\1</span>';
@@ -653,6 +649,7 @@ function str_highlight ($text, $needle, $class = null, $options = null, $highlig
 
 		$regex = sprintf($pattern, $needle_s);
 		$text  = preg_replace($regex, $highlight, $text);
+
 	}
 
 	return $text;

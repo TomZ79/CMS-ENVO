@@ -15,7 +15,7 @@
 		<ul class="nav nav-group-sub " data-submenu-title="Bytové domy" <?= (($page == 'intranet-2' && ($page1 == 'house' || $page1 == 'maps')) ? 'style="display: block;"' : '') ?>>
 			<li class="nav-item">
 				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'house' && $page2 == '') ? 'active' : '') ?>">
-					Seznam bytových domů
+					Vyhledání domu(ů)
 				</a>
 			</li>
 			<?php if ($ENVO_ACCESS_ANALYTICS) { ?>
@@ -38,52 +38,72 @@
 		</ul>
 	</li>
 	<!-- Open Data -->
-		<li class="nav-item nav-item-submenu <?= (($page == 'intranet-2' && ($page1 == 'opendata')) ? 'nav-item-open' : '') ?>">
-			<a href="#" class="nav-link "><i class="icon-stats-bars"></i> <span>Otevřená data</span></a>
+	<li class="nav-item nav-item-submenu <?= (($page == 'intranet-2' && ($page1 == 'opendata')) ? 'nav-item-open' : '') ?>">
+		<a href="#" class="nav-link "><i class="icon-stats-bars"></i> <span>Otevřená data</span></a>
 
-			<ul class="nav nav-group-sub " data-submenu-title="Otevřená data" <?= (($page == 'intranet-2' && ($page1 == 'opendata')) ? 'style="display: block;"' : '') ?>>
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'ares') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'ares') ? 'active' : '') ?>">
-						Ares
-					</a>
-				</li>
+		<ul class="nav nav-group-sub " data-submenu-title="Otevřená data" <?= (($page == 'intranet-2' && ($page1 == 'opendata')) ? 'style="display: block;"' : '') ?>>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'ares') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'ares') ? 'active' : '') ?>">
+					Ares
+				</a>
+			</li>
 
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'justice') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'justice') ? 'active' : '') ?>">
-						Justice
-					</a>
-				</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'justice') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'justice') ? 'active' : '') ?>">
+					Justice
+				</a>
+			</li>
 
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'csu') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'csu') ? 'active' : '') ?>">
-						ČSÚ
-					</a>
-				</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'csu') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'csu') ? 'active' : '') ?>">
+					ČSÚ
+				</a>
+			</li>
 
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'kn') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'kn') ? 'active' : '') ?>">
-						Katastr
-					</a>
-				</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'kn') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'kn') ? 'active' : '') ?>">
+					Katastr
+				</a>
+			</li>
 
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'databox') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'databox') ? 'active' : '') ?>">
-						Datová schránka
-					</a>
-				</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'databox') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'databox') ? 'active' : '') ?>">
+					Datová schránka
+				</a>
+			</li>
 
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'dph') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'dph') ? 'active' : '') ?>">
-						Plátci DPH
-					</a>
-				</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'dph') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'dph') ? 'active' : '') ?>">
+					Plátci DPH
+				</a>
+			</li>
 
-				<li class="nav-item">
-					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'drazby') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'drazby') ? 'active' : '') ?>">
-						Portál dražeb
-					</a>
-				</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'opendata', 'drazby') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'opendata' && $page2 == 'drazby') ? 'active' : '') ?>">
+					Portál dražeb
+				</a>
+			</li>
 
-			</ul>
-		</li>
+		</ul>
+	</li>
+
+	<?php if ($ENVO_MODULES_ACCESS) { ?>
+	<!-- Contracts -->
+	<li class="nav-item nav-item-submenu <?= (($page == 'intranet-2' && ($page1 == 'contract')) ? 'nav-item-open' : '') ?>">
+		<a href="#" class="nav-link "><i class="icon-archive"></i> <span>Zakázky</span></a>
+
+		<ul class="nav nav-group-sub " data-submenu-title="Zakázky" <?= (($page == 'intranet-2' && ($page1 == 'contract')) ? 'style="display: block;"' : '') ?>>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'contract') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'contract') ? 'active' : '') ?>">
+					Vyhledání zakázky
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'contract', 'statistics') ?>" class="nav-link <?= (($page == 'intranet-2' && $page1 == 'contract' && $page2 == 'statistics') ? 'active' : '') ?>">
+					Statistika
+				</a>
+			</li>
+		</ul>
+	</li>
+	<?php } ?>
 </ul>

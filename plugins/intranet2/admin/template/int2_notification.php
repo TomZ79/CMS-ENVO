@@ -58,8 +58,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
   </script>
 <?php } ?>
 
-  <!-- Fixed Button for save form -->
-  <div class="savebutton-medium hidden-xs">
+  <!-- Action button block -->
+  <div class="actionbtn-block d-none d-sm-block">
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

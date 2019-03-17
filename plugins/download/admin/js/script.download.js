@@ -1,24 +1,15 @@
 /*
  * CMS ENVO
  * JS for Plugin Download - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- * 02. Slug
- * 03. Bootstrap Icon Picker
- * 04. DateTimePicker
- * 05. NestedSortable
- * 06. DataTable Initialisation
- *
  */
 
-
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 /** ACE Editor
@@ -170,7 +161,8 @@ $(function () {
 
 });
 
-/** 02. Slug
+/** 02. SLUG
+ * @require: Slug Plugin
  ========================================================================*/
 
 $(function () {
@@ -182,7 +174,7 @@ $(function () {
 
 });
 
-/** 03. Bootstrap Icon Picker
+/** BOOTSTRAP ICON PICKER
  * @require: Icon Picker Plugin
  ========================================================================*/
 
@@ -226,7 +218,7 @@ $(function () {
 
 });
 
-/** 04. DateTimePicker
+/** DATETIMEPICKER
  * @require: DateTimePicker Plugin
  ========================================================================*/
 
@@ -254,7 +246,7 @@ $(function () {
 
 });
 
-/** 05. NestedSortable
+/** NESTEDSORTABLE
  * @require: NestedSortable Plugin
  ========================================================================*/
 
@@ -287,7 +279,7 @@ $(function () {
 
 });
 
-/** 06. DataTable Initialisation
+/** DATATABLE INITIALISATION
  * @require: DataTable Plugin
  ========================================================================*/
 

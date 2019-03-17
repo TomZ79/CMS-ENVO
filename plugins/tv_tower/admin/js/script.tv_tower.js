@@ -1,22 +1,15 @@
 /*
  * CMS ENVO
  * JS for Plugin TV Tower - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- * 02. DataTable Initialisation
- * 03. Show iFrame in modal - help
- * 04. DVB-T/T2 Channel Frequency UHF
- *
  */
 
-
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 /** ACE Editor
@@ -90,7 +83,7 @@ $(function () {
 
 });
 
-/** 02. DataTable Initialisation
+/** DATATABLE INITIALISATION
  * @require: DataTable Plugin
  ========================================================================*/
 
@@ -258,7 +251,8 @@ $(function () {
 
 });
 
-/** 03. Show iFrame in modal - help
+/** BOOTSTRAP MODAL
+ * @require: Bootstrap Plugin
  ========================================================================*/
 
 $(function () {
@@ -300,7 +294,8 @@ $(function () {
 
 });
 
-/** 04. DVB-T/T2 Channel Frequency UHF
+/** DVB-T/T2 Channel Frequency UHF
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {

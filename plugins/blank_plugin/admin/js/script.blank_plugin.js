@@ -1,19 +1,15 @@
 /*
  * CMS ENVO
  * JS for Blank Plugin - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. xxxx
- *
  */
 
 
-/** 01. xxxx
+/** NAME OF FUNCTION
  ========================================================================*/
 
 $(function () {

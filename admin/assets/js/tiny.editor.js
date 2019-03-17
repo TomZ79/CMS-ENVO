@@ -1,16 +1,15 @@
 /*
  * CMS ENVO
  * JS for Tiny Editor - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
  */
 
-/** 01. Tiny Editor config
+/** TINYEDITOR - CONFIG
+ * @require: Tiny MCE Plugin
  ========================================================================*/
 
 $(function () {
@@ -41,7 +40,8 @@ $(function () {
 
 });
 
-/** 02.  Tiny Editor config
+/** TINYEDITOR - CONFIG
+ * @require: Tiny MCE Plugin
  ========================================================================*/
 
 $(function () {
@@ -72,7 +72,8 @@ $(function () {
 
 });
 
-/** 03.  Tiny Editor config
+/** TINYEDITOR - CONFIG
+ * @require: Tiny MCE Plugin
  ========================================================================*/
 
 $(function () {

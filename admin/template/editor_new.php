@@ -80,33 +80,33 @@
 
 		<?php
 		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-		echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+		echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 		?>
 
 	</div>
 </div>
 
 <script>
-	var clicked = false;
-	var resizeFirstEditor = function (resizeEditor) {
-		var MeContainer = document.getElementById('cover');
-		var feContainer = document.getElementById('editorContainer');
+  var clicked = false;
+  var resizeFirstEditor = function (resizeEditor) {
+    var MeContainer = document.getElementById('cover');
+    var feContainer = document.getElementById('editorContainer');
 
-		$("#htmleditor").css("height", "450");
+    $("#htmleditor").css("height", "450");
 
-		MeContainer.classList.toggle("active");
-		clicked = !clicked;
-		if (resizeEditor) {
-			editor.resize();
-		}
-	};
+    MeContainer.classList.toggle("active");
+    clicked = !clicked;
+    if (resizeEditor) {
+      editor.resize();
+    }
+  };
 
-	var btn = document.getElementById('resizeContainer');
-	btn.addEventListener('click', function () {
-		resizeFirstEditor();
-	});
-	var btn = document.getElementById('resizeContainerAndEditor');
-	btn.addEventListener('click', function () {
-		resizeFirstEditor(true);
-	});
+  var btn = document.getElementById('resizeContainer');
+  btn.addEventListener('click', function () {
+    resizeFirstEditor();
+  });
+  var btn = document.getElementById('resizeContainerAndEditor');
+  btn.addEventListener('click', function () {
+    resizeFirstEditor(true);
+  });
 </script>

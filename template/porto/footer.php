@@ -130,24 +130,7 @@ switch ($section) {
 		</div>
 	</footer>
 
-	<!-- ADMINISTRATOR -->
-	<div class="alert alert-warning alert-dismissible fade show col-11 col-sm-5 col-lg-4" role="alert" style="display: block; margin: 0 auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1020; bottom: 40px; right: 20px;">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="position: relative;right: -7px;top: -8px !important;padding: .2rem 1rem;">
-			<span aria-hidden="true">&times;</span>
-		</button>
-		<div class="container">
-			<h5>Údaje o webu pro administratory</h5>
-			<hr style="margin: 5px 0;">
-			<div class="row" style="font-size: .9em;padding: 4px 0;">
-				<div class="col-sm-6 col-lg-4">Název stránky</div>
-				<div class="col-sm-6 col-lg-8"><?= $page ?></div>
-			</div>
-			<div class="row" style="font-size: .9em;padding: 4px 0;">
-				<div class="col-sm-6 col-lg-4">ID stránky</div>
-				<div class="col-sm-6 col-lg-8"><?= $PAGE_ID ?></div>
-			</div>
-		</div>
-	</div><!-- =========================
+	<!-- =========================
   END FOOTER SECTION
   ============================== -->
 <?php } else {

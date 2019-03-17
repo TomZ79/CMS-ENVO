@@ -6,7 +6,8 @@
  * @param $var
  * @return string
  */
-function nonzero($var){
+function nonzero ($var)
+{
 	$i = '0';
 	foreach ($var as $v) {
 		if ($v["int2analytics"] == '1') {
@@ -16,6 +17,7 @@ function nonzero($var){
 
 	return $i;
 }
+
 ?>
 
 <?php
@@ -57,12 +59,12 @@ if ($page2 == "e") { ?>
 <?php } ?>
 
 	<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
-		<!-- Fixed Button for save form -->
-		<div class="savebutton-small hidden-xs">
+		<!-- Action button block -->
+		<div class="actionbtn-block d-none d-sm-block">
 
 			<?php
 			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-			echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ('data-loading-text' => $tl["button"]["btn41"]));
+			echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -239,7 +241,7 @@ if ($page2 == "e") { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>
@@ -255,10 +257,10 @@ if ($page2 == "e") { ?>
 
 								<?php
 								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-								echo $Html -> startTag('h3', array ( 'class' => 'box-title' ));
+								echo $Html -> startTag('h3', array ('class' => 'box-title'));
 								echo 'Přístupová práva';
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ( 'data-content' => 'Stiskněte a držte <br>klávesu CTRL nebo SHIFT <br>pro výběr více položek', 'data-original-title' => 'Nápověda'));
+								echo $Html -> addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array ('data-content' => 'Stiskněte a držte <br>klávesu CTRL nebo SHIFT <br>pro výběr více položek', 'data-original-title' => 'Nápověda'));
 								// Add Html Element -> endTag (Arguments: tag)
 								echo $Html -> endTag('h3');
 								?>
@@ -304,7 +306,7 @@ if ($page2 == "e") { ?>
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ( 'data-loading-text' => $tl["button"]["btn41"] ));
+								echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 								?>
 
 							</div>

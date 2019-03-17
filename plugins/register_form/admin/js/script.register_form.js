@@ -1,19 +1,15 @@
 /*
  * CMS ENVO
  * JS for Plugin Register Form - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- *
  */
 
-
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 /** ACE Editor

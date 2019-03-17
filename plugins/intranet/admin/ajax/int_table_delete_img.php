@@ -21,44 +21,71 @@ header('Content-Type: application/json;charset=utf-8');
 $imageID = $_POST['imageID'];
 
 // Define basic variable
-$data_array = array();
+$data_array = array ();
 
 // Delete file from folder
-$result = $envodb->query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'int_houseimg WHERE id = "' . $imageID . '"');
-$row    = $result->fetch_assoc();
+$result = $envodb -> query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'int_houseimg WHERE id = "' . $imageID . '" LIMIT 1');
+$row    = $result -> fetch_assoc();
 
-$deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenameoriginal'];
-$deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenamethumb'];
-foreach ($deletefiles as $files) {
-  unlink(realpath($files));
-}
+// EN: Determine the number of rows in the result from DB
+// CZ: Určení počtu řádků ve výsledku z DB
+$row_cntA = $result -> num_rows;
 
-// Delete row in DB
-$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int_houseimg WHERE id = "' . $imageID . '"');
+if ($row_cntA > 0) {
 
-if ($result) {
-  $data_array[] = array(
-    'id' => $imageID,
-  );
+	$deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenameoriginal'];
+	$deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenamethumb'];
+	foreach ($deletefiles as $files) {
+		if (file_exists($files)) {
+			unlink(realpath($files));
+		}
+	}
 
-  // Data for JSON
-  $envodata = array(
-    'status'     => 'delete_success',
-    'status_msg' => 'Deleting the record from DB was successful',
-    'data'       => $data_array
-  );
+	// Delete row in DB
+	$result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'int_houseimg WHERE id = "' . $imageID . '"');
+
+	if ($result) {
+		$data_array[] = array (
+			'id' => $imageID,
+		);
+
+		// Data for JSON
+		$envodata = array (
+			'status'      => 'delete_success',
+			'status_msg'  => 'Deleting the record from DB was successful',
+			'status_info' => '',
+			'data'        => $data_array
+		);
+	} else {
+		$data_array[] = array (
+			'id' => $imageID
+		);
+
+		// Data for JSON
+		$envodata = array (
+			'status'      => 'delete_error_E02',
+			'status_msg'  => 'Deleting the record from DB was incorrect',
+			'status_info' => '',
+			'data'        => $data_array
+		);
+	}
+
 } else {
-  $data_array[] = array(
-    'id' => $imageID
-  );
 
-  // Data for JSON
-  $envodata = array(
-    'status'     => 'delete_error_E01',
-    'status_msg' => 'Deleting the record from DB was incorrect',
-    'data'       => $data_array
-  );
+	$data_array[] = array (
+		'id' => $imageID
+	);
+
+	// Data for JSON
+	$envodata = array (
+		'status'      => 'delete_error_E01',
+		'status_msg'  => 'Deleting the record from DB was incorrect',
+		'status_info' => 'Nebyl nalezen požadovaný záznam v DB.',
+		'data'        => $data_array
+	);
+
 }
+
 
 // RETURN JSON OUTPUT
 //-------------------------

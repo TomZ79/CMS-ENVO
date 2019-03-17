@@ -1,24 +1,16 @@
 /*
  * CMS ENVO
  * JS for Plugin Wiki - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- * 02. Slug
- * 03. Bootstrap Icon Picker
- * 04. NestedSortable
- * 05. DataTable Initialisation
- *
  */
 
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
-
 
 /** ACE Editor
  * Initialisation of ACE Editor
@@ -168,7 +160,8 @@ $(function () {
 
 });
 
-/** 02. Slug
+/** SLUG
+ * @require: Slug Plugin
  ========================================================================*/
 
 $(function () {
@@ -180,7 +173,7 @@ $(function () {
 
 });
 
-/** 03. Bootstrap Icon Picker
+/** BOOTSTRAP ICON PICKER
  * @require: Icon Picker Plugin
  ========================================================================*/
 
@@ -224,7 +217,7 @@ $(function () {
 
 });
 
-/** 04. NestedSortable
+/** NESTEDSORTABLE
  * @require: NestedSortable Plugin
  ========================================================================*/
 
@@ -257,7 +250,7 @@ $(function () {
 
 });
 
-/** 05. DataTable Initialisation
+/** DATATABLE INITIALISATION
  * @require: DataTable Plugin
  ========================================================================*/
 
@@ -291,7 +284,7 @@ $(function () {
 
 });
 
-/** 06. DateTimePicker
+/** DATETIMEPICKER
  * @require: DateTimePicker Plugin
  ========================================================================*/
 
@@ -322,7 +315,8 @@ $(function () {
 
 });
 
-/** 07. Add new Rows
+/** ADD ROWS
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {

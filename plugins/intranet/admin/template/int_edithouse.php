@@ -32,14 +32,14 @@ if (!function_exists('array_group_by')) {
 	{
 		if (!is_string($key) && !is_int($key) && !is_float($key) && !is_callable($key)) {
 			trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
-			return null;
+			return NULL;
 		}
-		$func = (!is_string($key) && is_callable($key) ? $key : null);
+		$func = (!is_string($key) && is_callable($key) ? $key : NULL);
 		$_key = $key;
 		// Load the new array, splitting by the target key
 		$grouped = [];
 		foreach ($array as $value) {
-			$key = null;
+			$key = NULL;
 			if (is_callable($func)) {
 				$key = call_user_func($func, $value);
 			} elseif (is_object($value) && isset($value ->{$_key})) {
@@ -47,7 +47,7 @@ if (!function_exists('array_group_by')) {
 			} elseif (isset($value[$_key])) {
 				$key = $value[$_key];
 			}
-			if ($key === null) {
+			if ($key === NULL) {
 				continue;
 			}
 			$grouped[$key][] = $value;
@@ -135,12 +135,12 @@ if ($errors) { ?>
 <?php } ?>
 
 <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
-	<!-- Fixed Button for save form -->
-	<div class="savebutton hidden-xs">
+	<!-- Action button block -->
+	<div class="actionbtn-block d-none d-sm-block">
 
 		<?php
 		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-		echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array ('data-loading-text' => $tl["button"]["btn41"]));
+		echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 		echo $Html -> addAnchor('index.php?p=intranet&amp;sp=house', $tl["button"]["btn19"], '', 'btn btn-info button');
 		?>
@@ -572,7 +572,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -623,7 +623,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -716,7 +716,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -777,7 +777,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -841,7 +841,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -934,7 +934,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -959,7 +959,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -1115,7 +1115,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -1189,7 +1189,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -1495,7 +1495,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -1866,7 +1866,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>
@@ -1898,7 +1898,7 @@ if ($errors) { ?>
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right', array ('data-loading-text' => $tl["button"]["btn41"]));
+							echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
 							?>
 
 						</div>

@@ -126,7 +126,7 @@ if (!ENVO_USERID) {
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <input type="submit" value="<?= $tl["button"]["btn11"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." name="registerF" id="registerFormSubmit">
+                      <input type="submit" value="<?= $tl["button"]["btn11"] ?>" class="btn btn-primary pull-right mb-xl" name="registerF" id="registerFormSubmit">
                     </div>
                   </div>
 
@@ -183,7 +183,7 @@ if (!ENVO_USERID) {
                   </span>
                 </div>
                 <div class="col-md-6">
-                  <input type="submit" value="<?= $tl["button"]["btn8"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." id="login" name="login">
+                  <input type="submit" value="<?= $tl["button"]["btn8"] ?>" class="btn btn-primary pull-right mb-xl" id="login" name="login">
                   <input type="hidden" name="home" value="0"/>
                 </div>
               </div>
@@ -227,7 +227,7 @@ if (!ENVO_USERID) {
 
                 </div>
                 <div class="col-md-6">
-                  <input type="submit" value="<?= $tl["button"]["btn10"] ?>" class="btn btn-primary pull-right mb-xl" data-loading-text="Odesílání..." name="forgotP">
+                  <input type="submit" value="<?= $tl["button"]["btn10"] ?>" class="btn btn-primary pull-right mb-xl" name="forgotP">
                 </div>
               </div>
 
@@ -252,7 +252,7 @@ if (!ENVO_USERID) {
         <li><i class="fa fa-check"></i> <?= $tlporto["lpage_text"]["lpaget2"] ?></li>
       </ul>
       <p>
-        <a href="<?= $P_USR_LOGOUT ?>" class="btn btn-danger btn-block" data-loading-text="Odesílání...">
+        <a href="<?= $P_USR_LOGOUT ?>" class="btn btn-danger btn-block">
           <?= $tl["button"]["btn9"] ?>
         </a>
       </p>

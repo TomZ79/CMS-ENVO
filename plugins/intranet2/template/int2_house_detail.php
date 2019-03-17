@@ -120,7 +120,7 @@
 									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_DETAIL['ic'] ?>" readonly>
 								</div>
 								<div class="form-group">
-									<label class="font-weight-semibold">IČ:</label>
+									<label class="font-weight-semibold">Stát:</label>
 									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_DETAIL['state'] ?>" readonly>
 								</div>
 							</fieldset>
@@ -145,11 +145,16 @@
 									<label class="font-weight-semibold">Detail stavebního objektu:</label>
 									<div class="form-control-plaintext">
 
-										<?php if (!empty($ENVO_HOUSE_DETAIL["cuzk_objcode"])) { ?>
+										<?php
+										if (isset($ENVO_HOUSE_DETAIL["cuzk_objcode"])) {
 
-											<a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/<?= $ENVO_HOUSE_DETAIL["cuzk_objcode"] ?>" target="_blank">Zobrazit detail objektu</a>
+											$ocodearray = explode(', ', $ENVO_HOUSE_DETAIL["cuzk_objcode"]);
+											foreach ($ocodearray as $oc) {
+											?>
 
-										<?php } else { ?>
+											<a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/<?= $oc ?>" target="_blank">Zobrazit detail objektu</a><br>
+
+										<?php } } else { ?>
 
 											<span class="alert border-0 text-orange-800 alpha-orange d-block m-0 p-2">Odkaz na výpis neexistuje</span>
 
@@ -161,9 +166,9 @@
 									<label class="font-weight-semibold">iKatastr:</label>
 									<div class="form-control-plaintext">
 
-										<?php if (!empty($ENVO_HOUSE_DETAIL["ikatastr"])) { ?>
+										<?php if (!empty($ENVO_HOUSE_DETAIL["maingpslat"]) && !empty($ENVO_HOUSE_DETAIL["maingpslng"])) { ?>
 
-											<a href="<?= $ENVO_HOUSE_DETAIL["ikatastr"] ?>" target="_blank">Zobrazit katastr nemovitostí</a>
+											<a href="https://www.ikatastr.cz/#kde=<?= $ENVO_HOUSE_DETAIL["maingpslat"] ?>,<?= $ENVO_HOUSE_DETAIL["maingpslng"] ?>,19&mapa=osm&vrstvy=parcelybudovy&info=<?= $ENVO_HOUSE_DETAIL["maingpslat"] ?>,<?= $ENVO_HOUSE_DETAIL["maingpslng"] ?>" target="_blank">Zobrazit katastr nemovitostí</a>
 
 										<?php } else { ?>
 
@@ -395,7 +400,100 @@
 					</div>
 				</div>
 				<div class="tab-pane fade" id="tabs4">
+					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+						<div class="col-12 col-sm-5 px-0 px-sm-2">
+							<fieldset class="section-info">
+								<legend>Kontakty - všeobecné informace</legend>
+								<div class="form-group ">
+									<label class="font-weight-semibold">Celkový počet kontaktů:</label>
+									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_CONT['count_of_cont'] ?>" readonly>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="row m-0 m-sm-2">
 
+						<?php if (!empty($ENVO_HOUSE_CONT) && is_array($ENVO_HOUSE_CONT) && $ENVO_HOUSE_CONT["count_of_cont"] > 0) { ?>
+
+							<?php
+							// Loop Array at second item
+							foreach (array_slice($ENVO_HOUSE_CONT, 1) as $cont) { ?>
+
+								<div class="col-12 col-sm-12" id="cont_<?= $cont["id"] ?>">
+									<fieldset class="section-info">
+										<legend>Jméno: <?= $cont["degree"] . ' ' . $cont["name"] . ' ' . $cont["surname"] ?></legend>
+										<div class="row">
+											<div class="col-12 col-sm-4">
+												<div class="form-group">
+													<label class="font-weight-semibold">Funkce:</label>
+													<input type="text" class="form-control" value="<?= $cont["status"] ?>" readonly>
+												</div>
+												<div class="form-group">
+													<label class="font-weight-semibold">Adresa bydliště:</label>
+													<input type="text" class="form-control" value="<?= $cont["address"] ?>" readonly>
+												</div>
+												<div class="form-group">
+													<label class="font-weight-semibold">Datum narození:</label>
+													<input type="text" class="form-control" value="<?= $cont["birthdate"] ?>" readonly>
+												</div>
+											</div>
+											<div class="col-12 col-sm-4">
+												<div class="form-group">
+													<label class="font-weight-semibold">Telefon:</label>
+
+													<?php if (!empty($cont["phone"])) { ?>
+														<div class="input-group">
+															<input type="text" class="form-control" value="<?= $cont["phone"] ?>" readonly>
+															<span class="input-group-append">
+																<a href="tel:<?= $cont["phone"] ?>" class="btn btn-light legitRipple" data-toggle="tooltipEnvo" data-placemen="bottom" title="Volat"><i class="icon-phone-outgoing"></i></a>
+															</span>
+														</div>
+													<?php } else { ?>
+														<input type="text" class="form-control" value="<?= $cont["phone"] ?>" readonly>
+													<?php } ?>
+
+												</div>
+												<div class="form-group">
+													<label class="font-weight-semibold">Email:</label>
+
+													<?php if (!empty($cont["phone"])) { ?>
+														<div class="input-group">
+															<input name="useremail_<?= $cont["id"] ?>" type="text" class="form-control" value="<?= $cont["email"] ?>" readonly>
+															<span class="input-group-append">
+																<button class="btn btn-light legitRipple copyitem" type="button" data-toggle="tooltipEnvo" data-placemen="bottom" title="Kopírovat" onclick="copyToClipboard('input[name=useremail_<?= $cont["id"] ?>]', this)"><i class="icon-copy4"></i></button>
+															</span>
+														</div>
+													<?php } else { ?>
+														<input type="text" class="form-control" value="<?= $cont["email"] ?>" readonly>
+													<?php } ?>
+
+												</div>
+											</div>
+											<div class="col-12 col-sm-4">
+												<div class="form-group ">
+													<label class="font-weight-semibold">Popis:</label>
+													<div class="form-control-plaintext" style="border-top: 1px solid #DDD">
+														<?= $cont['description'] ?>
+													</div>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+
+							<?php } ?>
+
+
+						<?php } else { ?>
+
+							<?php
+							// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+							echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> kontakty.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+							?>
+
+						<?php } ?>
+
+					</div>
 				</div>
 				<div class="tab-pane fade" id="tabs5">Tab 5</div>
 				<div class="tab-pane fade" id="tabs6">
@@ -405,7 +503,7 @@
 								<legend>Úkoly - všeobecné informace</legend>
 								<div class="form-group ">
 									<label class="font-weight-semibold">Celkový počet úkolů:</label>
-									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_TASK['count_of_task']?>" readonly>
+									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_TASK['count_of_task'] ?>" readonly>
 								</div>
 							</fieldset>
 						</div>

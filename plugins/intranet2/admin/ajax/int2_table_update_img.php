@@ -26,6 +26,11 @@ $catImage       = $_POST['catImage'];
 // Define basic variable
 $data_array = array ();
 
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$envo_setting_val = envo_get_setting_val('intranet2');
+$dateformat       = $envo_setting_val['int2dateformat'];
+
 // Update row in DB
 $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseimg SET shortdescription = "' . $shortdescImage . '", description = "' . $descImage . '", category = "' . $catImage . '", updated = NOW() WHERE id = "' . $imageID . '"');
 
@@ -34,10 +39,11 @@ $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_houseimg WHERE i
 $row    = $result -> fetch_assoc();
 
 $data_array[] = array (
-	'id'               => $row["id"],
-	'timeedit'         => $row["timeedit"],
-	'shortdescription' => $row["shortdescription"],
-	'category'         => $row["category"]
+	'id'                    => $row["id"],
+	'timeedit'              => $row["timeedit"],
+	'shortdescription'      => $row["shortdescription"],
+	'exifcreatedate_format' => date($dateformat, strtotime($row["exifcreatedate"])),
+	'category'              => $row["category"]
 );
 
 // Data for JSON

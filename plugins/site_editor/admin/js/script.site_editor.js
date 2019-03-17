@@ -1,18 +1,15 @@
 /*
  * CMS ENVO
  * JS for Plugin Site Editor - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Textarea - readonly
- *
  */
 
-/** 01. Textarea - readonly
+/** READONLY TEXTAREA
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {

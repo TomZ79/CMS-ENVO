@@ -19,7 +19,7 @@
 echo PHP_EOL . "\t";
 echo '<!-- Start CSS INTRANET2 Plugin -->';
 
-if ($page == 'intranet2' && $page1 == 'house' && $page2 == 'houselist') {
+if ($page == 'intranet2' && (($page1 == 'house' && $page2 == 'houselist') || ($page1 == 'contract' && $page2 == 'contractlist'))) {
 
 	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 	// Plugin DataTable
@@ -52,7 +52,7 @@ if ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps1') {
 
 	// OSM Css style
 	echo $Html -> addStylesheet('https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css');
-	echo $Html -> addStylesheet('https://unpkg.com/ol-contextmenu/dist/ol-contextmenu.min.css');
+	echo $Html -> addStylesheet('https://cdn.jsdelivr.net/npm/ol-contextmenu@3.3.0/dist/ol-contextmenu.min.css');
 
 }
 

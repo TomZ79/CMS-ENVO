@@ -1,17 +1,15 @@
 /*
  * CMS ENVO
  * JS for Login - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
  */
 
 /** 00. XXXX
- * @require: without external plugin
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {

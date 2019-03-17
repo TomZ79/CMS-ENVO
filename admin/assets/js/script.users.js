@@ -1,19 +1,15 @@
 /*
  * CMS ENVO
  * JS for Users - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- * 02. DateTimePicker
- *
  */
 
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 $(function () {
@@ -70,7 +66,7 @@ $(function () {
 
 });
 
-/** 02. DateTimePicker
+/** DATETIMEPICKER
  * @require: DateTimePicker Plugin
  ========================================================================*/
 

@@ -1,19 +1,16 @@
 /*
  * CMS ENVO
  * JS for Plugin Intranet - Frontend
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. DATATABLE - CUSTOM PAGINATION
- * 02. DATATABLE INITIALISATION
  *
  */
 
-/* 00. DATATABLE CONFIG
+/** DATATABLE INITIALISATION
+ * @require: DataTable Plugin
  ========================================================================*/
 
 $(function () {

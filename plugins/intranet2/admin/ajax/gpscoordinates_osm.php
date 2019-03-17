@@ -90,11 +90,16 @@ if ($file) {
 	if ($json) {
 
 		$data_allarray = $json;
-
-		$data_array = array (
-			'lat' => $json[0]['lat'],
-			'lon' => $json[0]['lon'],
-		);
+		$i             = 0;
+		foreach ($data_allarray as $result) {
+			$data_array[$i] = array (
+				'display_name' => $data_allarray[$i]['display_name'],
+				'lat'          => $data_allarray[$i]['lat'],
+				'lon'          => $data_allarray[$i]['lon'],
+			);
+			$i++;
+		}
+		$count_data = $i;
 
 		$envodata = array (
 			'status'        => 'success',
@@ -103,6 +108,7 @@ if ($file) {
 			'tmp_directory' => TMP_PATH,
 			'http'          => OSM,
 			'search_string' => $searchstring,
+			'count_data'    => $count_data,
 			'data_all'      => $data_allarray,
 			'data'          => $data_array
 		);

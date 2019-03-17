@@ -75,7 +75,7 @@
   paceOptions = {
 		target: '#pace',
     ajax: false,
-    document: false,
+    document: true,
     eventLag: false,
 		restartOnPushState: false,
 		restartOnRequestAfter: false
@@ -136,7 +136,7 @@ echo $Html -> addScript('pages/js/pages.min.js');
 <!-- BEGIN PAGE LEVEL JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html -> addScript('assets/js/global_js/scripts.min.js');
+echo $Html -> addScript('assets/js/global_js/scripts.js');
 ?>
 
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->

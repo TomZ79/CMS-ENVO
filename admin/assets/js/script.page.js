@@ -1,19 +1,15 @@
 /*
  * CMS ENVO
  * JS for Pages - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Basic config for plugin's administration
- * 02. DataTable Initialisation
- *
  */
 
-/** 01. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 /** ACE Editor
@@ -75,7 +71,6 @@ if ($('#htmleditor').length) {
 	var texthtml = $('#envo_editor').val();
 	htmlACE.session.setValue(texthtml);
 }
-
 
 if ($('#csseditor').length) {
 	var cssACE = ace.edit("csseditor");
@@ -202,7 +197,7 @@ $(function () {
 
 });
 
-/** 02. DataTable Initialisation
+/** DATATABLE INITIALISATION
  * @require: DataTable Plugin
  ========================================================================*/
 

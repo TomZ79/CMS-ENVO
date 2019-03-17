@@ -1,14 +1,11 @@
 /*
  * CMS ENVO
  * JS for Plugin Intranet - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- *
  */
 
 /** 00. ACE Initialisation

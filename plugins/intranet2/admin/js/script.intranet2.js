@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for INTRANTET 2 - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
@@ -13,7 +13,7 @@
  */
 var debug = true;
 
-/* 00. JQUERY CODE SNIPPET TO GET THE DYNAMIC VARIABLE
+/* JQUERY CODE SNIPPET TO GET THE DYNAMIC VARIABLE
  ======================================================================== */
 /* jQuery code snippet to get the dynamic variables stored in the url as parameters and
  * store them as JavaScript variables ready for use with your scripts.
@@ -45,16 +45,17 @@ $.urlParam = function (name) {
 /**
  * @description Setting variable from url for other uses
  */
-var pageID = $.urlParam('id');
 var page = $.urlParam('p');
 var page1 = $.urlParam('sp');
 var page2 = $.urlParam('ssp');
+var pageID = $.urlParam('id');
 
 if (debug) {
-  console.log('Jquery Parse URL | Data => pageID - ' + pageID + ' | page - ' + page + ' | page1 - ' + page1 + ' | page2 - ' + page2 + '')
+  console.log('Jquery Parse URL | page - ' + page + ' | page1 - ' + page1 + ' | page2 - ' + page2 + ' | Data => pageID - ' + pageID)
 }
 
-/** 00. Basic config for plugin's administration
+/** BASIC CONFIG
+ * @require: Required plugins are listed for each function
  ========================================================================*/
 
 /** ACE Editor
@@ -137,6 +138,7 @@ function getGPS_Data_OSM (event) {
   if ($('#udpateEnt').length) {
     $('#udpateEnt').attr('disabled', true);
   }
+
   // Getting parent 'id'
   var parent = $(this).parents(':eq(4)').attr('id');
   // Street and City from Form
@@ -144,6 +146,8 @@ function getGPS_Data_OSM (event) {
   var streettrim = $.trim(street).replace(/\s/g, '+');
   var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
   var citytrim = $.trim(city).replace(/\s/g, '+');
+  // Ajax time
+  var ajaxTime = new Date().getTime();
 
   if (debug) {
     console.log('GPS Click fn | Parent ID: ' + parent);
@@ -164,9 +168,6 @@ function getGPS_Data_OSM (event) {
     timeout: 20000,
     beforeSend: function () {
 
-      // Show progress text
-      $('#' + parent + ' .loadingdata_gps').html('Načítání ... Prosím počkejte').css('visibility', 'visible');
-      $('#' + parent + ' .loadingdata_ikatastr').html('Načítání ... Prosím počkejte').css('visibility', 'visible');
     },
     success: function (data) {
 
@@ -182,73 +183,206 @@ function getGPS_Data_OSM (event) {
           console.log('NO GPS DATA | Empty JSON Object');
         }
 
-        // Add data to 'input'
-        $('#' + parent + ' input[name=envo_housegpslat]').val('NO GPS DATA').css('background-color', '#FCC');
-        $('#' + parent + ' input[name=envo_housegpslng]').val('NO GPS DATA').css('background-color', '#FCC');
-        $('#' + parent + ' input[name=envo_houseikatastr]').val('NO GPS DATA').css('background-color', '#FCC');
 
       } else {
 
         // Parse JSON data
         var str = JSON.stringify(data);
         var result = JSON.parse(str);
-        // Get variable
-        var wgslat = data['data'].lat;
-        var wgslon = data['data'].lon;
 
-        if (debug) {
-          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
-        }
+        var wgslat, wgslon, divdata = '';
 
-        // Set ikatastr text for input
-        var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Seznam nalezených GPS Koordinátů <small>(Gps podle OSM)</small></h5><hr>';
 
-        // Add data to 'input'
-        $('#' + parent + ' input[name=envo_housegpslat]').val(wgslat).css('background-color', '#FFF5CC');
-        $('#' + parent + ' input[name=envo_housegpslng]').val(wgslon).css('background-color', '#FFF5CC');
-        $('#' + parent + ' input[name=envo_houseikatastr]').val(ikatastr).css('background-color', '#FFF5CC');
+        $.each(data.data, function (item) {
 
-        // Change background color - default color
+          console.log(data.data[item]);
+
+          wgslat = data.data[item].lat;
+          wgslon = data.data[item].lon;
+
+          // Data variable for output DIV
+          divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select-ent" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-8"><p><span class="bold">' + data.data[item].display_name + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-3 text-center"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+
+        });
+
+        // Data variable for output DIV
+        divdata += '</div>';
+
+        // Output Data
+        $('#' + parent + ' #outputajaxdata_gps').html('').prepend(divdata).show();
+        $('.gps-select-ent').click(selectGPS_Data_Ent);
+
         setTimeout(function () {
-          $('#' + parent + ' input[name=envo_housegpslat]').css('background-color', '#FFF');
-          $('#' + parent + ' input[name=envo_housegpslng]').css('background-color', '#FFF');
-          $('#' + parent + ' input[name=envo_houseikatastr]').css('background-color', '#FFF');
-        }, 8000);
+          // Enable 'button'
+          if ($('#saveEnt').length) {
+            $('#saveEnt').attr('disabled', false);
+          }
+          if ($('#udpateEnt').length) {
+            $('#udpateEnt').attr('disabled', false);
+          }
+        }, 1000);
 
-        // Change 'attr' in anchor
-        $('#' + parent + ' .gps_link a.mapycz').attr('href', 'https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat);
-        $('#' + parent + ' .gps_link a.openstreet').attr('href', 'https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon);
-        $('#' + parent + ' .ikatastrlink a.ikatastr').attr('href', ikatastr);
-
-        // Show 'div'
-        $('#' + parent + ' .gps_link').show();
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Success Time: ' + totalTime);
+        }
 
       }
-
-      // Hide progress text
-      setTimeout(function () {
-        $('#' + parent + ' .loadingdata_gps').html('').css('visibility', 'hidden');
-        $('#' + parent + ' .loadingdata_ikatastr').html('').css('visibility', 'hidden');
-        // Enable 'button'
-        if ($('#saveEnt').length) {
-          $('#saveEnt').attr('disabled', false);
-        }
-        if ($('#udpateEnt').length) {
-          $('#udpateEnt').attr('disabled', false);
-        }
-      }, 1000);
 
     },
     error: function (jqXHR, textStatus, errorThrown) {
-      // Hide progress text
-      setTimeout(function () {
-        $('#' + parent + ' .loadingdata_gps').html('').css('visibility', 'hidden');
-        $('#' + parent + ' .loadingdata_ikatastr').html('').css('visibility', 'hidden');
-      }, 1000);
 
-      if (debug) {
-        console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+      if (jqXHR.status === 0) {
+        if (debug) console.log('Ajax => Not connect, Verify Network');
+      } else if (jqXHR.status == 404) {
+        if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+      } else if (jqXHR.status == 500) {
+        if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+      } else if (textStatus === 'parsererror') {
+        if (debug) console.log('Ajax => Requested JSON parse failed');
+      } else if (textStatus === 'timeout') {
+        if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+      } else if (textStatus === 'abort') {
+        if (debug) console.log('Ajax => Ajax request aborted');
+      } else {
+        if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
       }
+
+    },
+    complete: function () {
+    }
+  });
+
+}
+
+/**
+ * @description Jquery Function - Get GPS Coordinates from Mapy.cz
+ * @callaction
+ * $('#elementID').click(getGPS_Data_MAPY);
+ */
+function getGPS_Data_MAPY (event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  if (debug) {
+    console.log('----------- fn getGPS_Data_MAPY -----------')
+  }
+
+  // Disable 'button'
+  if ($('#saveEnt').length) {
+    $('#saveEnt').attr('disabled', true);
+  }
+  if ($('#udpateEnt').length) {
+    $('#udpateEnt').attr('disabled', true);
+  }
+  // Getting parent 'id'
+  var parent = $(this).parents(':eq(4)').attr('id');
+  // Street and City from Form
+  var street = $('#' + parent + ' input[name="envo_entstreet"]').val();
+  var streettrim = $.trim(street).replace(/\s/g, '+');
+  var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
+  var citytrim = $.trim(city).replace(/\s/g, '+');
+  // Ajax time
+  var ajaxTime = new Date().getTime();
+
+  if (debug) {
+    console.log('GPS Click fn | Parent ID: ' + parent);
+    console.log('GPS Click fn | Adress: ' + street + ', ' + city);
+  }
+
+  // Ajax
+  $.ajax({
+    url: '/plugins/intranet2/admin/ajax/gpscoordinates_mapy.php',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      street: streettrim,
+      city: citytrim
+    },
+    cache: false,
+    // Timeout 20s
+    timeout: 20000,
+    beforeSend: function () {
+
+    },
+    success: function (data) {
+
+      if (data.status == 'success') {
+        // IF DATA SUCCESS
+
+        // Parse JSON data
+        var str = JSON.stringify(data);
+        var result = JSON.parse(str);
+
+        var wgslat, wgslon, divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Seznam nalezených GPS Koordinátů <small>(Gps podle Mapy.cz)</small></h5><hr>';
+
+        $.each(data.data, function (item) {
+
+          console.log(data.data[item]);
+
+          wgslat = data.data[item].y;
+          wgslon = data.data[item].x;
+
+          // Data variable for output DIV
+          divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select-ent" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-8"><p><span class="bold">' + data.data[item].title + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-3 text-center"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+
+        });
+
+        // Data variable for output DIV
+        divdata += '</div>';
+
+        // Output Data
+        $('#' + parent + ' #outputajaxdata_gps').html('').prepend(divdata).show();
+        $('.gps-select-ent').click(selectGPS_Data_Ent);
+
+        setTimeout(function () {
+          // Enable 'button'
+          if ($('#saveEnt').length) {
+            $('#saveEnt').attr('disabled', false);
+          }
+          if ($('#udpateEnt').length) {
+            $('#udpateEnt').attr('disabled', false);
+          }
+        }, 1000);
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax =>  Success Time: ' + totalTime);
+        }
+
+      } else {
+        // IF DATA ERROR
+
+      }
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+
+      if (jqXHR.status === 0) {
+        if (debug) console.log('Ajax => Not connect, Verify Network');
+      } else if (jqXHR.status == 404) {
+        if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+      } else if (jqXHR.status == 500) {
+        if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+      } else if (textStatus === 'parsererror') {
+        if (debug) console.log('Ajax => Requested JSON parse failed');
+      } else if (textStatus === 'timeout') {
+        if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+      } else if (textStatus === 'abort') {
+        if (debug) console.log('Ajax => Ajax request aborted');
+      } else {
+        if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+      }
+
     },
     complete: function () {
     }
@@ -286,7 +420,7 @@ function initializeTinyMce (selector, height) {
     selector = 'textarea';
   }
 
-  if ( $(selector).length) {
+  if ($(selector).length) {
     tinymce.init({
       selector: selector,
       theme: "modern",
@@ -372,14 +506,54 @@ function formatFileSize (bytes) {
 /**
  * @description  Copy to Clipboard
  * @callaction
- * <button onclick="copyToClipboard('#p1')">Copy TEXT 1</button>
+ * <input type="text" id="target" value="TEXT 1">
+ * <button data-toggle="tooltipEnvo" data-placement="bottom" data-original-title="Zkopírovat" onclick="copyToClipboard('#target', this)">Copy TEXT 1</button>
  */
-function copyToClipboard (element) {
-  var temp = $('<input>');
-  $('body').append(temp);
-  temp.val($(element).val()).select();
-  document.execCommand('copy');
-  temp.remove();
+function copyToClipboard (target, e) {
+
+  if (debug) {
+    console.log('----------- fn copyToClipboard -----------');
+  }
+
+  // ------------ Basic variable
+
+  // Storing in a variable
+  var $this = $(e);
+  var copyTest = document.queryCommandSupported('copy');
+  var elOriginalText = $this.attr('data-original-title');
+
+  if (debug) {
+    console.log($this);
+    console.log('Element - original text:' + elOriginalText);
+  }
+
+  // ------------ Jquery code
+
+  if (copyTest === true) {
+
+    var copyArea = document.createElement('input');
+    copyArea.value = $(target).val();
+    document.body.appendChild(copyArea);
+    copyArea.select();
+
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'Zkopírováno !' : 'Oops, nezkopírováno !';
+      $this.attr('data-original-title', msg).tooltip('show');
+    } catch (err) {
+      console.log('Oops, není možné zkopírovat');
+    }
+
+    document.body.removeChild(copyArea);
+
+    $this.attr('data-original-title', elOriginalText);
+
+  } else {
+
+    // Fallback if browser doesn't support .execCommand('copy')
+    window.prompt('Zkopírovat do schránky: Ctrl+C or Command+C, Enter');
+
+  }
 }
 
 /**
@@ -409,7 +583,180 @@ var urlExists = function (url, callback) {
 
 };
 
-/** 00. TinyMCE Initialisation
+/**
+ * @description Jquery Function - Copy GPS Coordinates to input
+ * @callaction
+ * $('.elementID').click(selectGPS_Data);
+ */
+function selectGPS_Data (event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  if (debug) {
+    console.log('----------- fn selectGPS_Data -----------')
+  }
+
+  // ------------ Basic variable
+
+  // Getting parent 'id'
+  var parent = $(this).parents(':eq(4)').attr('id');
+
+  // Storing in a variable
+  var $this = $(this);
+  var mapycz = $('#' + parent + ' .mainmaps a.mapycz');
+  var openstreet = $('#' + parent + ' .mainmaps a.openstreet');
+  var loading_gps = $('#' + parent + ' .loadingdata_gps');
+  // Get value
+  var wgslat = $this.attr('data-gps-lat');
+  var wgslon = $this.attr('data-gps-lon');
+
+  // ------------ Jquery code
+
+  if (debug) {
+    console.log('Parent ID: ' + parent);
+    console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+  }
+
+  // Show progress text
+  loading_gps.html('Načítání ... Prosím počkejte').css('visibility', 'visible');
+
+  // Add data to 'input'
+  $('#' + parent + ' input[name=envo_house_maingpslat]').val(wgslat).css('background-color', '#FFF5CC');
+  $('#' + parent + ' input[name=envo_house_maingpslng]').val(wgslon).css('background-color', '#FFF5CC');
+
+  // Change background color - default color
+  setTimeout(function () {
+    $('#' + parent + ' input[name=envo_house_maingpslat]').css('background-color', '#FFF');
+    $('#' + parent + ' input[name=envo_house_maingpslng]').css('background-color', '#FFF');
+  }, 8000);
+
+  // Hide progress text
+  setTimeout(function () {
+    loading_gps.html('').css('visibility', 'hidden');
+  }, 1000);
+
+  // Change 'attr' in anchor
+  if ((mapycz.length > 0) || (openstreet.length > 0)) {
+
+    if (debug) {
+      console.log('Maps links => was found');
+    }
+
+    mapycz.attr('href', 'https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat);
+    openstreet.attr('href', 'https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=18#map=18/' + wgslat + '/' + wgslon);
+
+  } else {
+
+    if (debug) {
+      console.log('Maps links => was NOT found');
+    }
+
+    var anchordata = '<a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" class="mapycz" target="MapGPS">Mapy.cz</a>' +
+      '<span class="m-l-10 m-r-10">|</span>' +
+      '<a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&amp;mlon=' + wgslon + '&amp;zoom=18#map=18' + wgslat + '/' + wgslon + '" class="OpenStreetMaps" target="MapGPS">OpenStreetMaps</a>';
+
+    $('#' + parent + ' .mainmaps').html(anchordata);
+
+  }
+
+  // Add icons to button
+  $('.gps-select').each(function () {
+    $(this).html('Vybrat');
+  });
+  $this.append('<i class="fa fa-check text-success-800 m-l-5"></i>');
+
+}
+
+/**
+ * @description Jquery Function - Copy GPS Coordinates to input ENT
+ * @callaction
+ * $('.elementID').click(selectGPS_Data_Ent);
+ */
+function selectGPS_Data_Ent (event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  if (debug) {
+    console.log('----------- fn selectGPS_Data_Ent -----------')
+  }
+
+  // ------------ Basic variable
+
+  // Getting parent 'id'
+  var parent = $(this).parents(':eq(5)').attr('id');
+
+  // Storing in a variable
+  var $this = $(this);
+  var mapycz = $('#' + parent + ' a.mapycz');
+  var openstreet = $('#' + parent + ' a.openstreet');
+  var ikatastr = $('#' + parent + ' a.ikatastr');
+  var loading_gps = $('#' + parent + ' .loadingdata_gps');
+  var loading_ikatastr = $('#' + parent + ' .loadingdata_ikatastr');
+  // Get value
+  var wgslat = $this.attr('data-gps-lat');
+  var wgslon = $this.attr('data-gps-lon');
+  var ikatastrlink = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
+
+  // ------------ Jquery code
+
+  if (debug) {
+    console.log('Parent ID: ' + parent);
+    console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+  }
+
+  // Disable 'button'
+  if ($('#saveEnt').length) {
+    $('#saveEnt').attr('disabled', true);
+  }
+  if ($('#udpateEnt').length) {
+    $('#udpateEnt').attr('disabled', true);
+  }
+
+  // Show progress text
+  loading_gps.html('Načítání ... Prosím počkejte').css('visibility', 'visible');
+  loading_ikatastr.html('Načítání ... Prosím počkejte').css('visibility', 'visible');
+
+  // Change 'attr' in anchor
+  mapycz.attr('href', 'https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat);
+  openstreet.attr('href', 'https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon);
+  ikatastr.attr('href', ikatastrlink);
+
+  // Add data to 'input'
+  $('#' + parent + ' input[name=envo_housegpslat]').val(wgslat).css('background-color', '#FFF5CC');
+  $('#' + parent + ' input[name=envo_housegpslng]').val(wgslon).css('background-color', '#FFF5CC');
+  $('#' + parent + ' input[name=envo_houseikatastr]').val(ikatastrlink).css('background-color', '#FFF5CC');
+
+  // Change background color - default color
+  setTimeout(function () {
+    $('#' + parent + ' input[name=envo_housegpslat]').css('background-color', '#FFF');
+    $('#' + parent + ' input[name=envo_housegpslng]').css('background-color', '#FFF');
+    $('#' + parent + ' input[name=envo_houseikatastr]').css('background-color', '#FFF');
+  }, 8000);
+
+  // Hide progress text
+  setTimeout(function () {
+    loading_gps.html('').css('visibility', 'hidden');
+    loading_ikatastr.html('').css('visibility', 'hidden');
+    // Enable 'button'
+    if ($('#saveEnt').length) {
+      $('#saveEnt').attr('disabled', false);
+    }
+    if ($('#udpateEnt').length) {
+      $('#udpateEnt').attr('disabled', false);
+    }
+    // Show 'div'
+    $('#' + parent + ' #gpslink').show();
+  }, 1000);
+
+  // Add icons to button
+  $('.gps-select-ent').each(function () {
+    $(this).html('Vybrat');
+  });
+  $this.append('<i class="fa fa-check text-success-800 m-l-5"></i>');
+
+}
+
+/** TinyMCE Initialisation
  * @require: TinyMCE Plugin
  ========================================================================*/
 
@@ -423,7 +770,7 @@ $(function () {
 });
 
 
-/** 00. LOAD ARES, IKATASTR, JUSTICE, GPS
+/** LOAD ARES, IKATASTR, JUSTICE, GPS
  ========================================================================*/
 
 $(function () {
@@ -459,7 +806,6 @@ $(function () {
   /**
    * @description   Show JUSTICE links
    */
-
   $('input[name="envo_housejustice"]').change(function () {
 
     if (this.value == '1') {
@@ -473,25 +819,21 @@ $(function () {
   /**
    * @description   Get GPS Coordinates from OpenStreeMaps
    */
-  $('.getgps').click(getGPS_Data_OSM);
-
-  /**
-   * @description   Get GPS Coordinates from OpenStreeMaps
-   */
   $('input[name=envo_houseikatastr]').keyup(function () {
 
     // Getting parent 'id'
     var parent = $(this).parents(':eq(4)').attr('id');
-    var getkatastr = $.trim($(this).val()).replace(/\s/g, '');
+    // Get value
+    var ikatastr = $.trim($(this).val()).replace(/\s/g, '');
 
     if ($(this).val().length > 0) {
-      $('#' + parent + ' .ikatastrlink a').attr('href', getkatastr);
+      $('#' + parent + ' .ikatastrlink a').attr('href', ikatastr);
     } else {
       $('#' + parent + ' .ikatastrlink a').attr('href', 'https://www.ikatastr.cz/');
     }
 
     if (debug) {
-      console.log('Katastr Keyup fn | Parent ID: ' + parent + ' | Text: ' + getkatastr);
+      console.log('Katastr Keyup fn | Parent ID: ' + parent + ' | Text: ' + ikatastr);
     }
 
   });
@@ -507,10 +849,14 @@ $(function () {
       console.log('----------- fn #loadAres click -----------')
     }
 
+    // ------------ Basic variable
+
     // Get value
     var ic = $.trim($('input[name="envo_dataares"]').val()).replace(/\s/g, '');
     // Ajax time
     var ajaxTime = new Date().getTime();
+
+    // ------------ Jquery code
 
     // Ajax
     $.ajax({
@@ -544,7 +890,7 @@ $(function () {
           var divdata = '';
           divdata += '<div class="col-sm-12"><h5>Získaná data z databáze Ares</h5><hr>' +
             '<p><strong>' + data.status_msg + '</strong></p>' +
-            '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span></p><hr>' +
+            '<p>Doba zpracování požadavku: <span id="ajaxTime"></span></p><hr>' +
             '<table class="table">' +
             '<tbody>' +
             '<tr class="row">' +
@@ -573,24 +919,16 @@ $(function () {
           $('select[name="envo_housecity"] + span span.select2-selection').css('background-color', '#FFF5CC');
           $('input[name=envo_housepsc]').val(data.psc).css('background-color', '#FFF5CC');
 
-          if ($('input[name=envo_housefname]').length) {
-            $('input[name=envo_housefname]').val(data.name).css('background-color', '#FFF5CC');
-          }
-          if ($('input[name=envo_housefstreet]').length) {
-            $('input[name=envo_housefstreet]').val(data.ulice).css('background-color', '#FFF5CC');
-          }
-          if ($('input[name=envo_housefcity]').length) {
-            $('input[name=envo_housefcity]').val(data.mesto).css('background-color', '#FFF5CC');
-          }
-          if ($('input[name=envo_housefpsc]').length) {
-            $('input[name=envo_housefpsc]').val(data.psc).css('background-color', '#FFF5CC');
-          }
-          if ($('input[name=envo_housefic]').length) {
-            $('input[name=envo_housefic]').val(data.ic).css('background-color', '#FFF5CC');
-          }
-          if ($('input[name=envo_housefdic]').length) {
-            $('input[name=envo_housefdic]').val(data.dic).css('background-color', '#FFF5CC');
-          }
+          $('input[name=envo_housefname]').val(data.name).css('background-color', '#FFF5CC');
+          $('input[name=envo_housefstreet]').val(data.ulice).css('background-color', '#FFF5CC');
+          $('input[name=envo_housefcity]').val(data.mesto).css('background-color', '#FFF5CC');
+          $('input[name=envo_housefpsc]').val(data.psc).css('background-color', '#FFF5CC');
+          $('input[name=envo_housefic]').val(data.ic).css('background-color', '#FFF5CC');
+          $('input[name=envo_housefdic]').val(data.dic).css('background-color', '#FFF5CC');
+
+          $('input[name=envo_house_maingpsstreet]').val(data.ulice).css('background-color', '#FFF5CC');
+          $('select[name="envo_house_maingpscity"]').val(data.mesto_id);
+          $('select[name="envo_house_maingpscity"] + span span.select2-selection').css('background-color', '#FFF5CC');
 
           // Change background color - default color
           setTimeout(function () {
@@ -606,7 +944,9 @@ $(function () {
               'input[name=envo_housefcity]',
               'input[name=envo_housefpsc]',
               'input[name=envo_housefic]',
-              'input[name=envo_housefdic]'
+              'input[name=envo_housefdic]',
+              'input[name=envo_house_maingpsstreet]',
+              'select[name="envo_house_maingpscity"] + span span.select2-selection'
             ];
             var element = $(array.join(', '));
             // Change background color
@@ -627,36 +967,45 @@ $(function () {
 
           // ReInit Select2 plugin
           $('select[name=envo_housecity]').trigger('change');
+          $('select[name=envo_house_maingpscity]').trigger('change');
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + 'ČÚZK: Data byla nalezena a stažena'
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
 
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);
           if (debug) {
-            console.log('ajaxTime | Success Time: ' + totalTime);
+            console.log('Ajax => Success Time: ' + totalTime);
             console.log($('select[name="envo_housecity"]').find(':selected').data('city_name'));
           }
-          // Loading data progress
-          $('#loadingdata').hide().html('');
 
         } else {
           // IF DATA ERROR
 
           // Data variable for output
           var divdata = '';
-          divdata += '<div class="col-sm-12"><h5>Výstup z Ares</h5>' +
+          divdata += '<div class="col-sm-12"><h5>Získaná data z databáze Ares</h5>' +
             '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
-            '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span></p><hr>' +
+            '<p>Doba zpracování požadavku: <span id="ajaxTime"></span></p><hr>' +
             '<p>' + data.status_info + '</p>' +
             '</div>';
 
           // Output Data
           $('#outputaresdate').html('').prepend(divdata).show();
 
-          // Ajax time
-          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-          if (debug) {
-            console.log('ajaxTime | Success Time: ' + totalTime);
-          }
           // Loading data progress
           $('#loadingdata').hide().html('');
 
@@ -673,22 +1022,82 @@ $(function () {
             });
           }, 1000);
 
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          $('#ajaxTime').html(totalTime);
+          if (debug) {
+            console.log('Ajax => Success Time: ' + totalTime);
+          }
+
         }
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
 
-        // Loading data progress
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-3" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
+        var divdata = '';
 
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Získaná data z databáze Ares</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputaresdate').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputaresdate .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
         }
 
-        if (textStatus === 'timeout') {
-          if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
-        } else {
-          if (debug) console.log(textStatus + ': ' + errorThrown);
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Loading data progress
+        $('#loadingdata').hide().html('');
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
         }
 
       },
@@ -710,27 +1119,54 @@ $(function () {
       console.log('----------- fn #loadCuzk click -----------')
     }
 
+    // ------------ Basic variable
+
     // Get value
-    var street = $('input[name="envo_housestreet"]').val();
-    var streettrim = $.trim(street).replace(/\s/g, '+');
-    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
-    var citytrim = $.trim(city).replace(/\s/g, '+');
+    var wgslat = $('input[name="envo_house_maingpslat"]').val();
+    var wgslon = $('input[name="envo_house_maingpslng"]').val();
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
     var converter = new JTSK_Converter();
+    var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
+    var strX = jtsk.y;
+    // Convert a number into a string - only two decimals
+    var substrX = strX.toFixed(2);
+    // Split a string into an array of substrings
+    var x = substrX.split('.')[0];
+
+    var strY = jtsk.x;
+    // Convert a number into a string - only two decimals
+    var substrY = strY.toFixed(2);
+    // Split a string into an array of substrings
+    var y = substrY.split('.')[0];
     // Ajax time
     var ajaxTime = new Date().getTime();
 
+    // ------------ Jquery code
+
     if (debug) {
-      console.log('Data for Ajax => streettrim: ' + streettrim + ' / citytrim: ' + citytrim);
+      console.log('GPS Coordinates => Latitude: ' + wgslat + ' / Longitude: ' + wgslon + '\n\n');
+      console.log('JTSK_Converter => Start');
+      console.log(jtsk);
+      console.log('JTSK_Converter => End \n\n');
+      console.log('JTSK_Converter => WGS84.lat: ' + wgslat);
+      console.log('JTSK_Converter => WGS84.lon: ' + wgslon);
+      console.log('JTSK_Converter => JTSK.x: ' + jtsk.y);
+      console.log('JTSK_Converter => JTSK.y: ' + jtsk.x);
+      console.log('JTSK_Converter => WGS84.lat / JTSK.x - two decimals: ' + substrX);
+      console.log('JTSK_Converter => WGS84.lon / JTSK.y - two decimals: ' + substrY);
     }
 
     // Ajax
     $.ajax({
-      url: '/plugins/intranet2/admin/ajax/gpscoordinates_osm.php',
+      url: "/plugins/intranet2/admin/ajax/cuzk.php",
       type: 'POST',
-      dataType: 'json',
+      dataType: 'html',
       data: {
-        street: streettrim,
-        city: citytrim
+        x: x,
+        y: y,
+        street: street,
+        city: city
       },
       cache: false,
       // Timeout 20s
@@ -744,114 +1180,130 @@ $(function () {
       },
       success: function (data) {
 
-        // Parse JSON data
-        var str = JSON.stringify(data);
-        var result = JSON.parse(str);
-        // Get variable
-        var wgslat = data['data'].lat;
-        var wgslon = data['data'].lon;
-
+        // Find KU Name/Code in 'data'
+        var ku_obec = $(data).find('#ku_obec').text();
+        var ku_ncode = $(data).find('#ku_name_code').text();
         if (debug) {
-          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+          console.log('Finding Data => KU Obec: ' + ku_obec + '| KU Katastrální území: ' + ku_ncode);
         }
 
-        var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
-
-        var strX = jtsk.y;
-        // Convert a number into a string - only two decimals
-        var substrX = strX.toFixed(2);
-        // Split a string into an array of substrings
-        var x = substrX.split('.')[0];
-
-        var strY = jtsk.x;
-        // Convert a number into a string - only two decimals
-        var substrY = strY.toFixed(2);
-        // Split a string into an array of substrings
-        var y = substrY.split('.')[0];
-
+        // Setting value
+        var ku_code1 = ku_obec.match(/\d+/);
+        var ku_code2 = ku_ncode.match(/\d+/);
         if (debug) {
-          console.log(jtsk);
-          console.log('WGS84.lat: ' + wgslat);
-          console.log('WGS84.lon: ' + wgslon);
-          console.log('JTSK.x: ' + jtsk.y);
-          console.log('JTSK.y: ' + jtsk.x);
-          console.log('WGS84.lat -> JTSK.x: ' + substrX);
-          console.log('WGS84.lon -> JTSK.y: ' + substrY);
+          console.log('KU Data => KU Kód Obce: ' + ku_code1 + ' | KU Kód Katastrálního území: ' + ku_code2)
         }
 
-        // Ajax
-        $.ajax({
-          url: "/plugins/intranet2/admin/ajax/cuzk.php",
-          type: 'POST',
-          dataType: 'html',
-          data: {
-            x: x,
-            y: y,
-            street: street,
-            city: city
-          },
-          cache: false,
-          success: function (data) {
+        // Output Data
+        $('#outputajaxdata_katastr').html('').prepend(data).show();
 
-            // Find KU Name/Code in 'data'
-            var ku_obec = $(data).find('#ku_obec').text();
-            var ku_ncode = $(data).find('#ku_name_code').text();
-            if (debug) {
-              console.log('Finding Data | KU Obec: ' + ku_obec + '| KU Katastrální území: ' + ku_ncode);
-            }
+        // Add data to element
+        $('select[name="envo_house_cuzk_city"] option[data-city_cuzk_code="' + ku_code1 + '"]').attr('selected', 'selected');
+        $('select[name="envo_house_cuzk_city"] + span span.select2-selection').css('background-color', '#FFF5CC');
+        $('select[name="envo_house_cuzk_ku"] option[data-ku_cuzk_code="' + ku_code2 + '"]').attr('selected', 'selected');
+        $('select[name="envo_house_cuzk_ku"] + span span.select2-selection').css('background-color', '#FFF5CC');
 
-            // Setting value
-            var ku_code1 = ku_obec.match(/\d+/);
-            var ku_code2 = ku_ncode.match(/\d+/);
-            if (debug) {
-              console.log('KU Data | KU Kód Obce: ' + ku_code1 + ' | KU Kód Katastrálního území: ' + ku_code2)
-            }
+        // ReInit Select2 plugin
+        $('select[name=envo_house_cuzk_city]').trigger('change');
+        $('select[name=envo_house_cuzk_ku]').trigger('change');
 
-            // Output Data
-            $('#outputajaxdata_katastr').html('').prepend(data).show();
+        // Change background color - default color
+        setTimeout(function () {
+          $('select[name="envo_house_cuzk_city"] + span span.select2-selection').css('background-color', '#FFF');
+          $('select[name="envo_house_cuzk_ku"] + span span.select2-selection').css('background-color', '#FFF');
+        }, 8000);
 
-            // Add data to element
-            $('select[name="envo_house_cuzk_city"] option[data-city_cuzk_code="' + ku_code1 + '"]').attr('selected', 'selected');
-            $('select[name="envo_house_cuzk_city"] + span span.select2-selection').css('background-color', '#FFF5CC');
-            $('select[name="envo_house_cuzk_ku"] option[data-ku_cuzk_code="' + ku_code2 + '"]').attr('selected', 'selected');
-            $('select[name="envo_house_cuzk_ku"] + span span.select2-selection').css('background-color', '#FFF5CC');
+        // Loading data progress
+        $('#loadingdata').hide().html('');
 
-            // ReInit Select2 plugin
-            $('select[name=envo_house_cuzk_city]').trigger('change');
-            $('select[name=envo_house_cuzk_ku]').trigger('change');
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: '<strong>Success:</strong> ' + 'ČÚZK: Data byla nalezena a stažena'
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
 
-            // Change background color - default color
-            setTimeout(function () {
-              $('select[name="envo_house_cuzk_city"] + span span.select2-selection').css('background-color', '#FFF');
-              $('select[name="envo_house_cuzk_ku"] + span span.select2-selection').css('background-color', '#FFF');
-            }, 8000);
-
-            // Ajax time
-            var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-            $('#ajaxTime_katastr').html(totalTime);
-            if (debug) {
-              console.log('ajaxTime | Success Time: ' + totalTime);
-            }
-
-            // Loading data progress
-            $('#loadingdata').hide().html('');
-
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            if (debug) {
-              console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
-            }
-          },
-          complete: function () {
-
-          }
-        });
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        $('#ajaxTime_katastr').html(totalTime);
+        if (debug) {
+          console.log('Ajax => Success Time: ' + totalTime);
+        }
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        var divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Získaná data z databáze ČÚZK dle adresy sídla</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputajaxdata_katastr .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
         }
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Loading data progress
+        $('#loadingdata').hide().html('');
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
+        }
+
       },
       complete: function () {
 
@@ -865,7 +1317,7 @@ $(function () {
   /**
    * @description   Load data from CUZK by GPS - Object code
    */
-  $('#loadObjCode').click(function (e) {
+  $('#loadObjCode1').click(function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
@@ -873,151 +1325,362 @@ $(function () {
       console.log('----------- fn #loadObjCode click -----------');
     }
 
+    // ------------ Basic variable
+
     // Get value
-    var street = $('input[name="envo_housestreet"]').val();
-    var streettrim = $.trim(street).replace(/\s/g, '+');
-    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
-    var citytrim = $.trim(city).replace(/\s/g, '+');
+    var wgslat = $('input[name="envo_house_maingpslat"]').val();
+    var wgslon = $('input[name="envo_house_maingpslng"]').val();
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
     var converter = new JTSK_Converter();
+
+    var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
+    var strX = jtsk.y;
+    // Convert a number into a string - only two decimals
+    var substrX = strX.toFixed(2);
+    // Split a string into an array of substrings
+    var x = substrX.split('.')[0];
+
+    var strY = jtsk.x;
+    // Convert a number into a string - only two decimals
+    var substrY = strY.toFixed(2);
+    // Split a string into an array of substrings
+    var y = substrY.split('.')[0];
     // Ajax time
     var ajaxTime = new Date().getTime();
 
+    // ------------ Jquery code
+
     if (debug) {
-      console.log('Data from FORM => street:' + streettrim + ' | city: ' + citytrim);
+      console.log('GPS Coordinates => Latitude: ' + wgslat + ' / Longitude: ' + wgslon + '\n\n');
+      console.log('JTSK_Converter => Start');
+      console.log(jtsk);
+      console.log('JTSK_Converter => End \n\n');
+      console.log('JTSK_Converter => WGS84.lat: ' + wgslat);
+      console.log('JTSK_Converter => WGS84.lon: ' + wgslon);
+      console.log('JTSK_Converter => JTSK.x: ' + jtsk.y);
+      console.log('JTSK_Converter => JTSK.y: ' + jtsk.x);
+      console.log('JTSK_Converter => WGS84.lat / JTSK.x - two decimals: ' + substrX);
+      console.log('JTSK_Converter => WGS84.lon / JTSK.y - two decimals: ' + substrY);
     }
 
-    // Ajax
+    // Show progress circle
+    $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
     $.ajax({
-      url: '/plugins/intranet2/admin/ajax/gpscoordinates_osm.php',
+      url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
       type: 'POST',
-      dataType: 'json',
-      data: {
-        street: streettrim,
-        city: citytrim
+      dataType: 'xml',
+      cache: false,
+      success: function (data) {
+
+        // Extract relevant data from XML
+        var adId = data.getElementsByTagName("base:localId")[0];
+        var adIdtxt = adId.innerHTML;
+
+        if (debug) {
+          console.log('CUZK inspire-ad-wfs => adId: ' + adIdtxt);
+          console.log('CUZK inspire-ad-wfs => Links: http://vdp.cuzk.cz/vdp/ruian/adresnimista/' + adIdtxt.split('.')[1]);
+        }
       },
+      error: function () {
+
+      },
+      complete: function () {
+
+      }
+    });
+
+    $.ajax({
+      url: 'https://services.cuzk.cz/wfs/inspire-cp-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=CadastralParcel',
+      type: 'POST',
+      dataType: 'xml',
+      cache: false,
+      success: function (data) {
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+
+      }
+    });
+
+    $.ajax({
+      url: 'https://services.cuzk.cz/wfs/inspire-bu-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Building',
+      type: 'POST',
+      dataType: 'xml',
       cache: false,
       // Timeout 20s
       timeout: 20000,
-      beforeSend: function () {
-
-        // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
-
-
-      },
       success: function (data) {
 
-        // Parse JSON data
-        var str = JSON.stringify(data);
-        var result = JSON.parse(str);
-        // Get variable
-        var wgslat = data['data'].lat;
-        var wgslon = data['data'].lon;
+        // Extract relevant data from XML
+        var buId = data.getElementsByTagName("base:localId")[0];
 
-        if (debug) {
-          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+        if (typeof buId != 'undefined') {
+
+          var name = data.getElementsByTagName("bu-base:name")[0];
+          name && (name = (name = name.getElementsByTagName("gn:text")) ? name[0].textContent : null);
+          var buVdpId = data.getElementsByTagName("bu-base:reference")[0].textContent;
+
+          if (debug) {
+            console.log('CUZK inspire-bu-wfs => buId: ' + buId.innerHTML);
+            console.log('CUZK inspire-bu-wfs => buTag: ' + name);
+            console.log('CUZK inspire-bu-wfs => buVdpId: ' + buVdpId);
+          }
+
+          // Data variable for output DIV
+          var divdata = '';
+          divdata += '<div  class="col-sm-12">' +
+            '<h5>Získaná data z databáze ČÚZK dle budov</h5><hr>' +
+            '<p><strong>ČÚZK: Data byla nalezena a stažena</strong></p>' +
+            '<p>Doba zpracování požadavku: <span id="ajaxTime_katastr"></span></p><hr>' +
+            '<p>Vybraná adresa pro vyhledání dat: ' + street + ', ' + city + '</p><hr>' +
+            '<p><strong>buId: </strong> ' + buId.innerHTML + '</p>' +
+            '<p><strong style="color: #C10000;">Kód objektu (buVdpId): </strong> ' + buVdpId + '</p>' +
+            '<p><strong>Stavba na pozemku (buTag): </strong> ' + name + '</p>' +
+            '<p><strong>Detail stavebního objektu: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' + buVdpId + '" target="WindowCUZK">Zobrazit detail objektu na ČÚZK</a></p><hr>' +
+            '</div>';
+
+          // Output Data
+          $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+          $('input[name="envo_house_cuzk_objcode"]').val(buVdpId).css('background-color', '#FFF5CC');
+          $('#cuzk_objdetail_link').html('');
+          $('<a/>', {
+            href: 'http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' + buVdpId,
+            text: 'Zobrazit detail objektu',
+            target: 'WindowCUZK'
+          }).appendTo($('#cuzk_objdetail_link'));
+
+          // Remove background color from 'input'
+          setTimeout(function () {
+            $('input[name="envo_house_cuzk_objcode"]').css('background-color', '#FFF');
+          }, 8000);
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + 'ČÚZK: Data byla nalezena a stažena'
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else {
+
+          var divdata = '';
+
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<h5>Získaná data z databáze ČÚZK dle budov</h5><hr>';
+          divdata += '<p><strong>ČÚZK: Data nebyla nalezena</strong></p>';
+          divdata += '<p>Doba zpracování požadavku: <span id="ajaxTime_katastr"></span></p><hr>';
+
+          // Output Data
+          $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + 'ČÚZK: Data nebyla nalezena'
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
         }
 
+        // Loading data progress
+        $('#loadingdata').hide().html('');
 
-        var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
-
-        var strX = jtsk.y;
-        // Convert a number into a string - only two decimals
-        var substrX = strX.toFixed(2);
-        // Split a string into an array of substrings
-        var x = substrX.split('.')[0];
-
-        var strY = jtsk.x;
-        // Convert a number into a string - only two decimals
-        var substrY = strY.toFixed(2);
-        // Split a string into an array of substrings
-        var y = substrY.split('.')[0];
-
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        $('#ajaxTime_katastr').html(totalTime);
         if (debug) {
-          console.log(jtsk);
-          console.log('WGS84.lat: ' + wgslat);
-          console.log('WGS84.lon: ' + wgslon);
-          console.log('JTSK.x: ' + jtsk.y);
-          console.log('JTSK.y: ' + jtsk.x);
-          console.log('WGS84.lat -> JTSK.x: ' + substrX);
-          console.log('WGS84.lon -> JTSK.y: ' + substrY);
+          console.log('Ajax => Success Time: ' + totalTime);
         }
 
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        var divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Získaná data z databáze ČÚZK dle budov</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputajaxdata_katastr .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        }
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Loading data progress
+        $('#loadingdata').hide().html('');
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+  });
+
+  /**
+   * @description   Load data from CUZK by GPS - Object code
+   */
+  $('#loadObjCode2').click(function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #loadObjCode click -----------');
+    }
+
+    // ------------ Basic variable
+
+    // Get value
+    var wgslat = $('input[name="envo_house_maingpslat"]').val();
+    var wgslon = $('input[name="envo_house_maingpslng"]').val();
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
+    var converter = new JTSK_Converter();
+    var jtsk = converter.WGS84toJTSK(wgslat, wgslon);
+    var strX = jtsk.y;
+    // Convert a number into a string - only two decimals
+    var substrX = strX.toFixed(2);
+    // Split a string into an array of substrings
+    var x = substrX.split('.')[0];
+
+    var strY = jtsk.x;
+    // Convert a number into a string - only two decimals
+    var substrY = strY.toFixed(2);
+    // Split a string into an array of substrings
+    var y = substrY.split('.')[0];
+    // Ajax time
+    var ajaxTime = new Date().getTime();
+
+    // ------------ Jquery code
+
+    if (debug) {
+      console.log('GPS Coordinates => Latitude: ' + wgslat + ' / Longitude: ' + wgslon + '\n\n');
+      console.log('JTSK_Converter => Start');
+      console.log(jtsk);
+      console.log('JTSK_Converter => End \n\n');
+      console.log('JTSK_Converter => WGS84.lat: ' + wgslat);
+      console.log('JTSK_Converter => WGS84.lon: ' + wgslon);
+      console.log('JTSK_Converter => JTSK.x: ' + jtsk.y);
+      console.log('JTSK_Converter => JTSK.y: ' + jtsk.x);
+      console.log('JTSK_Converter => WGS84.lat / JTSK.x - two decimals: ' + substrX);
+      console.log('JTSK_Converter => WGS84.lon / JTSK.y - two decimals: ' + substrY);
+    }
+
+    // Show progress circle
+    $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+    $.ajax({
+      url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
+      type: 'POST',
+      dataType: 'xml',
+      cache: false,
+      success: function (data) {
+
+        // Extract relevant data from XML
+        var adId = data.getElementsByTagName("base:localId")[0];
+        var adIdtxt = adId.innerHTML;
+
+        if (debug) {
+          console.log('CUZK inspire-ad-wfs => adId: ' + adIdtxt);
+          console.log('CUZK inspire-ad-wfs => Links: http://vdp.cuzk.cz/vdp/ruian/adresnimista/' + adIdtxt.split('.')[1]);
+        }
+
+        // Ajax
         $.ajax({
-          url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
+          url: "/plugins/intranet2/admin/ajax/cuzk_code.php",
           type: 'POST',
-          dataType: 'xml',
+          dataType: 'html',
+          data: {
+            adIdtxt: adIdtxt.split('.')[1],
+            street: street,
+            city: city
+          },
           cache: false,
+          // Timeout 20s
+          timeout: 20000,
+          beforeSend: function () {
+
+            // Show progress circle
+            $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+
+          },
           success: function (data) {
 
-            // Extract relevant data from XML
-            var adId = data.getElementsByTagName("base:localId")[0];
-            var adIdtxt = adId.innerHTML;
-
-            if (debug) {
-              console.log('adId: ' + adIdtxt);
-              console.log('Links: http://vdp.cuzk.cz/vdp/ruian/adresnimista/' + adIdtxt.split('.')[1]);
-            }
-          },
-          error: function () {
-
-          },
-          complete: function () {
-
-          }
-        });
-
-        $.ajax({
-          url: 'https://services.cuzk.cz/wfs/inspire-cp-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=CadastralParcel',
-          type: 'POST',
-          dataType: 'xml',
-          cache: false,
-          success: function (data) {
-
-
-          },
-          error: function () {
-
-          },
-          complete: function () {
-
-          }
-        });
-
-        $.ajax({
-          url: 'https://services.cuzk.cz/wfs/inspire-bu-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Building',
-          type: 'POST',
-          dataType: 'xml',
-          cache: false,
-          success: function (data) {
-
-            // Extract relevant data from XML
-            var buId = data.getElementsByTagName("base:localId")[0];
-            var name = data.getElementsByTagName("bu-base:name")[0];
-            name && (name = (name = name.getElementsByTagName("gn:text")) ? name[0].textContent : null);
-            var buVdpId = data.getElementsByTagName("bu-base:reference")[0].textContent;
-
-            if (debug) {
-              console.log('buId: ' + buId.innerHTML);
-              console.log('buTag: ' + name);
-              console.log('buVdpId: ' + buVdpId);
-            }
-
-            // Data variable for output DIV
-            var divdata = '';
-            divdata += '<div  class="col-sm-12">' +
-              '<h5>Získaná data z databáze ČÚZK dle adresy sídla</h5><hr>' +
-              '<p><strong>ČÚZK: GPS data byla nalezena a data byla stažena</strong></p>' +
-              '<p>Doba zpracování požadavku: <span id="ajaxTime_katastr">' + totalTime + '</span></p><hr>' +
-              '<p>Vybraná adresa pro vyhledání dat: ' + street + ', ' + city + '</p><hr>' +
-              '<p><strong>buId: </strong> ' + buId.innerHTML + '</p>' +
-              '<p><strong style="color: #C10000;">Kód objektu (buVdpId): </strong> ' + buVdpId + '</p>' +
-              '<p><strong>Stavba na pozemku (buTag): </strong> ' + name + '</p>' +
-              '<p><strong>Detail stavebního objektu: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' + buVdpId + '" target="WindowCUZK">Zobrazit detail objektu na ČÚZK</a></p><hr>' +
-              '</div>';
+            // Find Code in 'data'
+            var buVdpId = $(data).find('#stavebniobjekty').text();
 
             // Output Data
-            $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+            $('#outputajaxdata_katastr').html('').prepend(data).show();
             $('input[name="envo_house_cuzk_objcode"]').val(buVdpId).css('background-color', '#FFF5CC');
             $('#cuzk_objdetail_link').html('');
             $('<a/>', {
@@ -1031,31 +1694,97 @@ $(function () {
               $('input[name="envo_house_cuzk_objcode"]').css('background-color', '#FFF');
             }, 8000);
 
+            // Loading data progress
+            $('#loadingdata').hide().html('');
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                message: '<strong>Success:</strong> ' + 'ČÚZK: Data byla nalezena a stažena'
+              }, {
+                // settings
+                type: 'success',
+                delay: 2000
+              });
+            }, 1000);
+
             // Ajax time
             var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
             $('#ajaxTime_katastr').html(totalTime);
             if (debug) {
-              console.log('ajaxTime | Success Time: ' + totalTime);
+              console.log('Ajax => Success Time: ' + totalTime);
             }
-
-            // Loading data progress
-            $('#loadingdata').hide().html('');
 
           },
           error: function (jqXHR, textStatus, errorThrown) {
 
-            // Loading data progress
-            $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem ČÚZK</span><span style="color: #C10000; font-weight: 700;">Server ČÚZK neodpovídá -> obnovte stránku a zkuste hledání později!</span></div></div>');
+            var divdata = '';
 
-            if (debug) {
-              console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
-            }
+            // Data variable for output DIV
+            divdata += '<div class="col-12">' +
+              '<h5>Získaná data z databáze ČÚZK dle adresního místa</h5><hr>' +
+              '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+              '</div>';
 
-            if (textStatus === 'timeout') {
-              if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
+            // Output Data
+            $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+
+            // Console Error
+            var errorel = '';
+            var errorlog = $('#outputajaxdata_katastr .errorlog');
+            if (jqXHR.status === 0) {
+              var errorel = 'Ajax => Not connect, Verify Network';
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
+            } else if (jqXHR.status == 404) {
+              var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
+            } else if (jqXHR.status == 500) {
+              var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
+            } else if (textStatus === 'parsererror') {
+              var errorel = 'Ajax => Requested JSON parse failed';
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
+            } else if (textStatus === 'timeout') {
+              var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
+            } else if (textStatus === 'abort') {
+              var errorel = 'Ajax => Ajax request aborted';
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
             } else {
-              if (debug) console.log(textStatus + ': ' + errorThrown);
+              var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+              errorlog.html(errorel);
+              if (debug) console.log(errorel);
             }
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                icon: 'fa fa-exclamation',
+                message: '<strong>Error:</strong> ' + errorel
+              }, {
+                // settings
+                type: 'danger',
+                delay: 5000
+              });
+            }, 1000);
+
+            // Loading data progress
+            $('#loadingdata').hide().html('');
+
+            // Ajax time
+            var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+            if (debug) {
+              console.log('Ajax => Error Time: ' + totalTime);
+            }
+
           },
           complete: function () {
 
@@ -1064,9 +1793,73 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        var divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Získaná data z databáze ČÚZK dle adresního místa</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputajaxdata_katastr').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputajaxdata_katastr .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
         }
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Loading data progress
+        $('#loadingdata').hide().html('');
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
+        }
+
       },
       complete: function () {
 
@@ -1086,96 +1879,287 @@ $(function () {
       console.log('----------- fn #loadIkatastr click -----------');
     }
 
+    // ------------ Basic variable
+
     // Get value
-    var street = $('input[name="envo_housestreet"]').val();
-    var streettrim = $.trim(street).replace(/\s/g, '+');
-    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
-    var citytrim = $.trim(city).replace(/\s/g, '+');
+    var wgslat = $('input[name="envo_house_maingpslat"]').val();
+    var wgslon = $('input[name="envo_house_maingpslng"]').val();
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
+    var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
     // Ajax time
     var ajaxTime = new Date().getTime();
 
-    // Ajax
-    $.ajax({
-      url: '/plugins/intranet2/admin/ajax/gpscoordinates_osm.php',
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        street: streettrim,
-        city: citytrim
-      },
-      cache: false,
-      // Timeout 20s
-      timeout: 20000,
-      success: function (data) {
+    // ------------ Jquery code
 
-        // Parse JSON data
-        var str = JSON.stringify(data);
-        var result = JSON.parse(str);
-        // Get variable
-        var wgslat = data['data'].lat;
-        var wgslon = data['data'].lon;
+    if (debug) {
+      console.log('GPS Coordinates => Latitude: ' + wgslat + ' / Longitude: ' + wgslon + '\n\n');
+    }
 
-        if (debug) {
-          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
-        }
+    // Data variable for output DIV
+    var divdata = '';
+    divdata += '<div  class="col-sm-12">' +
+      '<h5>iKatastr - Link</h5><hr>' +
+      '<p>Doba zpracování požadavku: <span id="ajaxTime_katastr"></span></p><hr>' +
+      '<p>Vybraná adresa pro vyhledání dat: ' + street + ', ' + city + '</p><hr>' +
+      '<p><a href="' + ikatastr + '" target="WindowKATASTR">Zobrazit informace z Katastru</a></p><hr>' +
+      '</div>';
 
-        // Set ikatastr text for input
-        var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
+    // Output Data
+    $('#outputajaxdata_katastr').html('').prepend(divdata).show();
 
-        // Data variable for output DIV
-        var divdata = '';
-        divdata += '<div  class="col-sm-12">' +
-          '<h5>iKatastr - Link</h5><hr>' +
-          '<p>Doba zpracování požadavku: <span id="ajaxTime_katastr">' + totalTime + '</span></p><hr>' +
-          '<p>Vybraná adresa pro vyhledání dat: ' + street + ', ' + city + '</p><hr>' +
-          '<p><a href="' + ikatastr + '" target="WindowKATASTR">Zobrazit informace z Katastru</a></p><hr>' +
-          '</div>';
-
-        // Output Data
-        $('#outputajaxdata_katastr').html('').prepend(divdata).show();
-
-        // Ajax time
-        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-        $('#ajaxTime_katastr').html(totalTime);
-        if (debug) {
-          console.log('ajaxTime | Success Time: ' + totalTime);
-        }
-
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
-        }
-      },
-      complete: function () {
-
-      }
-    });
+    // Ajax time
+    var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+    $('#ajaxTime_katastr').html(totalTime);
+    if (debug) {
+      console.log('Ajax => Success Time: ' + totalTime);
+    }
 
   });
 
   /**
    * @description   Load Statistical data
    */
-  $('#loadStatistic').click(function (e) {
+  $('#loadStatistic1').click(function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #loadStatistic click -----------');
+      console.log('----------- fn #loadStatistic1 click -----------');
     }
+
+    // ------------ Basic variable
 
     // Get value
     var objcode = $.trim($('input[name="envo_house_cuzk_objcode"]').val()).replace(/\s/g, '+');
     // Ajax time
     var ajaxTime = new Date().getTime();
 
-    // Ajax
+    // ------------ Jquery code
+
+    if (objcode.length > 0) {
+
+      // Ajax
+      $.ajax({
+        url: '/plugins/intranet2/admin/ajax/statistics.php',
+        type: 'POST',
+        dataType: 'html',
+        data: {
+          objcode: objcode
+        },
+        cache: false,
+        // Timeout 20s
+        timeout: 20000,
+        beforeSend: function () {
+
+          // Show progress circle
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+
+        },
+        success: function (data) {
+
+          // Output Data
+          $('#outputajaxdata_statistics').html('').prepend(data).show();
+
+          //
+          $('.123456').each(function () {
+            var value = $(this).data('val');
+            var valueupl = $(this).data('val-upl');
+            var element = $(this).data('el');
+            var elementname = $(this).data('el-name');
+            var targetel = $(element + '[name="' + elementname + '"]');
+            var targetelupl = $('input[name="' + elementname + '_upl"]');
+
+            targetelupl.val(valueupl);
+
+            if (element == 'select') {
+              // Add Data
+              $('select[name="' + elementname + '"]').val(value);
+              // Change background color
+              $('select[name="' + elementname + '"] + span span.select2-selection').css('background-color', '#FFF5CC');
+              // ReInit Select2 plugin
+              $('select[name="' + elementname + '"]').trigger('change');
+
+              // Change background color - default color
+              setTimeout(function () {
+                $('select[name="' + elementname + '"] + span span.select2-selection').css('background-color', '#FFF');
+              }, 8000);
+            } else {
+
+              // Change background color
+              $('input[name="' + elementname + '"]').val(value).css('background-color', '#FFF5CC');
+
+              // Remove background color from 'input'
+              setTimeout(function () {
+                $('input[name="' + elementname + '"]').css('background-color', '#FFF');
+              }, 8000);
+            }
+
+          });
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + 'STATISTIKA: Data byla nalezena a stažena'
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          $('#ajaxTime_statistics').html(totalTime);
+          if (debug) {
+            console.log('Ajax => Success Time: ' + totalTime);
+          }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+          var divdata = '';
+
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<h5>Získaná Statistická data dle kódu objektu</h5><hr>' +
+            '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+            '</div>';
+
+          // Output Data
+          $('#outputajaxdata_statistics').html('').prepend(divdata).show();
+
+          // Console Error
+          var errorel = '';
+          var errorlog = $('#outputajaxdata_statistics .errorlog');
+          if (jqXHR.status === 0) {
+            var errorel = 'Ajax => Not connect, Verify Network';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 404) {
+            var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 500) {
+            var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'parsererror') {
+            var errorel = 'Ajax => Requested JSON parse failed';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'timeout') {
+            var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'abort') {
+            var errorel = 'Ajax => Ajax request aborted';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else {
+            var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          }
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + errorel
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
+          }
+
+        },
+        complete: function () {
+
+        }
+      });
+
+    } else {
+
+      var divdata = '';
+
+      // Data variable for output
+      var divdata = '';
+      divdata += '<div class="col-sm-12"><h5>Získaná data z databáze Ares</h5>' +
+        '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>Není zadán kód objektu na kartě "Katastr"</strong></p>' +
+        '<p>Doba zpracování požadavku: <span id="ajaxTime"></span></p><hr>' +
+        '</div>';
+
+      // Output Data
+      $('#outputajaxdata_statistics').html('').prepend(divdata).show();
+
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          icon: 'fa fa-exclamation',
+          message: '<strong>Error:</strong> ' + 'Není zadán kód objektu na kartě "Katastr"'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Ajax time
+      var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+      $('#ajaxTime_statistics').html(totalTime);
+      if (debug) {
+        console.log('Ajax => Error Time: ' + totalTime);
+      }
+
+    }
+
+  });
+
+  /**
+   * @description   Load Statistical data
+   */
+  $('#loadStatistic2').click(function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    console.log('----------- fn #loadStatistic2 click -----------');
+
+    // ------------ Basic variable
+
+    // Get value
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
+    var objcode = $.trim($('input[name="envo_house_cuzk_objcode"]').val()).replace(/\s/g, '+');
+    // Ajax time
+    var ajaxTime = new Date().getTime();
+
+    // ------------ Jquery code
+
     $.ajax({
-      url: '/plugins/intranet2/admin/ajax/statistics.php',
+      url: '/plugins/intranet2/admin/ajax/statistics2.php',
       type: 'POST',
       dataType: 'html',
       data: {
+        street: street,
+        city: city,
         objcode: objcode
       },
       cache: false,
@@ -1184,7 +2168,7 @@ $(function () {
       beforeSend: function () {
 
         // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA 2</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
 
 
       },
@@ -1193,56 +2177,97 @@ $(function () {
         // Output Data
         $('#outputajaxdata_statistics').html('').prepend(data).show();
 
-        // Ajax time
-        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-        $('#ajaxTime_statistics').html(totalTime);
-        if (debug) {
-          console.log('ajaxTime | Success Time: ' + totalTime);
-        }
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: '<strong>Success:</strong> ' + 'STATISTIKA: Data byla nalezena a stažena'
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
 
         // Loading data progress
         $('#loadingdata').hide().html('');
 
-        //
-        $('.123456').each(function () {
-          var value = $(this).data('val');
-          var valueupl = $(this).data('val-upl');
-          var element = $(this).data('el');
-          var elementname = $(this).data('el-name');
-          var targetel = $(element + '[name="' + elementname + '"]');
-          var targetelupl = $('input[name="' + elementname + '_upl"]');
-
-          targetelupl.val(valueupl);
-
-          if (element == 'select') {
-            // Add Data
-            $('select[name="' + elementname + '"]').val(value);
-            // Change background color
-            $('select[name="' + elementname + '"] + span span.select2-selection').css('background-color', '#FFF5CC');
-            // ReInit Select2 plugin
-            $('select[name="' + elementname + '"]').trigger('change');
-
-            // Change background color - default color
-            setTimeout(function () {
-              $('select[name="' + elementname + '"] + span span.select2-selection').css('background-color', '#FFF');
-            }, 8000);
-          } else {
-            // Change background color
-            $('input[name="' + elementname + '"]').val(value).css('background-color', '#FFF5CC');
-
-            // Remove background color from 'input'
-            setTimeout(function () {
-              $('input[name="' + elementname + '"]').css('background-color', '#FFF');
-            }, 8000);
-          }
-
-        });
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        $('#ajaxTime_statistics').html(totalTime);
+        if (debug) {
+          console.log('Ajax => Success Time: ' + totalTime);
+        }
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        var divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Získaná Statistická data dle kódu objektu</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputajaxdata_statistics').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputajaxdata_statistics .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
         }
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Loading data progress
+        $('#loadingdata').hide().html('');
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
+        }
+
       },
       complete: function () {
 
@@ -1254,24 +2279,31 @@ $(function () {
   /**
    *
    */
-  $('#testgps_osm').click(function (e) {
+  $('#gps_osm').click(function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #Testgps_osm click -----------');
+      console.log('----------- fn #Gps_osm click -----------');
     }
 
+    // ------------ Basic variable
+
+    // Getting parent 'id'
+    var parent = $(this).parents(':eq(2)').attr('id');
     // Get value
-    var street = $('input[name="envo_housestreet"]').val();
-    var streettrim = $.trim(street).replace(/\s\s+/g, '+');
-    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
-    var citytrim = $.trim(city).replace(/\s\s+/g, '+');
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var streettrim = $.trim(street).replace(/\s+/g, '+');
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
+    var citytrim = $.trim(city).replace(/\s+/g, '+');
     // Ajax time
     var ajaxTime = new Date().getTime();
 
+    // ------------ Jquery code
+
     if (debug) {
-      console.log('Testgps_osm Click fn | Adress: ' + street + ', ' + city);
+      console.log('Parent ID: ' + parent);
+      console.log('Gps_osm Click fn | Adress: ' + street + ', ' + city);
     }
 
     // Ajax
@@ -1291,22 +2323,123 @@ $(function () {
       },
       success: function (data) {
 
-        // Get variable
-        var wgslat = data['data'].lat;
-        var wgslon = data['data'].lon;
+        if (data.status == 'success') {
+          // IF DATA SUCCESS
 
-        // Ajax time
-        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-        if (debug) {
-          console.log('ajaxTime | Success Time: ' + totalTime);
-          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+          var wgslat, wgslon, divdata = '';
+
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<h5>Seznam nalezených GPS Koordinátů <small>(Gps podle OSM)</small></h5><hr>';
+
+          $.each(data.data, function (item) {
+
+            console.log(data.data[item]);
+
+            wgslat = data.data[item].lat;
+            wgslon = data.data[item].lon;
+
+            // Data variable for output DIV
+            divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-9"><p><span class="bold">' + data.data[item].display_name + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-2"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+
+          });
+
+          // Data variable for output DIV
+          divdata += '</div>';
+
+          // Output Data
+          $('#outputajaxdata_gps').html('').prepend(divdata).show();
+          $('.gps-select').click(selectGPS_Data);
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          if (debug) {
+            console.log('Ajax => Success Time: ' + totalTime);
+          }
+
+        } else {
+          // IF DATA ERROR
+
         }
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        var divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Seznam nalezených GPS Koordinátů <small>(Gps podle OSM)</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputajaxdata_gps').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputajaxdata_gps .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
         }
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
+        }
+
       },
       complete: function () {
 
@@ -1318,24 +2451,33 @@ $(function () {
   /**
    *
    */
-  $('#testgps_mapy').click(function (e) {
+  $('#gps_mapy').click(function (e) {
     // Stop, the default action of the event will not be triggered
     e.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #Testgps_mapy click -----------');
+      console.log('----------- fn #Gps_mapy click -----------');
     }
 
+    // ------------ Basic variable
+    // Storing in a variable
+    var $this = $(this);
+    var btntext = $this.text();
+    // Getting parent 'id'
+    var parent = $this.parents(':eq(2)').attr('id');
     // Get value
-    var street = $('input[name="envo_housestreet"]').val();
-    var streettrim = $.trim(street).replace(/\s\s+/g, '+');
-    var city = $('select[name="envo_housecity"]').find(':selected').data('city_name');
-    var citytrim = $.trim(city).replace(/\s\s+/g, '+');
+    var street = $('input[name="envo_house_maingpsstreet"]').val();
+    var streettrim = $.trim(street).replace(/\s+/g, '+');
+    var city = $('select[name="envo_house_maingpscity"]').find(':selected').data('city_name');
+    var citytrim = $.trim(city).replace(/\s+/g, '+');
     // Ajax time
     var ajaxTime = new Date().getTime();
 
+    // ------------ Jquery code
+
     if (debug) {
-      console.log('Testgps_mapy Click fn | Adress: ' + street + ', ' + city);
+      console.log('Parent ID: ' + parent);
+      console.log('Gps_mapy Click fn | Adress: ' + street + ', ' + city);
     }
 
     // Ajax
@@ -1351,40 +2493,134 @@ $(function () {
       // Timeout 20s
       timeout: 20000,
       beforeSend: function () {
-
+        // Change button text
+        $this.text('Načítání GPS ...');
       },
       success: function (data) {
 
-        // Parse JSON data
-        var str = JSON.stringify(data);
-        var result = JSON.parse(str);
+        if (data.status == 'success') {
+          // IF DATA SUCCESS
 
-        var wgslat, wgslon = '';
+          var wgslat, wgslon, divdata = '';
 
-        // Get variable
-        $.each(data.data, function (item) {
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<h5>Seznam nalezených GPS Koordinátů <small>(Gps podle Mapy.cz)</small></h5><hr>';
 
-          console.log (data.data[item]);
+          $.each(data.data, function (item) {
 
-          wgslat = data.data[item].y;
-          wgslon = data.data[item].x;
+            console.log(data.data[item]);
 
-        });
-        // Ajax time
-        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-        if (debug) {
-          console.log('ajaxTime | Success Time: ' + totalTime);
-          console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
+            wgslat = data.data[item].y;
+            wgslon = data.data[item].x;
+
+            // Data variable for output DIV
+            divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-9"><p><span class="bold">' + data.data[item].title + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-2"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+
+          });
+
+          // Data variable for output DIV
+          divdata += '</div>';
+
+          // Output Data
+          $('#outputajaxdata_gps').html('').prepend(divdata).show();
+          $('.gps-select').click(selectGPS_Data);
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          if (debug) {
+            console.log('Ajax => Success Time: ' + totalTime);
+          }
+
+        } else {
+          // IF DATA ERROR
+
         }
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        var divdata = '';
+
+        // Data variable for output DIV
+        divdata += '<div class="col-12">' +
+          '<h5>Seznam nalezených GPS Koordinátů <small>(Gps podle Mapy.cz)</h5><hr>' +
+          '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+          '</div>';
+
+        // Output Data
+        $('#outputajaxdata_gps').html('').prepend(divdata).show();
+
+        // Console Error
+        var errorel = '';
+        var errorlog = $('#outputajaxdata_gps .errorlog');
+        if (jqXHR.status === 0) {
+          var errorel = 'Ajax => Not connect, Verify Network';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 404) {
+          var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (jqXHR.status == 500) {
+          var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'parsererror') {
+          var errorel = 'Ajax => Requested JSON parse failed';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'timeout') {
+          var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else if (textStatus === 'abort') {
+          var errorel = 'Ajax => Ajax request aborted';
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
+        } else {
+          var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+          errorlog.html(errorel);
+          if (debug) console.log(errorel);
         }
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + errorel
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Ajax time
+        var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+        if (debug) {
+          console.log('Ajax => Error Time: ' + totalTime);
+        }
+
       },
       complete: function () {
-
+        // Change button text
+        setTimeout(function () {
+          $this.text(btntext);
+        }, 300);
       }
     });
 
@@ -1392,7 +2628,7 @@ $(function () {
 
 });
 
-/** 00. DateTimePicker
+/** DATETIMEPICKER
  * @require: DateTimePicker Plugin
  ========================================================================*/
 
@@ -1406,8 +2642,8 @@ $(function () {
 
 });
 
-/** 00. DATATABLE CONFIG
- * @require: SearchHighlight Plugin
+/** DATATABLE INITIALISATION
+ * @require: DataTable Plugin, SearchHighlight Plugin
  * @source:
  * https://bartaz.github.io/sandbox.js/jquery.highlight.js
  * https://cdn.datatables.net/plug-ins/1.10.10/features/searchHighlight/dataTables.searchHighlight.min.js
@@ -1477,7 +2713,7 @@ $(function () {
 
 });
 
-/** 00. COPY HOUSE DATA
+/** COPY HOUSE DATA
  ========================================================================*/
 
 $(function () {
@@ -1487,7 +2723,11 @@ $(function () {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
+    // ------------ Basic variable
+
     var valID = $(this).attr("data-value");
+
+    // ------------ Jquery code
 
     $.ajax({
       url: '/plugins/intranet2/admin/ajax/int2_houseselect_process.php',
@@ -1528,9 +2768,23 @@ $(function () {
         $("#ENVOModalPlugin").modal('hide');
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -1598,9 +2852,23 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -1611,7 +2879,7 @@ $(function () {
 
 });
 
-/** 00. COPY ADRESS TO CLIPBOARD
+/** COPY ADRESS TO CLIPBOARD
  ========================================================================*/
 
 $(function () {
@@ -1625,8 +2893,15 @@ $(function () {
       console.log('----------- fn .copyadress click -----------')
     }
 
+    // ------------ Basic variable
+
+    // Storing $(this) in a variable
+    var $this = $(this);
     // Getting value
     var street1 = $('input[name=envo_housestreet]').val();
+
+    // ------------ Jquery code
+
     if ($('input[name=envo_entstreet]').length) {
       var street2 = $('input[name=envo_entstreet]').val();
     } else {
@@ -1663,11 +2938,12 @@ $(function () {
 
     // Remove it as its not needed anymore
     document.body.removeChild(dummy);
+
   });
 
 });
 
-/** 00. TASKS MANAGER
+/** TASKS MANAGER
  ========================================================================*/
 
 $(function () {
@@ -1730,9 +3006,12 @@ $(function () {
       console.log('----------- fn openDialogNewTask -----------')
     }
 
+    // ------------ Basic variable
+
     // Get Data-Dialog and value
     var DataDialog = $(this).attr('data-dialog');
-    var houseID = pageID;
+
+    // ------------ Jquery code
 
     if (debug) {
       console.log('Add New Task Click fn | Dialog ID: ' + DataDialog);
@@ -1839,10 +3118,14 @@ $(function () {
       console.log('----------- fn openDialogEditTask -----------')
     }
 
+    // ------------ Basic variable
+
     // Get Data-Dialog
     var DataDialog = $(this).attr('data-dialog');
     // Get ID of Task
     var taskID = $(this).attr('data-id');
+
+    // ------------ Jquery code
 
     // Ajax
     $.ajax({
@@ -1888,9 +3171,23 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -1934,6 +3231,8 @@ $(function () {
     if (debug) {
       console.log('----------- fn deleteTask -----------')
     }
+
+    // ------------ Jquery code
 
     // Ajax
     $.ajax({
@@ -1982,9 +3281,23 @@ $(function () {
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -2002,8 +3315,12 @@ $(function () {
       console.log('----------- fn confirmDeleteTask -----------')
     }
 
+    // ------------ Basic variable
+
     // Get ID of Task
     var taskID = $(this).attr('data-id');
+
+    // ------------ Jquery code
 
     // Show Message
     bootbox.setLocale(envoWeb.envo_lang);
@@ -2054,7 +3371,9 @@ $(function () {
       console.log('----------- fn #saveTask click -----------')
     }
 
-    // Storing $(this) in a variable
+    // ------------ Basic variable
+
+    // Storing in a variable
     var $this = $(this);
     // Get value
     var houseID = pageID;
@@ -2067,12 +3386,14 @@ $(function () {
     var time = $('input[name=envo_addtasktime]');
     var timeval = time.val();
 
+    // ------------ Jquery code
+
     if (debug) {
       console.log('Save Task Click fn | Data => houseID - ' + houseID + ' | priority -  ' + priority + ' | status - ' + status + ' | title - ' + title + ' | description - ' + description + ' | reminderval - ' + reminderval + ' | timeval - ' + timeval);
     }
 
-    if (timeval.length) {
-      if (reminderval.length) {
+    if (timeval.length > 0) {
+      if (reminderval.length > 0) {
 
         // Ajax
         $.ajax({
@@ -2203,9 +3524,23 @@ $(function () {
 
           },
           error: function (jqXHR, textStatus, errorThrown) {
-            if (debug) {
-              console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+            if (jqXHR.status === 0) {
+              if (debug) console.log('Ajax => Not connect, Verify Network');
+            } else if (jqXHR.status == 404) {
+              if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+            } else if (jqXHR.status == 500) {
+              if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+            } else if (textStatus === 'parsererror') {
+              if (debug) console.log('Ajax => Requested JSON parse failed');
+            } else if (textStatus === 'timeout') {
+              if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+            } else if (textStatus === 'abort') {
+              if (debug) console.log('Ajax => Ajax request aborted');
+            } else {
+              if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
             }
+
           },
           complete: function () {
 
@@ -2246,6 +3581,8 @@ $(function () {
       console.log('----------- fn #udpateTask click -----------')
     }
 
+    // ------------ Basic variable
+
     // Get value
     var taskID = $('input[name=envo_edittaskid]').val();
     var houseID = pageID;
@@ -2257,6 +3594,8 @@ $(function () {
     var reminderval = reminder.val();
     var time = $('input[name=envo_edittasktime]');
     var timeval = time.val();
+
+    // ------------ Jquery code
 
     if (timeval.length) {
       if (reminderval.length) {
@@ -2295,7 +3634,7 @@ $(function () {
                   $.each(data, function (index, data) {
 
                     if (debug) {
-                      console.log('Save Task Click fn | Ajax -> Key data[id]: ' + data['id']);
+                      console.log('Update Task Click fn | Ajax -> Key data[id]: ' + data['id']);
                     }
 
                     dataID = data["id"];
@@ -2382,9 +3721,23 @@ $(function () {
 
           },
           error: function (jqXHR, textStatus, errorThrown) {
-            if (debug) {
-              console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+            if (jqXHR.status === 0) {
+              if (debug) console.log('Ajax => Not connect, Verify Network');
+            } else if (jqXHR.status == 404) {
+              if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+            } else if (jqXHR.status == 500) {
+              if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+            } else if (textStatus === 'parsererror') {
+              if (debug) console.log('Ajax => Requested JSON parse failed');
+            } else if (textStatus === 'timeout') {
+              if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+            } else if (textStatus === 'abort') {
+              if (debug) console.log('Ajax => Ajax request aborted');
+            } else {
+              if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
             }
+
           },
           complete: function () {
 
@@ -2395,14 +3748,14 @@ $(function () {
         // Set border for input - error
         reminder.parent().addClass('has-error');
         if (debug) {
-          console.log('Save Task Click fn | Error E02')
+          console.log('Update Task Click fn | Error E02')
         }
       }
     } else {
       // Set border for input - error
       time.parent().addClass('has-error');
       if (debug) {
-        console.log('Save Task Click fn | Error E01')
+        console.log('Update Task Click fn | Error E01')
       }
     }
 
@@ -2415,7 +3768,7 @@ $(function () {
 
 });
 
-/** 00. HOUSE ENTRANCE
+/** HOUSE ENTRANCE
  ========================================================================*/
 
 $(function () {
@@ -2433,25 +3786,25 @@ $(function () {
       console.log('----------- fn getiKatastr_Link -----------')
     }
 
+    // ------------ Basic variable
+
     // Getting parent 'id'
     var parent = $(this).parents(':eq(4)').attr('id');
-    // Street and City from Form
+    // Get value
     var wgslat = $.trim($('#' + parent + ' input[name="envo_housegpslat"]').val());
     var wgslon = $.trim($('#' + parent + ' input[name="envo_housegpslng"]').val());
+    var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
 
+    // ------------ Jquery code
     if (debug) {
       console.log('Parent ID: ' + parent);
       console.log('GPS Coordinates - Latitude: ' + wgslat + ' / Longitude: ' + wgslon);
     }
 
-    // Set ikatastr text for input
-    var ikatastr = 'https://www.ikatastr.cz/#kde=' + wgslat + ',' + wgslon + ',19&mapa=osm&vrstvy=parcelybudovy&info=' + wgslat + ',' + wgslon;
-
     // Add data to 'input'
     $('#' + parent + ' input[name=envo_houseikatastr]').val(ikatastr);
     // Change 'attr' in anchor
     $('#' + parent + ' .ikatastrlink a.ikatastr').attr('href', ikatastr);
-
 
   }
 
@@ -2487,11 +3840,15 @@ $(function () {
       console.log('----------- fn openDialogNewEnt -----------')
     }
 
-    // Get Data-Dialog and value
+    // ------------ Basic variable
+
+    // Get value
     var DataDialog = $(this).attr('data-dialog');
     var houseID = pageID;
     var entrance = $(event.data.element);
     var entranceval = entrance.val();
+
+    // ------------ Jquery code
 
     if (debug) {
       console.log('Add New Entrance Click fn | Dialog ID: ' + DataDialog);
@@ -2519,7 +3876,8 @@ $(function () {
             $('#' + DataDialog + ' input[name="envo_entstreet"]').val(entranceval);
 
             // Init function
-            $('.getgps').click(getGPS_Data_OSM);
+            $('.getgpsosm').click(getGPS_Data_OSM);
+            $('.getgpsmapycz').click(getGPS_Data_MAPY);
             $('#getkatastrlink').click(getiKatastr_Link);
 
           }
@@ -2612,10 +3970,13 @@ $(function () {
       console.log('----------- fn openDialogEditEnt -----------')
     }
 
-    // Get Data-Dialog and value
+    // ------------ Basic variable
+
+    // Get value
     var DataDialog = $(this).attr('data-dialog');
-    // Get ID of Task
     var entID = $(this).attr('data-id');
+
+    // ------------ Jquery code
 
     // Ajax
     $.ajax({
@@ -2644,7 +4005,8 @@ $(function () {
             $('#entDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
 
             // Init function
-            $('.getgps').click(getGPS_Data_OSM);
+            $('.getgpsosm').click(getGPS_Data_OSM);
+            $('.getgpsmapycz').click(getGPS_Data_MAPY);
             $('#getkatastrlink').click(getiKatastr_Link);
           }
 
@@ -2658,9 +4020,23 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -2752,9 +4128,23 @@ $(function () {
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -2772,8 +4162,12 @@ $(function () {
       console.log('----------- fn confirmDeleteEnt -----------')
     }
 
-    // Get ID of Ent
+    // ------------ Basic variable
+
+    // Get value
     var entID = $(this).attr('data-id');
+
+    // ------------ Jquery code
 
     // Show Message
     bootbox.setLocale(envoWeb.envo_lang);
@@ -2819,10 +4213,10 @@ $(function () {
       console.log('----------- fn #saveEnt click -----------')
     }
 
-    // Storing $(this) in a variable
+    // ------------ Basic variable
+
+    // Storing in a variable
     var $this = $(this);
-    // Disable 'button'
-    $this.attr('disabled', true);
     // Getting parent 'id'
     var parent = $this.parents(':eq(3)').attr('id');
     // Get value
@@ -2834,13 +4228,15 @@ $(function () {
     var gpslatval = gpslat.val();
     var gpslng = $('#' + parent + ' input[name=envo_housegpslng]');
     var gpslngval = gpslng.val();
-    var katastr = $('#' + parent + ' input[name=envo_houseikatastr]').val();
+    var ikatastr = $('#' + parent + ' input[name=envo_houseikatastr]').val();
+
+    // ------------ Jquery code
 
     if (debug) {
-      console.log('Save Entrance Click fn | Data => parentID - ' + parent + ' | houseID - ' + houseID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslatval + ' | gpslng - ' + gpslngval + ' | katastr - ' + katastr);
+      console.log('Save Entrance Click fn | Data => parentID - ' + parent + ' | houseID - ' + houseID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslatval + ' | gpslng - ' + gpslngval + ' | ikatastr - ' + ikatastr);
     }
 
-    if (gpslatval.length || gpslngval.length) {
+    if (gpslatval.length > 0 || gpslngval.length > 0) {
 
       // Ajax
       $.ajax({
@@ -2854,7 +4250,7 @@ $(function () {
           apartment: apartment,
           gpslat: gpslatval,
           gpslng: gpslngval,
-          katastr: katastr
+          ikatastr: ikatastr
         },
         success: function (data) {
 
@@ -2884,6 +4280,7 @@ $(function () {
                     '<div class="box-body no-padding">' +
                     '<div class="block">' +
                     '<div class="block-content">' +
+                    '<div class="row">' +
                     '<div class="col-sm-6 p-3">' +
                     '<table class="table table-hover table-condensed">' +
                     '<caption style="caption-side: top;">' +
@@ -2918,6 +4315,7 @@ $(function () {
                     '</div>' +
                     '</div>' +
                     '</div>' +
+                    '</div>' +
                     '<div class="box-footer">' +
                     '<button type="button" class="btn btn-danger  float-right deleteEnt" data-confirm-delent="Jste si jistý, že chcete odstranit vchod <strong>' + data["street"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + dataID + '"><i class="fa fa-trash-o"></i> Odstranění vchodu</button>' +
                     '<button type="button" id="editEnt" class="btn btn-default float-right m-r-20 editEnt" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="entDialogEdit" data-id="' + dataID + '"><i class="fa fa-edit"></i> Editace vchodu</button>' +
@@ -2944,6 +4342,9 @@ $(function () {
             $('#ent_' + dataID + ' .editEnt').click(openDialogEditEnt);
             $('#ent_' + dataID + ' .deleteEnt').click(confirmDeleteEnt);
 
+            // Disable 'button'
+            $this.attr('disabled', true);
+
             // Notification
             // Apply the plugin to the container
             $('#ent_notify_add').pgNotification({
@@ -2957,6 +4358,9 @@ $(function () {
 
           } else {
             // IF DATA ERROR
+
+            // Disable 'button'
+            $this.attr('disabled', true);
 
             // Notification
             // Apply the plugin to the container
@@ -2973,9 +4377,23 @@ $(function () {
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-          if (debug) {
-            console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+          if (jqXHR.status === 0) {
+            if (debug) console.log('Ajax => Not connect, Verify Network');
+          } else if (jqXHR.status == 404) {
+            if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+          } else if (jqXHR.status == 500) {
+            if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+          } else if (textStatus === 'parsererror') {
+            if (debug) console.log('Ajax => Requested JSON parse failed');
+          } else if (textStatus === 'timeout') {
+            if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+          } else if (textStatus === 'abort') {
+            if (debug) console.log('Ajax => Ajax request aborted');
+          } else {
+            if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
           }
+
         },
         complete: function () {
 
@@ -3009,8 +4427,11 @@ $(function () {
       console.log('----------- fn #udpateEnt click -----------')
     }
 
-    // Storing $(this) in a variable
+    // ------------ Basic variable
+
+    // Storing in a variable
     var $this = $(this);
+    $this.attr('disabled', true);
     // Getting parent 'id'
     var parent = $this.parents(':eq(3)').attr('id');
     // Get value
@@ -3022,10 +4443,12 @@ $(function () {
     var gpslatval = gpslat.val();
     var gpslng = $('#' + parent + ' input[name=envo_housegpslng]');
     var gpslngval = gpslng.val();
-    var katastr = $('#' + parent + ' input[name=envo_houseikatastr]').val();
+    var ikatastr = $('#' + parent + ' input[name=envo_houseikatastr]').val();
+
+    // ------------ Jquery code
 
     if (debug) {
-      console.log('Update Entrance Click fn | Data => parentID - ' + parent + ' | entID - ' + entID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslatval + ' | gpslng - ' + gpslngval + ' | katastr - ' + katastr);
+      console.log('Update Entrance Click fn | Data => parentID - ' + parent + ' | entID - ' + entID + ' | street -  ' + street + ' | elevator - ' + elevator + ' | apartment - ' + apartment + ' | gpslat - ' + gpslatval + ' | gpslng - ' + gpslngval + ' | ikatastr - ' + ikatastr);
     }
 
     if (gpslatval.length || gpslngval.length) {
@@ -3042,7 +4465,7 @@ $(function () {
           apartment: apartment,
           gpslat: gpslatval,
           gpslng: gpslngval,
-          katastr: katastr
+          ikatastr: ikatastr
         },
         success: function (data) {
 
@@ -3072,11 +4495,14 @@ $(function () {
                     '<div class="box-body no-padding">' +
                     '<div class="block">' +
                     '<div class="block-content">' +
+                    '<div class="row">' +
                     '<div class="col-sm-6 p-3">' +
                     '<table class="table table-hover table-condensed">' +
                     '<caption style="caption-side: top;">' +
                     '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
-                    '' +
+                    '<a href="https://mapy.cz/zakladni?x=' + data["gpslng"] + '&y=' + data["gpslat"] + '&z=18&l=0&source=coor&id=' + data["gpslng"] + '%2C' + data["gpslat"] + '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>' +
+                    '<span class="m-l-10 m-r-10">|</span>' +
+                    '<a href="https://www.openstreetmap.org/?mlat=' + data["gpslat"] + '&amp;mlon=12.7325868&amp;zoom=16#map=18/' + data["gpslat"] + '/12.7325868" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>' +
                     '</caption>' +
                     '<tbody>' +
                     '<tr>' +
@@ -3100,6 +4526,7 @@ $(function () {
                     '</div>' +
                     '<div class="col-sm-6 p-3">' +
                     '' +
+                    '</div>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -3151,11 +4578,28 @@ $(function () {
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-          if (debug) {
-            console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+          if (jqXHR.status === 0) {
+            if (debug) console.log('Ajax => Not connect, Verify Network');
+          } else if (jqXHR.status == 404) {
+            if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+          } else if (jqXHR.status == 500) {
+            if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+          } else if (textStatus === 'parsererror') {
+            if (debug) console.log('Ajax => Requested JSON parse failed');
+          } else if (textStatus === 'timeout') {
+            if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+          } else if (textStatus === 'abort') {
+            if (debug) console.log('Ajax => Ajax request aborted');
+          } else {
+            if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
           }
+
         },
         complete: function () {
+
+          // Enable 'button'
+          $this.attr('disabled', false);
 
         }
       });
@@ -3178,7 +4622,870 @@ $(function () {
 
 });
 
-/* 00. SELECT FILE FOR UPLOAD TO SERVER
+/** CONTACTS
+ ========================================================================*/
+
+$(function () {
+  'use strict';
+
+  /**
+   * @description Jquery Function - DialogFX Open - Contacts
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" id="" type="button" data-dialog="DialogNew"></button>
+   *
+   *  <div id="DialogNew" class="dialog dialog-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   *  @calling_action
+   *  element -> element for getting street
+   *  $('#elementID').click({ element: 'nameofelement' }, openDialogNewCont);
+   */
+  function openDialogNewCont (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogNewCont -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Get value
+    var DataDialog = $(this).attr('data-dialog');
+    var contact = $(event.data.element);
+    var contactval = contact.val().toUpperCase();
+    // Create array
+    var separators = [' ', '\\\+', '-', '/', ', ', ',', '\\\?'];
+    var contactarray = contactval.trim().split(new RegExp(separators.join('|'), 'g'));
+
+    // ------------ Jquery code
+
+    if (debug) {
+      console.log('Add New Contact Click fn | Dialog ID: ' + DataDialog);
+      console.log(contactarray);
+    }
+
+    if (contactval.length) {
+
+      // Show progress circle
+      $('#' + DataDialog + ' .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      // Remove border for input - success
+      contact.parent().removeClass('has-error');
+
+      setTimeout(function () {
+
+        // Load content do DIV
+        $('#' + DataDialog + ' .dialog__overview').load('/plugins/intranet2/admin/ajax/content_new_cont.php', function (responseTxt, statusTxt, xhr) {
+
+          if (statusTxt == 'success') {
+            if (debug) {
+              console.log('Loading content | External content loaded successfully!');
+            }
+
+            //  Add data
+            $('#' + DataDialog + ' input[name="envo_contname"]').val(contactarray[0]);
+            $('#' + DataDialog + ' input[name="envo_contsurname"]').val(contactarray[1]);
+
+            // Init TinyMCE
+
+            // Fix for NS_ERROR_UNEXPECTED in Mozilla
+            try {
+              tinymce.remove('textarea.envoEditorSmall');
+            } catch (e) {
+            }
+            initializeTinyMce('textarea.envoEditorSmall', 300);
+
+            // Init Select2 plugin
+            $('#' + DataDialog + ' .selectpicker').select2({
+              minimumResultsForSearch: -1,
+              dropdownParent: $('.page-content-wrapper'),
+              dropdownCssClass: 'zindex1060'
+            });
+
+            // Init DateTimePicker
+            initializeDateTimePicker('input[name=envo_birthdate]');
+
+          }
+
+          if (statusTxt == 'error') {
+            if (debug) {
+              console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
+            }
+          }
+
+        });
+
+      }, 1000);
+
+
+      // Open DialogFX
+      var dialogEl = document.getElementById(DataDialog);
+      var dlg = new DialogFx(dialogEl, {
+        onOpenDialog: function (instance) {
+          // Open DialogFX
+          if (debug) {
+            console.log('DialogFX: OPEN');
+          }
+        },
+        onCloseDialog: function (instance) {
+          // Close DialogFX
+          if (debug) {
+            console.log('DialogFX: CLOSE');
+          }
+
+          // Clearing
+          contact.val('');
+          $('#' + DataDialog + ' .dialog__overview').html('');
+          // Enable 'button'
+          $('#saveContact').attr('disabled', false);
+        }
+      });
+      dlg.toggle(dlg);
+
+    } else {
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          icon: 'fa fa-exclamation',
+          message: '<strong>Error:</strong> ' + 'Zadejte jméno a příjmení.'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Add border for input - error
+      contact.parent().addClass('has-error');
+    }
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - DialogFX Open - Contacts
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" type="button" data-dialog="DialogEdit"></button>
+   *
+   *  <div id="DialogEdit" class="dialog item-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *          <!-- Data over AJAX  -->
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
+   *  @calling_action
+   *  element -> element for getting street
+   *  $('#elementID').click(openDialogEditCont);
+   */
+  function openDialogEditCont (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn openDialogEditCont -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Get value
+    var DataDialog = $(this).attr('data-dialog');
+    var contID = $(this).attr('data-id');
+
+    // ------------ Jquery code
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_dialog_cont.php',
+      type: 'POST',
+      datatype: 'html',
+      data: {
+        contID: contID
+      },
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#contDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data, statusTxt) {
+
+        setTimeout(function () {
+
+          if (statusTxt == "success") {
+            if (debug) {
+              console.log('Loading content | External content loaded successfully!');
+            }
+
+            // Add html data to 'div'
+            $('#contDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+            // Init TinyMCE
+
+            // Fix for NS_ERROR_UNEXPECTED in Mozilla
+            try {
+              tinymce.remove('textarea.envoEditorSmall');
+            } catch (e) {
+            }
+            initializeTinyMce('textarea.envoEditorSmall', 300);
+
+            // Init Select2 plugin
+            $('#' + DataDialog + ' .selectpicker').select2({
+              minimumResultsForSearch: -1,
+              dropdownParent: $('.page-content-wrapper'),
+              dropdownCssClass: 'zindex1060'
+            });
+
+            // Init DateTimePicker
+            initializeDateTimePicker('input[name=envo_birthdate]');
+          }
+
+          if (statusTxt == "error") {
+            if (debug) {
+              console.log('Loading content | Error: ' + xhr.status + ': ' + xhr.statusText);
+            }
+          }
+
+        }, 1000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+    // Open DialogFX
+    var dialogEl = document.getElementById(DataDialog);
+    var dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        if (debug) {
+          console.log('DialogFX: OPEN');
+        }
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        if (debug) {
+          console.log('DialogFX: CLOSE');
+        }
+
+        //
+        $('#' + DataDialog + ' .dialog__overview').html('');
+      }
+    });
+    dlg.toggle(dlg);
+
+    return false;
+  }
+
+  /**
+   * @description Jquery Function - Delete Contacts from DB
+   * @example
+   * Attribute 'data-id' in button => ID is id of entrance in DB
+   * -----------------
+   * <button class="deleteCont" type="button" data-id="id_of_cont_in_DB"></button>
+   *
+   */
+  function deleteCont (contID) {
+
+    if (debug) {
+      console.log('----------- fn deleteCont -----------')
+    }
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_delete_cont.php',
+      type: 'POST',
+      datatype: 'json',
+      data: {
+        contID: contID
+      },
+      success: function (data) {
+
+        if (data.status == 'delete_success') {
+          // IF DATA SUCCESS
+
+          // Removes elements from the Isotope instance and DOM
+          $('#cont_' + data.data[0].id).remove();
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+    return false;
+  }
+
+  function confirmDeleteCont (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn confirmDeleteEnt -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Get value
+    var contID = $(this).attr('data-id');
+
+    // ------------ Jquery code
+
+    // Show Message
+    bootbox.setLocale(envoWeb.envo_lang);
+    bootbox.confirm({
+      title: "Potvrzení o odstranění!",
+      message: $(this).attr('data-confirm-delcont'),
+      className: "bootbox-confirm-del",
+      animate: true,
+      buttons: {
+        confirm: {
+          className: 'btn-success'
+        },
+        cancel: {
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result == true) {
+          if (debug) {
+            console.log('Delete Contact - ID: ' + contID);
+          }
+          deleteCont(contID);
+        }
+      }
+    });
+
+    return false;
+  }
+
+  /**
+   * @description   Add New Contact
+   */
+  $('#addContact').click({element: 'input[name="addContact"]'}, openDialogNewCont);
+
+  /**
+   * @description  Save Contact
+   */
+  $('#saveContact').on('click', function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #saveContact click -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Storing in a variable
+    var $this = $(this);
+    // Get value
+    var houseID = pageID;
+    var degree = $('input[name=envo_contdegree]').val();
+    var name = $('input[name=envo_contname]').val();
+    var surname = $('input[name=envo_contsurname]').val();
+    var address = $('input[name=envo_contaddress]').val();
+    var phone = $('input[name=envo_contphone]').val();
+    var email = $('input[name=envo_contemail]').val();
+    var status = $('select[name=envo_contstatus]').val();
+    var birthdate = $('input[name=envo_birthdate]').val();
+    var gender = $('input[name=envo_gender]:checked').val();
+    var description = tinymce.get('envoEditorSmall').getContent();
+
+    // ------------ Jquery code
+
+    if (debug) {
+      console.log('Save Contact Click fn | Data => houseID - ' + houseID + ' | degree -  ' + degree + ' | name - ' + name + ' | surname - ' + surname + ' | address - ' + address + ' | phone - ' + phone + ' | email - ' + email + ' | status - ' + status + ' | birthdate - ' + birthdate + ' | gender - ' + gender);
+    }
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_addnew_cont.php',
+      type: 'POST',
+      datatype: 'json',
+      data: {
+        houseID: houseID,
+        degree: degree,
+        name: name,
+        surname: surname,
+        address: address,
+        phone: phone,
+        email: email,
+        status: status,
+        birthdate: birthdate,
+        gender: gender,
+        description: description
+      },
+      success: function (data) {
+
+        // Parse JSON data
+        var str = JSON.stringify(data);
+        var result = JSON.parse(str);
+
+        if (data.status == 'success') {
+          // IF DATA SUCCESS
+
+          var divdata = '';
+          var dataID = '';
+
+          $.each(result, function (key, data) {
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+
+                if (debug) {
+                  console.log('Save Contact Click fn | Ajax -> Key data[id]: ' + data['id']);
+                }
+
+                dataID = data["id"];
+
+                divdata += '<div class="box box-success" id="cont_' + data["id"] + '">' +
+                  '<div class="box-header with-border">' +
+                  '<div class="row">' +
+                  '<div class="col-12 col-sm-8">' +
+                  '<div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">' +
+                  '<img width="35" height="35" src="' + data["genderimg"] + '">' +
+                  '</div>' +
+                  '<h3 class="box-title">Jméno a příjmení: <span class="bold">' + data["degree"] + ' ' + data["name"] + ' ' + data["surname"] + '</span></h3>' +
+                  '</div>' +
+                  '<div class="col-12 col-sm-4">' +
+                  '<span class="float-right bold" style="line-height: 33px;">Cont ID ' + data["id"] + '</span>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="box-body no-padding">' +
+                  '<div class="block">' +
+                  '<div class="block-content">' +
+                  '<div class="row">' +
+                  '<div class="col-sm-6 p-3">' +
+                  '<table class="table table-hover table-condensed">' +
+                  '<tbody>' +
+                  '<tr>' +
+                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Adresa bydliště</strong></th>' +
+                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["address"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Telefon</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["phone"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Email</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["email"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Funkce</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["status"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Datum narození</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["birthdate"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Pohlaví</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["gender"] + '</span></td>' +
+                  '</tr>' +
+                  '</tbody>' +
+                  '</table>' +
+                  '</div>' +
+                  '<div class="col-sm-6 p-3">' +
+                  '<label for="" class="m-b-10"><strong>Popis</strong></label>' +
+                  '<div>' + data["description"] + '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="box-footer">' +
+                  '<button type="button" class="btn btn-danger  float-right deleteContact" data-confirm-delcont="Jste si jistý, že chcete odstranit kontakt <strong>' + data["degree"] + ' ' + data["name"] + ' ' + data["surname"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i> Odstranění kontaktu</button>' +
+                  '<button type="button" class="btn btn-default float-right m-r-20 editContact" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="contDialogEdit" data-id="' + data["id"] + '"><i class="fa fa-edit"></i> Editace kontaktu</button>' +
+                  '</div>' +
+                  '</div>';
+
+              })
+
+            }
+
+          });
+
+          // Remove DIV element - Alert
+          var divalert = $('#contactlist .alert.bg-info');
+
+          if (divalert) {
+            divalert.parent().remove();
+          }
+
+          // Put data to DIV
+          $('#contactlist').prepend(divdata);
+
+          // Call function
+          $('#cont_' + dataID + ' .editContact').click(openDialogEditCont);
+          $('#cont_' + dataID + ' .deleteContact').click(confirmDeleteCont);
+
+          // Disable 'button'
+          $this.attr('disabled', true);
+
+          // Notification
+          // Apply the plugin to the container
+          $('#contact_notify_add').pgNotification({
+            style: 'bar',
+            message: '<strong>Success:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'success',
+            showClose: false
+          }).show();
+
+        } else {
+          // IF DATA ERROR
+
+          // Disable 'button'
+          $this.attr('disabled', true);
+
+          // Notification
+          // Apply the plugin to the container
+          $('#contact_notify_add').pgNotification({
+            style: 'bar',
+            message: '<strong>Error:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'danger',
+            showClose: false
+          }).show();
+
+        }
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+  });
+  /**
+   * @description  Edit Contacts
+   */
+  $('.editContact').click(openDialogEditCont);
+
+  /**
+   * @description  Update Task
+   */
+  $('#udpateContact').on('click', function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #udpateContact click -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Storing in a variable
+    var $this = $(this);
+    // Get value
+    var contID = $('input[name=envo_editcontid]').val();
+    var houseID = pageID;
+    var degree = $('input[name=envo_contdegree]').val();
+    var name = $('input[name=envo_contname]').val();
+    var surname = $('input[name=envo_contsurname]').val();
+    var address = $('input[name=envo_contaddress]').val();
+    var phone = $('input[name=envo_contphone]').val();
+    var email = $('input[name=envo_contemail]').val();
+    var status = $('select[name=envo_contstatus]').val();
+    var birthdate = $('input[name=envo_birthdate]').val();
+    var gender = $('input[name=envo_gender]:checked').val();
+    var description = tinymce.get('envoEditorSmall').getContent();
+
+    // ------------ Jquery code
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_update_cont.php',
+      type: 'POST',
+      datatype: 'json',
+      data: {
+        contID: contID,
+        houseID: houseID,
+        degree: degree,
+        name: name,
+        surname: surname,
+        address: address,
+        phone: phone,
+        email: email,
+        status: status,
+        birthdate: birthdate,
+        gender: gender,
+        description: description
+      },
+      success: function (data) {
+
+        // Parse JSON data
+        var str = JSON.stringify(data);
+        var result = JSON.parse(str);
+
+        if (data.status == 'update_success') {
+          // IF DATA SUCCESS
+
+          var divdata = '';
+          var dataID = '';
+
+          $.each(result, function (key, data) {
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+
+                dataID = data["id"];
+
+                if (debug) {
+                  console.log('Update Contact Click fn | Ajax -> Key data[id]: ' + dataID);
+                }
+
+                divdata += '<div class="box-header with-border">' +
+                  '<div class="row">' +
+                  '<div class="col-12 col-sm-8">' +
+                  '<div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">' +
+                  '<img width="35" height="35" src="' + data["genderimg"] + '">' +
+                  '</div>' +
+                  '<h3 class="box-title">Jméno a příjmení: <span class="bold">' + data["degree"] + ' ' + data["name"] + ' ' + data["surname"] + '</span></h3>' +
+                  '</div>' +
+                  '<div class="col-12 col-sm-4">' +
+                  '<span class="float-right bold" style="line-height: 33px;">Cont ID ' + data["id"] + '</span>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="box-body no-padding">' +
+                  '<div class="block">' +
+                  '<div class="block-content">' +
+                  '<div class="row">' +
+                  '<div class="col-sm-6 p-3">' +
+                  '<table class="table table-hover table-condensed">' +
+                  '<tbody>' +
+                  '<tr>' +
+                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Adresa bydliště</strong></th>' +
+                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["address"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Telefon</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["phone"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Email</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["email"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Funkce</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["status"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Datum narození</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["birthdate"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Pohlaví</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["gender"] + '</span></td>' +
+                  '</tr>' +
+                  '</tbody>' +
+                  '</table>' +
+                  '</div>' +
+                  '<div class="col-sm-6 p-3">' +
+                  '<label for="" class="m-b-10"><strong>Popis</strong></label>' +
+                  '<div>' + data["description"] + '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="box-footer">' +
+                  '<button type="button" class="btn btn-danger  float-right deleteContact" data-confirm-delcont="Jste si jistý, že chcete odstranit kontakt <strong>' + data["degree"] + ' ' + data["name"] + ' ' + data["surname"] + '</strong>" data-toggle="tooltipEnvo" data-placement="bottom" title="Odstranit" data-id="' + data["id"] + '"><i class="fa fa-trash-o"></i> Odstranění kontaktu</button>' +
+                  '<button type="button" class="btn btn-default float-right m-r-20 editContact" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace" data-dialog="contDialogEdit" data-id="' + data["id"] + '"><i class="fa fa-edit"></i> Editace kontaktu</button>' +
+                  '</div>';
+
+              })
+
+            }
+
+          });
+
+          // Put data to DIV
+          $('#cont_' + dataID).html(divdata);
+
+          // Call function
+          // Call function
+          $('#cont_' + dataID + ' .editContact').click(openDialogEditCont);
+          $('#cont_' + dataID + ' .deleteContact').click(confirmDeleteCont);
+
+          // Notification
+          // Apply the plugin to the container
+          $('#cont_notify_edit').pgNotification({
+            style: 'bar',
+            message: '<strong>Success:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'success',
+            showClose: false
+          }).show();
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          // Apply the plugin to the container
+          $('#task_notify_edit').pgNotification({
+            style: 'bar',
+            message: data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'danger',
+            showClose: false
+          }).show();
+
+        }
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+  });
+
+  /**
+   * @description  Delete Contacts
+   */
+  $('.deleteContact').click(confirmDeleteCont);
+
+});
+
+/* SELECT FILE FOR UPLOAD TO SERVER
  ========================================================================*/
 
 $(function () {
@@ -3218,7 +5525,7 @@ $(function () {
 
 });
 
-/** 00. UPLOAD FILE TO SERVER AND DELETE FILES FROM SERVER
+/** UPLOAD FILE TO SERVER AND DELETE FILES FROM SERVER
  ========================================================================*/
 
 $(function () {
@@ -3398,9 +5705,252 @@ $(function () {
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-          if (debug) {
-            console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+          if (jqXHR.status === 0) {
+            if (debug) console.log('Ajax => Not connect, Verify Network');
+          } else if (jqXHR.status == 404) {
+            if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+          } else if (jqXHR.status == 500) {
+            if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+          } else if (textStatus === 'parsererror') {
+            if (debug) console.log('Ajax => Requested JSON parse failed');
+          } else if (textStatus === 'timeout') {
+            if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+          } else if (textStatus === 'abort') {
+            if (debug) console.log('Ajax => Ajax request aborted');
+          } else {
+            if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
           }
+
+        },
+        complete: function () {
+          $('#docuprogress').hide();
+          $('#docuprogressbar').css('width', '');
+          $('#docuoutput').show();
+        }
+      });
+
+    } else {
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          icon: 'fa fa-exclamation',
+          message: '<strong>Error:</strong> ' + 'Zadejte popis souboru.'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Add border for input - error
+      desc.parent().addClass('has-error');
+      // Show error texts
+      $('<div/>', {
+        class: 'has-error-text',
+        css: {
+          fontWeight: 'normal',
+          color: '#C10000',
+          position: 'absolute'
+        },
+        text: 'Vyplňte označenou položku'
+      }).appendTo(desc.parent());
+    }
+
+  }));
+
+  /**
+   * @description  Upload documents
+   */
+  $("#uploadBtnContractDocu").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #uploadBtnContractDocu click -----------')
+    }
+
+    // Get Data - value
+    var desc = $('input[name="envo_constractdescdocu"]');
+    var descval = desc.val();
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_doc').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpath"]').val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('contractID', pageID);
+    form_data.append('description', descval);
+
+    // Remove all error texts
+    $('.has-error-text').remove();
+    // Remove error borders for input
+    desc.parent().removeClass('has-error');
+
+    if (descval.length) {
+
+      // Hide output
+      $('#docuoutput').hide();
+      // Show progress info
+      $('#docuprogress').show();
+      // Reset
+      $("#docupercent").html('0%');
+
+      // Ajax
+      $.ajax({
+        url: "/plugins/intranet2/admin/ajax/int2_table_upload_contractdocu.php",
+        type: "POST",
+        data: form_data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        beforeSend: function () {
+
+        },
+        xhr: function () {
+          // Create a new jqXHR
+          var xhr = new window.XMLHttpRequest();
+          //Upload progress bar
+          xhr.upload.addEventListener("progress", function (evt) {
+            // Make sure we can compute the length
+            if (evt.lengthComputable) {
+
+              var loaded = evt.loaded;
+              var total = evt.total;
+
+              // Append progress percentage
+              var percent = (loaded / total) * 100;
+              var percentComplete = percent.toFixed(2) + '%';
+
+              // Bytes received
+              var byteRec = formatFileSize(loaded);
+
+              // Total bytes
+              var totalByte = formatFileSize(total);
+
+              // Progress output
+              $('#docuprogressbar').css('width', percentComplete);
+              $('#docupercent').html(percentComplete);
+              $('#docubyterec').html(byteRec);
+              $('#docubytetotal').html(totalByte);
+
+            }
+          }, false);
+
+          return xhr;
+        },
+        success: function (data) {
+
+          // Parse JSON data
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          if (data.status == 'upload_success') {
+            // IF DATA SUCCESS
+
+            $('#docuoutput').html('<div class="alert alert-success" role="alert">' +
+              '<button class="close" data-dismiss="alert"></button>' +
+              '<strong>Success: </strong>' + data.status_msg +
+              '</div>');
+
+            var tabledata = '';
+
+            $.each(result, function (key, data) {
+
+              if (key === 'data') {
+
+                $.each(data, function (index, data) {
+
+                  if (debug) {
+                    console.log('Upload File fn | Data => id - ' + data['id'] + ' | fsize -  ' + data['fsize'] + ' | ftime - ' + data['ftime'] + ' | ficon - ' + data['ficon'] + ' | description - ' + data['description'] + ' | fullpath - ' + data['fullpath']);
+                  }
+
+                  tabledata += '<tr>' +
+                    '<td class="text-center">' + data["id"] + '</td>' +
+                    '<td class="text-center">' + data["ficon"] + '</td>' +
+                    '<td>' + data["description"] + '</td>' +
+                    '<td class="text-center"><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
+                    '</tr>';
+
+                })
+
+              }
+
+            });
+
+            // Put data to table
+            $('#tabledocu tbody').html(tabledata);
+
+            // Update Jquery Tabledit Plugin
+            // $('#tabledocu').Tabledit('update', ({}));
+
+            // Clearing
+            desc.val('');
+            $('#upload .file-filename').val('');
+            $('#upload .file-clear').hide();
+            $('#upload .file-input input:file').val('');
+            $('#upload .file-input').css('border-radius', '3px 0 0 3px');
+            $('#upload .file-input-title').text('Vybrat Soubor');
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                message: '<strong>Success:</strong> ' + data.status_msg
+              }, {
+                // settings
+                type: 'success',
+                delay: 2000
+              });
+            }, 1000);
+
+          } else if (data.status.indexOf('upload_error') != -1) {
+            // IF DATA ERROR
+
+            $('#docuoutput').html('<div class="alert alert-danger" role="alert">' +
+              '<button class="close" data-dismiss="alert"></button>' +
+              '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+              '</div>');
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                icon: 'fa fa-exclamation',
+                message: '<strong>Error:</strong> ' + data.status_msg
+              }, {
+                // settings
+                type: 'danger',
+                delay: 2000
+              });
+            }, 1000);
+
+          }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+          if (jqXHR.status === 0) {
+            if (debug) console.log('Ajax => Not connect, Verify Network');
+          } else if (jqXHR.status == 404) {
+            if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+          } else if (jqXHR.status == 500) {
+            if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+          } else if (textStatus === 'parsererror') {
+            if (debug) console.log('Ajax => Requested JSON parse failed');
+          } else if (textStatus === 'timeout') {
+            if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+          } else if (textStatus === 'abort') {
+            if (debug) console.log('Ajax => Ajax request aborted');
+          } else {
+            if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+          }
+
         },
         complete: function () {
           $('#docuprogress').hide();
@@ -3441,7 +5991,7 @@ $(function () {
 
 });
 
-/* 00. PHOTO GALLERY - ISOTOPE, UPLOAD
+/* PHOTO GALLERY - ISOTOPE, UPLOAD
  ========================================================================*/
 $(function () {
   'use strict';
@@ -3494,12 +6044,14 @@ $(function () {
       console.log('----------- fn openDialogEditImg -----------')
     }
 
-    // Get Data-Dialog and value
+    // ------------ Basic variable
+
+    // Get value
     var DataDialog = $(this).attr('data-dialog');
-    // Get ID of image
     var imageID = $(this).parents(":eq(4)").attr('id');
     var imageSuffixID = parseInt(/^.*\_(\d+)$/.exec(imageID)[1]);
 
+    // ------------ Jquery code
     if (debug) {
       console.log('Image ID from DIV: ' + imageSuffixID)
     }
@@ -3540,9 +6092,23 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -3634,9 +6200,23 @@ $(function () {
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -3654,8 +6234,12 @@ $(function () {
       console.log('----------- fn confirmdeleteImg -----------')
     }
 
-    // Get ID of Task
+    // ------------ Basic variable
+
+    // Get value
     var imageID = $(this).attr('data-id');
+
+    // ------------ Jquery code
 
     // Show Message
     bootbox.setLocale(envoWeb.envo_lang);
@@ -3791,10 +6375,12 @@ $(function () {
       console.log('----------- fn #uploadBtnImg click -----------')
     }
 
+    // ------------ Basic variable
+
     // Get Data - value
     var imgsdesc = $('input[name="envo_sdescimg"]');
     var imgsdescval = imgsdesc.val();
-    var imgcat = $('select[name="envo_imgcategory"]');
+    var imgcat = $('select[name="envo_imgcategory"]').find(':selected');
     var imgcatval = imgcat.val();
     // Get Data - properties of file from file field
     var file_data = $('#fileinput_img').prop('files')[0];
@@ -3809,6 +6395,8 @@ $(function () {
     form_data.append('houseID', pageID);
     form_data.append('imgSdesc', imgsdescval);
     form_data.append('imgCat', imgcatval);
+
+    // ------------ Jquery code
 
     // Remove all error texts
     $('.has-error-text').remove();
@@ -3828,8 +6416,8 @@ $(function () {
 
         // Ajax
         $.ajax({
-          url: "/plugins/intranet2/admin/ajax/int2_table_upload_img.php",
-          type: "POST",
+          url: '/plugins/intranet2/admin/ajax/int2_table_upload_img.php',
+          type: 'POST',
           data: form_data,
           contentType: false,
           cache: false,
@@ -3911,7 +6499,8 @@ $(function () {
                       '</div>' +
                       '</div>' +
                       '<div class="full-width padding-10">' +
-                      '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                      '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' + data["shortdescription"] + '</span></p>' +
+                      '<p><strong>Datum:</strong><span class="date m-l-10">' + data["exifcreatedate_format"] + '</span></p>' +
                       '</div>' +
                       '</div>');
 
@@ -3976,9 +6565,23 @@ $(function () {
 
           },
           error: function (jqXHR, textStatus, errorThrown) {
-            if (debug) {
-              console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+            if (jqXHR.status === 0) {
+              if (debug) console.log('Ajax => Not connect, Verify Network');
+            } else if (jqXHR.status == 404) {
+              if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+            } else if (jqXHR.status == 500) {
+              if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+            } else if (textStatus === 'parsererror') {
+              if (debug) console.log('Ajax => Requested JSON parse failed');
+            } else if (textStatus === 'timeout') {
+              if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+            } else if (textStatus === 'abort') {
+              if (debug) console.log('Ajax => Ajax request aborted');
+            } else {
+              if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
             }
+
           },
           complete: function () {
             $('#imgprogress').hide();
@@ -4066,11 +6669,15 @@ $(function () {
       console.log('----------- fn #udpateImg click -----------')
     }
 
+    // ------------ Basic variable
+
     // Get value
     var imageID = $('input[name=envo_editimgid]').val();
     var descImage = $('#desc').val();
     var shortdescImage = $('#shortdesc').val();
     var catImage = $('select[name="envo_imgcategory_dialog"]').val();
+
+    // ------------ Jquery code
 
     // Ajax
     $.ajax({
@@ -4094,9 +6701,10 @@ $(function () {
           // Add data.shortdescription to Isotop item
           var elClass0 = $('#gallery_1_' + data.data[0].id + '.gallery-item-' + data.data[0].id);
           elClass0.find('.shortdesc').text(data.data[0].shortdescription);
+          elClass0.find('.date').text(data.data[0].exifcreatedate_format);
 
           // Add data.category to Isotop item
-          var elClass1 = $('#gallery_1_' + data.data[0].id).attr('class').split(" ")[0];
+          var elClass1 = $('#gallery_1_' + data.data[0].id).attr('class').split(' ')[0];
           $('#gallery_1_' + data.data[0].id + '.' + elClass1).removeClass().addClass(elClass1 + ' ' + data.data[0].category);
 
           // Notification
@@ -4128,9 +6736,23 @@ $(function () {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        if (debug) {
-          console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
         }
+
       },
       complete: function () {
 
@@ -4142,7 +6764,7 @@ $(function () {
 
 });
 
-/** 00. SEARCH IC in ARES
+/** INIT PAGES CARDS
  ========================================================================*/
 
 $(function () {
@@ -4155,6 +6777,14 @@ $(function () {
   $('#card-basic').card();
   $('#card-result').card();
 
+});
+
+/** SEARCH in ARES
+ ========================================================================*/
+
+$(function () {
+  'use strict';
+
   /**
    * @description   Search object by IC in ARES
    */
@@ -4166,12 +6796,17 @@ $(function () {
       console.log('----------- fn #searchAresIc submit -----------');
     }
 
+    // ------------ Basic variable
+
     // Get value
     var form = $(this);
     var ares_ico = $('input[name="ares_ico"]');
     var ares_icoval = $.trim(ares_ico.val());
     // Ajax time
     var ajaxTime = new Date().getTime();
+
+    // ------------ Jquery code
+
     // Remove all error texts
     $('.has-error-text').remove();
     // Remove error borders for input
@@ -4203,22 +6838,13 @@ $(function () {
           var str = JSON.stringify(data);
           var result = JSON.parse(str);
 
-          // Ajax time
-          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-          if (debug) {
-            console.log('ajaxTime | Success Time: ' + totalTime);
-          }
-
-          // Loading data progress
-          $('#loadingdata').hide().html('');
-
           if (data.status == 'upload_success') {
             // IF DATA SUCCESS
 
             // Data variable for output
             var divdata = '';
             divdata += '<p><strong>' + data.status_msg + '</strong></p>' +
-              '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
+              '<p>Doba zpracování požadavku: <span id="ajaxTime"></span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
               '<p>Vyhledávací řetězec: <span>ico=' + result.search_string.ares_ico + '</span></p><hr>';
 
             divdata += '<table class="table">';
@@ -4239,13 +6865,25 @@ $(function () {
 
             divdata += '</tbody></table>';
 
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                message: '<strong>Success:</strong> ' + data.status_msg
+              }, {
+                // settings
+                type: 'success',
+                delay: 2000
+              });
+            }, 1000);
+
           } else {
             // IF DATA ERROR
 
             // Data variable for output
             var divdata = '';
             divdata += '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
-              '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
+              '<p>Doba zpracování požadavku: <span id="ajaxTime"></span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
               '<p>Vyhledávací řetězec: <span>ares_obec=' + result.search_string.ares_obec + ' ares_ulice=' + result.search_string.ares_ulice + ' ares_corientacni=' + result.search_string.ares_corientacni + ' ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>' +
               '<p>' + data.status_info + ' => ';
 
@@ -4276,23 +6914,83 @@ $(function () {
 
           // Output Data
           $('#outputaresdata').html('').prepend(divdata);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
           // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
+          }
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
-          // Loading data progress
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-3" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
+          var divdata = '';
 
-          if (debug) {
-            console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+            '</div>';
+
+          // Output Data
+          $('#outputaresdata').html('').prepend(divdata).show();
+
+          // Console Error
+          var errorel = '';
+          var errorlog = $('#outputaresdata .errorlog');
+          if (jqXHR.status === 0) {
+            var errorel = 'Ajax => Not connect, Verify Network';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 404) {
+            var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 500) {
+            var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'parsererror') {
+            var errorel = 'Ajax => Requested JSON parse failed';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'timeout') {
+            var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'abort') {
+            var errorel = 'Ajax => Ajax request aborted';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else {
+            var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
           }
 
-          if (textStatus === 'timeout') {
-            if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
-          } else {
-            if (debug) console.log(textStatus + ': ' + errorThrown);
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + errorel
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
           }
 
         },
@@ -4347,6 +7045,8 @@ $(function () {
       console.log('----------- fn #searchAresOther submit -----------');
     }
 
+    // ------------ Basic variable
+
     // Get value
     var form = $(this);
     var ares_maxcount = $('#ares_maxcount');
@@ -4367,6 +7067,9 @@ $(function () {
     var ares_recordval = ares_record.val();
     // Ajax time
     var ajaxTime = new Date().getTime();
+
+    // ------------ Jquery code
+
     // Remove all error texts
     $('.has-error-text').remove();
     // Remove error borders for input
@@ -4406,22 +7109,13 @@ $(function () {
           var str = JSON.stringify(data);
           var result = JSON.parse(str);
 
-          // Ajax time
-          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
-          if (debug) {
-            console.log('ajaxTime | Success Time: ' + totalTime);
-          }
-
-          // Loading data progress
-          $('#loadingdata').hide().html('');
-
           if (data.status == 'upload_success') {
             // IF DATA SUCCESS
 
             // Data variable for output
             var divdata = '';
             divdata += '<p><strong>' + data.status_msg + '</strong></p>' +
-              '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
+              '<p>Doba zpracování požadavku: <span id="ajaxTime"></span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
               '<p>Vyhledávací řetězec: <span>ares_obec=' + result.search_string.ares_obec + ' ares_ulice=' + result.search_string.ares_ulice + ' ares_corientacni=' + result.search_string.ares_corientacni + ' ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>';
 
             divdata += '<table class="table">';
@@ -4433,7 +7127,7 @@ $(function () {
               if (key === 'data') {
 
                 $.each(value, function (key1, value1) {
-                  divdata += '<tr><td>' + value1.ico + '</td><td>' + value1.ojm + '</td><td>' + value1.jmn + '</td></tr>';
+                  divdata += '<tr><td><a href="https://www.bluesat.cz/admin/index.php?p=intranet2&sp=house&ssp=newhouse&ico=' + value1.ico + '" class="createhouse bold" target="windowNewHouse">' + value1.ico + '</a></td><td>' + value1.ojm + '</td><td>' + value1.jmn + '</td></tr>';
 
                 });
 
@@ -4442,6 +7136,18 @@ $(function () {
             });
 
             divdata += '</tbody></table>';
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                message: '<strong>Success:</strong> ' + data.status_msg
+              }, {
+                // settings
+                type: 'success',
+                delay: 2000
+              });
+            }, 1000);
 
           } else {
             // IF DATA ERROR
@@ -4480,23 +7186,94 @@ $(function () {
 
           // Output Data
           $('#outputaresdata').html('').prepend(divdata);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
           // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
+          }
+
+          //
+          if ($('.createhouse')[0]) {
+            $('.createhouse').on('click', function () {
+              $(this).css({
+                'text-decoration': 'line-through',
+                'font-weight': '400',
+                'color': 'gray'
+              });
+            });
+          }
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
-          // Loading data progress
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;font-weight: 700;">Vypršel časový limit pro komunikaci se serverem Ares</span><span style="float: left;width: 100%;color: #C10000;font-weight: 700;">Server Ares neodpovídá -> obnovte stránku a zkuste hledání později!</span><button type="button" class="btn btn-success mt-3" onClick="window.location.reload()">Obnovit stránku</button></div></div>');
+          var divdata = '';
 
-          if (debug) {
-            console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+            '</div>';
+
+          // Output Data
+          $('#outputaresdata').html('').prepend(divdata).show();
+
+          // Console Error
+          var errorel = '';
+          var errorlog = $('#outputaresdata .errorlog');
+          if (jqXHR.status === 0) {
+            var errorel = 'Ajax => Not connect, Verify Network';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 404) {
+            var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 500) {
+            var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'parsererror') {
+            var errorel = 'Ajax => Requested JSON parse failed';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'timeout') {
+            var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'abort') {
+            var errorel = 'Ajax => Ajax request aborted';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else {
+            var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
           }
 
-          if (textStatus === 'timeout') {
-            if (debug) console.log('Timeout: ' + textStatus + ': ' + errorThrown);
-          } else {
-            if (debug) console.log(textStatus + ': ' + errorThrown);
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + errorel
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
           }
 
         },
@@ -4543,7 +7320,293 @@ $(function () {
 
 });
 
-/** 00. xxxx
+/** SEARCH in JUSTICE
+ ========================================================================*/
+
+$(function () {
+  'use strict';
+
+  /**
+   * @description   Search object by address in JUSTICE
+   */
+  $('#searchJusticeOther').submit(function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    console.log('----------- fn #searchJusticeOther submit -----------');
+
+    // Get value
+    var form = $(this);
+    var justice_maxcount = $('#justice_maxcount');
+    var justice_maxcountval = justice_maxcount.val();
+    var justice_subject = $('input[name="justice_subject"]');
+    var justice_subjectval = $.trim(justice_subject.val());
+    var justice_obec = $('select[name="justice_obec"]');
+    var justice_obecval = $.trim(justice_obec.val());
+    var justice_ulice = $('select[name="justice_ulice"]');
+    var justice_uliceval = $.trim(justice_ulice.val());
+    var justice_corientacni = $('input[name="justice_corientacni"]');
+    var justice_corientacnival = $.trim(justice_corientacni.val());
+    var justice_cpopisne = $('input[name="justice_cpopisne"]');
+    var justice_cpopisneval = $.trim(justice_cpopisne.val());
+    var justice_record = $('input[name=recordDb]:checked');
+    var justice_recordval = justice_record.val();
+    // Ajax time
+    var ajaxTime = new Date().getTime();
+    // Remove all error texts
+    $('.has-error-text').remove();
+    // Remove error borders for input
+    justice_subject.parent().removeClass('has-error');
+
+    if (justice_subjectval.length && (justice_subjectval.length >= 3)) {
+
+      // Ajax
+      $.ajax({
+        url: '/plugins/intranet2/admin/ajax/searchjustice_other.php',
+        type: form.attr('method'),
+        dataType: 'json',
+        data: {
+          justice_maxcount: justice_maxcountval,
+          justice_filtr: 'PLATNE',
+          justice_stype: 'CONTAINS',
+          justice_subject: justice_subjectval,
+          justice_obec: justice_obecval,
+          justice_ulice: justice_uliceval,
+          justice_corientacni: justice_corientacnival,
+          justice_cpopisne: justice_cpopisneval,
+          justice_record: justice_recordval
+        },
+        cache: false,
+        // Timeout 20s
+        timeout: 20000,
+        beforeSend: function () {
+
+          // Show progress circle
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">JUSTICE</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+
+        },
+        success: function (data) {
+
+          // Parse JSON data
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          if (data.status == 'upload_success') {
+            // IF DATA SUCCESS
+
+            // Data variable for output
+            var divdata = '';
+            divdata += '<p><strong>' + data.status_msg + '</strong></p>' +
+              '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p><hr>';
+            divdata += '<table class="table">';
+            divdata += '<thead><tr><th>IČ</th><th>Název subjektu</th><th>Sídlo</th></tr></thead>';
+            divdata += '<tbody>';
+
+            $.each(data, function (key, value) {
+
+              if (key === 'data') {
+
+                $.each(value, function (key1, value1) {
+                  divdata += '<tr><td><a href="https://www.bluesat.cz/admin/index.php?p=intranet2&sp=house&ssp=newhouse&ico=' + value1.ico + '" class="createhouse bold" target="windowNewHouse">' + value1.ico + '</a></td><td>' + value1.ojm + '</td><td>' + value1.jmn + '</td></tr>';
+
+                });
+
+              }
+
+            });
+
+            divdata += '</tbody></table>';
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                message: '<strong>Success:</strong> ' + data.status_msg
+              }, {
+                // settings
+                type: 'success',
+                delay: 2000
+              });
+            }, 1000);
+
+          } else {
+            // IF DATA ERROR
+
+            // Data variable for output
+            var divdata = '';
+            divdata += '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
+              '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></p><hr>' +
+              '<p>' + data.status_info + '</p>';
+
+            // Notification
+            setTimeout(function () {
+              $.notify({
+                // options
+                icon: 'fa fa-exclamation',
+                message: '<strong>Error:</strong> ' + data.status_msg
+              }, {
+                // settings
+                type: 'danger',
+                delay: 2000
+              });
+            }, 1000);
+
+          }
+
+          // Output Data
+          $('#outputjusticedata').html('').prepend(divdata);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          $('#ajaxTime').html(totalTime);
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
+          }
+
+          //
+          if ($('.createhouse')[0]) {
+            $('.createhouse').on('click', function () {
+              $(this).css({
+                'text-decoration': 'line-through',
+                'font-weight': '400',
+                'color': 'gray'
+              });
+            });
+          }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+          var divdata = '';
+
+          // Data variable for output DIV
+          divdata += '<div class="col-12">' +
+            '<div class="row"><div class="col-sm-12"><p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong class="errorlog"></strong></p></div></div>' +
+            '</div>';
+
+          // Output Data
+          $('#outputjusticedata').html('').prepend(divdata).show();
+
+          // Console Error
+          var errorel = '';
+          var errorlog = $('#outputjusticedata .errorlog');
+          if (jqXHR.status === 0) {
+            var errorel = 'Ajax => Not connect, Verify Network';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 404) {
+            var errorel = 'Ajax => Requested page not found [404] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (jqXHR.status == 500) {
+            var errorel = 'Ajax => Internal Server Error [500] | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'parsererror') {
+            var errorel = 'Ajax => Requested JSON parse failed';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'timeout') {
+            var errorel = 'Ajax => Time out error | ' + textStatus + ': ' + errorThrown;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else if (textStatus === 'abort') {
+            var errorel = 'Ajax => Ajax request aborted';
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          } else {
+            var errorel = 'Ajax => Unexpected Error | ' + jqXHR.responseText;
+            errorlog.html(errorel);
+            if (debug) console.log(errorel);
+          }
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + errorel
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+          // Loading data progress
+          $('#loadingdata').hide().html('');
+
+          // Ajax time
+          var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
+          if (debug) {
+            console.log('Ajax => Error Time: ' + totalTime);
+          }
+
+        },
+        complete: function () {
+
+        }
+      });
+
+    } else {
+
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          icon: 'fa fa-exclamation',
+          message: '<strong>Error:</strong> Zadejte název subjektu.'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Add border for input - error
+      justice_subject.parent().addClass('has-error');
+      // Show error texts
+      $('<div/>', {
+        class: 'has-error-text',
+        css: {
+          fontWeight: 'normal',
+          color: '#C10000',
+          position: ''
+        },
+        text: 'Vyplňte označenou položku'
+      }).appendTo(justice_subject.parents(':eq(1)'));
+
+      console.log('#searchJusticeOther submit fn | Error E01')
+
+    }
+
+  });
+
+});
+
+/** xxxx
+ ========================================================================*/
+
+$(function () {
+  'use strict';
+
+  if (page == 'intranet2' && page1 == 'house' && page2 == null) {
+    $('.selectpicker2').each(function () {
+      $(this).select2({
+        minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1),
+        dropdownParent: $('.page-content-wrapper'),
+        dropdownCssClass: 'b-success zindex1060',
+        width: '100%'
+      })
+    })
+  }
+
+});
+
+/** xxxx
  ========================================================================*/
 
 $(function () {

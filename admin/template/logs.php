@@ -2,51 +2,51 @@
 
 <?php if ($page1 == "s") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["notification"]["n7"]?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["notification"]["n7"]?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
 <?php if ($page2 == "s1" || $page2 == "s2") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?php echo($page2 == "s1" ? $tl["notification"]["n2"] : $tl["notification"]["n3"]);?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?=($page2 == "s1" ? $tl["notification"]["n2"] : $tl["notification"]["n3"]);?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
 	</script>
 <?php } ?>
 
 <?php if ($page1 == "e") { ?>
 	<script>
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?=$tl["general_error"]["generror1"]?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?=$tl["general_error"]["generror1"]?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
 	</script>
 <?php } ?>
 
@@ -66,7 +66,7 @@
 									<?php
 									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-									echo $Html -> addCheckbox('', '', false, 'envo_delete_all');
+									echo $Html -> addCheckbox('', '', FALSE, 'envo_delete_all');
 									echo $Html -> addLabel('envo_delete_all', '');
 									?>
 

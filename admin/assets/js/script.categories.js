@@ -1,20 +1,14 @@
 /*
  * CMS ENVO
  * JS for Categories - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Bootstrap Icon Picker
- * 02. Slug
- * 03. Copy description
- *
  */
 
-/** 01. Bootstrap Icon Picker
+/** BOOTSTRAP ICON PICKER
  * @require: Icon Picker Plugin
  ========================================================================*/
 
@@ -58,7 +52,7 @@ $(function () {
 
 });
 
-/** 02. Slug
+/** SLUG
  * @require: Slug Plugin
  ========================================================================*/
 
@@ -71,8 +65,8 @@ $(function () {
 
 });
 
-/** 03. Copy description
- * @require: without external plugin
+/** COPY DESCRIPTION
+ * @require: Without external plugin
  ========================================================================*/
 
 $(function () {

@@ -63,7 +63,7 @@ if ($result) {
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group m-0">
-							<select name="envo_edittaskstatus" class="form-control selectpicker"
+							<select name="envo_edittaskstatus" class="form-control selectpicker">
 								<option value="0" ' . ($row["status"] == 0 ? "selected" : "") . '>Žádný status</option>
 								<option value="1" ' . ($row["status"] == 1 ? "selected" : "") . '>Zápis</option>
 								<option value="2" ' . ($row["status"] == 2 ? "selected" : "") . '>V řešení</option>

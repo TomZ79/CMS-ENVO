@@ -1,19 +1,15 @@
 /*
  * CMS ENVO
  * JS - Pluginorder - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Sortable Initialisation
- *
  */
 
-/** 01. Sortable Initialisation
- * @require: Bootstrap Notify
+/** SORTABLE INITIALISATION
+ * @require: jQuery Sortable
  ========================================================================*/
 
 $(function () {

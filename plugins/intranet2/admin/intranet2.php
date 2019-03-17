@@ -27,6 +27,9 @@ $envotable5  = DB_PREFIX . 'int2_houseimg';
 $envotable6  = DB_PREFIX . 'int2_houseserv';
 $envotable7  = DB_PREFIX . 'int2_housenotifications';
 $envotable8  = DB_PREFIX . 'int2_housenotificationug';
+$envotable9  = DB_PREFIX . 'int2_housecontacts';
+$envotable10 = DB_PREFIX . 'int2_contract';
+$envotable11 = DB_PREFIX . 'int2_contractdocu';
 $envotable20 = DB_PREFIX . 'int2_settings_city';
 $envotable21 = DB_PREFIX . 'int2_settings_ku';
 $envotable22 = DB_PREFIX . 'int2_settings_district';
@@ -46,7 +49,7 @@ $ENVO_SETTING_VAL = envo_get_setting_val('intranet2');
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
 	case 'house':
-		// HOUSE LIST
+		// HOUSE
 
 		switch ($page2) {
 			case 'newhouse':
@@ -149,8 +152,8 @@ Katastrální území:    ' . $envocuzkku["ku_name"] . ' [' . $envocuzkku["ku_cu
 PSČ:      						' . $defaults['envo_housepsc'] . '
 IČ:       						' . $defaults['envo_houseic'] . '
 Složka domu:   				' . $pathfolder . '
-                        ';
-								$data = iconv(mb_detect_encoding($data, mb_detect_order(), true), 'UTF-8', $data);
+';
+								$data = iconv(mb_detect_encoding($data, mb_detect_order(), TRUE), 'UTF-8', $data);
 								file_put_contents(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/house_info.txt', $data);
 
 							}
@@ -181,10 +184,15 @@ Složka domu:   				' . $pathfolder . '
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
                         housefic = "' . smartsql($defaults['envo_housefic']) . '",
                         housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
+                        maingpsstreet = "' . smartsql($defaults['envo_house_maingpsstreet']) . '",
+                        maingpscity = "' . smartsql($defaults['envo_house_maingpscity']) . '",
+                        maingpslat = "' . smartsql($defaults['envo_house_maingpslat']) . '",
+                        maingpslng = "' . smartsql($defaults['envo_house_maingpslng']) . '",
                         permission = "' . smartsql($permission) . '",
                         ares = "' . smartsql($defaults['envo_houseares']) . '",
                         justice = "' . smartsql($defaults['envo_housejustice']) . '",
                         estatemanagement = "' . smartsql($defaults['envo_estatemanagement']) . '",
+                        estatemanagementdesc = "' . smartsql($defaults['envo_estatemanagementdesc']) . '",
                         administration = "' . smartsql($defaults['envo_houseadministration']) . '",
                         administrationdate = "' . $admtime . '",
                         housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
@@ -234,7 +242,7 @@ Složka domu:   				' . $pathfolder . '
 									$request_uri = "REQUEST_URI_UNKNOWN";
 								}
 
-								write_mysql_log(ENVO_USERID, $remote_ipaddr, $request_uri,  $user_agent, $page2, '', $rowid);
+								write_mysql_log(ENVO_USERID, $remote_ipaddr, $request_uri, $user_agent, $page2, '', $rowid);
 
 								// EN: Redirect page
 								// CZ: Přesměrování stránky
@@ -422,10 +430,15 @@ Složka domu:   				' . $pathfolder . '
                         housefpsc = "' . smartsql($defaults['envo_housefpsc']) . '",
                         housefic = "' . smartsql($defaults['envo_housefic']) . '",
                         housefdic = "' . smartsql($defaults['envo_housefdic']) . '",
+                        maingpsstreet = "' . smartsql($defaults['envo_house_maingpsstreet']) . '",
+                        maingpscity = "' . smartsql($defaults['envo_house_maingpscity']) . '",
+                        maingpslat = "' . smartsql($defaults['envo_house_maingpslat']) . '",
+                        maingpslng = "' . smartsql($defaults['envo_house_maingpslng']) . '",
                         permission = "' . smartsql($permission) . '",
                         ares = "' . smartsql($defaults['envo_houseares']) . '",
                         justice = "' . smartsql($defaults['envo_housejustice']) . '",
                         estatemanagement = "' . smartsql($defaults['envo_estatemanagement']) . '",
+                        estatemanagementdesc = "' . smartsql($defaults['envo_estatemanagementdesc']) . '",
                         administration = "' . smartsql($defaults['envo_houseadministration']) . '",
                         administrationdate = "' . $admtime . '",
                         housedescription = "' . smartsql($defaults['envo_housedescription']) . '",
@@ -495,7 +508,7 @@ Složka domu:   				' . $pathfolder . '
 
 									$resultC = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houselog SET  user_action = "edithouse" WHERE houseedit_id > 0 ');
 
-									write_mysql_log(ENVO_USERID, $remote_ipaddr, $request_uri,  $user_agent, $page2, $pageID, '');
+									write_mysql_log(ENVO_USERID, $remote_ipaddr, $request_uri, $user_agent, $page2, $pageID, '');
 
 									// EN: Redirect page
 									// CZ: Přesměrování stránky
@@ -619,12 +632,16 @@ Složka domu:   				' . $pathfolder . '
 					// CZ: Získání všech dat pro formulář - Vchody
 					$ENVO_FORM_DATA_ENT = envo_get_house_entrance($pageID, $envotable3);
 
+					// EN: Get all the data for the form - Contacts
+					// CZ: Získání všech dat pro formulář - Kontakty
+					$ENVO_FORM_DATA_CONT = envo_get_house_contact($pageID, $envotable9, $ENVO_SETTING_VAL['int2dateformat']);
+
 					// EN: Get all the data for the form - Tasks
 					// CZ: Získání všech dat pro formulář - Úkoly
 					$ENVO_FORM_DATA_TASK = envo_get_house_task($pageID, $envotable2, $ENVO_SETTING_VAL['int2dateformat']);
 
-					// EN: Get all the data for the form - documents
-					// CZ: Získání všech dat pro formulář - dokumenty
+					// EN: Get all the data for the form - Documents
+					// CZ: Získání všech dat pro formulář - Dokumenty
 					$ENVO_FORM_DATA_DOCU = envo_get_house_documents($pageID, $envotable4);
 
 					// EN: Get all the data for the Photogallery - isotop photo
@@ -642,7 +659,7 @@ Složka domu:   				' . $pathfolder . '
 					while ($row = $result -> fetch_assoc()) {
 
 						$date       = $row['d'];
-						$dateFormat = ucwords(strtolower($date), '\'- ');;
+						$dateFormat = ucwords(strtolower($date), '\'- ');
 
 						$test0_array[$date]['created'] = $dateFormat;
 
@@ -654,6 +671,15 @@ Složka domu:   				' . $pathfolder . '
 							$test0_array[$date]['photos'][] = $row1;
 
 						}
+					}
+
+					// EN: Getting count image in each year
+					// CZ:
+					$result2 = $envodb -> query('SELECT COUNT(id) AS countimg, YEAR(exifcreatedate) AS year FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" GROUP BY YEAR(exifcreatedate)');
+					while ($row2 = $result2 -> fetch_assoc()) {
+						// EN: Insert each record into array
+						// CZ: Vložení získaných dat do pole
+						$ENVO_FORM_DATA_IMG_COUNT[] = $row2;
 					}
 
 				} else {
@@ -761,10 +787,6 @@ Složka domu:   				' . $pathfolder . '
 							// CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
 							$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20, 't1.city = ' . $pageID);
 
-							// EN: Breadcrumbs activation
-							// CZ: Aktivace Breadcrumbs
-							$BREADCRUMBS = TRUE;
-
 							// EN: Title and Description
 							// CZ: Titulek a Popis
 							$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
@@ -794,10 +816,6 @@ Složka domu:   				' . $pathfolder . '
 							// CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
 							$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20, 't1.estatemanagement = ' . $pageID);
 
-							// EN: Breadcrumbs activation
-							// CZ: Aktivace Breadcrumbs
-							$BREADCRUMBS = TRUE;
-
 							// EN: Title and Description
 							// CZ: Titulek a Popis
 							$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
@@ -815,7 +833,7 @@ Složka domu:   				' . $pathfolder . '
 
 						break;
 					case 'livesearch':
-						// HOUSE LIST - RECORDS BY SEARCH
+						// HOUSE LIST - RECORDS BY LIVE SEARCH
 
 						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							// EN: Default Variable
@@ -832,13 +850,31 @@ Složka domu:   				' . $pathfolder . '
 							$string_impl = implode(',', $search_list);
 							$sql         = '';
 							if (count($search_list) >= 1) {
+
 								for ($i = 0; $i < count($search_list); $i++) {
-									if ($i == 0) {
-										$sql = 't1.name LIKE "%' . $search_list[0] . '%" ';
+									if (is_numeric($search_list[$i]) && (strlen((string)$search_list[$i]) == 8)) {
+										$search_ic[] = $search_list[$i];
 									} else {
-										$sql .= 'AND t1.name LIKE "%' . $search_list[$i] . '%" ';
+										$search_query[] = $search_list[$i];
 									}
 								}
+
+								if (isset($search_ic) && is_array($search_ic)) {
+
+									$sql = 't1.ic = "' . $search_ic[0] . '"';
+
+								} else {
+
+									for ($i = 0; $i < count($search_list); $i++) {
+										if ($i == 0) {
+											$sql = '(t1.name LIKE "%' . $search_list[0] . '%" OR t1.ic LIKE "%' . $search_list[0] . '%")';
+										} else {
+											$sql .= 'AND (t1.name LIKE "%' . $search_list[$i] . '%" OR t1.ic LIKE "%' . $search_list[0] . '%")';
+										}
+									}
+
+								}
+
 							}
 
 							$result = $envodb -> query('SELECT
@@ -849,7 +885,7 @@ Složka domu:   				' . $pathfolder . '
 																	LEFT JOIN 
 																		' . $envotable20 . ' t2
 																			ON t1.city = t2.id
-																	WHERE ' . $sql . ' COLLATE utf8_czech_ci 
+																	WHERE ' . $sql . ' 
 																	ORDER BY t1.id ASC');
 
 							while ($row = $result -> fetch_assoc()) {
@@ -868,10 +904,6 @@ Složka domu:   				' . $pathfolder . '
 
 						}
 
-						// EN: Breadcrumbs activation
-						// CZ: Aktivace Breadcrumbs
-						$BREADCRUMBS = TRUE;
-
 						// EN: Title and Description
 						// CZ: Titulek a Popis
 						$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
@@ -880,6 +912,85 @@ Složka domu:   				' . $pathfolder . '
 						// EN: Load the php template
 						// CZ: Načtení php template (šablony)
 						$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+						break;
+					case 'filtersearch':
+						// HOUSE LIST - RECORDS BY FILTER SEARCH
+
+						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+							// EN: Default Variable
+							// CZ: Hlavní proměnné
+							//$defaults = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+							$defaults = $_POST;
+
+							if (empty($defaults['envo_filtercondition']) || empty($defaults['envo_filtercolumn']) || empty($defaults['envo_filtervalue'])) {
+								$errors['e1'] = 'Nekompletní dotaz Mysql';
+							}
+
+							// EN: All checks are OK without Errors - Start the form processing
+							// CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+							if (count($errors) == 0) {
+
+								if (!empty($defaults['envo_filtercity'])) {
+									$sqlcity = 'WHERE t1.city = ' . $defaults['envo_filtercity'];
+								}
+
+								if (!empty($defaults['envo_filtercity']) && !empty($defaults['envo_filtercolumn'])) {
+									$sql = ' AND ' . $defaults['envo_filtercolumn'] . ' ' . $defaults['envo_filtervalue'];
+								} else if (($defaults['envo_filtercolumn'] == 't1.housedescription') && ($defaults['envo_filtervalue'] == 'IS NOT NULL')) {
+									$sql = $defaults['envo_filtercondition'] . ' ' . $defaults['envo_filtercolumn'] . ' != ""';
+								} else {
+									$sql = $defaults['envo_filtercondition'] . ' ' . $defaults['envo_filtercolumn'] . ' ' . $defaults['envo_filtervalue'];
+								}
+
+								$result = $envodb -> query('SELECT
+																		t1.*,
+																		t2.city_name
+																	FROM
+																		' . $envotable . ' t1
+																	LEFT JOIN 
+																		' . $envotable20 . ' t2
+																			ON t1.city = t2.id
+																	' . $sqlcity . $sql . '
+																	ORDER BY t1.id ASC');
+
+								while ($row = $result -> fetch_assoc()) {
+
+									// EN: Insert each record into array
+									// CZ: Vložení získaných dat do pole
+									$ENVO_HOUSE_ALL[] = array (
+										'id'         => $row['id'],
+										'name'       => $row['name'],
+										'street'     => $row['street'],
+										'city_name'  => $row['city_name'],
+										'ic'         => $row['ic'],
+										'searchtext' => $string_impl
+									);
+								}
+
+								// EN: Title and Description
+								// CZ: Titulek a Popis
+								$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
+								$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d7"];
+
+								// EN: Load the php template
+								// CZ: Načtení php template (šablony)
+								$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+							} else {
+								$errors = $errors;
+
+								// EN: Title and Description
+								// CZ: Titulek a Popis
+								$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t1"];
+								$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d1"];
+
+								// EN: Load the php template
+								// CZ: Načtení php template (šablony)
+								$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house.php';
+							}
+
+						}
 
 						break;
 					default:
@@ -891,7 +1002,7 @@ Složka domu:   				' . $pathfolder . '
 						// EN: If not exist value in 'case', redirect page to 404
 						// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 						if (!empty($page3)) {
-							if ($page3 != 'city' || $page3 != 'estatemanagement' || $page3 != 'livesearch') {
+							if ($page3 != 'city' || $page3 != 'estatemanagement' || $page3 != 'livesearch' || $page3 != 'filtersearch') {
 								envo_redirect(ENVO_rewrite ::envoParseurl('404'));
 							}
 						}
@@ -899,10 +1010,6 @@ Složka domu:   				' . $pathfolder . '
 						// EN: Getting the data about the Houses
 						// CZ: Získání dat o bytových domech
 						$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable20);
-
-						// EN: Breadcrumbs activation
-						// CZ: Aktivace Breadcrumbs
-						$BREADCRUMBS = TRUE;
 
 						// EN: Title and Description
 						// CZ: Titulek a Popis
@@ -937,7 +1044,6 @@ Složka domu:   				' . $pathfolder . '
 					// CZ: Vložení získaných dat do pole
 					$ENVO_MANAGEMENT[] = $row;
 				}
-
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
@@ -1043,6 +1149,352 @@ Složka domu:   				' . $pathfolder . '
 				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_search_justice.php';
 				break;
 			default:
+		}
+
+		break;
+	case 'contract':
+
+		switch ($page2) {
+			case 'newcontract':
+				// NEW CONTRACT
+
+				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+					// EN: Default Variable
+					// CZ: Hlavní proměnné
+					$defaults = $_POST;
+
+					if (isset($_POST['btnSave'])) {
+
+						// EN: Check if number of contract isn't empty
+						// CZ: Kontrola jestli je zadáné číslo zakázky
+						if (!isset($defaults['envo_contractnumber']) || !is_numeric($defaults['envo_contractnumber'])) {
+							$errors['e1'] = $tlint2['int2_error']['int2error8'] . '<br>';
+						}
+
+						// EN: Check if name of contract isn't empty
+						// CZ: Kontrola jestli je zadáný název zakázky
+						if (empty($defaults['envo_contractname'])) {
+							$errors['e2'] = $tlint2['int2_error']['int2error'] . '<br>';
+						}
+
+						// EN: All checks are OK without Errors - Start the form processing
+						// CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+						if (count($errors) == 0) {
+
+							// EN: New folder of contract for documents, images and other ...
+							// CZ: Nová složka zakázky pro dokumenty, obrázky a další ...
+							// -----------------
+							//The name of the directory that we need to create
+							$uniqfolder = uniqid('contract_');
+							$pathfolder = '/intranet2/countract/' . $uniqfolder;
+							//Check if the directory already exists.
+							if (!is_dir(APP_PATH . $pathfolder)) {
+								//Directory does not exist, so lets create it.
+
+								// Main folder
+								mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder, 0755, TRUE);
+								// Document folder
+								mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
+								// Fotogallery folder
+								mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
+								// Videogallery folder
+								mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/videos/', 0755, TRUE);
+								// Create '*.txt' info file
+								$data = '
+CONTRACT NUMBER (ČÍSLO ZAKÁZKY) - ' . $defaults['envo_contractnumber'] . '
+----------------------------------------------------------------------------------
+Format date: Y-m-d H:i:s
+Contract created: ' . date('Y-m-d H:i:s') . '
+
+INFO ABOUT CONTRACT (INFORMACE O ZAKÁZCE)
+----------------------------------------------------------------------------------
+Name (Název):' . "\t\t\t\t\t\t" . $defaults['envo_contractname'] . '
+Budget number (Číslo Rozpočtu):' . "\t\t" . $defaults['envo_contractbudget'] . '
+Price (Cena):' . "\t\t\t\t\t\t" . $defaults['envo_contractprice'] . '
+Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
+';
+								$data = iconv(mb_detect_encoding($data, mb_detect_order(), TRUE), 'UTF-8', $data);
+								file_put_contents(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/contract_info.txt', $data);
+							}
+
+							/* EN: Convert value
+							 * smartsql - secure method to insert form data into a MySQL DB
+							 * url_slug  - friendly URL slug from a string
+							 * ------------------
+							 * CZ: Převod hodnot
+							 * smartsql - secure method to insert form data into a MySQL DB
+							 * url_slug  - friendly URL slug from a string
+							*/
+
+							$result = $envodb -> query('INSERT INTO ' . $envotable10 . ' SET 
+                        number = "' . smartsql($defaults['envo_contractnumber']) . '",
+                        name = "' . smartsql($defaults['envo_contractname']) . '",
+                        varname = "' . url_slug($defaults['envo_contractname'], array ('transliterate' => TRUE)) . '",
+                        object = "' . smartsql($defaults['envo_contractobject']) . '",
+                        subject = "' . smartsql($defaults['envo_contractsubject']) . '",
+                        contractbudget = "' . smartsql($defaults['envo_contractbudget']) . '",
+                        contractprice = "' . smartsql($defaults['envo_contractprice']) . '",
+                        status = "' . smartsql($defaults['envo_contractstatus']) . '",
+                        description = "' . smartsql($defaults['envo_contractdescription']) . '",
+                        folder = "' . $pathfolder . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = "' . smartsql($defaults['envo_created']) . '"');
+
+							$rowid = $envodb -> envo_last_id();
+
+							if (!$result) {
+								// EN: Redirect page
+								// CZ: Přesměrování stránky
+								envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&ssp=newcontract&status=e');
+							} else {
+								// EN: Redirect page
+								// CZ: Přesměrování stránky
+								envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&ssp=editcontract&id=' . $rowid . '&status=s');
+							}
+
+
+						} else {
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
+							$errors      = $errors;
+						}
+
+					}
+
+				}
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = 'Intranet 2 - Zakázky';
+				$SECTION_DESC  = 'Zadání nové zakázky';
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_newcontract.php';
+				break;
+			case 'editcontract':
+				// EDIT CONTRACT
+
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$pageID = $page3;
+
+				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
+
+					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+						// EN: Default Variable
+						// CZ: Hlavní proměnné
+						$defaults = $_POST;
+
+						if (isset($_POST['btnSave'])) {
+
+							// EN: Check if number of contract isn't empty
+							// CZ: Kontrola jestli je zadáné číslo zakázky
+							if (!isset($defaults['envo_contractnumber']) || !is_numeric($defaults['envo_contractnumber'])) {
+								$errors['e1'] = $tlint2['int2_error']['int2error8'] . '<br>';
+							}
+
+							// EN: Check if name of contract isn't empty
+							// CZ: Kontrola jestli je zadáný název zakázky
+							if (empty($defaults['envo_contractname'])) {
+								$errors['e2'] = $tlint2['int2_error']['int2error'] . '<br>';
+							}
+
+							// EN: All checks are OK without Errors - Start the form processing
+							// CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+							if (count($errors) == 0) {
+
+								/* EN: Convert value
+								 * smartsql - secure method to insert form data into a MySQL DB
+								 * url_slug  - friendly URL slug from a string
+								 * ------------------
+								 * CZ: Převod hodnot
+								 * smartsql - secure method to insert form data into a MySQL DB
+								 * url_slug  - friendly URL slug from a string
+								*/
+								$result = $envodb -> query('UPDATE ' . $envotable10 . ' SET
+                         number = "' . smartsql($defaults['envo_contractnumber']) . '",
+                        name = "' . smartsql($defaults['envo_contractname']) . '",
+                        varname = "' . url_slug($defaults['envo_contractname'], array ('transliterate' => TRUE)) . '",
+                        object = "' . smartsql($defaults['envo_contractobject']) . '",
+                        subject = "' . smartsql($defaults['envo_contractsubject']) . '",
+                        contractbudget = "' . smartsql($defaults['envo_contractbudget']) . '",
+                        contractprice = "' . smartsql($defaults['envo_contractprice']) . '",
+                        status = "' . smartsql($defaults['envo_contractstatus']) . '",
+                        description = "' . smartsql($defaults['envo_contractdescription']) . '",
+                        plannedmonths_start = "' . smartsql($defaults['envo_plannedmonths_start']) . '",
+                        plannedyear_start = "' . smartsql($defaults['envo_plannedyear_start']) . '",
+                        plannedmonths_end = "' . smartsql($defaults['envo_plannedmonths_end']) . '",
+                        plannedyear_end = "' . smartsql($defaults['envo_plannedyear_end']) . '",
+                        created = "' . smartsql($defaults['envo_created']) . '",
+                        updated = NOW()
+                        WHERE id = "' . smartsql($pageID) . '"');
+
+								if (!$result) {
+									// EN: Redirect page
+									// CZ: Přesměrování stránky
+									envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&ssp=editcontract&id=' . $pageID . '&status=e');
+								} else {
+									// EN: Redirect page
+									// CZ: Přesměrování stránky
+									envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&ssp=editcontract&id=' . $pageID . '&status=s');
+								}
+
+							} else {
+								$errors['e'] = $tl['general_error']['generror'] . '<br>';
+								$errors      = $errors;
+							}
+						}
+					}
+
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&status=ene');
+				}
+
+				// EN: Get all the data for the form - Contract
+				// CZ: Získání všech dat pro formulář - Zakázky
+				$ENVO_FORM_DATA = envo_get_data($pageID, $envotable10);
+
+				// EN: Get all the data for the form - Documents
+				// CZ: Získání všech dat pro formulář - Dokumenty
+				$ENVO_FORM_DATA_DOCU = envo_get_contract_documents($pageID, $envotable11);
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = 'Intranet 2 - Zakázky';
+				$SECTION_DESC  = 'Editace zakázky';
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_editcontract.php';
+				break;
+			case 'delete':
+				// DELETE HOUSE FROM DB
+
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$pageID = $page3;
+
+				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable10)) {
+					/* EN: Delete all records
+					 * 1. Get data for deleting
+					 * 2. Delete records from DB 'int2_contract'
+					 * 3. Delete records from DB 'int2_contractdocu'
+					 * 4. Delete all files and folder
+					*/
+
+					// EN: 1. Get data for deleting - main folder
+					// CZ: 1. Získání dat potřebná k odstranění - hlavní adresář
+					$resultfolder = $envodb -> query('SELECT folder FROM ' . $envotable10 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1 ');
+					$folder       = $resultfolder -> fetch_assoc();
+
+					// EN: 2. Delete row from DB 'int2_contract' - Main records about contract
+					// CZ: 2. Odstranění záznamu z DB 'int2_contract' - Hlavní záznam o zakázce
+					$result = $envodb -> query('DELETE FROM ' . $envotable10 . ' WHERE id = "' . smartsql($pageID) . '"');
+
+					if (!$result) {
+						// EN: Redirect page
+						// CZ: Přesměrování stránky s notifikací - chybné
+						envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&status=e');
+					} else {
+
+						// EN: 3. Delete row from DB 'int2_housedocu' - Documents
+						// CZ: 3. Odstranění záznamu z DB 'int2_housedocu' - Dokumenty
+						$envodb -> query('DELETE FROM ' . $envotable11 . ' WHERE contractid = "' . smartsql($pageID) . '"');
+
+						// EN: 4. Delete files, folder
+						// CZ: 4. Odstranění souborů a složek
+						$pathfolder = APP_PATH . ENVO_FILES_DIRECTORY . $folder['folder'];
+						delete_files($pathfolder);
+
+						// EN: Redirect page
+						// CZ: Přesměrování stránky s notifikací - úspěšné
+						/*
+						NOTIFIKACE:
+						'status=s'    - Záznam úspěšně uložen
+						'status1=s1'  - Záznam úspěšně odstraněn
+						*/
+						envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&status=&status1=s1');
+					}
+
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&status=ene');
+				}
+
+				break;
+			case 'reports':
+				// REPORTS CONTRACT
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = 'Intranet 2 - Report';
+				$SECTION_DESC  = 'Report zakázek';
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_reportcontract.php';
+				break;
+			case 'contractlist':
+				// CONTRACT LIST
+
+				switch ($page3) {
+					case 'xxx':
+
+						break;
+					default:
+						// HOUSE LIST - ALL RECORDS
+
+						// ----------- ERROR: REDIRECT PAGE ------------
+						// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+						// EN: If not exist value in 'case', redirect page to 404
+						// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+						if (!empty($page3)) {
+							if ($page3 != 'xxx') {
+								envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+							}
+						}
+
+						// EN: Getting the data about the Houses
+						// CZ: Získání dat o bytových domech
+						$ENVO_CONTRACT_ALL = envo_get_contract_info($envotable10);
+
+						// EN: Title and Description
+						// CZ: Titulek a Popis
+						$SECTION_TITLE = $tlint2["int2_sec_title"]["int2t7"];
+						$SECTION_DESC  = $tlint2["int2_sec_desc"]["int2d7"];
+
+						// EN: Load the php template
+						// CZ: Načtení php template (šablony)
+						$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_contract_list.php';
+
+				}
+				break;
+			default:
+				// CONTRACT SEARCHING
+
+				// ----------- ERROR: REDIRECT PAGE ------------
+				// -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+				// EN: If not exist value in 'case', redirect page to 404
+				// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+				if (!empty($page2)) {
+					if ($page2 != 'newcontract' || $page2 != 'editcontract') {
+						envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+					}
+				}
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = 'Intranet 2 - Vyhledávání';
+				$SECTION_DESC  = 'Vyhledávání zakázky';
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_contract.php';
 		}
 
 		break;
@@ -1462,7 +1914,7 @@ Složka domu:   				' . $pathfolder . '
 
 		// EN: If not exist value in 'case', redirect page to 404
 		// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
-		$pagearray = array ('house', 'katastr', 'maps', 'search_db', 'notification', 'setting', 'help');
+		$pagearray = array ('house', 'katastr', 'maps', 'search_db', 'contract', 'notification', 'setting', 'help');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
 				envo_redirect(ENVO_rewrite ::envoParseurl('404'));

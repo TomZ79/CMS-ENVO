@@ -1,18 +1,14 @@
 /*
  * CMS ENVO
  * JS for Media Sharing - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Initialisation fo Sollist Plugin
- *
  */
 
-/** 01. Initialisation of Sollist
+/** INITIALISATION OF SOLLIST
  * @require: Sollist Plugin
  ========================================================================*/
 

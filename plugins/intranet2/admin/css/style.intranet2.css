@@ -1,22 +1,14 @@
 /*
  * CMS ENVO
  * CSS for INTRANTET 2 - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
  */
 
-
-.savebutton .btn,
-.savebutton-medium .btn,
-.savebutton-small .btn {
-	margin: 10px 8px;
-}
-
-/* XX. Highlight for DataTables Plugin
+/* Highlight for DataTables Plugin
 ======================================================================== */
 /* SearchHighlight Plugin for DataTables */
 table.dataTable span.highlight {
@@ -33,7 +25,7 @@ table.dataTable span.highlight {
 	color: #000;
 }
 
-/* XX. Fullscreen modal
+/* Fullscreen modal
 ======================================================================== */
 .modal-fullscreen .modal-dialog {
 	margin: 0 auto;
@@ -49,7 +41,7 @@ table.dataTable span.highlight {
 	border-radius: 0;
 }
 
-/* XX. Tasks
+/* Tasks
 ======================================================================== */
 /* Table */
 .table-task {
@@ -75,8 +67,8 @@ table.dataTable span.highlight {
 }
 
 .dialog-details .dialog__content {
-	width: 800px;
-	max-width: 800px;
+	width: 1000px;
+	max-width: 1000px;
 	padding: 0;
 	text-align: left;
 	border: 1px solid rgba(0, 0, 0, 0.8);
@@ -165,7 +157,7 @@ div[class^="task_"] .taskcontent .taskdescription {
 	background: #FFF;;
 }
 
-/* XX. UPLOAD FILES
+/* UPLOAD FILES
 ======================================================================== */
 .file-input {
 	position: relative;
@@ -205,7 +197,7 @@ div[class^="task_"] .taskcontent .taskdescription {
 	color: rgba(98, 98, 98, 0.6);
 }
 
-/* XX. PHOTO GALLERY
+/* PHOTO GALLERY
 ======================================================================== */
 /* Fix for transition of button */
 .btn {
@@ -293,4 +285,23 @@ div[class^="gallery-item-"] .shortdesc {
 
 a.filter.active {
 	color: #F55753;
+}
+
+/* SELECT2 SELECTS
+======================================================================== */
+
+.selectpicker2parent .select2-container .select2-selection {
+	border: 2px solid #10cfbd !important;
+	border-radius: 2px !important;
+}
+
+/* BOOTSTRAP TABLES
+======================================================================== */
+
+.table {
+	border-collapse: collapse !important;
+}
+
+.table td, .table th {
+	padding: .45rem;
 }

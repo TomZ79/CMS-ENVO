@@ -1,18 +1,15 @@
 /*
  * CMS ENVO
  * JS for Changelog - ADMIN
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
- * INDEX:
- *
- * 01. Scrollspy offset
- *
  */
 
-/** 01. Scrollspy offset
+/** SCROLLSPY OFFSET
+ * @require: ???
  ========================================================================*/
 
 $(function () {

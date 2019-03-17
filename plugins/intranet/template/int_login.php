@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10 pull-right">
-            <button type="submit" class="btn btn-primary btn-cons" data-loading-text="Odesílání...">Přihlásit</button>
+            <button type="submit" class="btn btn-primary btn-cons">Přihlásit</button>
           </div>
         </form>
       </div>
