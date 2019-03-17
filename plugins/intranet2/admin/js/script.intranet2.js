@@ -872,9 +872,10 @@ $(function () {
       beforeSend: function () {
 
         // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><spanspan style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
-
+        $('#timer').timer();
+        
       },
       success: function (data) {
 
@@ -971,6 +972,7 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
+          $('#timer').timer('remove');
 
           // Notification
           setTimeout(function () {
@@ -1008,6 +1010,7 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
+          $('#timer').timer('remove');
 
           // Notification
           setTimeout(function () {
@@ -1093,6 +1096,7 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
+        $('#timer').timer('remove');
 
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
@@ -1174,8 +1178,9 @@ $(function () {
       beforeSend: function () {
 
         // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
+        $('#timer').timer();
 
       },
       success: function (data) {
@@ -1215,7 +1220,8 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
-
+        $('#timer').timer('remove');
+        
         // Notification
         setTimeout(function () {
           $.notify({
@@ -1297,7 +1303,8 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
-
+        $('#timer').timer('remove');
+        
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         if (debug) {
@@ -1365,8 +1372,10 @@ $(function () {
     }
 
     // Show progress circle
-    $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+    $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
+    $('#timer').timer();
+    
     $.ajax({
       url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
       type: 'POST',
@@ -1501,7 +1510,8 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
-
+        $('#timer').timer('remove');
+        
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         $('#ajaxTime_katastr').html(totalTime);
@@ -1571,6 +1581,7 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
+        $('#timer').timer('remove');
 
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
@@ -1636,8 +1647,10 @@ $(function () {
     }
 
     // Show progress circle
-    $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+    $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
+    $('#timer').timer();
+    
     $.ajax({
       url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
       type: 'POST',
@@ -1669,10 +1682,6 @@ $(function () {
           timeout: 20000,
           beforeSend: function () {
 
-            // Show progress circle
-            $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
-
-
           },
           success: function (data) {
 
@@ -1696,6 +1705,7 @@ $(function () {
 
             // Loading data progress
             $('#loadingdata').hide().html('');
+            $('#timer').timer('remove');
 
             // Notification
             setTimeout(function () {
@@ -1778,6 +1788,7 @@ $(function () {
 
             // Loading data progress
             $('#loadingdata').hide().html('');
+            $('#timer').timer('remove');
 
             // Ajax time
             var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
@@ -1931,7 +1942,10 @@ $(function () {
     // ------------ Basic variable
 
     // Get value
-    var objcode = $.trim($('input[name="envo_house_cuzk_objcode"]').val()).replace(/\s/g, '+');
+    var objcode = $.trim($('input[name="envo_house_cuzk_objcode"]').val());
+    // Create array
+    var separators = [' ', '\\\+', '-', '/', ', ', ',', '\\\?'];
+    var objcodearray = objcode.trim().split(new RegExp(separators.join('|'), 'g'));
     // Ajax time
     var ajaxTime = new Date().getTime();
 
@@ -1945,7 +1959,7 @@ $(function () {
         type: 'POST',
         dataType: 'html',
         data: {
-          objcode: objcode
+          objcode: objcodearray[0]
         },
         cache: false,
         // Timeout 20s
@@ -1953,8 +1967,9 @@ $(function () {
         beforeSend: function () {
 
           // Show progress circle
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
+          $('#timer').timer();
 
         },
         success: function (data) {
@@ -2000,7 +2015,8 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
-
+          $('#timer').timer('remove');
+          
           // Notification
           setTimeout(function () {
             $.notify({
@@ -2082,7 +2098,8 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
-
+          $('#timer').timer('remove');
+          
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           if (debug) {
@@ -2168,9 +2185,10 @@ $(function () {
       beforeSend: function () {
 
         // Show progress circle
-        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA 2</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+        $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA 2</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
-
+        $('#timer').timer();
+        
       },
       success: function (data) {
 
@@ -2191,7 +2209,8 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
-
+        $('#timer').timer('remove');
+        
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         $('#ajaxTime_statistics').html(totalTime);
@@ -2261,6 +2280,7 @@ $(function () {
 
         // Loading data progress
         $('#loadingdata').hide().html('');
+        $('#timer').timer('remove');
 
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
@@ -6828,8 +6848,9 @@ $(function () {
         beforeSend: function () {
 
           // Show progress circle
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
+          $('#timer').timer();
 
         },
         success: function (data) {
@@ -6917,7 +6938,8 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
-
+          $('#timer').timer('remove');
+          
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);
@@ -6986,7 +7008,8 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
-
+          $('#timer').timer('remove');
+          
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           if (debug) {
@@ -7099,8 +7122,9 @@ $(function () {
         beforeSend: function () {
 
           // Show progress circle
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
+          $('#timer').timer();
 
         },
         success: function (data) {
@@ -7189,6 +7213,7 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
+          $('#timer').timer('remove');
 
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
@@ -7269,6 +7294,7 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
+          $('#timer').timer('remove');
 
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
@@ -7382,7 +7408,9 @@ $(function () {
         beforeSend: function () {
 
           // Show progress circle
-          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">JUSTICE</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span>Načítání dat může trvat i několik sekund / minut</span></div></div>').show();
+          $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">JUSTICE</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
+
+          $('#timer').timer();
 
         },
         success: function (data) {
@@ -7458,7 +7486,8 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
-
+          $('#timer').timer('remove');
+          
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);
@@ -7538,6 +7567,7 @@ $(function () {
 
           // Loading data progress
           $('#loadingdata').hide().html('');
+          $('#timer').timer('remove');
 
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));

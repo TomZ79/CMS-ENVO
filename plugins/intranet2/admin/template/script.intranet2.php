@@ -8,16 +8,19 @@
  * EN: The file insert other files into the site footer:
  *      - javascript code
  *      - external javascript files
- *      - the file 'plugins/intranet2/admin/js/script.int2.js
+ *      - the file 'plugins/intranet2/admin/js/script.intranet2.js
  * CZ: Soubor vkládá další soubory do zápatí webu:
  *      - javascript kód
  *      - externí javascript soubory
- *      - soubor 'plugins/intranet2/admin/js/script.int2.js'
+ *      - soubor 'plugins/intranet2/admin/js/script.intranet2.js'
  *
  */
 
 echo PHP_EOL . "\t";
 echo '<!-- Start JS INTRANET2 Plugin -->';
+
+// Timer plugin
+echo $Html -> addScript('/plugins/intranet2/admin/plugins/jquery.timer/timer.jquery.min.js');
 
 if ($page == 'intranet2' && (($page1 == 'house' && $page2 == 'houselist') || ($page1 == 'contract' && $page2 == 'contractlist'))) {
 
