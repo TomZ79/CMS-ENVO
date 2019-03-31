@@ -655,7 +655,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 				 * EN: Create table for House - Video Gallery
 				 * CZ: Vytvoření tabulky pro Bytový dům - Video Galerie
 				 */
-				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int_housevideo (
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_housevideo (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `shortdescription` varchar(255) NULL DEFAULT NULL,

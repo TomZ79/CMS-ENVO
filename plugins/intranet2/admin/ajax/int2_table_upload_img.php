@@ -282,7 +282,7 @@ if (isset($_FILES['file'])) {
 																	widththumb = "' . smartsql($width_n) . '",
 																	heightthumb = "' . smartsql($height_n) . '",
 																	mainfolder = "' . smartsql($mainfolder) . '",
-																	category = "' . smartsql($_REQUEST['imgCat']) . '",
+																	category = "' . smartsql($_REQUEST['videoCat']) . '",
 																	subcategory = "",
 																	ftime = "' . smartsql($time) . '",
 																	fsize = "' . smartsql($size) . '",

@@ -2636,7 +2636,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 									<div class="bold">
 										Krátký popis
 									</div>
-									<div class="form-group  m-t-10">
+									<div class="form-group m-t-10">
 
 										<?php
 										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -2742,10 +2742,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery-0" href="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" data-caption="' . ($imgarray["shortdescription"] ? $imgarray["shortdescription"] : "NO SHORT DESCRIPTION") . ($imgarray["description"] ? " - " . $imgarray["description"] : "") . '">
-                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
-                                         <i class="pg-image"></i>
-                                        </button>
+                                      <a data-fancybox="gallery-0" href="/' . ENVO_FILES_DIRECTORY . $imgarray["mainfolder"] . $imgarray["filenamethumb"] . '" data-caption="' . ($imgarray["shortdescription"] ? $imgarray["shortdescription"] : "NO SHORT DESCRIPTION") . ($imgarray["description"] ? " - " . $imgarray["description"] : "") . '" class="btn btn-info btn-xs btn-mini fs-14" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+                                         <i class="pg-image" style="position: relative;top: 2px;"></i>
                                       </a>
                                     </div>
                                   </div>
@@ -2828,10 +2826,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery-1" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" data-caption="' . ($img["shortdescription"] ? $img["shortdescription"] : "NO SHORT DESCRIPTION") . ($img["description"] ? " - " . $img["description"] : "") . '">
-                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
-                                         <i class="pg-image"></i>
-                                        </button>
+                                      <a data-fancybox="gallery-1" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" data-caption="' . ($img["shortdescription"] ? $img["shortdescription"] : "NO SHORT DESCRIPTION") . ($img["description"] ? " - " . $img["description"] : "") . '" class="btn btn-info btn-xs btn-mini fs-14" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+                                         <i class="pg-image" style="position: relative;top: 2px;"></i>
                                       </a>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-img" type="button" data-dialog="imgDialogEdit" data-toggle="tooltipEnvo" data-placement="bottom" title="Editace Informací">
                                         <i class="fa fa-edit"></i>
@@ -2915,7 +2911,242 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 		</div>
 		<div class="tab-pane fade" id="cmsPage12" role="tabpanel">
 			<div class="row">
+				<div class="col-sm-12">
+					<div class="box box-success">
+						<div class="box-header with-border">
 
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h3', 'Videogalerie', 'box-title');
+							?>
+
+						</div>
+						<div class="box-body">
+							<div class="row" style="padding: 12px 12px 0 12px; background-color: #FEF6DD;">
+								<div class="col">
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="bold">
+												Výběr video souboru a náhledového obrázku
+											</div>
+											<!-- Upload Files -->
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-4 col-lg-6 m-t-10">
+														<div id="upload_video" class="input-group">
+													<span class="input-group-addon" style="padding: 0;border: 0;display: block;">
+
+														<!-- File-clear button -->
+														<button type="button" class="btn btn-default file-clear" style="display:none; float: left;border-radius: 3px 0 0 3px;border-color: #ccc;margin-right: -1px;">
+															<i class="fa fa-remove"></i> Smazat
+														</button>
+
+														<!-- File-input button-->
+														<div class="btn btn-default file-input" style="border-radius: 3px 0 0 3px;">
+															<i class="fa fa-folder-open"></i>
+															<span class="file-input-title">Vybrat Soubor</span>
+															<input type="file" name="input-file" id="fileinput_video" accept="video/mp4,video/x-m4v,video/*"/>
+														</div>
+
+													</span>
+															<input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
+															<span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".wmv, .mp4, .mpg, .avi" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-facetime-video"></i></span>
+														</div>
+													</div>
+													<div class="col-sm-4 col-lg-6 m-t-10">
+														<div id="upload_videothumb" class="input-group">
+                          <span class="input-group-addon" style="padding: 0;border: 0;display: block;">
+
+                            <!-- File-clear button -->
+                            <button type="button" class="btn btn-default file-clear" style="display:none; float: left;border-radius: 3px 0 0 3px;border-color: #ccc;margin-right: -1px;">
+                              <i class="fa fa-remove"></i> Smazat
+                            </button>
+
+														<!-- File-input button-->
+                            <div class="btn btn-default file-input" style="border-radius: 3px 0 0 3px;">
+                              <i class="fa fa-folder-open"></i>
+                              <span class="file-input-title">Vybrat Soubor</span>
+                              <input type="file" name="input-file" id="fileinput_videothumb" accept="image/*"/>
+                            </div>
+
+                          </span>
+															<input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
+															<span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".jpg, .jpeg, .png, .gif" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-file"></i></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-2">
+											<div class="bold">
+												Výběr kategorie
+											</div>
+											<div class="form-group m-t-10">
+												<select name="envo_videocategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html -> addOption();
+													echo $Html -> addOption('*', 'Bez kategorie');
+													echo $Html -> addOption('exploration', 'Obhlídka');
+													echo $Html -> addOption('installation', 'Instalace');
+													echo $Html -> addOption('reconstruction', 'Rekonstrukce');
+													echo $Html -> addOption('service', 'Servisy');
+													echo $Html -> addOption('complaint', 'Reklamace');
+													?>
+
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-8">
+											<div class="bold">
+												Krátký popis
+											</div>
+											<div class="form-group m-t-10">
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('text', 'envo_sdescvideo', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
+												?>
+
+											</div>
+										</div>
+										<div class="col-sm-2 m-t-30">
+											<div class="form-group">
+
+												<?php
+												// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+												echo $Html -> addButton('button', '', '<i class="fa fa-cloud-upload mr-1"></i> Upload', '', 'uploadBtnVideo', 'btn btn-info', array ('style' => 'width: 100%;'));
+												?>
+
+											</div>
+										</div>
+									</div>
+									<div class="row m-b-30">
+										<div class="col-sm-12 m-t-10">
+											<!-- Upload Files Output -->
+											<div id="videoprogress" class="small hint-text" style="display: none;">
+												<div class="progress">
+													<div id="videoprogressbar" class="progress-bar progress-bar-warning" style="width:0"></div>
+												</div>
+												<div>
+													<span>Determinate progress </span><span id="videopercent" class="bold"></span>
+													<span> | Bytes received </span><span id="videobyterec" class="bold"></span>
+													<span> | Total bytes </span><span id="videobytetotal" class="bold"></span>
+												</div>
+											</div>
+											<p id="videooutput" style="display: none;"></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<hr>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3 padding-20">
+
+									<?php
+									// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+									echo $Html -> addTag('h5', 'Kategorie', 'bold');
+									?>
+
+									<ul id="videofilters">
+										<li><a href="javascript:;" class="filter" data-filter="*">Bez kategorie</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".exploration">Obhlídka</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+										<li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
+									</ul>
+
+									<?php
+									// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+									echo $Html -> addTag('h5', 'Vyhledat', 'bold');
+									?>
+
+									<p>
+
+										<?php
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html -> addInput('text', 'videoquicksearch', '', 'videoquicksearch', 'form-control', array ('placeholder' => 'Vyhledat ...'));
+										?>
+
+									</p>
+								</div>
+								<div class="col-sm-9">
+									<div id="videogallery_envo" class="gallery_envo">
+
+										<?php
+										if (!empty($ENVO_FORM_DATA_VIDEO) && is_array($ENVO_FORM_DATA_VIDEO)) {
+
+											foreach ($ENVO_FORM_DATA_VIDEO as $video) {
+
+												echo '<div id="' . $video["id"] . '" class="gallery-item-' . $video["id"] . ' ' . $video["category"] . '" data-width="1" data-height="1">';
+
+												echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filenamethumb"] . '" alt=""></div>';
+
+
+												echo '<div class="overlays">
+                                <div class="row full-height">
+                                  <div class="col-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($video["filename"], PATHINFO_EXTENSION)) . '</div>
+                                  </div>
+                                  <div class="col-7 full-height">
+                                    <div class="text">
+                                      <a class="btn btn-info btn-xs btn-mini fs-14 video" data-fancybox-video data-type="iframe" data-src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" href="javascript:;">
+                                         <i class="pg-video" style="position: relative;top: 2px;"></i>
+                                      </a>
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video" type="button" data-dialog="videoitemDetails">
+                                        <i class="fa fa-edit"></i>
+                                      </button>
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' . $video["id"] . '" data-confirm-delvideo="Jste si jistý, že chcete odstranit video?">
+                                        <i class="fa fa-trash"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>';
+
+												echo '<div class="full-width padding-10">';
+
+												echo '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' . $video["shortdescription"] . '</span></p>';
+
+												echo '</div>';
+
+												echo '</div>';
+
+											}
+										} ?>
+
+									</div>
+
+									<div id="videoitemDetails" class="dialog item-details">
+										<div class="dialog__overlay"></div>
+										<div class="dialog__content">
+											<div class="container-fluid">
+												<div class="row dialog__overview">
+													<!-- Data over AJAX  -->
+												</div>
+											</div>
+											<button class="closedialog action top-right" type="button" data-dialog-close>
+												<i class="pg-close fs-30"></i>
+											</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="box-footer">
+
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -6342,7 +6342,7 @@ $(function () {
    * @require: Isotope plugin - isotope.metafizzy.co
    */
 
-    // Init Isotope plugin
+  // Init Isotope plugin
   var isotopgallery = $('#gallery_envo_1');
 
   if (isotopgallery.length) {
@@ -6600,7 +6600,7 @@ $(function () {
               setTimeout(function () {
                 $.notify({
                   // options
-                  message: '<strong>Error:</strong> ' + data.status_msg
+                  message: '<strong>Success:</strong> ' + data.status_msg
                 }, {
                   // settings
                   type: 'success',
@@ -6837,6 +6837,391 @@ $(function () {
 
   });
 
+});
+
+/* VIDEO GALLERY - ISOTOPE
+ ========================================================================*/
+$(function () {
+  'use strict';
+
+  /**
+   * @description  Debounce so filtering doesn't happen every millisecond
+   */
+  function debounceVideo(fn, threshold) {
+    var timeout;
+    return function debounceVideo() {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+
+      setTimeout(delayed, threshold || 100);
+    };
+  }
+
+  /**
+   * @description  Isotop and searching
+   * @require: Isotope plugin - isotope.metafizzy.co
+   */
+
+  // Init Isotope plugin
+  var isotopvideogallery = $('#videogallery_envo');
+
+  if (isotopvideogallery.length) {
+    // Quick search regex
+    var qsRegexVideo;
+    // Filter for the buttons
+    var filtersVideo;
+
+    // Initialize Isotope
+    var $videogallery = $('#videogallery_envo');
+    $videogallery.isotope({
+      itemSelector: 'div[class^="gallery-item-"]',
+      masonry: {
+        columnWidth: 280,
+        gutter: 10,         // The horizontal space between item elements
+        isFitWidth: true
+      },
+      filter: function () {
+        var $this = $(this);
+        var searchResultVideo = qsRegexVideo ? $this.text().match(qsRegexVideo) : true;
+        var buttonResultVideo = filtersVideo ? $this.is(filtersVideo) : true;
+        return searchResultVideo && buttonResultVideo;
+      }
+    });
+
+    // Use value of search field to filter
+    var $quicksearch = $('#videoquicksearch').keyup(debounceVideo(function () {
+      qsRegexVideo = new RegExp($quicksearch.val(), 'gi');
+      isotopvideogallery.isotope();
+    }));
+
+    /**
+     * @description
+     */
+    $('#videofilters').on('click', '.filter', function (event) {
+      // Stop, the default action of the event will not be triggered
+      event.preventDefault();
+
+      var $this = $(this);
+      // set filter for group
+      filtersVideo = $(this).attr('data-filter');
+      $videogallery.isotope();
+    });
+
+    /**
+     * @description Change is-checked class on buttons
+     */
+    $('#videofilters .filter').on('click', function () {
+      $('#videofilters').find('.active').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    /**
+     * @description  Relayout Isotop
+     */
+    $('a[href="#cmsPage12"]').on('shown.bs.tab', function (e) {
+      $videogallery.isotope('layout');
+    });
+  }
+
+  /**
+   * @description  Upload video by click button or keypress enter
+   */
+  $("#uploadBtnVideo").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #uploadBtnVideo -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_video').prop('files')[0];
+    var file_datathumb = $('#fileinput_videothumb').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpath"]').val();
+    // Get Video category
+    var videosdesc = $('input[name="envo_sdescvideo"]');
+    var videosdescval = videosdesc.val();
+    var videocat = $('select[name="envo_videocategory"]').find(':selected');
+    var videocatval = videocat.val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    form_data.append('filethumb', file_datathumb);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('houseID', pageID);
+    form_data.append('videoSdesc', videosdescval);
+    form_data.append('videoCat', videocatval);
+
+    // ------------ Jquery code
+
+    // Remove all error texts
+    $('.has-error-text').remove();
+    // Remove error borders for input
+    videosdesc.parent().removeClass('has-error');
+    videocat.parent().removeClass('has-error');
+
+    if (videocatval.length) {
+      if (videosdescval.length) {
+
+        // Hide output
+        $('#videooutput').hide();
+        // Show progress info
+        $('#videoprogress').show();
+        // Reset
+        $("#videopercent").html('0%');
+
+        // Ajax
+        $.ajax({
+          url: "/plugins/intranet2/admin/ajax/int2_table_upload_video.php",
+          type: "POST",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          beforeSend: function () {
+
+          },
+          xhr: function () {
+            var xhr = new window.XMLHttpRequest();
+            // Upload progress bar
+            xhr.upload.addEventListener("progress", function (evt) {
+              // Make sure we can compute the length
+              if (evt.lengthComputable) {
+
+                var loaded = evt.loaded;
+                var total = evt.total;
+
+                // Append progress percentage
+                var percent = (loaded / total) * 100;
+                var percentComplete = percent.toFixed(2) + '%';
+
+                // Bytes received
+                var byteRec = formatFileSize(loaded);
+
+                // Total bytes
+                var totalByte = formatFileSize(total);
+
+                // Progress output
+                $('#videoprogressbar').css('width', percentComplete);
+                $('#videopercent').html(percentComplete);
+                $('#videobyterec').html(byteRec);
+                $('#videobytetotal').html(totalByte);
+
+              }
+            }, false);
+
+            return xhr;
+          },
+          success: function (data) {
+
+            // Parse JSON data
+            var str = JSON.stringify(data);
+            var result = JSON.parse(str);
+
+            if (data.status == 'upload_success') {
+              // IF DATA SUCCESS
+
+              $('#videooutput').html('<div class="alert alert-success" role="alert">' +
+                '<button class="close" data-dismiss="alert"></button>' +
+                '<strong>Success: </strong>' + data.status_msg +
+                '</div>');
+
+              var divdata = '';
+
+              $.each(result, function (key, data) {
+
+                if (key === 'data') {
+
+                  $.each(data, function (index, data) {
+
+                    // Create new Isotope item elements
+                    var $isotopeContent = $('' +
+                      '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
+                      '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
+                      '<div class="overlays full-width">' +
+                      '<div class="row full-height">' +
+                      '<div class="col-5 full-height">' +
+                      '<div class="text font-montserrat">' + data["filename"].substring(data["filename"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
+                      '</div>' +
+                      '<div class="col-7 full-height">' +
+                      '<div class="text">' +
+                      '<a class="btn btn-info btn-xs btn-mini mr-1 fs-14 video" data-fancybox-video data-type="iframe" data-src="' + data["filepath"] + '" href="javascript:;">' +
+                      '<i class="pg-video" style="position: relative;top: 2px;"></i>' +
+                      '</a>' +
+                      '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video mr-1" type="button" data-dialog="videoitemDetails"><i class="fa fa-edit"></i></button>' +
+                      '<button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' + data["id"] + '"  data-confirm-delvideo="Jste si jistý, že chcete odstranit video?"><i class="fa fa-trash"></i></button>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '<div class="full-width padding-10">' +
+                      '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                      '</div>' +
+                      '</div>');
+
+                    // Isotope Plugin
+                    // Adds and lays out newly prepended item elements at the beginning of layout
+                    // Prepend items to gallery
+                    $('#videogallery_envo').prepend($isotopeContent)
+                    // Add and lay out newly prepended items
+                      .isotope('prepended', $isotopeContent);
+
+                    // Call dialogFX function for button
+                    var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
+                    // elClass.find('.dialog-open-video').click(openDialogVideo);
+                    // elClass.find('.delete-video').click(confirmdeleteVideo);
+                    elClass.find('[data-fancybox-video]').fancybox({
+                      afterShow: function () {
+                        ($('.fancybox-iframe').contents().find('body').css('background-color', 'transparent'));
+                      },
+                      iframe: {
+                        preload: false,
+                        css: {
+                          width: 'auto'
+                        }
+                      },
+                      buttons: [
+                        "zoom",
+                        "close"
+                      ]
+
+                    });
+
+                  });
+
+                }
+
+              });
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: '<strong>Success:</strong> ' + data.status_msg
+                }, {
+                  // settings
+                  type: 'success',
+                  delay: 2000
+                });
+              }, 1000);
+
+            } else if (data.status.indexOf('upload_error') != -1) {
+              // IF DATA ERROR
+
+              $('#videooutput').html('<div class="alert alert-danger" role="alert">' +
+                '<button class="close" data-dismiss="alert"></button>' +
+                '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+                '</div>');
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  icon: 'fa fa-exclamation',
+                  message: '<strong>Error:</strong> ' + data.status_msg
+                }, {
+                  // settings
+                  type: 'danger',
+                  delay: 2000
+                });
+              }, 1000);
+
+            }
+
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+
+            if (jqXHR.status === 0) {
+              if (debug) console.log('Ajax => Not connect, Verify Network');
+            } else if (jqXHR.status == 404) {
+              if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+            } else if (jqXHR.status == 500) {
+              if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+            } else if (textStatus === 'parsererror') {
+              if (debug) console.log('Ajax => Requested JSON parse failed');
+            } else if (textStatus === 'timeout') {
+              if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+            } else if (textStatus === 'abort') {
+              if (debug) console.log('Ajax => Ajax request aborted');
+            } else {
+              if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+            }
+
+          },
+          complete: function () {
+            $('#videoprogress').hide();
+            $('#videoprogressbar').css('width', '');
+            $('#videooutput').show();
+          }
+        });
+
+      } else {
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            icon: 'fa fa-exclamation',
+            message: '<strong>Error:</strong> ' + 'Zadejte popis souboru.'
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Add border for input - error
+        videosdesc.parent().addClass('has-error');
+        // Show error texts
+        $('<div/>', {
+          class: 'has-error-text',
+          css: {
+            fontWeight: 'normal',
+            color: '#C10000',
+            position: 'absolute'
+          },
+          text: 'Vyplňte označenou položku'
+        }).appendTo(videosdesc.parent());
+      }
+    } else {
+      // Notification
+      setTimeout(function () {
+        $.notify({
+          // options
+          icon: 'fa fa-exclamation',
+          message: '<strong>Error:</strong> ' + 'Vyberte kategorii.'
+        }, {
+          // settings
+          type: 'danger',
+          delay: 5000
+        });
+      }, 1000);
+
+      // Add border for input - error
+      videocat.parent().addClass('has-error');
+      // Show error texts
+      $('<div/>', {
+        class: 'has-error-text',
+        css: {
+          fontWeight: 'normal',
+          color: '#C10000',
+          position: 'absolute'
+        },
+        text: 'Vyplňte označenou položku'
+      }).appendTo(videocat.parent());
+    }
+
+  }));
 
 });
 

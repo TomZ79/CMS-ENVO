@@ -738,6 +738,30 @@ switch ($page1) {
 							}
 						}
 
+						// EN: Getting count video in each year
+						// CZ:
+						$result3 = $envodb -> query('SELECT COUNT(id) AS countvideo, YEAR(created) AS year FROM ' . $envotable7 . ' WHERE houseid = "' . smartsql($pageID) . '" GROUP BY YEAR(created)');
+						while ($row3 = $result3 -> fetch_assoc()) {
+							// EN: Insert each record into array
+							// CZ: Vložení získaných dat do pole
+							$ENVO_FORM_DATA_VIDEO_COUNT[] = $row3;
+						}
+
+						if (!empty($ENVO_FORM_DATA_VIDEO_COUNT) && is_array($ENVO_FORM_DATA_VIDEO_COUNT)) {
+							foreach ($ENVO_FORM_DATA_VIDEO_COUNT as $video_c) {
+								$VIDEO_COUNT .=  $video_c["year"] . ' -> Počet: ' . $video_c["countvideo"] . ' / ';
+							}
+						}
+
+						// EN: Get the data of videos
+						// CZ: Získání dat o videích
+						$result = $envodb -> query('SELECT * FROM ' . $envotable7 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+						while ($row = $result -> fetch_assoc()) {
+							// EN: Insert each record into array
+							// CZ: Vložení získaných dat do pole
+							$ENVO_HOUSE_VIDEO[] = $row;
+						}
+
 					} else {
 						// USER HAVE NOT PERMISSION
 						envo_redirect(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, '404'));

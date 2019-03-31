@@ -948,7 +948,7 @@
 
 							} else {
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> kontakty.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> fotografie.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
 							}
 
 							?>
@@ -958,13 +958,98 @@
 				</div>
 				<div class="tab-pane fade" id="tabs10">
 					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
-						<div class="col-12 col-sm-12">
+						<div class="col-12 px-0 px-sm-2">
+							<fieldset class="section-info">
+								<legend>Základní informace</legend>
+								<div class="form-group ">
+									<label class="font-weight-semibold">Celkový počet videí:</label>
+									<input type="text" class="form-control" value="<?= $VIDEO_COUNT ?>" readonly="">
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="row m-0 m-sm-2">
+						<div class="col-sm-3">
 
-							<p>$ENVO_HOUSE_DETAIL</p>
-							<hr>
 							<?php
-							print_array($ENVO_HOUSE_DETAIL);
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h5', 'Kategorie', 'bold');
 							?>
+
+							<ul id="videofilters" class="filters">
+								<li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
+							</ul>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h5', 'Vyhledat', 'bold');
+							?>
+
+							<p>
+
+								<?php
+								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+								echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
+								?>
+
+							</p>
+
+						</div>
+						<div class="col-sm-9">
+
+							<?php if (!empty($ENVO_HOUSE_VIDEO) && is_array($ENVO_HOUSE_VIDEO)) { ?>
+
+								<div id="videogallery" class="gallery">
+
+									<?php foreach ($ENVO_HOUSE_VIDEO as $hvideo) { ?>
+										<div class="gallery-item-<?= $hvideo["id"] . ' ' . $hvideo["category"] ?>" data-width="1" data-height="1">
+											<div class="img_container">
+												<a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" download>
+													<img src="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filenamethumb"] ?>" class="img-responsive" alt="">
+												</a>
+											</div>
+											<div class="overlays">
+												<div class="row h-100 m-0">
+													<div class="col-5">
+														<div class="text font-montserrat"></div>
+													</div>
+													<div class="col-7">
+														<div class="text">
+															<a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="btn btn-success btn-xs btn-mini" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>"  data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +" download>
+																	<i class="icon-play"></i>
+															</a>
+															<button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails1" data-id="<?= $hvideo["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
+																<i class="icon-info3"></i>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="w-100 p-2">
+												<p><strong>Krátký Popis:</strong><span class="ml-1"><?= $hvideo["shortdescription"] ?></span></p>
+												<p><strong>Datum:</strong><span class="ml-1"><?= date('d.m.Y H:i', strtotime($hvideo['created'])) ?></span></p>
+											</div>
+										</div>
+									<?php } ?>
+
+								</div>
+
+							<?php } else { ?>
+
+								<div class="col-md-12">
+
+									<?php
+									// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+									echo $Html -> addDiv('Nejsou dostupná <strong>žádná</strong> videa.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+									?>
+
+								</div>
+
+							<?php } ?>
 
 						</div>
 					</div>

@@ -28,11 +28,14 @@ $envotable6  = DB_PREFIX . 'int2_houseserv';
 $envotable7  = DB_PREFIX . 'int2_housenotifications';
 $envotable8  = DB_PREFIX . 'int2_housenotificationug';
 $envotable9  = DB_PREFIX . 'int2_housecontacts';
-$envotable10 = DB_PREFIX . 'int2_contract';
-$envotable11 = DB_PREFIX . 'int2_contractdocu';
+$envotable10 = DB_PREFIX . 'int2_housevideo';
+
 $envotable20 = DB_PREFIX . 'int2_settings_city';
 $envotable21 = DB_PREFIX . 'int2_settings_ku';
 $envotable22 = DB_PREFIX . 'int2_settings_district';
+
+$envotable30 = DB_PREFIX . 'int2_contract';
+$envotable31 = DB_PREFIX . 'int2_contractdocu';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -723,6 +726,10 @@ Složka domu:   				' . $pathfolder . '
 						$ENVO_FORM_DATA_IMG_COUNT[] = $row2;
 					}
 
+					// EN: Get all the data for the form - Videos
+					// CZ: Získání všech dat pro formulář - Videa
+					$ENVO_FORM_DATA_VIDEO = envo_get_house_video($pageID, $envotable10);
+
 				} else {
 					// EN: Redirect page
 					// CZ: Přesměrování stránky
@@ -1267,7 +1274,7 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 							 * url_slug  - friendly URL slug from a string
 							*/
 
-							$result = $envodb -> query('INSERT INTO ' . $envotable10 . ' SET 
+							$result = $envodb -> query('INSERT INTO ' . $envotable30 . ' SET 
                         number = "' . smartsql($defaults['envo_contractnumber']) . '",
                         name = "' . smartsql($defaults['envo_contractname']) . '",
                         varname = "' . url_slug($defaults['envo_contractname'], array ('transliterate' => TRUE)) . '",
@@ -1352,7 +1359,7 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 								 * smartsql - secure method to insert form data into a MySQL DB
 								 * url_slug  - friendly URL slug from a string
 								*/
-								$result = $envodb -> query('UPDATE ' . $envotable10 . ' SET
+								$result = $envodb -> query('UPDATE ' . $envotable30 . ' SET
                          number = "' . smartsql($defaults['envo_contractnumber']) . '",
                         name = "' . smartsql($defaults['envo_contractname']) . '",
                         varname = "' . url_slug($defaults['envo_contractname'], array ('transliterate' => TRUE)) . '",
@@ -1395,11 +1402,11 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 
 				// EN: Get all the data for the form - Contract
 				// CZ: Získání všech dat pro formulář - Zakázky
-				$ENVO_FORM_DATA = envo_get_data($pageID, $envotable10);
+				$ENVO_FORM_DATA = envo_get_data($pageID, $envotable30);
 
 				// EN: Get all the data for the form - Documents
 				// CZ: Získání všech dat pro formulář - Dokumenty
-				$ENVO_FORM_DATA_DOCU = envo_get_contract_documents($pageID, $envotable11);
+				$ENVO_FORM_DATA_DOCU = envo_get_contract_documents($pageID, $envotable31);
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
@@ -1417,7 +1424,7 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 				// CZ: Hlavní proměnné
 				$pageID = $page3;
 
-				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable10)) {
+				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable30)) {
 					/* EN: Delete all records
 					 * 1. Get data for deleting
 					 * 2. Delete records from DB 'int2_contract'
@@ -1427,12 +1434,12 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 
 					// EN: 1. Get data for deleting - main folder
 					// CZ: 1. Získání dat potřebná k odstranění - hlavní adresář
-					$resultfolder = $envodb -> query('SELECT folder FROM ' . $envotable10 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1 ');
+					$resultfolder = $envodb -> query('SELECT folder FROM ' . $envotable30 . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1 ');
 					$folder       = $resultfolder -> fetch_assoc();
 
 					// EN: 2. Delete row from DB 'int2_contract' - Main records about contract
 					// CZ: 2. Odstranění záznamu z DB 'int2_contract' - Hlavní záznam o zakázce
-					$result = $envodb -> query('DELETE FROM ' . $envotable10 . ' WHERE id = "' . smartsql($pageID) . '"');
+					$result = $envodb -> query('DELETE FROM ' . $envotable30 . ' WHERE id = "' . smartsql($pageID) . '"');
 
 					if (!$result) {
 						// EN: Redirect page
@@ -1440,9 +1447,9 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 						envo_redirect(BASE_URL . 'index.php?p=intranet2&sp=contract&status=e');
 					} else {
 
-						// EN: 3. Delete row from DB 'int2_housedocu' - Documents
-						// CZ: 3. Odstranění záznamu z DB 'int2_housedocu' - Dokumenty
-						$envodb -> query('DELETE FROM ' . $envotable11 . ' WHERE contractid = "' . smartsql($pageID) . '"');
+						// EN: 3. Delete row from DB 'int2_contractdocu' - Documents
+						// CZ: 3. Odstranění záznamu z DB 'int2_contractdocu' - Dokumenty
+						$envodb -> query('DELETE FROM ' . $envotable31 . ' WHERE contractid = "' . smartsql($pageID) . '"');
 
 						// EN: 4. Delete files, folder
 						// CZ: 4. Odstranění souborů a složek
@@ -1499,9 +1506,9 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 							}
 						}
 
-						// EN: Getting the data about the Houses
-						// CZ: Získání dat o bytových domech
-						$ENVO_CONTRACT_ALL = envo_get_contract_info($envotable10);
+						// EN: Getting the data about the contracts
+						// CZ: Získání dat o kontraktech
+						$ENVO_CONTRACT_ALL = envo_get_contract_info($envotable30);
 
 						// EN: Title and Description
 						// CZ: Titulek a Popis
