@@ -271,7 +271,30 @@ if (isset($_FILES['file'])) {
 				imagedestroy($dst);
 
 				// Insert info about image into DB
-				$result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_houseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "' . $_REQUEST['imgSdesc'] . '", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imgCat'] . '", subcategory = "", ftime = "' . $time . '", fsize = "' . $size . '", exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '", created = NOW(), updated = NOW()');
+				$result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_houseimg SET 
+																	id = NULL, houseid = "' . smartsql($_REQUEST['houseID']) . '",
+																	shortdescription = "' . smartsql($_REQUEST['imgSdesc']) . '",
+																	description = "",
+																	filenameoriginal = "' . smartsql($name_original) . '",
+																	filenamethumb = "' . smartsql($name_thumbs) . '",
+																	widthoriginal = "' . smartsql($width_o) . '",
+																	heightoriginal = "' . smartsql($height_o) . '",
+																	widththumb = "' . smartsql($width_n) . '",
+																	heightthumb = "' . smartsql($height_n) . '",
+																	mainfolder = "' . smartsql($mainfolder) . '",
+																	category = "' . smartsql($_REQUEST['imgCat']) . '",
+																	subcategory = "",
+																	ftime = "' . smartsql($time) . '",
+																	fsize = "' . smartsql($size) . '",
+																	exifmake = "' . smartsql($exifmake) . '",
+																	exifmodel = "' . smartsql($exifmodel) . '",
+																	exifsoftware = "' . smartsql($exifsoftware) . '",
+																	exifimagewidth = "' . smartsql($exifimagewidth) . '",
+																	exifimageheight = "' . smartsql($exifimageheight) . '",
+																	exiforientation = "' . smartsql($exiforientation) . '",
+																	exifcreatedate = "' . smartsql($exifcreatedate) . '",
+																	created = NOW(),
+																	updated = NOW()');
 
 				// Get last row ID from DB
 				$rowid = $envodb -> envo_last_id();

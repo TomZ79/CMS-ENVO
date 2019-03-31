@@ -66,7 +66,7 @@ if (!file_exists($localFile) || filemtime($localFile) <= (time() - REFRESH_TIME)
 	);
 
 	// Read the contents of the XML remote file into a string -> variable
-	$file = file_get_contents(ARES, false, $ctx);
+	$file = file_get_contents(ARES, FALSE, $ctx);
 	if ($file) {
 		// Save data to local file
 		file_put_contents($localFile, $file);

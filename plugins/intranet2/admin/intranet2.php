@@ -489,6 +489,28 @@ Složka domu:   				' . $pathfolder . '
                         updated = NOW()');
 									}
 
+									// EN:
+									// CZ: Uložení dat o bytovém domě - Anténní systém
+									$resultB = $envodb -> query('SELECT id FROM ' . DB_PREFIX . 'int2_houseantennasystem WHERE houseid = "' . smartsql($pageID) . '" LIMIT 1');
+									// EN: Determine the number of rows in the result from DB
+									// CZ: Určení počtu řádků ve výsledku z DB
+									$row_cntB = $resultB -> num_rows;
+
+									if ($row_cntB > 0) {
+										$envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseantennasystem SET
+                        preparedness_dvbt2 = "' . smartsql($defaults['envo_houseapreparednessdvbt2']) . '",
+                        description = "' . smartsql($defaults['envo_houseantdescription']) . '",
+                        updated = NOW()
+                        WHERE houseid = "' . smartsql($pageID) . '"');
+									} else {
+										$envodb -> query('INSERT INTO ' . DB_PREFIX . 'int2_houseantennasystem SET 
+                        houseid = "' . smartsql($pageID) . '",
+                        preparedness_dvbt2 = "' . smartsql($defaults['envo_houseapreparednessdvbt2']) . '",
+                        description = "' . smartsql($defaults['envo_houseantdescription']) . '",
+                        created = NOW(),
+                        updated = NOW()');
+									}
+
 									// EN: Write to log
 									// CZ: Zápis dat do logu
 									// Get IP address
@@ -636,6 +658,25 @@ Složka domu:   				' . $pathfolder . '
 					// CZ: Získání všech dat pro formulář - Kontakty
 					$ENVO_FORM_DATA_CONT = envo_get_house_contact($pageID, $envotable9, $ENVO_SETTING_VAL['int2dateformat']);
 
+					// EN: Get all the data for the form - Antenna system
+					// CZ: Získání všech dat pro formulář - Anténní systém
+					$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_houseantennasystem  WHERE houseid = "' . smartsql($pageID) . '" LIMIT 1');
+					while ($row = $result -> fetch_assoc()) {
+						// EN: Insert each record into array
+						// CZ: Vložení získaných dat do pole
+						$envoantennasystem[] = $row;
+					}
+
+					// Convert multidimensional array to associated array
+					$ENVO_ANTENNASYSTEM = array ();
+					if (isset($envoantennasystem) && is_array($envoantennasystem)) {
+						foreach ($envoantennasystem as $array) {
+							foreach ($array as $k => $v) {
+								$ENVO_ANTENNASYSTEM[$k] = $v;
+							}
+						}
+					}
+
 					// EN: Get all the data for the form - Tasks
 					// CZ: Získání všech dat pro formulář - Úkoly
 					$ENVO_FORM_DATA_TASK = envo_get_house_task($pageID, $envotable2, $ENVO_SETTING_VAL['int2dateformat']);
@@ -653,8 +694,8 @@ Složka domu:   				' . $pathfolder . '
 
 					// EN: Setlocale
 					$envodb -> query('SET lc_time_names = "' . $setting["locale"] . '"');
-					// EN: Get 'timedefault'
-					$result = $envodb -> query('SELECT DISTINCT(DATE_FORMAT(created, "%Y - %M")) as d FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY created DESC');
+					// EN: Get 'exifcreatedate'
+					$result = $envodb -> query('SELECT DISTINCT(DATE_FORMAT(exifcreatedate, "%Y - %M")) as d FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY exifcreatedate DESC');
 					// EN: Get all photo by date for house
 					while ($row = $result -> fetch_assoc()) {
 
@@ -664,7 +705,7 @@ Složka domu:   				' . $pathfolder . '
 						$test0_array[$date]['created'] = $dateFormat;
 
 						//
-						$result1 = $envodb -> query('SELECT * FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(created,"%Y - %M") = "' . $date . '"');
+						$result1 = $envodb -> query('SELECT * FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(exifcreatedate,"%Y - %M") = "' . $date . '" ORDER BY exifcreatedate DESC');
 
 						while ($row1 = $result1 -> fetch_assoc()) {
 

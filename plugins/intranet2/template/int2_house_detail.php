@@ -23,7 +23,6 @@
 		}
 	</style>
 
-
 	<div class="card">
 		<div class="card-body">
 
@@ -150,11 +149,13 @@
 
 											$ocodearray = explode(', ', $ENVO_HOUSE_DETAIL["cuzk_objcode"]);
 											foreach ($ocodearray as $oc) {
-											?>
+												?>
 
-											<a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/<?= $oc ?>" target="_blank">Zobrazit detail objektu</a><br>
+												<a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/<?= $oc ?>" target="_blank">Zobrazit detail objektu</a>
+												<br>
 
-										<?php } } else { ?>
+											<?php }
+										} else { ?>
 
 											<span class="alert border-0 text-orange-800 alpha-orange d-block m-0 p-2">Odkaz na výpis neexistuje</span>
 
@@ -242,8 +243,6 @@
 				<div class="tab-pane fade" id="tabs2">
 					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
 
-						<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-						<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
 						<style>
 							div[id^="map_"] {
 								width: 100%;
@@ -254,6 +253,16 @@
 							.mapboxgl-ctrl-logo {
 								display: none !important;
 							}
+
+							.marker {
+								background-image: url('/plugins/intranet2/template/img/maps/marker/imagefiles_location_map_pin_orange6.png');
+								background-repeat: no-repeat;
+								background-size: contain;
+								width: 30px;
+								height: 50px;
+								cursor: pointer;
+							}
+
 						</style>
 
 						<?php
@@ -316,6 +325,30 @@
                               attributionControl: false
                             });
 
+                            var geojson = {
+                              features: [{
+                                geometry: {
+                                  type: 'Point',
+                                  coordinates: [<?= $he["gpslng"] ?>, <?= $he["gpslat"] ?>]
+                                }
+                              }]
+                            };
+
+
+                            // Add markers to map
+                            geojson.features.forEach(function (marker) {
+
+                              // create a HTML element for each feature
+                              var el = document.createElement('div');
+                              el.className = 'marker';
+
+                              // make a marker for each feature and add to the map
+                              new mapboxgl.Marker(el, {offset: [10, -25]})
+                                .setLngLat(marker.geometry.coordinates)
+                                .addTo(map);
+                            });
+
+
                             // View a fullscreen map
                             map.addControl(new mapboxgl.FullscreenControl());
                           }
@@ -349,14 +382,26 @@
 									<div class="form-control-plaintext" style="padding-bottom: inherit;">
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" class="form-input-styled" name="administration" <?= ($ENVO_HOUSE_DETAIL['administration'] == 1 ? 'checked' : '') ?> data-fouc onclick="return false;">
+
+												<?php if ($ENVO_HOUSE_DETAIL['administration'] == 1) { ?>
+													<input type="radio" name="adm" class="form-check-radio-styled" checked data-fouc onclick="return false;">
+												<?php } else { ?>
+													<input type="radio" name="adm" class="form-check-radio-styled" data-fouc onclick="return false;">
+												<?php } ?>
+
 												Ano
 											</label>
 										</div>
 
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" class="form-input-styled" name="administration" <?= ($ENVO_HOUSE_DETAIL['administration'] == 0 ? 'checked' : '') ?> data-fouc onclick="return false;">
+
+												<?php if ($ENVO_HOUSE_DETAIL['administration'] == 0) { ?>
+													<input type="radio" name="adm" class="form-check-radio-styled" checked data-fouc onclick="return false;">
+												<?php } else { ?>
+													<input type="radio" name="adm" class="form-check-radio-styled" data-fouc onclick="return false;">
+												<?php } ?>
+
 												Ne
 											</label>
 										</div>
@@ -403,7 +448,7 @@
 					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
 						<div class="col-12 col-sm-5 px-0 px-sm-2">
 							<fieldset class="section-info">
-								<legend>Kontakty - všeobecné informace</legend>
+								<legend>Základní informace</legend>
 								<div class="form-group ">
 									<label class="font-weight-semibold">Celkový počet kontaktů:</label>
 									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_CONT['count_of_cont'] ?>" readonly>
@@ -456,7 +501,7 @@
 												<div class="form-group">
 													<label class="font-weight-semibold">Email:</label>
 
-													<?php if (!empty($cont["phone"])) { ?>
+													<?php if (!empty($cont["email"])) { ?>
 														<div class="input-group">
 															<input name="useremail_<?= $cont["id"] ?>" type="text" class="form-control" value="<?= $cont["email"] ?>" readonly>
 															<span class="input-group-append">
@@ -467,6 +512,10 @@
 														<input type="text" class="form-control" value="<?= $cont["email"] ?>" readonly>
 													<?php } ?>
 
+												</div>
+												<div class="form-group">
+													<label class="font-weight-semibold">Facebook:</label>
+													<input type="text" class="form-control" value="<?= $cont["facebook"] ?>" readonly>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">
@@ -486,21 +535,98 @@
 
 						<?php } else { ?>
 
-							<?php
-							// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-							echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> kontakty.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
-							?>
+							<div class="col-12 col-sm-12">
+
+								<?php
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> kontakty.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+								?>
+
+							</div>
 
 						<?php } ?>
 
 					</div>
 				</div>
-				<div class="tab-pane fade" id="tabs5">Tab 5</div>
+				<div class="tab-pane fade" id="tabs5">
+
+					<?php if (!empty($ENVO_HOUSE_ANT) && is_array($ENVO_HOUSE_ANT)) { ?>
+
+						<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+							<div class="col-12 col-sm-6 px-0 px-sm-2">
+								<fieldset class="section-info">
+									<legend>Základní informace</legend>
+
+									<div class="form-group ">
+										<label class="d-block font-weight-semibold">Připravenost na DVB-T2</label>
+										<div class="form-control-plaintext" style="padding-bottom: inherit;">
+
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+
+													<?php if ($ENVO_HOUSE_ANT['preparedness_dvbt2'] == 1) { ?>
+														<input type="radio" name="dvbt2" class="form-check-radio-styled" checked data-fouc onclick="return false;">
+													<?php } else { ?>
+														<input type="radio" name="dvbt2" class="form-check-radio-styled" data-fouc onclick="return false;">
+													<?php } ?>
+
+													Ano
+												</label>
+											</div>
+
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+
+													<?php if ($ENVO_HOUSE_ANT['preparedness_dvbt2'] == 2) { ?>
+														<input type="radio" name="dvbt2" class="form-check-radio-styled" checked data-fouc onclick="return false;">
+													<?php } else { ?>
+														<input type="radio" name="dvbt2" class="form-check-radio-styled" data-fouc onclick="return false;">
+													<?php } ?>
+
+													Ne
+												</label>
+											</div>
+
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+
+													<?php if ($ENVO_HOUSE_ANT['preparedness_dvbt2'] == 0) { ?>
+														<input type="radio" name="dvbt2" class="form-check-radio-styled" checked data-fouc onclick="return false;">
+													<?php } else { ?>
+														<input type="radio" name="dvbt2" class="form-check-radio-styled" data-fouc onclick="return false;">
+													<?php } ?>
+
+													Není známo
+												</label>
+											</div>
+
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+
+					<?php } else { ?>
+
+						<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+							<div class="col-12 col-sm-12">
+
+								<?php
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> informace.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+								?>
+
+							</div>
+						</div>
+
+					<?php } ?>
+
+				</div>
 				<div class="tab-pane fade" id="tabs6">
 					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
 						<div class="col-12 col-sm-4 px-0 px-sm-2">
 							<fieldset class="section-info">
-								<legend>Úkoly - všeobecné informace</legend>
+								<legend>Základní informace</legend>
 								<div class="form-group ">
 									<label class="font-weight-semibold">Celkový počet úkolů:</label>
 									<input type="text" class="form-control" value="<?= $ENVO_HOUSE_TASK['count_of_task'] ?>" readonly>
@@ -582,22 +708,284 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="tabs7">Tab 7</div>
+				<div class="tab-pane fade" id="tabs7">
+
+					<?php if (!empty($ENVO_HOUSE_SERV) && is_array($ENVO_HOUSE_SERV)) { ?>
+
+						<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+							<div class="col-12 px-0 px-sm-2">
+
+							</div>
+						</div>
+
+					<?php } else { ?>
+
+						<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+							<div class="col-12 col-sm-12">
+
+								<?php
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> informace.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+								?>
+
+							</div>
+						</div>
+
+					<?php } ?>
+
+				</div>
 				<div class="tab-pane fade" id="tabs8">
+
+					<?php if (!empty($ENVO_HOUSE_DOCU) && is_array($ENVO_HOUSE_DOCU)) { ?>
+
+						<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+							<div class="col-12 px-0 px-sm-2">
+								<div class="table-responsive">
+									<table class="table table-bordered">
+										<thead>
+										<tr>
+											<th class="w-15 text-center">Typ Souboru</th>
+											<th class="w-70">Popis</th>
+											<th class="w-15 text-center">Soubor</th>
+										</tr>
+										</thead>
+										<tbody>
+
+										<?php foreach ($ENVO_HOUSE_DOCU as $hdocu) { ?>
+											<tr>
+												<td class="text-center"><?= envo_extension_icon($hdocu["fname"]) ?></td>
+												<td><?= $hdocu["description"] ?></td>
+												<td class="text-center">
+
+													<?php
+													echo '<a href="/' . ENVO_FILES_DIRECTORY . $hdocu["fullpath"] . '" target="_blank">Zobrazit</a>';
+													echo ' | ';
+													echo '<a href="/' . ENVO_FILES_DIRECTORY . $hdocu["fullpath"] . '" download>Stáhnout</a>';
+													?>
+
+												</td>
+											</tr>
+										<?php } ?>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					<?php } else { ?>
+
+						<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+							<div class="col-12 col-sm-12">
+
+								<?php
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> informace.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+								?>
+
+							</div>
+						</div>
+
+					<?php } ?>
+
+				</div>
+				<div class="tab-pane fade" id="tabs9">
 					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
-						<div class="col-12 col-sm-12">
+						<div class="col-12 px-0 px-sm-2">
+							<fieldset class="section-info">
+								<legend>Základní informace</legend>
+								<div class="form-group ">
+									<label class="font-weight-semibold">Celkový počet fotografií:</label>
+									<input type="text" class="form-control" value="<?= $IMG_COUNT ?>" readonly="">
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="row m-0 m-sm-2">
+						<div class="col-12 col-sm-12 text-center">
+							<button type="button" id="showPhotoList" class="btn btn-success btn-cons">
+								<span>Seznam</span>
+							</button>
+
+							<button type="button" id="showFiltrPhoto" class="btn btn-info btn-cons">
+								<span>Filtr</span>
+							</button>
+						</div>
+					</div>
+					<div id="list_photo" class="row">
+						<div class="col-sm-12">
+
+							<?php
+
+							if (!empty($ENVO_HOUSE_IMG_LIST) && is_array($ENVO_HOUSE_IMG_LIST)) {
+
+								echo '<div id="imggallery0" class="gallery">';
+
+								foreach ($ENVO_HOUSE_IMG_LIST as $subarray) {
+
+									// Get first value 'timedefault'
+									echo '<div class="dateblock_' . uniqid() . ' mb-2 clearfix">';
+									echo '<div class="p-2 mb-2" style="background:gray;color:white;font-weight:700;font-size:1.2em;">' . reset($subarray) . '</div>';
+
+									// Loop photos array
+									foreach ($subarray['photos'] as $himg_list) {
+
+										echo '<div class="gallery-item-' . $himg_list["id"] . ' ' . $himg_list["category"] . ' float-left margin-gallery" data-width="1" data-height="1">';
+
+										echo '<div class="img_container"><a data-fancybox="fancybox-0" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" alt=""></a></div>';
+
+										echo '<div class="overlays">
+														<div class="row h-100 m-0">
+															<div class="col-5">
+																<div class="text font-montserrat">' . strtoupper(pathinfo($himg_list["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
+															</div>
+															<div class="col-7">
+																<div class="text">
+																	<a data-fancybox="fancybox-0-1" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" class="btn btn-success btn-sm" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+																		<i class="icon-images3"></i>
+																	</a>
+																	<button class="btn btn-success btn-sm dialog-open-info" type="button" data-dialog="itemDetails" data-id="' . $himg_list["id"] . '" data-toggle="tooltipEnvo" title="Informace">
+																	<i class="icon-info3"></i>
+																</button>
+																</div>
+															</div>
+														</div>
+													</div>';
+
+										echo '<div class="w-100 p-2">';
+										echo '<p><strong>Krátký Popis:</strong><span class="ml-1">' . $himg_list["shortdescription"] . '</span></p>';
+										echo '<p><strong>Datum:</strong><span class="ml-1">' . date('d.m.Y H:i', strtotime($himg_list['exifcreatedate'])) . '</span></p>';
+										echo '</div>';
+										echo '</div>';
+									}
+
+									echo '</div>';
+								}
+
+								echo '</div>';
+
+							} else {
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> kontakty.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+							}
+
+							?>
+
+						</div>
+					</div>
+					<div id="isotope_photo" class="row" style="display: none;">
+						<div class="col col-sm-3">
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h5', 'Kategorie', 'bold');
+							?>
+
+							<ul id="imagefilters">
+								<li><a href="javascript:;" class="filter" data-filter="*">Bez kategorie</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".exploration">Obhlídka</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
+							</ul>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html -> addTag('h5', 'Vyhledat', 'bold');
+							?>
+
+							<p>
+
+								<?php
+								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+								echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ('placeholder' => 'Vyhledat ...'));
+								?>
+
+							</p>
+
+						</div>
+						<div class="col col-sm-9">
+
+							<?php
+
+							if (!empty($ENVO_HOUSE_IMG_ISO) && is_array($ENVO_HOUSE_IMG_ISO)) {
+
+								echo '<div id="imggallery1" class="gallery">';
+
+								foreach ($ENVO_HOUSE_IMG_ISO as $himg_iso) {
+
+									echo '<div class="gallery-item-' . $himg_iso["id"] . ' ' . $himg_iso["category"] . '" data-width="1" data-height="1">';
+
+									echo '<div class="img_container"><a data-fancybox="fancybox-1" href="' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '"><img src="/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" class="img-responsive" alt=""></a></div>';
+
+									echo '<div class="overlays">
+													<div class="row h-100 m-0">
+														<div class="col-5">
+															<div class="text font-montserrat">' . strtoupper(pathinfo($himg_list["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
+														</div>
+														<div class="col-7">
+															<div class="text">
+																<a data-fancybox="fancybox-1-1" href="/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" class="btn btn-success btn-sm" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
+																	<i class="icon-images3"></i>
+																</a>
+																<button class="btn btn-success btn-sm dialog-open-info" type="button" data-dialog="itemDetails" data-id="' . $himg_iso["id"] . '" data-toggle="tooltipEnvo" title="Informace">
+																<i class="icon-info3"></i>
+															</button>
+															</div>
+														</div>
+													</div>
+												</div>';
+
+									echo '<div class="w-100 p-2">';
+									echo '<p><strong>Krátký Popis:</strong><span class="ml-1">' . $himg_iso["shortdescription"] . '</span></p>';
+									echo '<p><strong>Datum:</strong><span class="ml-1">' . date('d.m.Y H:i', strtotime($himg_iso['exifcreatedate'])) . '</span></p>';
+									echo '</div>';
+									echo '</div>';
+								}
+
+								echo '</div>';
+
+							} else {
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html -> addDiv('Nejsou dostupné <strong>žádné</strong> kontakty.', '', array ('class' => 'alert border-0 text-orange-800 alpha-orange'));
+							}
+
+							?>
 
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="tabs9">Tab 9</div>
 				<div class="tab-pane fade" id="tabs10">
-					<?php
-					print_array($ENVO_HOUSE_DETAIL);
-					?>
+					<div class="row m-0 m-sm-2 mt-3 mt-sm-3">
+						<div class="col-12 col-sm-12">
+
+							<p>$ENVO_HOUSE_DETAIL</p>
+							<hr>
+							<?php
+							print_array($ENVO_HOUSE_DETAIL);
+							?>
+
+						</div>
+					</div>
 				</div>
 			</div>
 
+		</div>
+	</div>
+
+	<!-- DIALOG FX -->
+	<div id="itemDetails" class="dialog item-details" style="z-index: 1040;">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<div class="container-fluid" style="height: 90vh;">
+				<div class="row dialog__overview">
+					<!-- Data over AJAX  -->
+				</div>
+			</div>
+			<button class="close action" type="button" data-dialog-close>
+				<i class="icon-cross icon-2x"></i>
+			</button>
 		</div>
 	</div>
 

@@ -756,6 +756,24 @@ function selectGPS_Data_Ent (event) {
 
 }
 
+
+/**
+ * @description Plugin to make it easier to bind the "on enter key pressed" a event
+ * @param fnc
+ * @param mod
+ * @returns {Object}
+ */
+$.fn.enterKey = function (fnc, mod) {
+  return this.each(function () {
+    $(this).keypress(function (e) {
+      var keycode = (e.keyCode ? e.keyCode : e.which);
+      if ((keycode == '13' || keycode == '10') && (!mod || e[mod + 'Key'])) {
+        fnc.call(this, e);
+      }
+    })
+  })
+}
+
 /** TinyMCE Initialisation
  * @require: TinyMCE Plugin
  ========================================================================*/
@@ -5097,6 +5115,7 @@ $(function () {
     var address = $('input[name=envo_contaddress]').val();
     var phone = $('input[name=envo_contphone]').val();
     var email = $('input[name=envo_contemail]').val();
+    var facebook = $('input[name=envo_contfcb]').val();
     var status = $('select[name=envo_contstatus]').val();
     var birthdate = $('input[name=envo_birthdate]').val();
     var gender = $('input[name=envo_gender]:checked').val();
@@ -5105,7 +5124,7 @@ $(function () {
     // ------------ Jquery code
 
     if (debug) {
-      console.log('Save Contact Click fn | Data => houseID - ' + houseID + ' | degree -  ' + degree + ' | name - ' + name + ' | surname - ' + surname + ' | address - ' + address + ' | phone - ' + phone + ' | email - ' + email + ' | status - ' + status + ' | birthdate - ' + birthdate + ' | gender - ' + gender);
+      console.log('Save Contact Click fn | Data => houseID - ' + houseID + ' | degree -  ' + degree + ' | name - ' + name + ' | surname - ' + surname + ' | address - ' + address + ' | phone - ' + phone + ' | email - ' + email + ' | facebook - ' + facebook + ' | status - ' + status + ' | birthdate - ' + birthdate + ' | gender - ' + gender);
     }
 
     // Ajax
@@ -5121,6 +5140,7 @@ $(function () {
         address: address,
         phone: phone,
         email: email,
+        facebook: facebook,
         status: status,
         birthdate: birthdate,
         gender: gender,
@@ -5168,12 +5188,12 @@ $(function () {
                   '<div class="block">' +
                   '<div class="block-content">' +
                   '<div class="row">' +
-                  '<div class="col-sm-6 p-3">' +
+                  '<div class="col-sm-7 p-3">' +
                   '<table class="table table-hover table-condensed">' +
                   '<tbody>' +
                   '<tr>' +
-                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Adresa bydliště</strong></th>' +
-                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["address"] + '</span></td>' +
+                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);width: 30%;"><strong>Adresa bydliště</strong></th>' +
+                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);width: 70%;"><span>' + data["address"] + '</span></td>' +
                   '</tr>' +
                   '<tr>' +
                   '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Telefon</strong></th>' +
@@ -5182,6 +5202,10 @@ $(function () {
                   '<tr>' +
                   '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Email</strong></th>' +
                   '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["email"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Facebook</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["facebook"] + '</span></td>' +
                   '</tr>' +
                   '<tr>' +
                   '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Funkce</strong></th>' +
@@ -5198,7 +5222,7 @@ $(function () {
                   '</tbody>' +
                   '</table>' +
                   '</div>' +
-                  '<div class="col-sm-6 p-3">' +
+                  '<div class="col-sm-5 p-3">' +
                   '<label for="" class="m-b-10"><strong>Popis</strong></label>' +
                   '<div>' + data["description"] + '</div>' +
                   '</div>' +
@@ -5320,6 +5344,7 @@ $(function () {
     var address = $('input[name=envo_contaddress]').val();
     var phone = $('input[name=envo_contphone]').val();
     var email = $('input[name=envo_contemail]').val();
+    var facebook = $('input[name=envo_contfcb]').val();
     var status = $('select[name=envo_contstatus]').val();
     var birthdate = $('input[name=envo_birthdate]').val();
     var gender = $('input[name=envo_gender]:checked').val();
@@ -5341,6 +5366,7 @@ $(function () {
         address: address,
         phone: phone,
         email: email,
+        facebook: facebook,
         status: status,
         birthdate: birthdate,
         gender: gender,
@@ -5387,12 +5413,12 @@ $(function () {
                   '<div class="block">' +
                   '<div class="block-content">' +
                   '<div class="row">' +
-                  '<div class="col-sm-6 p-3">' +
+                  '<div class="col-sm-7 p-3">' +
                   '<table class="table table-hover table-condensed">' +
                   '<tbody>' +
                   '<tr>' +
-                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Adresa bydliště</strong></th>' +
-                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["address"] + '</span></td>' +
+                  '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);width: 30%;"><strong>Adresa bydliště</strong></th>' +
+                  '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);width: 70%;"><span>' + data["address"] + '</span></td>' +
                   '</tr>' +
                   '<tr>' +
                   '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Telefon</strong></th>' +
@@ -5401,6 +5427,10 @@ $(function () {
                   '<tr>' +
                   '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Email</strong></th>' +
                   '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["email"] + '</span></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Facebook</strong></th>' +
+                  '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><span>' + data["facebook"] + '</span></td>' +
                   '</tr>' +
                   '<tr>' +
                   '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);"><strong>Funkce</strong></th>' +
@@ -5417,7 +5447,7 @@ $(function () {
                   '</tbody>' +
                   '</table>' +
                   '</div>' +
-                  '<div class="col-sm-6 p-3">' +
+                  '<div class="col-sm-5 p-3">' +
                   '<label for="" class="m-b-10"><strong>Popis</strong></label>' +
                   '<div>' + data["description"] + '</div>' +
                   '</div>' +
@@ -5552,14 +5582,14 @@ $(function () {
   'use strict';
 
   /**
-   * @description  Upload documents
+   * @description Function for upload documents
    */
-  $("#uploadBtnDocu").on('click', (function (event) {
+  function uploadDocu (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #uploadBtnDocu click -----------')
+      console.log('----------- fn #uploadDocu -----------')
     }
 
     // Get Data - value
@@ -5583,7 +5613,7 @@ $(function () {
     // Remove error borders for input
     desc.parent().removeClass('has-error');
 
-    if (descval.length) {
+    if (descval.length > 0) {
 
       // Hide output
       $('#docuoutput').hide();
@@ -5778,17 +5808,26 @@ $(function () {
       }).appendTo(desc.parent());
     }
 
-  }));
+  }
 
   /**
-   * @description  Upload documents
+   * @description  Upload documents by click button or keypress enter
    */
-  $("#uploadBtnContractDocu").on('click', (function (event) {
+  $('#uploadBtnDocu').click(uploadDocu);
+
+  $('input[name=envo_descdocu]').enterKey(function (event) {
+    uploadDocu(event);
+  });
+
+  /**
+   * @description Function for upload contract documents
+   */
+  function uploadContractDocu (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #uploadBtnContractDocu click -----------')
+      console.log('----------- fn #uploadBtnContractDocu -----------')
     }
 
     // Get Data - value
@@ -6007,7 +6046,16 @@ $(function () {
       }).appendTo(desc.parent());
     }
 
-  }));
+  }
+
+  /**
+   * @description  Upload contract documents by click button or keypress enter
+   */
+  $('#uploadBtnContractDocu').click(uploadContractDocu);
+
+  $('input[name=envo_constractdescdocu]').enterKey(function (event) {
+    uploadContractDocu(event);
+  });
 
 });
 
@@ -6385,14 +6433,14 @@ $(function () {
   }));
 
   /**
-   * @description  Upload image
+   * @description Function for upload images
    */
-  $("#uploadBtnImg").on('click', (function (event) {
+  function uploadImg (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     if (debug) {
-      console.log('----------- fn #uploadBtnImg click -----------')
+      console.log('----------- fn #uploadImg -----------')
     }
 
     // ------------ Basic variable
@@ -6500,7 +6548,7 @@ $(function () {
 
                     // Create new Isotope item elements
                     var $isotopeContent = $('' +
-                      '<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
+                      '<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1" style="background-color: rgb(255, 245, 204);">' +
                       '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
                       '<div class="overlays full-width">' +
                       '<div class="row full-height">' +
@@ -6665,8 +6713,16 @@ $(function () {
       }).appendTo(imgcat.parent());
     }
 
+  }
 
-  }));
+  /**
+   * @description  Upload image by click button or keypress enter
+   */
+  $('#uploadBtnImg').click(uploadImg);
+
+  $('input[name=envo_sdescimg]').enterKey(function (event) {
+    uploadImg(event);
+  });
 
   /**
    * @description  Delete image

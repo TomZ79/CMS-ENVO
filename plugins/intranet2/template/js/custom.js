@@ -123,7 +123,8 @@ function copyToClipboard (target, e) {
           containerCssClass: 'text-teal-400 border-teal-400 border-2',
           dropdownCssClass: 'border-teal-400 zindex1060',
           theme: 'bootstrap',
-          width: '100%'
+          width: '100%',
+          debug: true
         });
       });
     } else {
@@ -139,13 +140,15 @@ function copyToClipboard (target, e) {
   Limitless.prototype.componentUniform = function () {
     // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
     if (typeof $.fn.uniform !== 'undefined' && $.isFunction($.fn.uniform)) {
-      $.fn.uniform && $('.form-input-styled').uniform({
-        fileButtonClass: 'action btn bg-pink-400'
-      });
+
+      $.fn.uniform && $('.form-check-input-styled').uniform();
+      $.fn.uniform && $('.form-check-radio-styled').uniform();
+
     } else {
       // Output to console
       console.log('Error E03: $.fn.uniform is not function');
     }
+
   };
 
   /**

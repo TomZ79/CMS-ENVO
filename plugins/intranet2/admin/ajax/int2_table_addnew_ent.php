@@ -33,13 +33,13 @@ $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Insert info about service into DB
 $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_houseent SET 
-                          houseid = "' . $houseID . '",  
-                          street = "' . $street . '", 
-                          elevator = "' . $elevator . '", 
-                          apartment = "' . $apartment . '", 
-                          gpslat = "' . $gpslat . '", 
-                          gpslng = "' . $gpslng . '", 
-                          katastr = "' . $ikatastr . '", 
+                          houseid = "' . smartsql($houseID) . '",  
+                          street = "' . smartsql($street) . '", 
+                          elevator = "' . smartsql($elevator) . '", 
+                          apartment = "' . smartsql($apartment) . '", 
+                          gpslat = "' . smartsql($gpslat) . '", 
+                          gpslng = "' . smartsql($gpslng) . '", 
+                          katastr = "' . smartsql($ikatastr) . '", 
                           created = NOW(),
                           updated = NOW()');
 

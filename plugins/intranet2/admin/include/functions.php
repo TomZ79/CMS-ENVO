@@ -183,6 +183,7 @@ function envo_get_house_contact ($id, $table, $dateformat)
 			'address'     => $row['address'],
 			'phone'       => $row['phone'],
 			'email'       => $row['email'],
+			'facebook'    => $row['facebook'],
 			'status'      => $status,
 			'birthdate'   => (!empty((int)$row['birthdate']) ? date($dateformat, strtotime($row['birthdate'])) : ''),
 			'gender'      => $gender,
@@ -651,6 +652,12 @@ function envo_extension_icon ($filename)
 			break;
 		case ('ai'):
 			return '<i class="techicon-adobe-ai fa-2x"></i>';
+			break;
+		case ('rar'):
+			return '<i class="fa fa-file-archive-o fa-2x"></i>';
+			break;
+		case ('zip'):
+			return '<i class="fa fa-file-archive-o fa-2x"></i>';
 			break;
 		default:
 			return FALSE;

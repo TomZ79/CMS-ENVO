@@ -5,7 +5,8 @@
 
 			<div class="card">
 				<div class="card-header header-elements-inline">
-					<h5 class="card-title">Live <strong>vyhledávání</strong> <br class="d-block d-sm-none"/> (podle názvu bytového domu)</h5>
+					<h5 class="card-title">Live <strong>vyhledávání</strong>
+						<br class="d-block d-sm-none"/> (podle názvu bytového domu)</h5>
 					<div class="header-elements">
 						<div class="list-icons">
 							<a class="list-icons-item" data-action="collapse"></a>
@@ -27,7 +28,10 @@
 							</div>
 						</div>
 					</form>
-					<p><strong>Nápověda: </strong>Pro vyhledání záznamu lze použít jen část slova např: <code>kru</code> vyhledá všechny záznamy obsahující tyto písmena. Dále je možné vyhledat podle záznam podle více slov, které můžeme oddělit <code>,</code> <code>,  mezera</code>   <code>|</code> <code>:</code> <code>+</code> <code>-</code> <code> mezera</code> např: <code>kru,20</code> vyhledá všechny záznamy obsahující tyto písmena a číslo.</p>
+					<p><strong>Nápověda: </strong>Pro vyhledání záznamu lze použít jen část slova např:
+						<code>kru</code> vyhledá všechny záznamy obsahující tyto písmena. Dále je možné vyhledat podle záznam podle více slov, které můžeme oddělit
+						<code>,</code> <code>, mezera</code> <code>|</code> <code>:</code> <code>+</code> <code>-</code>
+						<code> mezera</code> např: <code>kru,20</code> vyhledá všechny záznamy obsahující tyto písmena a číslo.</p>
 				</div>
 			</div>
 
@@ -52,8 +56,8 @@
 
 						<div class="col-md-3 mb-3 mb-sm-0">
 							<h6 class="font-weight-bold">Podle měst</h6>
-							<div class="form-group form-group-lg m-0">
-								<select class="form-control select2" data-placeholder="Výběr města" data-search-select2="true" onchange="location = this.value;">
+							<div class="form-group form-group-lg">
+								<select class="form-control select2" data-placeholder="Výběr města" data-search-select2="true" onchange="location = this.value;" data-fouc>
 									<option value=""></option>
 									<option value="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'city', '1') ?>">Abertamy</option>
 									<option value="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'city', '3') ?>">Bečov nad Teplou</option>
@@ -100,8 +104,8 @@
 
 						<div class="col-md-3 mb-3 mb-sm-0">
 							<h6 class="font-weight-bold">Podle Správy</h6>
-							<div class="form-group form-group-lg m-0">
-								<select class="form-control select2" data-placeholder="Výběr správce" data-search-select2="true" onchange="location = this.value;">
+							<div class="form-group form-group-lg">
+								<select class="form-control select2" data-placeholder="Výběr správce" data-search-select2="true" onchange="location = this.value;" data-fouc>
 
 									<?php
 									// First blank option
@@ -110,7 +114,19 @@
 
 									if (isset($ENVO_MANAGEMENT) && is_array($ENVO_MANAGEMENT)) foreach ($ENVO_MANAGEMENT as $m) {
 
-										echo $Html -> addOption(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'estatemanagement', $m["id"]), $m["name"]);
+										if ($ENVO_ACCESS_ANALYTICS) {
+
+											echo $Html -> addOption(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'estatemanagement', $m["id"]), $m["name"]);
+
+										} else {
+											if (ENVO_USERGROUPID == '7' && $m["id"] == '1') {
+												echo $Html -> addOption(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'estatemanagement', $m["id"]), $m["name"]);
+											}
+
+											if (ENVO_USERGROUPID == '6' && $m["id"] == '5') {
+												echo $Html -> addOption(ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'estatemanagement', $m["id"]), $m["name"]);
+											}
+										}
 
 									}
 									?>
@@ -118,8 +134,240 @@
 								</select>
 							</div>
 						</div>
+
 					</div>
 
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header header-elements-inline">
+					<h5 class="card-title">Vyhledávání <strong>podle dostupných technologií</strong></h5>
+					<div class="header-elements">
+						<div class="list-icons">
+							<a class="list-icons-item" data-action="collapse"></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-body" style="">
+
+					<form method="post" action="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'searchtechnology') ?>">
+
+						<div class="row">
+							<div class="col col-md-12">
+								<div class="form-group row">
+									<label class="col-form-label col-lg-2">Bytový dům</label>
+									<div class="col-lg-10">
+										<input name="searchobject" type="text" class="form-control" placeholder="Zadejte ulici, č.p. nebo č.o">
+									</div>
+								</div>
+								<p><strong>Nápověda: </strong>Pro vyhledání záznamu lze použít jen část slova např:
+									<code>kru</code> vyhledá všechny záznamy obsahující tyto písmena. Dále je možné vyhledat podle záznam podle více slov, které můžeme oddělit
+									<code>,</code> <code>, mezera</code> <code>|</code> <code>:</code> <code>+</code> <code>-</code>
+									<code> mezera</code> např:
+									<code>kru,20</code> vyhledá všechny záznamy obsahující tyto písmena a číslo.</p>
+								<hr>
+							</div>
+						</div>
+
+						<div class="row">
+
+							<div class="col col-md-3 mb-3 mb-sm-0">
+								<h6 class="font-weight-bold">Výběr Správy</h6>
+								<div class="form-group form-group-lg">
+									<select name="searchestatemanagement" class="form-control select2" data-placeholder="Výběr správce" data-search-select2="true" data-fouc>
+
+										<?php
+										// First blank option
+										// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+										echo $Html -> addOption();
+
+										if (isset($ENVO_MANAGEMENT) && is_array($ENVO_MANAGEMENT)) foreach ($ENVO_MANAGEMENT as $m) {
+
+											if ($ENVO_ACCESS_ANALYTICS) {
+
+												echo $Html -> addOption($m["id"], $m["name"]);
+
+											} else {
+												if (ENVO_USERGROUPID == '7' && $m["id"] == '1') {
+													echo $Html -> addOption($m["id"], $m["name"]);
+												}
+
+												if (ENVO_USERGROUPID == '6' && $m["id"] == '5') {
+													echo $Html -> addOption($m["id"], $m["name"]);
+												}
+											}
+
+										}
+										?>
+
+									</select>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-6 mb-3 mb-sm-0">
+								<h6 class="font-weight-bold">Připravenost na DVB-T2</h6>
+								<div class="form-group" style="padding-top: 8px;">
+									<div class="form-check form-check-inline">
+										<label class="form-check-label">
+											<input type="radio" class="form-check-input-styled" name="preparedness_dvbt2" value="1" data-fouc>
+											Ano
+										</label>
+									</div>
+
+									<div class="form-check form-check-inline">
+										<label class="form-check-label">
+											<input type="radio" class="form-check-input-styled" name="preparedness_dvbt2" value="2" data-fouc>
+											Ne
+										</label>
+									</div>
+
+									<div class="form-check form-check-inline">
+										<label class="form-check-label">
+											<input type="radio" class="form-check-input-styled" name="preparedness_dvbt2" value="0" data-fouc>
+											Není známo
+										</label>
+									</div>
+
+								</div>
+							</div>
+
+							<?php if (ENVO_USERID == '1') { ?>
+								<div class="col-12 col-md-6 mb-3 mb-sm-0">
+									<h6 class="font-weight-bold">Výběr Příjmu Televizního Signálu</h6>
+									<div class="form-group" style="padding-top: 8px;">
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_1" class="form-check-input-styled" data-fouc>
+												DVB-T
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_2" class="form-check-input-styled" data-fouc>
+												DVB-T/T2
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_3" class="form-check-input-styled" data-fouc>
+												DVB-S/S2
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_4" class="form-check-input-styled" data-fouc>
+												Není známo
+											</label>
+										</div>
+
+									</div>
+								</div>
+							<?php } ?>
+
+						</div>
+						<?php if (ENVO_USERID == '1') { ?>
+
+							<div class="row">
+								<div class="col-12 mb-3 mb-sm-0">
+									<h6 class="font-weight-bold">Výběr Typu Kabelových Rozvodů</h6>
+									<div class="form-group" style="padding-top: 8px;">
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_5" class="form-check-input-styled" data-fouc>
+												TV - Stupací vedení kabeláže
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_6" class="form-check-input-styled" data-fouc>
+												TV/SAT - Hvězdicové vedení kabeláže
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_7" class="form-check-input-styled" data-fouc>
+												LAN - Datové rozvody
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_8" class="form-check-input-styled" data-fouc>
+												Není známo
+											</label>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 mb-3 mb-sm-0">
+									<h6 class="font-weight-bold">Výběr Stožáru</h6>
+									<div class="form-group" style="padding-top: 8px;">
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_9" class="form-check-input-styled" data-fouc>
+												Rekonstrukce stožáru
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_10" class="form-check-input-styled" data-fouc>
+												Nový stožár
+											</label>
+										</div>
+
+										<div class="form-check form-check-inline">
+											<label class="form-check-label">
+												<input type="checkbox" name="search_technology_11" class="form-check-input-styled" data-fouc>
+												Není známo
+											</label>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-sm-12">
+									<hr>
+									<p>
+										<strong>Nápověda: </strong>Pro vyhledání záznamu o instalovaných technologiích na objektu lze využít filtr s výběrem technologie.
+									</p>
+									<ul>
+										<li>
+											<strong>DVB-T</strong> - objekt přijímá pozemní signál DVB-T a není zaručeno fungování pozemního signálu DVB-T2
+										</li>
+										<li><strong>DVB-T/T2</strong> - objekt přijímá pozemní signál DVB-T i DVB-T2</li>
+										<li><strong>DVB-S/S2</strong> - objekt přijímá satelitní signál DVB-S i DVB-S2</li>
+										<li>
+											<strong>Stupací vedení kabeláže</strong> - objekt má instalované pouze stupací (staré) vedení kabeláže. Pokud přijímá satelitní signál, tak je tento signál zkonvertován do technologie DVB-T nebo DVB-T2.
+										</li>
+										<li>
+											<strong>Hvězdicové vedení kabeláže</strong> - objekt má instalován hvězdicové (satelitní) vedení kabeláže. Toto vedení je určeno pro přímé vedení kabeláže do (bytové) jednotky.
+										</li>
+									</ul>
+									<hr>
+								</div>
+							</div>
+
+						<?php } ?>
+
+						<div class="row">
+							<div class="col-12 col-md-12">
+								<button class="btn btn-light float-right" type="submit">Vyhledat</button>
+							</div>
+						</div>
+					</form>
 
 				</div>
 			</div>

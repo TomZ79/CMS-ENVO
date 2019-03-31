@@ -65,7 +65,7 @@ if (!function_exists('array_group_by')) {
 	}
 }
 
-// Group data by the "gender" key
+// Group data by the key
 $ENVO_KU = array_group_by($ENVO_KU, 'city_name');
 
 // Group data by the key
@@ -1990,12 +1990,12 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 										<div class="block">
 											<div class="block-content">
 												<div class="row">
-													<div class="col-sm-6 p-3">
+													<div class="col-sm-7 p-3">
 
 														<table class="table table-hover table-condensed">
 															<tbody>
 															<tr>
-																<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">
+																<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);width: 30%;">
 
 																	<?php
 																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -2003,7 +2003,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 																	?>
 
 																</th>
-																<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">
+																<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);width: 70%;">
 
 																	<?php
 																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -2044,6 +2044,24 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 																	<?php
 																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 																	echo $Html -> addTag('span', $c["email"]);
+																	?>
+
+																</td>
+															</tr>
+															<tr>
+																<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">
+
+																	<?php
+																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																	echo $Html -> addTag('strong', 'Facebook');
+																	?>
+
+																</th>
+																<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">
+
+																	<?php
+																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																	echo $Html -> addTag('span', $c["facebook"]);
 																	?>
 
 																</td>
@@ -2106,7 +2124,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 														</table>
 
 													</div>
-													<div class="col-sm-6 p-3">
+													<div class="col-sm-5 p-3">
 
 														<?php
 														// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -2196,7 +2214,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 		</div>
 		<div class="tab-pane fade" id="cmsPage7" role="tabpanel">
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-sm-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
 							<div class="row">
@@ -2204,7 +2222,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 
 									<?php
 									// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-									echo $Html -> addTag('h3', 'Informace o anténním systému', 'box-title');
+									echo $Html -> addTag('h3', 'Základní informace', 'box-title');
 									?>
 
 								</div>
@@ -2213,8 +2231,39 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
+									<div class="row-form">
+										<div class="col-sm-5">
 
+											<?php
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html -> addTag('strong', 'Připravenost na DVB-T2');
+											?>
 
+										</div>
+										<div class="col-sm-7">
+											<div class="radio radio-success">
+
+												<?php
+												// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+												echo $Html -> addRadio('envo_houseapreparednessdvbt2', '1', ($ENVO_ANTENNASYSTEM["preparedness_dvbt2"] == '1') ? TRUE : FALSE, 'envo_houseapreparednessdvbt21');
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('envo_houseapreparednessdvbt21', $tl["checkbox"]["chk"]);
+
+												// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+												echo $Html -> addRadio('envo_houseapreparednessdvbt2', '2', ($ENVO_ANTENNASYSTEM["preparedness_dvbt2"] == '2') ? TRUE : FALSE, 'envo_houseapreparednessdvbt22');
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('envo_houseapreparednessdvbt22', $tl["checkbox"]["chk1"]);
+
+												// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+												echo $Html -> addRadio('envo_houseapreparednessdvbt2', '0', ($ENVO_ANTENNASYSTEM["preparedness_dvbt2"] == '0' || empty($ENVO_ANTENNASYSTEM["preparedness_dvbt2"])) ? TRUE : FALSE, 'envo_houseapreparednessdvbt23');
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html -> addLabel('envo_houseapreparednessdvbt23', 'Není známo');
+
+												?>
+
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -2401,12 +2450,12 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
                           <div class="btn btn-default file-input" style="border-radius: 3px 0 0 3px;">
                             <i class="fa fa-folder-open"></i>
                             <span class="file-input-title">Vybrat Soubor</span>
-                            <input type="file" name="input-file" id="fileinput_doc" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai, jpg, jpeg, png"/>
+                            <input type="file" name="input-file" id="fileinput_doc" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai, jpg, jpeg, png, rar, zip"/>
                           </div>
 
                         </span>
 												<input type="text" class="form-control file-filename" style="background-color: #f2f2f2;border: 1px solid #ccc;margin-left: -1px;margin-right: -1px;" disabled>
-												<span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf, .ai" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-file"></i></span>
+												<span class="input-group-addon file-icon" data-toggle="tooltipEnvo" title="doc, docx, docm, xls, xlsx, xlsm, pdf, ai, jpg, jpeg, png, rar, zip" style="border: 1px solid #ccc !important;"><i class="glyphicons glyphicons-file"></i></span>
 											</div>
 										</div>
 									</div>
@@ -2660,8 +2709,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 											echo '<span class="bold">' . $img_c["year"] . '</span> -> <span>Počet: ' . $img_c["countimg"] . '</span> / ';
 										}
 									}
-
 									?>
+
 									<hr>
 								</div>
 							</div>
@@ -2706,7 +2755,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 													echo '<div class="full-width padding-10">';
 
 													echo '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' . $imgarray["shortdescription"] . '</span></p>';
-													echo '<p><strong>Datum:</strong><span class="shortdesc m-l-10">' . date($ENVO_SETTING_VAL['int2dateformat'], strtotime($imgarray["exifcreatedate"])) . '</span></p>';
+													echo '<p><strong>Datum:</strong><span class="m-l-10">' . date($ENVO_SETTING_VAL['int2dateformat'], strtotime($imgarray["exifcreatedate"])) . '</span></p>';
 
 													echo '</div>';
 

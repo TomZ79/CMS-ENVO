@@ -24,7 +24,7 @@ $elevator  = $_POST['elevator'];
 $apartment = $_POST['apartment'];
 $gpslat    = $_POST['gpslat'];
 $gpslng    = $_POST['gpslng'];
-$ikatastr   = $_POST['ikatastr'];
+$ikatastr  = $_POST['ikatastr'];
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
@@ -34,14 +34,14 @@ $dateformat       = $envo_setting_val['int2dateformat'];
 // Update row in DB
 // Insert info about service into DB
 $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseent SET 
-                          street = "' . $street . '", 
-                          elevator = "' . $elevator . '", 
-                          apartment = "' . $apartment . '", 
-                          gpslat = "' . $gpslat . '", 
-                          gpslng = "' . $gpslng . '", 
-                          katastr = "' . $ikatastr . '", 
+                          street = "' . smartsql($street) . '", 
+                          elevator = "' . smartsql($elevator) . '", 
+                          apartment = "' . smartsql($apartment) . '", 
+                          gpslat = "' . smartsql($gpslat) . '", 
+                          gpslng = "' . smartsql($gpslng) . '", 
+                          katastr = "' . smartsql($ikatastr) . '", 
                           updated = NOW()
-                          WHERE id = "' . $entID . '"');
+                          WHERE id = "' . smartsql($entID) . '"');
 
 // Getting info from DB
 $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_houseent WHERE id = "' . $entID . '"');

@@ -46,19 +46,20 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 	echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'css/colors.css');
 	// Plugins
 	if ($page1 == 'house' && $page2 == 'houselist') {
-		// Plugin DialogFX
-		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
-		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
 		// DataTables (Stylesheet only for pages which contains 'table')
-		echo $Html -> addStylesheet('https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css');
+		// echo $Html -> addStylesheet('https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css');
+		echo $Html -> addStylesheet('https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css');
 	}
 
 	if ($page1 == 'house' && $page2 == 'h' && !empty($page3)) {
+		// Plugin DialogFX
+		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
+		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
 		// Plugin Fancybox
-		echo $Html -> addStylesheet('/assets/plugins/fancybox/3.4.1/css/jquery.fancybox.min.css');
-		// Plugin Fileuploader
-		echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/font/font-fileuploader.min.css');
-		echo $Html -> addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/fileuploader/2.0/dist/jquery.fileuploader.min.css');
+		echo $Html -> addStylesheet('/assets/plugins/fancybox/3.2.5/css/jquery.fancybox.min.css');
+		// OSM maps
+		echo $Html -> addScript('https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js');
+		echo $Html -> addStylesheet('https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css');
 	}
 
 	?>
@@ -75,7 +76,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="navbar-top">
+<body class="navbar-top" data-spy="scroll" data-target="#navigation" data-offset="50">
 
 <!-- MAIN NAVBAR -->
 <div class="navbar navbar-expand-md navbar-light fixed-top">
@@ -96,7 +97,6 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 	</div>
 	<!-- /HEADER -->
 
-
 	<!-- MOBILE CONTROLS -->
 	<div class="d-flex flex-1 d-md-none">
 		<div class="navbar-brand mr-auto">
@@ -112,6 +112,13 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 		<button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
 			<i class="icon-paragraph-justify3"></i>
 		</button>
+
+		<?php if ($page1 == 'help') { ?>
+			<button class="navbar-toggler sidebar-mobile-secondary-toggle" type="button">
+				<i class="icon-more"></i>
+			</button>
+		<?php } ?>
+
 	</div>
 	<!-- /MOBILE CONTROLS -->
 
@@ -214,6 +221,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 						?>
 
 					</a>
+					<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'help') ?>" class="dropdown-item"><i class="icon-question7"></i> Nápověda</a>
 					<div class="dropdown-divider"></div>
 					<a href="<?= BASE_URL ?>" class="dropdown-item"><i class="icon-undo"></i> Zpět na web</a>
 					<a href="<?= $P_USR_LOGOUT ?>" class="dropdown-item"><i class="icon-switch2"></i> Odhlásit</a>
@@ -277,6 +285,89 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 	</div>
 	<!-- /MAIN SIDEBAR -->
 
+
+	<?php if ($page1 == 'help') { ?>
+		<!-- SECONDARY SIDEBAR -->
+		<div class="sidebar sidebar-dark bg-slate-600 sidebar-secondary sidebar-expand-md">
+
+			<!-- SIDEBAR MOBILE TOGGLER -->
+			<div class="sidebar-mobile-toggler bg-slate-800 text-center">
+				<a href="#" class="sidebar-mobile-secondary-toggle">
+					<i class="icon-arrow-left8"></i>
+				</a>
+				<span class="font-weight-semibold"></span>
+				<a href="#" class="sidebar-mobile-expand">
+					<i class="icon-screen-full"></i>
+					<i class="icon-screen-normal"></i>
+				</a>
+			</div>
+			<!-- /SIDEBAR MOBILE TOGGLER -->
+
+			<!-- SIDEBAR CONTENT -->
+			<div class="sidebar-content">
+
+				<!-- SUB NAVIGATION -->
+				<div class="card mb-2">
+					<div class="card-header bg-transparent header-elements-inline">
+						<span class="text-uppercase font-size-sm font-weight-semibold">Navigation</span>
+						<div class="header-elements">
+							<div class="list-icons">
+								<a class="list-icons-item" data-action="collapse"></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-body p-0" id="navigation">
+						<ul class="nav nav-sidebar" data-nav-type="accordion">
+							<li class="nav-item-header">BYTOVÉ DOMY</li>
+							<li class="nav-item">
+								<a href="#target1" class="nav-link"><i class="icon-office"></i> Bytové domy</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target2" class="nav-link"><i class="icon-home2"></i> Vyhledání domu(ů)</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target3" class="nav-link"><i class="icon-statistics"></i> Statistika</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target4" class="nav-link"><i class="icon-map"></i> Mapové podklady</a>
+							</li>
+							<li class="nav-item-header">OTEVŘENÁ DATA</li>
+							<li class="nav-item">
+								<a href="#target5" class="nav-link"><i class="icon-pen"></i> Otevřená data</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target6" class="nav-link"><i class="icon-pen"></i> Ares</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target7" class="nav-link"><i class="icon-quill4"></i> Justice</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target8" class="nav-link"><i class="icon-stack"></i> ČSÚ</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target9" class="nav-link"><i class="icon-stack"></i> Katastr</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target10" class="nav-link"><i class="icon-stack"></i> Datová schránka</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target11" class="nav-link"><i class="icon-stack"></i> Plátci DPH</a>
+							</li>
+							<li class="nav-item">
+								<a href="#target12" class="nav-link"><i class="icon-stack"></i> Portál dražeb</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /SUB NAVIGATION -->
+
+			</div>
+			<!-- /SIDEBAR CONTENT -->
+
+		</div>
+		<!-- /SECONDARY SIDEBAR -->
+	<?php } ?>
 
 	<!-- MAIN CONTENT -->
 	<div class="content-wrapper">

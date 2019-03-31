@@ -33,13 +33,13 @@ $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Insert info about service into DB
 $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_housetasks SET 
-                          houseid = "' . $houseID . '",  
-                          priority = "' . $priority . '", 
-                          status = "' . $status . '", 
-                          title = "' . $title . '", 
-                          description = "' . $description . '", 
-                          reminder = "' . date('Y-m-d H:i:s', strtotime($reminder)) . '", 
-                          time = "' . date('Y-m-d H:i:s', strtotime($time)) . '", 
+                          houseid = "' . smartsql($houseID) . '",  
+                          priority = "' . smartsql($priority) . '", 
+                          status = "' . smartsql($status) . '", 
+                          title = "' . smartsql($title) . '", 
+                          description = "' . smartsql($description) . '", 
+                          reminder = "' . smartsql(date('Y-m-d H:i:s', strtotime($reminder))) . '", 
+                          time = "' . smartsql(date('Y-m-d H:i:s', strtotime($time))) . '", 
                           created = NOW(),
                           updated = NOW()');
 

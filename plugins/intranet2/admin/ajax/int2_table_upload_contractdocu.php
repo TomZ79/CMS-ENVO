@@ -35,9 +35,9 @@ $valid_extensions = array (
 	'xlsm',   // Excel macro-enabled workbook
 	'pdf',    // Adobe Acrobat
 	'ai',     // Adobe Illustrator
-	'jpg', 	  // JPG Image
-	'jpeg',	  // JPEG Image
-	'png',	  // PNG Image
+	'jpg',    // JPG Image
+	'jpeg',    // JPEG Image
+	'png',    // PNG Image
 );
 
 // EN: Setting a folder to upload file
@@ -48,7 +48,7 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
 	// Get the name of the file
 	$name = $_FILES['file']['name'];
 	// Get the temp name of the file
-	$tmp_name      = $_FILES['file']['tmp_name'];
+	$tmp_name = $_FILES['file']['tmp_name'];
 // Get the size of the file
 	$size = $_FILES['file']['size'];
 
@@ -82,7 +82,15 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
 		if (move_uploaded_file($tmp_name, $pathfull)) {
 
 			// Insert info about file into DB
-			$envodb -> query('INSERT ' . DB_PREFIX . 'int2_contractdocu SET id = NULL, contractid = "' . $_REQUEST['contractID'] . '", description = "' . $_REQUEST['description'] . '", fname = "' . $name . '", fullpath = "' . $fullpath . '", ftime = "' . $time . '", fsize = "' . $size . '", created = NOW(), updated = NOW()');
+			$envodb -> query('INSERT ' . DB_PREFIX . 'int2_contractdocu SET 
+												id = NULL, contractid = "' . $_REQUEST['contractID'] . '",
+												description = "' . smartsql($_REQUEST['description']) . '",
+												fname = "' . smartsql($name) . '",
+												fullpath = "' . smartsql($fullpath) . '",
+												ftime = "' . smartsql($time) . '",
+												fsize = "' . smartsql($size) . '",
+												created = NOW(),
+												updated = NOW()');
 
 			// Get all files for house
 			$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_contractdocu WHERE contractid = "' . $_REQUEST['contractID'] . '" ORDER BY id ASC');

@@ -536,9 +536,24 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `address` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
+  `facebook` varchar(100) DEFAULT NULL,
   `status` int(10) DEFAULT NULL,
   `birthdate` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `gender` int(10) NULL DEFAULT NULL,
+  `description` text NULL DEFAULT NULL,
+  `created` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+				/**
+				 * EN: Create table for House - Tasks list
+				 * CZ: Vytvoření tabulky pro Bytový dům - Úkoly
+				 */
+				$envodb -> query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'int2_houseantennasystem (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) DEFAULT NULL,
+  `preparedness_dvbt2` varchar(255) NOT NULL DEFAULT 0,
   `description` text NULL DEFAULT NULL,
   `created` timestamp NULL DEFAULT NULL,
   `updated` timestamp NULL DEFAULT NULL,

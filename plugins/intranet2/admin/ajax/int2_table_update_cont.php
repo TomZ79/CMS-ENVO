@@ -26,6 +26,7 @@ $surname     = $_POST['surname'];
 $address     = $_POST['address'];
 $phone       = $_POST['phone'];
 $email       = $_POST['email'];
+$facebook    = $_POST['facebook'];
 $status      = $_POST['status'];
 $birthdate   = $_POST['birthdate'];
 $birthdate   = (!empty($birthdate) ? date('Y-m-d H:i:s', strtotime($birthdate)) : '');
@@ -39,19 +40,20 @@ $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Update row in DB
 $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_housecontacts SET 
-                          houseid = "' . $houseID . '",  
-                          degree = "' . $degree . '", 
-                          name = "' . $name . '", 
-                          surname = "' . $surname . '", 
-                          address = "' . $address . '", 
-                          phone = "' . $phone . '", 
-                          email = "' . $email . '", 
-                          status = "' . $status . '", 
-                          birthdate = "' . $birthdate . '",
-                          gender = "' . $gender . '",
-                          description = "' . $description . '", 
+                          houseid = "' . smartsql($houseID) . '",  
+                          degree = "' . smartsql($degree) . '", 
+                          name = "' . smartsql($name) . '", 
+                          surname = "' . smartsql($surname) . '", 
+                          address = "' . smartsql($address) . '", 
+                          phone = "' . smartsql($phone) . '", 
+                          email = "' . smartsql($email) . '", 
+                          facebook = "' . smartsql($facebook) . '", 
+                          status = "' . smartsql($status) . '", 
+                          birthdate = "' . smartsql($birthdate) . '",
+                          gender = "' . smartsql($gender) . '",
+                          description = "' . smartsql($description) . '", 
                           updated = NOW() 
-                          WHERE id = "' . $contID . '"');
+                          WHERE id = "' . smartsql($contID) . '"');
 
 // Getting info from DB
 $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_housecontacts WHERE id = "' . $contID . '"');
@@ -95,6 +97,7 @@ $data_array[] = array (
 	'address'     => $row['address'],
 	'phone'       => $row['phone'],
 	'email'       => $row['email'],
+	'facebook'    => $row['facebook'],
 	'status'      => $status,
 	'birthdate'   => (!empty((int)$row['birthdate']) ? date($dateformat, strtotime($row['birthdate'])) : ''),
 	'gender'      => $gender,

@@ -327,11 +327,231 @@ div[class^="task_"] .taskcontent .taskdescription {
 	}
 }
 
+/* 00. BUTTON
+ ========================================================================*/
+.btn-cons {
+	margin-right: 5px;
+	min-width: 120px;
+	margin-bottom: 8px;
+}
+
 /* 00. TABLE
  ========================================================================*/
+.table td, .table th {
+	padding: .75rem .5rem;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
 	.table td, .table th {
 		white-space: nowrap;
 	}
+}
+
+/* 00. PHOTO GALLERY
+ ========================================================================*/
+/* Center Gallery container with CSS
+ * Add 'fitWidth: true' to isotope config
+ */
+.gallery {
+	margin: 0 auto;
+}
+
+/* Gallery items */
+div[class^="gallery-item-"] {
+	overflow: hidden;
+	cursor: default;
+	background-color: #F0F0F0;
+	margin-bottom: 10px;
+	position: relative;
+	width: 250px;
+	height: 240px;
+	float: left;
+}
+
+div[class^="gallery-item-"] .img_container {
+	overflow: hidden;
+}
+
+div[class^="gallery-item-"] img {
+	object-fit: cover;
+	width: 250px;
+	height: 170px;
+	/* Image zoom hover effect */
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+}
+
+div[class^="gallery-item-"]:hover img {
+	/* Image zoom hover effect */
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+div[class^="gallery-item-"][data-width="1"] {
+	width: 220px;
+}
+
+div[class^="gallery-item-"][data-height="1"] {
+	height: 260px;
+}
+
+div[class^="gallery-item-"] .overlays {
+	position: absolute;
+	bottom: 90px;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 20%;
+	background: rgba(43, 48, 59, 0.7);
+}
+
+div[class^="gallery-item-"] .overlays .btn {
+	padding: 2px 9px;
+	font-size: 15px;
+	margin-left: 5px;
+}
+
+div[class^="gallery-item-"] .overlays .btn:first-child {
+	padding: 2px 9px;
+	margin-left: 0;
+}
+
+div[class^="gallery-item-"]:hover .overlays {
+	background: rgba(43, 48, 59, 0.9);
+}
+
+div[class^="gallery-item-"] .text {
+	white-space: nowrap;
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+div[class^="gallery-item-"] .shortdesc {
+	word-wrap: break-word;
+}
+
+/* Gallery list-photo margin */
+.margin-gallery {
+	margin: 5px !important;
+}
+
+/* Filter 'ul' list */
+ul.filters li a.active {
+	color: #FBB05E;
+}
+
+/* Responsive DataTable */
+/*** Desktops & Laptops ***/
+/*** General tablets and phones ***/
+/*** Phones ***/
+@media (max-width: 480px) {
+	.gallery {
+		margin: 35px auto 0 auto;
+	}
+
+	div[class^="gallery-item-"][data-width="1"] {
+		width: 250px;
+	}
+
+	.margin-gallery {
+		margin: 0 0 15px 0 !important;
+	}
+}
+
+/* 00. DIALOG FX
+ ========================================================================*/
+.item-details {
+	z-index: 1080;
+}
+
+.item-details .dialog__content {
+	width: 845px;
+	max-width: 845px;
+	padding: 0;
+	text-align: left;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.item-details .dialog__content .dialog__overview {
+	min-height: 516px;
+	height: 100%;
+	position: relative;
+}
+
+.item-details .dialog__content .dialog__overview .buy-now {
+	position: absolute;
+	bottom: 20px;
+	right: 35px;
+}
+
+.item-details .dialog__content .dialog__overview .item-slideshow .slide {
+	width: 516px;
+	height: 516px;
+	display: block;
+	overflow: hidden;
+}
+
+.item-details .dialog__content .dialog__footer {
+	height: 75px;
+}
+
+.item-details .dialog__content .dialog__footer .price {
+	margin: 0;
+	padding: 0;
+	line-height: 75px;
+}
+
+.item-details .dialog__content .dialog__footer .separator {
+	position: relative;
+}
+
+.item-details .dialog__content .dialog__footer .separator:after {
+	content: "";
+	width: 1px;
+	background: rgba(255, 255, 255, 0.1);
+	position: absolute;
+	height: 27px;
+	right: 0;
+	top: 24px;
+}
+
+.item-details .dialog__content .dialog__footer .recommended li {
+	overflow: hidden;
+}
+
+.item-details .dialog__content .dialog__footer .recommended li a {
+	width: 56px;
+	height: 56px;
+	display: block;
+}
+
+.item-details .dialog__content .dialog__footer .recommended li img {
+	width: 100%;
+}
+
+.item-details .dialog__content .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	z-index: 100;
+	filter: alpha(opacity=20);
+	opacity: .2;
+}
+
+.item-details .dialog__content .close:focus,
+.item-details .dialog__content .close:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	filter: alpha(opacity=50);
+	opacity: .5;
 }

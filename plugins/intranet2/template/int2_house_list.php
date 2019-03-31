@@ -1,69 +1,5 @@
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int2_header.php'; ?>
 
-	<style>
-		/*
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
-		@media only screen and (max-width: 760px) {
-
-			#responsivetable {
-				width: 100%;
-			}
-
-			/* Force table to not be like tables anymore */
-			#responsivetable,
-			#responsivetable thead,
-			#responsivetable tbody,
-			#responsivetable th,
-			#responsivetable td,
-			#responsivetable tr {
-				display: block;
-			}
-
-			/* Hide table headers (but not display: none;, for accessibility) */
-			#responsivetable thead tr {
-				position: absolute;
-				top: -9999px;
-				left: -9999px;
-			}
-
-			#responsivetable td,
-			#responsivetable th {
-				white-space: normal;
-			}
-
-			#responsivetable tr {
-				border: 1px solid #CCC;
-			}
-
-			#responsivetable td {
-				/* Behave  like a "row" */
-				border: none;
-				border-bottom: 1px solid #EEE;
-				position: relative;
-				padding-left: 25% !important;
-			}
-
-			#responsivetable td:before {
-				/* Now like a table header */
-				position: absolute;
-				/* Top/left values mimic padding */
-				top: 12px;
-				left: 6px;
-				width: 45%;
-				padding-right: 10px;
-				white-space: nowrap;
-				/* Label the data */
-				content: attr(data-column);
-				color: #000;
-				font-weight: bold;
-			}
-
-		}
-	</style>
-
 	<div class="card">
 		<div class="card-header header-elements-inline">
 			<h5 class="card-title">Seznam Bytových Domů</h5>
@@ -76,16 +12,19 @@ and also iPads specifically.
 				<table class="table table-striped table-hover m-b-10" id="datatable">
 					<thead>
 					<tr>
-						<th class="no-sort" style="width:5%">#</th>
-						<th style="width:45%">Název</th>
-						<th style="width:20%">Sídlo</th>
-						<th style="width:20%">Město</th>
-						<th class="no-sort" style="width:10%"></th>
+						<th style="width:5%">#</th>
+						<th style="width:37%">Název</th>
+						<th style="width:23%">Sídlo</th>
+						<th style="width:15%">Město</th>
+						<th class="no-sort" style="width:10%">IČ</th>
+						<th class="no-sort" style="width:10%">&nbsp</th>
 					</tr>
 					</thead>
 					<tbody>
 
-					<?php foreach ($ENVO_HOUSE_ALL as $ha) { ?>
+					<?php
+					// Loop Array at second item
+					foreach (array_slice($ENVO_HOUSE_ALL, 1) as $ha) { ?>
 						<tr>
 							<td><?= $ha["id"] ?></td>
 							<td>
@@ -101,6 +40,9 @@ and also iPads specifically.
 							</td>
 							<td>
 								<?= $ha["city_name"] ?>
+							</td>
+							<td>
+								<?= $ha["ic"] ?>
 							</td>
 							<td class="text-center">
 
@@ -120,36 +62,43 @@ and also iPads specifically.
 			<?php } else if (!empty($ENVO_HOUSE_SEARCH) && is_array($ENVO_HOUSE_SEARCH)) { ?>
 
 				<div class="table-responsive">
-					<table class="table table-striped table-hover m-b-10" id="responsivetable">
+					<table class="table table-striped table-hover m-b-10" id="datatable">
 						<thead>
 						<tr>
 							<th style="width:5%">#</th>
-							<th style="width:45%">Název</th>
-							<th style="width:20%">Sídlo</th>
-							<th style="width:20%">Město</th>
-							<th style="width:10%"></th>
+							<th style="width:37%">Název</th>
+							<th style="width:23%">Sídlo</th>
+							<th style="width:15%">Město</th>
+							<th class="no-sort" style="width:10%">IČ</th>
+							<th class="no-sort" style="width:10%">&nbsp</th>
 						</tr>
 						</thead>
 						<tbody>
 
-						<?php foreach ($ENVO_HOUSE_SEARCH as $hs) { ?>
+						<?php
+						// Loop Array at second item
+						foreach (array_slice($ENVO_HOUSE_SEARCH, 1) as $hs) { ?>
 							<tr>
-								<td data-column="ID"><?= $hs["id"] ?></td>
-								<td data-column="Název">
+								<td><?= $hs["id"] ?></td>
+								<td>
 
 									<?php
+
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor($hs["parseurl"], str_highlight($hs["name"], $hs["searchtext"], 'text-orange-800 font-weight-bold', STR_HIGHLIGHT_STRIPLINKS));
+									echo $Html -> addAnchor($hs["parseurl"], ($hs["searchdata"]["searchobject"] ? str_highlight($hs["name"], $hs["searchdata"]["searchobject"], 'text-orange-800 font-weight-bold') : $hs["name"]));
 									?>
 
 								</td>
-								<td data-column="Sídlo">
+								<td>
 									<?= $hs["street"] ?>
 								</td>
-								<td data-column="Město">
+								<td>
 									<?= $hs["city_name"] ?>
 								</td>
-								<td class="text-center d-none d-sm-block">
+								<td>
+									<?= $hs["ic"] ?>
+								</td>
+								<td class="text-center">
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

@@ -95,7 +95,7 @@
 
 							<?php
 							// Loop Array at second item
-							foreach (array_slice($ENVO_HOUSE_TASK_DELAY, 1) as $htaskdelay) { ?>
+								foreach (array_slice($ENVO_HOUSE_TASK_DELAY, 1) as $htaskdelay) { ?>
 
 								<div class="task_<?= $htaskdelay["id"] ?>">
 									<div class="taskheader bg-slate">

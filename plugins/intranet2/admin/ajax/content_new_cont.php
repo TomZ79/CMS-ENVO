@@ -15,7 +15,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 			<!-- START CONTENT -->
 			<div class="clearfix">
 				<div class="row-form">
-					<div class="col-sm-6">
+					<div class="col-sm-1">
 
 						<?php
 						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -23,7 +23,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 						?>
 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-2">
 
 						<?php
 						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -31,17 +31,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 						?>
 
 					</div>
-				</div>
-				<div class="row-form">
-					<div class="col-sm-6">
+					<div class="col-sm-1">
 
 						<?php
 						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html -> addTag('strong', 'Jméno');
+						echo $Html -> addTag('strong', 'Jméno', 'p-l-10');
 						?>
 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-3">
 
 						<?php
 						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -49,17 +47,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 						?>
 
 					</div>
-				</div>
-				<div class="row-form">
-					<div class="col-sm-6">
+					<div class="col-sm-1">
 
 						<?php
 						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html -> addTag('strong', 'Příjmení');
+						echo $Html -> addTag('strong', 'Příjmení', 'p-l-10');
 						?>
 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 
 						<?php
 						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -74,7 +70,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 			</div>
 			<div class="clearfix">
 				<div class="row-form">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 
 						<?php
 						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
@@ -82,7 +78,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 						?>
 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
 
 						<?php
 						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
@@ -203,6 +199,29 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 							?>
 
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix">
+				<hr>
+			</div>
+			<div class="clearfix">
+				<div class="row-form">
+					<div class="col-sm-4">
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html -> addTag('strong', 'Facebook');
+						?>
+
+					</div>
+					<div class="col-sm-8">
+
+						<?php
+						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+						echo $Html -> addInput('text', 'envo_contfcb', '', '', 'form-control');
+						?>
+
 					</div>
 				</div>
 			</div>

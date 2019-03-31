@@ -15,6 +15,8 @@
 
 $(function () {
 
+  'use strict';
+
   // Init Datatable plugin
   var tableElement = $('#datatable');
   tableElement.DataTable({
@@ -22,19 +24,55 @@ $(function () {
     "language": {
       "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
     },
-    "order": [],
-    "columnDefs": [{
-      "targets": 'no-sort',
-      "orderable": false
-    }],
+    "order": [0, 'asc'],
+    "columnDefs": [
+      {
+        "targets": 'no-sort',
+        "orderable": false
+      }
+    ],
     // Page lenght
     "pageLength": 15,
     // Show entries
     //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
     // Design Table items
-    "dom": "<'row'<'col-sm-6'<'float-left m-b-20'f>><'col-sm-6'<'float-right m-r-20 hidden-xs'B>>>" + "<'row'<'col-sm-12'tr>>" + "<'row '<'col-sm-7'i><'float-right col-sm-5'p>>",
+    "dom": "<'row'<'col-12 col-md-6'<'m-b-20'f>><'col-12 col-md-6'<'float-md-right m-r-20'B>>>" + "<'row'<'col-12 col-md-12'tr>>" + "<'row '<'col-12 col-md-7'i><'col-12 col-md-5'p>>",
+    // Buttons
+    buttons: [
+      'csv',
+      'excel',
+      {
+        extend: 'pdf',
+        // Page Orientation
+        orientation: 'landscape',
+        // Page Size
+        pageSize: 'A4',
+        // Title
+        title: 'Seznam Bytových Domů',
+        customize: function (doc) {
+          // Console log
+          console.log(doc.content)
+          // Style for Title
+          doc.styles.title = {
+            color: '#08c',
+            fontSize: '32',
+            bold: true,
+            alignment: 'center'
+          }
+          // Table widht 100%
+          // doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('')
+        },
+        // Bottom message
+        messageTop: 'Bluesat.cz'
+      },
+      {
+        extend: 'print',
+        text: 'Tisk',
+        title: 'Seznam Bytových Domů'
+      }
+    ],
     // Init bootstrap responsive table for mobile
-    "initComplete": function(settings, json) {
+    "initComplete": function (settings, json) {
       $(this).wrap('<div class="table-responsive"></div>');
     }
   });

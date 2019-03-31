@@ -34,14 +34,15 @@ $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Update row in DB
 $result = $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_housetasks SET 
-                          houseid = "' . $houseID . '",  
-                          priority = "' . $priority . '", 
-                          status = "' . $status . '", title = "' . $title . '", 
-                          description = "' . $description . '", 
-                          reminder = "' . date('Y-m-d H:i:s', strtotime($reminder)) . '", 
-                          time = "' . date('Y-m-d H:i:s', strtotime($time)) . '", 
+                          houseid = "' . smartsql($houseID) . '",  
+                          priority = "' . smartsql($priority) . '", 
+                          status = "' . smartsql($status) . '",
+                          title = "' . smartsql($title) . '", 
+                          description = "' . smartsql($description) . '", 
+                          reminder = "' . smartsql(date('Y-m-d H:i:s', strtotime($reminder))) . '", 
+                          time = "' . smartsql(date('Y-m-d H:i:s', strtotime($time))) . '", 
                           updated = NOW() 
-                          WHERE id = "' . $taskID . '"');
+                          WHERE id = "' . smartsql($taskID) . '"');
 
 // Getting info from DB
 $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_housetasks WHERE id = "' . $taskID . '"');

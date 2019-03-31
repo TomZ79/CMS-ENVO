@@ -74,6 +74,7 @@ $envotable5  = DB_PREFIX . 'int2_housedocu';
 $envotable6  = DB_PREFIX . 'int2_houseimg';
 $envotable7  = DB_PREFIX . 'int2_housevideo';
 $envotable8  = DB_PREFIX . 'int2_housecontacts';
+$envotable9  = DB_PREFIX . 'int2_houseantennasystem';
 $envotable10 = DB_PREFIX . 'int2_housenotifications';
 $envotable11 = DB_PREFIX . 'int2_housenotificationug';
 $envotable12 = DB_PREFIX . 'int2_settings_city';
@@ -218,13 +219,14 @@ switch ($page1) {
 
 							// EN: Getting the data about the Houses
 							// CZ: Získání dat o bytových domech
-							$search      = $defaults['searchtext'];
+							$search = $defaults['searchtext'];
 							// Slug by charatcter maps
-							$search_slug      = simpleslug($search);
+							$search_slug = simpleslug($search);
 							// Create array by multiexplode function
 							$search_list = multiexplode(array (',', ', ', '|', ':', '+', '-', ' '), $search_slug);
 							$string_impl = implode(',', $search_list);
 							$sql         = '';
+
 							if (count($search_list) >= 1) {
 								for ($i = 0; $i < count($search_list); $i++) {
 									if ($i == 0) {
@@ -266,6 +268,10 @@ switch ($page1) {
 																	ORDER BY t1.id ASC');
 							}
 
+							$ENVO_HOUSE_SEARCH['searchdata'] = array (
+								'searchobject' => $string_impl
+							);
+
 							while ($row = $result -> fetch_assoc()) {
 
 								// There should be always a varname in categories and check if seo is valid
@@ -274,12 +280,153 @@ switch ($page1) {
 								// EN: Insert each record into array
 								// CZ: Vložení získaných dat do pole
 								$ENVO_HOUSE_SEARCH[] = array (
-									'id'        => $row['id'],
-									'name'      => $row['name'],
-									'street'    => $row['street'],
-									'city_name' => $row['city_name'],
-									'parseurl'  => $parseurl,
-									'searchtext' => $string_impl
+									'id'         => $row['id'],
+									'name'       => $row['name'],
+									'street'     => $row['street'],
+									'city_name'  => $row['city_name'],
+									'ic'         => $row['ic'],
+									'parseurl'   => $parseurl,
+								);
+							}
+
+						}
+
+						// EN: Breadcrumbs activation
+						// CZ: Aktivace Breadcrumbs
+						$BREADCRUMBS = TRUE;
+
+						// EN: Title and Description
+						// CZ: Titulek a Popis
+						$SECTION_TITLE = 'Bytové domy';
+						$SECTION_DESC  = 'Seznam bytových domů - <strong>Live vyhledávání</strong>';
+
+						// EN: Load the php template
+						// CZ: Načtení php template (šablony)
+						$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_house_list.php';
+
+						break;
+					case 'searchtechnology':
+						// HOUSE LIST - RECORDS BY SEARCH
+
+						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+							// EN: Default Variable
+							// CZ: Hlavní proměnné
+							$defaults = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+							// EN: Getting the data about the Houses
+							// CZ: Získání dat o bytových domech
+							$object             = $defaults['searchobject'];
+							$estatemanagement   = $defaults['searchestatemanagement'];
+							$preparedness_dvbt2 = $defaults['preparedness_dvbt2'];
+							$technology_1       = $defaults['search_technology_1'];
+							$technology_2       = $defaults['search_technology_2'];
+							$technology_3       = $defaults['search_technology_3'];
+							$technology_4       = $defaults['search_technology_4'];
+							$technology_5       = $defaults['search_technology_5'];
+							$technology_6       = $defaults['search_technology_6'];
+							$technology_7       = $defaults['search_technology_7'];
+							$technology_8       = $defaults['search_technology_8'];
+							$technology_9       = $defaults['search_technology_9'];
+							$technology_10      = $defaults['search_technology_10'];
+							$technology_11      = $defaults['search_technology_11'];
+
+							if (!empty($object)) {
+								// Slug by charatcter maps
+								$object_slug = simpleslug($object);
+								// Create array by multiexplode function
+								$object_list = multiexplode(array (',', ', ', '|', ':', '+', '-', ' '), $object_slug);
+								$object_impl = implode(',', $object_list);
+								$sql         = '';
+								if (count($object_list) >= 1) {
+									for ($i = 0; $i < count($object_list); $i++) {
+										if ($i == 0) {
+											$sql .= 't1.name LIKE "%' . $object_list[0] . '%" ';
+										} else {
+											$sql .= 'AND t1.name LIKE "%' . $object_list[$i] . '%" ';
+										}
+									}
+								}
+							} else {
+
+							}
+
+							if (!empty($estatemanagement)) {
+								if (!empty($sql)) {
+									$sql .= 'AND t1.estatemanagement = ' . $estatemanagement . ' ';
+								} else {
+									$sql .= 't1.estatemanagement = ' . $estatemanagement . ' ';
+								}
+							}
+
+							if (isset($preparedness_dvbt2)) {
+								if (!empty($sql)) {
+									$sql .= 'AND t3.preparedness_dvbt2 = ' . $preparedness_dvbt2 . ' ';
+								} else {
+									$sql .= 't3.preparedness_dvbt2 = ' . $preparedness_dvbt2 . ' ';
+								}
+							}
+
+							if (!empty($sql)) {
+								$cond .= 'WHERE ' . $sql;
+							}
+
+							// EN: Check if user has permission to see it - usergroup 'Administrator' have permission to all data automatically
+							// Cz: Kontrola jestli má uživatel přístup k datům - Uživatelská skupina 'Administrátor' má přístup ke všem datům automaticky
+							if (envo_analytics_access(ENVO_USERGROUPID)) {
+								// USER HAVE PERMISSION
+
+								$result = $envodb -> query('SELECT
+																		t1.*,
+																		t2.city_name
+																	FROM
+																		' . $envotable . ' t1
+																	LEFT JOIN 
+																		' . $envotable12 . ' t2
+																			ON t1.city = t2.id
+																	LEFT JOIN 
+																		' . $envotable9 . ' t3
+																			ON t1.id = t3.houseid
+																	' . $cond . ' 
+																	ORDER BY t1.id ASC');
+
+							} else {
+								// USER HAVE NOT PERMISSION
+
+								$result = $envodb -> query('SELECT 
+																		t1.*,
+																		t2.city_name
+																	FROM
+																		' . $envotable . ' t1
+																	LEFT JOIN 
+																		' . $envotable12 . ' t2
+																			ON t1.city = t2.id
+																	LEFT JOIN 
+																		' . $envotable9 . ' t3
+																			ON t1.id = t3.houseid
+																	' . $cond . ' AND t1.permission LIKE "%' . ENVO_USERGROUPID . '%"
+																	ORDER BY t1.id ASC');
+							}
+
+							$ENVO_HOUSE_SEARCH['searchdata'] = array (
+								'searchobject'     => $object_impl,
+								'estatemanagement' => $estatemanagement,
+								'preparedness_dvbt2' => $preparedness_dvbt2
+							);
+
+							while ($row = $result -> fetch_assoc()) {
+
+								// There should be always a varname in categories and check if seo is valid
+								$parseurl = ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2 . '/house', 'h', $row['id'], FALSE);
+
+								// EN: Insert each record into array
+								// CZ: Vložení získaných dat do pole
+								$ENVO_HOUSE_SEARCH[] = array (
+									'id'         => $row['id'],
+									'name'       => $row['name'],
+									'street'     => $row['street'],
+									'city_name'  => $row['city_name'],
+									'ic'         => $row['ic'],
+									'parseurl'   => $parseurl,
 								);
 							}
 
@@ -329,7 +476,6 @@ switch ($page1) {
 							// CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
 							$ENVO_HOUSE_ALL = envo_get_house_info($envotable, $envotable12, FALSE, ENVO_USERGROUPID);
 						}
-
 
 
 						// EN: Breadcrumbs activation
@@ -385,7 +531,7 @@ switch ($page1) {
 						while ($row = $result -> fetch_assoc()) {
 							// EN: Insert each record into array
 							// CZ: Vložení získaných dat do pole
-							$envodetail[]    = $row;
+							$envodetail[] = $row;
 						}
 
 						// Convert multidimensional array to associated array
@@ -410,7 +556,7 @@ switch ($page1) {
 						$result = $envodb -> query('SELECT * FROM ' . $envotable8 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
 						// EN: Determine the number of rows in the result from DB
 						// CZ: Určení počtu řádků ve výsledku z DB
-						$row_cnt = $result -> num_rows;
+						$row_cnt                          = $result -> num_rows;
 						$ENVO_HOUSE_CONT['count_of_cont'] = $row_cnt;
 
 						while ($row = $result -> fetch_assoc()) {
@@ -449,12 +595,35 @@ switch ($page1) {
 
 						}
 
+						// EN: Get the data of antenna system
+						// CZ: Získání dat o antenním systému
+						$result = $envodb -> query('SELECT * FROM ' . $envotable9 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC LIMIT 1');
+						// EN: Determine the number of rows in the result from DB
+						// CZ: Určení počtu řádků ve výsledku z DB
+						$row_cnt = $result -> num_rows;
+
+						if ($row_cnt > 0) {
+							while ($row = $result -> fetch_assoc()) {
+								// EN: Insert each record into array
+								// CZ: Vložení získaných dat do pole
+								$envohouseant[] = $row;
+							}
+
+							// Convert multidimensional array to associated array
+							$ENVO_HOUSE_ANT = array ();
+							foreach ($envohouseant as $array) {
+								foreach ($array as $k => $v) {
+									$ENVO_HOUSE_ANT[$k] = $v;
+								}
+							}
+						}
+
 						// EN: Get the data of Tasks
 						// CZ: Získání dat o Úkolech
 						$result = $envodb -> query('SELECT * FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
 						// EN: Determine the number of rows in the result from DB
 						// CZ: Určení počtu řádků ve výsledku z DB
-						$row_cnt = $result -> num_rows;
+						$row_cnt                          = $result -> num_rows;
 						$ENVO_HOUSE_TASK['count_of_task'] = $row_cnt;
 
 						while ($row = $result -> fetch_assoc()) {
@@ -509,6 +678,64 @@ switch ($page1) {
 								'time'        => date($ENVO_SETTING_VAL['int2dateformat'], strtotime($row['time'])),
 							);
 
+						}
+
+						// EN: Get the data of documentation
+						// CZ: Získání dat o dokumentech
+						$result = $envodb -> query('SELECT * FROM ' . $envotable5 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
+						while ($row = $result -> fetch_assoc()) {
+							// EN: Insert each record into array
+							// CZ: Vložení získaných dat do pole
+							$ENVO_HOUSE_DOCU[] = $row;
+						}
+
+						// EN: Getting count image in each year
+						// CZ:
+						$result2 = $envodb -> query('SELECT COUNT(id) AS countimg, YEAR(exifcreatedate) AS year FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" GROUP BY YEAR(exifcreatedate)');
+						while ($row2 = $result2 -> fetch_assoc()) {
+							// EN: Insert each record into array
+							// CZ: Vložení získaných dat do pole
+							$ENVO_FORM_DATA_IMG_COUNT[] = $row2;
+						}
+
+						if (!empty($ENVO_FORM_DATA_IMG_COUNT) && is_array($ENVO_FORM_DATA_IMG_COUNT)) {
+							foreach ($ENVO_FORM_DATA_IMG_COUNT as $img_c) {
+								$IMG_COUNT .=  $img_c["year"] . ' -> Počet: ' . $img_c["countimg"] . ' / ';
+							}
+						}
+
+						// EN: Get the data for Photogallery - isotope photo
+						// CZ: Získání dat pro Fotogalerii - isotope photo
+						$result = $envodb -> query('SELECT * FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY exifcreatedate DESC');
+						while ($row = $result -> fetch_assoc()) {
+							// EN: Insert each record into array
+							// CZ: Vložení získaných dat do pole
+							$ENVO_HOUSE_IMG_ISO[] = $row;
+						}
+
+						// EN: Get all the data for the Photogallery - list photo
+						// CZ: Získání všech dat pro Fotogalerii - list photo
+
+						// EN: Setlocale
+						$envodb -> query('SET lc_time_names = "' . $setting["locale"] . '"');
+						// EN: Get 'exifcreatedate'
+						$result = $envodb -> query('SELECT distinct(DATE_FORMAT(exifcreatedate, "%Y - %M")) as d FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY exifcreatedate DESC');
+						// EN: Get all photo by date for house
+						while ($row = $result -> fetch_assoc()) {
+
+							$date       = $row['d'];
+							$dateFormat = ucwords(strtolower($date), '\'- ');;
+
+							$ENVO_HOUSE_IMG_LIST[$date]['timedefault'] = $dateFormat;
+
+							//
+							$result1 = $envodb -> query('SELECT * FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" AND DATE_FORMAT(exifcreatedate,"%Y - %M") = "' . $date . '" ORDER BY exifcreatedate DESC');
+
+							while ($row1 = $result1 -> fetch_assoc()) {
+
+								$ENVO_HOUSE_IMG_LIST[$date]['photos'][] = $row1;
+
+							}
 						}
 
 					} else {
@@ -685,11 +912,9 @@ switch ($page1) {
 
 								/* EN: Convert value
 									 * smartsql - secure method to insert form data into a MySQL DB
-									 * url_slug  - friendly URL slug from a string
 									 * ------------------
 									 * CZ: Převod hodnot
 									 * smartsql - secure method to insert form data into a MySQL DB
-									 * url_slug  - friendly URL slug from a string
 									*/
 								$result = $envodb -> query('UPDATE ' . $envotable11 . ' SET
                           unread = "1"
@@ -720,12 +945,21 @@ switch ($page1) {
 						while ($row = $result -> fetch_assoc()) {
 							// EN: Insert each record into array
 							// CZ: Vložení získaných dat do pole
-							$ENVO_NOTIFICATION_DETAIL[] = array (
+							$envonotificationdetail[] = array (
 								'name'    => $row['name'],
 								'type'    => $row['type'],
 								'content' => $row['content'],
+								'unread'  => $row['unread'],
 								'created' => date($ENVO_SETTING_VAL['int2dateformat'] . $ENVO_SETTING_VAL['int2timeformat'], strtotime($row['created']))
 							);
+						}
+
+						// Convert multidimensional array to associated array
+						$ENVO_NOTIFICATION_DETAIL = array ();
+						foreach ($envonotificationdetail as $array) {
+							foreach ($array as $k => $v) {
+								$ENVO_NOTIFICATION_DETAIL[$k] = $v;
+							}
 						}
 
 						// EN: Breadcrumbs activation
@@ -789,6 +1023,23 @@ switch ($page1) {
 				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_notification.php';
 
 		}
+		break;
+	case 'help':
+		// HELP - DOCUMENTATION
+
+		// EN: Breadcrumbs activation
+		// CZ: Aktivace Breadcrumbs
+		$BREADCRUMBS = TRUE;
+
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = 'Dokumentace';
+		$SECTION_DESC  = 'Nápověda k intranetovému rozhraní';
+
+		// EN: Load the php template
+		// CZ: Načtení php template (šablony)
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int2_help.php';
+
 		break;
 	case 'opendata':
 		// OPEN DATA
@@ -926,8 +1177,8 @@ switch ($page1) {
 					}
 				}
 
-				// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
-				// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
+			// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+			// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
 		}
 		break;
@@ -1003,6 +1254,76 @@ switch ($page1) {
 
 		} else {
 			// EN: Data for User group by USERGROUPID
+			// EN: For other usergroup
+			// CZ: Ostatní uživatelské skupiny přihlášených uživatelů
+
+			/* =====================================================
+			 *  HOUSE - STATISTIC - STATISTIKA DOMŮ VE SPRÁVĚ
+			 * ===================================================== */
+			// EN: Getting count of all records in DB
+			// CZ: Získání počtu všech záznamů v DB
+			$result    = $envodb -> query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+			$rowCtotal = $result -> fetch_assoc();
+
+			if ($rowCtotal['houseCtotal'] > 0) {
+				// EN: If '$rowCtotal' have some record
+				// CZ: Pokud '$rowCtotal' obsahuje záznam
+
+				// EN: Getting count of records in DB by usergroup
+				// CZ: Získání počtu záznamů v DB podle uživatelské skupiny
+				// Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
+				$result = $envodb -> query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . ENVO_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
+
+				// EN: Determine the number of rows in the result from DB
+				// CZ: Určení počtu řádků ve výsledku z DB
+				$row_cnt = $result -> num_rows;
+
+				// Count of all records by usergroup
+				$ENVO_COUNTS_ALL = $row_cnt;
+				// Percentage - records by usergroup / all records
+				$ENVO_PERCENT_ALL = ($row_cnt / $rowCtotal['houseCtotal'] * 100) . '%';
+
+			} else {
+				// EN: If '$rowCtotal' have not some record
+				// CZ: Pokud '$rowCtotal' neobsahuje záznam
+
+				// Count of all records by usergroup
+				$ENVO_COUNTS = 0;
+				// Percentage - records by usergroup / all records
+				$ENVO_PERCENT = '0%';
+
+			}
+
+			/* =====================================================
+			 *  HOUSE - TASKS STATISTIC - STATISTIKA ÚKOLŮ
+			 * ===================================================== */
+			// EN: Get the data about delayed Task
+			// CZ: Získání dat o zpožděných Úkolech
+			$ENVO_HOUSE_TASK_DELAY = envo_get_task_delayed_info(ENVO_USERGROUPID, TRUE, 'tabs6', $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+
+			// EN: Getting count of all records in DB
+			// CZ: Získání počtu všech záznamů v DB
+			$result     = $envodb -> query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable3 . '  WHERE time < NOW()');
+			$taskCtotal = $result -> fetch_assoc();
+
+			// Count of all records by usergroup
+			$ENVO_TASK_DELAY_COUNTS = $ENVO_HOUSE_TASK_DELAY['count_of_task'];
+			// Percentage - records by usergroup / all records
+			$ENVO_TASK_DELAY_PERCENT = ($ENVO_TASK_DELAY_COUNTS / $taskCtotal['taskCtotal'] * 100) . '%';
+
+			// EN: Get the data about active Task
+			// CZ: Získání dat o aktivních Úkolech
+			$ENVO_HOUSE_TASK = envo_get_task_info(ENVO_USERGROUPID, TRUE, 'tabs6', $ENVO_SETTING_VAL['intranetdateformat']);
+
+			// EN: Getting count of all records in DB
+			// CZ: Získání počtu všech záznamů v DB
+			$result     = $envodb -> query('SELECT COUNT(*) as taskCtotal FROM ' . $envotable3);
+			$taskCtotal = $result -> fetch_assoc();
+
+			// Count of all records by usergroup
+			$ENVO_TASK_COUNTS = $ENVO_HOUSE_TASK['count_of_task'];
+			// Percentage - records by usergroup / all records
+			$ENVO_TASK_PERCENT = ($ENVO_TASK_COUNTS / $taskCtotal['taskCtotal'] * 100) . '%';
 
 
 		}

@@ -206,7 +206,7 @@ div[class^="task_"] .taskcontent .taskdescription {
 
 /* Photo Gallery */
 .gallery_envo {
-	margin: 40px auto 0 auto;
+	margin: 0 auto;
 }
 
 div[class^="gallery-item-"] {

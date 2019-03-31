@@ -35,26 +35,25 @@ if ($result) {
 				<!-- START CONTENT -->
 				<div class="clearfix">
 					<div class="row-form">
-						<div class="col-sm-6">
+						
+					</div>
+					<div class="row-form">
+						<div class="col-sm-1">
 							<strong>Titul</strong>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-2">
 							<input type="text" name="envo_contdegree" class="form-control" value="' . $row["degree"] . '">
 						</div>
-					</div>
-					<div class="row-form">
-						<div class="col-sm-6">
-							<strong>Jméno</strong>
+						<div class="col-sm-1">
+							<strong class="p-l-10">Jméno</strong>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-3">
 							<input type="text" name="envo_contname" class="form-control" value="' . $row["name"] . '">
 						</div>
-					</div>
-					<div class="row-form">
-						<div class="col-sm-6">
-							<strong>Příjmení</strong>
+						<div class="col-sm-1">
+							<strong class="p-l-10">Příjmení</strong>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<input type="text" name="envo_contsurname" class="form-control" value="' . $row["surname"] . '">
 						</div>
 					</div>
@@ -64,10 +63,10 @@ if ($result) {
 				</div>
 				<div class="clearfix">
 					<div class="row-form">
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<strong>Adresa bydliště</strong>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-8">
 							<input type="text" name="envo_contaddress" class="form-control" value="' . $row["address"] . '">
 						</div>
 					</div>
@@ -125,6 +124,19 @@ if ($result) {
 								<input type="radio" name="envo_gender" id="envo_gender2" value="2" ' . ($row["gender"] == "2" ? "checked='checked'" : "") . '>
 								<label for="envo_gender2">Žena</label>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix">
+					<hr>
+				</div>
+				<div class="clearfix">
+					<div class="row-form">
+						<div class="col-sm-4">
+							<strong>Facebook</strong>
+						</div>
+						<div class="col-sm-8">
+							<input type="text" name="envo_contfcb" class="form-control" value="' . $row["facebook"] . '">
 						</div>
 					</div>
 				</div>

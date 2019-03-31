@@ -32,7 +32,12 @@ $envo_setting_val = envo_get_setting_val('intranet2');
 $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Update row in DB
-$envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseimg SET shortdescription = "' . $shortdescImage . '", description = "' . $descImage . '", category = "' . $catImage . '", updated = NOW() WHERE id = "' . $imageID . '"');
+$envodb -> query('UPDATE ' . DB_PREFIX . 'int2_houseimg SET 
+									shortdescription = "' . smartsql($shortdescImage) . '",
+									description = "' . smartsql($descImage) . '",
+									category = "' . smartsql($catImage) . '",
+									updated = NOW()
+									WHERE id = "' . smartsql($imageID) . '"');
 
 // Getting info from DB
 $result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_houseimg WHERE id = "' . $imageID . '"');
@@ -40,7 +45,7 @@ $row    = $result -> fetch_assoc();
 
 $data_array[] = array (
 	'id'                    => $row["id"],
-	'timeedit'              => $row["timeedit"],
+	'timeedit'              => $row["updated"],
 	'shortdescription'      => $row["shortdescription"],
 	'exifcreatedate_format' => date($dateformat, strtotime($row["exifcreatedate"])),
 	'category'              => $row["category"]
