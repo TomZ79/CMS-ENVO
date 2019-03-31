@@ -200,7 +200,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 																		filename = "' . $videoname . '",
 																		filenamethumb = "' . $videothumbname . '.jpg",
 																		mainfolder = "' . $mainfolder . '",
-																		category = "' . $_REQUEST['videoCategory'] . '",
+																		category = "' . smartsql($_REQUEST['videoCat']) . '",
 																		subcategory = "",
 																		ftime = "' . smartsql($time) . '",
 																		fsize = "' . smartsql($size) . '",

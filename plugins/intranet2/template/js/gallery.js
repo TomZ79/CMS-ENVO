@@ -8,6 +8,25 @@
  * =======================================================================
  */
 
+/**
+ * @description  Debounce so filtering doesn't happen every millisecond
+ */
+function debounce(fn, threshold) {
+  var timeout;
+  return function debounced() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+
+    setTimeout(delayed, threshold || 100);
+  };
+}
+
 /** 01. ISOTOPE PHOTO GALLERY
  * @require: Isotope Plugin
  ========================================================================*/
@@ -15,14 +34,10 @@ $(function () {
 
   'use strict';
 
-  /* GRID
-   -------------------------------------------------------------*/
-
-  /* Apply Isotope plugin - isotope.metafizzy.co
-   ========================================= */
-
+  // -------- Init FUNCTION ----------//
   // Quick search regex
   var qsRegexImg;
+  // Filter for the buttons
   var filtersImg;
 
   // Init Isotope
@@ -43,6 +58,7 @@ $(function () {
 
   });
 
+  // -------- Filter FUNCTION ----------//
   $('#imgfilters').on('click', '.filter', function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
@@ -50,15 +66,8 @@ $(function () {
     var $this = $(this);
     // set filter for group
     filtersImg = $(this).attr('data-filter');
-    $imggallery.isotope();
+    $imggallery.isotope({ filter: filtersImg });
   });
-
-  // Use value of search field to filter
-  var $quicksearch = $('#quicksearch').keyup(debounce(function () {
-    qsRegexImg = new RegExp($quicksearch.val(), 'gi');
-    $imggallery.isotope();
-  }));
-
 
   // Change is-checked class on buttons
   $('#imgfilters .filter').on('click', function () {
@@ -66,24 +75,14 @@ $(function () {
     $(this).addClass('active');
   });
 
+  // ----------- Search FUNCTION --------//
+  // Use value of search field to filter
+  var $quicksearchimg = $('#quicksearchimg').keyup(debounce(function () {
+    qsRegexImg = new RegExp($quicksearchimg.val(), 'gi');
+    $imggallery.isotope();
+  }, 200));
 
-  // Debounce so filtering doesn't happen every millisecond
-  function debounce(fn, threshold) {
-    var timeout;
-    return function debounced() {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-
-      function delayed() {
-        fn();
-        timeout = null;
-      }
-
-      setTimeout(delayed, threshold || 100);
-    };
-  }
-
+  // ----------- Other FUNCTION --------//
   $('a[href="#tabs9"]').on('shown.bs.tab', function (e) {
     $imggallery.isotope('layout');
   });
@@ -118,14 +117,10 @@ $(function () {
 
   'use strict';
 
-  /* GRID
-   -------------------------------------------------------------*/
-
-  /* Apply Isotope plugin - isotope.metafizzy.co
-   ========================================= */
-
+  // -------- Init FUNCTION ----------//
   // Quick search regex
   var qsRegexVideo;
+  // Filter for the buttons
   var filtersVideo;
 
   // Init Isotope
@@ -146,6 +141,7 @@ $(function () {
 
   });
 
+  // -------- Filter FUNCTION ----------//
   $('#videofilters').on('click', '.filter', function (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
@@ -153,15 +149,9 @@ $(function () {
     var $this = $(this);
     // set filter for group
     filtersVideo = $(this).attr('data-filter');
-    $videogallery.isotope();
+    // set filter for Isotope
+    $videogallery.isotope({ filter: filtersVideo });
   });
-
-  // Use value of search field to filter
-  var $quicksearch = $('#quicksearch').keyup(debounce(function () {
-    qsRegexVideo = new RegExp($quicksearch.val(), 'gi');
-    $videogallery.isotope();
-  }));
-
 
   // Change is-checked class on buttons
   $('#videofilters .filter').on('click', function () {
@@ -169,25 +159,23 @@ $(function () {
     $(this).addClass('active');
   });
 
+  // ----------- Search FUNCTION --------//
+  // Use value of search field to filter
+  var $quicksearchvideo = $('#quicksearchvideo').keyup(debounce(function () {
+    qsRegexVideo = new RegExp($quicksearchvideo.val(), 'gi');
+    $videogallery.isotope();
+  }, 200));
 
-  // Debounce so filtering doesn't happen every millisecond
-  function debounce(fn, threshold) {
-    var timeout;
-    return function debounced() {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
+  // ----------- Reset FUNCTION --------//
+  // https://codepen.io/desandro/pen/pJPwpy
+  $('#resetvideofilter').on( 'click', function() {
+    // reset filters
+    filtersVideo = {};
+    $videogallery.isotope({ filter: '*' });
+  });
 
-      function delayed() {
-        fn();
-        timeout = null;
-      }
-
-      setTimeout(delayed, threshold || 100);
-    };
-  }
-
-  $('a[href="#tabs9"]').on('shown.bs.tab', function (e) {
+  // ----------- Other FUNCTION --------//
+  $('a[href="#tabs10"]').on('shown.bs.tab', function (e) {
     $videogallery.isotope('layout');
   });
 
@@ -263,20 +251,59 @@ $(function () {
 
   'use strict';
 
-  $('.dialog-open-info').on('click', function () {
+  $('.dialog-open-img-info').on('click', function () {
     // Get Data-Dialog
     var thisDataDialog = $(this).attr('data-dialog');
     // Get ID of image
     var imageID = $(this).attr('data-id');
 
-    console.log(thisDataDialog);
     // Ajax
     $.ajax({
-      url: "/plugins/intranet2/template/ajax/int2_table_dialog_img.php",
-      type: "POST",
+      url: '/plugins/intranet2/template/ajax/int2_table_dialog_img.php',
+      type: 'POST',
       datatype: 'html',
       data: {
         imageID: imageID
+      },
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#itemDetails .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data) {
+
+        setTimeout(function () {
+          // Add html data to 'div'
+          $('#itemDetails .dialog__overview').hide().html(data).fadeIn(900);
+
+        }, 1000);
+
+      },
+      error: function () {
+
+      }
+    });
+
+    // Open DialogFX
+    var dialogEl = document.getElementById(thisDataDialog);
+    var dlg = new DialogFx(dialogEl);
+    dlg.toggle(dlg);
+  });
+
+  $('.dialog-open-video-info').on('click', function () {
+    // Get Data-Dialog
+    var thisDataDialog = $(this).attr('data-dialog');
+    // Get ID of video
+    var videoID = $(this).attr('data-id');
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/template/ajax/int2_table_dialog_video.php',
+      type: 'POST',
+      datatype: 'html',
+      data: {
+        videoID: videoID
       },
       beforeSend: function () {
 

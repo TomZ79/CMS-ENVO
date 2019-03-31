@@ -3115,7 +3115,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 												echo '<div class="full-width padding-10">';
 
 												echo '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' . $video["shortdescription"] . '</span></p>';
-
+												echo '<p><strong>Datum:</strong><span class="m-l-10">' . date($ENVO_SETTING_VAL['int2dateformat'], strtotime($video["created"])) . '</span></p>';
 												echo '</div>';
 
 												echo '</div>';

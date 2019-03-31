@@ -826,6 +826,7 @@
 									// Get first value 'timedefault'
 									echo '<div class="dateblock_' . uniqid() . ' mb-2 clearfix">';
 									echo '<div class="p-2 mb-2" style="background:gray;color:white;font-weight:700;font-size:1.2em;">' . reset($subarray) . '</div>';
+									echo '<div style="margin: 35px 0 0 0;display: flex;flex-wrap: wrap;justify-content: center;">';
 
 									// Loop photos array
 									foreach ($subarray['photos'] as $himg_list) {
@@ -844,7 +845,7 @@
 																	<a data-fancybox="fancybox-0-1" href="/' . ENVO_FILES_DIRECTORY . $himg_list["mainfolder"] . $himg_list["filenamethumb"] . '" class="btn btn-success btn-sm" data-caption="' . ($himg_list["shortdescription"] ? $himg_list["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_list["description"] ? " - " . $himg_list["description"] : "") . '" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
 																		<i class="icon-images3"></i>
 																	</a>
-																	<button class="btn btn-success btn-sm dialog-open-info" type="button" data-dialog="itemDetails" data-id="' . $himg_list["id"] . '" data-toggle="tooltipEnvo" title="Informace">
+																	<button class="btn btn-success btn-sm dialog-open-img-info" type="button" data-dialog="itemDetails" data-id="' . $himg_list["id"] . '" data-toggle="tooltipEnvo" title="Informace">
 																	<i class="icon-info3"></i>
 																</button>
 																</div>
@@ -859,6 +860,7 @@
 										echo '</div>';
 									}
 
+									echo '</div>';
 									echo '</div>';
 								}
 
@@ -881,7 +883,7 @@
 							echo $Html -> addTag('h5', 'Kategorie', 'bold');
 							?>
 
-							<ul id="imagefilters">
+							<ul id="imgfilters">
 								<li><a href="javascript:;" class="filter" data-filter="*">Bez kategorie</a></li>
 								<li><a href="javascript:;" class="filter" data-filter=".exploration">Obhlídka</a></li>
 								<li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
@@ -899,7 +901,7 @@
 
 								<?php
 								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-								echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ('placeholder' => 'Vyhledat ...'));
+								echo $Html -> addInput('text', 'quicksearchimg', '', 'quicksearchimg', 'form-control', array ('placeholder' => 'Vyhledat ...'));
 								?>
 
 							</p>
@@ -929,7 +931,7 @@
 																<a data-fancybox="fancybox-1-1" href="/' . ENVO_FILES_DIRECTORY . $himg_iso["mainfolder"] . $himg_iso["filenamethumb"] . '" class="btn btn-success btn-sm" data-caption="' . ($himg_iso["shortdescription"] ? $himg_iso["shortdescription"] : "NO SHORT DESCRIPTION") . ($himg_iso["description"] ? " - " . $himg_iso["description"] : "") . '" data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +">
 																	<i class="icon-images3"></i>
 																</a>
-																<button class="btn btn-success btn-sm dialog-open-info" type="button" data-dialog="itemDetails" data-id="' . $himg_iso["id"] . '" data-toggle="tooltipEnvo" title="Informace">
+																<button class="btn btn-success btn-sm dialog-open-img-info" type="button" data-dialog="itemDetails" data-id="' . $himg_iso["id"] . '" data-toggle="tooltipEnvo" title="Informace">
 																<i class="icon-info3"></i>
 															</button>
 															</div>
@@ -976,11 +978,12 @@
 							echo $Html -> addTag('h5', 'Kategorie', 'bold');
 							?>
 
-							<ul id="videofilters" class="filters">
-								<li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
-								<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
-								<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+							<ul id="videofilters">
+								<li><a href="javascript:;" class="filter" data-filter="*">Bez kategorie</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".exploration">Obhlídka</a></li>
 								<li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+								<li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
 								<li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
 							</ul>
 
@@ -993,10 +996,12 @@
 
 								<?php
 								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-								echo $Html -> addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
+								echo $Html -> addInput('text', 'quicksearchvideo', '', 'quicksearchvideo', 'form-control', array ( 'placeholder' => 'Vyhledat ...' ));
 								?>
 
 							</p>
+
+							<!-- <button type="button" id="resetvideofilter">Reset</button> -->
 
 						</div>
 						<div class="col-sm-9">
@@ -1015,14 +1020,14 @@
 											<div class="overlays">
 												<div class="row h-100 m-0">
 													<div class="col-5">
-														<div class="text font-montserrat"></div>
+														<div class="text font-montserrat"><?= strtoupper(pathinfo($hvideo["filename"], PATHINFO_EXTENSION)) ?></div>
 													</div>
 													<div class="col-7">
 														<div class="text">
-															<a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="btn btn-success btn-xs btn-mini" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>"  data-toggle="tooltipEnvo" data-placement="bottom" title="Zoom +" download>
-																	<i class="icon-play"></i>
+															<a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="btn btn-success btn-xs btn-mini" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>"  data-toggle="tooltipEnvo" data-placement="bottom" title="Stáhnout" download>
+																	<i class="icon-file-download"></i>
 															</a>
-															<button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails1" data-id="<?= $hvideo["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
+															<button class="btn btn-success btn-xs btn-mini dialog-open-video-info" type="button" data-dialog="itemDetails" data-id="<?= $hvideo["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
 																<i class="icon-info3"></i>
 															</button>
 														</div>

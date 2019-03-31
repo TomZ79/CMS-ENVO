@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/int2_table_dialog_img.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/int2_table_dialog_video.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // EN: Detecting AJAX Requests
@@ -14,30 +14,30 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
 // EN: Get value from ajax
 // CZ: Získání dat z ajax
-$imageID = $_POST['imageID'];
+$videoID = $_POST['videoID'];
 
-$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int2_houseimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int2_housevideo WHERE id = "' . $videoID . '"');
 $row    = $result->fetch_assoc();
 
 switch ($row["category"]) {
-  case '*':
-    $category = 'Bez kategorie';
-    break;
+	case '*':
+		$category = 'Bez kategorie';
+		break;
 	case 'exploration':
 		$category = 'Obhlídka';
 		break;
 	case 'installation':
 		$category = 'Instalace';
 		break;
-  case 'reconstruction':
-    $category = 'Rekonstrukce';
-    break;
-  case 'service':
-    $category = 'Servisy';
-    break;
-  case 'complaint':
-    $category = 'Reklamace';
-    break;
+	case 'reconstruction':
+		$category = 'Rekonstrukce';
+		break;
+	case 'service':
+		$category = 'Servisy';
+		break;
+	case 'complaint':
+		$category = 'Reklamace';
+		break;
 }
 
 $envodata .= '
@@ -75,7 +75,7 @@ $envodata .= '
   </div>
   <div class="row mb-4">
     <div class="col-12 col-sm-6">
-      <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenameoriginal"] . '" class="btn btn-success btn-block m-r-15" download>Stáhnout Originál</a>
+      <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filename"] . '" class="btn btn-success btn-block m-r-15" download>Stáhnout Video</a>
     </div>
     <div class="col-12 col-sm-6">
       <a href="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" class="btn btn-info btn-block" download>Stáhnout Náhled</a>

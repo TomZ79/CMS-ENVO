@@ -7066,7 +7066,8 @@ $(function () {
                       '</div>' +
                       '</div>' +
                       '<div class="full-width padding-10">' +
-                      '<p class="bold">Krátký Popis</p><p class="shortdesc">' + data["shortdescription"] + '</p>' +
+                      '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' + data["shortdescription"] + '</span></p>' +
+                      '<p><strong>Datum:</strong><span class="date m-l-10">' + data["created"] + '</span></p>' +
                       '</div>' +
                       '</div>');
 
