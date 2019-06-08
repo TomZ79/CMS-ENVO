@@ -2758,7 +2758,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 								</div>
 							</div>
 							<div class="row">
-								<div id="imgcount" class="col-sm-12">
+								<div id="imgcount" class="col-sm-12 padding-10">
 
 									<?php
 									if (!empty($ENVO_FORM_DATA_IMG_COUNT) && is_array($ENVO_FORM_DATA_IMG_COUNT)) {
@@ -2767,7 +2767,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 										}
 									}
 									?>
-
+								</div>
+								<div class="col-sm-12">
 									<hr>
 								</div>
 							</div>
