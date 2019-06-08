@@ -190,8 +190,7 @@ $(function () {
 
   'use strict';
 
-  // Update download link source
-  $('[data-fancybox]').fancybox({
+  $('[data-fancybox="fancybox-0-1"]').fancybox({
     // Internationalization
     lang: envoWebIntranet2.envo_lang,
     i18n: {
@@ -220,6 +219,45 @@ $(function () {
     ],
     thumbs : {
       autoStart : true
+    }
+  });
+
+  $('[data-fancybox="fancybox-1-1"]').fancybox({
+    // Internationalization
+    lang: envoWebIntranet2.envo_lang,
+    i18n: {
+      'en': {
+        DOWNLOAD: 'Download Image'
+      },
+      'cs': {
+        CLOSE: 'Zavřít',
+        NEXT: 'Další',
+        PREV: 'Předchozí',
+        ERROR: 'Požadovaný obsah nemůže být načten. <br/> Zkuste to prosím později.',
+        PLAY_START: 'Start Slideshow',
+        PLAY_STOP: 'Pause Slideshow',
+        FULL_SCREEN: 'Celá Obrazovka',
+        THUMBS: 'Náhledy',
+        DOWNLOAD: 'Stáhnout Obrázek',
+        ZOOM: "Zoom"
+      }
+    },
+    buttons: [
+      "zoom",
+      "fullScreen",
+      "download",
+      "thumbs",
+      "close"
+    ],
+    thumbs : {
+      autoStart : true
+    }
+  });
+
+  $('[data-fancybox="video"]').fancybox({
+    lang: envoWebIntranet2.envo_lang,
+    video: {
+      autoStart: false
     }
   });
 

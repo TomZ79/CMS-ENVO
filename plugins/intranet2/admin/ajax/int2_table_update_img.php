@@ -45,9 +45,9 @@ $row    = $result -> fetch_assoc();
 
 $data_array[] = array (
 	'id'                    => $row["id"],
-	'timeedit'              => $row["updated"],
 	'shortdescription'      => $row["shortdescription"],
 	'exifcreatedate_format' => date($dateformat, strtotime($row["exifcreatedate"])),
+	'updated'               => $row["updated"],
 	'category'              => $row["category"]
 );
 

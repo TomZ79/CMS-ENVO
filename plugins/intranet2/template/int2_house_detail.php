@@ -255,7 +255,7 @@
 							}
 
 							.marker {
-								background-image: url('/plugins/intranet2/template/img/maps/marker/imagefiles_location_map_pin_orange6.png');
+								background-image: url('/plugins/intranet2/template/img/maps/marker/imagefiles_location_map_pin_red5.png');
 								background-repeat: no-repeat;
 								background-size: contain;
 								width: 30px;
@@ -299,11 +299,18 @@
 													<label class="font-weight-semibold">GPS - Mapy:</label>
 													<div class="form-control-plaintext">
 														<a href="http://www.mapy.cz/#q=<?= $he["gpslat"] ?>,<?= $he["gpslng"] ?>" target="_blank">Zobrazit na Mapy.cz</a> |
-														<a href="https://www.openstreetmap.org/?mlat=<?= $he["gpslat"] ?>&mlon=<?= $he["gpslng"] ?>&zoom=16#map=18/<?= $he["gpslat"] ?>/<?= $he["gpslng"] ?>" target="_blank">Zobrazit na OpenStreetMaps</a>
+														<a href="https://www.openstreetmap.org/?mlat=<?= $he["gpslat"] ?>&mlon=<?= $he["gpslng"] ?>&zoom=16#map=18/<?= $he["gpslat"] ?>/<?= $he["gpslng"] ?>" target="_blank">Zobrazit na OSM</a>
 													</div>
 												</div>
 											</div>
 											<div class="col-12 col-sm-5">
+
+												<!-- START - Test with Mapy.cz iframe -->
+												<!--
+												<iframe src="https://api.mapy.cz/frame?params=%7B%22x%22%3A<?= $he["gpslng"] ?>%2C%22y%22%3A<?= $he["gpslat"] ?>%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fmapy.cz%2Fs%2F3qQPF%22%2C%22mark%22%3A%7B%22x%22%3A%22<?= $he["gpslng"] ?>%22%2C%22y%22%3A%22<?= $he["gpslat"] ?>%22%2C%22title%22%3A%22<?= $he["gpslat"] ?>N%2C%20<?= $he["gpslng"] ?>E%22%7D%2C%22overview%22%3Afalse%7D&amp;width=400&amp;height=280&amp;lang=cs" width="100%" height="200" style="border:none" frameBorder="0"></iframe>
+-->
+												<!-- END - Test with Mapy.cz iframe -->
+
 												<div id='map_<?= $he["id"] ?>'></div>
 												<script>
                           mapboxgl.accessToken = 'pk.eyJ1Ijoic2t5bmRhcyIsImEiOiJjanNnZW1ybG8xbHMzNDRvNmF2dXUyemI5In0.xHIDNnFsF3T_n3blJxDjDg';
@@ -351,6 +358,9 @@
 
                             // View a fullscreen map
                             map.addControl(new mapboxgl.FullscreenControl());
+                            // Add zoom and rotation controls to the map.
+                            map.addControl(new mapboxgl.NavigationControl());
+
                           }
 												</script>
 											</div>
@@ -1019,13 +1029,16 @@
 											</div>
 											<div class="overlays">
 												<div class="row h-100 m-0">
-													<div class="col-5">
+													<div class="col-4">
 														<div class="text font-montserrat"><?= strtoupper(pathinfo($hvideo["filename"], PATHINFO_EXTENSION)) ?></div>
 													</div>
-													<div class="col-7">
+													<div class="col-8">
 														<div class="text">
-															<a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="btn btn-success btn-xs btn-mini" data-caption="<?= $hvideo["shortdescription"] . ' | ' . $hvideo["description"] ?>"  data-toggle="tooltipEnvo" data-placement="bottom" title="Stáhnout" download>
-																	<i class="icon-file-download"></i>
+															<a href="<?= '/' . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="btn btn-success btn-xs btn-mini" data-toggle="tooltipEnvo" data-placement="bottom" title="Stáhnout" download>
+																<i class="icon-file-download"></i>
+															</a>
+															<a href="<?= BASE_URL . ENVO_FILES_DIRECTORY . $hvideo["mainfolder"] . $hvideo["filename"] ?>" class="btn btn-success btn-xs btn-mini" data-fancybox="video" data-width="<?= $hvideo["width"] ?>" data-height="<?= $hvideo["height"] ?>" data-toggle="tooltipEnvo" data-placement="bottom" title="Spustit">
+																<i class="icon-play"></i>
 															</a>
 															<button class="btn btn-success btn-xs btn-mini dialog-open-video-info" type="button" data-dialog="itemDetails" data-id="<?= $hvideo["id"] ?>" data-toggle="tooltipEnvo" title="Informace">
 																<i class="icon-info3"></i>

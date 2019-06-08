@@ -31,7 +31,7 @@ if ($page == 'intranet2' && $page1 == 'house' && ($page2 == 'edithouse' || $page
 
 	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 	// Plugin Fancybox
-	echo $Html -> addStylesheet('/assets/plugins/fancybox/3.2.5/css/jquery.fancybox.min.css');
+	echo $Html -> addStylesheet('/assets/plugins/fancybox/3.5.7/css/jquery.fancybox.min.css');
 	// Icon technology fonts
 	echo $Html -> addStylesheet('/plugins/intranet2/fonts/fonts.css');
 

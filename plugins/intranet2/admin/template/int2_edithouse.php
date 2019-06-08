@@ -1714,6 +1714,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
+					<script src="https://api.mapy.cz/loader.js"></script>
+					<script>Loader.load();</script>
 					<div id="entlist">
 
 						<?php
@@ -1736,20 +1738,20 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 										<div class="block">
 											<div class="block-content">
 												<div class="row">
-													<div class="col-sm-6 p-3">
+													<div class="col-sm-5 p-3">
 
 														<table class="table table-hover table-condensed">
 															<caption style="caption-side: top;">
 
 																<?php
 																// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-																echo $Html -> addTag('span', '<strong>GPS - Koordináty</strong>', 'm-r-20');
+																echo $Html -> addTag('span', '<strong>GPS - Koordináty</strong>', 'm-r-50');
 																// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 																echo $Html -> addAnchor('https://mapy.cz/zakladni?x=' . $e["gpslng"] . '&y=' . $e["gpslat"] . '&z=18&l=0&source=coor&id=' . $e["gpslng"] . '%2C' . $e["gpslat"], 'Zobrazit na Mapy.cz', '', 'mapycz', array ('target' => 'MapGPS'));
 																// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 																echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
 																// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-																echo $Html -> addAnchor('https://www.openstreetmap.org/?mlat=' . $e["gpslat"] . '&mlon=' . $e["gpslng"] . '&zoom=16#map=18/' . $e["gpslat"] . '/' . $e["gpslng"], 'Zobrazit na OpenStreetMaps', '', 'openstreet', array ('target' => 'MapGPS'));
+																echo $Html -> addAnchor('https://www.openstreetmap.org/?mlat=' . $e["gpslat"] . '&mlon=' . $e["gpslng"] . '&zoom=16#map=18/' . $e["gpslat"] . '/' . $e["gpslng"], 'Zobrazit na OSM', '', 'openstreet', array ('target' => 'MapGPS'));
 																?>
 
 															</caption>
@@ -1794,7 +1796,62 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 														</table>
 
 													</div>
-													<div class="col-sm-6 p-3">
+													<div class="col-sm-3 p-3">
+
+														<table class="table table-hover table-condensed">
+															<caption style="caption-side: top;">
+
+																<?php
+																// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																echo $Html -> addTag('span', '<strong>Technické informace</strong>');
+																?>
+
+															</caption>
+															<tbody>
+															<tr>
+																<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">
+
+																	<?php
+																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																	echo $Html -> addTag('strong', 'Výtah');
+																	?>
+
+																</th>
+																<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">
+
+																	<?php
+																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																	echo $Html -> addTag('span', ($e["elevator"] == 1 ? 'ANO' : 'NE'));
+																	?>
+
+																</td>
+															</tr>
+															<tr>
+																<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">
+
+																	<?php
+																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																	echo $Html -> addTag('strong', 'Počet bytů');
+																	?>
+
+																</th>
+																<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">
+
+																	<?php
+																	// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+																	echo $Html -> addTag('span', $e["apartment"]);
+																	?>
+
+																</td>
+															</tr>
+															</tbody>
+														</table>
+
+													</div>
+
+													<div class="col-sm-4 p-3">
+
+														<iframe src="https://api.mapy.cz/frame?params=%7B%22x%22%3A<?= $e["gpslng"] ?>%2C%22y%22%3A<?= $e["gpslat"] ?>%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fmapy.cz%2Fs%2F3qQPF%22%2C%22mark%22%3A%7B%22x%22%3A%22<?= $e["gpslng"] ?>%22%2C%22y%22%3A%22<?= $e["gpslat"] ?>%22%2C%22title%22%3A%22<?= $e["gpslat"] ?>N%2C%20<?= $e["gpslng"] ?>E%22%7D%2C%22overview%22%3Afalse%7D&amp;width=400&amp;height=280&amp;lang=cs" width="100%" height="200" style="border:none" frameBorder="0"></iframe>
 
 													</div>
 												</div>
@@ -2701,7 +2758,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-12">
+								<div id="imgcount" class="col-sm-12">
 
 									<?php
 									if (!empty($ENVO_FORM_DATA_IMG_COUNT) && is_array($ENVO_FORM_DATA_IMG_COUNT)) {
@@ -2868,42 +2925,43 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 
 									<?php } ?>
 
-									<div id="imgDialogEdit" class="dialog dialog-details">
-										<div class="dialog__overlay"></div>
-										<div class="dialog__content">
-											<div class="container-fluid">
-												<div class="row dialog__overview" style="margin-right: -30px;margin-left: -30px;">
-													<!-- Data over AJAX  -->
-												</div>
-											</div>
-											<div class="dialog__footer">
-												<div class="row">
-													<div class="col-sm-6 p-l-20 p-r-20">
 
-														<?php
-														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-														echo $Html -> addAnchor('#', 'Stáhnout Originál', 'imgfolderoriginal', 'btn btn-success m-t-20 m-l-20 float-right', array ('download' => ''));
-														?>
-
-													</div>
-													<div class="col-sm-6 p-l-20 p-r-20">
-
-														<?php
-														// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-														echo $Html -> addButton('button', '', 'Uložit', '', 'udpateImg', 'btn btn-success m-t-20 m-l-20 float-right');
-														echo $Html -> addButton('button', '', 'Zavřít', '', '', 'btn btn-info m-t-20 float-right action', array ('data-dialog-close' => ''));
-														?>
-
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
 						<div class="box-footer">
 
+						</div>
+					</div>
+					<div id="imgDialogEdit" class="dialog dialog-details">
+						<div class="dialog__overlay"></div>
+						<div class="dialog__content">
+							<div class="container-fluid">
+								<div class="row dialog__overview" style="margin-right: -30px;margin-left: -30px;">
+									<!-- Data over AJAX  -->
+								</div>
+							</div>
+							<div class="dialog__footer">
+								<div class="row">
+									<div class="col-sm-6 p-l-20 p-r-20">
+
+										<?php
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html -> addAnchor('#', 'Stáhnout Originál', 'imgfolderoriginal', 'btn btn-success m-t-20 m-l-20 float-right', array ('download' => ''));
+										?>
+
+									</div>
+									<div class="col-sm-6 p-l-20 p-r-20">
+
+										<?php
+										// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+										echo $Html -> addButton('button', '', 'Uložit', '', 'udpateImg', 'btn btn-success m-t-20 m-l-20 float-right');
+										echo $Html -> addButton('button', '', 'Zavřít', '', '', 'btn btn-info m-t-20 float-right action', array ('data-dialog-close' => ''));
+										?>
+
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -3000,7 +3058,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 												</select>
 											</div>
 										</div>
-										<div class="col-sm-8">
+										<div class="col-sm-4">
 											<div class="bold">
 												Krátký popis
 											</div>
@@ -3009,6 +3067,32 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 												<?php
 												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
 												echo $Html -> addInput('text', 'envo_sdescvideo', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
+												?>
+
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="bold">
+												Rozměry videa - šířka
+											</div>
+											<div class="form-group m-t-10">
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('text', 'envo_videowidth', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
+												?>
+
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="bold">
+												Rozměry videa - výška
+											</div>
+											<div class="form-group m-t-10">
+
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html -> addInput('text', 'envo_videoheight', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
 												?>
 
 											</div>
@@ -3098,10 +3182,10 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
                                   </div>
                                   <div class="col-7 full-height">
                                     <div class="text">
-                                      <a class="btn btn-info btn-xs btn-mini fs-14 video" data-fancybox-video data-type="iframe" data-src="/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '" href="javascript:;">
+                                      <a class="btn btn-info btn-xs btn-mini fs-14" data-fancybox data-width="' . $video["width"] . '" data-height="' . $video["height"] . '" href="https://www.bluesat.cz/' . ENVO_FILES_DIRECTORY . $video["mainfolder"] . $video["filename"] . '">
                                          <i class="pg-video" style="position: relative;top: 2px;"></i>
                                       </a>
-                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video" type="button" data-dialog="videoitemDetails">
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video" type="button" data-dialog="videoDialogEdit">
                                         <i class="fa fa-edit"></i>
                                       </button>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' . $video["id"] . '" data-confirm-delvideo="Jste si jistý, že chcete odstranit video?">
@@ -3124,26 +3208,42 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 										} ?>
 
 									</div>
-
-									<div id="videoitemDetails" class="dialog item-details">
-										<div class="dialog__overlay"></div>
-										<div class="dialog__content">
-											<div class="container-fluid">
-												<div class="row dialog__overview">
-													<!-- Data over AJAX  -->
-												</div>
-											</div>
-											<button class="closedialog action top-right" type="button" data-dialog-close>
-												<i class="pg-close fs-30"></i>
-											</button>
-										</div>
-									</div>
-
 								</div>
 							</div>
 						</div>
 						<div class="box-footer">
 
+						</div>
+					</div>
+					<div id="videoDialogEdit" class="dialog dialog-details">
+						<div class="dialog__overlay"></div>
+						<div class="dialog__content">
+							<div class="container-fluid">
+								<div class="row dialog__overview" style="margin-right: -30px;margin-left: -30px;">
+									<!-- Data over AJAX  -->
+								</div>
+							</div>
+							<div class="dialog__footer">
+								<div class="row">
+									<div class="col-sm-6 p-l-20 p-r-20">
+
+										<?php
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html -> addAnchor('#', 'Stáhnout Video', 'videofolderoriginal', 'btn btn-success m-t-20 m-l-20 float-right', array ('download' => ''));
+										?>
+
+									</div>
+									<div class="col-sm-6 p-l-20 p-r-20">
+
+										<?php
+										// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+										echo $Html -> addButton('button', '', 'Uložit', '', 'udpateVideo', 'btn btn-success m-t-20 m-l-20 float-right');
+										echo $Html -> addButton('button', '', 'Zavřít', '', '', 'btn btn-info m-t-20 float-right action', array ('data-dialog-close' => ''));
+										?>
+
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -3153,6 +3253,8 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 
 	<!-- Hidden element with folder path -->
 	<input type="hidden" name="folderpath" value="<?= $ENVO_FORM_DATA["folder"] ?>">
+	<!-- Hidden element with default house ID -->
+	<input type="hidden" name="defaulthouseid" value="<?= $ENVO_FORM_DATA["id"] ?>">
 </form>
 
 

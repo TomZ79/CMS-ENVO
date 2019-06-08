@@ -119,7 +119,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 							echo $Html -> addTag('span', '|', 'm-l-10 m-r-10');
 							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-							echo $Html -> addAnchor('#', 'Zobrazit na OpenStreetMaps', '', 'openstreet', array ('target' => 'MapGPS'));
+							echo $Html -> addAnchor('#', 'Zobrazit na OSM', '', 'openstreet', array ('target' => 'MapGPS'));
 							?>
 
 						</div>

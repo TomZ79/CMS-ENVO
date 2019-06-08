@@ -51,11 +51,13 @@
 
 						<div class="col-md-3 mb-3 mb-sm-0">
 							<h6 class="font-weight-bold">Základní zobrazení</h6>
-							<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist') ?>" class="btn btn-block btn-outline bg-teal-400 text-teal-400 border-teal-400 border-2">Zobrazit vše</a>
+							<div class="form-group form-group-lg">
+								<a href="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist') ?>" class="btn btn-block btn-outline bg-teal-400 text-teal-400 border-teal-400 border-2">Zobrazit vše</a>
+							</div>
 						</div>
 
 						<div class="col-md-3 mb-3 mb-sm-0">
-							<h6 class="font-weight-bold">Podle měst</h6>
+							<h6 class="font-weight-bold">Podle měst <small class="font-weight-light ml-1">(pouze okres KV)</small></h6>
 							<div class="form-group form-group-lg">
 								<select class="form-control select2" data-placeholder="Výběr města" data-search-select2="true" onchange="location = this.value;" data-fouc>
 									<option value=""></option>
@@ -152,7 +154,7 @@
 
 				<div class="card-body" style="">
 
-					<form method="post" action="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'searchtechnology') ?>">
+					<form method="POST" action="<?= ENVO_rewrite ::envoParseurl(ENVO_PLUGIN_VAR_INTRANET2, 'house', 'houselist', 'searchtechnology') ?>">
 
 						<div class="row">
 							<div class="col col-md-12">

@@ -156,6 +156,7 @@ setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PA
 // Check if user is logged in
 $envouserlogin = new ENVO_userlogin();
 $envouserrow   = $envouserlogin -> envoCheckLogged();
+
 if ($envouserrow) {
 	$envouser = new ENVO_user($envouserrow);
 	define('ENVO_USERID', $envouser -> getVar("id"));

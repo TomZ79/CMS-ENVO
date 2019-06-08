@@ -19,9 +19,11 @@ header('Content-Type: application/json;charset=utf-8');
 // EN: Get value from ajax
 // CZ: Získání dat z ajax
 $imageID = $_POST['imageID'];
+$houseID = $_POST['houseID'];
 
 // Define basic variable
 $data_array = array ();
+$img_count  = array ();
 
 // Delete file from folder
 $result = $envodb -> query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'int2_houseimg WHERE id = "' . $imageID . '" LIMIT 1');
@@ -47,11 +49,21 @@ if ($row_cntA > 0) {
 			'id' => $imageID,
 		);
 
+		// EN: Getting count image in each year
+		// CZ:
+		$result2 = $envodb -> query('SELECT COUNT(id) AS countimg, YEAR(exifcreatedate) AS year FROM ' . DB_PREFIX . 'int2_houseimg WHERE houseid = "' . $houseID . '" GROUP BY YEAR(exifcreatedate)');
+		while ($row2 = $result2 -> fetch_assoc()) {
+			// EN: Insert each record into array
+			// CZ: Vložení získaných dat do pole
+			$img_count[] = $row2;
+		}
+
 		// Data for JSON
 		$envodata = array (
 			'status'      => 'delete_success',
 			'status_msg'  => 'Deleting the record from DB was successful',
 			'status_info' => '',
+			'img_count'   => $img_count,
 			'data'        => $data_array
 		);
 	} else {

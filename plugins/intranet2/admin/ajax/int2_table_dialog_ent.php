@@ -100,7 +100,7 @@ if ($result) {
 						<div class="float-right" id="gpslink">
 							<a href="' . $mapycz . '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>
 							<span class="m-l-10 m-r-10">|</span>
-							<a href="' . $osm . '" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>
+							<a href="' . $osm . '" class="openstreet" target="MapGPS">Zobrazit na OSM</a>
 						</div>
 					</div>
 				</div>

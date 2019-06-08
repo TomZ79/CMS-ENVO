@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['frmSignIn'])) {
 	$username = smartsql($_POST['signInUsername']);
 	$userpass = smartsql($_POST['signInPassword']);
 	$cookies  = FALSE;
+
 	if (isset($_POST['rememberme'])) $cookies = TRUE;
 
 	// Security fix

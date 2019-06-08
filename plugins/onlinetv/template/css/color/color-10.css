@@ -1,0 +1,96 @@
+/*home sports*/
+/* primary color set*/
+.breaking-title,
+.header-box-transprent .ts-main-menu .nav-menu > li > a:hover,
+.ts-mega-menu.megamenu-panel .megamenu-list li a:hover,
+.nav-menu > li .nav-dropdown li a:hover,
+.header-box-transprent .ts-main-menu .nav-menu > li.active > a,
+.nav-menu .megamenu-tabs-nav > li.active a,
+.post-title > a:hover,
+.widgets ul li a:hover,
+.post-tab-list .post-tag a,
+.post-tab-list .post-content.media .post-title:hover,
+.post-list-item .nav-tabs li a.active,
+.ts-overlay-style .overlay-post-content .post-meta-info li.active,
+.copy-right-text p a:hover,
+.footer-menu ul li a:hover,
+.footer-social-list li a:hover i {
+	color: #E21E22;
+}
+
+/* primary background color set*/
+.header-box-transprent .ts-main-menu .nav-header,
+.top-bar.transparent #breaking_slider .owl-nav .owl-prev:hover,
+.top-bar.transparent #breaking_slider .owl-nav .owl-next:hover,
+.right-menu,
+.post-cat,
+.ts-heading .ts-title:before,
+.widgets .category-list li a span,
+.widgets.widgets-item .widget-title:before,
+.ts-title:before,
+.post-list-item .nav-tabs li a::before,
+.video-item .post-video .ts-play-btn {
+	background: #E21E22;
+}
+
+.footer-social-list li a i,
+.widgets.ts-social-list-item ul li a:hover {
+	color: #FFF;
+}
+
+/*----------- body  content css ---------*/
+.header-box-transprent .ts-main-menu .right-menu li .nav-search {
+	border-left: 1px solid #E84B4E;
+}
+
+.header-box-transprent .ts-main-menu .right-menu li a {
+	border-right: 1px solid #B5181B;
+}
+
+.widgets .category-list li a span {
+	border-radius: 3px;
+}
+
+.ts-grid-box {
+	margin-bottom: 40px;
+}
+
+.widgets-populer-post.widgets .sidebar-img {
+	width: 85px;
+	height: auto;;
+}
+
+.post-cat {
+	opacity: .7;
+}
+
+.ts-grid-style-3 .ts-overlay-style {
+	margin-bottom: 10px;
+}
+
+.featured-post-style .item {
+	min-height: 504px;
+}
+
+/* footer content css*/
+.footer-menu ul li a {
+	font-weight: 700;
+	text-transform: uppercase;
+	opacity: 1;
+}
+
+.footer-menu ul li:last-child a {
+	margin-right: 0;
+}
+
+
+
+.copy-right-text p,
+.copy-right-text p a {
+	color: #878787;
+}
+
+.footer-social-list li a {
+	margin: 0 45px;
+}
+

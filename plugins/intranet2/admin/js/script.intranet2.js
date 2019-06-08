@@ -204,7 +204,7 @@ function getGPS_Data_OSM (event) {
           wgslon = data.data[item].lon;
 
           // Data variable for output DIV
-          divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select-ent" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-8"><p><span class="bold">' + data.data[item].display_name + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-3 text-center"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+          divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select-ent" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-8"><p><span class="bold">' + data.data[item].display_name + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-3 text-center"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OSM</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
 
         });
 
@@ -332,7 +332,7 @@ function getGPS_Data_MAPY (event) {
           wgslon = data.data[item].x;
 
           // Data variable for output DIV
-          divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select-ent" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-8"><p><span class="bold">' + data.data[item].title + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-3 text-center"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+          divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select-ent" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-8"><p><span class="bold">' + data.data[item].title + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-3 text-center"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OSM</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
 
         });
 
@@ -653,7 +653,7 @@ function selectGPS_Data (event) {
 
     var anchordata = '<a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" class="mapycz" target="MapGPS">Mapy.cz</a>' +
       '<span class="m-l-10 m-r-10">|</span>' +
-      '<a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&amp;mlon=' + wgslon + '&amp;zoom=18#map=18' + wgslat + '/' + wgslon + '" class="OpenStreetMaps" target="MapGPS">OpenStreetMaps</a>';
+      '<a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&amp;mlon=' + wgslon + '&amp;zoom=18#map=18' + wgslat + '/' + wgslon + '" class="OpenStreetMaps" target="MapGPS">OSM</a>';
 
     $('#' + parent + ' .mainmaps').html(anchordata);
 
@@ -826,9 +826,9 @@ $(function () {
    */
   $('input[name="envo_housejustice"]').change(function () {
 
-    if (this.value == '1') {
+    if (this.value === '1') {
       $('#justice_vor').show();
-    } else if (this.value == '0') {
+    } else if (this.value === '0') {
       $('#justice_vor').hide();
     }
 
@@ -893,7 +893,7 @@ $(function () {
         $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ARES</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><spanspan style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
         $('#timer').timer();
-        
+
       },
       success: function (data) {
 
@@ -1239,7 +1239,7 @@ $(function () {
         // Loading data progress
         $('#loadingdata').hide().html('');
         $('#timer').timer('remove');
-        
+
         // Notification
         setTimeout(function () {
           $.notify({
@@ -1322,7 +1322,7 @@ $(function () {
         // Loading data progress
         $('#loadingdata').hide().html('');
         $('#timer').timer('remove');
-        
+
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         if (debug) {
@@ -1393,7 +1393,7 @@ $(function () {
     $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
     $('#timer').timer();
-    
+
     $.ajax({
       url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
       type: 'POST',
@@ -1529,7 +1529,7 @@ $(function () {
         // Loading data progress
         $('#loadingdata').hide().html('');
         $('#timer').timer('remove');
-        
+
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         $('#ajaxTime_katastr').html(totalTime);
@@ -1668,7 +1668,7 @@ $(function () {
     $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">ČÚZK</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
     $('#timer').timer();
-    
+
     $.ajax({
       url: 'https://services.cuzk.cz/wfs/inspire-ad-wfs.asp?service=WFS&version=2.0.0&request=GetFeature&StoredQuery_id=GetFeatureByPoint&srsName=urn:ogc:def:crs:EPSG::4326&POINT=' + wgslat + ',' + wgslon + '&FEATURE_TYPE=Address',
       type: 'POST',
@@ -2034,7 +2034,7 @@ $(function () {
           // Loading data progress
           $('#loadingdata').hide().html('');
           $('#timer').timer('remove');
-          
+
           // Notification
           setTimeout(function () {
             $.notify({
@@ -2117,7 +2117,7 @@ $(function () {
           // Loading data progress
           $('#loadingdata').hide().html('');
           $('#timer').timer('remove');
-          
+
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           if (debug) {
@@ -2206,7 +2206,7 @@ $(function () {
         $('#loadingdata').html('<div style="display:block;position:fixed;top:50%;left:50%;transform:translate(-35%, -50%);-ms-transform:translate(-35%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20 text-center"><span style="float: left;width: 100%;margin-bottom: 10px;font-weight: bold;font-size: 2em;">STATISTIKA 2</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání ... Prosím počkejte ...</span><span style="float: left;width: 100%;margin-bottom: 10px;">Načítání dat může trvat i několik sekund / minut</span><span id="timer" style="float: left;width: 100%;margin-bottom: 10px;color: #C10000;"></span></div></div>').show();
 
         $('#timer').timer();
-        
+
       },
       success: function (data) {
 
@@ -2228,7 +2228,7 @@ $(function () {
         // Loading data progress
         $('#loadingdata').hide().html('');
         $('#timer').timer('remove');
-        
+
         // Ajax time
         var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
         $('#ajaxTime_statistics').html(totalTime);
@@ -2378,7 +2378,7 @@ $(function () {
             wgslon = data.data[item].lon;
 
             // Data variable for output DIV
-            divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-9"><p><span class="bold">' + data.data[item].display_name + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-2"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+            divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-9"><p><span class="bold">' + data.data[item].display_name + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-2"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OSM</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
 
           });
 
@@ -2553,7 +2553,7 @@ $(function () {
             wgslon = data.data[item].x;
 
             // Data variable for output DIV
-            divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-9"><p><span class="bold">' + data.data[item].title + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-2"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OpenStreetMaps</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
+            divdata += '<div class="row"><div class="col-sm-1 text-center"><button class="btn btn-success btn-xs gps-select" data-gps-lat="' + wgslat + '" data-gps-lon="' + wgslon + '">Vybrat</button></div><div class="col-sm-9"><p><span class="bold">' + data.data[item].title + '</span><br>GPS Koordináty => Latitude: ' + wgslat + ' | Longitude: ' + wgslon + '</p></div><div class="col-sm-2"><a href="https://mapy.cz/zakladni?x=' + wgslon + '&y=' + wgslat + '&z=18&l=0&source=coor&id=' + wgslon + '%2C' + wgslat + '" target="MapGPS" class="btn btn-info btn-xs m-r-10">Mapy.cz</a><a href="https://www.openstreetmap.org/?mlat=' + wgslat + '&mlon=' + wgslon + '&zoom=16#map=18/' + wgslat + '/' + wgslon + '" target="MapGPS" class="btn btn-info btn-xs">OSM</a></div><div class="col-sm-12"><hr class="dotted"></div></div>';
 
           });
 
@@ -4308,6 +4308,8 @@ $(function () {
 
                 $.each(data, function (index, data) {
 
+                  var dataElevator = (data["elevator"] == 1 ? 'ANO' : 'NE');
+
                   dataID = data["id"];
 
                   divdata += '<div class="box box-success"  id="ent_' + dataID + '">' +
@@ -4319,13 +4321,13 @@ $(function () {
                     '<div class="block">' +
                     '<div class="block-content">' +
                     '<div class="row">' +
-                    '<div class="col-sm-6 p-3">' +
+                    '<div class="col-sm-5 p-3">' +
                     '<table class="table table-hover table-condensed">' +
                     '<caption style="caption-side: top;">' +
-                    '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
+                    '<span class="m-r-50"><strong>GPS - Koordináty</strong></span>' +
                     '<a href="https://mapy.cz/zakladni?x=' + data["gpslng"] + '&y=' + data["gpslat"] + '&z=18&l=0&source=coor&id=' + data["gpslng"] + '%2C' + data["gpslat"] + '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>' +
                     '<span class="m-l-10 m-r-10">|</span>' +
-                    '<a href="https://www.openstreetmap.org/?mlat=' + data["gpslat"] + '&amp;mlon=12.7325868&amp;zoom=16#map=18/' + data["gpslat"] + '/12.7325868" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>' +
+                    '<a href="https://www.openstreetmap.org/?mlat=' + data["gpslat"] + '&amp;mlon=12.7325868&amp;zoom=16#map=18/' + data["gpslat"] + '/12.7325868" class="openstreet" target="MapGPS">Zobrazit na OSM</a>' +
                     '</caption>' +
                     '<tbody>' +
                     '<tr>' +
@@ -4347,8 +4349,33 @@ $(function () {
                     '</tbody>' +
                     '</table>' +
                     '</div>' +
-                    '<div class="col-sm-6 p-3">' +
-                    '' +
+                    '<div class="col-sm-3 p-3">' +
+                    '<table class="table table-hover table-condensed">' +
+                    '<caption style="caption-side: top;">' +
+                    '<span><strong>Technické informace</strong></span>' +
+                    '</caption>' +
+                    '<tbody>' +
+                    '<tr>' +
+                    '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>Výtah</strong>' +
+                    '</th>' +
+                    '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + dataElevator + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>Počet bytů</strong>' +
+                    '</th>' +
+                    '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + data["apartment"] + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '</div>' +
+                    '<div class="col-sm-4 p-3">' +
+                    '<iframe src="https://api.mapy.cz/frame?params=%7B%22x%22%3A' + data["gpslng"] + '%2C%22y%22%3A' + data["gpslat"] + '%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fmapy.cz%2Fs%2F3qQPF%22%2C%22mark%22%3A%7B%22x%22%3A%22' + data["gpslng"] + '%22%2C%22y%22%3A%22' + data["gpslat"] + '%22%2C%22title%22%3A%22' + data["gpslat"] + 'N%2C%20' + data["gpslng"] + 'E%22%7D%2C%22overview%22%3Afalse%7D&amp;width=400&amp;height=280&amp;lang=cs" width="100%" height="200" style="border:none" frameBorder="0"></iframe>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -4527,6 +4554,8 @@ $(function () {
                     console.log('Save Task Ent fn | Ajax -> Key data[id]: ' + data['id']);
                   }
 
+                  var dataElevator = (data["elevator"] == 1 ? 'ANO' : 'NE');
+
                   dataID = data["id"];
 
                   divdata += '<div class="box-header with-border"><h3 class="box-title">Vchod <span class="bold">' + data["street"] + '</span></h3></div>' +
@@ -4534,13 +4563,13 @@ $(function () {
                     '<div class="block">' +
                     '<div class="block-content">' +
                     '<div class="row">' +
-                    '<div class="col-sm-6 p-3">' +
+                    '<div class="col-sm-5 p-3">' +
                     '<table class="table table-hover table-condensed">' +
                     '<caption style="caption-side: top;">' +
-                    '<span class="m-r-20"><strong>GPS - Koordináty</strong></span>' +
+                    '<span class="m-r-50"><strong>GPS - Koordináty</strong></span>' +
                     '<a href="https://mapy.cz/zakladni?x=' + data["gpslng"] + '&y=' + data["gpslat"] + '&z=18&l=0&source=coor&id=' + data["gpslng"] + '%2C' + data["gpslat"] + '" class="mapycz" target="MapGPS">Zobrazit na Mapy.cz</a>' +
                     '<span class="m-l-10 m-r-10">|</span>' +
-                    '<a href="https://www.openstreetmap.org/?mlat=' + data["gpslat"] + '&amp;mlon=12.7325868&amp;zoom=16#map=18/' + data["gpslat"] + '/12.7325868" class="openstreet" target="MapGPS">Zobrazit na OpenStreetMaps</a>' +
+                    '<a href="https://www.openstreetmap.org/?mlat=' + data["gpslat"] + '&amp;mlon=12.7325868&amp;zoom=16#map=18/' + data["gpslat"] + '/12.7325868" class="openstreet" target="MapGPS">Zobrazit na OSM</a>' +
                     '</caption>' +
                     '<tbody>' +
                     '<tr>' +
@@ -4562,8 +4591,33 @@ $(function () {
                     '</tbody>' +
                     '</table>' +
                     '</div>' +
-                    '<div class="col-sm-6 p-3">' +
-                    '' +
+                    '<div class="col-sm-3 p-3">' +
+                    '<table class="table table-hover table-condensed">' +
+                    '<caption style="caption-side: top;">' +
+                    '<span><strong>Technické informace</strong></span>' +
+                    '</caption>' +
+                    '<tbody>' +
+                    '<tr>' +
+                    '<th style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>Výtah</strong>' +
+                    '</th>' +
+                    '<td style="border-top: 1px solid rgba(230,230,230,0.7);border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + dataElevator + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<th style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<strong>Počet bytů</strong>' +
+                    '</th>' +
+                    '<td style="border-top: none;border-bottom: 1px solid rgba(230,230,230,0.7);">' +
+                    '<span>' + data["apartment"] + '</span>' +
+                    '</td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '</div>' +
+                    '<div class="col-sm-4 p-3">' +
+                    '<iframe src="https://api.mapy.cz/frame?params=%7B%22x%22%3A' + data["gpslng"] + '%2C%22y%22%3A' + data["gpslat"] + '%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fmapy.cz%2Fs%2F3qQPF%22%2C%22mark%22%3A%7B%22x%22%3A%22' + data["gpslng"] + '%22%2C%22y%22%3A%22' + data["gpslat"] + '%22%2C%22title%22%3A%22' + data["gpslat"] + 'N%2C%20' + data["gpslng"] + 'E%22%7D%2C%22overview%22%3Afalse%7D&amp;width=400&amp;height=280&amp;lang=cs" width="100%" height="200" style="border:none" frameBorder="0"></iframe>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -6212,7 +6266,7 @@ $(function () {
    * <button class="delete-img" type="button" data-id="id_of_image_in_DB"></button>
    *
    */
-  function deleteImg (imageID) {
+  function deleteImg (imageID, houseID) {
 
     if (debug) {
       console.log('----------- fn deleteImg -----------')
@@ -6224,18 +6278,32 @@ $(function () {
       type: 'POST',
       datatype: 'json',
       data: {
-        imageID: imageID
+        imageID: imageID,
+        houseID: houseID
       },
       success: function (data) {
 
         if (data.status == 'delete_success') {
           // IF DATA SUCCESS
 
+          var divdata = '';
+
           // Removes elements from the Photo Isotope instance and DOM
           var $removeItem = $('#gallery_1_' + data.data[0].id);
           $gallery.isotope('remove', $removeItem).isotope('layout');
           // Removes elements from Photo List
           $('#gallery_0_' + data.data[0].id).remove();
+
+          $.each(data.img_count, function (index, data) {
+
+            // Data variable for output
+            divdata += '<span class="bold">' + data["year"] + '</span> -&gt; <span>Počet: ' + data["countimg"] + '</span> / ';
+
+          });
+
+          // Output Data
+          $('#imgcount').html('').prepend(divdata);
+
 
           // Notification
           setTimeout(function () {
@@ -6306,6 +6374,8 @@ $(function () {
 
     // Get value
     var imageID = $(this).attr('data-id');
+    // var houseID = $('input[name="defaulthouseid"]');
+    var houseID = pageID;
 
     // ------------ Jquery code
 
@@ -6329,108 +6399,13 @@ $(function () {
           if (debug) {
             console.log('Delete Image - ID: ' + imageID);
           }
-          deleteImg(imageID);
+          deleteImg(imageID, houseID);
         }
       }
     });
 
     return false;
   }
-
-  /**
-   * @description  Isotop and searching
-   * @require: Isotope plugin - isotope.metafizzy.co
-   */
-
-  // Init Isotope plugin
-  var isotopgallery = $('#gallery_envo_1');
-
-  if (isotopgallery.length) {
-    // Quick search regex
-    var qsRegex;
-    // Filter for the buttons
-    var buttonFilter;
-
-    // Initialize Isotope
-    var $gallery = $('#gallery_envo_1');
-    $gallery.isotope({
-      itemSelector: 'div[class^="gallery-item-"]',
-      masonry: {
-        columnWidth: 280,
-        // The horizontal space between item elements
-        gutter: 10,
-        isFitWidth: true
-      },
-      filter: function () {
-
-        var $this = $(this);
-        var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
-        var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
-        return searchResult && buttonResult;
-      }
-    });
-
-    // Use value of search field to filter
-    var $quicksearch = $('#quicksearch').keyup(debounce(function () {
-      qsRegex = new RegExp($quicksearch.val(), 'gi');
-      $gallery.isotope();
-    }));
-
-    /**
-     * @description
-     */
-    $('#imagefilters').on('click', '.filter', function (event) {
-      // Stop, the default action of the event will not be triggered
-      event.preventDefault();
-
-      var $this = $(this);
-      // Set filter for group
-      buttonFilter = $(this).attr('data-filter');
-      $gallery.isotope();
-    });
-
-    /**
-     * @description Change is-checked class on buttons
-     */
-    $('#imagefilters .filter').on('click', function () {
-      $('#imagefilters').find('.active').removeClass('active');
-      $(this).addClass('active');
-    });
-
-    /**
-     * @description  Relayout Isotop
-     */
-    $('a[href="#cmsPage11"]').on('shown.bs.tab', function (e) {
-      $gallery.isotope('layout');
-    });
-  }
-
-  /**
-   * @description  Show Photo list by date
-   */
-  $('#showPhotoList').on('click', (function (e) {
-
-    $(this).removeClass('btn-info').addClass('btn-complete');
-    $('#showFiltrPhoto').removeClass('btn-complete').addClass('btn-info');
-    $('#list_photo').fadeIn(500);
-    $('#isotope_photo').fadeOut(500);
-
-  }));
-
-  /**
-   * @description  Show Photo Isotop list
-   */
-  $('#showFiltrPhoto').on('click', (function (e) {
-
-    $(this).removeClass('btn-info').addClass('btn-complete');
-    $('#showPhotoList').removeClass('btn-complete').addClass('btn-info');
-    $('#isotope_photo').fadeIn(500);
-    $('#list_photo').fadeOut(500);
-    setTimeout(function () {
-      $gallery.isotope('layout');
-    }, 500);
-
-  }));
 
   /**
    * @description Function for upload images
@@ -6542,13 +6517,26 @@ $(function () {
 
               $.each(result, function (key, data) {
 
+                if (key === 'img_count') {
+
+                  $.each(data, function (index, data) {
+
+                    // Data variable for output
+                    divdata += '<span class="bold">' + data["year"] + '</span> -&gt; <span>Počet: ' + data["countimg"] + '</span> / ';
+
+                  });
+
+                  // Output Data
+                  $('#imgcount').html('').prepend(divdata);
+
+                }
+
                 if (key === 'data') {
 
                   $.each(data, function (index, data) {
 
                     // Create new Isotope item elements
-                    var $isotopeContent = $('' +
-                      '<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1" style="background-color: rgb(255, 245, 204);">' +
+                    var $isotopeContent = $('<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1" style="background-color: rgb(255, 245, 204);">' +
                       '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
                       '<div class="overlays full-width">' +
                       '<div class="row full-height">' +
@@ -6716,6 +6704,101 @@ $(function () {
   }
 
   /**
+   * @description  Isotop and searching
+   * @require: Isotope plugin - isotope.metafizzy.co
+   */
+
+    // Init Isotope plugin
+  var isotopgallery = $('#gallery_envo_1');
+
+  if (isotopgallery.length) {
+    // Quick search regex
+    var qsRegex;
+    // Filter for the buttons
+    var buttonFilter;
+
+    // Initialize Isotope
+    var $gallery = $('#gallery_envo_1');
+    $gallery.isotope({
+      itemSelector: 'div[class^="gallery-item-"]',
+      masonry: {
+        columnWidth: 280,
+        // The horizontal space between item elements
+        gutter: 10,
+        isFitWidth: true
+      },
+      filter: function () {
+
+        var $this = $(this);
+        var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+        var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
+        return searchResult && buttonResult;
+      }
+    });
+
+    // Use value of search field to filter
+    var $quicksearch = $('#quicksearch').keyup(debounce(function () {
+      qsRegex = new RegExp($quicksearch.val(), 'gi');
+      $gallery.isotope();
+    }));
+
+    /**
+     * @description
+     */
+    $('#imagefilters').on('click', '.filter', function (event) {
+      // Stop, the default action of the event will not be triggered
+      event.preventDefault();
+
+      var $this = $(this);
+      // Set filter for group
+      buttonFilter = $(this).attr('data-filter');
+      $gallery.isotope();
+    });
+
+    /**
+     * @description Change is-checked class on buttons
+     */
+    $('#imagefilters .filter').on('click', function () {
+      $('#imagefilters').find('.active').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    /**
+     * @description  Relayout Isotop
+     */
+    $('a[href="#cmsPage11"]').on('shown.bs.tab', function (e) {
+      $gallery.isotope('layout');
+    });
+  }
+
+  /**
+   * @description  Show Photo list by date
+   */
+  $('#showPhotoList').on('click', (function (e) {
+
+    $(this).removeClass('btn-info').addClass('btn-complete');
+    $('#showFiltrPhoto').removeClass('btn-complete').addClass('btn-info');
+    $('#list_photo').fadeIn(500);
+    $('#isotope_photo').fadeOut(500);
+
+  }));
+
+  /**
+   * @description  Show Photo Isotop list
+   */
+  $('#showFiltrPhoto').on('click', (function (e) {
+
+    $(this).removeClass('btn-info').addClass('btn-complete');
+    $('#showPhotoList').removeClass('btn-complete').addClass('btn-info');
+    $('#isotope_photo').fadeIn(500);
+    $('#list_photo').fadeOut(500);
+    setTimeout(function () {
+      $gallery.isotope('layout');
+    }, 500);
+
+  }));
+
+  /**
    * @description  Upload image by click button or keypress enter
    */
   $('#uploadBtnImg').click(uploadImg);
@@ -6772,7 +6855,7 @@ $(function () {
           // IF DATA SUCCESS
 
           // Edit Time
-          $('#timeedit').html(data.data[0].timeedit);
+          $('#timeedit').html(data.data[0].updated);
 
           // Add data.shortdescription to Isotop item
           var elClass0 = $('#gallery_1_' + data.data[0].id + '.gallery-item-' + data.data[0].id);
@@ -6847,14 +6930,14 @@ $(function () {
   /**
    * @description  Debounce so filtering doesn't happen every millisecond
    */
-  function debounceVideo(fn, threshold) {
+  function debounceVideo (fn, threshold) {
     var timeout;
-    return function debounceVideo() {
+    return function debounceVideo () {
       if (timeout) {
         clearTimeout(timeout);
       }
 
-      function delayed() {
+      function delayed () {
         fn();
         timeout = null;
       }
@@ -6864,75 +6947,261 @@ $(function () {
   }
 
   /**
-   * @description  Isotop and searching
-   * @require: Isotope plugin - isotope.metafizzy.co
+   * @description Jquery Function - DialogFX Open - Video - House
+   * @example
+   * Attribute 'data-dialog' in button => ID of dialog 'div' block
+   * -----------------
+   * <button class="" type="button" data-dialog="DialogEdit"></button>
+   *
+   *  <div id="DialogEdit" class="dialog item-details">
+   *    <div class="dialog__overlay"></div>
+   *    <div class="dialog__content">
+   *      <div class="container-fluid">
+   *        <div class="row dialog__overview">
+   *          <!-- Data over AJAX  -->
+   *        </div>
+   *      </div>
+   *      <button class="close action top-right" type="button" data-dialog-close>
+   *        <i class="pg-close fs-14"></i>
+   *      </button>
+   *    </div>
+   *  </div>
    */
+  function openDialogEditVideo (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
 
-  // Init Isotope plugin
-  var isotopvideogallery = $('#videogallery_envo');
+    if (debug) {
+      console.log('----------- fn openDialogEditVideo -----------')
+    }
 
-  if (isotopvideogallery.length) {
-    // Quick search regex
-    var qsRegexVideo;
-    // Filter for the buttons
-    var filtersVideo;
+    // ------------ Basic variable
 
-    // Initialize Isotope
-    var $videogallery = $('#videogallery_envo');
-    $videogallery.isotope({
-      itemSelector: 'div[class^="gallery-item-"]',
-      masonry: {
-        columnWidth: 280,
-        gutter: 10,         // The horizontal space between item elements
-        isFitWidth: true
+    // Get value
+    var DataDialog = $(this).attr('data-dialog');
+    var videoID = $(this).parents(":eq(4)").attr('id');
+
+
+    // ------------ Jquery code
+    if (debug) {
+      console.log('Video ID from DIV: ' + videoID);
+    }
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_dialog_video.php',
+      type: 'POST',
+      datatype: 'html',
+      data: {
+        videoID: videoID
       },
-      filter: function () {
-        var $this = $(this);
-        var searchResultVideo = qsRegexVideo ? $this.text().match(qsRegexVideo) : true;
-        var buttonResultVideo = filtersVideo ? $this.is(filtersVideo) : true;
-        return searchResultVideo && buttonResultVideo;
+      beforeSend: function () {
+
+        // Show progress circle
+        $('#videoDialogEdit .dialog__overview').html('<div style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"><div class="progress-circle-indeterminate"></div><div class="m-t-20">Načítání ... Prosím počkejte</div></div>');
+
+      },
+      success: function (data) {
+
+        setTimeout(function () {
+          // Add html data to 'div'
+          $('#videoDialogEdit .dialog__overview').hide().html(data).fadeIn(900);
+
+          // Getting path of image original
+          var video = $('#videofolderoriginal_path').val();
+          $('#videofolderoriginal').attr('href', video);
+
+
+          // Init Select2 plugin
+          $('#info1 .selectpicker').select2({
+            minimumResultsForSearch: -1,
+            dropdownParent: $('.page-content-wrapper'),
+            dropdownCssClass: 'zindex1060'
+          });
+
+        }, 1000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
       }
     });
 
-    // Use value of search field to filter
-    var $quicksearch = $('#videoquicksearch').keyup(debounceVideo(function () {
-      qsRegexVideo = new RegExp($quicksearch.val(), 'gi');
-      isotopvideogallery.isotope();
-    }));
-
-    /**
-     * @description
-     */
-    $('#videofilters').on('click', '.filter', function (event) {
-      // Stop, the default action of the event will not be triggered
-      event.preventDefault();
-
-      var $this = $(this);
-      // set filter for group
-      filtersVideo = $(this).attr('data-filter');
-      $videogallery.isotope();
+    // Open DialogFX
+    var dialogEl = document.getElementById(DataDialog);
+    var dlg = new DialogFx(dialogEl, {
+      onOpenDialog: function (instance) {
+        // Open DialogFX
+        if (debug) {
+          console.log('DialogFX: OPEN');
+        }
+      },
+      onCloseDialog: function (instance) {
+        // Close DialogFX
+        if (debug) {
+          console.log('DialogFX: CLOSE');
+        }
+      }
     });
+    dlg.toggle(dlg);
 
-    /**
-     * @description Change is-checked class on buttons
-     */
-    $('#videofilters .filter').on('click', function () {
-      $('#videofilters').find('.active').removeClass('active');
-      $(this).addClass('active');
-    });
-
-    /**
-     * @description  Relayout Isotop
-     */
-    $('a[href="#cmsPage12"]').on('shown.bs.tab', function (e) {
-      $videogallery.isotope('layout');
-    });
+    return false;
   }
 
   /**
-   * @description  Upload video by click button or keypress enter
+   * @description Jquery Function - Delete Video from DB - House
+   * @example
+   * Attribute 'data-id' in button => ID is id of video in DB
+   * -----------------
+   * <button class="delete-video" type="button" data-id="id_of_video_in_DB"></button>
+   *
    */
-  $("#uploadBtnVideo").on('click', (function (event) {
+  function deleteVideo (videoID) {
+
+    if (debug) {
+      console.log('----------- fn deleteVideo -----------')
+    }
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_delete_video.php',
+      type: 'POST',
+      datatype: 'json',
+      data: {
+        videoID: videoID
+      },
+      success: function (data) {
+
+        if (data.status == 'delete_success') {
+          // IF DATA SUCCESS
+
+          // Removes elements from the Photo Isotope instance and DOM
+          var $removeItem = $('#' + data.data[0].id);
+          $videogallery.isotope('remove', $removeItem).isotope('layout');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: '<strong>Success:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              icon: 'fa fa-exclamation',
+              message: '<strong>Error:</strong> ' + data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 5000
+            });
+          }, 1000);
+
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+    return false;
+  }
+
+  function confirmdeleteVideo (event) {
+    // Stop, the default action of the event will not be triggered
+    event.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn confirmdeleteVideo -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Get value
+    var videoID = $(this).attr('data-id');
+
+    // ------------ Jquery code
+
+    // Show Message
+    bootbox.setLocale(envoWeb.envo_lang);
+    bootbox.confirm({
+      title: "Potvrzení o odstranění!",
+      message: $(this).attr('data-confirm-delvideo'),
+      className: "bootbox-confirm-del",
+      animate: true,
+      buttons: {
+        confirm: {
+          className: 'btn-success'
+        },
+        cancel: {
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result == true) {
+          if (debug) {
+            console.log('Delete Video - ID: ' + videoID);
+          }
+          deleteVideo(videoID);
+        }
+      }
+    });
+
+    return false;
+  }
+
+  /**
+   * @description Function for upload videos
+   */
+  function uploadVideo (event) {
     // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
@@ -6948,10 +7217,14 @@ $(function () {
     // Get Data - value of folder from file field
     var folder_path = $('input[name="folderpath"]').val();
     // Get Video category
-    var videosdesc = $('input[name="envo_sdescvideo"]');
-    var videosdescval = videosdesc.val();
     var videocat = $('select[name="envo_videocategory"]').find(':selected');
     var videocatval = videocat.val();
+    var videosdesc = $('input[name="envo_sdescvideo"]');
+    var videosdescval = videosdesc.val();
+    var videowidth = $('input[name="envo_videowidth"]');
+    var videowidthval = videowidth.val();
+    var videoheight = $('input[name="envo_videoheight"]');
+    var videoheightval = videoheight.val();
     // Creating object of FormData class
     var form_data = new FormData();
     // Appending parameter named file with properties of file_field to form_data
@@ -6960,8 +7233,10 @@ $(function () {
     // Adding extra parameters to form_data
     form_data.append('folderpath', folder_path);
     form_data.append('houseID', pageID);
-    form_data.append('videoSdesc', videosdescval);
     form_data.append('videoCat', videocatval);
+    form_data.append('videoSdesc', videosdescval);
+    form_data.append('videoWidth', videowidthval);
+    form_data.append('videoHeight', videoheightval);
 
     // ------------ Jquery code
 
@@ -7037,8 +7312,6 @@ $(function () {
                 '<strong>Success: </strong>' + data.status_msg +
                 '</div>');
 
-              var divdata = '';
-
               $.each(result, function (key, data) {
 
                 if (key === 'data') {
@@ -7046,8 +7319,7 @@ $(function () {
                   $.each(data, function (index, data) {
 
                     // Create new Isotope item elements
-                    var $isotopeContent = $('' +
-                      '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
+                    var $isotopeContent = $('<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
                       '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
                       '<div class="overlays full-width">' +
                       '<div class="row full-height">' +
@@ -7056,10 +7328,10 @@ $(function () {
                       '</div>' +
                       '<div class="col-7 full-height">' +
                       '<div class="text">' +
-                      '<a class="btn btn-info btn-xs btn-mini mr-1 fs-14 video" data-fancybox-video data-type="iframe" data-src="' + data["filepath"] + '" href="javascript:;">' +
+                      '<a class="btn btn-info btn-xs btn-mini mr-1 fs-14" data-fancybox data-width="' + data["width"] + '" data-height="' + data["height"] + '" href="' + data["filepath"] + '">' +
                       '<i class="pg-video" style="position: relative;top: 2px;"></i>' +
                       '</a>' +
-                      '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video mr-1" type="button" data-dialog="videoitemDetails"><i class="fa fa-edit"></i></button>' +
+                      '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open-video mr-1" type="button" data-dialog="videoDialogEdit"><i class="fa fa-edit"></i></button>' +
                       '<button class="btn btn-info btn-xs btn-mini fs-14 delete-video" type="button" data-id="' + data["id"] + '"  data-confirm-delvideo="Jste si jistý, že chcete odstranit video?"><i class="fa fa-trash"></i></button>' +
                       '</div>' +
                       '</div>' +
@@ -7080,24 +7352,8 @@ $(function () {
 
                     // Call dialogFX function for button
                     var elClass = $('#' + data["id"] + '.gallery-item-' + data["id"]);
-                    // elClass.find('.dialog-open-video').click(openDialogVideo);
-                    // elClass.find('.delete-video').click(confirmdeleteVideo);
-                    elClass.find('[data-fancybox-video]').fancybox({
-                      afterShow: function () {
-                        ($('.fancybox-iframe').contents().find('body').css('background-color', 'transparent'));
-                      },
-                      iframe: {
-                        preload: false,
-                        css: {
-                          width: 'auto'
-                        }
-                      },
-                      buttons: [
-                        "zoom",
-                        "close"
-                      ]
-
-                    });
+                    elClass.find('.dialog-open-video').click(openDialogEditVideo);
+                    elClass.find('.delete-video').click(confirmdeleteVideo);
 
                   });
 
@@ -7222,7 +7478,191 @@ $(function () {
       }).appendTo(videocat.parent());
     }
 
-  }));
+  }
+
+  /**
+   * @description  Isotop and searching
+   * @require: Isotope plugin - isotope.metafizzy.co
+   */
+
+    // Init Isotope plugin
+  var isotopvideogallery = $('#videogallery_envo');
+
+  if (isotopvideogallery.length) {
+    // Quick search regex
+    var qsRegexVideo;
+    // Filter for the buttons
+    var filtersVideo;
+
+    // Initialize Isotope
+    var $videogallery = $('#videogallery_envo');
+    $videogallery.isotope({
+      itemSelector: 'div[class^="gallery-item-"]',
+      masonry: {
+        columnWidth: 280,
+        gutter: 10,         // The horizontal space between item elements
+        isFitWidth: true
+      },
+      filter: function () {
+        var $this = $(this);
+        var searchResultVideo = qsRegexVideo ? $this.text().match(qsRegexVideo) : true;
+        var buttonResultVideo = filtersVideo ? $this.is(filtersVideo) : true;
+        return searchResultVideo && buttonResultVideo;
+      }
+    });
+
+    // Use value of search field to filter
+    var $quicksearch = $('#videoquicksearch').keyup(debounceVideo(function () {
+      qsRegexVideo = new RegExp($quicksearch.val(), 'gi');
+      isotopvideogallery.isotope();
+    }));
+
+    /**
+     * @description
+     */
+    $('#videofilters').on('click', '.filter', function (event) {
+      // Stop, the default action of the event will not be triggered
+      event.preventDefault();
+
+      var $this = $(this);
+      // set filter for group
+      filtersVideo = $(this).attr('data-filter');
+      $videogallery.isotope();
+    });
+
+    /**
+     * @description Change is-checked class on buttons
+     */
+    $('#videofilters .filter').on('click', function () {
+      $('#videofilters').find('.active').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    /**
+     * @description  Relayout Isotop
+     */
+    $('a[href="#cmsPage12"]').on('shown.bs.tab', function (e) {
+      $videogallery.isotope('layout');
+    });
+  }
+
+  /**
+   * @description  Upload video by click button or keypress enter
+   */
+  $('#uploadBtnVideo').click(uploadVideo);
+
+  /**
+   * @description  Delete Video
+   */
+  $('.delete-video').click(confirmdeleteVideo);
+
+  /**
+   * @description  Edit Video
+   */
+  $('.dialog-open-video').click(openDialogEditVideo);
+
+  /**
+   * @description   Update Video
+   */
+  $('#udpateVideo').on('click', function (e) {
+    // Stop, the default action of the event will not be triggered
+    e.preventDefault();
+
+    if (debug) {
+      console.log('----------- fn #udpateVideo click -----------')
+    }
+
+    // ------------ Basic variable
+
+    // Get value
+    var videoID = $('input[name=envo_editvideoid]').val();
+    var descVideo = $('#desc').val();
+    var shortdescVideo = $('#shortdesc').val();
+    var catVideo = $('select[name="envo_videocategory_dialog"]').val();
+
+    // ------------ Jquery code
+
+    // Ajax
+    $.ajax({
+      url: '/plugins/intranet2/admin/ajax/int2_table_update_video.php',
+      type: 'POST',
+      datatype: 'json',
+      data: {
+        videoID: videoID,
+        descVideo: descVideo,
+        shortdescVideo: shortdescVideo,
+        catVideo: catVideo
+      },
+      success: function (data) {
+
+        if (data.status == 'update_success') {
+          // IF DATA SUCCESS
+
+          // Edit Time
+          $('#timeedit').html(data.data[0].updated);
+
+          // Add data.shortdescription to Isotop item
+          var elClass0 = $('#' + data.data[0].id + '.gallery-item-' + data.data[0].id);
+          elClass0.find('.shortdesc').text(data.data[0].shortdescription);
+          elClass0.find('.date').text(data.data[0].createdate_format);
+
+          // Add data.category to Isotop item
+          var elClass1 = $('#' + data.data[0].id).attr('class').split(' ')[0];
+          $('#' + data.data[0].id + '.' + elClass1).removeClass().addClass(elClass1 + ' ' + data.data[0].category);
+
+          // Notification
+          // Apply the plugin to the container
+          $('#video_notify_edit').pgNotification({
+            style: 'bar',
+            message: '<strong>Success:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'success',
+            showClose: false
+          }).show();
+
+        } else {
+          // IF DATA ERROR
+
+          // Notification
+          // Apply the plugin to the container
+          $('#video_notify_edit').pgNotification({
+            style: 'bar',
+            message: '<strong>Error:</strong> ' + data.status_msg,
+            position: 'top',
+            timeout: 2000,
+            type: 'danger',
+            showClose: false
+          }).show();
+
+        }
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        if (jqXHR.status === 0) {
+          if (debug) console.log('Ajax => Not connect, Verify Network');
+        } else if (jqXHR.status == 404) {
+          if (debug) console.log('Ajax => Requested page not found [404] | ' + jqXHR.responseText);
+        } else if (jqXHR.status == 500) {
+          if (debug) console.log('Ajax => Internal Server Error [500] | ' + jqXHR.responseText);
+        } else if (textStatus === 'parsererror') {
+          if (debug) console.log('Ajax => Requested JSON parse failed');
+        } else if (textStatus === 'timeout') {
+          if (debug) console.log('Ajax => Time out error | ' + textStatus + ': ' + errorThrown);
+        } else if (textStatus === 'abort') {
+          if (debug) console.log('Ajax => Ajax request aborted');
+        } else {
+          if (debug) console.log('Ajax => Unexpected Error | ' + jqXHR.responseText);
+        }
+
+      },
+      complete: function () {
+
+      }
+    });
+
+  });
 
 });
 
@@ -7308,7 +7748,7 @@ $(function () {
             var divdata = '';
             divdata += '<p><strong>' + data.status_msg + '</strong></p>' +
               '<p>Doba zpracování požadavku: <span id="ajaxTime"></span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
-              '<p>Vyhledávací řetězec: <span>ico=' + result.search_string.ares_ico + '</span></p><hr>';
+              '<p>Vyhledávací řetězec => <span>ico=' + result.search_string.ares_ico + '</span></p><hr>';
 
             divdata += '<table class="table">';
             divdata += '<thead><tr><th>IČ</th><th>Název subjektu</th><th>Sídlo</th></tr></thead>';
@@ -7347,7 +7787,7 @@ $(function () {
             var divdata = '';
             divdata += '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
               '<p>Doba zpracování požadavku: <span id="ajaxTime"></span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
-              '<p>Vyhledávací řetězec: <span>ares_obec=' + result.search_string.ares_obec + ' ares_ulice=' + result.search_string.ares_ulice + ' ares_corientacni=' + result.search_string.ares_corientacni + ' ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>' +
+              '<p>Vyhledávací řetězec => <span>ares_obec=' + result.search_string.ares_obec + ' | ares_ulice=' + result.search_string.ares_ulice + ' | ares_corientacni=' + result.search_string.ares_corientacni + ' | ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>' +
               '<p>' + data.status_info + ' => ';
 
             $.each(data.data, function (key, value) {
@@ -7381,7 +7821,7 @@ $(function () {
           // Loading data progress
           $('#loadingdata').hide().html('');
           $('#timer').timer('remove');
-          
+
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);
@@ -7451,7 +7891,7 @@ $(function () {
           // Loading data progress
           $('#loadingdata').hide().html('');
           $('#timer').timer('remove');
-          
+
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           if (debug) {
@@ -7582,7 +8022,7 @@ $(function () {
             var divdata = '';
             divdata += '<p><strong>' + data.status_msg + '</strong></p>' +
               '<p>Doba zpracování požadavku: <span id="ajaxTime"></span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
-              '<p>Vyhledávací řetězec: <span>ares_obec=' + result.search_string.ares_obec + ' ares_ulice=' + result.search_string.ares_ulice + ' ares_corientacni=' + result.search_string.ares_corientacni + ' ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>';
+              '<p>Vyhledávací řetězec => <span>ares_obec=' + result.search_string.ares_obec + ' | ares_ulice=' + result.search_string.ares_ulice + ' | ares_corientacni=' + result.search_string.ares_corientacni + ' | ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>';
 
             divdata += '<table class="table">';
             divdata += '<thead><tr><th>IČ</th><th>Název subjektu</th><th>Sídlo</th></tr></thead>';
@@ -7622,7 +8062,7 @@ $(function () {
             var divdata = '';
             divdata += '<p style="color: #C10000;"><i class="fa fa-exclamation"></i> <strong>' + data.status_msg + '</strong></p>' +
               '<p>Doba zpracování požadavku: <span id="ajaxTime">' + totalTime + '</span><span class="float-right">Počet nalezených záznamů: <strong>' + data.count_data + '</strong></span></p>' +
-              '<p>Vyhledávací řetězec: <span>ares_obec=' + result.search_string.ares_obec + ' ares_ulice=' + result.search_string.ares_ulice + ' ares_corientacni=' + result.search_string.ares_corientacni + ' ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>' +
+              '<p>Vyhledávací řetězec => <span>ares_obec=' + result.search_string.ares_obec + ' | ares_ulice=' + result.search_string.ares_ulice + ' | ares_corientacni=' + result.search_string.ares_corientacni + ' | ares_cpopisne=' + result.search_string.ares_cpopisne + '</span></p><hr>' +
               '<p>' + data.status_info + ' => ';
 
             $.each(data.data, function (key, value) {
@@ -7929,7 +8369,7 @@ $(function () {
           // Loading data progress
           $('#loadingdata').hide().html('');
           $('#timer').timer('remove');
-          
+
           // Ajax time
           var totalTime = msToTime(Math.floor(new Date().getTime() - ajaxTime));
           $('#ajaxTime').html(totalTime);

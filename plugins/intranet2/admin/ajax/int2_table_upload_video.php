@@ -204,6 +204,8 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 																		subcategory = "",
 																		ftime = "' . smartsql($time) . '",
 																		fsize = "' . smartsql($size) . '",
+																		width = "' . smartsql($_REQUEST['videoWidth']) . '",
+																		height = "' . smartsql($_REQUEST['videoHeight']) . '",
 																		created = NOW(),
 																		updated = NOW()');
 
@@ -223,6 +225,8 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 					'filepath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filename"],
 					'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
 					'category'         => $row1["category"],
+					'width'            => $row1["width"],
+					'height'           => $row1["height"],
 					'created'          => $row1["created"],
 					'updated'          => $row1["updated"],
 				);

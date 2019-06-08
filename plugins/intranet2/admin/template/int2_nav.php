@@ -38,6 +38,7 @@ if ($page1 == 'contract' && ($page2 == '!' || $page2 == 'newcontract' || $page2 
 		<li class="nav-item-header">
 			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlint2["int2_menu"]["int2m2"] ?></div>
 		</li>
+
 		<li class="<?= $classint2subsection1 ?>">
 			<a href="javascript:;"><?= $tlint2["int2_menu"]["int2m2"] ?>
 				<span class="arrow <?= $classint2subsection1 ?>"></span></a>

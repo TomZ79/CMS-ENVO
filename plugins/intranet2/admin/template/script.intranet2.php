@@ -45,10 +45,10 @@ if ($page == 'intranet2' && $page1 == 'house' && ($page2 == 'edithouse' || $page
 		echo $Html -> addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
 	}
 	// Plugin Fancybox
-	echo $Html -> addScript('/assets/plugins/fancybox/3.2.5/js/jquery.fancybox.min.js');
+	echo $Html -> addScript('/assets/plugins/fancybox/3.5.7/js/jquery.fancybox.min.js');
 	// Plugin Isotope
 	echo $Html -> addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
-
+	
 }
 
 if ($page == 'intranet2' && $page1 != 'maps') {

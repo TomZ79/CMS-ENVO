@@ -76,6 +76,7 @@
 						<tbody>
 
 						<?php
+						echo array_values($ENVO_HOUSE_SEARCH["searchdata"])[0];
 						// Loop Array at second item
 						foreach (array_slice($ENVO_HOUSE_SEARCH, 1) as $hs) { ?>
 							<tr>
@@ -85,7 +86,7 @@
 									<?php
 
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor($hs["parseurl"], ($hs["searchdata"]["searchobject"] ? str_highlight($hs["name"], $hs["searchdata"]["searchobject"], 'text-orange-800 font-weight-bold') : $hs["name"]));
+									echo $Html -> addAnchor($hs["parseurl"], (array_values($ENVO_HOUSE_SEARCH["searchdata"])[0] ? $hs["name"] : $hs["name"]));
 									?>
 
 								</td>

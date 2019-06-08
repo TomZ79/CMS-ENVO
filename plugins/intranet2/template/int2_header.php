@@ -7,6 +7,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 ?>
 <!DOCTYPE html>
 <html lang="<?= $site_language ?>">
+<!-- BEGIN HEAD -->
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 	<meta charset="utf-8"/>
@@ -56,7 +57,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog.css');
 		echo $Html -> addStylesheet('/admin/assets/plugins/codrops-dialogFx/dialog-sandra.css');
 		// Plugin Fancybox
-		echo $Html -> addStylesheet('/assets/plugins/fancybox/3.2.5/css/jquery.fancybox.min.css');
+		echo $Html -> addStylesheet('/assets/plugins/fancybox/3.5.7/css/jquery.fancybox.min.css');
 		// OSM maps
 		echo $Html -> addScript('https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js');
 		echo $Html -> addStylesheet('https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css');
@@ -66,6 +67,16 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
 
 	<!-- END PLUGIN CSS -->
 	<!-- BEGIN CORE CSS FRAMEWORK -->
+	<?php
+	if ($page == 'intranet' && $page1 == 'maps' && $page2 == 'maps1') {
+
+		// OSM Css style
+		echo $Html -> addStylesheet('https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css');
+		echo $Html -> addStylesheet('https://cdn.jsdelivr.net/npm/ol-contextmenu@3.3.0/dist/ol-contextmenu.min.css');
+
+	}
+	?>
+
 	<?php
 	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 	// Main Custom StyleSheet

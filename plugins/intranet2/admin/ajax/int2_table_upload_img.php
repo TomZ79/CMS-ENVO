@@ -22,6 +22,7 @@ header('Content-Type: application/json;charset=utf-8');
 
 // Define basic variable
 $data_array = array ();
+$img_count  = array ();
 
 // Set basic value
 
@@ -282,7 +283,7 @@ if (isset($_FILES['file'])) {
 																	widththumb = "' . smartsql($width_n) . '",
 																	heightthumb = "' . smartsql($height_n) . '",
 																	mainfolder = "' . smartsql($mainfolder) . '",
-																	category = "' . smartsql($_REQUEST['videoCat']) . '",
+																	category = "' . smartsql($_REQUEST['imgCat']) . '",
 																	subcategory = "",
 																	ftime = "' . smartsql($time) . '",
 																	fsize = "' . smartsql($size) . '",
@@ -322,10 +323,20 @@ if (isset($_FILES['file'])) {
 					'updated'               => $row1["updated"],
 				);
 
+				// EN: Getting count image in each year
+				// CZ:
+				$result2 = $envodb -> query('SELECT COUNT(id) AS countimg, YEAR(exifcreatedate) AS year FROM ' . DB_PREFIX . 'int2_houseimg WHERE houseid = "' . $_REQUEST['houseID'] . '" GROUP BY YEAR(exifcreatedate)');
+				while ($row2 = $result2 -> fetch_assoc()) {
+					// EN: Insert each record into array
+					// CZ: Vložení získaných dat do pole
+					$img_count[] = $row2;
+				}
+
 				// Data for JSON
 				$envodata = array (
 					'status'     => 'upload_success',
 					'status_msg' => 'Image upload was successful.',
+					'img_count'  => $img_count,
 					'data'       => $data_array
 				);
 

@@ -505,7 +505,7 @@ $(function () {
 
 
 /** MODIFICATION - INIT and CONFIG BOOTSTRAP TAGSINPUT PLUGIN
- * * @require: Bootstrap Tagsinput Plugin
+ *  @require: Bootstrap Tagsinput Plugin
  ========================================================================*/
 $(function () {
 

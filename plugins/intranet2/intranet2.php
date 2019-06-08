@@ -85,6 +85,15 @@ $envotable14 = DB_PREFIX . 'int2_settings_ku';
 // CZ: Info o notifikacích
 $ENVO_NOTIFICATION = envo_get_notification_unread(ENVO_USERGROUPID, FALSE, $ENVO_SETTING_VAL['int2dateformat'], $ENVO_SETTING_VAL['int2timeformat']);
 
+// EN: Getting the data about the Správa nemovitosti
+// CZ: Získání dat o Správě nemovitosti
+$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_settings_estatemanagement');
+while ($row = $result -> fetch_assoc()) {
+	// EN: Insert each record into array
+	// CZ: Vložení získaných dat do pole
+	$ENVO_MANAGEMENT[] = $row;
+}
+
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
 
@@ -280,12 +289,12 @@ switch ($page1) {
 								// EN: Insert each record into array
 								// CZ: Vložení získaných dat do pole
 								$ENVO_HOUSE_SEARCH[] = array (
-									'id'         => $row['id'],
-									'name'       => $row['name'],
-									'street'     => $row['street'],
-									'city_name'  => $row['city_name'],
-									'ic'         => $row['ic'],
-									'parseurl'   => $parseurl,
+									'id'        => $row['id'],
+									'name'      => $row['name'],
+									'street'    => $row['street'],
+									'city_name' => $row['city_name'],
+									'ic'        => $row['ic'],
+									'parseurl'  => $parseurl,
 								);
 							}
 
@@ -408,8 +417,8 @@ switch ($page1) {
 							}
 
 							$ENVO_HOUSE_SEARCH['searchdata'] = array (
-								'searchobject'     => $object_impl,
-								'estatemanagement' => $estatemanagement,
+								'searchobject'       => $object_impl,
+								'estatemanagement'   => $estatemanagement,
 								'preparedness_dvbt2' => $preparedness_dvbt2
 							);
 
@@ -421,12 +430,12 @@ switch ($page1) {
 								// EN: Insert each record into array
 								// CZ: Vložení získaných dat do pole
 								$ENVO_HOUSE_SEARCH[] = array (
-									'id'         => $row['id'],
-									'name'       => $row['name'],
-									'street'     => $row['street'],
-									'city_name'  => $row['city_name'],
-									'ic'         => $row['ic'],
-									'parseurl'   => $parseurl,
+									'id'        => $row['id'],
+									'name'      => $row['name'],
+									'street'    => $row['street'],
+									'city_name' => $row['city_name'],
+									'ic'        => $row['ic'],
+									'parseurl'  => $parseurl,
 								);
 							}
 
@@ -588,6 +597,7 @@ switch ($page1) {
 								'address'     => $row['address'],
 								'phone'       => $row['phone'],
 								'email'       => $row['email'],
+								'facebook'    => $row['facebook'],
 								'status'      => $status,
 								'birthdate'   => (!empty((int)$row['birthdate']) ? date($ENVO_SETTING_VAL['int2dateformat'], strtotime($row['birthdate'])) : ''),
 								'description' => $row['description'],
@@ -700,7 +710,7 @@ switch ($page1) {
 
 						if (!empty($ENVO_FORM_DATA_IMG_COUNT) && is_array($ENVO_FORM_DATA_IMG_COUNT)) {
 							foreach ($ENVO_FORM_DATA_IMG_COUNT as $img_c) {
-								$IMG_COUNT .=  $img_c["year"] . ' -> Počet: ' . $img_c["countimg"] . ' / ';
+								$IMG_COUNT .= $img_c["year"] . ' -> Počet: ' . $img_c["countimg"] . ' / ';
 							}
 						}
 
@@ -749,7 +759,7 @@ switch ($page1) {
 
 						if (!empty($ENVO_FORM_DATA_VIDEO_COUNT) && is_array($ENVO_FORM_DATA_VIDEO_COUNT)) {
 							foreach ($ENVO_FORM_DATA_VIDEO_COUNT as $video_c) {
-								$VIDEO_COUNT .=  $video_c["year"] . ' -> Počet: ' . $video_c["countvideo"] . ' / ';
+								$VIDEO_COUNT .= $video_c["year"] . ' -> Počet: ' . $video_c["countvideo"] . ' / ';
 							}
 						}
 
@@ -831,15 +841,6 @@ switch ($page1) {
 				// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
 				// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
-				// EN: Getting the data about the Období výstavby domu
-				// CZ: Získání dat o Období výstavby domu
-				$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_settings_estatemanagement');
-				while ($row = $result -> fetch_assoc()) {
-					// EN: Insert each record into array
-					// CZ: Vložení získaných dat do pole
-					$ENVO_MANAGEMENT[] = $row;
-				}
-
 				// EN: Breadcrumbs activation
 				// CZ: Aktivace Breadcrumbs
 				$BREADCRUMBS = TRUE;
@@ -865,7 +866,7 @@ switch ($page1) {
 
 				// EN: Breadcrumbs activation
 				// CZ: Aktivace Breadcrumbs
-				$BREADCRUMBS = TRUE;
+				$BREADCRUMBS = FALSE;
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
