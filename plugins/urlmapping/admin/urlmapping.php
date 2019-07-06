@@ -85,7 +85,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'new.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'urlm_new.php';
 
 		break;
 	case 'edit':
@@ -156,7 +156,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'urlm_edit.php';
 
 		break;
 	case 'lock':

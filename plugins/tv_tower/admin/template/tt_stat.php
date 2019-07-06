@@ -26,7 +26,7 @@ while ($rwresexh2 = $resexh2 -> fetch_assoc()) {
 
 		<?php
 		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-		echo $Html -> addTag('i', '', 'pg-download mr-1');
+		echo $Html -> addTag('i', '', 'pg-download mr-2');
 		echo $Html -> addTag('h3', 'Statistika TV Tower', 'box-title');
 		?>
 

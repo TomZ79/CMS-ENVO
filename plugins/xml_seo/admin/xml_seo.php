@@ -273,7 +273,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_create.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xmlseo_create.php';
 
 		break;
 	case 'view':
@@ -309,7 +309,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_view.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xmlseo_view.php';
 
 		break;
 	default:
@@ -418,7 +418,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_setting.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xmlseo_setting.php';
 }
 
 ?>

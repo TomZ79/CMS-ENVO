@@ -117,7 +117,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newbh.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh_new.php';
 
 		break;
 	case 'edit':
@@ -210,7 +210,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editbh.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh_edit.php';
 
 		break;
 	case 'lock':

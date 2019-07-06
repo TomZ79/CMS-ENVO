@@ -15,6 +15,10 @@ if ($page == 'blog') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlblog["blog_menu"]["blogm10"] ?></div>
+		</li>
+
 		<li class="<?= (($page == 'blog' && $page1 == '') || ($page == 'blog' && $page1 == 'new') || ($page == 'blog' && $page1 == 'edit')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -49,6 +53,9 @@ if ($page == 'blog') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlblog["blog_menu"]["blogm4"] ?></div>
+		</li>
 		<li class="<?= (($page == 'blog' && $page1 == 'categories') || ($page == 'blog' && $page1 == 'newcategory')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -83,6 +90,9 @@ if ($page == 'blog') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlblog["blog_menu"]["blogm9"] ?></div>
+		</li>
 		<li class="<?= ($page == 'blog' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

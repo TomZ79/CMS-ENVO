@@ -1,5 +1,8 @@
 <!-- START SITE EDIT -->
 <li class="list-divider"></li>
+<li class="nav-item-header">
+	<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlsedi["siteedit_menu"]["sem0"] ?></div>
+</li>
 <li class="<?= ($page == 'site-editor') ? 'submenu-active' : '' ?>">
 
 	<?php

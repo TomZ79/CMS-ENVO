@@ -15,6 +15,9 @@ if ($page == 'faq') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlf["faq_menu"]["faqm10"] ?></div>
+		</li>
 		<li class="<?= (($page == 'faq' && $page1 == '') || ($page == 'faq' && $page1 == 'new') || ($page == 'faq' && $page1 == 'edit')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -49,6 +52,9 @@ if ($page == 'faq') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlf["faq_menu"]["faqm4"] ?></div>
+		</li>
 		<li class="<?= (($page == 'faq' && $page1 == 'categories') || ($page == 'faq' && $page1 == 'newcategory')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -83,6 +89,9 @@ if ($page == 'faq') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlf["faq_menu"]["faqm9"] ?></div>
+		</li>
 		<li class="<?= ($page == 'faq' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

@@ -16,6 +16,10 @@ if ($page == 'blank-plugin') {
 
 	<ul class="sub-menu">
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlbp["bp_menu"]["bpm1"] ?></div>
+		</li>
+
 		<li class="<?= ($page == 'blank-plugin' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

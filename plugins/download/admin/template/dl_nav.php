@@ -15,6 +15,9 @@ if ($page == 'download') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tld["downl_menu"]["downlm1"] ?></div>
+		</li>
 		<li class="<?= (($page == 'download' && $page1 == '') || ($page == 'download' && $page1 == 'new') || ($page == 'download' && $page1 == 'edit')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -49,6 +52,9 @@ if ($page == 'download') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tld["downl_menu"]["downlm4"] ?></div>
+		</li>
 		<li class="<?= (($page == 'download' && $page1 == 'categories') || ($page == 'download' && $page1 == 'newcategory')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -83,6 +89,9 @@ if ($page == 'download') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tld["downl_menu"]["downlm9"] ?></div>
+		</li>
 		<li class="<?= ($page == 'download' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

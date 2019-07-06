@@ -15,6 +15,9 @@ if ($page == 'news') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm160"] ?></div>
+		</li>
 		<li class="<?= (($page == 'news' && $page1 == '') || ($page == 'news' && $page1 == 'newnews') || ($page == 'news' && $page1 == 'edit')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -47,6 +50,9 @@ if ($page == 'news') {
 
 			</li>
 		<?php } ?>
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm163"] ?></div>
+		</li>
 		<li class="<?= ($page == 'news' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

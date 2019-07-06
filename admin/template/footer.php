@@ -173,7 +173,7 @@ if (!empty($page)) {
 		}
 	} elseif (!in_array($page, $ap) && !empty($page) && ($page != '404')) {
 		$rPage      = str_replace('-', '_', $page);
-		$jscodeFile = '../plugins/' . $rPage . '/admin/template/script.' . $rPage . '.php';
+		$jscodeFile = '../plugins/' . $rPage . '/admin/template/' . $rPage . '_js_admin.php';
 		if (file_exists($jscodeFile)) {
 			include_once($jscodeFile);
 		} else {

@@ -183,7 +183,7 @@ if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '
         require_once APP_PATH.\'plugins/urlmapping/admin/urlmapping.php\';
         $ENVO_PROVED = 1;
         $checkp = 1;
-     }", "../plugins/urlmapping/admin/template/nav.php", "1", "uninstall.php", "1.1", NOW())');
+     }", "../plugins/urlmapping/admin/template/urlm_nav.php", "1", "uninstall.php", "1.1", NOW())');
 
 			// EN: Now get the plugin 'id' from table 'plugins' for futher use
 			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -209,7 +209,7 @@ if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '
 			// CZ: Vložení potřebných dat to tabulky 'pluginhooks'
 			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "URL Mapping Admin Language", "' . $adminlang . '", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "URL Mapping Admin CSS", "plugins/urlmapping/admin/template/css.urlmapping.php", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "URL Mapping Admin CSS", "plugins/urlmapping/admin/template/urlm_css_admin.php", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_top", "URL Mapping Index", "' . $index_top . '", "urlmapping", 1, 1, "' . $rows['id'] . '", NOW())');
 
 			// EN: Create table for plugin

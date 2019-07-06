@@ -371,6 +371,9 @@
 
 			<ul class="sub-menu">
 				<!-- USER -->
+				<li class="nav-item-header">
+					<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm103"] ?></div>
+				</li>
 				<li class="<?= ($page == 'users') ? 'submenu-active' : '' ?>">
 
 					<?php
@@ -405,6 +408,9 @@
 				<?php } ?>
 				<li class="list-divider"></li>
 				<!-- USERGROUP -->
+				<li class="nav-item-header">
+					<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm90"] ?></div>
+				</li>
 				<li class="<?= ($page == 'usergroup') ? 'submenu-active' : '' ?>">
 
 					<?php
@@ -440,6 +446,9 @@
 				<li class="list-divider"></li>
 				<!-- CATEGORIES -->
 				<?php if ($ENVO_MODULEM) { ?>
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm110"] ?></div>
+					</li>
 					<li class="<?= ($page == 'categories') ? 'submenu-active' : '' ?>">
 
 						<?php
@@ -474,6 +483,9 @@
 					<?php } ?>
 					<li class="list-divider"></li>
 					<!-- PAGES -->
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm120"] ?></div>
+					</li>
 					<li class="<?= ($page == 'page') ? 'submenu-active' : '' ?>">
 
 						<?php
@@ -508,6 +520,9 @@
 					<?php } ?>
 					<li class="list-divider"></li>
 					<!-- SITEMAP -->
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm140"] ?></div>
+					</li>
 					<li class="<?= ($page == 'sitemap') ? 'submenu-active' : '' ?>">
 
 						<?php
@@ -519,6 +534,9 @@
 
 					</li>
 					<!-- SEARCHSETTING -->
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm151"] ?></div>
+					</li>
 					<li class="<?= ($page == 'searchsetting') ? 'submenu-active' : '' ?>">
 
 						<?php

@@ -183,7 +183,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
         require_once APP_PATH.\'plugins/blog/admin/blog.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/blog/admin/template/blognav.php", "blog", "uninstall.php", "1.1", NOW())');
+        }", "../plugins/blog/admin/template/blog_nav.php", "blog", "uninstall.php", "1.1", NOW())');
 
 			// EN: Now get the plugin 'id' from table 'plugins' for futher use
 			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -403,7 +403,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blog Site Language", "' . $sitelang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Blog Admin CSS", "plugins/blog/admin/template/css.blog.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Blog Admin CSS", "plugins/blog/admin/template/blog_css_admin.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Blog Usergroup SQL", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Blog Search PHP", "' . $sitephpsearch . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_rss", "Blog RSS PHP", "' . $sitephprss . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),

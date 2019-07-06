@@ -275,7 +275,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newdownload.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_new.php';
 
 		break;
 	case 'edit':
@@ -588,7 +588,7 @@ switch ($page1) {
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
-			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editdownload.php';
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_edit.php';
 
 		} else {
 			// EN: Redirect page
@@ -704,7 +704,7 @@ switch ($page1) {
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
-			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'catsort.php';
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_cat_sort.php';
 
 		} else {
 			// EN: Redirect page
@@ -845,7 +845,7 @@ switch ($page1) {
 
 					// EN: Load the php template
 					// CZ: Načtení php template (šablony)
-					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editcat.php';
+					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_edit_cat.php';
 
 				} else {
 					// EN: Redirect page
@@ -930,7 +930,7 @@ switch ($page1) {
 
 				// EN: Load the php template
 				// CZ: Načtení php template (šablony)
-				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'cat.php';
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_cat.php';
 		}
 		break;
 	case 'newcategory':
@@ -1023,7 +1023,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newcat.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_new_cat.php';
 
 		break;
 	case 'setting':
@@ -1218,7 +1218,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'setting.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'dl_setting.php';
 
 		break;
 	case 'quickedit':

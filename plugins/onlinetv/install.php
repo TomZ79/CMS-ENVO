@@ -227,7 +227,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
         $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Online TV Admin Language", "' . $adminlang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Online TV Site Language", "' . $sitelang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Online TV Admin CSS", "plugins/' . $pluginname . '/admin/template/css.onlinetv.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Online TV Admin CSS", "plugins/' . $pluginname . '/admin/template/onlinetv_css_admin.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Online TV Usergroup New", "plugins/' . $pluginname . '/admin/template/usergroup_new.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Online TV Usergroup Edit", "plugins/' . $pluginname . '/admin/template/usergroup_edit.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Online TV Usergroup SQL", "' . $insertphpcode . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW())');

@@ -254,7 +254,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newwiki.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_new.php';
 
 		break;
 	case 'edit':
@@ -663,7 +663,7 @@ switch ($page1) {
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
-			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editwiki.php';
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_edit.php';
 
 		} else {
 			// EN: Redirect page
@@ -783,7 +783,7 @@ switch ($page1) {
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
-			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wikicatsort.php';
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_cat_sort.php';
 
 		} else {
 			// EN: Redirect page
@@ -930,7 +930,7 @@ switch ($page1) {
 
 					// EN: Load the php template
 					// CZ: Načtení php template (šablony)
-					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editwikicat.php';
+					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_edit_cat.php';
 
 				} else {
 					// EN: Redirect page
@@ -1009,7 +1009,7 @@ switch ($page1) {
 
 				// EN: Load the php template
 				// CZ: Načtení php template (šablony)
-				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wikicat.php';
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_cat.php';
 		}
 		break;
 	case 'newcategory':
@@ -1102,7 +1102,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newwikicat.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_new_cat.php';
 
 		break;
 	case 'setting':
@@ -1295,7 +1295,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wikisetting.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'wiki_setting.php';
 
 		break;
 	case 'quickedit':

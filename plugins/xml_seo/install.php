@@ -200,7 +200,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
         require_once APP_PATH.\'plugins/xml_seo/admin/xml_seo.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/xml_seo/admin/template/xml_seonav.php", "NULL", "uninstall.php", "1.3", NOW())');
+        }", "../plugins/xml_seo/admin/template/xmlseo_nav.php", "NULL", "uninstall.php", "1.3", NOW())');
 
 			// EN: Now get the plugin 'id' from table 'plugins' for futher use
 			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -223,7 +223,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 			// CZ: Vložení potřebných dat to tabulky 'pluginhooks'
 			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES 
 (NULL, "php_admin_lang", "XML SEO Admin Language", "' . $adminlang . '", "xmlseo", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "XML SEO Admin CSS", "plugins/xml_seo/admin/template/css.xml_seo.php", "xmlseo", 1, 4, "' . $rows['id'] . '", NOW())');
+(NULL, "tpl_admin_head", "XML SEO Admin CSS", "plugins/xml_seo/admin/template/xmlseo_css_admin.php", "xmlseo", 1, 4, "' . $rows['id'] . '", NOW())');
 
 			// EN: Insert data to table 'setting'
 			// CZ: Vložení potřebných dat to tabulky 'setting'

@@ -8,6 +8,9 @@ if ($page == 'xml_seo') {
 ?>
 
 <li class="list-divider"></li>
+<li class="nav-item-header">
+	<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlxml["xml_menu"]["xmlm0"] ?></div>
+</li>
 <li class="<?= $classxmlsection ?>">
 
 	<?php

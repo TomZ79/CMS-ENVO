@@ -15,6 +15,9 @@ if ($page == 'tags') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm170"] ?></div>
+		</li>
 		<li class="<?= ($page == 'tags' && $page1 == '') ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -34,6 +37,9 @@ if ($page == 'tags') {
 			echo $Html -> addTag('span', text_clipping_lower($tl["submenu"]["sm171"]), 'icon-thumbnail');
 			?>
 
+		</li>
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm172"] ?></div>
 		</li>
 		<li class="<?= ($page == 'tags' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 

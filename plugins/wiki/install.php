@@ -182,7 +182,7 @@ if (file_exists(APP_PATH . 'plugins/wiki/admin/lang/' . $site_language . '.ini')
         require_once APP_PATH.\'plugins/wiki/admin/wiki.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/wiki/admin/template/wikinav.php", "wiki", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/wiki/admin/template/wiki_nav.php", "wiki", "uninstall.php", "1.0", NOW())');
 
 			// EN: Now get the plugin 'id' from table 'plugins' for futher use
 			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -389,7 +389,7 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
 			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Wiki Admin Language", "' . $adminlang . '", "wiki", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Wiki Site Language", "' . $sitelang . '", "wiki", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Wiki Admin CSS", "plugins/wiki/admin/template/css.wiki.php", "wiki", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Wiki Admin CSS", "plugins/wiki/admin/template/wiki_css_admin.php", "wiki", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Wiki Usergroup SQL", "' . $insertphpcode . '", "wiki", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Wiki Search PHP", "' . $sitephpsearch . '", "wiki", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_rss", "Wiki RSS PHP", "' . $sitephprss . '", "wiki", 1, 1, "' . $rows['id'] . '", NOW()),

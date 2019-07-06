@@ -15,6 +15,9 @@ if ($page == 'wiki') {
 	?>
 
 	<ul class="sub-menu">
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlw["wiki_menu"]["wikim10"] ?></div>
+		</li>
 		<li class="<?= (($page == 'wiki' && $page1 == '') || ($page == 'wiki' && $page1 == 'new') || ($page == 'wiki' && $page1 == 'edit')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -49,6 +52,9 @@ if ($page == 'wiki') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlw["wiki_menu"]["wikim4"] ?></div>
+		</li>
 		<li class="<?= (($page == 'wiki' && $page1 == 'categories') || ($page == 'wiki' && $page1 == 'newcategory')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -83,6 +89,9 @@ if ($page == 'wiki') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlw["wiki_menu"]["wikim9"] ?></div>
+		</li>
 		<li class="<?= ($page == 'wiki' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

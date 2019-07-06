@@ -228,14 +228,14 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
 
 				// EN: Insert code into admin/index.php
 				// CZ: Vložení kódu do admin/index.php
-				$insertadminindex = 'plugins/intranet2/admin/template/stat.php';
+				$insertadminindex = 'plugins/intranet2/admin/template/int2_stat.php';
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
         $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Intranet2 Admin Language", "' . $adminlang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Intranet2 Site Language", "' . $sitelang . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Intranet2 Admin CSS", "plugins/' . $pluginname . '/admin/template/css.intranet2.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Intranet2 Admin CSS", "plugins/' . $pluginname . '/admin/template/int2_css_admin.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Intranet2 Usergroup New", "plugins/' . $pluginname . '/admin/template/usergroup_new.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Intranet2 Usergroup Edit", "plugins/' . $pluginname . '/admin/template/usergroup_edit.php", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Intranet2 Usergroup SQL", "' . $insertphpcode . '", "' . $pluginname . '", 1, 1, "' . $rows['id'] . '", NOW()),

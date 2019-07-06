@@ -183,7 +183,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
         require_once APP_PATH.\'plugins/site_editor/admin/site_editor.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/site_editor/admin/template/site_editornav.php", "NULL", "uninstall.php", "1.1", NOW())');
+        }", "../plugins/site_editor/admin/template/se_nav.php", "NULL", "uninstall.php", "1.1", NOW())');
 
 			// EN: Now get the plugin 'id' from table 'plugins' for futher use
 			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -206,7 +206,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 			// CZ: Vložení potřebných dat to tabulky 'pluginhooks'
 			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Site Editor Admin Language", "' . $adminlang . '", "site_editor", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Site Editor Admin CSS", "plugins/site_editor/admin/template/css.site_editor.php", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
+(NULL, "tpl_admin_head", "Site Editor Admin CSS", "plugins/site_editor/admin/template/se_css_admin.php", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
 
 			$succesfully = 1;
 

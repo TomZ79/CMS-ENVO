@@ -221,7 +221,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
         $envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Blank Plugin Admin Language", "' . $adminlang . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blank Plugin Site Language", "' . $sitelang . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Blank Plugin Admin CSS", "plugins/blank_plugin/admin/template/css.blank_plugin.php", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Blank Plugin Admin CSS", "plugins/blank_plugin/admin/template/bp_css_admin.php", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Blank Plugin Usergroup New", "plugins/blank_plugin/admin/template/usergroup_new.php", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Blank Plugin Usergroup Edit", "plugins/blank_plugin/admin/template/usergroup_edit.php", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Blank Plugin Usergroup SQL", "' . $insertphpcode . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW())');

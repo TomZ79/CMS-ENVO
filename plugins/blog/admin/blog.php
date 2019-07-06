@@ -237,7 +237,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newblog.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_new.php';
 
 		break;
 	case 'edit':
@@ -527,7 +527,7 @@ switch ($page1) {
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
-			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editblog.php';
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_edit.php';
 
 		} else {
 			// EN: Redirect page
@@ -664,7 +664,7 @@ switch ($page1) {
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
-			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blogcatsort.php';
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_cat_sort.php';
 
 		} else {
 			// EN: Redirect page
@@ -807,7 +807,7 @@ switch ($page1) {
 
 					// EN: Load the php template
 					// CZ: Načtení php template (šablony)
-					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editblogcat.php';
+					$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_edit_cat.php';
 
 				} else {
 					// EN: Redirect page
@@ -886,7 +886,7 @@ switch ($page1) {
 
 				// EN: Load the php template
 				// CZ: Načtení php template (šablony)
-				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blogcat.php';
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_cat.php';
 		}
 		break;
 	case 'newcategory':
@@ -979,7 +979,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newblogcat.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_new_cat.php';
 
 		break;
 	case 'setting':
@@ -1175,7 +1175,7 @@ switch ($page1) {
 
 		// EN: Load the php template
 		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blogsetting.php';
+		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog_setting.php';
 
 		break;
 	case 'quickedit':

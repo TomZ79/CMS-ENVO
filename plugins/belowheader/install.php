@@ -183,7 +183,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
         require_once APP_PATH.\'plugins/belowheader/admin/belowheader.php\';
         $ENVO_PROVED = 1;
         $checkp = 1;
-      }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.2", NOW())');
+      }", "../plugins/belowheader/admin/template/bh_nav.php", "1", "uninstall.php", "1.3", NOW())');
 
 			// EN: Now get the plugin 'id' from table 'plugins' for futher use
 			// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -216,7 +216,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 			// CZ: Vložení potřebných dat to tabulky 'pluginhooks'
 			$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "BelowHeader Admin Language", "' . $adminlang . '", "belowheader", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "BelowHeader Admin CSS", "plugins/belowheader/admin/template/css.belowheader.php", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "BelowHeader Admin CSS", "plugins/belowheader/admin/template/bh_css_admin.php", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_top", "BelowHeader Index", "' . $index_top . '", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_below_header", "BelowHeader Input", "' . $belowheader . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_below_footer", "BelowHeader Footer", "' . $belowfooter . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW())');

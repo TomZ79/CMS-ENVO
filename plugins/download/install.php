@@ -204,7 +204,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         require_once APP_PATH.\'plugins/download/admin/download.php\';
            $ENVO_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.2.1", NOW())');
+        }", "../plugins/download/admin/template/dl_nav.php", "download", "uninstall.php", "1.2.1", NOW())');
 
 				// EN: Now get the plugin 'id' from table 'plugins' for futher use
 				// CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -326,7 +326,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 
 				// EN: Insert code into admin/index.php
 				// CZ: Vložení kódu do admin/index.php
-				$insertadminindex = 'plugins/download/admin/template/stat.php';
+				$insertadminindex = 'plugins/download/admin/template/dl_stat.php';
 
 				// EN: Frontend - template for display connect
 				// CZ: Frontend - šablona
@@ -426,7 +426,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 				$envodb -> query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Download Admin CSS", "plugins/download/admin/template/css.download.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Download Admin CSS", "plugins/download/admin/template/dl_css_admin.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Download Usergroup SQL", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_index", "Download Statistics Admin", "' . $insertadminindex . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Download Search PHP", "' . $sitephpsearch . '", "download", 1, 8, "' . $rows['id'] . '", NOW()),

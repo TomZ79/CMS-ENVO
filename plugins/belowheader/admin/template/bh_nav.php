@@ -1,6 +1,10 @@
 <!-- START BELOWHEADER SECTION -->
 <li class="list-divider"></li>
 
+<li class="nav-item-header">
+	<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tlbh["bh_menu"]["bhm0"] ?></div>
+</li>
+
 <li class="<?= ($page == 'belowheader') ? 'submenu-active' : '' ?>">
 
   <?php

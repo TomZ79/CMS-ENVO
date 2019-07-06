@@ -20,7 +20,9 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 	?>
 
 	<ul class="sub-menu">
-
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tltt["tt_menu"]["ttm1"] ?></div>
+		</li>
 		<li class="<?= (($page == 'tv-tower' && $page1 == 'tvprogram') || ($page == 'tv-tower' && $page1 == 'newprogram')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -55,6 +57,9 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tltt["tt_menu"]["ttm4"] ?></div>
+		</li>
 		<li class="<?= (($page == 'tv-tower' && $page1 == 'tvchannel') || ($page == 'tv-tower' && $page1 == 'newchannel')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -89,6 +94,9 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tltt["tt_menu"]["ttm7"] ?></div>
+		</li>
 		<li class="<?= (($page == 'tv-tower' && $page1 == 'tvtower') || ($page == 'tv-tower' && $page1 == 'newtvtower')) ? 'submenu-active' : '' ?>">
 
 			<?php
@@ -123,6 +131,9 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 		<?php } ?>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tltt["tt_menu"]["ttm11"] ?></div>
+		</li>
 		<li class="<?= $classttsection1 ?>">
 
 			<?php
@@ -157,6 +168,9 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
 		</li>
 		<li class="list-divider"></li>
 
+		<li class="nav-item-header">
+			<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tltt["tt_menu"]["ttm10"] ?></div>
+		</li>
 		<li class="<?= ($page == 'tv-tower' && $page1 == 'setting') ? 'submenu-active' : '' ?>">
 
 			<?php

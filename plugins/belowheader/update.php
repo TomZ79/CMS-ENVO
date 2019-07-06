@@ -17,7 +17,7 @@ $succesfully = 0;
 
 // PLUGIN CONFIG
 // New plugin version after update
-$pluginversion = '1.2';
+$pluginversion = '1.3';
 $nameofplugin  = 'BelowHeader';
 
 ?>
