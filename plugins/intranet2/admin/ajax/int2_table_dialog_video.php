@@ -33,20 +33,21 @@ $envodata .= '
     <li class="nav-item"><a href="#" class="" data-toggle="tab" data-target="#info2" role="tab" style="padding: 12px 10px;">Náhled</a></li>
     <li class="nav-item"><a href="#" class="" data-toggle="tab" data-target="#info3" role="tab" style="padding: 12px 10px;">Video</a></li>
   </ul>
+  
   <div class="tab-content">
     <div class="tab-pane fade active show" id="info1" role="tabpanel">
 			<div class="row" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
 				<div class="col-sm-12">
 					<div class="row m-b-10">
 						<div class="col-sm-12">
-							<p><strong>Krátky Popis</strong> - maxlength 70 characters</p>
-							<p><input type="text" id="shortdesc" class="form-control" value="' . $row["shortdescription"] . '" maxlength="70"></p>
+							<p><strong>Krátký Popis</strong> - maxlength 70 characters</p>
+							<p><input type="text" id="shortdesc_video" class="form-control" value="' . $row["shortdescription"] . '" maxlength="70"></p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<p><strong>Popis</strong></p>
-							<p><textarea id="desc" style="width: 100%;height: 100px;padding: 10px;">' . $row["description"] . '</textarea></p>
+							<p><textarea id="desc_video" style="width: 100%;height: 100px;padding: 10px;">' . $row["description"] . '</textarea></p>
 						</div>
 					</div>
 					<div class="row m-b-10">
@@ -80,12 +81,14 @@ $envodata .= '
       </div>
     </div>
     <div class="tab-pane fade" id="info2" role="tabpanel" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
-
+      <h6><strong>BASIC INFO</strong></h6>
     </div>
     <div class="tab-pane fade" id="info3" role="tabpanel" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
+      <h6><strong>BASIC INFO</strong></h6>
       
     </div>
   </div>
+  
   <input type="hidden" name="envo_editvideoid" value="' . $row["id"] . '">
   <input type="hidden" name="" id="videofolderoriginal_path" value="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filename"] . '">
 	<!-- END CONTENT -->

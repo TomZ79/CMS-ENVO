@@ -114,6 +114,10 @@
 			<ul class="sub-menu">
 
 				<?php if (ENVO_SUPERADMINACCESS) { ?>
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm11"] ?></div>
+					</li>
+
 					<li class="<?= ($page == 'plugins') ? 'submenu-active' : '' ?>">
 
 						<?php
@@ -170,6 +174,10 @@
 					</li>
 					<li class="list-divider"></li>
 
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm20"] ?></div>
+					</li>
+
 					<li class="<?= ($page == 'template') ? 'submenu-active' : '' ?>">
 
 						<?php
@@ -221,6 +229,10 @@
 
 					</li>
 					<li class="list-divider"></li>
+
+					<li class="nav-item-header">
+						<div class="text-uppercase text-master fs-14 bold" style="line-height: 40px;"><?= $tl["submenu"]["sm30"] ?></div>
+					</li>
 
 					<li class="<?= ($page == 'maintenance') ? 'submenu-active' : '' ?>">
 

@@ -66,14 +66,14 @@ $envodata .= '
 				<div class="col-sm-12">
 					<div class="row m-b-10">
 						<div class="col-sm-12">
-							<p><strong>Krátky Popis</strong> - maxlength 70 characters</p>
-							<p><input type="text" id="shortdesc" class="form-control" value="' . $row["shortdescription"] . '" maxlength="70"></p>
+							<p><strong>Krátký Popis</strong> - maxlength 70 characters</p>
+							<p><input type="text" id="shortdesc_img" class="form-control" value="' . $row["shortdescription"] . '" maxlength="70"></p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<p><strong>Popis</strong></p>
-							<p><textarea id="desc" style="width: 100%;height: 100px;padding: 10px;">' . $row["description"] . '</textarea></p>
+							<p><textarea id="desc_img" style="width: 100%;height: 100px;padding: 10px;">' . $row["description"] . '</textarea></p>
 						</div>
 					</div>
 					<div class="row m-b-10">

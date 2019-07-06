@@ -3080,7 +3080,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 
 												<?php
 												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-												echo $Html -> addInput('text', 'envo_videowidth', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
+												echo $Html -> addInput('text', 'envo_videowidth', '', '', 'form-control', array ('placeholder' => 'Šířka videa'));
 												?>
 
 											</div>
@@ -3093,7 +3093,7 @@ if ($ENVO_FORM_DATA["blacklist"] == '1') {
 
 												<?php
 												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-												echo $Html -> addInput('text', 'envo_videoheight', '', '', 'form-control', array ('placeholder' => 'Popis souboru'));
+												echo $Html -> addInput('text', 'envo_videoheight', '', '', 'form-control', array ('placeholder' => 'Výška videa'));
 												?>
 
 											</div>

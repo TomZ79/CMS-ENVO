@@ -6832,8 +6832,8 @@ $(function () {
 
     // Get value
     var imageID = $('input[name=envo_editimgid]').val();
-    var descImage = $('#desc').val();
-    var shortdescImage = $('#shortdesc').val();
+    var descImage = $('#desc_img').val();
+    var shortdescImage = $('#shortdesc_img').val();
     var catImage = $('select[name="envo_imgcategory_dialog"]').val();
 
     // ------------ Jquery code
@@ -7576,8 +7576,8 @@ $(function () {
 
     // Get value
     var videoID = $('input[name=envo_editvideoid]').val();
-    var descVideo = $('#desc').val();
-    var shortdescVideo = $('#shortdesc').val();
+    var descVideo = $('#desc_video').val();
+    var shortdescVideo = $('#shortdesc_video').val();
     var catVideo = $('select[name="envo_videocategory_dialog"]').val();
 
     // ------------ Jquery code
