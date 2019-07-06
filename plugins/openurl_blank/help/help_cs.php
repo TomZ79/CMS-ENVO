@@ -8,9 +8,6 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
   <!-- ======= CSS STYLE ======= -->
-  <!-- Code-prettify -->
-  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
-  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
   <!-- Main style -->
   <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
 
