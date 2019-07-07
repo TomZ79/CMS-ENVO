@@ -133,7 +133,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor('index.php?p=belowheader&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+									echo $Html -> addAnchor('index.php?p=belowheader&amp;sp=edit&amp;id=' . $v["id"], $v["title"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 									?>
 
 								</td>

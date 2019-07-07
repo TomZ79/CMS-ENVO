@@ -65,8 +65,25 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		<?php
 		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 		echo $Html -> addAnchor('index.php?p=download&sp=new', $tl["button"]["btn40"], '', 'btn btn-info button');
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html -> addAnchor('#', '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default', array ('onclick' => 'slideToggle(\'#stats-top\');', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i34"]));
 		?>
 
+	</div>
+
+	<div id="stats-top" class="bg-white" style="display: none; padding: 15px; margin: 0 0 20px; width: 100%;">
+		<div id="expenses_total" class="tile_count">
+			<div class="row">
+				<div class="col-md-2 col-sm-3 col-xs-12 tile_stats_count">
+					<span class="count_top">Počet souborů</span>
+					<div class="count"><?= $ENVO_STATS_COUNTALL ?></div>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-12 tile_stats_count">
+					<span class="count_top">Aktivní / Neaktivní soubory</span>
+					<div class="count"><?= $ENVO_STATS_COUNTACTIVE . ' / ' . $ENVO_STATS_COUNTNOTACTIVE ?></div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 <?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) { ?>
@@ -137,7 +154,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+									echo $Html -> addAnchor('index.php?p=download&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 30, '...'), '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 
 									if ($v["password"]) {
 										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)

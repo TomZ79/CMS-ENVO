@@ -53,7 +53,7 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=wiki&amp;sp=setting';
 									<button type="button" id="ajaxliveshow" class="btn btn-light text-1 text-uppercase">Zobrazit</button>
 								</div>
 							</div>
-							<div id="searchresult" style="display: none;border: 2px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;border-radius: .25rem;border-top: none;"></div>
+							<div id="searchresult" style="display: none;border: 1px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;border-radius: .25rem;border-top: none;background-color: #F5F5F5;"></div>
 						</div>
 					</div>
 				</div>

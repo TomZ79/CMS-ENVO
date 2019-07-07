@@ -30,6 +30,8 @@ if ($getsettinghook) foreach ($getsettinghook as $sh) {
 // CZ: Načtení všech php dat z Hook podle jména Hook pro nastavení šablony
 $ENVO_HOOK_ADMIN_SETTING_EDIT = $envohooks -> EnvoGethook("tpl_admin_setting");
 
+// EN: POST REQUEST
+// CZ: POST REQUEST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (isset($_POST["btnSave"])) {
 		// EN: If button "Save Changes" clicked

@@ -35,6 +35,8 @@ switch ($page1) {
 	case 'newbh':
 		// ADD NEW BELOWHEADER
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -123,6 +125,8 @@ switch ($page1) {
 	case 'edit':
 		// EDIT BELOWHEADER
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -280,6 +284,8 @@ switch ($page1) {
 		// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
 		// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_belowheader'])) {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -337,16 +343,32 @@ switch ($page1) {
 
 		}
 
-		$ENVO_BELOWHEADER_ALL = envo_get_belowheader();
+		// EN: Check data
+		// CZ: Kontrola dat
+		$getTotal = envo_get_total($envotable, '', '', '');
 
-		// EN: Title and Description
-		// CZ: Titulek a Popis
-		$SECTION_TITLE = $tlbh["bh_sec_title"]["bht"];
-		$SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd"];
+		if ($getTotal != 0) {
 
-		// EN: Load the php template
-		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
+			// EN: Get all data from DB
+			// CZ: Získání všech dat z DB
+			$ENVO_BELOWHEADER_ALL = envo_get_belowheader('', $envotable);
+
+			// EN: Title and Description
+			// CZ: Titulek a Popis
+			$SECTION_TITLE = $tlbh["bh_sec_title"]["bht"];
+			$SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd"];
+
+			// EN: Load the php template
+			// CZ: Načtení php template (šablony)
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
+
+		} else {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=belowheader&status=ene');
+		}
+
+
 }
 
 ?>

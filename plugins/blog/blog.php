@@ -56,6 +56,7 @@ switch ($page1) {
 		// EN: Default Variable
 		// CZ: Hlavní proměnné
 		$catID = $page2;
+
 		if ($setting["blogurl"]) {
 			$catNAME = $page3;
 			// '$page4' can be a number for Paginator

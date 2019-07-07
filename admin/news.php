@@ -852,6 +852,8 @@ switch ($page1) {
 	default:
 		// LIST OF NEWS
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_news'])) {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -909,8 +911,10 @@ switch ($page1) {
 
 		}
 
-		// Get total news
+		// EN: Get all data from DB
+		// CZ: Získání všech dat z DB
 		$getTotal = envo_get_total($envotable, '', '', '');
+
 		if ($getTotal != 0) {
 
 			// Paginator

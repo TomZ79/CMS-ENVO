@@ -255,7 +255,8 @@ switch ($page1) {
 	default:
 		// LIST OF TAGS
 
-		// Let's go on with the script
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_tag'])) {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -326,8 +327,10 @@ switch ($page1) {
 			default:
 				// LIST OF TAGS
 
-				// Important template Stuff
+				// EN: Get all data from DB
+				// CZ: Získání všech dat z DB
 				$getTotal = envo_get_total($envotable, '', '', '');
+
 				// Paginator
 				if ($getTotal != 0) {
 					$tags                   = new ENVO_paginator;

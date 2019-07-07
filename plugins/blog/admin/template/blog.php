@@ -65,8 +65,25 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 	<?php
 	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 	echo $Html -> addAnchor('index.php?p=blog&sp=new', $tl["button"]["btn39"], '', 'btn btn-info button');
+	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+	echo $Html -> addAnchor('#', '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default', array ('onclick' => 'slideToggle(\'#stats-top\');', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i34"]));
 	?>
 
+</div>
+
+<div id="stats-top" class="bg-white" style="display: none; padding: 15px; margin: 0 0 20px; width: 100%;">
+	<div id="expenses_total" class="tile_count">
+		<div class="row">
+			<div class="col-md-2 col-sm-3 col-xs-12 tile_stats_count">
+				<span class="count_top">Počet článků</span>
+				<div class="count"><?= $ENVO_STATS_COUNTALL ?></div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-12 tile_stats_count">
+				<span class="count_top">Aktivní / Neaktivní články</span>
+				<div class="count"><?= $ENVO_STATS_COUNTACTIVE . ' / ' . $ENVO_STATS_COUNTNOTACTIVE ?></div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <?php if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) { ?>
@@ -90,8 +107,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 							</div>
 						</th>
-						<th style="width:35%"><?= $tlblog["blog_box_table"]["blogtb"] ?></th>
-						<th style="width:12%"><?= $tlblog["blog_box_table"]["blogtb1"] ?></th>
+						<th style="width:32%"><?= $tlblog["blog_box_table"]["blogtb"] ?></th>
+						<th style="width:15%"><?= $tlblog["blog_box_table"]["blogtb1"] ?></th>
 						<th style="width:8%"><?= $tlblog["blog_box_table"]["blogtb2"] ?></th>
 						<th style="width:12%"><?= $tlblog["blog_box_table"]["blogtb3"] ?></th>
 						<th style="width:12%"><?= $tlblog["blog_box_table"]["blogtb4"] ?></th>
@@ -135,7 +152,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 70, '...'));
+								echo $Html -> addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 70, '...'), '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 								?>
 
 							</td>

@@ -28,6 +28,8 @@ $facebookDir      = ENVO_FILES_DIRECTORY . '/facebook/';
 $facebookNameFile = $facebookDir . 'facebook_name.txt';
 $facebookDescFile = $facebookDir . 'facebook_description.txt';
 
+// EN: POST REQUEST
+// CZ: POST REQUEST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// EN: Default Variable
 	// CZ: Hlavní proměnné

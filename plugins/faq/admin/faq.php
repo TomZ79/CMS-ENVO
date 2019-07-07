@@ -43,6 +43,8 @@ switch ($page1) {
 		// Get the important template stuff
 		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -229,6 +231,8 @@ switch ($page1) {
 			// Get the important template stuff
 			$ENVO_CAT = envo_get_cat_info($envotable1, 0);
 
+			// EN: POST REQUEST
+			// CZ: POST REQUEST
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// EN: Default Variable
 				// CZ: Hlavní proměnné
@@ -813,6 +817,8 @@ switch ($page1) {
 		// Load all cats and get the usergroup information
 		$ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -900,6 +906,8 @@ switch ($page1) {
 	case 'setting':
 		// FAQ SETTING
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -1099,6 +1107,8 @@ switch ($page1) {
 
 		if (envo_row_exist($pageID, $envotable)) {
 
+			// EN: POST REQUEST
+			// CZ: POST REQUEST
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// EN: Default Variable
 				// CZ: Hlavní proměnné
@@ -1169,10 +1179,8 @@ switch ($page1) {
 		// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
 		// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
-		// Important Smarty stuff
-		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
-
-		// Hello we have a post request
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_faq'])) {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -1246,20 +1254,53 @@ switch ($page1) {
 
 		}
 
-		$getTotal = envo_get_total($envotable, '', '', '');
+		// Important Smarty stuff
+		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
+
+		// EN: Check data
+		// CZ: Kontrola dat
+		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable);
+		$getTotal = $row['totalAll'];
 
 		if ($getTotal != 0) {
+
+			// EN: Get all data from DB
+			// CZ: Získání všech dat z DB
 			$ENVO_FAQ_ALL = envo_get_faqs('', '', $envotable);
+
+			// EN: Statistics
+			// CZ: Statistika
+			// Stats - Count of all
+			$result              = $envodb -> query('SELECT COUNT(id) AS total FROM ' . $envotable);
+			$data                = $result -> fetch_assoc();
+			$ENVO_STATS_COUNTALL = $data['total'];
+
+			// Stats - Count of active
+			$result                 = $envodb -> query('SELECT COUNT(id) AS totalactive FROM ' . $envotable . ' WHERE catid > 0 AND active = 1');
+			$data                   = $result -> fetch_assoc();
+			$ENVO_STATS_COUNTACTIVE = $data['totalactive'];
+
+			// Stats - Count of not active
+			$result                    = $envodb -> query('SELECT COUNT(id) AS totalnotactive FROM ' . $envotable . ' WHERE (catid = 0 AND active = 0) OR (catid = 0 AND active = 1) OR (catid > 0 AND active = 0)');
+			$data                      = $result -> fetch_assoc();
+			$ENVO_STATS_COUNTNOTACTIVE = $data['totalnotactive'];
+
+			// EN: Title and Description
+			// CZ: Titulek a Popis
+			$SECTION_TITLE = $tlf["faq_sec_title"]["faqt"];
+			$SECTION_DESC  = $tlf["faq_sec_desc"]["faqd"];
+
+			// EN: Load the php template
+			// CZ: Načtení php template (šablony)
+			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faq.php';
+
+		} else {
+			// EN: Redirect page
+			// CZ: Přesměrování stránky
+			envo_redirect(BASE_URL . 'index.php?p=faq&status=ene');
 		}
 
-		// EN: Title and Description
-		// CZ: Titulek a Popis
-		$SECTION_TITLE = $tlf["faq_sec_title"]["faqt"];
-		$SECTION_DESC  = $tlf["faq_sec_desc"]["faqd"];
 
-		// EN: Load the php template
-		// CZ: Načtení php template (šablony)
-		$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faq.php';
 }
 
 ?>

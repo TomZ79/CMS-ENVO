@@ -56,6 +56,7 @@
 		<?php
 		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 		echo $Html -> addAnchor('index.php?p=page&amp;sp=newpage', $tl["button"]["btn33"], '', 'btn btn-info button');
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 		echo $Html -> addAnchor('#', '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default', array ('onclick' => 'slideToggle(\'#stats-top\');', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i34"]));
 		?>
 
@@ -143,7 +144,7 @@
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor('index.php?p=page&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+									echo $Html -> addAnchor('index.php?p=page&amp;sp=edit&amp;id=' . $v["id"], $v["title"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 									?>
 
 								</td>

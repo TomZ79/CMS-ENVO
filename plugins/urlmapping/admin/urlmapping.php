@@ -222,6 +222,8 @@ switch ($page1) {
 		// ----------- SUCCESS: CODE FOR MAIN PAGE ------------
 		// -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_urlmapping'])) {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -278,8 +280,8 @@ switch ($page1) {
 
 		}
 
-		// EN: Get all the data of URL Mapping
-		// CZ: Získání všech dat pro URL Mapování
+		// EN: Get all data from DB
+		// CZ: Získání všech dat z DB
 		$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id ASC');
 		while ($row = $result -> fetch_assoc()) {
 			// EN: Insert each record into array

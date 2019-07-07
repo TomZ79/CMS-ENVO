@@ -660,7 +660,8 @@ switch ($page1) {
 	default:
 		// LIST OF PAGES
 
-		// Do we have a post access
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_page'])) {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné
@@ -720,29 +721,30 @@ switch ($page1) {
 		// Important template stuff
 		$ENVO_CAT = envo_get_cat_info($envotable1, 1);
 
+		// EN: Get all data from DB
+		// CZ: Získání všech dat z DB
 		$getTotal = envo_get_total($envotable, '', '', '');
 
 		if ($getTotal != 0) {
-
-			// Ouput all pages
 			$ENVO_PAGE_ALL = envo_get_page_info($envotable, '');
-
 		}
 
-		// Stats - Count of all pages
-		$result              = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable);
+		// EN: Statistics
+		// CZ: Statistika
+		// Stats - Count of all
+		$result              = $envodb -> query('SELECT COUNT(id) AS total FROM ' . $envotable);
 		$data                = $result -> fetch_assoc();
-		$ENVO_STATS_COUNTALL = $data['totalpages'];
+		$ENVO_STATS_COUNTALL = $data['total'];
 
-		// Stats - Count of active pages
-		$result                 = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE catid > 0 AND active = 1');
+		// Stats - Count of active
+		$result                 = $envodb -> query('SELECT COUNT(id) AS totalactive FROM ' . $envotable . ' WHERE catid > 0 AND active = 1');
 		$data                   = $result -> fetch_assoc();
-		$ENVO_STATS_COUNTACTIVE = $data['totalpages'];
+		$ENVO_STATS_COUNTACTIVE = $data['totalactive'];
 
-		// Stats - Count of not active pages
-		$result                    = $envodb -> query('SELECT COUNT(id) AS totalpages FROM ' . $envotable . ' WHERE (catid = 0 AND active = 0) OR (catid = 0 AND active = 1) OR (catid > 0 AND active = 0)');
+		// Stats - Count of not active
+		$result                    = $envodb -> query('SELECT COUNT(id) AS totalnotactive FROM ' . $envotable . ' WHERE (catid = 0 AND active = 0) OR (catid = 0 AND active = 1) OR (catid > 0 AND active = 0)');
 		$data                      = $result -> fetch_assoc();
-		$ENVO_STATS_COUNTNOTACTIVE = $data['totalpages'];
+		$ENVO_STATS_COUNTNOTACTIVE = $data['totalnotactive'];
 
 
 		// EN: Title and Description

@@ -62,7 +62,7 @@ function envo_get_wikis ($limit, $envovar1, $table)
 {
 
 	$sqlwhere = '';
-	if (!empty($envovar1)) $sqlwhere = 'WHERE catid = ' . smartsql($envovar1) . ' ';
+	if (!empty($envovar1)) $sqlwhere = 'WHERE catid LIKE "%' . smartsql($envovar1) . '%" ';
 
 	global $envodb;
 	$envodata = array ();

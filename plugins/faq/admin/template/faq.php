@@ -65,8 +65,25 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		<?php
 		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 		echo $Html -> addAnchor('index.php?p=faq&sp=new', $tl["button"]["btn39"], '', 'btn btn-info button');
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html -> addAnchor('#', '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default', array ('onclick' => 'slideToggle(\'#stats-top\');', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i34"]));
 		?>
 
+	</div>
+
+	<div id="stats-top" class="bg-white" style="display: none; padding: 15px; margin: 0 0 20px; width: 100%;">
+		<div id="expenses_total" class="tile_count">
+			<div class="row">
+				<div class="col-md-2 col-sm-3 col-xs-12 tile_stats_count">
+					<span class="count_top">Počet článků</span>
+					<div class="count"><?= $ENVO_STATS_COUNTALL ?></div>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-12 tile_stats_count">
+					<span class="count_top">Aktivní / Neaktivní články</span>
+					<div class="count"><?= $ENVO_STATS_COUNTACTIVE . ' / ' . $ENVO_STATS_COUNTNOTACTIVE ?></div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 <?php if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) { ?>
@@ -91,8 +108,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 								</div>
 							</th>
-							<th style="width:35%"><?= $tlf["faq_box_table"]["faqtb1"] ?></th>
-							<th style="width:12%"><?= $tlf["faq_box_table"]["faqtb"] ?></th>
+							<th style="width:33%"><?= $tlf["faq_box_table"]["faqtb1"] ?></th>
+							<th style="width:15%"><?= $tlf["faq_box_table"]["faqtb"] ?></th>
 							<th style="width:8%"><?= $tlf["faq_box_table"]["faqtb2"] ?></th>
 							<th style="width:12%"><?= $tlf["faq_box_table"]["faqtb3"] ?></th>
 							<th style="width:12%"><?= $tlf["faq_box_table"]["faqtb4"] ?></th>
@@ -136,24 +153,25 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+									echo $Html -> addAnchor('index.php?p=faq&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 70, '...'), '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 									?>
 
 								</td>
-								<td>
+								<td class="table-category-list">
 
 									<?php
 									if ($v["catid"] != '0') {
 										if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
-											if ($v["catid"] == $z["id"]) {
+											if (in_array($z["id"], explode(',', $v["catid"]))) {
 												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 												echo $Html -> addAnchor('index.php?p=faq&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
 											}
 										}
 									} else {
-										echo $tlf["faq_box_content"]["faqbc19"];
+										echo $tlblog["blog_box_content"]["blogbc13"];
 									}
 									?>
+
 								</td>
 								<td><?= date("d.m.Y", strtotime($v["time"])) ?></td>
 								<td><?= $v["hits"] ?></td>

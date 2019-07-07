@@ -126,7 +126,7 @@
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor('index.php?p=news&amp;sp=editnews&amp;id=' . $v["id"], $v["title"]);
+									echo $Html -> addAnchor('index.php?p=news&amp;sp=editnews&amp;id=' . $v["id"], $v["title"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 									?>
 
 								</td>

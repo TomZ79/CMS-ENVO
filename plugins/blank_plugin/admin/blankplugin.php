@@ -26,6 +26,8 @@ switch ($page1) {
 	case 'setting':
 		// SETTING
 
+		// EN: POST REQUEST
+		// CZ: POST REQUEST
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// EN: Default Variable
 			// CZ: Hlavní proměnné

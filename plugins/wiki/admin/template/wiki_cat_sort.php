@@ -38,15 +38,27 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 	</script>
 <?php } ?>
 
+<!-- Action button block -->
+<div class="actionbtn-block d-none d-sm-block">
+
+	<?php
+	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+	echo $Html -> addAnchor('index.php?p=wiki&sp=new', $tl["button"]["btn39"], '', 'btn btn-info button');
+	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+	echo $Html -> addAnchor('index.php?p=wiki', $tl["button"]["btn19"], '', 'btn btn-info button');
+	?>
+
+</div>
+
 <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
 	<div class="box box-success">
 		<div class="box-body no-padding">
 			<div class="table-responsive">
-				<table class="table table-striped table-hover">
+				<table id="wiki_table" class="table table-striped table-hover">
 					<thead>
 					<tr>
-						<th>#</th>
-						<th>
+						<th class="no-sort" style="width:5%">#</th>
+						<th class="no-sort" style="width:4%">
 							<div class="checkbox-singel check-success">
 
 								<?php
@@ -58,10 +70,10 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 							</div>
 						</th>
-						<th><?= $tlw["wiki_box_table"]["wikitb1"] ?></th>
-						<th><?= $tlw["wiki_box_table"]["wikitb"] ?></th>
-						<th><?= $tlw["wiki_box_table"]["wikitb2"] ?></th>
-						<th>
+						<th style="width:58%"><?= $tlw["wiki_box_table"]["wikitb1"] ?></th>
+						<th style="width:15%"><?= $tlw["wiki_box_table"]["wikitb"] ?></th>
+						<th style="width:8%"><?= $tlw["wiki_box_table"]["wikitb2"] ?></th>
+						<th class="text-center no-sort" style="width:4%">
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -69,8 +81,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							?>
 
 						</th>
-						<th></th>
-						<th>
+						<th class="text-center no-sort" style="width:4%"></th>
+						<th class="text-center no-sort" style="width:4%">
 
 							<?php
 							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -101,28 +113,28 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('index.php?p=wiki&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+								echo $Html -> addAnchor('index.php?p=wiki&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 70, '...'), '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 								?>
 
 							</td>
-							<td>
+							<td class="table-category-list">
 
 								<?php
 								if ($v["catid"] != '0') {
 									if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
-										if ($v["catid"] == $z["id"]) {
+										if ($z["id"] == $page2) {
 											// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 											echo $Html -> addAnchor('index.php?p=wiki&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
 										}
 									}
 								} else {
-									echo $tlw["wiki_box_content"]["wikibc19"];
+									echo $tlblog["blog_box_content"]["blogbc13"];
 								}
 								?>
 
 							</td>
-							<td><?= date("d.m.Y - H:i:s", strtotime($v["created"])) ?></td>
-							<td>
+							<td><?= date("d.m.Y", strtotime($v["created"])) ?></td>
+							<td class="text-center">
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -130,7 +142,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								?>
 
 							</td>
-							<td>
+							<td class="text-center">
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -138,7 +150,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								?>
 
 							</td>
-							<td>
+							<td class="text-center">
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

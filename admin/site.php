@@ -11,7 +11,8 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
 
-// Let's go on with the script
+// EN: POST REQUEST
+// CZ: POST REQUEST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// EN: Default Variable
 	// CZ: Hlavní proměnné
