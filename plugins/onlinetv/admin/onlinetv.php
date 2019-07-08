@@ -22,6 +22,10 @@ $envotable = DB_PREFIX . 'otv_film';
 $envotable1 = DB_PREFIX . 'otv_settings_genre';
 $envotable2 = DB_PREFIX . 'otv_settings_country';
 
+// EN: Include the functions
+// CZ: Vložené funkce
+include_once("../plugins/onlinetv/admin/include/functions.php");
+
 // EN:
 // CZ:
 
@@ -56,6 +60,8 @@ switch ($page1) {
 			case 'newfilm':
 				// ADD NEW FILM TO DB
 
+				// EN: POST REQUEST
+				// CZ: POST REQUEST
 				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					// EN: Default Variable
 					// CZ: Hlavní proměnné
@@ -217,8 +223,9 @@ Složka filmu:   				   ' . $pathfolder . '
 
 				if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
+					// EN: POST REQUEST
+					// CZ: POST REQUEST
 					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
 						// EN: Default Variable
 						// CZ: Hlavní proměnné
 						$defaults = $_POST;
@@ -343,6 +350,19 @@ Složka filmu:   				   ' . $pathfolder . '
 
 				break;
 			case 'filmlist':
+
+				// EN: Getting the data about the Houses
+				// CZ: Získání dat o bytových domech
+				$ENVO_FILM_ALL = envo_get_film_info($envotable);
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = $tlotv["otv_sec_title"]["otvt2"];
+				$SECTION_DESC  = $tlotv["otv_sec_desc"]["otvd2"];
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'onlinetv_film_list.php';
 
 				break;
 			default:

@@ -79,7 +79,7 @@ if (isset($_POST['search'])) {
 		// Data for JSON
 		$envodata = array (
 			'status'     => 'error_E01',
-			'status_msg' => 'Not found rows in DB'
+			'status_msg' => 'Nenalezen žádný záznam'
 		);
 
 	}

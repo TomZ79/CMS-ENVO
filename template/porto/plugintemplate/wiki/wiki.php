@@ -48,12 +48,12 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=wiki&amp;sp=setting';
 						</div>
 						<div class="searchbox" style="position: relative;">
 							<div class="input-group">
-								<input type="text" class="form-control" id="ajaxlivesearch" autocomplete="off" placeholder="Zadejte hledaný název ..." data-articleid="" data-articlevarname="">
+								<input type="text" class="form-control" id="ajaxlivesearch" autocomplete="off" placeholder="Zadejte hledaný název ..." data-articleid="" data-articlevarname="" style="border-radius: 0">
 								<div class="input-group-append">
-									<button type="button" id="ajaxliveshow" class="btn btn-light text-1 text-uppercase">Zobrazit</button>
+									<button type="button" id="ajaxliveshow" class="btn btn-light text-1 text-uppercase" style="border-radius: 0">Zobrazit</button>
 								</div>
 							</div>
-							<div id="searchresult" style="display: none;border: 1px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;border-radius: .25rem;border-top: none;background-color: #F5F5F5;"></div>
+							<div id="searchresult" style="display: none;border: 3px solid rgba(0, 0, 0, 0.09);z-index: 1000;position: absolute;background: white;width: 100%;border-radius: 0;border-top: none;background-color: #F5F5F5;"></div>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,7 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=wiki&amp;sp=setting';
 								<section class="toggle">
 									<label><?= $v["title"] ?></label>
 									<div class="toggle-content">
-										<div class="row mb-3">
+										<div class="row mt-2 mb-2">
 											<div class="col-sm-12">
 												<?= $v["contentshort"] ?>
 

@@ -645,28 +645,32 @@ switch ($page1) {
 	case 'showcat':
 		// BLOG SHOW ARTICLE BY CATEGORY
 
-		$result = $envodb -> query('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE FIND_IN_SET(' . $page2 . ', catid)');
-		$row    = $result -> fetch_assoc();
+		// EN: Default Variable
+		// CZ: Hlavní proměnné
+		$catID = $page2;
 
+		// Important Smarty stuff
+		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
+
+		$result   = $envodb -> query('SELECT name FROM ' . $envotable1 . ' WHERE id = ' . $catID . ' LIMIT 1');
+		$row = $result -> fetch_assoc();
+		$catname = $row['name'];
+
+		// EN: Check data
+		// CZ: Kontrola dat
+		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE FIND_IN_SET(' . $catID . ', catid)');
 		$getTotal = $row['totalAll'];
 
 		if ($getTotal != 0) {
-			// Paginator
-			$pages                   = new ENVO_paginator;
-			$pages -> items_total    = $getTotal;
-			$pages -> mid_range      = $setting["adminpagemid"];
-			$pages -> items_per_page = $setting["adminpageitem"];
-			$pages -> envo_get_page  = $page3;
-			$pages -> envo_where     = 'index.php?p=blog&sp=showcat&id=' . $page2;
-			$pages -> paginate();
-			$ENVO_PAGINATE_SORT = $pages -> display_pages();
 
-			$ENVO_BLOG_SORT = envo_get_blogs($pages -> limit, $page2, $envotable);
+			// EN: Get all data from DB
+			// CZ: Získání všech dat z DB
+			$ENVO_BLOG_SORT = envo_get_blogs('', $catID, $envotable);
 
 			// EN: Title and Description
 			// CZ: Titulek a Popis
 			$SECTION_TITLE = $tlblog["blog_sec_title"]["blogt2"];
-			$SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd2"];
+			$SECTION_DESC  = str_replace("%s", '<strong>' . $catname . '</strong>', $tlblog["blog_sec_desc"]["blogd10"]);
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
@@ -677,6 +681,7 @@ switch ($page1) {
 			// CZ: Přesměrování stránky
 			envo_redirect(BASE_URL . 'index.php?p=blog&status=ene');
 		}
+
 		break;
 	case 'categories':
 		// BLOG CATEGORIES

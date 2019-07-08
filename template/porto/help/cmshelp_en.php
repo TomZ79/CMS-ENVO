@@ -8,16 +8,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
 	<!-- ======= CSS STYLE ======= -->
-	<!-- Code-prettify -->
-	<link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
-	<script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
 	<!-- Main style -->
 	<link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
-
-
-	<!--[if lt IE 9]>
-	<script src="/admin/assets/doc/js/html5.js"></script>
-	<![endif]-->
 
 </head>
 <body>
@@ -39,7 +31,7 @@
 				<span>O šabloně PORTO</span>
 				<ul>
 					<li data-deeplink="about-template" class="active">O šabloně</li>
-					<li data-deeplink="folders-files">Složky-Soubory</li>
+					<li data-deeplink="folders-files">Složky - Soubory</li>
 					<li data-deeplink="site-layout">Rozložení Stránky</li>
 					<li data-deeplink="jquery-plugins">Jquery Pluginy</li>
 				</ul>
@@ -74,7 +66,7 @@
 
 			<!-- Složky-Soubory -->
 			<article>
-				<h4>Složky-Soubory</h4>
+				<h4>Složky - Soubory</h4>
 
 			</article>
 
@@ -146,13 +138,6 @@
 <!-- ======= JQUERY SCRIPT ======= -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js"></script>
 <script src="/admin/assets/doc/js/doc.js"></script>
-
-<script>
-	// Init Code-Prettify
-	window.onload = (function () {
-		prettyPrint();
-	});
-</script>
 
 </body>
 </html>

@@ -117,7 +117,7 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting';
 										?>
 
 									</p>
-									<p class="mb-0"><?= envo_cut_text($v['content'], $setting["blogshortmsg"], '....') ?></p>
+									<p class="mb-0"><?= $v['contentshort'] ?></p>
 									<p class="mb-0 float-right">
 
 										<?php
@@ -135,7 +135,7 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting';
 
 						// SYSTEM ICONS - Edit and Quick Edit
 						if (ENVO_ASACCESS) {
-							echo '<div class="system-icons d-none d-sm-block">';
+							echo '<div class="system-icons d-none d-sm-block mt-2">';
 							echo '<div class="row">';
 							echo '<div class="col-sm-2">';
 							echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block" href="' . BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"] . '" title="' . $tl["button"]["btn1"] . '">' . $tl["button"]["btn1"] . '</a>';
@@ -151,11 +151,10 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting';
 						?>
 
 						<div class="row">
-							<div class="col">
+							<div class="col col-sm-12">
 								<hr class="dashed tall mt-2 mb-2">
 							</div>
 						</div>
-
 
 					</article><!-- End Post -->
 

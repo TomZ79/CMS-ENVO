@@ -558,24 +558,32 @@ switch ($page1) {
 	case 'showcat':
 		// FAQ SHOW ARTICLE BY CATEGORY
 
-		$getTotal = envo_get_total($envotable, $page2, 'catid', '');
+		// EN: Default Variable
+		// CZ: Hlavní proměnné
+		$catID = $page2;
+
+		// Important Smarty stuff
+		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
+
+		$result   = $envodb -> query('SELECT name FROM ' . $envotable1 . ' WHERE id = ' . $catID . ' LIMIT 1');
+		$row = $result -> fetch_assoc();
+		$catname = $row['name'];
+
+		// EN: Check data
+		// CZ: Kontrola dat
+		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
+		$getTotal = $row['totalAll'];
 
 		if ($getTotal != 0) {
-			// Paginator
-			$pages                   = new ENVO_paginator;
-			$pages -> items_total    = $getTotal;
-			$pages -> mid_range      = $setting["adminpagemid"];
-			$pages -> items_per_page = $setting["adminpageitem"];
-			$pages -> envo_get_page  = $page3;
-			$pages -> envo_where     = 'index.php?p=faq&sp=showcat&id=' . $page2;
-			$pages -> paginate();
-			$ENVO_PAGINATE_SORT = $pages -> display_pages();
-			$ENVO_FAQ_SORT      = envo_get_faqs($pages -> limit, $page2, $envotable);
+
+			// EN: Get all data from DB
+			// CZ: Získání všech dat z DB
+			$ENVO_FAQ_SORT      = envo_get_faqs('', $page2, $envotable);
 
 			// EN: Title and Description
 			// CZ: Titulek a Popis
 			$SECTION_TITLE = $tlf["faq_sec_title"]["faqt2"];
-			$SECTION_DESC  = $tlf["faq_sec_desc"]["faqd2"];
+			$SECTION_DESC  = str_replace("%s", '<strong>' . $catname . '</strong>', $tlf["faq_sec_desc"]["faqd10"]);
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
@@ -586,6 +594,7 @@ switch ($page1) {
 			// CZ: Přesměrování stránky
 			envo_redirect(BASE_URL . 'index.php?p=faq&status=ene');
 		}
+
 		break;
 	case 'categories':
 		// FAQ CATEGORIES

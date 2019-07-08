@@ -699,7 +699,7 @@ function envo_get_news ($envovar, $where, $plname, $order, $datef, $timef, $time
 		$PAGE_CONTENT = $row['content'];
 
 		// Write content in short format with full words
-		$shortmsg = envo_cut_text($PAGE_CONTENT, $setting["shortmsg"], '...');
+		$shortmsg = envo_cut_text($PAGE_CONTENT, $setting["shortmsg"], '...', TRUE);
 
 		// Parse url for user link
 		$parseurl = ENVO_rewrite ::envoParseurl($plname, 'news-article', $row['id'], ENVO_base ::envoCleanurl($PAGE_TITLE), '');
@@ -876,38 +876,75 @@ function envo_build_menu ($parent, $menu, $active, $mainclass, $dropdown, $dropc
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.0
- * @date    09/2017
+ * @version 1.1.0
+ * @date    07/2019
  *
- * @param $text
- * @param $limit
- * @param $envovar2
+ * @param $text - The text you want to Parse
+ * @param $limit - The maximum character length, e.g. 160
+ * @param $ellipsis - Use '...' or ' (more)' - Still respects character limit
+ * @param $stripHtml
  * @return mixed|string
  *
  */
-function envo_cut_text ($text, $limit, $envovar2)
+function envo_cut_text ($text, $limit, $ellipsis = '', $stripHtml = FALSE)
 {
 
-	// empty limit
-	if (empty($limit)) $limit = 160;
-	$text = trim($text);
-	$text = strip_tags($text);
-	$text = str_replace(array ("\r", "\n", '"'), "", $text);
-	$txtl = strlen($text);
-	if ($txtl > $limit) {
-		for ($i = 1; $text[$limit - $i] != " "; $i++) {
-			if ($i == $limit) {
-				return substr($text, 0, $limit) . $envovar2;
-			}
+	// Empty limit
+	if (empty($limit)) $limit = 150;
+
+	if(strlen($text) < $limit) {
+
+		// Strip whitespace (or other characters) from the beginning and end of a string
+		$text = trim($text);
+
+		if ($stripHtml == TRUE) {
+			// Strip HTML and PHP tags from a string
+			$text = strip_tags($text);
+		} else {
+			// Strip IMG tags from a string
+			$text = preg_replace('/<img[^>]+\>/i', '', $text);
+			// Strip TABLE tags from a string
+			$text = preg_replace('#<table(.*?)>(.*?)</table>#is', '', $text);
 		}
-		$envodata = substr($text, 0, $limit - $i + 1) . $envovar2;
+
+		// Replace all occurrences of the search string with the replacement string
+		$envodata = str_replace(array ("\r", "\n", '"'), " ", $text);
+
 	} else {
-		$envodata = $text;
+
+		// Strip whitespace (or other characters) from the beginning and end of a string
+		$text = trim($text);
+
+		if ($stripHtml == TRUE) {
+			// Strip HTML and PHP tags from a string
+			$text = strip_tags($text);
+		} else {
+			// Strip IMG tags from a string
+			$text = preg_replace('/<img[^>]+\>/i', '', $text);
+			// Strip TABLE tags from a string
+			$text = preg_replace('#<table(.*?)>(.*?)</table>#is', '', $text);
+		}
+
+		// Replace all occurrences of the search string with the replacement string
+		$text = str_replace(array ("\r", "\n", '"'), " ", $text);
+		// Get string length
+		$txtl = strlen($text);
+		// Limit
+		if ($txtl > $limit) {
+			for ($i = 1; $text[$limit - $i] != " "; $i++) {
+				if ($i == $limit) {
+					return substr($text, 0, $limit) . $ellipsis;
+				}
+			}
+			$envodata = substr($text, 0, $limit - $i + 1) . $ellipsis;
+		} else {
+			$envodata = $text;
+		}
+
 	}
 
 	return $envodata;
 }
-
 
 /**
  * EN:

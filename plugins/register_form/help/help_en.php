@@ -11,11 +11,6 @@
 	<!-- Main style -->
 	<link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
 
-
-	<!--[if lt IE 9]>
-	<script src="/admin/assets/doc/js/html5.js"></script>
-	<![endif]-->
-
 </head>
 <body>
 
@@ -120,13 +115,6 @@
 <!-- ======= JQUERY SCRIPT ======= -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js"></script>
 <script src="/admin/assets/doc/js/doc.js"></script>
-
-<script>
-  // Init Code-Prettify
-  window.onload = (function () {
-    prettyPrint();
-  });
-</script>
 
 </body>
 </html>

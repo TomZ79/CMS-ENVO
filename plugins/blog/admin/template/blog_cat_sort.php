@@ -42,11 +42,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		<div class="box box-success">
 			<div class="box-body no-padding">
 				<div class="table-responsive">
-					<table class="table table-striped table-hover">
+					<table id="blog_table" class="table table-striped table-hover span12">
 						<thead>
 						<tr>
-							<th>#</th>
-							<th>
+							<th class="no-sort" style="width:5%">#</th>
+							<th class="no-sort" style="width:4%">
 								<div class="checkbox-singel check-success">
 
 									<?php
@@ -58,11 +58,10 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 								</div>
 							</th>
-							<th><?= $tlblog["blog_box_table"]["blogtb"] ?></th>
-							<th><?= $tlblog["blog_box_table"]["blogtb1"] ?></th>
-							<th><?= $tlblog["blog_box_table"]["blogtb2"] ?></th>
-							<th><?= $tlblog["blog_box_table"]["blogtb4"] ?></th>
-							<th>
+							<th style="width:58%"><?= $tlblog["blog_box_table"]["blogtb"] ?></th>
+							<th style="width:15%"><?= $tlblog["blog_box_table"]["blogtb1"] ?></th>
+							<th style="width:8%"><?= $tlblog["blog_box_table"]["blogtb2"] ?></th>
+							<th class="text-center no-sort" style="width:4%">
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -70,8 +69,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								?>
 
 							</th>
-							<th></th>
-							<th>
+							<th class="text-center no-sort" style="width:4%"></th>
+							<th class="text-center no-sort" style="width:4%">
 
 								<?php
 								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -102,16 +101,16 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html -> addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"], $v["title"]);
+									echo $Html -> addAnchor('index.php?p=blog&amp;sp=edit&amp;id=' . $v["id"], envo_cut_text($v["title"], 70, '...'), '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $v["title"]));
 									?>
 
 								</td>
-								<td>
+								<td class="table-category-list">
 
 									<?php
 									if ($v["catid"] != '0') {
 										if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
-											if ($v["catid"] == $z["id"]) {
+											if ($z["id"] == $page2) {
 												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 												echo $Html -> addAnchor('index.php?p=blog&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
 											}
@@ -122,52 +121,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									?>
 
 								</td>
-								<td><?= date("d.m.Y - H:i:s", strtotime($v["time"])) ?></td>
-								<td>
-									<?php
-									// Time Control - variable
-									$today       = date("Y-m-d H:i:s"); // Today time
-									$expire      = date("Y-m-d H:i:s", $v["enddate"]); //End time of article or content from DB
-									$today_time  = strtotime($today);
-									$expire_time = strtotime($expire);
 
-									// Control Active of article or content ...
-									if ($v["active"] == 1 && $v["catid"] != 0) { // Odemčeno a není Archiv
-										if (empty($v["enddate"])) {
-											echo $tlblog["blog_box_content"]["blogbc14"]; // Aktivní
-										} elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-											echo $tlblog["blog_box_content"]["blogbc14"]; // Aktivní
-										} else {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc17"] . '</span>'; //Neaktivní - Time
-										}
-									} elseif ($v["active"] == 1 && $v["catid"] == 0) { // Odemčeno a je Archiv
-										if (empty($v["enddate"])) {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc13"] . '</span>'; // Neaktivní - Archiv
-										} elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc13"] . '</span>'; // Neaktivní - Archiv
-										} else {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc17"] . ', ' . $tlblog["blog_box_content"]["blogbc13"] . '</span>'; // Neaktivní - Time, Archiv
-										}
-									} elseif ($v["active"] == 0 && $v["catid"] != 0) { //Uzamčeno a není Archiv
-										if (empty($v["enddate"])) {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . '</span>'; // Neaktivní -  Uzamčeno
-										} elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . '</span>'; // Neaktivní -  Uzamčeno
-										} else {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small"> - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc17"] . '</span>'; // Neaktivní - Time,Uzamčeno
-										}
-									} else {
-										if (empty($v["enddate"])) { //Uzamčeno a je Archiv
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc13"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
-										} elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc13"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
-										} else {
-											echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small"> - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc17"] . ', ' . $tlblog["blog_box_content"]["blogbc13"] . '</span>'; // Neaktivní - Time, Uzamčeno, Archiv
-										}
-									}
-									?>
-								</td>
-								<td>
+								<td><?= date("d.m.Y", strtotime($v["time"])) ?></td>
+								<td class="text-center">
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -175,7 +131,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									?>
 
 								</td>
-								<td>
+								<td class="text-center">
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -183,7 +139,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									?>
 
 								</td>
-								<td>
+								<td class="text-center">
 
 									<?php
 									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -215,7 +171,5 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 		</div>
 	</div>
-
-<?php if ($ENVO_PAGINATE_SORT) echo $ENVO_PAGINATE_SORT; ?>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

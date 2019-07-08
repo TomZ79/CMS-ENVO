@@ -687,24 +687,32 @@ switch ($page1) {
 	case 'showcat':
 		// DOWNLOAD SHOW FILE BY CATEGORY
 
-		$getTotal = envo_get_total($envotable, $page2, 'catid', '');
+		// EN: Default Variable
+		// CZ: Hlavní proměnné
+		$catID = $page2;
+
+		// Important Smarty stuff
+		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
+
+		$result   = $envodb -> query('SELECT name FROM ' . $envotable1 . ' WHERE id = ' . $catID . ' LIMIT 1');
+		$row = $result -> fetch_assoc();
+		$catname = $row['name'];
+
+		// EN: Check data
+		// CZ: Kontrola dat
+		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
+		$getTotal = $row['totalAll'];
 
 		if ($getTotal != 0) {
-			// Paginator
-			$pages                   = new ENVO_paginator;
-			$pages -> items_total    = $getTotal;
-			$pages -> mid_range      = $setting["adminpagemid"];
-			$pages -> items_per_page = $setting["adminpageitem"];
-			$pages -> envo_get_page  = $page3;
-			$pages -> envo_where     = 'index.php?p=download&sp=showcat&id=' . $page2;
-			$pages -> paginate();
-			$ENVO_PAGINATE_SORT = $pages -> display_pages();
-			$ENVO_DOWNLOAD_SORT = envo_get_downloads($pages -> limit, $page2, $envotable);
+
+			// EN: Get all data from DB
+			// CZ: Získání všech dat z DB
+			$ENVO_DOWNLOAD_SORT = envo_get_downloads('', $catID, $envotable);
 
 			// EN: Title and Description
 			// CZ: Titulek a Popis
 			$SECTION_TITLE = $tld["downl_sec_title"]["downlt2"];
-			$SECTION_DESC  = $tld["downl_sec_desc"]["downld2"];
+			$SECTION_DESC  = str_replace("%s", '<strong>' . $catname . '</strong>', $tld["downl_sec_desc"]["downld10"]);
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)

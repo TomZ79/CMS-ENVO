@@ -97,40 +97,6 @@ EOT;
 
 	<div class="header-area">
 
-		<!-- top bar start -->
-		<section class="top-bar transparent d-none d-sm-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 align-self-center">
-						<div class="ts-breaking-news clearfix">
-							<h2 class="breaking-title float-left">
-								<i class="fa fa-bolt"></i> Filmové novinky :</h2>
-							<div class="breaking-news-content owl-carousel float-left" id="breaking_slider">
-								<div class="breaking-post-content">
-									<p>
-										<a href="#">John Wick 3 => Keanu Reeves se vrací do role zabijáka, kterému se říká Baba Jaga.</a>
-									</p>
-								</div>
-								<div class="breaking-post-content">
-									<p>
-										<a href="#">Avengers: Endgame u nás za víkend vidělo neuvěřitelných 344 411 diváků. </a>
-									</p>
-								</div>
-								<div class="breaking-post-content">
-									<p>
-										<a href="#">Captain Marvel – první marvelovská superhrdinka překvapuje - 85%</a>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- end col-->
-
-				</div>
-				<!-- end row -->
-			</div>
-		</section>
-		<!-- end top bar-->
 		<!-- header nav start-->
 		<header class="header-box-transprent">
 			<div class="container">

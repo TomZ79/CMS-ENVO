@@ -137,7 +137,7 @@ if (ENVO_ASACCESS) {
 					<div class="d-flex align-items-center line-height-1">
 						<i class="fas fa-arrow-left text-dark text-4 mr-3"></i>
 						<div class="d-none d-sm-block line-height-1">
-							<span class="text-dark opacity-4 text-1">PREVIOUS PROJECT</span>
+							<span class="text-dark opacity-4 text-1">PŘEDCHOZÍ</span>
 							<h4 class="font-weight-bold text-3 mb-0"><?= envo_cut_text($ENVO_NAV_PREV_TITLE, 30, '...') ?></h4>
 						</div>
 					</div>
@@ -149,7 +149,7 @@ if (ENVO_ASACCESS) {
 				<a href="<?= $ENVO_NAV_NEXT ?>" class="portfolio-next text-decoration-none d-block float-right ">
 					<div class="d-flex align-items-center text-right line-height-1">
 						<div class="d-none d-sm-block line-height-1">
-							<span class="text-dark opacity-4 text-1">NEXT PROJECT</span>
+							<span class="text-dark opacity-4 text-1">DALŠÍ</span>
 							<h4 class="font-weight-bold text-3 mb-0"><?= envo_cut_text($ENVO_NAV_NEXT_TITLE, 30, '...') ?></h4>
 						</div>
 						<i class="fas fa-arrow-right text-dark text-4 ml-3"></i>

@@ -128,7 +128,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										}
 									}
 								} else {
-									echo $tlblog["blog_box_content"]["blogbc13"];
+									echo $tlw["wiki_box_content"]["wikibc19"];
 								}
 								?>
 

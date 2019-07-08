@@ -96,22 +96,6 @@ $(function ($) {
   }
 
   /*========================
-      breaking news
- ==========================*/
-  if ($('#breaking_slider').length > 0) {
-    $('#breaking_slider').owlCarousel({
-      items: 1,
-      loop: true,
-      dots: false,
-      nav: true,
-      animateOut: 'slideOutDown',
-      animateIn: 'flipInX',
-      autoplayTimeout: 5000,
-      autoplay: true,
-    })
-  }
-
-  /*========================
       featured post
  ==========================*/
   if ($('#featured-slider').length > 0) {

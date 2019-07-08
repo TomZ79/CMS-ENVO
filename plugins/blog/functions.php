@@ -35,7 +35,7 @@ function envo_get_blog ($limit, $order, $where, $table_row, $ext_seo, $timeago)
 	while ($row = $result -> fetch_assoc()) {
 
 		// Write content in short format with full words
-		$shortmsg = envo_cut_text($row['content'], $setting["shortmsg"], '...');
+		$shortmsg = envo_cut_text($row['content'], $setting["shortmsg"], '...', TRUE);
 
 		// There should be always a varname in categories and check if seo is valid
 		$seo = '';
@@ -51,7 +51,6 @@ function envo_get_blog ($limit, $order, $where, $table_row, $ext_seo, $timeago)
 			'id'           => $row['id'],
 			'catid'        => $row['catid'],
 			'title'        => $row['title'],
-			'content'      => envo_secure_site($row['content']),
 			'contentshort' => $shortmsg,
 			'showtitle'    => $row['showtitle'],
 			'showdate'     => $row['showdate'],

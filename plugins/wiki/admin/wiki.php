@@ -768,12 +768,14 @@ switch ($page1) {
 
 		// Important Smarty stuff
 		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
+
 		$result   = $envodb -> query('SELECT name FROM ' . $envotable1 . ' WHERE id = ' . $catID . ' LIMIT 1');
 		$row = $result -> fetch_assoc();
 		$catname = $row['name'];
 
 		// EN: Check data
 		// CZ: Kontrola dat
+		// $getTotal = envo_get_total($envotable, $page2, 'catid', '');
 		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
 		$getTotal = $row['totalAll'];
 
@@ -797,6 +799,7 @@ switch ($page1) {
 			// CZ: Přesměrování stránky
 			envo_redirect(BASE_URL . 'index.php?p=wiki&status=ene');
 		}
+
 		break;
 	case 'categories':
 		// WIKI CATEGORIES
