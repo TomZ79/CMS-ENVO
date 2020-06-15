@@ -86,7 +86,12 @@ if (!empty($sql)) {
 
     $parseurl = str_replace("//", "/", BASE_URL . $parseurl);
 
-    $ENVO_GET_RSS_ITEM[] = array ( 'link' => $parseurl, 'title' => $Name, 'description' => trim($getStripedT), 'created' => date("r", strtotime($row['time'])) );
+    $ENVO_GET_RSS_ITEM[] = array (
+    	'link' => $parseurl,
+			'title' => $Name,
+			'description' => trim($getStripedT),
+			'created' => date("r", strtotime($row['time']))
+		);
   }
 
   $ENVO_RSS_TITLE = $setting["title"] . ' - RSS';

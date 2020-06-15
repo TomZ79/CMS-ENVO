@@ -164,7 +164,7 @@
 										if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
 											if ($v["catid"] == $z["id"]) {
 												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-												echo $Html -> addAnchor('index.php?p=categories&amp;sp=editcat&amp;id=' . $z["id"], $z["name"]);
+												echo $Html -> addAnchor('index.php?p=categories&amp;sp=editcat&amp;id=' . $z["id"], $z["name"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => 'Editace kategorie <br><strong>' . $z["name"] . '</strong>'));
 											}
 										}
 									} else {

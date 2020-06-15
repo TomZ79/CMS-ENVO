@@ -99,7 +99,7 @@
 						<tbody>
 
 						<?php foreach ($ENVO_LOGINLOG_ALL as $v) { ?>
-							<tr>
+							<tr class="userlogin-header">
 								<td class="align-middle"><?= $v["id"] ?></td>
 								<td class="align-middle">
 									<div class="checkbox-singel check-success">
@@ -140,8 +140,8 @@
 								</td>
 							</tr>
 							<!-- Detail of login user -->
-							<tr>
-								<td colspan="11" style="background: #edf7ee; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
+							<tr class="userlogin-detail">
+								<td colspan="11">
 									<table style="width: 100%;">
 										<tbody>
 										<tr>

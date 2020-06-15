@@ -226,59 +226,70 @@ switch ($page1) {
 	case 'delete':
 		// LIST OF CATEGORIES - DELETE CATEGORIES FROM DB
 
+		// Additional DB field information
+		$envofield  = 'catparent';
+
 		// EN: Default Variable
 		// CZ: Hlavní proměnné
-		$pageID = $page2;
+		$catID = $page2;
 
-		if (envo_row_exist($pageID, $envotable) && $pageID != 1) {
+		if (envo_row_exist($catID, $envotable) && $catID != 1  && !envo_field_not_exist($catID, $envotable, $envofield)) {
 
-			// EN: If exist page for category, move page to Archiv
-			// CZ: Pokud existuje stránka ke kategorii, přesuneme stránku do Archivu
-			$resultpages = $envodb -> query('SELECT id FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($pageID) . '" LIMIT 1');
-			$rowpages    = $resultpages -> fetch_assoc();
-			if ($rowpages) {
-				$resultpages = $envodb -> query('UPDATE ' . $envotable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
-			}
+			// EN: Check If exist page for category
+			// CZ: Kontrola Pokud existuje stránka ke kategorii
+			$row      = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($catID) . '" LIMIT 1');
+			$getTotal = $row['totalAll'];
 
-			//
-			$result = $envodb -> query('SELECT catparent, pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
-			$row    = $result -> fetch_assoc();
+			if ($getTotal != 0) {
 
-			if ($row['pluginid'] == 0) {
-
-				// EN: Delete category from DB
-				// CZ: Smažeme kategorii v DB
-				$result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
-
-				if (!$result) {
-					// EN: Redirect page
-					// CZ: Přesměrování stránky s notifikací - chybné
-					envo_redirect(BASE_URL . 'index.php?p=categories&status=e');
-				} else {
-					// EN: Redirect page
-					// CZ: Přesměrování stránky s notifikací - úspěšné
-					/*
-					NOTIFIKACE:
-					'status=s'    - Záznam úspěšně uložen
-					'status1=s1'  - Záznam úspěšně odstraněn
-					*/
-					envo_redirect(BASE_URL . 'index.php?p=categories&status=s&status1=s1');
-				}
+				// EN: Redirect page
+				// CZ: Přesměrování stránky s notifikací - chybné
+				envo_redirect(BASE_URL . 'index.php?p=categories&status=epc');
 
 			} else {
-				// EN: Redirect page
-				// CZ: Přesměrování stránky
-				envo_redirect(BASE_URL . 'index.php?p=categories&status=epc');
+
+				// EN: Check if category is plugin
+				// CZ: Kontrola jestli kategory je plugin
+				$result = $envodb -> query('SELECT pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($catID) . '" LIMIT 1');
+				$row    = $result -> fetch_assoc();
+
+				if ($row['pluginid'] == 0) {
+
+					// EN: Delete category from DB
+					// CZ: Smažeme kategorii v DB
+					$result = $envodb -> query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($catID) . '"');
+
+					if (!$result) {
+						// EN: Redirect page
+						// CZ: Přesměrování stránky s notifikací - chybné
+						envo_redirect(BASE_URL . 'index.php?p=categories&status=e');
+					} else {
+						// EN: Redirect page
+						// CZ: Přesměrování stránky s notifikací - úspěšné
+						/*
+						NOTIFIKACE:
+						'status=s'    - Záznam úspěšně uložen
+						'status1=s1'  - Záznam úspěšně odstraněn
+						*/
+						envo_redirect(BASE_URL . 'index.php?p=categories&status=s&status1=s1');
+					}
+
+				} else {
+					// EN: Redirect page
+					// CZ: Přesměrování stránky
+					envo_redirect(BASE_URL . 'index.php?p=categories&status=epc');
+				}
+
 			}
 
-		} elseif ($page1 == 'delete' && $pageID == 1) {
+		} elseif ($page1 == 'delete' && $catID == 1) {
 			// EN: Redirect page
 			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=categories&status=ech');
+			envo_redirect(BASE_URL . 'index.php?p=categories&status=ene0');
 		} else {
 			// EN: Redirect page
 			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=error&status=ene');
+			envo_redirect(BASE_URL . 'index.php?p=categories&status=ech');
 		}
 
 		break;
@@ -387,7 +398,7 @@ switch ($page1) {
 						' . ($catblank["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
 						
 						<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=editcat&amp;id=' . $catblank["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i2"] . '"><i class="fa fa-edit"></i></a>
-						' . ($catblank["pluginid"] == 0 && $catblank["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $catblank["id"] . '" data-confirm="' . $tl["cat_notification"]["del"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i1"] . '"><i class="fa fa-trash-o"></i></a>' : '') . '
+						' . ($catblank["pluginid"] == 0 && $catblank["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $catblank["id"] . '" data-confirm="' . str_replace("%s", $catblank["name"], $tl["cat_notification"]["del"]) . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i1"] . '"><i class="fa fa-trash-o"></i></a>' : '') . '
 					</div></div></li>';
 
 		}

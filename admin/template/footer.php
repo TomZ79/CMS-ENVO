@@ -71,15 +71,15 @@
 <!-- BEGIN VENDOR JS -->
 
 <script>
-	// Pace.min.js config
+  // Pace.min.js config
   paceOptions = {
-		target: '#pace',
+    target: '#pace',
     ajax: false,
     document: true,
     eventLag: false,
-		restartOnPushState: false,
-		restartOnRequestAfter: false
-	}
+    restartOnPushState: false,
+    restartOnRequestAfter: false
+  }
 </script>
 
 <!-- FOOTER JS -->
@@ -162,7 +162,7 @@ $notify =
 if (!empty($page)) {
 	// EN: Insert javascript files for page in array $ap'
 	// CZ: Vložení javascript souborů pro stránky jejichž jména jsou v poli '$ap'
-	$ap = array ("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "users", "usergroup", "categories", "page", "sitemap", "searchsetting", "news", "tags", "cmshelp");
+	$ap = array ("logs", "searchlog", "changelog", "site", "setting", "seo", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "users", "usergroup", "categories", "page", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
 	if (in_array($page, $ap)) {
 		$jscodeFile = 'assets/js/script.' . $page . '.php';
@@ -206,68 +206,68 @@ if ($page == 'template' && $page1 == 'settings') {
 <!-- BEGIN NOTIFY CONFIG JS -->
 <?php if (isset($_SESSION["loginmsg"])) { ?>
 	<script>
-		$.notify({
-			// Options
-			title: '<?=$tl["hf_text"]["hftxt6"] . ' , ' . $ENVO_WELCOME_NAME?>!',
-			message: '<?=$_SESSION["loginmsg"]?>'
-		}, {
-			// Settings
-			timer: 8000,
-			template: '<div data-notify="container" class="col-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
-			'<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
-			'<div style="float: left;margin-right: 20px;"><img src="<?='../' . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser -> getVar("picture")?>" alt="" style="width: 40px;"></div>' +
-			'<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
-			'<span data-notify="message">{2}</span>' +
-			'</div>' +
-			'</div>'
-		});
+    $.notify({
+      // Options
+      title: '<?=$tl["hf_text"]["hftxt6"] . ' , ' . $ENVO_WELCOME_NAME?>!',
+      message: '<?=$_SESSION["loginmsg"]?>'
+    }, {
+      // Settings
+      timer: 8000,
+      template: '<div data-notify="container" class="col-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
+        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
+        '<div style="float: left;margin-right: 20px;"><img src="<?='../' . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser -> getVar("picture")?>" alt="" style="width: 40px;"></div>' +
+        '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+        '<span data-notify="message">{2}</span>' +
+        '</div>' +
+        '</div>'
+    });
 	</script>
 <?php }
 if (isset($_SESSION["infomsg"])) { ?>
 	<script>$.notify({
-			icon: 'fa fa-info-circle',
-			message: '<?=$_SESSION["infomsg"]?>'
-		}, {type: 'info'});
+      icon: 'fa fa-info-circle',
+      message: '<?=$_SESSION["infomsg"]?>'
+    }, {type: 'info'});
 	</script>
 <?php }
 if (isset($_SESSION["successmsg"])) { ?>
 	<script>$.notify({
-			icon: 'fa fa-check-square-o',
-			message: '<?=$_SESSION["successmsg"]?>'
-		}, {type: 'success'});
+      icon: 'fa fa-check-square-o',
+      message: '<?=$_SESSION["successmsg"]?>'
+    }, {type: 'success'});
 	</script>
 <?php }
 if (isset($_SESSION["errormsg"])) { ?>
 	<script>$.notify({
-			icon: 'fa fa-exclamation-triangle',
-			message: '<?=$_SESSION["errormsg"]?>'
-		}, {type: 'danger'});
+      icon: 'fa fa-exclamation-triangle',
+      message: '<?=$_SESSION["errormsg"]?>'
+    }, {type: 'danger'});
 	</script>
 <?php }
 if (isset($_SESSION["warningmsg"])) { ?>
 	<script>$.notify({
-			icon: 'fa fa-exclamation-triangle',
-			message: '<?=$_SESSION["warningmsg"]?>'
-		}, {type: 'warning'});
+      icon: 'fa fa-exclamation-triangle',
+      message: '<?=$_SESSION["warningmsg"]?>'
+    }, {type: 'warning'});
 	</script>
 <?php }
 if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
 	<script>
-		// Notification
-		$.notify({
-			// options
-			icon: 'fa fa-exclamation-triangle fa-lg',
-			message: '<?=$tl["general_error"]["generror6"]?>'
-		}, {
-			// settings
-			type: 'danger',
-			delay: 0,
-			template: '<div data-notify="container" class="col-11 col-sm-5 alert alert-{0}" role="alert">' +
-			'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-			'<span data-notify="icon"></span> ' +
-			'<span data-notify="message">{2}</span>' +
-			'</div>'
-		});
+    // Notification
+    $.notify({
+      // options
+      icon: 'fa fa-exclamation-triangle fa-lg',
+      message: '<?=$tl["general_error"]["generror6"]?>'
+    }, {
+      // settings
+      type: 'danger',
+      delay: 0,
+      template: '<div data-notify="container" class="col-11 col-sm-5 alert alert-{0}" role="alert">' +
+        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+        '<span data-notify="icon"></span> ' +
+        '<span data-notify="message">{2}</span>' +
+        '</div>'
+    });
 	</script>
 <?php } ?>
 
@@ -283,6 +283,15 @@ if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
 	// Import all hooks for footer just before /body
 	include_once APP_PATH . $foota["phpcode"];
 } ?>
+
+<!-- DEBUG MODE -->
+<?php
+if (!empty($DebugArray)) {
+	foreach ($DebugArray as $da) {
+		echo $da;
+	}
+}
+?>
 
 <!-- MODAL DIALOG -->
 <div class="modal fade fill-in" id="ENVOModal">

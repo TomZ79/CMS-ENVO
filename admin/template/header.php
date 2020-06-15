@@ -78,6 +78,7 @@ echo $Html -> addDoctype('html5');
 			code {
 				font-size: 1em;
 			}
+
 		</style>
 
 		<!--[if lte IE 9]>

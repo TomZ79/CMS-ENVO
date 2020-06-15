@@ -675,8 +675,12 @@ function envo_build_menu_admin ($parent, $menu, $lang, $title1, $title2, $title3
 		$html .= "
       <ul" . $class . $id . ">\n";
 		foreach ($menu['parents'][$parent] as $itemId) {
-			// Build menu for categories header and header/footer
+
+			// Build menu for ADMIN categories header and header/footer
 			if (!isset($menu['parents'][$itemId])) {
+
+				$dataconfirm = str_replace("%s", $menu["items"][$itemId]["name"], $lang);
+
 				$html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=categories&amp;sp=editcat&amp;id=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
@@ -687,12 +691,15 @@ function envo_build_menu_admin ($parent, $menu, $lang, $title1, $title2, $title3
           			' . ($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
           			
           			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=editcat&amp;id=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" data-confirm="' . $lang . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o" ></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" data-confirm="' . $dataconfirm . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o" ></i></a>' : '') . '
           		</span></div></li>';
 			}
 
-			// Build menu for ...
+			// Build menu for ADMIN categories header and header/footer with submenu
 			if (isset($menu['parents'][$itemId])) {
+
+				$dataconfirm = str_replace("%s", $menu["items"][$itemId]["name"], $lang);
+
 				$html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=categories&amp;sp=editcat&amp;id=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
@@ -703,11 +710,12 @@ function envo_build_menu_admin ($parent, $menu, $lang, $title1, $title2, $title3
           			' . ($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
           			
           			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=editcat&amp;id=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
-          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
+          			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" data-confirm="' . $dataconfirm . '" data-toggle="tooltipEnvo" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
           		</span>
           		</div>';
 				$html .= envo_build_menu_admin($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
 				$html .= "</li> \n";
+
 			}
 		}
 		$html .= "</ul> \n";
@@ -1062,4 +1070,39 @@ if (!function_exists('http_build_url')) {
 	}
 }
 
+/**
+ * @param $ref_url
+ * @param $httpRefArr
+ * @return string
+ */
+function http_ref_nostatus($ref_url, $httpRefArr) {
+	$scheme   = isset($ref_url['scheme']) ? $ref_url['scheme'] . '://' : '';
+	$host     = isset($ref_url['host']) ? $ref_url['host'] : '';
+	$path     = isset($ref_url['path']) ? $ref_url['path'] : '';
+
+	$url = $scheme . $host . $path;
+
+	if (array_key_exists('status', $httpRefArr)) {
+		// Delete elements
+		unset($httpRefArr['status']);
+	}
+
+	if (array_key_exists('status1', $httpRefArr)) {
+		// Delete elements
+		unset($httpRefArr['status1']);
+	}
+
+	$i = 0;
+	foreach ($httpRefArr as $key => $value) {
+		if ($i == 0) {
+			// first
+			$url .=  '?' . $key . '=' . $value;
+		} else {
+			$url .= '&' . $key . '=' . $value;
+		}
+		$i++;
+	}
+
+	return $url;
+}
 ?>

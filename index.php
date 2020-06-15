@@ -277,6 +277,7 @@ if (defined(ENVO_TEMPLATE) && is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_P
 // Set the check page to 0
 $ENVO_CHECK_PAGE = 0;
 
+
 // Include all the pages
 foreach ($envocategories as $ca) {
 

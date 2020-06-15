@@ -77,6 +77,8 @@ include_once ROOT . 'class/class.debug.php';
 include_once ROOT . 'class/class.htmlelement.php';
 // Include the main mPDF library
 require ROOT . 'class/mpdf/vendor/autoload.php';
+// Include PHP debug to web console
+require_once ROOT . 'class/class.debug.php';
 
 // Create instance of HTML_Form from htmlelement.php Class
 $Html = new HTML_Element();

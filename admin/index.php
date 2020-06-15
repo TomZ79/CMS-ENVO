@@ -15,6 +15,10 @@ $ENVO_PROVED = FALSE;
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/index.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
+// Create instance of Debug from debug.php Class
+$Debug = new PHPDebug();
+$DebugArray = array();
+
 // EN: Parsování webové adresy
 // CZ: Parsování webové adresy
 $page  = ($temppa ? envo_url_input_filter($temppa) : '');
@@ -34,8 +38,12 @@ if (ENVO_USERID && $envouser -> envoSuperAdminAccess(ENVO_USERID)) {
 } else {
 	define('ENVO_SUPERADMINACCESS', FALSE);
 }
+// PHP Debug - Add Debug to Array - $DebugArray
+array_push($DebugArray, $Debug->debug ("ENVO_SUPERADMINACCESS - " . ENVO_SUPERADMINACCESS));
+
 // We need the template folder, title, author and lang as template variable
 define('ENVO_PAGINATE_ADMIN', 1);
+
 // Define other constant
 define('ENVO_TEMPLATE', $setting["sitestyle"]);
 
@@ -236,12 +244,6 @@ if ($page == '404') {
 }
 // EN: Other page
 // CZ: Ostatní stránky
-if ($page == 'site') {
-	require_once 'site.php';
-	$ENVO_PROVED      = 1;
-	$ENVO_PAGE_ACTIVE = 1;
-	$checkp           = 1;
-}
 if ($page == 'logs') {
 	require_once 'logs.php';
 	$ENVO_PROVED      = 1;
@@ -260,8 +262,20 @@ if ($page == 'changelog') {
 	$ENVO_PAGE_ACTIVE = 1;
 	$checkp           = 1;
 }
+if ($page == 'site') {
+	require_once 'site.php';
+	$ENVO_PROVED      = 1;
+	$ENVO_PAGE_ACTIVE = 1;
+	$checkp           = 1;
+}
 if ($page == 'setting') {
 	require_once 'setting.php';
+	$ENVO_PROVED      = 1;
+	$ENVO_PAGE_ACTIVE = 1;
+	$checkp           = 1;
+}
+if ($page == 'seo') {
+	require_once 'seo.php';
 	$ENVO_PROVED      = 1;
 	$ENVO_PAGE_ACTIVE = 1;
 	$checkp           = 1;

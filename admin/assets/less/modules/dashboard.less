@@ -1,4 +1,4 @@
-/* 10. Dashboard ( Small box )
+/* 10. DASHBOARD ( Small box )
  ========================================================================*/
 .dashboard-box {
   border-radius: 2px;
@@ -15,6 +15,26 @@
   }
   & > .inner {
     padding: 10px;
+    &::before {
+      width: 100px;
+      height: 100px;
+      bottom: -20px;
+      content: "";
+      position: absolute;
+      background: rgba(255, 255, 255, 0.21);
+      transform: rotate(50deg);
+      right: -57px;
+    }
+    &::after {
+      width: 75px;
+      height: 75px;
+      bottom: 60px;
+      content: "";
+      position: absolute;
+      background: rgba(255, 255, 255, 0.21);
+      transform: rotate(50deg);
+      right: -45px;
+    }
   }
   & > .dashboard-box-footer {
     position: relative;
@@ -60,7 +80,7 @@
     right: 18px;
     z-index: 0;
     font-size: 83px;
-    color: rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.2);
   }
 }
 

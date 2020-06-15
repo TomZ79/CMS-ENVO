@@ -12,26 +12,26 @@
  * =======================================================================
  * INDEX:
  *
- * 1. Bootstrap Modification
- * 2. Bootstrap Components
- * 3. Sidebar
- * 4. Bootstrap Elements
- * 5. Breadcrumb styles
- * 6. Bootstrap Tabs
- * 7. Bootstrap Tables
- * 8. Bootstrap Plugin
- * 9. Bootstrap Modal Dialog
- * 10. Dashboard
- * 11. Todos List styles
- * 12. TinyMCE Plugin style
- * 13. ACE Editor style
- * 14. Charts
- * 15. Colors
- * 16. Progressbar
- * 17. Noname components
+ * 1. BOOTSTRAP MODIFICATION
+ * 2. BOOTSTRAP COMPONENTS
+ * 3. SIDEBAR MODIFICATION
+ * 4. BOOTSTRAP ELEMENTS
+ * 5. BREADCRUMB STYLES
+ * 6. BOOTSTRAP TABS
+ * 7. BOOTSTRAP TABLES
+ * 8. BOOTSTRAP PLUGIN
+ * 9. BOOTSTRAP MODAL DIALOG
+ * 10. DASHBOARD
+ * 11. TODOS LIST STYLES
+ * 12. TINYMCE PLUGIN STYLE
+ * 13. ACE EDITOR STYLE
+ * 14. CHARTS
+ * 15. COLORS
+ * 16. PROGRESSBAR
+ * 17. NONAME COMPONENTS
  
 -------------------------------------------------------------------*/
-/* 01. Bootstrap modification
+/* 01. BOOTSTRAP MODIFICATION
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Component: Bootstrap Pull Right - Responsive
@@ -134,7 +134,7 @@
 .zindex1060 {
   z-index: 1060;
 }
-/* 02. Bootstrap Components
+/* 02. BOOTSTRAP COMPONENTS
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Component: Box
@@ -748,7 +748,7 @@ li.filter-item > a:hover {
   color: #F55753;
   font-weight: 700;
 }
-/* 03. Sidebar modification
+/* 03. SIDEBAR MODIFICATION
  ========================================================================*/
 .page-sidebar .sidebar-overlay-slide .sidebar-footer {
   position: absolute;
@@ -795,7 +795,7 @@ li.filter-item > a:hover {
 .page-sidebar .sidebar-menu li.submenu-active li.submenu-active > .icon-thumbnail {
   color: #FFF !important;
 }
-/* 04. Bootstrap Elements
+/* 04. BOOTSTRAP ELEMENTS
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Span  - modification
@@ -1011,7 +1011,7 @@ fieldset:disabled a.btn {
 pre[class*="language-"] {
   border-left-color: #2B6A94;
 }
-/* 05. Breadcrumb styles
+/* 05. BREADCRUMB STYLES
  ========================================================================*/
 /* TITLE AND DESCRIPTION */
 /*** General Small Screen Desktops ***/
@@ -1039,7 +1039,7 @@ pre[class*="language-"] {
     content: "";
   }
 }
-/* 06. Bootstrap Tabs
+/* 06. BOOTSTRAP TABS
  ========================================================================*/
 /* Singel content without Tabs & Accordian
  * Content is same as content with Tabs & Accordians */
@@ -1056,7 +1056,7 @@ pre[class*="language-"] {
 .nav-tabs > li > a {
   padding: 13px 13px;
 }
-/* 07. Tables
+/* 07. BOOTSTRAP TABLES
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Bootstrap Tables  - modification
@@ -1153,7 +1153,7 @@ table.dataTable thead .sorting_desc::after {
 div.dataTables_wrapper div.dataTables_paginate {
   padding-right: 20px !important;
 }
-/* 08. Bootstrap Plugin
+/* 08. BOOTSTRAP PLUGIN
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Bootbox Dialog Plugin  - modification
@@ -1558,7 +1558,7 @@ ul.cform_drag li:hover {
 .callout.callout-success {
   border-color: #00733E;
 }
-/* 09. Bootstrap Modal Dialog
+/* 09. BOOTSTRAP MODAL DIALOG
  ========================================================================*/
 .bootbox.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
@@ -1599,7 +1599,7 @@ ul.cform_drag li:hover {
     width: 95% !important;
   }
 }
-/* 10. Dashboard ( Small box )
+/* 10. DASHBOARD ( Small box )
  ========================================================================*/
 .dashboard-box {
   border-radius: 2px;
@@ -1617,6 +1617,26 @@ ul.cform_drag li:hover {
 }
 .dashboard-box > .inner {
   padding: 10px;
+}
+.dashboard-box > .inner::before {
+  width: 100px;
+  height: 100px;
+  bottom: -20px;
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.21);
+  transform: rotate(50deg);
+  right: -57px;
+}
+.dashboard-box > .inner::after {
+  width: 75px;
+  height: 75px;
+  bottom: 60px;
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.21);
+  transform: rotate(50deg);
+  right: -45px;
 }
 .dashboard-box > .dashboard-box-footer {
   position: relative;
@@ -1662,7 +1682,7 @@ ul.cform_drag li:hover {
   right: 18px;
   z-index: 0;
   font-size: 83px;
-  color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 767px) {
   .dashboard-box {
@@ -1675,7 +1695,7 @@ ul.cform_drag li:hover {
     font-size: 12px;
   }
 }
-/* 11. Todos List styles
+/* 11. TODOS LIST STYLES
  ========================================================================*/
 ul.todoList {
   padding: 0;
@@ -1723,12 +1743,12 @@ ul.todoList li.todo .editTodo a.discardChanges {
 .addtodo {
   min-width: 120px;
 }
-/* 12. TinyMCE Plugin style
+/* 12. TINYMCE PLUGIN STYLE
  ========================================================================*/
 div.mce-edit-area {
   padding: 10px;
 }
-/* 13. ACE Editor style
+/* 13. ACE EDITOR STYLE
  ========================================================================*/
 #javaeditor {
   position: relative;
@@ -1782,13 +1802,13 @@ div.mce-edit-area {
 #htmleditorlight4 {
   height: 200px;
 }
-/* 14. Charts
+/* 14. CHARTS
  ========================================================================*/
 .charts {
   width: 100%;
   height: 300px;
 }
-/* 15. Colors
+/* 15. COLORS
  ========================================================================*/
 /* -----------------------------------------------------------------------
  *  # Color system
@@ -4293,7 +4313,7 @@ div.mce-edit-area {
 .text-default-100:focus {
   color: #333 !important;
 }
-/* 16. Progressbar
+/* 16. PROGRESSBAR
  ========================================================================*/
 #pace {
   background-color: rgba(0, 0, 0, 0.85);
@@ -4317,13 +4337,17 @@ div.mce-edit-area {
 .pace-done #pace {
   display: none;
 }
-/* 17. Noname Components
+/* 17. NONAME COMPONENTS
  ========================================================================*/
-/* Login Page */
+/* LOGIN PAGE */
 .lost-pwd {
   margin-top: 10px;
   margin-bottom: 10px;
   display: block;
+}
+/* LOGIN LOGS */
+.userlogin-detail {
+  display: none;
 }
 /* 00. MODIFICATION - RADIO, CHECKBOX, BUTTON, ICONS, INPUT, DL List
 ========================================================================*/

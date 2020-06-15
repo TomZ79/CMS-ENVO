@@ -56,7 +56,7 @@
 
 		<!-- START BASIC CONFIG SECTION -->
 		<?php
-		if ($page == 'site' || $page == 'setting') {
+		if ($page == 'site' || $page == 'setting' || $page == 'seo') {
 			$classbasicsection = 'open active';
 			$classbasiciconbg  = 'bg-success';
 		}
@@ -85,9 +85,19 @@
 
 					<?php
 					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-					echo $Html -> addAnchor('index.php?p=setting', $tl["submenu"]["sm10"]);
+					echo $Html -> addAnchor('index.php?p=setting', $tl["submenu"]["sm5"]);
 					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-					echo $Html -> addTag('span', text_clipping_lower($tl["submenu"]["sm10"]), 'icon-thumbnail');
+					echo $Html -> addTag('span', text_clipping_lower($tl["submenu"]["sm5"]), 'icon-thumbnail');
+					?>
+
+				</li>
+				<li class="<?= ($page == 'seo') ? 'submenu-active' : '' ?>">
+
+					<?php
+					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+					echo $Html -> addAnchor('index.php?p=seo', $tl["submenu"]["sm6"]);
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html -> addTag('span', text_clipping_lower($tl["submenu"]["sm6"]), 'icon-thumbnail');
 					?>
 
 				</li>

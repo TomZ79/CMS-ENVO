@@ -3,12 +3,12 @@
 <div class="row">
 	<div class="col-sm-9">
 		<!-- Version Unreleased -->
-		<div id="v_1_2_1" class="scrollspyoffset m-b-20">
+		<div id="v_2" class="scrollspyoffset m-b-20">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h5 class="panel-title">Version Unreleased</h5>
 					<div class="heading-elements">
-						<span class="text-muted heading-text">2018</span>
+						<span class="text-muted heading-text">2019</span>
 						<span class="label heading-text">Unreleased</span>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- /Version 1.2.1 -->
+		<!-- /Version Unreleased -->
 
 		<!-- Version 1.2 -->
 		<div id="v_1_2" class="scrollspyoffset m-b-20">
