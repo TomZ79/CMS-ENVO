@@ -17,28 +17,28 @@
  */
 
 if ($page == 'onlinetv') {
-
-	echo PHP_EOL . '<!-- Start JS Online TV -->';
-
-	if ($page == 'onlinetv' && $page1 == 'film') {
-
-		// TinyMCE Plugin
-		if (!empty($page2)) {
-			echo $Html -> addScript('/assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
-		}
-		// Plugin Fancybox
-		echo $Html -> addScript('/assets/plugins/fancybox/3.5.7/js/jquery.fancybox.min.js');
-		// Plugin Isotope
-		echo $Html -> addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
-
-	}
-
-	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
-	// Plugin Javascript
-	echo $Html -> addScript('/plugins/onlinetv/admin/js/script.onlinetv.js');
-
-	echo PHP_EOL . '<!-- End JS Online TV -->' . PHP_EOL;
-
+  
+  echo PHP_EOL . '<!-- Start JS Online TV -->';
+  
+  if ($page == 'onlinetv' && $page1 == 'film') {
+    
+    // TinyMCE Plugin
+    if (!empty($page2)) {
+      echo $Html->addScript('/assets/plugins/tinymce/5.3.1/tinymce.min.js?=v5.3.1');
+    }
+    // Plugin Fancybox
+    echo $Html->addScript('/assets/plugins/fancybox/3.5.7/js/jquery.fancybox.min.js');
+    // Plugin Isotope
+    echo $Html->addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
+    
+  }
+  
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin Javascript
+  echo $Html->addScript('/plugins/onlinetv/admin/js/script.onlinetv.js');
+  
+  echo PHP_EOL . '<!-- End JS Online TV -->' . PHP_EOL;
+  
 }
 
 // New line in source code

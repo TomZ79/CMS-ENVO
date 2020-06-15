@@ -19,7 +19,7 @@ function initializeTinyMce (selector, height) {
   if ($(selector).length) {
     tinymce.init({
       selector: selector,
-      theme: "modern",
+      theme: "silver",
       width: "100%",
       height: height,
       language: envoWeb.envo_lang,
@@ -28,7 +28,7 @@ function initializeTinyMce (selector, height) {
       entity_encoding: "raw",
       // Plugins
       plugins: [
-        "advlist autolink link charmap hr insertdatetime textcolor responsivefilemanager",
+        "advlist autolink link charmap hr insertdatetime responsivefilemanager",
         "searchreplace visualblocks paste",
         "table"
       ],

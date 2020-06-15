@@ -274,7 +274,7 @@ if ($ENVO_PROVED && !isset($setting["cms_tpl"])) { ?>
 <!-- BEGIN TINYMCE EDITOR -->
 <?php if ($ENVO_PROVED && (!$setting["adv_editor"])) {
 	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
-	echo $Html -> addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.3.12');
+	echo $Html -> addScript('../assets/plugins/tinymce/5.3.1/tinymce.min.js?=v5.3.1');
 	include_once('assets/js/tiny.editor.php');
 } ?>
 

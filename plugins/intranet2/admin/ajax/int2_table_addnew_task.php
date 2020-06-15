@@ -32,7 +32,7 @@ $envo_setting_val = envo_get_setting_val('intranet2');
 $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Insert info about service into DB
-$result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_housetasks SET 
+$result = $envodb->query('INSERT ' . DB_PREFIX . 'int2_housetasks SET
                           houseid = "' . smartsql($houseID) . '",  
                           priority = "' . smartsql($priority) . '", 
                           status = "' . smartsql($status) . '", 
@@ -44,65 +44,65 @@ $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_housetasks SET
                           updated = NOW()');
 
 // Get last row ID from DB
-$rowid = $envodb -> envo_last_id();
+$rowid = $envodb->envo_last_id();
 
 // Getting info uploaded Task from DB
-$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_housetasks WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
-$row    = $result -> fetch_assoc();
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int2_housetasks WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
+$row    = $result->fetch_assoc();
 
 // EN: Change number to string
 // CZ: Změna čísla na text
 switch ($row['priority']) {
-	case '0':
-		$priority = 'Nedůležitá';
-		break;
-	case '1':
-		$priority = 'Nízká priorita';
-		break;
-	case '2':
-		$priority = 'Střední priorita';
-		break;
-	case '3':
-		$priority = 'Vysoká priorita';
-		break;
-	case '4':
-		$priority = 'Nejvyšší priorita';
-		break;
+  case '0':
+    $priority = 'Nedůležitá';
+    break;
+  case '1':
+    $priority = 'Nízká priorita';
+    break;
+  case '2':
+    $priority = 'Střední priorita';
+    break;
+  case '3':
+    $priority = 'Vysoká priorita';
+    break;
+  case '4':
+    $priority = 'Nejvyšší priorita';
+    break;
 }
 
 switch ($row['status']) {
-	case '0':
-		$status = 'Žádný status';
-		break;
-	case '1':
-		$status = 'Zápis';
-		break;
-	case '2':
-		$status = 'V řešení';
-		break;
-	case '3':
-		$status = 'Vyřešeno - Uzavřeno';
-		break;
-	case '4':
-		$status = 'Stornováno';
-		break;
+  case '0':
+    $status = 'Žádný status';
+    break;
+  case '1':
+    $status = 'Zápis';
+    break;
+  case '2':
+    $status = 'V řešení';
+    break;
+  case '3':
+    $status = 'Vyřešeno - Uzavřeno';
+    break;
+  case '4':
+    $status = 'Stornováno';
+    break;
 }
 
-$data_array[] = array (
-	'id'          => $row['id'],
-	'priority'    => $priority,
-	'status'      => $status,
-	'title'       => $row['title'],
-	'description' => $row['description'],
-	'reminder'    => date($dateformat, strtotime($row["reminder"])),
-	'time'        => date($dateformat, strtotime($row["time"])),
+$data_array[] = array(
+  'id'          => $row['id'],
+  'priority'    => $priority,
+  'status'      => $status,
+  'title'       => $row['title'],
+  'description' => $row['description'],
+  'reminder'    => date($dateformat, strtotime($row["reminder"])),
+  'time'        => date($dateformat, strtotime($row["time"])),
 );
 
 // Data for JSON
-$envodata = array (
-	'status'     => 'success',
-	'status_msg' => 'New row insert do DB',
-	'data'       => $data_array
+$envodata = array(
+  'status'     => 'success',
+  'status_msg' => 'New row insert do DB',
+  'data'       => $data_array
 );
 
 // RETURN JSON OUTPUT

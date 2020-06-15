@@ -16,7 +16,7 @@ $(function () {
 
 	tinymce.init({
 		selector: "textarea.envoEditorLight, textarea.envoEditorLight2, textarea.envoEditorLight3",
-		theme: "modern",
+		theme: "silver",
 		width: "100%",
 		height: 200,
 		language: envoWeb.envo_lang,
@@ -48,14 +48,14 @@ $(function () {
 
 	tinymce.init({
 		selector: "textarea.envoEditor, textarea.envoEditor2, textarea.envoEditor3",
-		theme: "modern",
+		theme: "silver",
 		width: "100%",
 		height: 500,
 		language: envoWeb.envo_lang,
 		plugins: [
 			"advlist autolink link image lists charmap preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-			"save table contextmenu directionality emoticons paste textcolor responsivefilemanager clientcode"
+			"save table contextmenu directionality emoticons paste responsivefilemanager clientcode"
 		],
 		content_css: "<?=$customCSS?>",
 		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image | preview media fullpage | forecolor backcolor emoticons | clientcode",
@@ -80,14 +80,14 @@ $(function () {
 
 	tinymce.init({
 		selector: "textarea.envoEditorF, textarea.envoEditorF2, textarea.envoEditorF3",
-		theme: "modern",
+		theme: "silver",
 		width: "100%",
 		height: 500,
 		language: envoWeb.envo_lang,
 		plugins: [
 			"advlist autolink link image lists charmap preview hr anchor pagebreak fullpage",
 			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-			"save table contextmenu directionality emoticons paste textcolor responsivefilemanager clientcode"
+			"save table contextmenu directionality emoticons paste responsivefilemanager clientcode"
 		],
 		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image | preview media fullpage | forecolor backcolor emoticons | clientcode fullpage",
 		statusbar: false,

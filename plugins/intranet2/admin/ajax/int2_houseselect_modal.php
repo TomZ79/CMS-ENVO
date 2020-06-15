@@ -12,7 +12,7 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 // PHP CODE and DB
 //-------------------------
 
-$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_house ORDER BY id ASC');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int2_house ORDER BY id ASC');
 
 // Reset
 $envodata = '';
@@ -29,16 +29,16 @@ $envodata .= '<table id="int_table" class="table table-striped table-hover">
             </thead>
             <tbody>';
 
-while ($row = $result -> fetch_assoc()) {
-
-	$envodata .= '<tr>  
-                   <td>' . $Html -> addAnchor('', $row["name"], '', 'selecthouse', array ('data-value' => $row["id"])) . '</td>  
+while ($row = $result->fetch_assoc()) {
+  
+  $envodata .= '<tr>
+                   <td>' . $Html->addAnchor('', $row["name"], '', 'selecthouse', array('data-value' => $row["id"])) . '</td>
                    <td>' . $row["city"] . '</td>  
                    <td>' . $row["street"] . '</td>  
-                   <td>' . $Html -> addAnchor('', $row["ic"], '', 'selecthouse', array ('data-value' => $row["id"])) . '</td>  
+                   <td>' . $Html->addAnchor('', $row["ic"], '', 'selecthouse', array('data-value' => $row["id"])) . '</td>
                 </tr>  
                ';
-
+  
 }
 
 $envodata .= '</tbody></table>';

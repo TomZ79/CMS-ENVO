@@ -73,7 +73,7 @@ echo $Html -> addScript('assets/js/global_js/generated_admin_js.php', array ('ty
 
 <?php }
 if (!$setting["adv_editor"]) { ?>
-	<script src="../assets/plugins/tinymce/tinymce.min.js"></script>
+	<script src="../assets/plugins/tinymce/5.3.1/tinymce.min.js?=v5.3.1"></script>
 	<?php include_once('assets/js/tiny.editor.php');
 } ?>
 

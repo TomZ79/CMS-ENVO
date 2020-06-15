@@ -32,24 +32,24 @@ $file = mb_convert_encoding($file, 'HTML-ENTITIES', 'UTF-8');
 libxml_use_internal_errors(true);
 // Creating new DOM document instance and loading HTML content
 $dom = new DOMDocument();
-if (!$dom -> loadHTML($file)) {
-
-	$error = 'Error while loading source HTML!';
-
+if (!$dom->loadHTML($file)) {
+  
+  $error = 'Error while loading source HTML!';
+  
 } else {
-
-	$dom -> formatOutput = true;
-	// Use DomXPath
-	$xpath = new DomXPath($dom);
-
-	// TD with contains 'Adresní bod'
-	$parentNode2 = $xpath -> query('//td[contains(., "Adresní bod")]/..') -> item(0);
-	$nodes2_0    = $xpath -> query('./td', $parentNode2) -> item(0);
-	$nodes2_1    = $xpath -> query('./td', $parentNode2) -> item(1);
-	//
-	$nodes3 = $xpath -> query('//select[@name="path"]/optgroup/option/@value');
-
-	$envodata .= '
+  
+  $dom->formatOutput = true;
+  // Use DomXPath
+  $xpath = new DomXPath($dom);
+  
+  // TD with contains 'Adresní bod'
+  $parentNode2 = $xpath->query('//td[contains(., "Adresní bod")]/..')->item(0);
+  $nodes2_0    = $xpath->query('./td', $parentNode2)->item(0);
+  $nodes2_1    = $xpath->query('./td', $parentNode2)->item(1);
+  //
+  $nodes3 = $xpath->query('//select[@name="path"]/optgroup/option/@value');
+  
+  $envodata .= '
 			<div  class="col-sm-12">
 			<h5>Získaná data z databáze ČÚZK dle adresního místa</h5>
 			<hr>
@@ -58,29 +58,29 @@ if (!$dom -> loadHTML($file)) {
 			<p>Vybraná adresa pro vyhledání dat: ' . $street . ', ' . $city . '</p>
 			<p>Vybrané adresní místo pro vyhledání dat: ' . $adIdtxt . '</p><hr>
 	';
-
-	$envodata .= '<p><strong>' . $nodes2_0 -> nodeValue . '</strong> ' . $nodes2_1 -> nodeValue . '</p>';
-
-	for ($i = -1; $i < $nodes3 -> length; $i++) {
-
-		$string = ltrim($nodes3 -> item($i) -> nodeValue, '/');
-		$string = str_replace('/', ',', $string);
-		$str    = explode(',', $string);
-
-		if ($str[0] == 'stavebniobjekty') {
-			$buVdpId  = $str[1];
-			$envodata .= '<p><strong style="color: #C10000;">Kód objektu (buVdpId):</strong> ' . $str[1] . '</p>';
-			$envodata .= '<span id="stavebniobjekty" class="hidden">' . $str[1] . '</span>';
-		}
-	}
-
-	$envodata .= '<p><strong>Detail adresního místa: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/adresnimista/' . $adIdtxt . '" target="WindowCUZK">Zobrazit detail adresy na ČÚZK</a></p>';
-	$envodata .= '<p><strong>Detail stavebního objektu: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' . $buVdpId . '" target="WindowCUZK">Zobrazit detail objektu na ČÚZK</a></p><hr>';
-
-	$envodata .= '
+  
+  $envodata .= '<p><strong>' . $nodes2_0->nodeValue . '</strong> ' . $nodes2_1->nodeValue . '</p>';
+  
+  for ($i = -1; $i < $nodes3->length; $i++) {
+    
+    $string = ltrim($nodes3->item($i)->nodeValue, '/');
+    $string = str_replace('/', ',', $string);
+    $str    = explode(',', $string);
+    
+    if ($str[0] == 'stavebniobjekty') {
+      $buVdpId  = $str[1];
+      $envodata .= '<p><strong style="color: #C10000;">Kód objektu (buVdpId):</strong> ' . $str[1] . '</p>';
+      $envodata .= '<span id="stavebniobjekty" class="hidden">' . $str[1] . '</span>';
+    }
+  }
+  
+  $envodata .= '<p><strong>Detail adresního místa: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/adresnimista/' . $adIdtxt . '" target="WindowCUZK">Zobrazit detail adresy na ČÚZK</a></p>';
+  $envodata .= '<p><strong>Detail stavebního objektu: </strong><a href="http://vdp.cuzk.cz/vdp/ruian/stavebniobjekty/' . $buVdpId . '" target="WindowCUZK">Zobrazit detail objektu na ČÚZK</a></p><hr>';
+  
+  $envodata .= '
 			</div>
 	';
-
+ 
 }
 
 

@@ -21,33 +21,33 @@ header('Content-Type: application/json;charset=utf-8');
 $contID = $_POST['contID'];
 
 // Define basic variable
-$data_array = array ();
+$data_array = array();
 
 // Delete row in DB
-$result = $envodb -> query('DELETE FROM ' . DB_PREFIX . 'int2_housecontacts WHERE id = "' . $contID . '"');
+$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'int2_housecontacts WHERE id = "' . $contID . '"');
 
 if ($result) {
-	$data_array[] = array (
-		'id' => $contID,
-	);
-
-	// Data for JSON
-	$envodata = array (
-		'status'     => 'delete_success',
-		'status_msg' => 'Deleting the record from DB was successful',
-		'data'       => $data_array
-	);
+  $data_array[] = array(
+    'id' => $contID,
+  );
+  
+  // Data for JSON
+  $envodata = array(
+    'status'     => 'delete_success',
+    'status_msg' => 'Deleting the record from DB was successful',
+    'data'       => $data_array
+  );
 } else {
-	$data_array[] = array (
-		'id' => $contID
-	);
-
-	// Data for JSON
-	$envodata = array (
-		'status'     => 'delete_error_E01',
-		'status_msg' => 'Deleting the record from DB was incorrect',
-		'data'       => $data_array
-	);
+  $data_array[] = array(
+    'id' => $contID
+  );
+  
+  // Data for JSON
+  $envodata = array(
+    'status'     => 'delete_error_E01',
+    'status_msg' => 'Deleting the record from DB was incorrect',
+    'data'       => $data_array
+  );
 }
 
 // RETURN JSON OUTPUT

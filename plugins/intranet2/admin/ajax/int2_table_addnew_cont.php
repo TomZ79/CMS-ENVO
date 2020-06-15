@@ -38,7 +38,7 @@ $envo_setting_val = envo_get_setting_val('intranet2');
 $dateformat       = $envo_setting_val['int2dateformat'];
 
 // Insert info about service into DB
-$result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_housecontacts SET 
+$result = $envodb->query('INSERT ' . DB_PREFIX . 'int2_housecontacts SET
                           houseid = "' . smartsql($houseID) . '",  
                           degree = "' . smartsql($degree) . '", 
                           name = "' . smartsql($name) . '", 
@@ -55,63 +55,63 @@ $result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_housecontacts SET
                           updated = NOW()');
 
 // Get last row ID from DB
-$rowid = $envodb -> envo_last_id();
+$rowid = $envodb->envo_last_id();
 
 // Getting info uploaded Task from DB
-$result = $envodb -> query('SELECT * FROM ' . DB_PREFIX . 'int2_housecontacts WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
-$row    = $result -> fetch_assoc();
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'int2_housecontacts WHERE houseid = "' . $houseID . '" AND id = "' . $rowid . '"');
+$row    = $result->fetch_assoc();
 
 switch ($row['status']) {
-	case '0':
-		$status = 'Bez funkce';
-		break;
-	case '1':
-		$status = 'Předseda';
-		break;
-	case '2':
-		$status = 'Místopředseda';
-		break;
-	case '3':
-		$status = 'Člen výboru';
-		break;
+  case '0':
+    $status = 'Bez funkce';
+    break;
+  case '1':
+    $status = 'Předseda';
+    break;
+  case '2':
+    $status = 'Místopředseda';
+    break;
+  case '3':
+    $status = 'Člen výboru';
+    break;
 }
 switch ($row['gender']) {
-	case '0':
-		$gender = '';
-		break;
-	case '1':
-		$gender = 'Muž';
-		break;
-	case '2':
-		$gender = 'Žena';
-		break;
+  case '0':
+    $gender = '';
+    break;
+  case '1':
+    $gender = 'Muž';
+    break;
+  case '2':
+    $gender = 'Žena';
+    break;
 }
 if ($row['gender'] == 0) $genderimg = '/_files/userfiles/standard.png';
 if ($row['gender'] == 1) $genderimg = '/_files/userfiles/avatar4.png';
 if ($row['gender'] == 2) $genderimg = '/_files/userfiles/avatar7.png';
 
-$data_array[] = array (
-	'id'          => $row['id'],
-	'houseid'     => $row['houseid'],
-	'degree'      => $row['degree'],
-	'name'        => $row['name'],
-	'surname'     => $row['surname'],
-	'address'     => $row['address'],
-	'phone'       => $row['phone'],
-	'email'       => $row['email'],
-	'email'       => $row['email'],
-	'status'      => $status,
-	'birthdate'   => (!empty((int)$row['birthdate']) ? date($dateformat, strtotime($row['birthdate'])) : ''),
-	'gender'      => $gender,
-	'genderimg'   => $genderimg,
-	'description' => $row['description'],
+$data_array[] = array(
+  'id'          => $row['id'],
+  'houseid'     => $row['houseid'],
+  'degree'      => $row['degree'],
+  'name'        => $row['name'],
+  'surname'     => $row['surname'],
+  'address'     => $row['address'],
+  'phone'       => $row['phone'],
+  'email'       => $row['email'],
+  'facebook'    => $row['facebook'],
+  'status'      => $status,
+  'birthdate'   => (!empty((int)$row['birthdate']) ? date($dateformat, strtotime($row['birthdate'])) : ''),
+  'gender'      => $gender,
+  'genderimg'   => $genderimg,
+  'description' => $row['description'],
 );
 
 // Data for JSON
-$envodata = array (
-	'status'     => 'success',
-	'status_msg' => 'New row insert do DB',
-	'data'       => $data_array
+$envodata = array(
+  'status'     => 'success',
+  'status_msg' => 'New row insert do DB',
+  'data'       => $data_array
 );
 
 // RETURN JSON OUTPUT
