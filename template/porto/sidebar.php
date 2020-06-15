@@ -1,4 +1,4 @@
-<div class="col-sm-3 sidebar">
+<div class="col-sm-3 sidebar <?= $ENVO_HOOK_SIDE_GRID && $setting["sidebar_location_tpl"] == "left" ? 'sidebar-left' : 'sidebar-right'?>">
 
 	<?php
 
@@ -12,5 +12,7 @@
 	}
 
 	?>
+
+	<div class="<?= $ENVO_HOOK_SIDE_GRID && $setting["sidebar_location_tpl"] == "left" ? 'sidebar-overlay sidebar-overlay-left' : 'sidebar-overlay sidebar-overlay-right'?>"></div>
 
 </div>

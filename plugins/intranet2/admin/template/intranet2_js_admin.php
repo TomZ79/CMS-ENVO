@@ -48,6 +48,8 @@ if ($page == 'intranet2' && $page1 == 'house' && ($page2 == 'edithouse' || $page
 	echo $Html -> addScript('/assets/plugins/fancybox/3.5.7/js/jquery.fancybox.min.js');
 	// Plugin Isotope
 	echo $Html -> addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
+	// Plugin Tabledit
+	echo $Html -> addScript('/plugins/intranet/admin/js/jquery.tabledit.min.js');
 	
 }
 

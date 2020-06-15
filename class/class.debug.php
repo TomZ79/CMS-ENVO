@@ -61,9 +61,9 @@ class PHPDebug
 		if (!defined("ERROR")) define("ERROR", 4);
 
 		define("NL", "\r\n");
-		echo '<script>' . NL;
 
-		/// this is for IE and other browsers w/o console
+		/* this is for IE and other browsers w/o console
+		echo '<script>' . NL;
 		echo 'if (!window.console) console = {};' . NL;
 		echo 'console.log = console.log || function(){};' . NL;
 		echo 'console.warn = console.warn || function(){};' . NL;
@@ -71,64 +71,66 @@ class PHPDebug
 		echo 'console.info = console.info || function(){};' . NL;
 		echo 'console.debug = console.debug || function(){};' . NL;
 		echo '</script>' . NL;
-		/// end of IE
+		*/
 	}
 
 	function debug ($name, $var = NULL, $type = LOG)
 	{
-		echo '<script>' . NL;
+		$output = '<script>' . NL;
 		switch ($type) {
 			case LOG:
-				echo 'console.log("' . $name . '");' . NL;
+				$output .= 'console.log("' . $name . '");' . NL;
 				break;
 			case INFO:
-				echo 'console.info("' . $name . '");' . NL;
+				$output .= 'console.info("' . $name . '");' . NL;
 				break;
 			case WARN:
-				echo 'console.warn("' . $name . '");' . NL;
+				$output .= 'console.warn("' . $name . '");' . NL;
 				break;
 			case ERROR:
-				echo 'console.error("' . $name . '");' . NL;
+				$output .= 'console.error("' . $name . '");' . NL;
 				break;
 		}
 
 		if (!empty($var)) {
 			if (is_object($var) || is_array($var)) {
 				$object = json_encode($var);
-				echo 'var object' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ' = \'' . str_replace("'", "\'", $object) . '\';' . NL;
-				echo 'var val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ' = eval("(" + object' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ' + ")" );' . NL;
+				$output .= 'var object' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ' = \'' . str_replace("'", "\'", $object) . '\';' . NL;
+				$output .= 'var val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ' = eval("(" + object' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ' + ")" );' . NL;
 				switch ($type) {
 					case LOG:
-						echo 'console.debug(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
+						$output .= 'console.debug(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
 						break;
 					case INFO:
-						echo 'console.info(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
+						$output .= 'console.info(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
 						break;
 					case WARN:
-						echo 'console.warn(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
+						$output .= 'console.warn(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
 						break;
 					case ERROR:
-						echo 'console.error(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
+						$output .= 'console.error(val' . preg_replace('~[^A-Z|0-9]~i', "_", $name) . ');' . NL;
 						break;
 				}
 			} else {
 				switch ($type) {
 					case LOG:
-						echo 'console.debug("' . str_replace('"', '\\"', $var) . '");' . NL;
+						$output .= 'console.debug("' . str_replace('"', '\\"', $var) . '");' . NL;
 						break;
 					case INFO:
-						echo 'console.info("' . str_replace('"', '\\"', $var) . '");' . NL;
+						$output .= 'console.info("' . str_replace('"', '\\"', $var) . '");' . NL;
 						break;
 					case WARN:
-						echo 'console.warn("' . str_replace('"', '\\"', $var) . '");' . NL;
+						$output .= 'console.warn("' . str_replace('"', '\\"', $var) . '");' . NL;
 						break;
 					case ERROR:
-						echo 'console.error("' . str_replace('"', '\\"', $var) . '");' . NL;
+						$output .= 'console.error("' . str_replace('"', '\\"', $var) . '");' . NL;
 						break;
 				}
 			}
 		}
-		echo '</script>' . NL;
+		$output .= '</script>' . NL;
+
+		return $output;
 	}
 }
 

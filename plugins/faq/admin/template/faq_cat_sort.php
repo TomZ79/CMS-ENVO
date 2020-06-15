@@ -3,7 +3,7 @@
 <?php
 // EN: Checking of some page was successful
 // CZ: Kontrola některé stránky byla úspěšná
-if ($page1 == "s") { ?>
+if ($page3 == "s") { ?>
 	<script>
     // Notification
     setTimeout(function () {
@@ -20,15 +20,36 @@ if ($page1 == "s") { ?>
 <?php } ?>
 
 <?php
-// EN: Checking of some page was unsuccessful
-// CZ: Kontrola některé stránky byla neúspěšná
-if ($page1 == "e" || $page1 == "ene") { ?>
+// EN: Remove records from DB was successful
+// CZ: Odstranění záznamu z DB bylo úspěšné
+if ($page2 == "s1") { ?>
 	<script>
     // Notification
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+        icon: 'fa fa-info-circle',
+        message: '<?=$tl["notification"]["n2"]?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
+	</script>
+<?php } ?>
+
+<?php
+// EN: Checking of some page was unsuccessful
+// CZ: Kontrola některé stránky byla neúspěšná
+if ($page3 == "e") { ?>
+	<script>
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if ($page1 == "e") echo $tl["general_error"]["generror1"];?>'
       }, {
         // settings
         type: 'danger',
@@ -73,23 +94,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 						<th style="width:58%"><?= $tlf["faq_box_table"]["faqtb1"] ?></th>
 						<th style="width:15%"><?= $tlf["faq_box_table"]["faqtb"] ?></th>
 						<th style="width:8%"><?= $tlf["faq_box_table"]["faqtb2"] ?></th>
-						<th class="text-center no-sort" style="width:4%">
-
-							<?php
-							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
-							?>
-
-						</th>
 						<th class="text-center no-sort" style="width:4%"></th>
-						<th class="text-center no-sort" style="width:4%">
-
-							<?php
-							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-							echo $Html -> addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ('disabled' => 'disabled', 'data-confirm-del' => $tlf["faq_notification"]["delall"], 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'left', 'title' => $tl["icons"]["i30"]));
-							?>
-
-						</th>
+						<th class="text-center no-sort" style="width:4%"></th>
+						<th class="text-center no-sort" style="width:4%"></th>
 					</tr>
 					</thead>
 					<?php if (isset($ENVO_FAQ_SORT) && is_array($ENVO_FAQ_SORT)) foreach ($ENVO_FAQ_SORT as $v) { ?>
@@ -122,7 +129,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
 										if ($z["id"] == $page2) {
 											// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-											echo $Html -> addAnchor('index.php?p=faq&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
+											echo $Html -> addAnchor('index.php?p=faq&amp;sp=showcat&amp;id=' . $z["id"], $z["name"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => 'Zobrazit články v kategorii <br><strong>' . $z["name"] . '</strong>'));
 										}
 									}
 								} else {
@@ -152,7 +159,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('index.php?p=faq&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array ('data-confirm' => sprintf($tlf["faq_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+								echo $Html -> addAnchor('index.php?p=faq&amp;sp=delete&amp;id=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array ('data-confirm' => sprintf($tlf["faq_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 								?>
 
 							</td>

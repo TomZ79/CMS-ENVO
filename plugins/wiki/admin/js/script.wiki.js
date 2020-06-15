@@ -223,26 +223,26 @@ $(function () {
 
 $(function () {
 
-	$(".sortable").nestedSortable({maxLevels: 2});
+	$('.sortable').nestedSortable({maxLevels: 2});
 
-	$(".save-menu-plugin").on("click", function () {
-		mlist = $(this).data("menu");
-		serialized = $("#" + mlist).nestedSortable("serialize");
+	$('.save-menu-plugin').on('click', function () {
+		mlist = $(this).data('menu');
+		serialized = $('#' + mlist).nestedSortable('serialize');
 
 		/* Sending the form fileds to any post request: */
 		var request = $.ajax({
-			url: "index.php?p=wiki&amp;sp=categories",
-			type: "POST",
+			url: 'index.php?p=wiki&amp;sp=categories',
+			type: 'POST',
 			data: serialized,
-			dataType: "json",
+			dataType: 'json',
 			cache: false
 		});
 		request.done(function (data) {
 			if (data.status == 1) {
-				$("#" + mlist + " li").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+				$('#' + mlist + ' li').animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 				$.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
 			} else {
-				$("#" + mlist + " li").animate({backgroundColor: '#FFC9C9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+				$('#' + mlist + ' li').animate({backgroundColor: '#FFC9C9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 				$.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
 			}
 		});

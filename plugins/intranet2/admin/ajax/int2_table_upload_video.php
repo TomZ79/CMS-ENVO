@@ -9,6 +9,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 // CZ: Vložené funkce
 include_once("../include/functions.php");
 
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$ENVO_SETTING_VAL = envo_get_setting_val('intranet2');
+
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
@@ -52,6 +56,8 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 	$size = $_FILES['file']['size'];
 	// Setting main video folder
 	$mainfolder = $_REQUEST['folderpath'] . '/videos/';
+	// Video Date
+	$videoDate = date('Y-m-d H:i:s', strtotime($_REQUEST['videoDate']));
 
 	// -------- VIDEO ----------
 	// Get uploaded file's extension and name
@@ -202,6 +208,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 																		mainfolder = "' . $mainfolder . '",
 																		category = "' . smartsql($_REQUEST['videoCat']) . '",
 																		subcategory = "",
+																		videotime = "' . $videoDate . '",
 																		ftime = "' . smartsql($time) . '",
 																		fsize = "' . smartsql($size) . '",
 																		width = "' . smartsql($_REQUEST['videoWidth']) . '",
@@ -225,9 +232,10 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 					'filepath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filename"],
 					'filethumbpath'    => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
 					'category'         => $row1["category"],
+					'videotime'        => date($ENVO_SETTING_VAL['int2dateformat'], strtotime($row1["videotime"])),
 					'width'            => $row1["width"],
 					'height'           => $row1["height"],
-					'created'          => $row1["created"],
+					'created'          => date($ENVO_SETTING_VAL['int2dateformat'], strtotime($row1["created"])),
 					'updated'          => $row1["updated"],
 				);
 

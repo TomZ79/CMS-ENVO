@@ -215,7 +215,7 @@ switch ($page1) {
 		$pagearray = array ('new', 'edit', 'lock', 'delete');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+				envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 			}
 		}
 

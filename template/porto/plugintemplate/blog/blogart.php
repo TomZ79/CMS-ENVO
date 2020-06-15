@@ -131,7 +131,7 @@ if ($setting["printme"]) $printme = 1;
 
 	</div><!-- End Print Post -->
 
-	<div class="row align-items-center mt-5">
+	<div class="row align-items-center mt-5 mb-5">
 
 		<?php if ($ENVO_NAV_PREV) { ?>
 			<div class="col">

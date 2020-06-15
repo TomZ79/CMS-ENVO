@@ -311,6 +311,7 @@ if (isset($_FILES['file'])) {
 					'filenamethumb'         => $row1["filenamethumb"],
 					'filethumbpath'         => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
 					'category'              => $row1["category"],
+					'ftime'    		          => date("d/m/Y", $row1["ftime"]),
 					'exifmake'              => $row1["exifmake"],
 					'exifmodel'             => $row1["exifmodel"],
 					'exifsoftware'          => $row1["exifsoftware"],

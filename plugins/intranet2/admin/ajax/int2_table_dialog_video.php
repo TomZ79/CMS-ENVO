@@ -5,6 +5,14 @@
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int2_table_dialog_video.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
+// EN: Include the functions
+// CZ: Vložené funkce
+include_once("../include/functions.php");
+
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$ENVO_SETTING_VAL = envo_get_setting_val('intranet2');
+
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
@@ -70,6 +78,16 @@ $envodata .= '
 							</div>
 						</div>
 						<div class="col-sm-6"></div>
+					</div>
+					<div class="row m-b-10">
+						<div class="col-sm-12">
+							<p><strong>Datum videa</strong></p>
+						</div>
+					</div>
+					<div class="row m-b-10">
+						<div class="col-sm-6">
+							<p><input type="text" id="date_video" class="form-control" value="' . date($ENVO_SETTING_VAL['int2dateformat'], strtotime($row["videotime"])) . '"></p>
+						</div>
 					</div>
 					<div class="row m-b-10">
 						<div class="col-sm-12">

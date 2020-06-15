@@ -754,9 +754,10 @@
 									<table class="table table-bordered">
 										<thead>
 										<tr>
-											<th class="w-15 text-center">Typ Souboru</th>
+											<th class="w-10 text-center">Soubor</th>
 											<th class="w-70">Popis</th>
-											<th class="w-15 text-center">Soubor</th>
+											<th class="w-10 text-center">Upload</th>
+											<th class="w-15 text-center"></th>
 										</tr>
 										</thead>
 										<tbody>
@@ -765,6 +766,7 @@
 											<tr>
 												<td class="text-center"><?= envo_extension_icon($hdocu["fname"]) ?></td>
 												<td><?= $hdocu["description"] ?></td>
+												<td class="text-center"><?= date('d.m.Y', $hdocu['ftime']) ?></td>
 												<td class="text-center">
 
 													<?php
@@ -1049,7 +1051,7 @@
 											</div>
 											<div class="w-100 p-2">
 												<p><strong>Krátký Popis:</strong><span class="ml-1"><?= $hvideo["shortdescription"] ?></span></p>
-												<p><strong>Datum:</strong><span class="ml-1"><?= date('d.m.Y H:i', strtotime($hvideo['created'])) ?></span></p>
+												<p><strong>Datum videa:</strong><span class="ml-1"><?= date('d.m.Y', strtotime($hvideo['videotime'])) ?></span></p>
 											</div>
 										</div>
 									<?php } ?>

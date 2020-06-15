@@ -164,7 +164,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
 											if (in_array($z["id"], explode(',', $v["catid"]))) {
 												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-												echo $Html -> addAnchor('index.php?p=wiki&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
+												echo $Html -> addAnchor('index.php?p=wiki&amp;sp=showcat&amp;id=' . $z["id"], $z["name"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => 'Zobrazit články v kategorii <br><strong>' . $z["name"] . '</strong>'));
 											}
 										}
 									} else {

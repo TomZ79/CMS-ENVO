@@ -1051,7 +1051,7 @@ Složka domu:   				' . $pathfolder . '
 						// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 						if (!empty($page3)) {
 							if ($page3 != 'city' || $page3 != 'estatemanagement' || $page3 != 'livesearch' || $page3 != 'filtersearch') {
-								envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+								envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 							}
 						}
 
@@ -1079,8 +1079,8 @@ Složka domu:   				' . $pathfolder . '
 				// EN: If not exist value in 'case', redirect page to 404
 				// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 				if (!empty($page2)) {
-					if ($page2 != 'newhouse' || $page2 != 'edithouse' || $page2 != 'delete' || $page2 != 'houselist') {
-						envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+					if ($page2 != 'newhouse' || $page2 != 'edithouse' || $page2 != 'delete' || $page2 != 'houselist' || $page2 != 'status') {
+						envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 					}
 				}
 
@@ -1502,7 +1502,7 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 						// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 						if (!empty($page3)) {
 							if ($page3 != 'xxx') {
-								envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+								envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 							}
 						}
 
@@ -1531,7 +1531,7 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 				// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 				if (!empty($page2)) {
 					if ($page2 != 'newcontract' || $page2 != 'editcontract') {
-						envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+						envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 					}
 				}
 
@@ -1965,7 +1965,7 @@ Contract folder (Složka zakázky):' . "\t" . $pathfolder . '
 		$pagearray = array ('house', 'katastr', 'maps', 'search_db', 'contract', 'notification', 'setting', 'help');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+				envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 			}
 		}
 

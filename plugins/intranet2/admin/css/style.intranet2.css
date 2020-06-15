@@ -226,7 +226,7 @@ div[class^="gallery-item-"] .img_container {
 div[class^="gallery-item-"] img {
 	object-fit: cover;
 	width: 280px;
-	height: 170px;
+	height: 160px;
 	/* Image zoom hover effect */
 	-webkit-transform: scale(1);
 	transform: scale(1);
@@ -250,7 +250,7 @@ div[class^="gallery-item-"][data-height="1"] {
 
 div[class^="gallery-item-"] .overlays {
 	position: absolute;
-	bottom: 90px;
+	bottom: 100px;
 	left: 0;
 	right: 0;
 	overflow: hidden;

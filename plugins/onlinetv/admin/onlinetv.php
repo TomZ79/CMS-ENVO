@@ -375,7 +375,7 @@ Složka filmu:   				   ' . $pathfolder . '
 				// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 				if (!empty($page2)) {
 					if ($page2 != 'newfilm' || $page2 != 'editfilm' || $page2 != 'delete' || $page2 != 'filmlist') {
-						envo_redirect(ENVO_rewrite ::envoParseurl('404'));
+						envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 					}
 				}
 
@@ -456,7 +456,7 @@ Složka filmu:   				   ' . $pathfolder . '
 		$pagearray = array ('setting');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+				envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 			}
 		}
 

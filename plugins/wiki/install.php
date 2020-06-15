@@ -233,7 +233,7 @@ if (file_exists(APP_PATH . 'plugins/wiki/admin/lang/' . $site_language . '.ini')
 			$sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_WIKI) {
 	
 	if ($setting[\"wikirss\"]) {
-		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'wiki WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"wikirss\"];
+		$sql = \'SELECT id, title, content, created FROM \'.DB_PREFIX.\'wiki WHERE active = 1 ORDER BY created DESC LIMIT \'.$setting[\"wikirss\"];
 		$sURL = ENVO_PLUGIN_VAR_WIKI;
 		$sURL1 = \'wiki-article\';
 		$what = 1;
@@ -483,6 +483,7 @@ if (is_array($showwikiarray) && in_array(\"ASC\", $showwikiarray) || in_array(\"
   `permission` mediumtext,
   `catorder` int(11) unsigned NOT NULL DEFAULT 1,
   `catparent` int(11) unsigned NOT NULL DEFAULT 0,
+  `maincat` int(11) unsigned NOT NULL DEFAULT 0,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `count` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),

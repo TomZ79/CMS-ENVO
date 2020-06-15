@@ -22,6 +22,7 @@ $videoID        = $_POST['videoID'];
 $descVideo      = $_POST['descVideo'];
 $shortdescVideo = $_POST['shortdescVideo'];
 $catVideo       = $_POST['catVideo'];
+$dateVideo      = date('Y-m-d H:i:s', strtotime($_POST['dateVideo']));
 
 // Define basic variable
 $data_array = array ();
@@ -36,6 +37,7 @@ $envodb -> query('UPDATE ' . DB_PREFIX . 'int2_housevideo SET
 									shortdescription = "' . smartsql($shortdescVideo) . '",
 									description = "' . smartsql($descVideo) . '",
 									category = "' . smartsql($catVideo) . '",
+									videotime = "' . smartsql($dateVideo) . '",
 									updated = NOW()
 									WHERE id = "' . smartsql($videoID) . '"');
 
@@ -46,6 +48,7 @@ $row    = $result -> fetch_assoc();
 $data_array[] = array (
 	'id'                => $row["id"],
 	'shortdescription'  => $row["shortdescription"],
+	'videodate_format' => date($dateformat, strtotime($row["videotime"])),
 	'createdate_format' => date($dateformat, strtotime($row["created"])),
 	'updated'           => $row["updated"],
 	'category'          => $row["category"]

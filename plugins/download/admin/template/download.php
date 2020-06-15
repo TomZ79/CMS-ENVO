@@ -163,14 +163,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									?>
 
 								</td>
-								<td>
+								<td class="table-category-list">
 
 									<?php
 									if ($v["catid"] != '0') {
 										if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
 											if (in_array($z["id"], explode(',', $v["catid"]))) {
 												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-												echo $Html -> addAnchor('index.php?p=download&amp;sp=showcat&amp;id=' . $z["id"], $z["name"]);
+												echo $Html -> addAnchor('index.php?p=download&amp;sp=showcat&amp;id=' . $z["id"], $z["name"], '', '', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => 'Zobrazit soubory v kategorii <br><strong>' . $z["name"] . '</strong>'));
 											}
 										}
 									} else {

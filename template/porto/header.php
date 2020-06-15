@@ -326,7 +326,7 @@ START PAGE TITLE SECTION
 
 		if ($PORTOPHEADER == 'page-header-classic') { ?>
 
-			<section class="page-header <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
+			<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
 				<div class="container">
 					<div class="row">
 						<div class="col">
@@ -373,7 +373,7 @@ START PAGE TITLE SECTION
 		<?php }
 		if ($PORTOPHEADER == 'page-header-modern') { ?>
 
-			<section class="page-header <?= $PORTOPHEADER . ' bg-color-light-scale-1 ' . $PORTOPHEADER1 ?>">
+			<section class="page-header mb-0 <?= $PORTOPHEADER . ' bg-color-light-scale-1 ' . $PORTOPHEADER1 ?>">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
@@ -420,7 +420,7 @@ START PAGE TITLE SECTION
 
 			if ($PORTOPHEADER1 == 'page-header-background-md') { ?>
 
-				<section class="page-header <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);">
+				<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
@@ -466,7 +466,7 @@ START PAGE TITLE SECTION
 			<?php }
 			if ($PORTOPHEADER1 == 'page-header-background-pattern') { ?>
 
-				<section class="page-header <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);background-size: 130%;">
+				<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);background-size: 130%;">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 align-self-center p-static order-2 text-center">
@@ -511,7 +511,7 @@ START PAGE TITLE SECTION
 			<?php }
 			if ($PORTOPHEADER1 == 'page-header-background-md parallax') { ?>
 
-				<section class="page-header <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '140%'}" data-image-src="<?= $tpl_img ?>">
+				<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '140%'}" data-image-src="<?= $tpl_img ?>">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 align-self-center p-static order-2 text-center">
@@ -558,7 +558,7 @@ START PAGE TITLE SECTION
 		}
 		if ($PORTOPHEADER == 'page-header-modern page-header-md') { ?>
 
-			<section class="page-header <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
+			<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 align-self-center p-static order-2 text-center">
@@ -603,7 +603,7 @@ START PAGE TITLE SECTION
 		<?php }
 		if ($PORTOPHEADER == 'page-header-modern page-header-title-position') { ?>
 
-			<section class="page-header <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?> ">
+			<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?> ">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 align-self-center p-static order-2 text-center">
@@ -809,16 +809,16 @@ if (!$page) {
 switch ($section) {
 	case 'A':
 
-		echo '<section class="pt-3 mb-3">';
-		echo '<div class="container py-2">';
+		echo '<section class="pt-5 mb-5">';
+		echo '<div class="container">';
 		echo '<div class="row">';
 		echo '<div class="col">';
 
 		break;
 	case 'B':
 
-		echo '<section class="pt-small mb-small">';
-		echo '<div class="container py-2">';
+		echo '<section>';
+		echo '<div class="container">';
 		echo '<div class="row">';
 
 		// Sidebar if left
@@ -826,7 +826,7 @@ switch ($section) {
 			include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
 		}
 
-		echo '<div class="' . ($ENVO_HOOK_SIDE_GRID ? 'col-sm-9' : 'col-sm-12') . '">';
+		echo '<div class="' . ($ENVO_HOOK_SIDE_GRID ? 'col-sm-9' : 'col-sm-12') . '" style="padding-top: 30px;">';
 
 		break;
 	default:

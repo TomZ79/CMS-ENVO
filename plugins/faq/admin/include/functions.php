@@ -18,7 +18,7 @@ function envo_get_faqs ($limit, $envovar1, $table)
 {
 
 	$sqlwhere = '';
-	if (!empty($envovar1)) $sqlwhere = 'WHERE catid = ' . smartsql($envovar1) . ' ';
+	if (!empty($envovar1)) $sqlwhere = 'WHERE catid LIKE "%' . smartsql($envovar1) . '%" ';
 
 	global $envodb;
 	$envodata = array ();
@@ -53,6 +53,7 @@ function envo_get_faqs ($limit, $envovar1, $table)
  * @return string
  *
  */
+
 function envo_build_menu_faq ($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
 	$html = "";
@@ -60,8 +61,12 @@ function envo_build_menu_faq ($parent, $menu, $lang, $title1, $title2, $title3, 
 		$html .= "
       <ul" . $class . $id . ">\n";
 		foreach ($menu['parents'][$parent] as $itemId) {
+
 			// Build menu for FAQ categories
 			if (!isset($menu['parents'][$itemId])) {
+
+				$dataconfirm = str_replace("%s", $menu["items"][$itemId]["name"], $lang);
+
 				$html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;id=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
@@ -69,23 +74,29 @@ function envo_build_menu_faq ($parent, $menu, $lang, $title1, $title2, $title3, 
           			<a href="index.php?p=faq&amp;sp=categories&amp;ssp=lock&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="' . ($menu["items"][$itemId]["active"] == 0 ? "$title1" : "$title2") . '"><i class="fa fa-' . ($menu["items"][$itemId]["active"] == 0 ? 'lock' : 'check') . '"></i></a>
           			<a href="index.php?p=faq&amp;sp=new&amp;ssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="' . $title3 . '"><i class="fa fa-sticky-note-o"></i></a>
           			<a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
-          			<a href="index.php?p=faq&amp;sp=categories&amp;ssp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" data-confirm="' . $lang . '" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o"></i></a>
+          			<a href="index.php?p=faq&amp;sp=categories&amp;ssp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" data-confirm="' . $dataconfirm . '" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o"></i></a>
           		</span></div></li>';
+
 			}
-			// Build menu for ...
+
+			// Build menu for FAQ categories with submenu
 			if (isset($menu['parents'][$itemId])) {
+
+				$dataconfirm = str_replace("%s", $menu["items"][$itemId]["name"], $lang);
+
 				$html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
-          		<span class="text">#' . $menu["items"][$itemId]["id"] . ' <a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;id=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
+          		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;id=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">
           			<a href="index.php?p=faq&amp;sp=categories&amp;ssp=lock&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-' . ($menu["items"][$itemId]["active"] == 0 ? 'lock' : 'check') . '"></i></a>
           				<a href="index.php?p=faq&amp;sp=new&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-sticky-note-o"></i></a>
           				<a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a>
-          				<a href="index.php?p=faq&amp;sp=categories&amp;ssp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" onclick="if(!confirm(' . $lang . '))return false;"><i class="fa fa-trash-o"></i></a>
+          				<a href="index.php?p=faq&amp;sp=categories&amp;ssp=delete&amp;id=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs"  data-confirm="' . $dataconfirm . '" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o"></i></a>
           		</span>
           		</div>';
-				$html .= envo_build_menu_faq($itemId, $menu, $lang);
+				$html .= envo_build_menu_faq($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
 				$html .= "</li> \n";
+
 			}
 		}
 		$html .= "</ul> \n";

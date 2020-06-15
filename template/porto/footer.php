@@ -42,7 +42,7 @@ switch ($section) {
 	<!-- =========================
 	START FOOTER SECTION
 	============================== -->
-	<footer id="footer">
+	<footer id="footer" class="mt-0">
 		<div class="container my-4 py-2">
 			<div class="row py-4">
 				<div class="col-md-10">
@@ -138,7 +138,7 @@ switch ($section) {
 		<!-- =========================
 		START FOOTER SECTION
 		============================== -->
-		<footer id="footer">
+		<footer id="footer" class="mt-0">
 			<div class="container my-4 py-2">
 				<div class="row py-4">
 					<div class="col-md-10">

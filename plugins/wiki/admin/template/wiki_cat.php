@@ -19,7 +19,7 @@ if ($page2 == "s") { ?>
 	</script>
 <?php } ?>
 
-<?php if ($page3 == "s") { ?>
+<?php if ($page3 == "s1") { ?>
 	<script>
     // Notification
     setTimeout(function () {

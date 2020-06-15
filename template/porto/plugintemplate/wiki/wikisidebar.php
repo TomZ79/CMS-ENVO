@@ -25,7 +25,7 @@ if (ENVO_PLUGIN_ACCESS_WIKI) {
 
 							if ($c["catparent"] == 0) {
 
-								// EN: Main Category -> MainCategory
+								// EN: Main Category -> Main Category
 								// CZ:
 								// ---------------------------------------------------------------------
 								if ($c["varname"] == $url) {
@@ -40,7 +40,7 @@ if (ENVO_PLUGIN_ACCESS_WIKI) {
 								}
 
 								if ($c["maincat"] > 0) {
-									echo '<a href="#" title="' . strip_tags($c["content"]) . '">';
+									echo '<span title="' . strip_tags($c["content"]) . '">';
 								} else {
 									echo '<a href="' . $c["parseurl"] . '" title="' . strip_tags($c["content"]) . '">';
 								}
@@ -54,6 +54,12 @@ if (ENVO_PLUGIN_ACCESS_WIKI) {
 								}
 
 								echo '</a>';
+
+								if ($c["maincat"] > 0) {
+									echo '</span>';
+								} else {
+									echo '</a>';
+								}
 
 								// EN: Category in Submenu -> SubCategory
 								// CZ:

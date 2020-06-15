@@ -76,7 +76,6 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
 	$time = $stat['mtime'];
 	$size = $stat['size'];
 
-
 	// Check's valid format
 	if (in_array($ext, $valid_extensions)) {
 		$pathfull = $pathfull . $final_file;
@@ -101,7 +100,7 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
 				$data_array[] = array (
 					'id'          => $row["id"],
 					'description' => $row["description"],
-					'ftime'       => $row["ftime"],
+					'ftime'       => date('d.m.Y', $row["ftime"]),
 					'fsize'       => $row["fsize"],
 					'ficon'       => envo_extension_icon($row["fname"]),
 					'fullpath'    => '/' . ENVO_FILES_DIRECTORY . $row["fullpath"]

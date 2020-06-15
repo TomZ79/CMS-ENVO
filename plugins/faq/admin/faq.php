@@ -23,6 +23,13 @@ $envotable1 = DB_PREFIX . 'faqcategories';
 $envotable2 = DB_PREFIX . 'pagesgrid';
 $envotable3 = DB_PREFIX . 'pluginhooks';
 
+// EN: Default Variable
+// CZ: Hlavní proměnné
+$httpRef = $_SERVER['HTTP_REFERER'];
+unset($parsed_url);
+$parsed_url = parse_url($httpRef);
+parse_str($parsed_url['query'], $httpRefArr);
+
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
@@ -492,12 +499,16 @@ switch ($page1) {
 
 		if (!$result) {
 			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
+			// CZ: Přesměrování stránky s notifikací - chybné
+			envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=e');
 		} else {
 			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=faq&status=s');
+			// CZ: Přesměrování stránky s notifikací - úspěšné
+			/*
+			NOTIFIKACE:
+			'status=s'    - Záznam úspěšně uložen
+			*/
+			envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=s');
 		}
 
 		break;
@@ -515,8 +526,7 @@ switch ($page1) {
 
 			if (is_numeric($row2['catid'])) {
 
-				$envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
-
+				$envodb -> query('UPDATE ' . $envotable1 . ' SET count = (count - 1) WHERE id = "' . smartsql($row2['catid']) . '"');
 
 			} else {
 
@@ -535,7 +545,7 @@ switch ($page1) {
 			if (!$result) {
 				// EN: Redirect page
 				// CZ: Přesměrování stránky s notifikací - chybné
-				envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
+				envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=e');
 			} else {
 				ENVO_tags ::envoDeleteTags($pageID, ENVO_PLUGIN_FAQ);
 
@@ -546,7 +556,7 @@ switch ($page1) {
 				'status=s'    - Záznam úspěšně uložen
 				'status1=s1'  - Záznam úspěšně odstraněn
 				*/
-				envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s1');
+				envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=s&status1=s1');
 			}
 
 		} else {
@@ -583,7 +593,7 @@ switch ($page1) {
 			// EN: Title and Description
 			// CZ: Titulek a Popis
 			$SECTION_TITLE = $tlf["faq_sec_title"]["faqt2"];
-			$SECTION_DESC  = str_replace("%s", '<strong>' . $catname . '</strong>', $tlf["faq_sec_desc"]["faqd10"]);
+			$SECTION_DESC  = str_replace("%s", $catname, $tlf["faq_sec_desc"]["faqd10"]);
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
@@ -621,29 +631,45 @@ switch ($page1) {
 				break;
 			case 'delete':
 
-				if (envo_row_exist($page3, $envotable1) && !envo_field_not_exist($page3, $envotable1, $envofield)) {
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$catID = $page3;
 
-					$result = $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page3) . '"');
+				if (envo_row_exist($catID, $envotable1) && !envo_field_not_exist($catID, $envotable1, $envofield)) {
 
-					if (!$result) {
+					if ($getTotal != 0) {
+
 						// EN: Redirect page
 						// CZ: Přesměrování stránky s notifikací - chybné
-						envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=e');
+						envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=epc');
+
 					} else {
-						// EN: Redirect page
-						// CZ: Přesměrování stránky s notifikací - úspěšné
-						/*
-						NOTIFIKACE:
-						'status=s'    - Záznam úspěšně uložen
-						'status1=s1'  - Záznam úspěšně odstraněn
-						*/
-						envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=s&status1=s1');
+
+						// EN: Delete category from DB
+						// CZ: Odstranění kategorie z DB
+						$result = $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '"');
+
+						if (!$result) {
+							// EN: Redirect page
+							// CZ: Přesměrování stránky s notifikací - chybné
+							envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=e');
+						} else {
+							// EN: Redirect page
+							// CZ: Přesměrování stránky s notifikací - úspěšné
+							/*
+							NOTIFIKACE:
+							'status=s'    - Záznam úspěšně uložen
+							'status1=s1'  - Záznam úspěšně odstraněn
+							*/
+							envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=s&status1=s1');
+						}
+
 					}
 
 				} else {
 					// EN: Redirect page
 					// CZ: Přesměrování stránky
-					envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=eca');
+					envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=ech');
 				}
 
 				break;
@@ -1181,7 +1207,7 @@ switch ($page1) {
 		$pagearray = array ('new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+				envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 			}
 		}
 
@@ -1218,11 +1244,15 @@ switch ($page1) {
 
 				if (!$result) {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - chybné
 					envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
 				} else {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - úspěšné
+					/*
+					NOTIFIKACE:
+					'status=s'    - Záznam úspěšně uložen
+					*/
 					envo_redirect(BASE_URL . 'index.php?p=faq&status=s');
 				}
 

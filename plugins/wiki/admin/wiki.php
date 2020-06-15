@@ -25,6 +25,13 @@ $envotable3 = DB_PREFIX . 'pluginhooks';
 $envotable4 = DB_PREFIX . 'wikiliterature';
 $envotable5 = DB_PREFIX . 'wikilink';
 
+// EN: Default Variable
+// CZ: Hlavní proměnné
+$httpRef = $_SERVER['HTTP_REFERER'];
+unset($parsed_url);
+$parsed_url = parse_url($httpRef);
+parse_str($parsed_url['query'], $httpRefArr);
+
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
@@ -689,12 +696,16 @@ switch ($page1) {
 
 		if (!$result) {
 			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=wiki&status=e');
+			// CZ: Přesměrování stránky s notifikací - chybné
+			envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=e');
 		} else {
 			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=wiki&status=s');
+			// CZ: Přesměrování stránky s notifikací - úspěšné
+			/*
+			NOTIFIKACE:
+			'status=s'    - Záznam úspěšně uložen
+			*/
+			envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=s');
 		}
 
 		break;
@@ -714,7 +725,6 @@ switch ($page1) {
 
 				$envodb -> query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
 
-
 			} else {
 
 				$catarray = explode(',', $row2['catid']);
@@ -732,7 +742,7 @@ switch ($page1) {
 			if (!$result) {
 				// EN: Redirect page
 				// CZ: Přesměrování stránky s notifikací - chybné
-				envo_redirect(BASE_URL . 'index.php?p=wiki&status=e');
+				envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=e');
 			} else {
 
 				// EN:
@@ -750,7 +760,7 @@ switch ($page1) {
 				'status=s'    - Záznam úspěšně uložen
 				'status1=s1'  - Záznam úspěšně odstraněn
 				*/
-				envo_redirect(BASE_URL . 'index.php?p=wiki&status=s&status1=s1');
+				envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=s&status1=s1');
 			}
 
 		} else {
@@ -769,14 +779,14 @@ switch ($page1) {
 		// Important Smarty stuff
 		$ENVO_CAT = envo_get_cat_info($envotable1, 0);
 
-		$result   = $envodb -> query('SELECT name FROM ' . $envotable1 . ' WHERE id = ' . $catID . ' LIMIT 1');
-		$row = $result -> fetch_assoc();
+		$result  = $envodb -> query('SELECT name FROM ' . $envotable1 . ' WHERE id = ' . $catID . ' LIMIT 1');
+		$row     = $result -> fetch_assoc();
 		$catname = $row['name'];
 
 		// EN: Check data
 		// CZ: Kontrola dat
 		// $getTotal = envo_get_total($envotable, $page2, 'catid', '');
-		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
+		$row      = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
 		$getTotal = $row['totalAll'];
 
 		if ($getTotal != 0) {
@@ -788,7 +798,7 @@ switch ($page1) {
 			// EN: Title and Description
 			// CZ: Titulek a Popis
 			$SECTION_TITLE = $tlw["wiki_sec_title"]["wikit"];
-			$SECTION_DESC  = str_replace("%s", '<strong>' . $catname . '</strong>', $tlw["wiki_sec_desc"]["wikid10"]);
+			$SECTION_DESC  = str_replace("%s", $catname, $tlw["wiki_sec_desc"]["wikid10"]);
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
@@ -815,40 +825,65 @@ switch ($page1) {
 
 				if (!$result) {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - chybné
 					envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=e');
 				} else {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - úspěšné
+					/*
+					NOTIFIKACE:
+					'status=s'    - Záznam úspěšně uložen
+					*/
 					envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=s');
 				}
 
 				break;
 			case 'delete':
 
-				if (envo_row_exist($page3, $envotable1) && !envo_field_not_exist($page3, $envotable1, $envofield)) {
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$catID = $page3;
 
-					$result = $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page3) . '"');
+				if (envo_row_exist($catID, $envotable1) && !envo_field_not_exist($catID, $envotable1, $envofield)) {
 
-					if (!$result) {
+					// EN: Check data
+					// CZ: Kontrola dat
+					$row      = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
+					$getTotal = $row['totalAll'];
+
+					if ($getTotal != 0) {
+
 						// EN: Redirect page
 						// CZ: Přesměrování stránky s notifikací - chybné
-						envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=e');
+						envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=epc');
+
 					} else {
-						// EN: Redirect page
-						// CZ: Přesměrování stránky s notifikací - úspěšné
-						/*
-						NOTIFIKACE:
-						'status=s'    - Záznam úspěšně uložen
-						'status1=s1'  - Záznam úspěšně odstraněn
-						*/
-						envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=s&status1=s1');
+
+						// EN: Delete category from DB
+						// CZ: Odstranění kategorie z DB
+						$result = $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '"');
+
+						if (!$result) {
+							// EN: Redirect page
+							// CZ: Přesměrování stránky s notifikací - chybné
+							envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=e');
+						} else {
+							// EN: Redirect page
+							// CZ: Přesměrování stránky s notifikací - úspěšné
+							/*
+							NOTIFIKACE:
+							'status=s'    - Záznam úspěšně uložen
+							'status1=s1'  - Záznam úspěšně odstraněn
+							*/
+							envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=s&status1=s1');
+						}
+
 					}
 
 				} else {
 					// EN: Redirect page
 					// CZ: Přesměrování stránky
-					envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=eca');
+					envo_redirect(BASE_URL . 'index.php?p=wiki&sp=categories&status=ech');
 				}
 
 				break;
@@ -954,18 +989,25 @@ switch ($page1) {
 
 					$count = 1;
 
+					// Set column "maincat" to null in DB
+					$result = $envodb -> query('UPDATE ' . $envotable1 . ' SET maincat = "0"');
+
 					foreach ($_POST['menuItem'] as $k => $v) {
 
 						if (!is_numeric($v)) $v = 0;
 
 						$result = $envodb -> query('UPDATE ' . $envotable1 . ' SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
 
+						if ($v > 0) {
+							$result = $envodb -> query('UPDATE ' . $envotable1 . ' SET maincat = "1" WHERE id = "' . smartsql($v) . '"');
+						}
+
 						$count++;
 
 					}
 
 					if ($result) {
-						/* Outputtng the success messages */
+						/* Outputting the success messages */
 						if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 							header('Cache-Control: no-cache');
 							die(json_encode(array ("status" => 1, "html" => $tl["notification"]["n7"])));
@@ -1381,7 +1423,7 @@ switch ($page1) {
 		$pagearray = array ('new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+				envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 			}
 		}
 
@@ -1418,11 +1460,15 @@ switch ($page1) {
 
 				if (!$result) {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - chybné
 					envo_redirect(BASE_URL . 'index.php?p=wiki&status=e');
 				} else {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - úspěšné
+					/*
+					NOTIFIKACE:
+					'status=s'    - Záznam úspěšně uložen
+					*/
 					envo_redirect(BASE_URL . 'index.php?p=wiki&status=s');
 				}
 
@@ -1468,7 +1514,7 @@ switch ($page1) {
 
 		// EN: Check data
 		// CZ: Kontrola dat
-		$row = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable);
+		$row      = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable);
 		$getTotal = $row['totalAll'];
 
 		if ($getTotal != 0) {

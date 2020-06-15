@@ -24,6 +24,13 @@ $envotable2 = DB_PREFIX . 'pagesgrid';
 $envotable3 = DB_PREFIX . 'pluginhooks';
 $envotable4 = DB_PREFIX . 'backup_content';
 
+// EN: Default Variable
+// CZ: Hlavní proměnné
+$httpRef = $_SERVER['HTTP_REFERER'];
+unset($parsed_url);
+$parsed_url = parse_url($httpRef);
+parse_str($parsed_url['query'], $httpRefArr);
+
 // EN: Include the functions
 // CZ: Vložené funkce
 include_once("../plugins/blog/admin/include/functions.php");
@@ -576,13 +583,18 @@ switch ($page1) {
 
 		if (!$result) {
 			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=blog&status=e');
+			// CZ: Přesměrování stránky s notifikací - chybné
+			envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=e');
 		} else {
 			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=blog&status=s');
+			// CZ: Přesměrování stránky s notifikací - úspěšné
+			/*
+			NOTIFIKACE:
+			'status=s'    - Záznam úspěšně uložen
+			*/
+			envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=s');
 		}
+
 
 		break;
 	case 'delete':
@@ -619,7 +631,7 @@ switch ($page1) {
 			if (!$result) {
 				// EN: Redirect page
 				// CZ: Přesměrování stránky s notifikací - chybné
-				envo_redirect(BASE_URL . 'index.php?p=blog&status=e');
+				envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=e');
 			} else {
 
 				// EN: Delete the Tags from DB
@@ -633,7 +645,7 @@ switch ($page1) {
 				'status=s'    - Záznam úspěšně uložen
 				'status1=s1'  - Záznam úspěšně odstraněn
 				*/
-				envo_redirect(BASE_URL . 'index.php?p=blog&status=s&status1=s1');
+				envo_redirect(http_ref_nostatus($parsed_url, $httpRefArr) . '&status=s&status1=s1');
 			}
 
 		} else {
@@ -670,7 +682,7 @@ switch ($page1) {
 			// EN: Title and Description
 			// CZ: Titulek a Popis
 			$SECTION_TITLE = $tlblog["blog_sec_title"]["blogt2"];
-			$SECTION_DESC  = str_replace("%s", '<strong>' . $catname . '</strong>', $tlblog["blog_sec_desc"]["blogd10"]);
+			$SECTION_DESC  = str_replace("%s", $catname, $tlblog["blog_sec_desc"]["blogd10"]);
 
 			// EN: Load the php template
 			// CZ: Načtení php template (šablony)
@@ -708,29 +720,51 @@ switch ($page1) {
 				break;
 			case 'delete':
 
-				if (envo_row_exist($page3, $envotable1) && !envo_field_not_exist($page3, $envotable1, $envofield)) {
+				// EN: Default Variable
+				// CZ: Hlavní proměnné
+				$catID = $page3;
 
-					$result = $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page3) . '"');
+				if (envo_row_exist($catID, $envotable1) && !envo_field_not_exist($catID, $envotable1, $envofield)) {
 
-					if (!$result) {
+					// EN: Check data
+					// CZ: Kontrola dat
+					$row      = $envodb -> queryRow('SELECT COUNT(*) as totalAll FROM ' . $envotable . ' WHERE catid LIKE "%' . $catID . '%"');
+					$getTotal = $row['totalAll'];
+
+					if ($getTotal != 0) {
+
 						// EN: Redirect page
 						// CZ: Přesměrování stránky s notifikací - chybné
-						envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=e');
+						envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=epc');
+
 					} else {
-						// EN: Redirect page
-						// CZ: Přesměrování stránky s notifikací - úspěšné
-						/*
-						NOTIFIKACE:
-						'status=s'   - Záznam úspěšně uložen
-						'status1=s1'  - Záznam úspěšně odstraněn
-						*/
-						envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=s&status1=s1');
+
+						// EN: Delete category from DB
+						// CZ: Odstranění kategorie z DB
+						$result = $envodb -> query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($catID) . '"');
+
+						if (!$result) {
+
+							// EN: Redirect page
+							// CZ: Přesměrování stránky s notifikací - chybné
+							envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=e');
+						} else {
+							// EN: Redirect page
+							// CZ: Přesměrování stránky s notifikací - úspěšné
+							/*
+							NOTIFIKACE:
+							'status=s'   - Záznam úspěšně uložen
+							'status1=s1'  - Záznam úspěšně odstraněn
+							*/
+							envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=s&status1=s1');
+						}
+
 					}
 
 				} else {
 					// EN: Redirect page
 					// CZ: Přesměrování stránky
-					envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=eca');
+					envo_redirect(BASE_URL . 'index.php?p=blog&sp=categories&status=ech');
 				}
 
 				break;
@@ -1268,7 +1302,7 @@ switch ($page1) {
 		$pagearray = array ('new', 'edit', 'lock', 'delete', 'showcat', 'categories', 'newcategory', 'setting', 'quickedit');
 		if (!empty($page1) && !is_numeric($page1)) {
 			if (in_array($page1, $pagearray)) {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+				envo_redirect(ENVO_rewrite ::envoParseurl('admin', 'index.php?p=404'));
 			}
 		}
 
@@ -1322,11 +1356,15 @@ switch ($page1) {
 
 				if (!$result) {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - chybné
 					envo_redirect(BASE_URL . 'index.php?p=blog&status=e');
 				} else {
 					// EN: Redirect page
-					// CZ: Přesměrování stránky
+					// CZ: Přesměrování stránky s notifikací - úspěšné
+					/*
+					NOTIFIKACE:
+					'status=s'    - Záznam úspěšně uložen
+					*/
 					envo_redirect(BASE_URL . 'index.php?p=blog&status=s');
 				}
 

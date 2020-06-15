@@ -10,7 +10,7 @@
  * =======================================================================
  * INDEX:
  * 00. BASIC
- * 00. WIDGET SIDEBAR
+ * 00. SIDEBAR
  * 00. TAGS CLOUD AND LIST
  * 00. NECESSARY CODE !!! - NAVIGATION SIDEBAR MENU
  * 00. NECESSARY CODE !!! - SIDEBAR
@@ -24,7 +24,7 @@ h3 {
 	line-height: 1.4em;
 }
 
-/* 00. WIDGET SIDEBAR
+/* 00. SIDEBAR
 ========================================================================*/
 /* Basic settings */
 .sidebarwidget {
@@ -79,6 +79,66 @@ h3 {
 .sidebarwidget .post_small-text-meta ul li i {
 	color: #999;
 	margin-right: 4px;
+}
+
+/* Sidebar overlays */
+.sidebar {
+	border: 0;
+	border-right-width: 1px;
+	border-style: solid;
+	padding: 30px 20px 20px;
+	border-color: rgba(0,0,0,.09);
+	position: relative;
+}
+
+.sidebar {
+	border: 0;
+	padding: 30px 20px 20px;
+	border-color: rgba(0,0,0,.09);
+	border-style: solid;
+	position: relative;
+}
+
+.sidebar-left {
+	border-right-width: 1px;
+}
+
+.sidebar-right {
+	border-left-width: 1px;
+}
+
+.sidebar div {
+	position: relative;
+	z-index: 10;
+}
+
+.sidebar-overlay {
+	position: initial !important;
+}
+.sidebar .sidebar-overlay-left::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1500px;
+	height: 100%;
+	background: rgba(0,0,0,.01);
+	visibility: visible;
+	z-index: 0;
+}
+
+.sidebar .sidebar-overlay-right::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1500px;
+	height: 100%;
+	background: rgba(0,0,0,.01);
+	visibility: visible;
+	z-index: 0;
 }
 
 /* 00. TAGS CLOUD AND LIST

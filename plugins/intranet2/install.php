@@ -665,6 +665,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
   `mainfolder` varchar(255) NULL DEFAULT NULL,
   `category` varchar(255) NULL DEFAULT NULL,
   `subcategory` varchar(255) NULL DEFAULT NULL,
+  `videotime` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `ftime` int NOT NULL,
   `fsize` int NOT NULL,
   `width` varchar(100) NULL DEFAULT NULL,

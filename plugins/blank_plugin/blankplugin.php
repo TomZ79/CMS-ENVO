@@ -36,7 +36,7 @@ switch ($page1) {
 		// CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
 		if (!empty($page1)) {
 			if ($page1 != 'case1' || $page1 != 'case2') {
-				envo_redirect(ENVO_rewrite ::envoParseurl('404', '', '', '', ''));
+				envo_redirect(ENVO_rewrite ::envoParseurl('404'));
 			}
 		}
 

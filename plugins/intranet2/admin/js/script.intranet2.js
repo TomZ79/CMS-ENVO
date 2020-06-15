@@ -480,7 +480,9 @@ function initializeDateTimePicker (selector) {
     showClear: true,
     // Other
     calendarWeeks: true,
-    ignoreReadonly: true
+    ignoreReadonly: true,
+    // Debug
+    debug: false
   });
 }
 
@@ -2677,6 +2679,7 @@ $(function () {
    ========================================= */
   // Init DateTimePicker
   initializeDateTimePicker('#datepickerTime');
+  initializeDateTimePicker('input[name=envo_videodate]');
 
 });
 
@@ -5749,6 +5752,7 @@ $(function () {
                     '<td class="text-center">' + data["id"] + '</td>' +
                     '<td class="text-center">' + data["ficon"] + '</td>' +
                     '<td>' + data["description"] + '</td>' +
+                    '<td>' + data["ftime"] + '</td>' +
                     '<td class="text-center"><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
                     '</tr>';
 
@@ -5762,7 +5766,7 @@ $(function () {
             $('#tabledocu tbody').html(tabledata);
 
             // Update Jquery Tabledit Plugin
-            // $('#tabledocu').Tabledit('update', ({}));
+            $('#tabledocu').Tabledit('update', ({}));
 
             // Clearing
             desc.val('');
@@ -6535,8 +6539,39 @@ $(function () {
 
                   $.each(data, function (index, data) {
 
-                    // Create new Isotope item elements
-                    var $isotopeContent = $('<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1" style="background-color: rgb(255, 245, 204);">' +
+                    // EXIF create date
+                    if (debug) {
+                      console.log('EXIF create date => ' + data["exifcreatedate_format"]);
+                    }
+
+                    // Create new img item elements for gallery 0
+                    var $imgContent = $('<div id="gallery_0_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + ' float-left" data-width="1" data-height="1" style="background-color: #FFE858; color: #000; margin: 5px;">' +
+                      '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
+
+                      '<div class="overlays full-width">' +
+                      '<div class="row full-height">' +
+                      '<div class="col-5 full-height">' +
+                      '<div class="text font-montserrat">' + data["filenamethumb"].substring(data["filenamethumb"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
+                      '</div>' +
+                      '<div class="col-7 full-height">' +
+                      '<div class="text">' +
+                      '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '">' +
+                      '<button class="btn btn-info btn-xs btn-mini mr-1 fs-14" type="button"><i class="pg-image"></i></button>' +
+                      '</a>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '<div class="full-width padding-10">' +
+                      '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' + data["shortdescription"] + '</span></p>' +
+                      '<p class="mb-0"><strong>Datum pořízení:</strong><span class="date m-l-10">' + data["exifcreatedate_format"] + '</span></p>' +
+                      '<p class="mb-0"><strong>Datum uploadu:</strong><span class="date m-l-10">' + data["ftime"] + '</span></p>' +
+
+                      '</div>' +
+                      '</div>');
+
+                    // Create new Isotope item elements for gallery 1
+                    var $isotopeContent = $('<div id="gallery_1_' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1" style="background-color: #FFE858; color: #000">' +
                       '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
                       '<div class="overlays full-width">' +
                       '<div class="row full-height">' +
@@ -6556,13 +6591,18 @@ $(function () {
                       '</div>' +
                       '<div class="full-width padding-10">' +
                       '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' + data["shortdescription"] + '</span></p>' +
-                      '<p><strong>Datum:</strong><span class="date m-l-10">' + data["exifcreatedate_format"] + '</span></p>' +
+                      '<p class="mb-0"><strong>Datum pořízení:</strong><span class="date m-l-10">' + data["exifcreatedate_format"] + '</span></p>' +
+                      '<p class="mb-0"><strong>Datum uploadu:</strong><span class="date m-l-10">' + data["ftime"] + '</span></p>' +
                       '</div>' +
                       '</div>');
 
+                    // Put items to Photo List
+                    $('#dateblock_0_header').after($imgContent);
+                    $('#dateblock_0').show();
+
                     // Isotope Plugin
                     // Adds and lays out newly prepended item elements at the beginning of layout
-                    // Prepend items to gallery
+                    // Put items to Photo Isotop
                     $gallery.prepend($isotopeContent).isotope('prepended', $isotopeContent);
 
                     // Call dialogFX function for button
@@ -7019,6 +7059,9 @@ $(function () {
             dropdownCssClass: 'zindex1060'
           });
 
+          // Init DateTimePicker
+          initializeDateTimePicker('#date_video');
+
         }, 1000);
 
       },
@@ -7225,6 +7268,8 @@ $(function () {
     var videowidthval = videowidth.val();
     var videoheight = $('input[name="envo_videoheight"]');
     var videoheightval = videoheight.val();
+    var videodate = $('input[name="envo_videodate"]');
+    var videodateval = videodate.val();
     // Creating object of FormData class
     var form_data = new FormData();
     // Appending parameter named file with properties of file_field to form_data
@@ -7237,6 +7282,11 @@ $(function () {
     form_data.append('videoSdesc', videosdescval);
     form_data.append('videoWidth', videowidthval);
     form_data.append('videoHeight', videoheightval);
+    form_data.append('videoDate', videodateval);
+
+    if (debug) {
+      console.log('Upload Video fn | Data => videocat - ' + videocatval + ' | videosdesc -  ' + videosdescval + ' | videowidth - ' + videowidthval + ' | videoheight - ' + videoheightval + ' | videodate - ' + videodateval);
+    }
 
     // ------------ Jquery code
 
@@ -7319,7 +7369,7 @@ $(function () {
                   $.each(data, function (index, data) {
 
                     // Create new Isotope item elements
-                    var $isotopeContent = $('<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1">' +
+                    var $isotopeContent = $('<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + ' ' + data["category"] + '" data-width="1" data-height="1" style="background-color: #ffe858; color: #000">' +
                       '<div class="img_container"><img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height"></div>' +
                       '<div class="overlays full-width">' +
                       '<div class="row full-height">' +
@@ -7339,7 +7389,8 @@ $(function () {
                       '</div>' +
                       '<div class="full-width padding-10">' +
                       '<p><strong>Krátký Popis:</strong><span class="shortdesc m-l-10">' + data["shortdescription"] + '</span></p>' +
-                      '<p><strong>Datum:</strong><span class="date m-l-10">' + data["created"] + '</span></p>' +
+                      '<p class="mb-0"><strong>Datum videa:</strong><span class="date m-l-10">' + data["videotime"] + '</span></p>' +
+                      '<p class="mb-0"><strong>Datum uploadu:</strong><span class="date m-l-10">' + data["created"] + '</span></p>' +
                       '</div>' +
                       '</div>');
 
@@ -7579,6 +7630,7 @@ $(function () {
     var descVideo = $('#desc_video').val();
     var shortdescVideo = $('#shortdesc_video').val();
     var catVideo = $('select[name="envo_videocategory_dialog"]').val();
+    var dateVideo = $('#date_video').val();
 
     // ------------ Jquery code
 
@@ -7591,7 +7643,8 @@ $(function () {
         videoID: videoID,
         descVideo: descVideo,
         shortdescVideo: shortdescVideo,
-        catVideo: catVideo
+        catVideo: catVideo,
+        dateVideo: dateVideo
       },
       success: function (data) {
 
@@ -7604,7 +7657,8 @@ $(function () {
           // Add data.shortdescription to Isotop item
           var elClass0 = $('#' + data.data[0].id + '.gallery-item-' + data.data[0].id);
           elClass0.find('.shortdesc').text(data.data[0].shortdescription);
-          elClass0.find('.date').text(data.data[0].createdate_format);
+          elClass0.find('.videodate').text(data.data[0].videodate_format);
+          elClass0.find('.uploaddate').text(data.data[0].createdate_format);
 
           // Add data.category to Isotop item
           var elClass1 = $('#' + data.data[0].id).attr('class').split(' ')[0];
@@ -8515,6 +8569,121 @@ $(function () {
       })
     })
   }
+
+});
+
+/* 00. TABLEDIT CONFIG
+ ========================================================================*/
+
+// If exist 'table' -> init Plugin Jquery-Tabledit
+if ($('#tabledocu').length > 0) {
+  // Tabledit init config
+  $('#tabledocu').Tabledit({
+    url: '/plugins/intranet2/admin/ajax/int2_table_update_docu.php',
+    inputClass: 'form-control',
+    restoreButton: false,
+    lang: 'cz',
+    mutedClass: 'text-muted warning',
+    columns: {
+      identifier: [0, 'id'],
+      editable: [
+        [2, 'description', 'input']
+      ]
+    },
+    buttons: {
+      edit: {
+        class: 'btn btn-sm btn-default',
+        html: '<span class="fa fa-edit"></span>',
+        action: 'edit'
+      },
+      delete: {
+        class: 'btn btn-sm btn-danger',
+        html: '<span class="fa fa-trash-o"></span>',
+        action: 'delete'
+      },
+      save: {
+        class: 'btn btn-sm btn-success',
+        html: ''
+      },
+      confirm: {
+        class: 'btn btn-sm btn-success',
+        html: 'Confirm'
+      }
+    },
+    onSuccess: function (data) {
+      if (data.status == 'update_success') {
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
+      } else if (data.status == 'delete_success') {
+        // Remove row in table
+        $('#' + data.data[0].id).fadeOut(300, function () {
+          $(this).remove();
+        });
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'success',
+            delay: 2000
+          });
+        }, 1000);
+      } else {
+        // IF DATA ERROR
+
+        // Fix for plugin
+        $('#' + data.data[0].id).removeClass();
+        $('#' + data.data[0].id + ' button').prop('disabled', false);
+
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: data.status_msg
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+      }
+    }
+  });
+}
+
+/** BOOTSTRAP MODAL
+ * @require: Bootstrap Plugin
+ ========================================================================*/
+
+$(function () {
+
+  $('#textSelect_docu').on('click', function (e) {
+    e.preventDefault();
+    $('#ENVOModalPlugin').modal('show');
+  });
+
+  $('.text_sel').click(function (event) {
+    event.preventDefault();
+
+    var text = $(this).text();
+
+    $('input[name="envo_descdocu"]').val(text);
+    $("#ENVOModalPlugin").modal('hide');
+
+  });
 
 });
 
