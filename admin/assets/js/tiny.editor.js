@@ -33,9 +33,9 @@ $(function () {
 		remove_script_host: true,
 		document_base_url: "/",
 		valid_elements: "*[*]",
-		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
+		external_filemanager_path: "../assets/plugins/tinymce/5.3.1/plugins/filemanager/",
 		filemanager_title: "Filemanager",
-		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
+		external_plugins: {"filemanager": "5.3.1/plugins/filemanager/plugin.min.js"}
 	});
 
 });
@@ -65,9 +65,9 @@ $(function () {
 		remove_script_host: true,
 		document_base_url: "/",
 		valid_elements: "*[*]",
-		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
+		external_filemanager_path: "../assets/plugins/tinymce/5.3.1/plugins/filemanager/",
 		filemanager_title: "Filemanager",
-		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
+		external_plugins: {"filemanager": "5.3.1/plugins/filemanager/plugin.min.js"}
 	});
 
 });
@@ -97,9 +97,9 @@ $(function () {
 		remove_script_host: true,
 		document_base_url: "/",
 		valid_elements: "*[*]",
-		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
+		external_filemanager_path: "../assets/plugins/tinymce/5.3.1/plugins/filemanager/",
 		filemanager_title: "Filemanager",
-		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
+		external_plugins: {"filemanager": "5.3.1/plugins/filemanager/plugin.min.js"}
 	});
 
 });

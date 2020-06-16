@@ -45,10 +45,10 @@ function initializeTinyMce (selector, height) {
       // Custom date time formats
       insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
       // Responsive Filemanager
-      external_filemanager_path: "/assets/plugins/tinymce/plugins/filemanager/",
+      external_filemanager_path: "/assets/plugins/tinymce/5.3.1/plugins/filemanager/",
       filemanager_title: "Filemanager",
       external_plugins: {
-        "filemanager": "plugins/filemanager/plugin.min.js"
+        "filemanager": "5.3.1/plugins/filemanager/plugin.min.js"
       }
     });
   }

@@ -349,7 +349,7 @@ if ($errors) { ?>
 
 														<?php
 														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-														echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+														echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=1&lang=' . $managerlangTiny . '&fldr=&field_id=envo_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
 														?>
 
                           </span>
@@ -731,7 +731,7 @@ if ($errors) { ?>
 								<?php
 								echo '<div class="m-b-10">';
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
+								echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=2&lang=' . $managerlangTiny . '&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
 								echo $Html -> addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
 								echo '</div>';
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -770,7 +770,7 @@ if ($errors) { ?>
 								<?php
 								echo '<div class="m-b-10">';
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-								echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
+								echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=2&lang=' . $managerlangTiny . '&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager m-r-20');
 								echo $Html -> addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
 								echo '</div>';
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

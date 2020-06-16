@@ -1,7 +1,7 @@
 <?php
 
-if (!file_exists('../../../../../config_tinymce.php')) die('[index.php] config_tinymce.php not exist');
-require_once '../../../../../config_tinymce.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] .  '/config_tinymce.php')) die('[index.php] ' . $_SERVER['DOCUMENT_ROOT'] . '/config_tinymce.php not exist');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config_tinymce.php';
 
 if (session_id() == '') session_start();
 
@@ -79,7 +79,7 @@ $config = array(
   | with start and final /
   |
   */
-  'upload_dir'       => '/' . ENVO_FILES_DIRECTORY . '/',
+  'upload_dir'       => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/',
   /*
   |--------------------------------------------------------------------------
   | relative path from filemanager folder to upload folder
@@ -88,7 +88,7 @@ $config = array(
   | with final /
   |
   */
-  'current_path'     => '../../../../../' . ENVO_FILES_DIRECTORY . '/',
+  'current_path'     => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/',
 
   /*
   |--------------------------------------------------------------------------
@@ -99,7 +99,7 @@ $config = array(
   | DO NOT put inside upload folder
   |
   */
-  'thumbs_base_path' => '../../../../../' . ENVO_FILES_DIRECTORY . '/thumbs/',
+  'thumbs_base_path' => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/thumbs/',
 
 
   /*

@@ -49,11 +49,11 @@ if ($page == 'intranet2' && $page1 != 'maps') {
 }
 
 if ($page == 'intranet2' && $page1 == 'maps' && $page2 == 'maps1') {
-
+	
 	// OSM Css style
 	echo $Html -> addStylesheet('https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css');
 	echo $Html -> addStylesheet('https://cdn.jsdelivr.net/npm/ol-contextmenu@3.3.0/dist/ol-contextmenu.min.css');
-
+	
 }
 
 echo PHP_EOL . "\t";

@@ -449,7 +449,7 @@ function initializeTinyMce (selector, height) {
       // Custom date time formats
       insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%d.%m.%Y", "%I:%M:%S %p", "%D"],
       // Responsive Filemanager
-      external_filemanager_path: "/assets/plugins/tinymce/plugins/filemanager/",
+      external_filemanager_path: "/assets/plugins/tinymce/5.3.1/plugins/filemanager/",
       filemanager_title: "Filemanager",
       external_plugins: {
         "filemanager": "plugins/filemanager/plugin.min.js"
@@ -6425,10 +6425,12 @@ $(function () {
     // ------------ Basic variable
 
     // Get Data - value
-    var imgsdesc = $('input[name="envo_sdescimg"]');
-    var imgsdescval = imgsdesc.val();
     var imgcat = $('select[name="envo_imgcategory"]').find(':selected');
     var imgcatval = imgcat.val();
+    var imgsdesc = $('input[name="envo_sdescimg"]');
+    var imgsdescval = imgsdesc.val();
+    var imgdesc = $('input[name="envo_descimg"]');
+    var imgdescval = imgdesc.val();
     // Get Data - properties of file from file field
     var file_data = $('#fileinput_img').prop('files')[0];
     // Get Data - value of folder from file field
@@ -6441,6 +6443,7 @@ $(function () {
     form_data.append('folderpath', folder_path);
     form_data.append('houseID', pageID);
     form_data.append('imgSdesc', imgsdescval);
+    form_data.append('imgDesc', imgdescval);
     form_data.append('imgCat', imgcatval);
 
     // ------------ Jquery code
@@ -7264,6 +7267,8 @@ $(function () {
     var videocatval = videocat.val();
     var videosdesc = $('input[name="envo_sdescvideo"]');
     var videosdescval = videosdesc.val();
+    var videodesc = $('input[name="envo_descvideo"]');
+    var videodescval = videodesc.val();
     var videowidth = $('input[name="envo_videowidth"]');
     var videowidthval = videowidth.val();
     var videoheight = $('input[name="envo_videoheight"]');
@@ -7280,6 +7285,7 @@ $(function () {
     form_data.append('houseID', pageID);
     form_data.append('videoCat', videocatval);
     form_data.append('videoSdesc', videosdescval);
+    form_data.append('videoDesc', videodescval);
     form_data.append('videoWidth', videowidthval);
     form_data.append('videoHeight', videoheightval);
     form_data.append('videoDate', videodateval);
@@ -8670,18 +8676,51 @@ if ($('#tabledocu').length > 0) {
 
 $(function () {
 
-  $('#textSelect_docu').on('click', function (e) {
+  // Předdefinované texty 0
+  $('#textSelect_docu_0').on('click', function (e) {
     e.preventDefault();
-    $('#ENVOModalPlugin').modal('show');
+    $('#ENVOModalPlugin_0').modal('show');
   });
 
-  $('.text_sel').click(function (event) {
+  $('.text_sel_0').click(function (event) {
     event.preventDefault();
 
     var text = $(this).text();
 
     $('input[name="envo_descdocu"]').val(text);
-    $("#ENVOModalPlugin").modal('hide');
+    $("#ENVOModalPlugin_0").modal('hide');
+
+  });
+
+  // Předdefinované texty 1
+  $('#textSelect_docu_1').on('click', function (e) {
+    e.preventDefault();
+    $('#ENVOModalPlugin_1').modal('show');
+  });
+
+  $('.text_sel_1').click(function (event) {
+    event.preventDefault();
+
+    var text = $(this).text();
+
+    $('input[name="envo_sdescimg"]').val(text);
+    $("#ENVOModalPlugin_1").modal('hide');
+
+  });
+
+  // Předdefinované texty 2
+  $('#textSelect_docu_2').on('click', function (e) {
+    e.preventDefault();
+    $('#ENVOModalPlugin_2').modal('show');
+  });
+
+  $('.text_sel_2').click(function (event) {
+    event.preventDefault();
+
+    var text = $(this).text();
+
+    $('input[name="envo_sdescvideo"]').val(text);
+    $("#ENVOModalPlugin_2").modal('hide');
 
   });
 

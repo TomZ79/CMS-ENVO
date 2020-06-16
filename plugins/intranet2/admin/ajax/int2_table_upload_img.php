@@ -275,7 +275,7 @@ if (isset($_FILES['file'])) {
 				$result = $envodb -> query('INSERT ' . DB_PREFIX . 'int2_houseimg SET 
 																	id = NULL, houseid = "' . smartsql($_REQUEST['houseID']) . '",
 																	shortdescription = "' . smartsql($_REQUEST['imgSdesc']) . '",
-																	description = "",
+																	description = "' . smartsql($_REQUEST['imgDesc']) . '",
 																	filenameoriginal = "' . smartsql($name_original) . '",
 																	filenamethumb = "' . smartsql($name_thumbs) . '",
 																	widthoriginal = "' . smartsql($width_o) . '",

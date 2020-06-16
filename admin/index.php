@@ -15,6 +15,17 @@ $ENVO_PROVED = FALSE;
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/index.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
+// EN: Get the lang settings out the database for TinyMCE Filemanager ...
+// CZ: Získání nastavení jazyka pro TinyMCE Filemanager ...
+$row = $envodb -> queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "lang" LIMIT 1');
+
+// Set lang for Filemanager
+if ($row["value"] == 'en') {
+  $managerlangTiny = 'en_EN';
+} else {
+  $managerlangTiny = 'cs';
+}
+
 // Create instance of Debug from debug.php Class
 $Debug = new PHPDebug();
 $DebugArray = array();

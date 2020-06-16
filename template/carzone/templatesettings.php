@@ -77,7 +77,7 @@
 
 													<?php
 													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-													echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=HeLogo1', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
+													echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=1&lang=' . $managerlangTiny . '&fldr=&field_id=HeLogo1', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
 													?>
 
                         </span>
@@ -105,7 +105,7 @@
 
 													<?php
 													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-													echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=HeLogo2', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
+													echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=1&lang=' . $managerlangTiny . '&fldr=&field_id=HeLogo2', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
 													?>
 
                         </span>
@@ -159,7 +159,7 @@
 
 													<?php
 													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-													echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=PageTitleImg', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
+													echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=1&lang=' . $managerlangTiny . '&fldr=&field_id=PageTitleImg', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
 													?>
 
                         </span>
@@ -215,7 +215,7 @@
 
 													<?php
 													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-													echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=FoLogo1', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
+													echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=1&lang=' . $managerlangTiny . '&fldr=&field_id=FoLogo1', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array ('type' => 'button', 'data-placement' => 'bottom', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
 													?>
 
                         </span>

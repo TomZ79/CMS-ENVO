@@ -1,5 +1,9 @@
 <?php
 $version = "9.14.0";
+
+if (!file_exists( $_SERVER['DOCUMENT_ROOT'] . '/admin/config_tinymce.php')) die('[index.php] ' . $_SERVER['DOCUMENT_ROOT'] . '/admin/config_tinymce.php not exist');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config_tinymce.php';
+
 if (session_id() == '') {
     session_start();
 }
@@ -11,7 +15,7 @@ mb_language('uni');
 mb_regex_encoding('UTF-8');
 ob_start('mb_output_handler');
 date_default_timezone_set('Europe/Rome');
-setlocale(LC_CTYPE, 'en_US'); //correct transliteration
+// setlocale(LC_CTYPE, 'en_US'); //correct transliteration
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +35,7 @@ setlocale(LC_CTYPE, 'en_US'); //correct transliteration
 |
 */
 
-define('USE_ACCESS_KEYS', false); // TRUE or FALSE
+define('USE_ACCESS_KEYS', FALSE); // TRUE or FALSE
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +43,7 @@ define('USE_ACCESS_KEYS', false); // TRUE or FALSE
 |--------------------------------------------------------------------------
 */
 
-define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
+define('DEBUG_ERROR_MESSAGE', TRUE); // TRUE or FALSE
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +71,7 @@ $config = array(
     | without final / (DON'T TOUCH)
     |
     */
-    'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http"). "://". @$_SERVER['HTTP_HOST'],
+    // 'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http"). "://". @$_SERVER['HTTP_HOST'],
     /*
     |--------------------------------------------------------------------------
     | path from base_url to base of upload folder
@@ -76,7 +80,7 @@ $config = array(
     | with start and final /
     |
     */
-    'upload_dir' => '/source/',
+    'upload_dir'       => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/',
     /*
     |--------------------------------------------------------------------------
     | relative path from filemanager folder to upload folder
@@ -85,7 +89,7 @@ $config = array(
     | with final /
     |
     */
-    'current_path' => '../source/',
+    'current_path'     => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +100,7 @@ $config = array(
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_base_path' => '../thumbs/',
+    'thumbs_base_path' => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/thumbs/',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +111,7 @@ $config = array(
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_upload_dir' => '/thumbs/',
+    'thumbs_upload_dir' => $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/thumbs/',
 
 
     /*
@@ -118,7 +122,7 @@ $config = array(
     | If you want to be forced to assign the extension starting from the mime type
     |
     */
-    'mime_extension_rename'	=> true,
+    'mime_extension_rename'	=> TRUE,
 
 
     /*
@@ -131,7 +135,7 @@ $config = array(
     | upload dir will be ftp_base_folder + upload_dir so without final /
     |
     */
-    'ftp_host'         => false, //put the FTP host
+    'ftp_host'         => FALSE, //put the FTP host
     'ftp_user'         => "user",
     'ftp_pass'         => "pass",
     'ftp_base_folder'  => "base_folder",
@@ -144,7 +148,7 @@ $config = array(
     |---------------------------------------------------------------------------
     */
     'ftp_thumbs_dir' => '/thumbs/',
-    'ftp_ssl' => false,
+    'ftp_ssl' => FALSE,
     'ftp_port' => 21,
 
     /* EXAMPLE
@@ -161,7 +165,7 @@ $config = array(
     |--------------------------------------------------------------------------
     | The user can delete multiple files, select all files , deselect all files
     */
-    'multiple_selection' => true,
+    'multiple_selection' => TRUE,
 
     /*
     |
@@ -169,7 +173,7 @@ $config = array(
     | If you use responsivefilemanager tinymce extension can copy into editor multiple object like images, videos, audios, links in the same time
     |
      */
-    'multiple_selection_action_button' => true,
+    'multiple_selection_action_button' => TRUE,
 
     /*
     |--------------------------------------------------------------------------
@@ -201,7 +205,7 @@ $config = array(
     | in Megabytes
     |
     */
-    'MaxSizeTotal' => false,
+    'MaxSizeTotal' => FALSE,
 
     /*
     |--------------------------------------------------------------------------
@@ -243,26 +247,26 @@ $config = array(
 
 
     //Show or not total size in filemanager (is possible to greatly increase the calculations)
-    'show_total_size'						=> false,
+    'show_total_size'						=> FALSE,
     //Show or not show folder size in list view feature in filemanager (is possible, if there is a large folder, to greatly increase the calculations)
-    'show_folder_size'						=> false,
+    'show_folder_size'						=> FALSE,
     //Show or not show sorting feature in filemanager
-    'show_sorting_bar'						=> true,
+    'show_sorting_bar'						=> TRUE,
     //Show or not show filters button in filemanager
-    'show_filter_buttons'                   => true,
+    'show_filter_buttons'                   => TRUE,
     //Show or not language selection feature in filemanager
-    'show_language_selection'				=> true,
+    'show_language_selection'				=> TRUE,
     //active or deactive the transliteration (mean convert all strange characters in A..Za..z0..9 characters)
-    'transliteration'						=> false,
+    'transliteration'						=> FALSE,
     //convert all spaces on files name and folders name with $replace_with variable
-    'convert_spaces'						=> false,
+    'convert_spaces'						=> FALSE,
     //convert all spaces on files name and folders name this value
     'replace_with'							=> "_",
     //convert to lowercase the files and folders name
-    'lower_case'							=> false,
+    'lower_case'							=> FALSE,
 
     //Add ?484899493349 (time value) to returned images to prevent cache
-    'add_time_to_img'                       => false,
+    'add_time_to_img'                       => FALSE,
 
 
     //*******************************************
@@ -287,11 +291,11 @@ $config = array(
     // If you set $image_resizing to TRUE the script converts all uploaded images exactly to image_resizing_width x image_resizing_height dimension
     // If you set width or height to 0 the script automatically calculates the other dimension
     // Is possible that if you upload very big images the script not work to overcome this increase the php configuration of memory and time limit
-    'image_resizing'                          => false,
+    'image_resizing'                          => FALSE,
     'image_resizing_width'                    => 0,
     'image_resizing_height'                   => 0,
     'image_resizing_mode'                     => 'auto', // same as $image_max_mode
-    'image_resizing_override'                 => false,
+    'image_resizing_override'                 => FALSE,
     // If set to TRUE then you can specify bigger images than $image_max_width & height otherwise if image_resizing is
     // bigger than $image_max_width or height then it will be converted to those values
 
@@ -301,7 +305,7 @@ $config = array(
     // WATERMARK IMAGE
     //
     //Watermark path or false
-    'image_watermark'                          => false,//"../watermark.png",
+    'image_watermark'                          => FALSE,//"../watermark.png",
     # Could be a pre-determined position such as:
     #           tl = top left,
     #           t  = top (middle),
@@ -331,27 +335,27 @@ $config = array(
     'default_view'                            => 0,
 
     //set if the filename is truncated when overflow first row
-    'ellipsis_title_after_first_row'          => true,
+    'ellipsis_title_after_first_row'          => TRUE,
 
     //*************************
     //Permissions configuration
     //******************
-    'delete_files'                            => true,
-    'create_folders'                          => true,
-    'delete_folders'                          => true,
-    'upload_files'                            => true,
-    'rename_files'                            => true,
-    'rename_folders'                          => true,
-    'duplicate_files'                         => true,
-    'extract_files'                           => true,
-    'copy_cut_files'                          => true, // for copy/cut files
-    'copy_cut_dirs'                           => true, // for copy/cut directories
-    'chmod_files'                             => true, // change file permissions
-    'chmod_dirs'                              => true, // change folder permissions
-    'preview_text_files'                      => true, // eg.: txt, log etc.
-    'edit_text_files'                         => true, // eg.: txt, log etc.
-    'create_text_files'                       => true, // only create files with exts. defined in $config['editable_text_file_exts']
-    'download_files'			  => true, // allow download files or just preview
+    'delete_files'                            => TRUE,
+    'create_folders'                          => TRUE,
+    'delete_folders'                          => TRUE,
+    'upload_files'                            => TRUE,
+    'rename_files'                            => TRUE,
+    'rename_folders'                          => TRUE,
+    'duplicate_files'                         => TRUE,
+    'extract_files'                           => TRUE,
+    'copy_cut_files'                          => TRUE, // for copy/cut files
+    'copy_cut_dirs'                           => TRUE, // for copy/cut directories
+    'chmod_files'                             => TRUE, // change file permissions
+    'chmod_dirs'                              => TRUE, // change folder permissions
+    'preview_text_files'                      => TRUE, // eg.: txt, log etc.
+    'edit_text_files'                         => TRUE, // eg.: txt, log etc.
+    'create_text_files'                       => TRUE, // only create files with exts. defined in $config['editable_text_file_exts']
+    'download_files'			  => TRUE, // allow download files or just preview
 
     // you can preview these type of files if $preview_text_files is true
     'previewable_text_file_exts'              => array( "bsh", "c","css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml","xsl",'txt', 'log','' ),
@@ -367,7 +371,7 @@ $config = array(
     'cad_exts'                                => array('dwg', 'dxf', 'hpgl', 'plt', 'spl', 'step', 'stp', 'iges', 'igs', 'sat', 'cgm', 'svg'),
 
     // Preview with Google Documents
-    'googledoc_enabled'                       => true,
+    'googledoc_enabled'                       => TRUE,
     'googledoc_file_exts'                     => array( 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx' , 'pdf', 'odt', 'odp', 'ods'),
 
     // defines size limit for paste in MB / operation
@@ -392,11 +396,11 @@ $config = array(
     //  If you insert an extensions blacklist array the filemanager don't check any extensions but simply block the extensions in the list
     //  otherwise check Allowed extensions configuration
     //*********************
-    'ext_blacklist'							  => false,//['exe','bat','jpg'],
+    'ext_blacklist'							  => FALSE,//['exe','bat','jpg'],
 
 
     //Empty filename permits like .htaccess, .env, ...
-    'empty_filename'                          => false,
+    'empty_filename'                          => FALSE,
 
     /*
     |--------------------------------------------------------------------------
@@ -406,7 +410,7 @@ $config = array(
     | If you want to accept files without extension, remember to add '' extension on allowed extension
     |
     */
-    'files_without_extension'	              => false,
+    'files_without_extension'	              => FALSE,
 
     /******************
     * TUI Image Editor config
@@ -498,7 +502,7 @@ $config = array(
     /*******************
     * URL upload
     *******************/
-    'url_upload'                             => true,
+    'url_upload'                             => TRUE,
 
 
     //************************************
@@ -513,7 +517,7 @@ $config = array(
     // path_from_filemanager/test/test1/
     // PS if there isn't write permission in your destination folder you must set it
     //
-    'fixed_image_creation'                    => false, //activate or not the creation of one or more image resized with fixed path from filemanager folder
+    'fixed_image_creation'                    => FALSE, //activate or not the creation of one or more image resized with fixed path from filemanager folder
     'fixed_path_from_filemanager'             => array( '../test/', '../test1/' ), //fixed path of the image folder from the current position on upload folder
     'fixed_image_creation_name_to_prepend'    => array( '', 'test_' ), //name to prepend on filename
     'fixed_image_creation_to_append'          => array( '_test', '' ), //name to appendon filename
@@ -534,7 +538,7 @@ $config = array(
     // just simply add a value in the array
     // The image creation path is always relative so if i'm inside source/test/test1 and I upload an image, the path start from here
     //
-    'relative_image_creation'                 => false, //activate or not the creation of one or more image resized with relative path from upload folder
+    'relative_image_creation'                 => FALSE, //activate or not the creation of one or more image resized with relative path from upload folder
     'relative_path_from_current_pos'          => array( './', './' ), //relative path of the image folder from the current position on upload folder
     'relative_image_creation_name_to_prepend' => array( '', '' ), //name to prepend on filename
     'relative_image_creation_name_to_append'  => array( '_thumb', '_thumb1' ), //name to append on filename
@@ -551,7 +555,7 @@ $config = array(
 
 
     // Remember text filter after close filemanager for future session
-    'remember_text_filter'                    => false,
+    'remember_text_filter'                    => FALSE,
 
 );
 

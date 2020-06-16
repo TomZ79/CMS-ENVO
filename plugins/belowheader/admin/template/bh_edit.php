@@ -502,7 +502,7 @@ if ($errors) { ?>
 
 														<?php
 														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-														echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=htmleditor', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array ('title' => 'Show Filemanager'));
+														echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=2&lang=' . $managerlangTiny . '&fldr=&field_id=htmleditor', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array ('title' => 'Show Filemanager'));
 														?>
 
 													</div>
@@ -565,7 +565,7 @@ if ($errors) { ?>
 
 														<?php
 														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-														echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array ('title' => 'Show Filemanager'));
+														echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=2&lang=' . $managerlangTiny . '&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array ('title' => 'Show Filemanager'));
 														?>
 
 													</div>

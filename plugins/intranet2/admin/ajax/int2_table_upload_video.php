@@ -202,7 +202,7 @@ if (isset($_FILES['file']) && isset($_FILES['filethumb'])) {
 																		id = NULL,
 																		houseid = "' . $_REQUEST['houseID'] . '",
 																		shortdescription = "' . smartsql($_REQUEST['videoSdesc']) . '",
-																		description = "",
+																		description = "' . smartsql($_REQUEST['videoDesc']) . '",
 																		filename = "' . $videoname . '",
 																		filenamethumb = "' . $videothumbname . '.jpg",
 																		mainfolder = "' . $mainfolder . '",

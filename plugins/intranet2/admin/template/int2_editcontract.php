@@ -375,7 +375,7 @@ $STATUS[] = array ('status_number' => '4', 'status_name' => 'Storno');
 
                               <?php
 															// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-															echo $Html -> addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang=' . $managerlang . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array ('type' => 'button'));
+															echo $Html -> addAnchor('../assets/plugins/tinymce/5.3.1/plugins/filemanager/dialog.php?type=2&lang=' . $managerlangTiny . '&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array ('type' => 'button'));
 															?>
 
                             </span>
