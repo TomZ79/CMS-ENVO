@@ -256,7 +256,7 @@ if (file_exists(APP_PATH . 'plugins/' . $pluginname . '/admin/lang/' . $site_lan
         // EN: Insert data to table 'categories' (create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
         $envodb -> query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
-(NULL, "Intranet2", "' . $pluginname . '", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+(NULL, "Intranet 2", "' . $pluginname . '", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
 				/**
 				 * EN: Create table for plugin (Settings - Region by ČÚZK)
