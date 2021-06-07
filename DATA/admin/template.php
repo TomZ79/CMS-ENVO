@@ -29,7 +29,8 @@ $row    = $result -> fetch_assoc();
 $ENVO_FILE_SUCCESS = $ENVO_FILE_ERROR = $ENVO_FILEURL = $ENVO_FILECONTENT = "";
 $defaults          = $_POST;
 
-// Show file in dir - original solution from Jakweb( show file only in main dir)
+// EN: Show file in dir - ( show file only in main dir)
+// CZ: Zobrazeni souborů ve složce
 function envo_get_template_files ($directory, $exempt = array ('.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache'), &$files = array ())
 {
 	$handle = opendir($directory);

@@ -108,8 +108,8 @@ $envodb -> query("CREATE TABLE " . DB_PREFIX . "pages (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
 $envodb -> query("INSERT INTO " . DB_PREFIX . "pages VALUES
-(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NOW()),
-(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NOW())");
+(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NOW()),
+(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NOW())");
 
 $envodb -> query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `id` int(11) NOT NULL AUTO_INCREMENT,

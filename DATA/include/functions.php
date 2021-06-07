@@ -135,7 +135,7 @@ function envo_url_input_filter ($value)
 {
 	$value = html_entity_decode($value);
 	$value = rawurldecode($value);
-	$value = preg_replace('/[^\w-.]/', '', $value);
+	$value = preg_replace('/[^\w\-.]/', '', $value);
 
 	return trim(filter_var($value, FILTER_SANITIZE_STRING));
 }
@@ -145,8 +145,8 @@ function envo_url_input_filter ($value)
  * CZ:
  *
  * @author  BluesatKV
- * @version 1.0.1
- * @date    11/2018
+ * @version 1.1.0
+ * @date    11/2021
  *
  * @param $value
  * @return string
@@ -155,14 +155,13 @@ function envo_url_input_filter ($value)
 function smartsql ($value)
 {
 	global $envodb;
-	if (get_magic_quotes_gpc()) {
-		// rtrim — Strip whitespace (or other characters) from the end of a string
-		// stripslashes — Un-quotes a quoted string
-		$value = stripslashes(rtrim($value));
-	}
 	if (!is_int($value)) {
 		// rtrim — Strip whitespace (or other characters) from the end of a string
 		$value = $envodb -> real_escape_string(rtrim($value));
+	} else {
+		// rtrim — Strip whitespace (or other characters) from the end of a string
+		// stripslashes — Un-quotes a quoted string
+		$value = stripslashes(rtrim($value));
 	}
 
 	return $value;
