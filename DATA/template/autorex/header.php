@@ -69,12 +69,16 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 	================================================== -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]>
+	<script src="js/respond.js"></script><![endif]-->
 
 	<!-- CSS and FONTS
 	================================================== -->
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Yantramanav:wght@300;400;500;700;900&display=swap" rel="stylesheet" type="text/css">
+	<!-- Fontawesome icon -->
+	<link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/assets/css/fontawesome-all.css">
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/assets/css/bootstrap.css?=v4.3.1">
 	<!-- Theme CSS -->
@@ -89,8 +93,8 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 		<link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
 	<?php } ?>
 
-	<!-- Custom Porto Style -->
-	<link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/css/theme-custom.css" type="text/css"/>
+	<!-- Custom Autorex Style -->
+	<link rel="stylesheet" href="/template/<?= ENVO_TEMPLATE ?>/assets/css/theme-custom.css" type="text/css"/>
 
 	<!-- Favicons
 	================================================== -->
@@ -118,649 +122,668 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
 <div class="page-wrapper"><!-- START BODY -->
 
-<?php if ($ENVO_SHOW_NAVBAR) { ?>
+	<!-- Preloader -->
+	<div class="loader-wrap">
+		<div class="preloader"><div class="preloader-close">Preloader Close</div></div>
+		<div class="layer layer-one"><span class="overlay"></span></div>
+		<div class="layer layer-two"><span class="overlay"></span></div>
+		<div class="layer layer-three"><span class="overlay"></span></div>
+	</div>
 
-	<!-- =========================
-		START HEADER SECTION
-	============================== -->
-	<header id="header" class="<?= $PORTONAVTYPE ?>" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 120, 'stickyChangeLogo': true, 'stickyHeaderContainerHeight': 70}">
-		<div class="header-body border-color-primary header-body-bottom-border">
-			<div class="header-top header-top-default border-bottom-0">
-				<div class="container">
-					<div class="header-row py-2">
-						<div class="header-column justify-content-start">
-							<div class="header-row">
-								<div class="usernav">
-									<label for="drop" class="toggle">Uživatelské MENU</label>
-									<input type="checkbox" id="drop"/>
-									<ul class="header-links text-color-light">
+	<?php if ($ENVO_SHOW_NAVBAR) { ?>
 
-										<?php
-										// Show links for Register Form Plugin
-										// Check if plugin exist throught PluginID
-										if (defined(ENVO_TEMPLATE) && is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
-											echo '<li><a href="/' . $PLUGIN_RF_CAT["varname"] . '">' . $PLUGIN_RF_CAT["name"] . '</a></li>';
-										}
-										?>
+		<!-- START HEADER SECTION -->
+		<header class="main-header header-style-one">
 
-
-										<?php if ($setting["sitemapShow_porto_tpl"] == 1) { ?>
-											<li>
-												<a href="/<?= $setting["sitemapLinks_porto_tpl"] ?>"><?= $tlporto["header_text"]["ht"] ?></a>
-											</li>
-										<?php }
-										if ($setting["loginShow_porto_tpl"] == 1) {
-											if (!ENVO_USERID) { ?>
-												<li>
-													<a href="/login" id="login">
-														<?php
-														// If Register Form is Active (installed) or Not Active (not installed)
-														if ($setting["rf_active"]) {
-															echo $tlporto["header_text"]["ht1"] . ' / ' . $tlporto["header_text"]["ht4"];
-														} else {
-															echo $tlporto["header_text"]["ht1"];
-														}
-														?>
-													</a>
-												</li>
-											<?php } else { ?>
-												<li>
-													<a href="<?= $P_USR_LOGOUT ?>" id="logout">
-														<?php
-														echo sprintf($tlporto["header_text"]["ht2"], $envouser -> getVar("username"));
-														?>
-													</a>
-												</li>
-												<?php if (ENVO_ASACCESS) { ?>
-													<li><a href="<?= BASE_URL ?>admin/"><?= $tlporto["header_text"]["ht3"] ?></a></li>
-												<?php }
-											}
-										} ?>
-
-									</ul>
-								</div>
-							</div>
+			<!-- Header Top -->
+			<div class="header-top">
+				<div class="auto-container">
+					<div class="inner-container">
+						<div class="left-column">
+							<div class="text"># 1 Multibrand Car Workshop of Losangle City</div>
+							<div class="office-hour">Monday - Saturday 7:00AM - 6:00PM</div>
 						</div>
-						<div class="header-column justify-content-end">
-							<div class="header-row">
-								<nav class="header-nav-top">
-									<div class="d-none d-sm-block">
+						<div class="right-column">
+							<div class="phone-number mr-5">Schedule Your Appontment Today : <strong>1800 456 7890</strong></div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-										<?php if ($setting["phoneheaderShow_porto_tpl"] == 1) { ?>
-											<i class="fas fa-phone mr-1"></i>
-											<a class="phone" href="tel:<?= $setting["phoneheaderLinks_porto_tpl"] ?>" target="_blank"><?= $setting["phoneheaderLinks_porto_tpl"] ?></a>
-										<?php } ?>
+			<!-- Header Upper -->
+			<div class="header-upper">
+				<div class="auto-container">
+					<div class="inner-container">
+						<!--Logo-->
+						<div class="logo-box">
+							<div class="logo"><a href="index.html"><img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/logo.png" alt=""></a></div>
+						</div>
+						<div class="right-column">
+							<!--Nav Box-->
+							<div class="nav-outer">
+								<!--Mobile Navigation Toggler-->
+								<div class="mobile-nav-toggler"><img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/icons/icon-bar.png" alt=""></div>
 
-									</div>
-									<ul class="header-social-icons social-icons d-none d-sm-block social-icons-clean">
-
-										<?php if ($setting["facebookheaderShow_porto_tpl"] == 1) { ?>
-											<li class="social-icons-facebook">
-												<a href="<?= $setting["facebookheaderLinks_porto_tpl"] ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+								<!-- Main Menu -->
+								<nav class="main-menu navbar-expand-md navbar-light">
+									<div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+										<ul class="navigation">
+											<li class="dropdown"><a href="index.html">Home</a>
+												<ul>
+													<li><a href="index.html">Home Page 1</a></li>
+													<li><a href="index-2.html">Home Page 2</a></li>
+													<li><a href="index-3.html">Home Page 3</a></li>
+												</ul>
 											</li>
-										<?php }
-										if ($setting["twitterheaderShow_porto_tpl"] == 1) { ?>
-											<li class="social-icons-twitter">
-												<a href="<?= $setting["twitterheaderLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+											<li class="dropdown"><a href="about.html">About Us</a>
+												<ul>
+													<li><a href="about.html">About Us</a></li>
+													<li><a href="history.html">Company History</a></li>
+													<li><a href="team.html">Our Team</a></li>
+												</ul>
 											</li>
-										<?php }
-										if ($setting["googleheaderShow_porto_tpl"] == 1) { ?>
-											<li class="social-icons-googleplus">
-												<a href="<?= $setting["googleheaderLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
+											<li class="dropdown"><a href="service-1.html">Services</a>
+												<ul>
+													<li><a href="service-1.html">Services 1</a></li>
+													<li><a href="service-2.html">Services 2</a></li>
+													<li><a href="service-details.html">Single Service</a></li>
+												</ul>
 											</li>
-										<?php }
-										if ($setting["instagramheaderShow_porto_tpl"] == 1) { ?>
-											<li class="social-icons-instagram">
-												<a href="<?= $setting["instagramheaderLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+											<li class="dropdown"><a href="gallery-1.html">Gallery</a>
+												<ul>
+													<li><a href="gallery-1.html">Gallery 1</a></li>
+													<li><a href="gallery-2.html">Gallery 2</a></li>
+												</ul>
 											</li>
-										<?php }
-										if ($setting["emailheaderShow_porto_tpl"] == 1) { ?>
-											<li class="social-icons-email">
-												<a href="mailto:<?= envo_encode_email($setting["emailheaderLinks_porto_tpl"]) ?>" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a>
+											<li class="dropdown"><a href="blog.html">Pages</a>
+												<ul>
+													<li><a href="projects.html">Projects</a></li>
+													<li><a href="project-details.html">Project Details</a></li>
+													<li><a href="testimonials.html">Testimonials</a></li>
+													<li><a href="faq.html">Faq</a></li>
+													<li><a href="error.html">404 Error Page</a></li>
+													<li><a href="comming-soon.html">Coming Soon Page</a></li>
+												</ul>
 											</li>
-										<?php } ?>
-
-									</ul>
-									<div class="text-color-light ml-2 searchIco">
-
-										<a href="#"><i class="fas fa-search"></i></a>
-
+											<li class="dropdown"><a href="#">News</a>
+												<ul>
+													<li><a href="blog.html">Blog With Side bar</a></li>
+													<li><a href="blog-2.html">Blog 2 Column</a></li>
+													<li><a href="blog-details.html">Blog Details</a></li>
+												</ul>
+											</li>
+											<li><a href="contact.html">Contact Us</a></li>
+										</ul>
 									</div>
 								</nav>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header-container container">
-				<div class="header-row">
-					<div class="header-column">
-						<div class="header-row">
-							<div class="header-logo">
-								<a href="<?= BASE_URL ?>">
-									<img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="<?= $setting["logo1_porto_tpl"] ?>">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="header-column justify-content-end">
-						<div class="header-row">
-							<div class="header-nav header-nav-links order-2 order-lg-1 <?= $PORTONAVTYPE1 ?>">
-								<div class="header-nav-main header-nav-main-square header-nav-main-effect-2 <?= $PORTONAVTYPE2 ?> header-nav-main-sub-effect-1">
-									<nav class="collapse">
-
-										<!-- Main navigation -->
-										<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/navbar.php'; ?>
-										<!-- Hook -->
-										<?php if (isset($ENVO_HOOK_HEADER) && is_array($ENVO_HOOK_HEADER)) foreach ($ENVO_HOOK_HEADER as $hheader) {
-											include_once APP_PATH . $hheader['phpcode'];
-										} ?>
-
-									</nav>
-								</div>
-								<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
-									<i class="fas fa-bars"></i>
+							<div class="search-btn">
+								<button type="button" class="theme-btn search-toggler"><span class="stroke-gap-icon icon-Search"></span>
 								</button>
 							</div>
+							<div class="link-btn"><a href="#" class="theme-btn btn-style-one">Book a Schedule </a></div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header><!-- =========================
-      END HEADER SECTION
-    ============================== -->
+			<!--End Header Upper-->
 
-<?php } ?>
+			<!-- Sticky Header  -->
+			<div class="sticky-header">
+				<!-- Header Upper -->
+				<div class="header-upper">
+					<div class="auto-container">
+						<div class="inner-container">
+							<!--Logo-->
+							<div class="logo-box">
+								<div class="logo"><a href="index.html"><img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/logo.png" alt=""></a></div>
+							</div>
+							<div class="right-column">
+								<!--Nav Box-->
+								<div class="nav-outer">
+									<!--Mobile Navigation Toggler-->
+									<div class="mobile-nav-toggler"><img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/icons/icon-bar.png" alt=""></div>
 
-<!-- START MAIN CONTENT -->
-<?= '<div role="main" class="main">' ?>
-
-<!-- =========================
-START PAGE TITLE SECTION
-============================== -->
-<?php if ($ENVO_SHOW_NAVBAR) {
-
-	/* GRID SYSTEM FOR DIFFERENT PAGE - hide page title */
-	if (!$page || empty($page) || ($page == 'offline') || ($page == 'login') || (!$setting["searchform"] || !ENVO_USER_SEARCH)) {
-		// Code for homepage and other blank page
-
-	}
-
-	if (($page && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID] && ($page != 'login')) || ($page && ENVO_ASACCESS && ($page != 'login'))) {
-		// Code for all page without home page
-
-		if ($PORTOPHEADER == 'page-header-classic') { ?>
-
-			<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<ul class="breadcrumb">
-
-								<?php
-								echo '<li>';
-								echo '<a href=' . BASE_URL . '>';
-								foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-									echo $ca["name"];
-								}
-								echo '</a>';
-								echo '</li>';
-								if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-									echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-								}
-								echo '<li class="active">';
-								echo envo_cut_text($PAGE_TITLE, 35, "...");
-								echo '</li>';
-								?>
-
-							</ul>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col p-static">
-							<h1 data-title-border>
-
-								<?php
-								envo_cut_text($PAGE_TITLE, 50, "...");
-								$splittitle = explode(' ', $PAGE_TITLE);
-								$last_word  = array_pop($splittitle);
-
-								echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
-
-								?>
-
-							</h1>
+									<!-- Main Menu -->
+									<nav class="main-menu navbar-expand-md navbar-light">
+									</nav>
+								</div>
+								<div class="search-btn">
+									<button type="button" class="theme-btn search-toggler">
+										<span class="stroke-gap-icon icon-Search"></span></button>
+								</div>
+								<div class="link-btn"><a href="#" class="theme-btn btn-style-one">Book a Schedule </a></div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+				<!--End Header Upper-->
+			</div><!-- End Sticky Menu -->
 
-		<?php }
-		if ($PORTOPHEADER == 'page-header-modern') { ?>
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu">
+				<div class="menu-backdrop"></div>
+				<div class="close-btn"><span class="icon flaticon-remove"></span></div>
 
-			<section class="page-header mb-0 <?= $PORTOPHEADER . ' bg-color-light-scale-1 ' . $PORTOPHEADER1 ?>">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-							<h1 class="text-dark">
-
-								<?php
-								envo_cut_text($PAGE_TITLE, 50, "...");
-								$splittitle = explode(' ', $PAGE_TITLE);
-								$last_word  = array_pop($splittitle);
-
-								echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
-
-								?>
-
-							</h1>
-						</div>
-						<div class="col-md-4 order-1 order-md-2 align-self-center">
-							<ul class="breadcrumb d-block text-md-right">
-
-								<?php
-								echo '<li>';
-								echo '<a href=' . BASE_URL . '>';
-								foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-									echo $ca["name"];
-								}
-								echo '</a>';
-								echo '</li>';
-								if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-									echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-								}
-								echo '<li class="active">';
-								echo envo_cut_text($PAGE_TITLE, 35, "...");
-								echo '</li>';
-								?>
-
-							</ul>
-						</div>
+				<nav class="menu-box">
+					<div class="nav-logo">
+						<a href="index.html">
+							<img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/logo-two.png" alt="" title="">
+						</a>
 					</div>
-				</div>
-			</section>
+					<div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+					<!--Social Links-->
+					<div class="social-links">
+						<ul class="clearfix">
+							<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+							<li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+							<li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+							<li><a href="#"><span class="fab fa-instagram"></span></a></li>
+							<li><a href="#"><span class="fab fa-youtube"></span></a></li>
+						</ul>
+					</div>
+				</nav>
+			</div><!-- End Mobile Menu -->
 
-		<?php }
-		if ($PORTOPHEADER == 'page-header-modern page-header-background') {
+			<div class="nav-overlay">
+				<div class="cursor"></div>
+				<div class="cursor-follower"></div>
+			</div>
+		</header>
+		<!-- END HEADER SECTION -->
 
-			if ($PORTOPHEADER1 == 'page-header-background-md') { ?>
+	<?php } ?>
 
-				<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-								<h1 class="text-uppercase">
+	<!-- START MAIN CONTENT -->
+	<div class="maincontent">
 
-									<?php
-									envo_cut_text($PAGE_TITLE, 50, "...");
-									$splittitle = explode(' ', $PAGE_TITLE);
-									$last_word  = array_pop($splittitle);
+		<!-- START PAGE TITLE SECTION -->
+		<?php if ($ENVO_SHOW_NAVBAR) {
 
-									echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+			/* GRID SYSTEM FOR DIFFERENT PAGE - hide page title */
+			if (!$page || empty($page) || ($page == 'offline') || ($page == 'login') || (!$setting["searchform"] || !ENVO_USER_SEARCH)) {
+				// Code for homepage and other blank page
 
-									?>
+			}
 
-								</h1>
-								<span class="sub-title">This is a subtitle example.</span>
+			if (($page && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID] && ($page != 'login')) || ($page && ENVO_ASACCESS && ($page != 'login'))) {
+				// Code for all page without home page
+
+				if ($PORTOPHEADER == 'page-header-classic') { ?>
+
+					<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<ul class="breadcrumb">
+
+										<?php
+										echo '<li>';
+										echo '<a href=' . BASE_URL . '>';
+										foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+											echo $ca["name"];
+										}
+										echo '</a>';
+										echo '</li>';
+										if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+											echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+										}
+										echo '<li class="active">';
+										echo envo_cut_text($PAGE_TITLE, 35, "...");
+										echo '</li>';
+										?>
+
+									</ul>
+								</div>
 							</div>
-							<div class="col-md-4 order-1 order-md-2 align-self-center">
-								<ul class="breadcrumb breadcrumb-light d-block text-md-right">
+							<div class="row">
+								<div class="col p-static">
+									<h1 data-title-border>
 
-									<?php
-									echo '<li>';
-									echo '<a href=' . BASE_URL . '>';
-									foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-										echo $ca["name"];
-									}
-									echo '</a>';
-									echo '</li>';
-									if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-										echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-									}
-									echo '<li class="active">';
-									echo envo_cut_text($PAGE_TITLE, 35, "...");
-									echo '</li>';
-									?>
+										<?php
+										envo_cut_text($PAGE_TITLE, 50, "...");
+										$splittitle = explode(' ', $PAGE_TITLE);
+										$last_word  = array_pop($splittitle);
 
-								</ul>
+										echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+
+										?>
+
+									</h1>
+								</div>
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
 
-			<?php }
-			if ($PORTOPHEADER1 == 'page-header-background-pattern') { ?>
+				<?php }
+				if ($PORTOPHEADER == 'page-header-modern') { ?>
 
-				<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);background-size: 130%;">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12 align-self-center p-static order-2 text-center">
-								<h1 class="text-uppercase">
+					<section class="page-header mb-0 <?= $PORTOPHEADER . ' bg-color-light-scale-1 ' . $PORTOPHEADER1 ?>">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+									<h1 class="text-dark">
 
-									<?php
-									envo_cut_text($PAGE_TITLE, 50, "...");
-									$splittitle = explode(' ', $PAGE_TITLE);
-									$last_word  = array_pop($splittitle);
+										<?php
+										envo_cut_text($PAGE_TITLE, 50, "...");
+										$splittitle = explode(' ', $PAGE_TITLE);
+										$last_word  = array_pop($splittitle);
 
-									echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+										echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
 
-									?>
+										?>
 
-								</h1>
-							</div>
-							<div class="col-md-12 align-self-center order-1 mb-3">
-								<ul class="breadcrumb breadcrumb-light d-block text-center">
+									</h1>
+								</div>
+								<div class="col-md-4 order-1 order-md-2 align-self-center">
+									<ul class="breadcrumb d-block text-md-right">
 
-									<?php
-									echo '<li>';
-									echo '<a href=' . BASE_URL . '>';
-									foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-										echo $ca["name"];
-									}
-									echo '</a>';
-									echo '</li>';
-									if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-										echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-									}
-									echo '<li class="active">';
-									echo envo_cut_text($PAGE_TITLE, 35, "...");
-									echo '</li>';
-									?>
+										<?php
+										echo '<li>';
+										echo '<a href=' . BASE_URL . '>';
+										foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+											echo $ca["name"];
+										}
+										echo '</a>';
+										echo '</li>';
+										if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+											echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+										}
+										echo '<li class="active">';
+										echo envo_cut_text($PAGE_TITLE, 35, "...");
+										echo '</li>';
+										?>
 
-								</ul>
-							</div>
-						</div>
-					</div>
-				</section>
-
-			<?php }
-			if ($PORTOPHEADER1 == 'page-header-background-md parallax') { ?>
-
-				<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '140%'}" data-image-src="<?= $tpl_img ?>">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12 align-self-center p-static order-2 text-center">
-								<h1 class="text-uppercase">
-
-									<?php
-									envo_cut_text($PAGE_TITLE, 50, "...");
-									$splittitle = explode(' ', $PAGE_TITLE);
-									$last_word  = array_pop($splittitle);
-
-									echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
-
-									?>
-
-								</h1>
-							</div>
-							<div class="col-md-12 align-self-center order-1 mb-3">
-								<ul class="breadcrumb breadcrumb-light d-block text-center">
-
-									<?php
-									echo '<li>';
-									echo '<a href=' . BASE_URL . '>';
-									foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-										echo $ca["name"];
-									}
-									echo '</a>';
-									echo '</li>';
-									if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-										echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-									}
-									echo '<li class="active">';
-									echo envo_cut_text($PAGE_TITLE, 35, "...");
-									echo '</li>';
-									?>
-
-								</ul>
+									</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
 
-			<?php }
+				<?php }
+				if ($PORTOPHEADER == 'page-header-modern page-header-background') {
 
+					if ($PORTOPHEADER1 == 'page-header-background-md') { ?>
+
+						<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+										<h1 class="text-uppercase">
+
+											<?php
+											envo_cut_text($PAGE_TITLE, 50, "...");
+											$splittitle = explode(' ', $PAGE_TITLE);
+											$last_word  = array_pop($splittitle);
+
+											echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+
+											?>
+
+										</h1>
+										<span class="sub-title">This is a subtitle example.</span>
+									</div>
+									<div class="col-md-4 order-1 order-md-2 align-self-center">
+										<ul class="breadcrumb breadcrumb-light d-block text-md-right">
+
+											<?php
+											echo '<li>';
+											echo '<a href=' . BASE_URL . '>';
+											foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+												echo $ca["name"];
+											}
+											echo '</a>';
+											echo '</li>';
+											if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+												echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+											}
+											echo '<li class="active">';
+											echo envo_cut_text($PAGE_TITLE, 35, "...");
+											echo '</li>';
+											?>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<?php }
+					if ($PORTOPHEADER1 == 'page-header-background-pattern') { ?>
+
+						<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" style="background-image: url(<?= $tpl_img ?>);background-size: 130%;">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12 align-self-center p-static order-2 text-center">
+										<h1 class="text-uppercase">
+
+											<?php
+											envo_cut_text($PAGE_TITLE, 50, "...");
+											$splittitle = explode(' ', $PAGE_TITLE);
+											$last_word  = array_pop($splittitle);
+
+											echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+
+											?>
+
+										</h1>
+									</div>
+									<div class="col-md-12 align-self-center order-1 mb-3">
+										<ul class="breadcrumb breadcrumb-light d-block text-center">
+
+											<?php
+											echo '<li>';
+											echo '<a href=' . BASE_URL . '>';
+											foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+												echo $ca["name"];
+											}
+											echo '</a>';
+											echo '</li>';
+											if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+												echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+											}
+											echo '<li class="active">';
+											echo envo_cut_text($PAGE_TITLE, 35, "...");
+											echo '</li>';
+											?>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<?php }
+					if ($PORTOPHEADER1 == 'page-header-background-md parallax') { ?>
+
+						<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 . ' ' . $PORTOPHEADER2 ?>" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '140%'}" data-image-src="<?= $tpl_img ?>">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12 align-self-center p-static order-2 text-center">
+										<h1 class="text-uppercase">
+
+											<?php
+											envo_cut_text($PAGE_TITLE, 50, "...");
+											$splittitle = explode(' ', $PAGE_TITLE);
+											$last_word  = array_pop($splittitle);
+
+											echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+
+											?>
+
+										</h1>
+									</div>
+									<div class="col-md-12 align-self-center order-1 mb-3">
+										<ul class="breadcrumb breadcrumb-light d-block text-center">
+
+											<?php
+											echo '<li>';
+											echo '<a href=' . BASE_URL . '>';
+											foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+												echo $ca["name"];
+											}
+											echo '</a>';
+											echo '</li>';
+											if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+												echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+											}
+											echo '<li class="active">';
+											echo envo_cut_text($PAGE_TITLE, 35, "...");
+											echo '</li>';
+											?>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<?php }
+
+				}
+				if ($PORTOPHEADER == 'page-header-modern page-header-md') { ?>
+
+					<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 align-self-center p-static order-2 text-center">
+									<h1 class="text-dark text-uppercase">
+
+										<?php
+										envo_cut_text($PAGE_TITLE, 50, "...");
+										$splittitle = explode(' ', $PAGE_TITLE);
+										$last_word  = array_pop($splittitle);
+
+										echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+
+										?>
+
+									</h1>
+								</div>
+								<div class="col-md-12 align-self-center order-1 mb-3">
+									<ul class="breadcrumb d-block text-center">
+
+										<?php
+										echo '<li>';
+										echo '<a href=' . BASE_URL . '>';
+										foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+											echo $ca["name"];
+										}
+										echo '</a>';
+										echo '</li>';
+										if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+											echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+										}
+										echo '<li class="active">';
+										echo envo_cut_text($PAGE_TITLE, 35, "...");
+										echo '</li>';
+										?>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<?php }
+				if ($PORTOPHEADER == 'page-header-modern page-header-title-position') { ?>
+
+					<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?> ">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 align-self-center p-static order-2 text-center">
+									<h1 class="text-dark text-uppercase">
+
+										<?php
+										envo_cut_text($PAGE_TITLE, 50, "...");
+										$splittitle = explode(' ', $PAGE_TITLE);
+										$last_word  = array_pop($splittitle);
+
+										echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
+
+										?>
+
+									</h1>
+								</div>
+								<div class="col-md-12 align-self-center order-1 mb-3">
+									<ul class="breadcrumb d-block text-center">
+
+										<?php
+										echo '<li>';
+										echo '<a href=' . BASE_URL . '>';
+										foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+											echo $ca["name"];
+										}
+										echo '</a>';
+										echo '</li>';
+										if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+											echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
+										}
+										echo '<li class="active">';
+										echo envo_cut_text($PAGE_TITLE, 35, "...");
+										echo '</li>';
+										?>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<?php }
+			}
+		} ?>
+		<!-- =========================
+		END PAGE TITLE SECTION
+		============================== -->
+
+		<?php
+		if (isset($ENVO_HOOK_BELOW_HEADER) && is_array($ENVO_HOOK_BELOW_HEADER)) foreach ($ENVO_HOOK_BELOW_HEADER as $bheader) {
+			// Import templates below header
+			include_once APP_PATH . $bheader['phpcode'];
 		}
-		if ($PORTOPHEADER == 'page-header-modern page-header-md') { ?>
-
-			<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?>">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 align-self-center p-static order-2 text-center">
-							<h1 class="text-dark text-uppercase">
-
-								<?php
-								envo_cut_text($PAGE_TITLE, 50, "...");
-								$splittitle = explode(' ', $PAGE_TITLE);
-								$last_word  = array_pop($splittitle);
-
-								echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
-
-								?>
-
-							</h1>
-						</div>
-						<div class="col-md-12 align-self-center order-1 mb-3">
-							<ul class="breadcrumb d-block text-center">
-
-								<?php
-								echo '<li>';
-								echo '<a href=' . BASE_URL . '>';
-								foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-									echo $ca["name"];
-								}
-								echo '</a>';
-								echo '</li>';
-								if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-									echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-								}
-								echo '<li class="active">';
-								echo envo_cut_text($PAGE_TITLE, 35, "...");
-								echo '</li>';
-								?>
-
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		<?php }
-		if ($PORTOPHEADER == 'page-header-modern page-header-title-position') { ?>
-
-			<section class="page-header mb-0 <?= $PORTOPHEADER . ' ' . $PORTOPHEADER1 ?> ">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 align-self-center p-static order-2 text-center">
-							<h1 class="text-dark text-uppercase">
-
-								<?php
-								envo_cut_text($PAGE_TITLE, 50, "...");
-								$splittitle = explode(' ', $PAGE_TITLE);
-								$last_word  = array_pop($splittitle);
-
-								echo substr($PAGE_TITLE, 0, strrpos($PAGE_TITLE, ' ')) . ' <strong>' . $last_word . '</strong>';
-
-								?>
-
-							</h1>
-						</div>
-						<div class="col-md-12 align-self-center order-1 mb-3">
-							<ul class="breadcrumb d-block text-center">
-
-								<?php
-								echo '<li>';
-								echo '<a href=' . BASE_URL . '>';
-								foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-									echo $ca["name"];
-								}
-								echo '</a>';
-								echo '</li>';
-								if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-									echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
-								}
-								echo '<li class="active">';
-								echo envo_cut_text($PAGE_TITLE, 35, "...");
-								echo '</li>';
-								?>
-
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		<?php }
-	}
-} ?>
-<!-- =========================
-END PAGE TITLE SECTION
-============================== -->
-
-<?php
-if (isset($ENVO_HOOK_BELOW_HEADER) && is_array($ENVO_HOOK_BELOW_HEADER)) foreach ($ENVO_HOOK_BELOW_HEADER as $bheader) {
-	// Import templates below header
-	include_once APP_PATH . $bheader['phpcode'];
-}
-?>
+		?>
 
 
-<?php
+		<?php
 
-if (!$page) {
-	// Jedná se o titulní stránku - $page neobsahuje žádnou hodnotu
+		if (!$page) {
+			// Jedná se o titulní stránku - $page neobsahuje žádnou hodnotu
 
-	// Titulní stránka má Grid systém nebo heslo
-	if ($ENVO_HOOK_SIDE_GRID || $PAGE_PASSWORD) {
-
-	} else {
-
-	}
-
-	$section = 'DEFAULT';
-
-} else {
-	// Jedná se o speciální stránku - $page obsahuje hodnotu 'offline' nebo '404'
-	// Nejedná se o titulní stránku - $page obsahuje hodnotu
-
-	// Stránka - $page obsahuje hodnotu 'offline' => Web je v offline režimu
-	if ($page == 'offline') {
-		// SÍŤ JE OFFLINE
-		// Pokud není přihlášen administrátor '$page má hodnotu offline', pokud je administrátor přihlášen '$page nemá hodnotu offline' ale má hodnotu názvu stránky dle parsování URL adresy
-
-		$section = 'DEFAULT';
-
-	}
-
-	// Stránka - $page obsahuje hodnotu '404' => Chybová stránka
-	if ($page == '404') {
-
-		$section = 'DEFAULT';
-
-	}
-
-	// Stránka - $page neobsahuje hodnotu 'offline' nebo '404' - jedná se o různé stránky
-	if ($page != 'offline' && $page != '404') {
-
-		// Stránka má heslo, heslo ve stránce bylo správně zadané, stránka nemá heslo
-		if ($PAGE_PASSWORD && ($PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID])) {
-			// STRÁNKA MÁ HESLO
-
-			// Přihlášení administrátora
-			if (ENVO_ASACCESS) {
-				// ADMINISTRÁTOR JE PŘIHLÁŠEN
-
-				// Stránka má Grid systém
-				if ($ENVO_HOOK_SIDE_GRID) {
-
-					$section = 'B';
-
-				} else {
-
-					$section = 'A';
-
-				}
+			// Titulní stránka má Grid systém nebo heslo
+			if ($ENVO_HOOK_SIDE_GRID || $PAGE_PASSWORD) {
 
 			} else {
-				// ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
-
-				// Stránka má Grid systém
-				if ($ENVO_HOOK_SIDE_GRID) {
-
-					$section = 'DEFAULT';
-
-				} else {
-
-					$section = 'DEFAULT';
-
-				}
 
 			}
 
-		} elseif ($PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID])) {
-			// STRÁNKA MÁ HESLO A HESLO BYLO SPRÁVNĚ ZADANÉ VE STRÁNCE
-
-			// Přihlášení administrátora
-			if (ENVO_ASACCESS) {
-				// ADMINISTRÁTOR JE PŘIHLÁŠEN
-
-				// Stránka má Grid systém
-				if ($ENVO_HOOK_SIDE_GRID) {
-
-					$section = 'B';
-
-				} else {
-
-					$section = 'A';
-
-				}
-
-			} else {
-				// ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
-
-				// Stránka má Grid systém
-				if ($ENVO_HOOK_SIDE_GRID) {
-
-					$section = 'B';
-
-				} else {
-
-					$section = 'A';
-
-				}
-
-			}
+			$section = 'DEFAULT';
 
 		} else {
-			// STRÁNKA NEMÁ HESLO
+			// Jedná se o speciální stránku - $page obsahuje hodnotu 'offline' nebo '404'
+			// Nejedná se o titulní stránku - $page obsahuje hodnotu
 
-			// Přihlášení administrátora
-			if (ENVO_ASACCESS) {
-				// ADMINISTRÁTOR JE PŘIHLÁŠEN
+			// Stránka - $page obsahuje hodnotu 'offline' => Web je v offline režimu
+			if ($page == 'offline') {
+				// SÍŤ JE OFFLINE
+				// Pokud není přihlášen administrátor '$page má hodnotu offline', pokud je administrátor přihlášen '$page nemá hodnotu offline' ale má hodnotu názvu stránky dle parsování URL adresy
 
-				// Stránka má Grid systém
-				if ($ENVO_HOOK_SIDE_GRID) {
+				$section = 'DEFAULT';
 
-					$section = 'B';
+			}
+
+			// Stránka - $page obsahuje hodnotu '404' => Chybová stránka
+			if ($page == '404') {
+
+				$section = 'DEFAULT';
+
+			}
+
+			// Stránka - $page neobsahuje hodnotu 'offline' nebo '404' - jedná se o různé stránky
+			if ($page != 'offline' && $page != '404') {
+
+				// Stránka má heslo, heslo ve stránce bylo správně zadané, stránka nemá heslo
+				if ($PAGE_PASSWORD && ($PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID])) {
+					// STRÁNKA MÁ HESLO
+
+					// Přihlášení administrátora
+					if (ENVO_ASACCESS) {
+						// ADMINISTRÁTOR JE PŘIHLÁŠEN
+
+						// Stránka má Grid systém
+						if ($ENVO_HOOK_SIDE_GRID) {
+
+							$section = 'B';
+
+						} else {
+
+							$section = 'A';
+
+						}
+
+					} else {
+						// ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+
+						// Stránka má Grid systém
+						if ($ENVO_HOOK_SIDE_GRID) {
+
+							$section = 'DEFAULT';
+
+						} else {
+
+							$section = 'DEFAULT';
+
+						}
+
+					}
+
+				} elseif ($PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID])) {
+					// STRÁNKA MÁ HESLO A HESLO BYLO SPRÁVNĚ ZADANÉ VE STRÁNCE
+
+					// Přihlášení administrátora
+					if (ENVO_ASACCESS) {
+						// ADMINISTRÁTOR JE PŘIHLÁŠEN
+
+						// Stránka má Grid systém
+						if ($ENVO_HOOK_SIDE_GRID) {
+
+							$section = 'B';
+
+						} else {
+
+							$section = 'A';
+
+						}
+
+					} else {
+						// ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+
+						// Stránka má Grid systém
+						if ($ENVO_HOOK_SIDE_GRID) {
+
+							$section = 'B';
+
+						} else {
+
+							$section = 'A';
+
+						}
+
+					}
 
 				} else {
+					// STRÁNKA NEMÁ HESLO
 
-					$section = 'A';
+					// Přihlášení administrátora
+					if (ENVO_ASACCESS) {
+						// ADMINISTRÁTOR JE PŘIHLÁŠEN
 
-				}
+						// Stránka má Grid systém
+						if ($ENVO_HOOK_SIDE_GRID) {
 
-			} else {
-				// ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+							$section = 'B';
 
-				// Stránka má Grid systém
-				if ($ENVO_HOOK_SIDE_GRID) {
+						} else {
 
-					$section = 'B';
+							$section = 'A';
 
-				} else {
+						}
 
-					$section = 'A';
+					} else {
+						// ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+
+						// Stránka má Grid systém
+						if ($ENVO_HOOK_SIDE_GRID) {
+
+							$section = 'B';
+
+						} else {
+
+							$section = 'A';
+
+						}
+
+					}
 
 				}
 
@@ -768,36 +791,32 @@ if (!$page) {
 
 		}
 
-	}
+		switch ($section) {
+			case 'A':
 
-}
+				echo '<section class="pt-5 mb-5">';
+				echo '<div class="container">';
+				echo '<div class="row">';
+				echo '<div class="col">';
 
-switch ($section) {
-	case 'A':
+				break;
+			case 'B':
 
-		echo '<section class="pt-5 mb-5">';
-		echo '<div class="container">';
-		echo '<div class="row">';
-		echo '<div class="col">';
+				echo '<section>';
+				echo '<div class="container">';
+				echo '<div class="row">';
 
-		break;
-	case 'B':
+				// Sidebar if left
+				if (!empty($ENVO_HOOK_SIDE_GRID) && $setting["sidebar_location_tpl"] == "left") {
+					include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
+				}
 
-		echo '<section>';
-		echo '<div class="container">';
-		echo '<div class="row">';
+				echo '<div class="' . ($ENVO_HOOK_SIDE_GRID ? 'col-sm-9' : 'col-sm-12') . '" style="padding-top: 30px;">';
 
-		// Sidebar if left
-		if (!empty($ENVO_HOOK_SIDE_GRID) && $setting["sidebar_location_tpl"] == "left") {
-			include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
+				break;
+			default:
+
 		}
 
-		echo '<div class="' . ($ENVO_HOOK_SIDE_GRID ? 'col-sm-9' : 'col-sm-12') . '" style="padding-top: 30px;">';
-
-		break;
-	default:
-
-}
-
-?>
+		?>
 

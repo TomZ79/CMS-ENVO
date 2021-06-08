@@ -36,189 +36,283 @@ switch ($section) {
 	}
 } ?>
 
-</div><!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN CONTENT -->
 
 <?php if ($ENVO_SHOW_FOOTER && ENVO_ASACCESS) { ?>
-	<!-- =========================
-	START FOOTER SECTION
-	============================== -->
-	<footer id="footer" class="mt-0">
-		<div class="container my-4 py-2">
-			<div class="row py-4">
-				<div class="col-md-10">
-					<div class="row">
-						<?= $setting["footerblocktext1_porto_tpl"] ?>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<h4><?= $setting["socialfooterText_porto_tpl"] ?></h4>
-					<ul class="social-icons">
+	<!-- START FOOTER SECTION -->
+	<footer class="main-footer">
+		<!--Upper Box-->
+		<div class="upper-box">
+			<div class="auto-container">
+				<div class="row no-gutters">
 
-						<?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
-							<li class="social-icons-facebook">
-								<a href="<?= $setting[" facebookfooterLinks_porto_tpl"] ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-							</li>
-						<?php }
-						if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
-							<li class="social-icons-twitter">
-								<a href="<?= $setting["twitterfooterLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-							</li>
-						<?php }
-						if ($setting["googlefooterShow_porto_tpl"] == 1) { ?>
-							<li class="social-icons-googleplus">
-								<a href="<?= $setting["googlefooterLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
-							</li>
-						<?php }
-						if ($setting["instagramfooterShow_porto_tpl"] == 1) { ?>
-							<li class="social-icons-instagram">
-								<a href="<?= $setting["instagramfooterLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-							</li>
-						<?php }
-						if ($ENVO_RSS_DISPLAY) { ?>
-							<li class="social-icons-rss">
-								<a href="<?= $P_RSS_LINK ?>" target="_blank" title="RSS"><i class="fas fa-rss"></i></a>
-							</li>
-						<?php } ?>
-
-					</ul>
-					<div class="row py-4">
-						<div class="col">
-							<div class="system-icons">
-
-								<?php
-
-								if ($apedit) {
-
-									echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block" href="' . $apedit . '" title="' . $tl["button"]["btn1"] . '">' . $tl["button"]["btn1"] . '</a>';
-
-									if ($qapedit) {
-										echo '<a class="btn btn-warning btn-xs rounded-0 mb-2 d-block quickedit" href="' . $qapedit . '" title="' . $tl["button"]["btn2"] . '">' . $tl["button"]["btn2"] . '</a>';
-									}
-								}
-								if ($setting["printme"] && $printme) {
-
-									// TODO! Vyřešit tisk stránky
-
-								}
-
-								?>
-
+					<!--Footer Info Box-->
+					<div class="footer-info-box col-md-4 col-sm-6 col-xs-12">
+						<div class="info-inner">
+							<div class="content">
+								<div class="icon">
+									<span class="flaticon-pin"></span>
+								</div>
+								<div class="text">54B, Tailstoi Town 5238 MT, <br> La city, IA 522364</div>
 							</div>
 						</div>
 					</div>
+
+					<!--Footer Info Box-->
+					<div class="footer-info-box col-md-4 col-sm-6 col-xs-12">
+						<div class="info-inner">
+							<div class="content">
+								<div class="icon">
+									<span class="flaticon-email"></span>
+								</div>
+								<div class="text">Email us : <br>
+									<a href="mailto:contact.contact@autorex.com">contact@autorex.com</a></div>
+							</div>
+						</div>
+					</div>
+
+					<!--Footer Info Box-->
+					<div class="footer-info-box col-md-4 col-sm-6 col-xs-12">
+						<div class="info-inner">
+							<div class="content">
+								<div class="icon">
+									<span class="flaticon-phone"></span>
+								</div>
+								<div class="text">Call us on : <br><strong>+ 1800 456 7890</strong></div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
-		<div class="footer-copyright">
-			<div class="container py-2">
-				<div class="row py-4">
-					<div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
-						<a href="<?= BASE_URL ?>" class="logo pr-0 pr-lg-3">
-							<img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" class="img-fluid opacity-2" src="<?= $setting["logo2_porto_tpl"] ?>">
-						</a>
-					</div>
-					<div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-						<p><?= $setting["copyright"] ?></p>
-					</div>
-					<div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-						<nav id="sub-menu">
-							<?= build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', ENVO_ASACCESS) ?>
-						</nav>
+
+		<!--Widgets Section-->
+		<div class="widgets-section">
+			<div class="auto-container">
+				<div class="widgets-inner-container">
+					<div class="row clearfix">
+
+						<!--Footer Column-->
+						<div class="footer-column col-lg-4">
+							<div class="widget widget_about">
+								<div class="logo">
+									<a href="index.html"><img src="assets/images/logo-two.png" alt=""/></a>
+								</div>
+								<div class="text">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide additional clickthroughs.</div>
+							</div>
+						</div>
+
+						<!--Footer Column-->
+						<div class="footer-column col-lg-4">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="widget widget_links">
+										<h4 class="widget_title">Usefull Links</h4>
+										<div class="widget-content">
+											<ul class="list">
+												<li><a href="index.html">Home</a></li>
+												<li><a href="about.html">About Us</a></li>
+												<li><a href="#">Appointment</a></li>
+												<li><a href="testimonial.html">Testimonials</a></li>
+												<li><a href="contact.html">Contact Us</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="widget widget_links">
+										<h4 class="widget_title">Our Services</h4>
+										<div class="widget-content">
+											<ul class="list">
+												<li><a href="#">Performance Upgrade</a></li>
+												<li><a href="#">Transmission Service</a></li>
+												<li><a href="#">Break Repair & Service</a></li>
+												<li><a href="#">Engine Service & Repair</a></li>
+												<li><a href="#">Trye & Wheels</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--Footer Column-->
+						<div class="footer-column col-lg-4">
+							<div class="widget widget_newsletter">
+								<h4 class="widget_title">Newsletter</h4>
+								<div class="text">Get latest updates and offers.</div>
+								<div class="newsletter-form">
+									<form class="ajax-sub-form" method="post">
+										<div class="form-group">
+											<input type="email" placeholder="Enter your email" id="subscription-email">
+											<button class="theme-btn" type="submit"><span class="fas fa-paper-plane"></span></button>
+											<label class="subscription-label" for="subscription-email"></label>
+										</div>
+									</form>
+								</div>
+								<ul class="social-links">
+									<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+									<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+									<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+									<li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
+								</ul>
+							</div>
+						</div>
+
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<!--Footer Bottom-->
+		<div class="auto-container">
+			<div class="footer-bottom">
+				<div class="copyright-text">© Copyright <a href="#">Autorex</a> 2020 . All right reserved.</div>
+				<div class="text">Created by <a href="#">ThemeArc</a></div>
 			</div>
 		</div>
 	</footer>
+	<!-- END FOOTER SECTION -->
 
-	<!-- =========================
-  END FOOTER SECTION
-  ============================== -->
 <?php } else {
 	if ($ENVO_SHOW_FOOTER) { ?>
-		<!-- =========================
-		START FOOTER SECTION
-		============================== -->
-		<footer id="footer" class="mt-0">
-			<div class="container my-4 py-2">
-				<div class="row py-4">
-					<div class="col-md-10">
-						<div class="row">
-							<?= $setting["footerblocktext1_porto_tpl"] ?>
+		<!-- START FOOTER SECTION -->
+		<footer class="main-footer">
+			<!--Upper Box-->
+			<div class="upper-box">
+				<div class="auto-container">
+					<div class="row no-gutters">
+
+						<!--Footer Info Box-->
+						<div class="footer-info-box col-md-4 col-sm-6 col-xs-12">
+							<div class="info-inner">
+								<div class="content">
+									<div class="icon">
+										<span class="flaticon-pin"></span>
+									</div>
+									<div class="text">54B, Tailstoi Town 5238 MT, <br> La city, IA 522364</div>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-2">
-						<h4><?= $setting["socialfooterText_porto_tpl"] ?></h4>
-						<ul class="social-icons">
 
-							<?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
-								<li class="social-icons-facebook">
-									<a href="<?= $setting["facebookfooterLinks_porto_tpl"] ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-								</li>
-							<?php }
-							if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
-								<li class="social-icons-twitter">
-									<a href="<?= $setting["twitterfooterLinks_porto_tpl"] ?>" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-								</li>
-							<?php }
-							if ($setting["googlefooterShow_porto_tpl"] == 1) { ?>
-								<li class="social-icons-googleplus">
-									<a href="<?= $setting["googlefooterLinks_porto_tpl"] ?>" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
-								</li>
-							<?php }
-							if ($setting["instagramfooterShow_porto_tpl"] == 1) { ?>
-								<li class="social-icons-instagram">
-									<a href="<?= $setting["instagramfooterLinks_porto_tpl"] ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-								</li>
-							<?php }
-							if ($ENVO_RSS_DISPLAY) { ?>
-								<li class="social-icons-rss">
-									<a href="<?= $P_RSS_LINK ?>" target="_blank" title="RSS"><i class="fas fa-rss"></i></a>
-								</li>
-							<?php } ?>
+						<!--Footer Info Box-->
+						<div class="footer-info-box col-md-4 col-sm-6 col-xs-12">
+							<div class="info-inner">
+								<div class="content">
+									<div class="icon">
+										<span class="flaticon-email"></span>
+									</div>
+									<div class="text">Email us : <br> <a href="mailto:contact.contact@autorex.com">contact@autorex.com</a></div>
+								</div>
+							</div>
+						</div>
 
-						</ul>
+						<!--Footer Info Box-->
+						<div class="footer-info-box col-md-4 col-sm-6 col-xs-12">
+							<div class="info-inner">
+								<div class="content">
+									<div class="icon">
+										<span class="flaticon-phone"></span>
+									</div>
+									<div class="text">Call us on : <br><strong>+ 1800 456 7890</strong></div>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
-				<div class="row py-4">
-					<div class="col-md-12">
-						<div class="system-icons">
+			</div>
 
-							<?php
+			<!--Widgets Section-->
+			<div class="widgets-section">
+				<div class="auto-container">
+					<div class="widgets-inner-container">
+						<div class="row clearfix">
 
-							if ($setting["printme"] && $printme) {
+							<!--Footer Column-->
+							<div class="footer-column col-lg-4">
+								<div class="widget widget_about">
+									<div class="logo">
+										<a href="index.html"><img src="assets/images/logo-two.png" alt=""/></a>
+									</div>
+									<div class="text">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide additional clickthroughs.</div>
+								</div>
+							</div>
 
-								// TODO! Vyřešit tisk stránky
+							<!--Footer Column-->
+							<div class="footer-column col-lg-4">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="widget widget_links">
+											<h4 class="widget_title">Usefull Links</h4>
+											<div class="widget-content">
+												<ul class="list">
+													<li><a href="index.html">Home</a></li>
+													<li><a href="about.html">About Us</a></li>
+													<li><a href="#">Appointment</a></li>
+													<li><a href="testimonial.html">Testimonials</a></li>
+													<li><a href="contact.html">Contact Us</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="widget widget_links">
+											<h4 class="widget_title">Our Services</h4>
+											<div class="widget-content">
+												<ul class="list">
+													<li><a href="#">Performance Upgrade</a></li>
+													<li><a href="#">Transmission Service</a></li>
+													<li><a href="#">Break Repair & Service</a></li>
+													<li><a href="#">Engine Service & Repair</a></li>
+													<li><a href="#">Trye & Wheels</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
-							}
-
-							?>
+							<!--Footer Column-->
+							<div class="footer-column col-lg-4">
+								<div class="widget widget_newsletter">
+									<h4 class="widget_title">Newsletter</h4>
+									<div class="text">Get latest updates and offers.</div>
+									<div class="newsletter-form">
+										<form class="ajax-sub-form" method="post">
+											<div class="form-group">
+												<input type="email" placeholder="Enter your email" id="subscription-email">
+												<button class="theme-btn" type="submit"><span class="fas fa-paper-plane"></span></button>
+												<label class="subscription-label" for="subscription-email"></label>
+											</div>
+										</form>
+									</div>
+									<ul class="social-links">
+										<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+										<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+										<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+										<li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
+									</ul>
+								</div>
+							</div>
 
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="footer-copyright">
-				<div class="container py-2">
-					<div class="row py-4">
-						<div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
-							<a href="<?= BASE_URL ?>" class="logo pr-0 pr-lg-3">
-								<img alt="<?= $tlporto["image_desc"]["imdesc"] . $setting["title"] ?>" class="img-fluid opacity-2" src="<?= $setting["logo2_porto_tpl"] ?>">
-							</a>
-						</div>
-						<div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-							<p><?= $setting["copyright"] ?></p>
-						</div>
-						<div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-							<nav id="sub-menu">
-								<?= build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', ENVO_ASACCESS) ?>
-							</nav>
-						</div>
-					</div>
+
+			<!--Footer Bottom-->
+			<div class="auto-container">
+				<div class="footer-bottom">
+					<div class="copyright-text">© Copyright <a href="#">Autorex</a> 2020 . All right reserved.</div>
+					<div class="text">Created by <a href="#">ThemeArc</a></div>
 				</div>
 			</div>
-		</footer><!-- =========================
-    END FOOTER SECTION
-    ============================== -->
+		</footer>
+		<!-- END FOOTER SECTION -->
+
 	<?php }
 }
 if (!$ENVO_SHOW_FOOTER) { ?>
@@ -227,38 +321,35 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 
 </div><!-- END BODY -->
 
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-right-arrow"></span></div>
+
 <!-- End Document  ================================================== --><!-- Placed at the end of the document so the pages load faster -->
-<script src="/assets/plugins/jquery/3.3.1/jquery-3.3.1.min.js"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.appear/jquery.appear.min.js"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.easing/jquery.easing.min.js?=v1.3" async defer></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery-cookie/jquery-cookie.min.js?=v1.4.1"></script>
-<script src="/assets/plugins/bootstrap/bootstrapv4/4.1.3/js/bootstrap.min.js"></script>
-<script src="/assets/plugins/bootstrap-notify/bootstrap-notify.min.js?=v3.1.5" async defer></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/common/common.min.js?=v5.7.2"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.validation/jquery.validate.min.js?=v1.18.0"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/jquery.lazyload/jquery.lazyload.min.js?=v1.9.7" async defer></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.6"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/owl.carousel/owl.carousel.min.js?=v2.3.4"></script>
-<script src="/template/<?= ENVO_TEMPLATE ?>/plugins/magnific-popup/jquery.magnific-popup.min.js?=v1.1.0"></script>
-<script src="/assets/plugins/revolution-slider/js/jquery.themepunch.tools.min.js?=v5.4.8"></script>
-<script src="/assets/plugins/revolution-slider/js/jquery.themepunch.revolution.min.js?=v5.4.8"></script>
-<script src="/assets/plugins/jquery-disablemouse/jquery.disablemouse.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/jquery.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/popper.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/bootstrap.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/bootstrap-select.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/jquery.fancybox.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/isotope.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/owl.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/appear.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/wow.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/lazyload.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/scrollbar.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/TweenMax.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/swiper.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/parallax-scroll.js"></script>
 
 <!-- Theme Base, Components and Settings -->
-<script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.min.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/script.js"></script>
 
 <!-- Theme Function -->
-<script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.custom.js"></script>
+<script src="/template/<?= ENVO_TEMPLATE ?>/assets/js/theme.custom.js"></script>
 <script src="/assets/js/generated_js.php"></script>
 <script>
   envoWeb.envo_forgotlogin = '<?= $FORGOT_LOGIN?>';
 </script>
-
-<!-- Theme Initialization Files -->
-<script src="/template/<?= ENVO_TEMPLATE ?>/js/theme.init.min.js"></script>
-
-<!-- Revolutin Slider 5.0 Initialization -->
-<script src="/template/<?= ENVO_TEMPLATE ?>/js/porto-revolutionSlider.min.js"></script>
 
 <?php
 // Hook footer code
@@ -351,12 +442,12 @@ if ($SHOWSOCIALBUTTON) {
         type: 'offline',
         timer: 0,
         template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-        '<span data-notify="icon"></span> ' +
-        '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
-        '<span data-notify="message">{2}</span>' +
-        '</div>' +
-        '</div>'
+          '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+          '<span data-notify="icon"></span> ' +
+          '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+          '<span data-notify="message">{2}</span>' +
+          '</div>' +
+          '</div>'
       });
 
 			<?php } ?>
@@ -384,17 +475,33 @@ if ($SHOWSOCIALBUTTON) {
 
 <!-- Search box -->
 <?php if (ENVO_SEARCH && ENVO_USER_SEARCH) { ?>
-
-	<form action="<?= $P_SEAERCH_LINK ?>" id="search-inner" method="POST">
-		<div class="input-data ">
-			<div class="container">
-				<input class="search-box" type="text" name="envoSH" id="search-box" placeholder="<?php echo $tl["placeholder"]["plc"];
-				if ($setting["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
+	<!-- START SEARCH POPUP -->
+	<div id="search-popup" class="search-popup">
+		<div class="close-search theme-btn"><span class="flaticon-remove"></span></div>
+		<div class="popup-inner">
+			<div class="overlay-layer"></div>
+			<div class="search-form">
+				<form method="post" action="index.html">
+					<div class="form-group">
+						<fieldset>
+							<input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required>
+							<input type="submit" value="Search Now!" class="theme-btn">
+						</fieldset>
+					</div>
+				</form>
+				<br>
+				<h3>Recent Search Keywords</h3>
+				<ul class="recent-searches">
+					<li><a href="#">Finance</a></li>
+					<li><a href="#">Idea</a></li>
+					<li><a href="#">Service</a></li>
+					<li><a href="#">Growth</a></li>
+					<li><a href="#">Plan</a></li>
+				</ul>
 			</div>
 		</div>
-		<button type="button" id="close" class="close-searchbutton"></button>
-	</form>
-
+	</div>
+	<!-- END SEARCH POPUP -->
 <?php } ?>
 
 <!-- Search script -->
@@ -404,7 +511,8 @@ if ($SHOWSOCIALBUTTON) {
       $('#ajaxsearchForm').ajaxSearch({
         apiURL: '<?=BASE_URL . $AJAX_SEARCH_PLUGIN_URL?>',
         msg: '<?=$tl["searching"]["stxt12"]?>',
-        seo: <?=$AJAX_SEARCH_PLUGIN_SEO?>});
+        seo: <?=$AJAX_SEARCH_PLUGIN_SEO?>
+      });
 
       $('#Jajaxs').alphanumeric({nocaps: false, allow: ' +*'});
       $('.hideAdvSearchResult').fadeIn();
