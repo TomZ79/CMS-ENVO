@@ -1,0 +1,777 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?c7d494f2a577f602c064e429e3fd96a8") format("truetype"),
+url("./flaticon.woff?c7d494f2a577f602c064e429e3fd96a8") format("woff"),
+url("./flaticon.woff2?c7d494f2a577f602c064e429e3fd96a8") format("woff2"),
+url("./flaticon.eot?c7d494f2a577f602c064e429e3fd96a8#iefix") format("embedded-opentype"),
+url("./flaticon.svg?c7d494f2a577f602c064e429e3fd96a8#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "roof": "\f101",
+    "roof-1": "\f102",
+    "home": "\f103",
+    "roof-2": "\f104",
+    "house": "\f105",
+    "roof-3": "\f106",
+    "roof-4": "\f107",
+    "broken-house": "\f108",
+    "roof-5": "\f109",
+    "roof-6": "\f10a",
+    "roof-7": "\f10b",
+    "roof-8": "\f10c",
+    "terrace": "\f10d",
+    "facade": "\f10e",
+    "terrace-1": "\f10f",
+    "flash": "\f110",
+    "flash-1": "\f111",
+    "flash-2": "\f112",
+    "flash-3": "\f113",
+    "lightning-in-a-circle": "\f114",
+    "lightning-bolt": "\f115",
+    "thermometer": "\f116",
+    "lightning": "\f117",
+    "lightning-1": "\f118",
+    "badge-with-lightning": "\f119",
+    "satellite-dish": "\f11a",
+    "radio-antenna": "\f11b",
+    "antenna": "\f11c",
+    "tv-monitor": "\f11d",
+    "antenna-1": "\f11e",
+    "antenna-2": "\f11f",
+    "satellite-dish-1": "\f120",
+    "antenna-3": "\f121",
+    "radio-antenna-1": "\f122",
+    "antenna-4": "\f123",
+    "price-tags": "\f124",
+    "price-tag": "\f125",
+    "tag": "\f126",
+    "price": "\f127",
+    "price-tag-1": "\f128",
+    "price-tag-2": "\f129",
+    "badge": "\f12a",
+    "tag-1": "\f12b",
+    "price-tag-3": "\f12c",
+    "discount": "\f12d",
+    "tag-2": "\f12e",
+    "price-label": "\f12f",
+    "tag-3": "\f130",
+    "low-prices": "\f131",
+    "tag-4": "\f132",
+    "discount-1": "\f133",
+    "discount-2": "\f134",
+    "tag-5": "\f135",
+    "price-tag-4": "\f136",
+    "customer-support": "\f137",
+    "settings": "\f138",
+    "wrench": "\f139",
+    "wrench-1": "\f13a",
+    "wrench-2": "\f13b",
+    "setting": "\f13c",
+    "wrench-3": "\f13d",
+    "holding-wrench": "\f13e",
+    "tool": "\f13f",
+    "lug-wrench": "\f140",
+    "adjustable-wrench": "\f141",
+    "pipe-wrench": "\f142",
+    "adjustable-wrench-1": "\f143",
+    "configuration-hand-drawn-interface-symbol-of-tools-a-pencil-and-a-wrench-cross": "\f144",
+    "mechanic": "\f145",
+    "mechanic-1": "\f146",
+    "mechanic-2": "\f147",
+    "engineer": "\f148",
+    "trophy": "\f149",
+    "trophy-1": "\f14a",
+    "trophy-2": "\f14b",
+    "trophy-3": "\f14c",
+    "maintenance": "\f14d",
+    "technical-support": "\f14e",
+    "maintenance-1": "\f14f",
+    "maintenance-2": "\f150",
+    "restructure": "\f151",
+    "maintenance-3": "\f152",
+    "customer-service": "\f153",
+    "support": "\f154",
+    "support-1": "\f155",
+    "technical-support-1": "\f156",
+    "24-hours-support": "\f157",
+    "24-hours": "\f158",
+    "open-24-hours": "\f159",
+    "support-2": "\f15a",
+    "customer-service-1": "\f15b",
+    "24-hours-1": "\f15c",
+    "settings-1": "\f15d",
+    "consulting": "\f15e",
+    "right-arrow": "\f15f",
+    "right-arrow-1": "\f160",
+    "arrow-pointing-to-right": "\f161",
+    "right": "\f162",
+    "right-chevron": "\f163",
+    "right-arrow-2": "\f164",
+    "right-arrow-3": "\f165",
+    "double-chevron": "\f166",
+    "right-arrow-4": "\f167",
+    "arrows": "\f168",
+    "arrow-angle-pointing-to-right": "\f169",
+    "right-arrow-5": "\f16a",
+    "right-arrow-6": "\f16b",
+    "right-chevron-1": "\f16c",
+    "right-arrow-7": "\f16d",
+    "logout": "\f16e",
+    "right-arrow-8": "\f16f",
+    "right-arrow-angle-of-two-shapes": "\f170",
+    "keyboard-right-arrow-button": "\f171",
+    "deadline": "\f172",
+    "deadline-1": "\f173",
+    "deadline-2": "\f174",
+    "deadline-3": "\f175",
+    "deadline-4": "\f176",
+    "deadline-5": "\f177",
+    "deadline-6": "\f178",
+    "deadline-7": "\f179",
+    "deadline-8": "\f17a",
+    "deadline-9": "\f17b",
+    "deadline-10": "\f17c",
+    "deadline-11": "\f17d",
+    "deadline-12": "\f17e",
+    "deadline-13": "\f17f",
+    "manufacture": "\f180",
+    "production": "\f181",
+    "automation": "\f182",
+    "conveyor": "\f183",
+    "manufacturing": "\f184",
+    "production-1": "\f185",
+    "trade": "\f186",
+    "badge-1": "\f187",
+    "badge-2": "\f188",
+    "medal": "\f189",
+    "winner": "\f18a",
+    "quality": "\f18b",
+    "vegan": "\f18c",
+    "badge-3": "\f18d",
+    "mail": "\f18e",
+    "email": "\f18f",
+    "envelope": "\f190",
+    "email-1": "\f191",
+    "email-2": "\f192",
+    "email-3": "\f193",
+    "email-4": "\f194",
+    "telephone": "\f195",
+    "telephone-1": "\f196",
+    "phones": "\f197",
+    "phone": "\f198",
+    "call": "\f199",
+    "phone-with-wire": "\f19a",
+    "phone-call": "\f19b",
+    "phone-with-wire-1": "\f19c",
+    "black-phone-auricular": "\f19d",
+    "phone-auricular-with-cable": "\f19e",
+    "paper-plane": "\f19f",
+    "send": "\f1a0",
+    "send-1": "\f1a1",
+    "placeholder": "\f1a2",
+    "placeholder-1": "\f1a3",
+    "map": "\f1a4",
+    "signs": "\f1a5",
+    "home-1": "\f1a6",
+    "pin": "\f1a7",
+    "location-pin": "\f1a8",
+    "guaranteed": "\f1a9",
+    "guarantee": "\f1aa",
+    "guarantee-1": "\f1ab",
+    "guarantee-2": "\f1ac",
+    "truck": "\f1ad",
+    "delivery-truck": "\f1ae",
+    "moving-truck": "\f1af",
+    "green": "\f1b0",
+    "care": "\f1b1",
+    "free": "\f1b2",
+    "free-1": "\f1b3",
+    "free-2": "\f1b4",
+    "free-3": "\f1b5",
+    "free-4": "\f1b6",
+    "free-5": "\f1b7",
+    "free-6": "\f1b8",
+    "origami": "\f1b9",
+    "upload": "\f1ba",
+    "upwards-arrow": "\f1bb",
+    "upload-1": "\f1bc",
+);
+
+.flaticon-roof:before {
+    content: map-get($flaticon-map, "roof");
+}
+.flaticon-roof-1:before {
+    content: map-get($flaticon-map, "roof-1");
+}
+.flaticon-home:before {
+    content: map-get($flaticon-map, "home");
+}
+.flaticon-roof-2:before {
+    content: map-get($flaticon-map, "roof-2");
+}
+.flaticon-house:before {
+    content: map-get($flaticon-map, "house");
+}
+.flaticon-roof-3:before {
+    content: map-get($flaticon-map, "roof-3");
+}
+.flaticon-roof-4:before {
+    content: map-get($flaticon-map, "roof-4");
+}
+.flaticon-broken-house:before {
+    content: map-get($flaticon-map, "broken-house");
+}
+.flaticon-roof-5:before {
+    content: map-get($flaticon-map, "roof-5");
+}
+.flaticon-roof-6:before {
+    content: map-get($flaticon-map, "roof-6");
+}
+.flaticon-roof-7:before {
+    content: map-get($flaticon-map, "roof-7");
+}
+.flaticon-roof-8:before {
+    content: map-get($flaticon-map, "roof-8");
+}
+.flaticon-terrace:before {
+    content: map-get($flaticon-map, "terrace");
+}
+.flaticon-facade:before {
+    content: map-get($flaticon-map, "facade");
+}
+.flaticon-terrace-1:before {
+    content: map-get($flaticon-map, "terrace-1");
+}
+.flaticon-flash:before {
+    content: map-get($flaticon-map, "flash");
+}
+.flaticon-flash-1:before {
+    content: map-get($flaticon-map, "flash-1");
+}
+.flaticon-flash-2:before {
+    content: map-get($flaticon-map, "flash-2");
+}
+.flaticon-flash-3:before {
+    content: map-get($flaticon-map, "flash-3");
+}
+.flaticon-lightning-in-a-circle:before {
+    content: map-get($flaticon-map, "lightning-in-a-circle");
+}
+.flaticon-lightning-bolt:before {
+    content: map-get($flaticon-map, "lightning-bolt");
+}
+.flaticon-thermometer:before {
+    content: map-get($flaticon-map, "thermometer");
+}
+.flaticon-lightning:before {
+    content: map-get($flaticon-map, "lightning");
+}
+.flaticon-lightning-1:before {
+    content: map-get($flaticon-map, "lightning-1");
+}
+.flaticon-badge-with-lightning:before {
+    content: map-get($flaticon-map, "badge-with-lightning");
+}
+.flaticon-satellite-dish:before {
+    content: map-get($flaticon-map, "satellite-dish");
+}
+.flaticon-radio-antenna:before {
+    content: map-get($flaticon-map, "radio-antenna");
+}
+.flaticon-antenna:before {
+    content: map-get($flaticon-map, "antenna");
+}
+.flaticon-tv-monitor:before {
+    content: map-get($flaticon-map, "tv-monitor");
+}
+.flaticon-antenna-1:before {
+    content: map-get($flaticon-map, "antenna-1");
+}
+.flaticon-antenna-2:before {
+    content: map-get($flaticon-map, "antenna-2");
+}
+.flaticon-satellite-dish-1:before {
+    content: map-get($flaticon-map, "satellite-dish-1");
+}
+.flaticon-antenna-3:before {
+    content: map-get($flaticon-map, "antenna-3");
+}
+.flaticon-radio-antenna-1:before {
+    content: map-get($flaticon-map, "radio-antenna-1");
+}
+.flaticon-antenna-4:before {
+    content: map-get($flaticon-map, "antenna-4");
+}
+.flaticon-price-tags:before {
+    content: map-get($flaticon-map, "price-tags");
+}
+.flaticon-price-tag:before {
+    content: map-get($flaticon-map, "price-tag");
+}
+.flaticon-tag:before {
+    content: map-get($flaticon-map, "tag");
+}
+.flaticon-price:before {
+    content: map-get($flaticon-map, "price");
+}
+.flaticon-price-tag-1:before {
+    content: map-get($flaticon-map, "price-tag-1");
+}
+.flaticon-price-tag-2:before {
+    content: map-get($flaticon-map, "price-tag-2");
+}
+.flaticon-badge:before {
+    content: map-get($flaticon-map, "badge");
+}
+.flaticon-tag-1:before {
+    content: map-get($flaticon-map, "tag-1");
+}
+.flaticon-price-tag-3:before {
+    content: map-get($flaticon-map, "price-tag-3");
+}
+.flaticon-discount:before {
+    content: map-get($flaticon-map, "discount");
+}
+.flaticon-tag-2:before {
+    content: map-get($flaticon-map, "tag-2");
+}
+.flaticon-price-label:before {
+    content: map-get($flaticon-map, "price-label");
+}
+.flaticon-tag-3:before {
+    content: map-get($flaticon-map, "tag-3");
+}
+.flaticon-low-prices:before {
+    content: map-get($flaticon-map, "low-prices");
+}
+.flaticon-tag-4:before {
+    content: map-get($flaticon-map, "tag-4");
+}
+.flaticon-discount-1:before {
+    content: map-get($flaticon-map, "discount-1");
+}
+.flaticon-discount-2:before {
+    content: map-get($flaticon-map, "discount-2");
+}
+.flaticon-tag-5:before {
+    content: map-get($flaticon-map, "tag-5");
+}
+.flaticon-price-tag-4:before {
+    content: map-get($flaticon-map, "price-tag-4");
+}
+.flaticon-customer-support:before {
+    content: map-get($flaticon-map, "customer-support");
+}
+.flaticon-settings:before {
+    content: map-get($flaticon-map, "settings");
+}
+.flaticon-wrench:before {
+    content: map-get($flaticon-map, "wrench");
+}
+.flaticon-wrench-1:before {
+    content: map-get($flaticon-map, "wrench-1");
+}
+.flaticon-wrench-2:before {
+    content: map-get($flaticon-map, "wrench-2");
+}
+.flaticon-setting:before {
+    content: map-get($flaticon-map, "setting");
+}
+.flaticon-wrench-3:before {
+    content: map-get($flaticon-map, "wrench-3");
+}
+.flaticon-holding-wrench:before {
+    content: map-get($flaticon-map, "holding-wrench");
+}
+.flaticon-tool:before {
+    content: map-get($flaticon-map, "tool");
+}
+.flaticon-lug-wrench:before {
+    content: map-get($flaticon-map, "lug-wrench");
+}
+.flaticon-adjustable-wrench:before {
+    content: map-get($flaticon-map, "adjustable-wrench");
+}
+.flaticon-pipe-wrench:before {
+    content: map-get($flaticon-map, "pipe-wrench");
+}
+.flaticon-adjustable-wrench-1:before {
+    content: map-get($flaticon-map, "adjustable-wrench-1");
+}
+.flaticon-configuration-hand-drawn-interface-symbol-of-tools-a-pencil-and-a-wrench-cross:before {
+    content: map-get($flaticon-map, "configuration-hand-drawn-interface-symbol-of-tools-a-pencil-and-a-wrench-cross");
+}
+.flaticon-mechanic:before {
+    content: map-get($flaticon-map, "mechanic");
+}
+.flaticon-mechanic-1:before {
+    content: map-get($flaticon-map, "mechanic-1");
+}
+.flaticon-mechanic-2:before {
+    content: map-get($flaticon-map, "mechanic-2");
+}
+.flaticon-engineer:before {
+    content: map-get($flaticon-map, "engineer");
+}
+.flaticon-trophy:before {
+    content: map-get($flaticon-map, "trophy");
+}
+.flaticon-trophy-1:before {
+    content: map-get($flaticon-map, "trophy-1");
+}
+.flaticon-trophy-2:before {
+    content: map-get($flaticon-map, "trophy-2");
+}
+.flaticon-trophy-3:before {
+    content: map-get($flaticon-map, "trophy-3");
+}
+.flaticon-maintenance:before {
+    content: map-get($flaticon-map, "maintenance");
+}
+.flaticon-technical-support:before {
+    content: map-get($flaticon-map, "technical-support");
+}
+.flaticon-maintenance-1:before {
+    content: map-get($flaticon-map, "maintenance-1");
+}
+.flaticon-maintenance-2:before {
+    content: map-get($flaticon-map, "maintenance-2");
+}
+.flaticon-restructure:before {
+    content: map-get($flaticon-map, "restructure");
+}
+.flaticon-maintenance-3:before {
+    content: map-get($flaticon-map, "maintenance-3");
+}
+.flaticon-customer-service:before {
+    content: map-get($flaticon-map, "customer-service");
+}
+.flaticon-support:before {
+    content: map-get($flaticon-map, "support");
+}
+.flaticon-support-1:before {
+    content: map-get($flaticon-map, "support-1");
+}
+.flaticon-technical-support-1:before {
+    content: map-get($flaticon-map, "technical-support-1");
+}
+.flaticon-24-hours-support:before {
+    content: map-get($flaticon-map, "24-hours-support");
+}
+.flaticon-24-hours:before {
+    content: map-get($flaticon-map, "24-hours");
+}
+.flaticon-open-24-hours:before {
+    content: map-get($flaticon-map, "open-24-hours");
+}
+.flaticon-support-2:before {
+    content: map-get($flaticon-map, "support-2");
+}
+.flaticon-customer-service-1:before {
+    content: map-get($flaticon-map, "customer-service-1");
+}
+.flaticon-24-hours-1:before {
+    content: map-get($flaticon-map, "24-hours-1");
+}
+.flaticon-settings-1:before {
+    content: map-get($flaticon-map, "settings-1");
+}
+.flaticon-consulting:before {
+    content: map-get($flaticon-map, "consulting");
+}
+.flaticon-right-arrow:before {
+    content: map-get($flaticon-map, "right-arrow");
+}
+.flaticon-right-arrow-1:before {
+    content: map-get($flaticon-map, "right-arrow-1");
+}
+.flaticon-arrow-pointing-to-right:before {
+    content: map-get($flaticon-map, "arrow-pointing-to-right");
+}
+.flaticon-right:before {
+    content: map-get($flaticon-map, "right");
+}
+.flaticon-right-chevron:before {
+    content: map-get($flaticon-map, "right-chevron");
+}
+.flaticon-right-arrow-2:before {
+    content: map-get($flaticon-map, "right-arrow-2");
+}
+.flaticon-right-arrow-3:before {
+    content: map-get($flaticon-map, "right-arrow-3");
+}
+.flaticon-double-chevron:before {
+    content: map-get($flaticon-map, "double-chevron");
+}
+.flaticon-right-arrow-4:before {
+    content: map-get($flaticon-map, "right-arrow-4");
+}
+.flaticon-arrows:before {
+    content: map-get($flaticon-map, "arrows");
+}
+.flaticon-arrow-angle-pointing-to-right:before {
+    content: map-get($flaticon-map, "arrow-angle-pointing-to-right");
+}
+.flaticon-right-arrow-5:before {
+    content: map-get($flaticon-map, "right-arrow-5");
+}
+.flaticon-right-arrow-6:before {
+    content: map-get($flaticon-map, "right-arrow-6");
+}
+.flaticon-right-chevron-1:before {
+    content: map-get($flaticon-map, "right-chevron-1");
+}
+.flaticon-right-arrow-7:before {
+    content: map-get($flaticon-map, "right-arrow-7");
+}
+.flaticon-logout:before {
+    content: map-get($flaticon-map, "logout");
+}
+.flaticon-right-arrow-8:before {
+    content: map-get($flaticon-map, "right-arrow-8");
+}
+.flaticon-right-arrow-angle-of-two-shapes:before {
+    content: map-get($flaticon-map, "right-arrow-angle-of-two-shapes");
+}
+.flaticon-keyboard-right-arrow-button:before {
+    content: map-get($flaticon-map, "keyboard-right-arrow-button");
+}
+.flaticon-deadline:before {
+    content: map-get($flaticon-map, "deadline");
+}
+.flaticon-deadline-1:before {
+    content: map-get($flaticon-map, "deadline-1");
+}
+.flaticon-deadline-2:before {
+    content: map-get($flaticon-map, "deadline-2");
+}
+.flaticon-deadline-3:before {
+    content: map-get($flaticon-map, "deadline-3");
+}
+.flaticon-deadline-4:before {
+    content: map-get($flaticon-map, "deadline-4");
+}
+.flaticon-deadline-5:before {
+    content: map-get($flaticon-map, "deadline-5");
+}
+.flaticon-deadline-6:before {
+    content: map-get($flaticon-map, "deadline-6");
+}
+.flaticon-deadline-7:before {
+    content: map-get($flaticon-map, "deadline-7");
+}
+.flaticon-deadline-8:before {
+    content: map-get($flaticon-map, "deadline-8");
+}
+.flaticon-deadline-9:before {
+    content: map-get($flaticon-map, "deadline-9");
+}
+.flaticon-deadline-10:before {
+    content: map-get($flaticon-map, "deadline-10");
+}
+.flaticon-deadline-11:before {
+    content: map-get($flaticon-map, "deadline-11");
+}
+.flaticon-deadline-12:before {
+    content: map-get($flaticon-map, "deadline-12");
+}
+.flaticon-deadline-13:before {
+    content: map-get($flaticon-map, "deadline-13");
+}
+.flaticon-manufacture:before {
+    content: map-get($flaticon-map, "manufacture");
+}
+.flaticon-production:before {
+    content: map-get($flaticon-map, "production");
+}
+.flaticon-automation:before {
+    content: map-get($flaticon-map, "automation");
+}
+.flaticon-conveyor:before {
+    content: map-get($flaticon-map, "conveyor");
+}
+.flaticon-manufacturing:before {
+    content: map-get($flaticon-map, "manufacturing");
+}
+.flaticon-production-1:before {
+    content: map-get($flaticon-map, "production-1");
+}
+.flaticon-trade:before {
+    content: map-get($flaticon-map, "trade");
+}
+.flaticon-badge-1:before {
+    content: map-get($flaticon-map, "badge-1");
+}
+.flaticon-badge-2:before {
+    content: map-get($flaticon-map, "badge-2");
+}
+.flaticon-medal:before {
+    content: map-get($flaticon-map, "medal");
+}
+.flaticon-winner:before {
+    content: map-get($flaticon-map, "winner");
+}
+.flaticon-quality:before {
+    content: map-get($flaticon-map, "quality");
+}
+.flaticon-vegan:before {
+    content: map-get($flaticon-map, "vegan");
+}
+.flaticon-badge-3:before {
+    content: map-get($flaticon-map, "badge-3");
+}
+.flaticon-mail:before {
+    content: map-get($flaticon-map, "mail");
+}
+.flaticon-email:before {
+    content: map-get($flaticon-map, "email");
+}
+.flaticon-envelope:before {
+    content: map-get($flaticon-map, "envelope");
+}
+.flaticon-email-1:before {
+    content: map-get($flaticon-map, "email-1");
+}
+.flaticon-email-2:before {
+    content: map-get($flaticon-map, "email-2");
+}
+.flaticon-email-3:before {
+    content: map-get($flaticon-map, "email-3");
+}
+.flaticon-email-4:before {
+    content: map-get($flaticon-map, "email-4");
+}
+.flaticon-telephone:before {
+    content: map-get($flaticon-map, "telephone");
+}
+.flaticon-telephone-1:before {
+    content: map-get($flaticon-map, "telephone-1");
+}
+.flaticon-phones:before {
+    content: map-get($flaticon-map, "phones");
+}
+.flaticon-phone:before {
+    content: map-get($flaticon-map, "phone");
+}
+.flaticon-call:before {
+    content: map-get($flaticon-map, "call");
+}
+.flaticon-phone-with-wire:before {
+    content: map-get($flaticon-map, "phone-with-wire");
+}
+.flaticon-phone-call:before {
+    content: map-get($flaticon-map, "phone-call");
+}
+.flaticon-phone-with-wire-1:before {
+    content: map-get($flaticon-map, "phone-with-wire-1");
+}
+.flaticon-black-phone-auricular:before {
+    content: map-get($flaticon-map, "black-phone-auricular");
+}
+.flaticon-phone-auricular-with-cable:before {
+    content: map-get($flaticon-map, "phone-auricular-with-cable");
+}
+.flaticon-paper-plane:before {
+    content: map-get($flaticon-map, "paper-plane");
+}
+.flaticon-send:before {
+    content: map-get($flaticon-map, "send");
+}
+.flaticon-send-1:before {
+    content: map-get($flaticon-map, "send-1");
+}
+.flaticon-placeholder:before {
+    content: map-get($flaticon-map, "placeholder");
+}
+.flaticon-placeholder-1:before {
+    content: map-get($flaticon-map, "placeholder-1");
+}
+.flaticon-map:before {
+    content: map-get($flaticon-map, "map");
+}
+.flaticon-signs:before {
+    content: map-get($flaticon-map, "signs");
+}
+.flaticon-home-1:before {
+    content: map-get($flaticon-map, "home-1");
+}
+.flaticon-pin:before {
+    content: map-get($flaticon-map, "pin");
+}
+.flaticon-location-pin:before {
+    content: map-get($flaticon-map, "location-pin");
+}
+.flaticon-guaranteed:before {
+    content: map-get($flaticon-map, "guaranteed");
+}
+.flaticon-guarantee:before {
+    content: map-get($flaticon-map, "guarantee");
+}
+.flaticon-guarantee-1:before {
+    content: map-get($flaticon-map, "guarantee-1");
+}
+.flaticon-guarantee-2:before {
+    content: map-get($flaticon-map, "guarantee-2");
+}
+.flaticon-truck:before {
+    content: map-get($flaticon-map, "truck");
+}
+.flaticon-delivery-truck:before {
+    content: map-get($flaticon-map, "delivery-truck");
+}
+.flaticon-moving-truck:before {
+    content: map-get($flaticon-map, "moving-truck");
+}
+.flaticon-green:before {
+    content: map-get($flaticon-map, "green");
+}
+.flaticon-care:before {
+    content: map-get($flaticon-map, "care");
+}
+.flaticon-free:before {
+    content: map-get($flaticon-map, "free");
+}
+.flaticon-free-1:before {
+    content: map-get($flaticon-map, "free-1");
+}
+.flaticon-free-2:before {
+    content: map-get($flaticon-map, "free-2");
+}
+.flaticon-free-3:before {
+    content: map-get($flaticon-map, "free-3");
+}
+.flaticon-free-4:before {
+    content: map-get($flaticon-map, "free-4");
+}
+.flaticon-free-5:before {
+    content: map-get($flaticon-map, "free-5");
+}
+.flaticon-free-6:before {
+    content: map-get($flaticon-map, "free-6");
+}
+.flaticon-origami:before {
+    content: map-get($flaticon-map, "origami");
+}
+.flaticon-upload:before {
+    content: map-get($flaticon-map, "upload");
+}
+.flaticon-upwards-arrow:before {
+    content: map-get($flaticon-map, "upwards-arrow");
+}
+.flaticon-upload-1:before {
+    content: map-get($flaticon-map, "upload-1");
+}

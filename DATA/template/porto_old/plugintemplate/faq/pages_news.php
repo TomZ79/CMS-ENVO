@@ -36,7 +36,7 @@ if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC"
               <div class="answer"><?=$tlf["faq"]["d3"]?></div>
               <p><?=$f["contentshort"]?></p>
               <div class="pull-right">
-                <?php if (ENVO_ASACCESS) { ?>
+                <?php if (ENVO_ACCESS) { ?>
 
                   <a href="<?=BASE_URL?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?=$f["id"]?>" title="<?=$tl["button"]["btn1"]?>" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
 

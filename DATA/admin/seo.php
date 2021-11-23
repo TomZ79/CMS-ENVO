@@ -11,8 +11,6 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
 
-
-
 // EN: Title and Description
 // CZ: Titulek a Popis
 $SECTION_TITLE = $tl["seo_sec_title"]["seot"];

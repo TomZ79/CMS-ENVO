@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 <?php if ($page2 == "s") { ?>
-	<script>
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -13,10 +13,10 @@
         delay: 5000
       });
     }, 1000);
-	</script>
+  </script>
 <?php }
 if ($page2 == "e" || $page2 == "ene") { ?>
-	<script>
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -28,11 +28,11 @@ if ($page2 == "e" || $page2 == "ene") { ?>
         delay: 10000
       });
     }, 1000);
-	</script>
+  </script>
 <?php } ?>
 
 <?php if ($page3 == "s") { ?>
-	<script>
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -46,24 +46,24 @@ if ($page2 == "e" || $page2 == "ene") { ?>
         timer: 3000
       });
     }, 2000);
-	</script>
+  </script>
 <?php } ?>
 
-	<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
 
-		<?php
-		if ($ENVO_TAGCLOUD) {
-			echo $ENVO_TAGCLOUD;
-		} else {
+    <?php
+    if ($ENVO_TAGCLOUD) {
+      echo $ENVO_TAGCLOUD;
+    } else {
 
-			// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-			echo $Html -> startTag('div', array ('class' => 'col-sm-12'));
-			// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-			echo $Html -> addDiv($tl["general_error"]["generror3"], '', array ('class' => 'alert bg-info text-white'));
-			// Add Html Element -> endTag (Arguments: tag)
-			$Html -> endTag('div');
-		} ?>
+      // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+      echo $Html->startTag('div', array('class' => 'col-sm-12'));
+      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+      echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+      // Add Html Element -> endTag (Arguments: tag)
+      $Html->endTag('div');
+    } ?>
 
-	</form>
+  </form>
 
 <?php include "footer.php"; ?>

@@ -4,7 +4,7 @@
  * EN: Get blog(s) out the database
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    03/2018
  *
@@ -74,7 +74,7 @@ function envo_get_download ($limit, $order, $where, $table_row, $ext_seo, $timea
  * EN: Get total from a table limited to permission
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

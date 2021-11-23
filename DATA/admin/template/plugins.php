@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 <?php if ($page1 == "s") { ?>
-	<script>
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -13,10 +13,10 @@
         delay: 5000
       });
     }, 1000);
-	</script>
+  </script>
 <?php }
 if ($page1 == "e") { ?>
-	<script>
+  <script>
     // Notification
     setTimeout(function () {
       $.notify({
@@ -28,258 +28,258 @@ if ($page1 == "e") { ?>
         delay: 10000
       });
     }, 1000);
-	</script>
+  </script>
 <?php } ?>
 
-	<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
-		<div class="row tab-content-singel">
-			<div class="col-sm-12">
-				<div class="box box-success">
-					<div class="box-header with-border">
+  <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
+    <div class="row tab-content-singel">
+      <div class="col-sm-12">
+        <div class="box box-success">
+          <div class="box-header with-border">
 
-						<?php
-						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html -> addTag('h3', $tl["plug_box_title"]["plugbt1"], 'box-title');
-						?>
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('h3', $tl["plug_box_title"]["plugbt1"], 'box-title');
+            ?>
 
-					</div>
-					<div class="box-body">
-						<div class="block">
-							<div class="block-content">
-								<div class="row-form">
-									<div class="col-sm-5">
-										<div class="row">
-											<div class="col-sm-4">
+          </div>
+          <div class="box-body">
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <div class="col-sm-4">
 
-												<?php
-												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html -> addTag('strong', $tl["plug_box_content"]["plugbc4"]);
-												?>
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc4"]);
+                        ?>
 
-											</div>
-											<div class="col">
+                      </div>
+                      <div class="col">
 
-												<?php
-												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-												echo $Html -> addInput('text', 'envo_generala', $setting["accessgeneral"], '', 'form-control');
-												?>
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_generala', $setting["accessgeneral"], '', 'form-control');
+                        ?>
 
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-2"></div>
-									<div class="col-sm-5">
-										<div class="row">
-											<div class="col-sm-4">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <div class="col-sm-4">
 
-												<?php
-												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html -> addTag('strong', $tl["plug_box_content"]["plugbc5"]);
-												?>
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc5"]);
+                        ?>
 
-											</div>
-											<div class="col">
+                      </div>
+                      <div class="col">
 
-												<?php
-												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-												echo $Html -> addInput('text', 'envo_managea', $setting["accessmanage"], '', 'form-control');
-												?>
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_managea', $setting["accessmanage"], '', 'form-control');
+                        ?>
 
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box-footer">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
 
-						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-						echo $Html -> addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
-						?>
+            <?php
+            // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+            echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save mr-1"></i>' . $tl["button"]["btn1"], '', 'btn btn-success float-right');
+            ?>
 
-					</div>
-				</div>
-				<div class="box box-success">
-					<div class="box-header with-border">
+          </div>
+        </div>
+        <div class="box box-success">
+          <div class="box-header with-border">
 
-						<?php
-						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html -> addTag('i', '', 'fa fa-plug');
-						echo $Html -> addTag('h3', $tl["plug_box_title"]["plugbt"], 'box-title');
-						?>
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('i', '', 'fa fa-plug');
+            echo $Html->addTag('h3', $tl["plug_box_title"]["plugbt"], 'box-title');
+            ?>
 
-					</div>
-					<div class="box-body">
-						<ul class="envo_plugins_move">
+          </div>
+          <div class="box-body">
+            <ul class="envo_plugins_move">
 
-							<?php if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $v) { ?>
+              <?php if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $v) { ?>
 
-								<li id="plugin-<?= $v["id"] ?>" class="envoplugins">
-									<div class="row sm-m-0">
-										<div class="col-sm-1 col-3 text">
-											<span># </span>
-											<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?= $v["id"] ?>"><?= $v["id"] ?></a>
-										</div>
-										<div class="col-sm-2 col-5 text plugins-name">
+                <li id="plugin-<?= $v["id"] ?>" class="envoplugins">
+                  <div class="row sm-m-0">
+                    <div class="col-sm-1 col-3 text">
+                      <span># </span>
+                      <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=<?= $v["id"] ?>"><?= $v["id"] ?></a>
+                    </div>
+                    <div class="col-sm-2 col-5 text plugins-name">
 											<span title="<?= $v["description"] ?>">
 
 												<?php
-												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html -> addTag('strong', str_replace('_', ' ', $v["name"]));
-												?>
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', str_replace('_', ' ', $v["name"]));
+                        ?>
 
 											</span>
-										</div>
-										<div class="col-sm-2 col-4 text">
-											<?php if ($v['pluginversion']) {
-												echo '(' . sprintf($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
-											}
-											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-											echo $Html -> addInput('hidden', 'real_id[]', $v["id"], '', '');
-											?>
+                    </div>
+                    <div class="col-sm-2 col-4 text">
+                      <?php if ($v['pluginversion']) {
+                        echo '(' . sprintf($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
+                      }
+                      // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                      echo $Html->addInput('hidden', 'real_id[]', $v["id"], '', '');
+                      ?>
 
-										</div>
-										<div class="col-sm-1 hidden-xs text text-center">
-											<?php
-											$filename = '../plugins/' . strtolower($v["name"]) . '/help/help_' . $site_language . '.php';
+                    </div>
+                    <div class="col-sm-1 hidden-xs text text-center">
+                      <?php
+                      $filename = '../plugins/' . strtolower($v["name"]) . '/help/help_' . $site_language . '.php';
 
-											if (file_exists($filename)) {
-												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-												echo $Html -> addAnchor($filename, $tl["plug_box_content"]["plugbc2"], '', 'plugHelp');
-											} else {
-												echo "-";
-											}
-											?>
-										</div>
-										<div class="col-sm-4 hidden-xs show">
-											<div class="form-group form-inline">
+                      if (file_exists($filename)) {
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addAnchor($filename, $tl["plug_box_content"]["plugbc2"], '', 'plugHelp');
+                      } else {
+                        echo "-";
+                      }
+                      ?>
+                    </div>
+                    <div class="col-sm-4 hidden-xs show">
+                      <div class="form-group form-inline">
 
-												<?php
-												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-												echo $Html -> addLabel('', $tl["plug_box_content"]["plugbc"]);
-												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-												echo $Html -> addInput('text', 'access[]', $v["access"], '', 'form-control');
-												?>
+                        <?php
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('', $tl["plug_box_content"]["plugbc"]);
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'access[]', $v["access"], '', 'form-control');
+                        ?>
 
-											</div>
-										</div>
-										<div class="col-sm-2 hidden-xs actions">
+                      </div>
+                    </div>
+                    <div class="col-sm-2 hidden-xs actions">
 
-											<?php
+                      <?php
 
-											if (isset($update_files) && is_array($update_files)) {
-												foreach ($update_files as $uf) {
-													if ($v["pluginpath"] == $uf["pluginname"]) {
-														if (stream_resolve_include_path($uf["update_filename"]) && (strtotime($v["time"]) < $uf["time_updatefile"])) {
+                      if (isset($update_files) && is_array($update_files)) {
+                        foreach ($update_files as $uf) {
+                          if ($v["pluginpath"] == $uf["pluginname"]) {
+                            if (stream_resolve_include_path($uf["update_filename"]) && (strtotime($v["time"]) < $uf["time_updatefile"])) {
 
-															echo '<a class="plugInst btn btn-success btn-xs" href="' . $uf["update_filename"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i12"] . '"><i class="fa fa-clock-o"></i></a>';
+                              echo '<a class="plugInst btn btn-success btn-xs" href="' . $uf["update_filename"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i12"] . '"><i class="fa fa-clock-o"></i></a>';
 
-														}
-
-
-													}
-												}
+                            }
 
 
-											}
+                          }
+                        }
 
 
-											// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-											echo $Html -> addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $v["id"], '<i class="fa fa-flag"></i>', '', 'btn btn-default btn-xs m-l-5', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i13"]));
+                      }
 
-											echo $Html -> addAnchor('index.php?p=plugins&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-l-5', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
 
-											if ($v["uninstallfile"]) {
-												echo $Html -> addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-remove"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i33"]));
+                      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=sorthooks&amp;id=' . $v["id"], '<i class="fa fa-flag"></i>', '', 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i13"]));
 
-											}
+                      echo $Html->addAnchor('index.php?p=plugins&amp;sp=lock&amp;id=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', ($v["active"] == '0') ? 'btn btn-warning btn-xs m-l-5' : 'btn btn-default btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
 
-											clearstatcache();
-											?>
+                      if ($v["uninstallfile"]) {
+                        echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-remove"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i33"]));
 
-										</div>
-									</div>
-								</li>
+                      }
 
-								<?php
-								// Get the installed plugin in a array
-								$installedp[] = strtolower($v["pluginpath"]);
-							} ?>
+                      clearstatcache();
+                      ?>
 
-						</ul>
-					</div>
-				</div>
+                    </div>
+                  </div>
+                </li>
 
-				<?php if (isset($site_plugins) && is_array($site_plugins) && isset($installedp) && is_array($installedp)) foreach ($site_plugins as $p) {
-					if (!in_array(strtolower($p), $installedp)) { ?>
+                <?php
+                // Get the installed plugin in a array
+                $installedp[] = strtolower($v["pluginpath"]);
+              } ?>
 
-						<div class="box box-default box-solid">
-							<div class="box-header with-border">
+            </ul>
+          </div>
+        </div>
 
-								<?php
-								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-								echo $Html -> addTag('i', '', 'fa fa-plug');
-								echo $Html -> addTag('h3', str_replace('_', ' ', ucfirst($p)), 'box-title');
-								?>
+        <?php if (isset($site_plugins) && is_array($site_plugins) && isset($installedp) && is_array($installedp)) foreach ($site_plugins as $p) {
+          if (!in_array(strtolower($p), $installedp)) { ?>
 
-							</div>
-							<div class="box-body">
-								<div class="block">
-									<div class="block-content">
-										<div class="row-form">
-											<div class="col-sm-3">
+            <div class="box box-default box-solid">
+              <div class="box-header with-border">
 
-												<?php
-												echo $tl["plug_box_content"]["plugbc1"] . ' : ';
-												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-												echo $Html -> addAnchor('../plugins/' . $p . '/install.php', str_replace('_', ' ', ucfirst($p)), '', 'plugInst');
-												?>
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('i', '', 'fa fa-plug');
+                echo $Html->addTag('h3', str_replace('_', ' ', ucfirst($p)), 'box-title');
+                ?>
 
-											</div>
-											<div class="col-sm-9">
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-sm-3">
 
-												<?php
-												echo $tl["plug_box_content"]["plugbc2"] . ' : ';
+                        <?php
+                        echo $tl["plug_box_content"]["plugbc1"] . ' : ';
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addAnchor('../plugins/' . $p . '/install.php', str_replace('_', ' ', ucfirst($p)), '', 'plugInst');
+                        ?>
 
-												$filename = '../plugins/' . $p . '/help/help_' . $site_language . '.php';
+                      </div>
+                      <div class="col-sm-9">
 
-												if (file_exists($filename)) {
-													echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . str_replace('_', ' ', ucfirst($p)) . "</a>";
-												} else {
-													echo $tl["plug_box_content"]["plugbc3"];
-												}
-												?>
+                        <?php
+                        echo $tl["plug_box_content"]["plugbc2"] . ' : ';
 
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                        $filename = '../plugins/' . $p . '/help/help_' . $site_language . '.php';
 
-					<?php }
-				} ?>
+                        if (file_exists($filename)) {
+                          echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . str_replace('_', ' ', ucfirst($p)) . "</a>";
+                        } else {
+                          echo $tl["plug_box_content"]["plugbc3"];
+                        }
+                        ?>
 
-			</div>
-		</div>
-	</form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-	<div class="col-sm-12 m-b-30">
-		<div class="icon_legend">
+          <?php }
+        } ?>
 
-			<?php
-			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-			echo $Html -> addTag('h3', $tl["icons"]["i"]);
-			echo $Html -> addTag('i', '', 'fa fa-clock-o', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i12"]));
-			echo $Html -> addTag('i', '', 'fa fa-flag', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i13"]));
-			echo $Html -> addTag('i', '', 'fa fa-check', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"]));
-			echo $Html -> addTag('i', '', 'fa fa-lock', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"]));
-			echo $Html -> addTag('i', '', 'fa fa-remove', array ('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i33"]));
-			?>
+      </div>
+    </div>
+  </form>
 
-		</div>
-	</div>
+  <div class="col-sm-12 m-b-30">
+    <div class="icon_legend">
+
+      <?php
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('h3', $tl["icons"]["i"]);
+      echo $Html->addTag('i', '', 'fa fa-clock-o', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i12"]));
+      echo $Html->addTag('i', '', 'fa fa-flag', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i13"]));
+      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i6"]));
+      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i5"]));
+      echo $Html->addTag('i', '', 'fa fa-remove', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i33"]));
+      ?>
+
+    </div>
+  </div>
 
 <?php include "footer.php"; ?>

@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Pages - ADMIN
- * Copyright (c) 2016 - 2019 Bluesat.cz
+ * Copyright (c) 2016 - 2022 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
@@ -229,4 +229,15 @@ $(function () {
 		});
 	}
 
+});
+
+/* CHECKBOX CLICK
+ ========================================= */
+
+$('#envo_sidebar_show1').on('click',function (event) {
+	$('#colposition').removeClass().addClass('unrow notactive');
+});
+
+$('#envo_sidebar_show2').on('click',function (event) {
+	$('#colposition').removeClass().addClass('unrow active');
 });

@@ -4,7 +4,7 @@
  * EN: Getting the data about Films without limit
  * CZ: Získání dat o filmech bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

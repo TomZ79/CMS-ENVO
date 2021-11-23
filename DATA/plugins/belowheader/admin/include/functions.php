@@ -4,7 +4,7 @@
  * EN: Get the data per array for belowheaders
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    07/2019
  *

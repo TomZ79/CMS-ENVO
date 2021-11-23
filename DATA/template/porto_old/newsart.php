@@ -29,7 +29,7 @@ if (!$PAGE_ACTIVE) {
   echo '<div class="alert alert-danger">' . $tl["general_error"]["generror2"] . '</div>';
 }
 
-if (ENVO_ASACCESS) {
+if (ENVO_ACCESS) {
   $apedit  = BASE_URL . 'admin/index.php?p=news&amp;sp=editnews&amp;id=' . $PAGE_ID;
   $qapedit = BASE_URL . 'admin/index.php?p=news&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 }

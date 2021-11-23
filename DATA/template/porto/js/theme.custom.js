@@ -2,10 +2,10 @@
  *
  * CMS ENVO - PORTO TEMPLATE
  * JS with custom modification
- * Copyright © 2018 - 2019  Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: BluesatKV
- * Email: bluesatkv@gmail.com
+ * Author: Thomas Zukal
+ * Email: tzukal@email.cz
+ * Copyright (c) 2016 - 2022
  * =======================================================================
  */
 

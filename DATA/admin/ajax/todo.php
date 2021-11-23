@@ -11,41 +11,41 @@ require "../../class/class.todo.php";
 
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
-if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser -> envoAdminAccess($envouser -> getVar("usergroupid"))) die("Nothing to see here");
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die("Nothing to see here");
 
 if (isset($_GET['id'])) $id = (int)$_GET['id'];
 
 try {
 
-	switch ($_GET['action']) {
-		case 'delete':
-			ENVO_todo ::delete($id);
-			break;
+  switch ($_GET['action']) {
+    case 'delete':
+      ENVO_todo::delete($id);
+      break;
 
-		case 'rearrange':
-			ENVO_todo ::rearrange($_GET['positions']);
-			break;
+    case 'rearrange':
+      ENVO_todo::rearrange($_GET['positions']);
+      break;
 
-		case 'edit':
-			ENVO_todo ::edit($id, $_GET['text']);
-			break;
+    case 'edit':
+      ENVO_todo::edit($id, $_GET['text']);
+      break;
 
-		case 'done':
-			ENVO_todo ::done($id);
-			break;
+    case 'done':
+      ENVO_todo::done($id);
+      break;
 
-		case 'admin':
-			ENVO_todo ::done($id);
-			break;
+    case 'admin':
+      ENVO_todo::done($id);
+      break;
 
-		case 'new':
-			ENVO_todo ::createNew($_GET['text']);
-			break;
-	}
+    case 'new':
+      ENVO_todo::createNew($_GET['text']);
+      break;
+  }
 
 } catch (Exception $e) {
 //	echo $e->getMessage();
-	die("0");
+  die("0");
 }
 
 die("1");

@@ -47,7 +47,7 @@ a {
     color: #ee0d09;
 }
 
-.sec-title h2:before {
+.sec-title h2:after {
     background-color: #ee0d09;
 }
 

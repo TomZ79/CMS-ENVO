@@ -13,7 +13,7 @@ if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
-$success = array ();
+$success = array();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
@@ -31,90 +31,90 @@ $facebookDescFile = $facebookDir . 'facebook_description.txt';
 // EN: POST REQUEST
 // CZ: POST REQUEST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	// EN: Default Variable
-	// CZ: Hlavní proměnné
-	$defaults = $_POST;
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
+  $defaults = $_POST;
 
-	$txtfile  = $defaults['envo_filecontent'];
-	$txtfile1 = $defaults['envo_filecontent1'];
+  $txtfile  = $defaults['envo_filecontent'];
+  $txtfile1 = $defaults['envo_filecontent1'];
 
-	// Write Facebook name file
-	if (is_writable(APP_PATH . $defaults['envo_file'])) {
-		$openfedit = fopen(APP_PATH . $defaults['envo_file'], "w+");
-		$datasave  = $txtfile;
-		$datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
-		$datasave  = stripslashes($datasave);
-		if (fwrite($openfedit, $datasave)) {
-			$ENVO_FILE_SUCCESS = 1;
-		}
-	} else {
-		$ENVO_FILE_ERROR = 1;
-	}
+  // Write Facebook name file
+  if (is_writable(APP_PATH . $defaults['envo_file'])) {
+    $openfedit = fopen(APP_PATH . $defaults['envo_file'], "w+");
+    $datasave  = $txtfile;
+    $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
+    $datasave  = stripslashes($datasave);
+    if (fwrite($openfedit, $datasave)) {
+      $ENVO_FILE_SUCCESS = 1;
+    }
+  } else {
+    $ENVO_FILE_ERROR = 1;
+  }
 
-	fclose($openfedit);
+  fclose($openfedit);
 
-	// Write Facebook description file
-	if (is_writable(APP_PATH . $defaults['envo_file1'])) {
-		$openfedit = fopen(APP_PATH . $defaults['envo_file1'], "w+");
-		$datasave  = $txtfile1;
-		$datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
-		$datasave  = stripslashes($datasave);
-		if (fwrite($openfedit, $datasave)) {
-			$ENVO_FILE_SUCCESS1 = 1;
-		}
-	} else {
-		$ENVO_FILE_ERROR1 = 1;
-	}
+  // Write Facebook description file
+  if (is_writable(APP_PATH . $defaults['envo_file1'])) {
+    $openfedit = fopen(APP_PATH . $defaults['envo_file1'], "w+");
+    $datasave  = $txtfile1;
+    $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
+    $datasave  = stripslashes($datasave);
+    if (fwrite($openfedit, $datasave)) {
+      $ENVO_FILE_SUCCESS1 = 1;
+    }
+  } else {
+    $ENVO_FILE_ERROR1 = 1;
+  }
 
-	fclose($openfedit);
+  fclose($openfedit);
 
 
-	/* EN: Convert value
-	 * smartsql - secure method to insert form data into a MySQL DB
-	 * ------------------
-	 * CZ: Převod hodnot
-	 * smartsql - secure method to insert form data into a MySQL DB
-	*/
-	$result = $envodb -> query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+  /* EN: Convert value
+   * smartsql - secure method to insert form data into a MySQL DB
+   * ------------------
+   * CZ: Převod hodnot
+   * smartsql - secure method to insert form data into a MySQL DB
+  */
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
               WHEN "facebookconnect" THEN "' . smartsql($defaults['envo_facebookconnect']) . '"
             END
               WHERE varname IN ("facebookconnect")');
 
-	if (!$result) {
-		// EN: Redirect page
-		// CZ: Přesměrování stránky
-		envo_redirect(BASE_URL . 'index.php?p=settingfacebook&status=e');
-	} else {
-		// EN: Redirect page
-		// CZ: Přesměrování stránky
-		envo_redirect(BASE_URL . 'index.php?p=settingfacebook&status=s');
-	}
+  if (!$result) {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
+    envo_redirect(BASE_URL . 'index.php?p=settingfacebook&status=e');
+  } else {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
+    envo_redirect(BASE_URL . 'index.php?p=settingfacebook&status=s');
+  }
 }
 
 // Open Facebook name file
 if (file_exists(APP_PATH . $facebookNameFile)) {
-	$openfile         = fopen(APP_PATH . $facebookNameFile, 'r');
-	$filecontent      = @fread($openfile, filesize(APP_PATH . $facebookNameFile));
-	$displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-	$ENVO_FILECONTENT = $displaycontent;
-	$ENVO_FILEURL     = '/' . $facebookNameFile;
+  $openfile         = fopen(APP_PATH . $facebookNameFile, 'r');
+  $filecontent      = @fread($openfile, filesize(APP_PATH . $facebookNameFile));
+  $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+  $ENVO_FILECONTENT = $displaycontent;
+  $ENVO_FILEURL     = '/' . $facebookNameFile;
 
-	fclose($openfile);
+  fclose($openfile);
 } else {
-	$ENVO_FILEURL = $ENVO_FILECONTENT = " ";
+  $ENVO_FILEURL = $ENVO_FILECONTENT = " ";
 }
 
 // Open Facebook description file
 if (file_exists(APP_PATH . $facebookDescFile)) {
-	$openfile          = fopen(APP_PATH . $facebookDescFile, 'r');
-	$filecontent       = @fread($openfile, filesize(APP_PATH . $facebookDescFile));
-	$displaycontent    = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-	$ENVO_FILECONTENT1 = $displaycontent;
-	$ENVO_FILEURL1     = '/' . $facebookDescFile;
+  $openfile          = fopen(APP_PATH . $facebookDescFile, 'r');
+  $filecontent       = @fread($openfile, filesize(APP_PATH . $facebookDescFile));
+  $displaycontent    = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
+  $ENVO_FILECONTENT1 = $displaycontent;
+  $ENVO_FILEURL1     = '/' . $facebookDescFile;
 
-	fclose($openfile);
+  fclose($openfile);
 } else {
-	$ENVO_FILEURL1 = $ENVO_FILECONTENT1 = " ";
+  $ENVO_FILEURL1 = $ENVO_FILECONTENT1 = " ";
 }
 
 // EN: Title and Description

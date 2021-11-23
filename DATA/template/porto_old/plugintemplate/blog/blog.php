@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
+<?php if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
 
   <!-- =========================
     START BLOG SECTION
@@ -102,7 +102,7 @@
               <!-- Post Info -->
 
               <!-- Post System Button - Admin -->
-              <?php if (ENVO_ASACCESS) { ?>
+              <?php if (ENVO_ACCESS) { ?>
 
               <div class="col-md-12 mt-sm">
                 <div class="pull-right">

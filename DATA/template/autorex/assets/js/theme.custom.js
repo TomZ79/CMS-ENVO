@@ -1,8 +1,8 @@
 /*
  *
- * CMS ENVO - PORTO TEMPLATE
+ * CMS ENVO - AUTOREX TEMPLATE
  * JS with custom modification
- * Copyright © 2018 - 2019  Bluesat.cz
+ * Copyright © 2018 - 2021  Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: BluesatKV
  * Email: bluesatkv@gmail.com
@@ -248,7 +248,7 @@ $(function () {
       $('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
     });
     $('#ENVOModal').on('hidden.bs.modal', function () {
-      window.location.reload();
+      location.href = location.href;
     });
     $('#ENVOModal').modal({show: true});
   });
@@ -286,5 +286,265 @@ $(function () {
     $('#SignInF').removeClass('active').hide();
     $('#LostPwdF').addClass('active').show();
   }
+
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | RESET FORM
+ |--------------------------------------------------------------------------
+ */
+function clearForm($form) {
+  $form.find(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
+  $form.find(':checkbox, :radio').prop('checked', false);
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | CODE FORM
+ |--------------------------------------------------------------------------
+ */
+
+$(function () {
+
+  $('#codeform').submit(function (event) {
+    // Prevent default action
+    event.preventDefault();
+
+    // Get form GET/POST method
+    var request_method = $(this).attr("method");
+
+    // Get form action url
+    var post_url = $(this).attr("action");
+
+    // Encode form elements for submission
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: request_method,
+      url: post_url,
+      data: formData,
+      dataType: 'json',
+      encode: true,
+      success: function (data) {
+        // Console log
+        console.log('Submission was successful.');
+        console.log(data);
+
+        if (data.response == 'success') {
+          // IF DATA SUCCESS
+
+          // Reset Form
+          clearForm($('#codeform'));
+
+          // Put data to 'div'
+          $('#result-code').html(data.code);
+          $('#result-price').html(data.price);
+          $('.result-codeform').hide();
+          $('#result-codeform-success').slideDown(500);
+
+        } else if (data.response == 'errorE02') {
+          // IF DATA ERROR
+
+          //
+          $('#result-error-status').html(data.response);
+          $('#result-error-msg').html(data.responsemsg);
+          $('.result-codeform').hide();
+          $('#result-codeform-error').slideDown(500);
+
+        } else {
+          // IF DATA ERROR
+
+          //
+          $('#result-error-status').html(data.response);
+          $('#result-error-msg').html(data.responsemsg);
+          $('.result-codeform').hide();
+          $('#result-codeform-error').slideDown(500);
+
+        }
+
+      },
+      error: function (data) {
+        // Console log
+        console.log('An error occurred.');
+      },
+    });
+
+  });
+
+  $('#code').keyup(function () {
+    $(this).val($(this).val().toUpperCase());
+  });
+
+  $("#code").alphanum({
+    allowSpace: false,
+    allowOtherCharSets: false,
+    maxLength: 9
+  });
+
+  $('.close').click(function () {
+    $('.result-codeform').slideUp(500);
+  });
+
+  $('#find-code').click(function (event) {
+    // Prevent default action
+    event.preventDefault();
+
+    //
+    $('.result-codeform').hide();
+    $('#result-find-code').slideDown(500);
+  });
+
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | ORDER FORM
+ |--------------------------------------------------------------------------
+ */
+
+$(function () {
+
+  $('#orderform').submit(function (event) {
+    // Prevent default action
+    event.preventDefault();
+
+    // Get form GET/POST method
+    var request_method = $(this).attr("method");
+
+    // Get form action url
+    var post_url = $(this).attr("action");
+
+    // Encode form elements for submission
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: request_method,
+      url: post_url,
+      data: formData,
+      dataType: 'json',
+      encode: true,
+      success: function (data) {
+        // Console log
+        console.log('Submission was successful.');
+        console.log(data);
+
+        if (data.response == 'success') {
+          // IF DATA SUCCESS
+
+          // Reset Form
+          clearForm($('#orderform'));
+
+          // Response DIV
+          var back = ['#CC6','#CCC','#BFBFBF'];
+          var rand = back[Math.floor(Math.random() * back.length)];
+          $('#order-form-response').css('background',rand);
+          $('#order-form-response').html('');
+          $('<span>'+ data.responsemsg + '</span>').appendTo('#order-form-response');
+          setTimeout(function() {
+            $('#order-form-response').show();
+          }, 1000);
+          setTimeout(function() {
+            $('#order-form-response').hide();
+          }, 8000);
+
+        } else {
+          // IF DATA ERROR
+
+          var back = ['#CC6','#CCC','#BFBFBF'];
+          var rand = back[Math.floor(Math.random() * back.length)];
+          $('#order-form-response').css('background',rand);
+          $('#order-form-response').html('');
+          $('<span>'+ data.responsemsg + '</span>').appendTo('#order-form-response');
+          setTimeout(function() {
+            $('#order-form-response').show();
+          }, 1000);
+
+        }
+
+      },
+      error: function (data) {
+        // Console log
+        console.log('An error occurred.');
+      },
+    });
+
+  });
+
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | CONTACT FORM
+ |--------------------------------------------------------------------------
+ */
+
+$(function () {
+
+  $('#contactform').submit(function (event) {
+    // Prevent default action
+    event.preventDefault();
+
+    // Get form GET/POST method
+    var request_method = $(this).attr("method");
+
+    // Get form action url
+    var post_url = $(this).attr("action");
+
+    // Encode form elements for submission
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: request_method,
+      url: post_url,
+      data: formData,
+      dataType: 'json',
+      encode: true,
+      success: function (data) {
+        // Console log
+        console.log('Submission was successful.');
+        console.log(data);
+
+        if (data.response == 'success') {
+          // IF DATA SUCCESS
+
+          // Reset Form
+          clearForm($('#contactform'));
+
+          // Response DIV
+          var back = ['#CC6','#CCC','#BFBFBF'];
+          var rand = back[Math.floor(Math.random() * back.length)];
+          $('#contact-form-response').css('background',rand);
+          $('#contact-form-response').html('');
+          $('<span>'+ data.responsemsg + '</span>').appendTo('#contact-form-response');
+          setTimeout(function() {
+            $('#contact-form-response').show();
+          }, 1000);
+          setTimeout(function() {
+            $('#contact-form-response').hide();
+          }, 8000);
+
+        } else {
+          // IF DATA ERROR
+
+          var back = ['#CC6','#CCC','#BFBFBF'];
+          var rand = back[Math.floor(Math.random() * back.length)];
+          $('#contact-form-response').css('background',rand);
+          $('#contact-form-response').html('');
+          $('<span>'+ data.responsemsg + '</span>').appendTo('#contact-form-response');
+          setTimeout(function() {
+            $('#contact-form-response').show();
+          }, 1000);
+
+        }
+
+      },
+      error: function (data) {
+        // Console log
+        console.log('An error occurred.');
+      },
+    });
+
+  });
 
 });

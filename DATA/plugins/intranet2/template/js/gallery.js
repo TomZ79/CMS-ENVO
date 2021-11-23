@@ -1,10 +1,10 @@
 /*
  * CMS ENVO
  * JS for Plugin Intranet - Frontend
- * Copyright (c) 2016 - 2019 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: BluesatKV
- * Email: bluesatkv@gmail.com
+ * Author: Thomas Zukal
+ * Email: tzukal@email.cz
+ * Copyright (c) 2016 - 2022
  * =======================================================================
  */
 

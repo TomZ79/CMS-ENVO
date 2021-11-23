@@ -4,7 +4,7 @@
  * EN: Getting the data about the city in region - House list
  * CZ: Získání dat o městech v regionu - Seznam domů
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2018
  *
@@ -49,7 +49,7 @@ function envo_get_region ($limit, $colname = NULL, $table, $orderby, $distinct =
  * EN: Getting all the data about the Real estate management with limit
  * CZ: Získání všech dat o správcích nemovistostí s limitem
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    01/2019
  *
@@ -80,7 +80,7 @@ function envo_plugin_estate_management ($table, $limit)
  * EN: Getting the data about the Houses without limit
  * CZ: Získání dat o bytových domech bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -122,7 +122,7 @@ function envo_get_house_info ($table1, $table2, $filter1 = NULL)
  * EN: Getting the data about the contacts of Houses without limit
  * CZ: Získání dat o hlavních kontaktech bytových domů bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -199,7 +199,7 @@ function envo_get_house_contact ($id, $table, $dateformat)
 /**
  * EN: Getting the data about the entrance of Houses without limit
  * CZ: Získání dat o vchodech bytových domů bez limitu
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -230,7 +230,7 @@ function envo_get_house_entrance ($id, $table)
  * EN: Getting the data about the task of Houses without limit
  * CZ: Získání dat o úkolech bytových domů bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.4
  * @date    10/2017
  *
@@ -309,7 +309,7 @@ function envo_get_house_task ($id, $table, $dateformat)
  * EN: Getting the data about the services of Houses without limit
  * CZ: Získání dat o servisech bytových domů bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -340,7 +340,7 @@ function envo_get_house_services ($id, $table)
  * EN: Getting the data about the documents of Houses without limit
  * CZ: Získání dat o dokumentech bytových domů bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -371,7 +371,7 @@ function envo_get_house_documents ($id, $table)
  * EN: Getting the data about the documents of Houses without limit
  * CZ: Získání dat o dokumentech bytových domů bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -402,7 +402,7 @@ function envo_get_house_image ($id, $table)
  * EN: Getting the data about the documents of Houses without limit
  * CZ: Získání dat o dokumentech bytových domů bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    12/2017
  *
@@ -433,7 +433,7 @@ function envo_get_house_video ($id, $table)
  * EN: Check if house exist
  * CZ: Kontrola jestli dům existuje
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.2
  * @date    12/2017
  *
@@ -464,7 +464,7 @@ function envo_house_exist ($ic, $table)
  * EN: Getting the data about the Contract without limit
  * CZ: Získání dat o zakázkách bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    02/2019
  *
@@ -500,7 +500,7 @@ function envo_get_contract_info ($table)
  * EN: Getting the data about the documents of Contract without limit
  * CZ: Získání dat o dokumentech zakázek bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    02/2019
  *
@@ -531,7 +531,7 @@ function envo_get_contract_documents ($id, $table)
  * EN: Getting the data about the Notification without limit
  * CZ: Získání dat o Notifikacích bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -568,7 +568,7 @@ function envo_get_notification_info ($table)
  * EN: Getting the Usergroup by plugin column names without limit
  * CZ: Získání Uživatelských skupin podle sloupců pro plugin
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -608,7 +608,7 @@ function envo_plugin_usergroup_all ($table, $column1, $column2 = NULL)
  * EN: Get FontAwesome icon by file extensions
  * CZ: Získání FontAwesome ikon podle typu souboru
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.2
  * @date    09/2018
  *
@@ -668,7 +668,7 @@ function envo_extension_icon ($filename)
  * EN: Delete function that deals with directories recursively
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    10/2018
  *

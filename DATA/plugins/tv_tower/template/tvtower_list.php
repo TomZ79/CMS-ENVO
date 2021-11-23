@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=tv-tower&amp;sp=setting'; ?>
+<?php if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=tv-tower&amp;sp=setting'; ?>
 
 	<div class="col-md-12" style="margin: 10px 0 50px 0;">
 
@@ -209,7 +209,7 @@
 														echo '<div class="rTableCell col-md-8 text-left">' . (!empty($foundProgram['services']) ? $foundProgram['services'] : '-') . '</div>';
 														echo '</div>';
 
-														if (ENVO_ASACCESS) {
+														if (ENVO_ACCESS) {
 
 															echo '<div class="rTableRow">';
 															echo '<div class="rTableCell col-md-12 text-right" style="height: auto;"><a href="' . BASE_URL . 'admin/index.php?p=tv-tower&sp=tvprogram&ssp=editprogram&id=' . $foundProgram["id"] . '" title="' . $tl["button"]["btn1"] . '" class="btn btn-info btn-sm"><span class="visible-xs"><i class="fa fa-edit"></i></span><span class="hidden-xs">' . $tl["button"]["btn1"] . '</span></a></div>';

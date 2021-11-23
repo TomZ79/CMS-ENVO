@@ -30,7 +30,7 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setting';
+if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setting';
 
 ?>
 

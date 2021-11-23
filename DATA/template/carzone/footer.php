@@ -33,7 +33,7 @@ switch ($section) {
   }
 } ?>
 
-<?php if ($ENVO_SHOW_FOOTER && ENVO_ASACCESS) { ?>
+<?php if ($ENVO_SHOW_FOOTER && ENVO_ACCESS) { ?>
   <!-- =========================
   START FOOTER SECTION
   ============================== -->
@@ -373,10 +373,10 @@ if ($SHOWSOCIALBUTTON) {
       if ($errorpp) { ?>
       $.notify({icon: 'icon-attention', message: '<?=$errorpp["e"]?>'}, {type: 'danger'});
       <?php }
-      if ($PAGE_PASSWORD && ENVO_ASACCESS) { ?>
+      if ($PAGE_PASSWORD && ENVO_ACCESS) { ?>
       $.notify({icon: 'icon-info', message: '<?=$tl["notification"]["n5"]?>'}, {type: 'info', delay: 0});
       <?php }
-      if ($setting["offline"] == 1 && ENVO_ASACCESS) { ?>
+      if ($setting["offline"] == 1 && ENVO_ACCESS) { ?>
       $.notify({
         // Options
         icon: 'icon-flash',

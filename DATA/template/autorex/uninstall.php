@@ -116,7 +116,7 @@ if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' .
             <label for="text">
               <?=$tl["uninstalltemplate"]["unitpl3"]?>
             </label>
-            <input type="text" name="captcha" class="form-control ml-2" id="text">
+            <input type="text" name="captcha" class="form-control ml-2" id="text" style="width: 10em;">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
           <!-- Uninstall button -->

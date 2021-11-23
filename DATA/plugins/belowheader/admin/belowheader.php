@@ -347,11 +347,9 @@ switch ($page1) {
 		// CZ: Kontrola dat
 		$getTotal = envo_get_total($envotable, '', '', '');
 
-		if ($getTotal != 0) {
-
-			// EN: Get all data from DB
-			// CZ: Získání všech dat z DB
-			$ENVO_BELOWHEADER_ALL = envo_get_belowheader('', $envotable);
+		// EN: Check url status (Control solution for loop redirect protection 'header location')
+		// CZ: Kontrola url statusu ( Řešení z důvodu kontroly loop redirect 'header location')
+		if (checkstatusurl('status=ene') == TRUE) {
 
 			// EN: Title and Description
 			// CZ: Titulek a Popis
@@ -363,10 +361,29 @@ switch ($page1) {
 			$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
 
 		} else {
-			// EN: Redirect page
-			// CZ: Přesměrování stránky
-			envo_redirect(BASE_URL . 'index.php?p=belowheader&status=ene');
+			if ($getTotal != 0) {
+
+				// EN: Get all data from DB
+				// CZ: Získání všech dat z DB
+				$ENVO_BELOWHEADER_ALL = envo_get_belowheader('', $envotable);
+
+				// EN: Title and Description
+				// CZ: Titulek a Popis
+				$SECTION_TITLE = $tlbh["bh_sec_title"]["bht"];
+				$SECTION_DESC  = $tlbh["bh_sec_desc"]["bhd"];
+
+				// EN: Load the php template
+				// CZ: Načtení php template (šablony)
+				$plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
+
+			} else {
+				// EN: Redirect page
+				// CZ: Přesměrování stránky
+				envo_redirect(BASE_URL . 'index.php?p=belowheader&status=ene');
+			}
 		}
+
+
 
 
 }

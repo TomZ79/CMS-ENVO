@@ -53,7 +53,7 @@ switch ($page1) {
 
 			$row = $result -> fetch_assoc();
 
-			if ($row['active'] != 1 && !ENVO_ASACCESS) {
+			if ($row['active'] != 1 && !ENVO_ACCESS) {
 				// EN: News is not active redirect to list of news
 				// CZ: Zpráva není aktivní, přesměrování na seznam zpráv
 				envo_redirect($backtonews);

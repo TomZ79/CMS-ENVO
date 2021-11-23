@@ -90,6 +90,7 @@ $envodb -> query("CREATE TABLE " . DB_PREFIX . "pages (
   `content` mediumtext,
   `page_css` text,
   `page_javascript` text,
+  `sidebarshow` smallint(1) unsigned NOT NULL DEFAULT 1,
   `sidebar` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 1,
@@ -108,8 +109,8 @@ $envodb -> query("CREATE TABLE " . DB_PREFIX . "pages (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
 $envodb -> query("INSERT INTO " . DB_PREFIX . "pages VALUES
-(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NOW()),
-(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NOW())");
+(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NOW()),
+(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NOW())");
 
 $envodb -> query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -199,7 +200,7 @@ $envodb -> query("CREATE TABLE " . DB_PREFIX . "setting (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci");
 
 $envodb -> query("INSERT INTO " . DB_PREFIX . "setting VALUES
-('version', 'version', '2.0.0', '2.0.0', NULL, 'free', 'cms'),
+('version', 'version', '2.3.0', '2.3.0', NULL, 'free', 'cms'),
 ('updatetime', 'updatetime', '" . time() . "', '" . time() . "', 'timestamp', 'integer', 'cms'),
 ('o_number', 'setting', '0', '0', 'input', 'free', 'cms'),
 ('offline', 'general', '0', '0', 'yesno', 'boolean', 'cms'),

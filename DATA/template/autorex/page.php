@@ -10,7 +10,7 @@ if (!$PAGE_ACTIVE) {
 } else {
 
 	// Set link value for page editing
-	if (ENVO_ASACCESS) {
+	if (ENVO_ACCESS) {
 		if ($setting["printme"]) $printme = 1;
 		$apedit  = BASE_URL . 'admin/index.php?p=page&amp;sp=edit&amp;id=' . $PAGE_ID;
 		$qapedit = BASE_URL . 'admin/index.php?p=page&amp;sp=quickedit&amp;id=' . $PAGE_ID;
@@ -20,7 +20,7 @@ if (!$PAGE_ACTIVE) {
 		echo '<div id="printdiv">';
 	}
 
-	if ($PAGE_PASSWORD && !ENVO_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) {
+	if ($PAGE_PASSWORD && !ENVO_ACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) {
 
 		// PROTECTED PAGE
 
@@ -146,7 +146,7 @@ if (!$PAGE_ACTIVE) {
 
 									<?php
 									// SYSTEM ICONS - Edit and Quick Edit
-									if (ENVO_ASACCESS) { ?>
+									if (ENVO_ACCESS) { ?>
 										<div class="system-icons clearfix">
 											<div class="pull-right hidden-xs">
 												<a class="btn btn-filled btn-warning rounded-0 btn-xs" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?= $n["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">

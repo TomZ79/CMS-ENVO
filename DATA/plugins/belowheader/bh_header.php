@@ -48,31 +48,35 @@ if ($backtonews && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && is_array
 }
 
 // Let's check if there is a valid News Main array
-if ($page == ENVO_PLUGIN_VAR_NEWS && $backtonews && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
-	foreach ($ENVO_NEWSMAIN_BELOW_HEADER as $submn) {
-		if ($submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
+if (defined('ENVO_PLUGIN_VAR_NEWS')) {
+	if ($page == ENVO_PLUGIN_VAR_NEWS && $backtonews && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
+		foreach ($ENVO_NEWSMAIN_BELOW_HEADER as $submn) {
+			if ($submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
 
-			$bh_top = envo_secure_site($submn['content_before']);
+				$bh_top = envo_secure_site($submn['content_before']);
 
-			if (!$bh_top) $bh_top = $submn['content_before'];
+				if (!$bh_top) $bh_top = $submn['content_before'];
 
-			echo envo_secure_site(base64_decode($bh_top));
+				echo envo_secure_site(base64_decode($bh_top));
 
+			}
 		}
 	}
 }
 
 // Let's check if there is a valid Tags array and if the user has access to tags
-if ($page == ENVO_PLUGIN_VAR_TAGS && isset($ENVO_TAGS_BELOW_HEADER) && is_array($ENVO_TAGS_BELOW_HEADER) && ENVO_USER_TAGS) {
-	foreach ($ENVO_TAGS_BELOW_HEADER as $subt) {
-		if ($subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
+if (defined('ENVO_PLUGIN_VAR_TAGS')) {
+	if ($page == ENVO_PLUGIN_VAR_TAGS && isset($ENVO_TAGS_BELOW_HEADER) && is_array($ENVO_TAGS_BELOW_HEADER) && ENVO_USER_TAGS) {
+		foreach ($ENVO_TAGS_BELOW_HEADER as $subt) {
+			if ($subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
 
-			$bh_top = envo_secure_site($subt['content_before']);
+				$bh_top = envo_secure_site($subt['content_before']);
 
-			if (!$bh_top) $bh_top = $subt['content_before'];
+				if (!$bh_top) $bh_top = $subt['content_before'];
 
-			echo envo_secure_site(base64_decode($bh_top));
+				echo envo_secure_site(base64_decode($bh_top));
 
+			}
 		}
 	}
 }

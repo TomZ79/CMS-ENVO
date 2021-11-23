@@ -31,46 +31,52 @@ if (!$page1 && isset($PAGE_ID) && isset($ENVO_PAGE_BELOW_HEADER) && is_array($EN
 }
 
 // Let's check if there is a valid News array
-if ($page == ENVO_PLUGIN_VAR_NEWS && isset($backtonews) && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && is_array($ENVO_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_NEWS_BELOW_HEADER)) {
-	foreach ($ENVO_NEWS_BELOW_HEADER as $subn) {
-		if ($subn['newsid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
+if (defined('ENVO_PLUGIN_VAR_NEWS')) {
+	if ($page == ENVO_PLUGIN_VAR_NEWS && isset($backtonews) && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && is_array($ENVO_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_NEWS_BELOW_HEADER)) {
+		foreach ($ENVO_NEWS_BELOW_HEADER as $subn) {
+			if ($subn['newsid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
 
-			$bh_top = envo_secure_site($subn['content_after']);
+				$bh_top = envo_secure_site($subn['content_after']);
 
-			if (!$bh_top) $bh_top = $subn['content_after'];
+				if (!$bh_top) $bh_top = $subn['content_after'];
 
-			echo envo_secure_site(base64_decode($bh_top));
+				echo envo_secure_site(base64_decode($bh_top));
 
+			}
 		}
 	}
 }
 
 // Let's check if there is a valid News Main array
-if ($page == ENVO_PLUGIN_VAR_NEWS && isset($backtonews) && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
-	foreach ($ENVO_NEWSMAIN_BELOW_HEADER as $submn) {
-		if ($submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
+if (defined('ENVO_PLUGIN_VAR_NEWS')) {
+	if ($page == ENVO_PLUGIN_VAR_NEWS && isset($backtonews) && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
+		foreach ($ENVO_NEWSMAIN_BELOW_HEADER as $submn) {
+			if ($submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
 
-			$bh_top = envo_secure_site($submn['content_after']);
+				$bh_top = envo_secure_site($submn['content_after']);
 
-			if (!$bh_top) $bh_top = $submn['content_after'];
+				if (!$bh_top) $bh_top = $submn['content_after'];
 
-			echo envo_secure_site(base64_decode($bh_top));
+				echo envo_secure_site(base64_decode($bh_top));
 
+			}
 		}
 	}
 }
 
 // Let's check if there is a valid Tags array and if the user has access to tags
-if ($page == ENVO_PLUGIN_VAR_TAGS && isset($ENVO_TAGS_BELOW_HEADER) && is_array($ENVO_TAGS_BELOW_HEADER) && ENVO_USER_TAGS) {
-	foreach ($ENVO_TAGS_BELOW_HEADER as $subt) {
-		if ($subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
+if (defined('ENVO_PLUGIN_VAR_TAGS')) {
+	if ($page == ENVO_PLUGIN_VAR_TAGS && isset($ENVO_TAGS_BELOW_HEADER) && is_array($ENVO_TAGS_BELOW_HEADER) && ENVO_USER_TAGS) {
+		foreach ($ENVO_TAGS_BELOW_HEADER as $subt) {
+			if ($subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
 
-			$bh_top = envo_secure_site($subt['content_after']);
+				$bh_top = envo_secure_site($subt['content_after']);
 
-			if (!$bh_top) $bh_top = $subt['content_after'];
+				if (!$bh_top) $bh_top = $subt['content_after'];
 
-			echo envo_secure_site(base64_decode($bh_top));
+				echo envo_secure_site(base64_decode($bh_top));
 
+			}
 		}
 	}
 }

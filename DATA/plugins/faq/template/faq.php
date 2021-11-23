@@ -18,7 +18,7 @@
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting'; ?>
+<?php if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting'; ?>
 
 	<div class="row">
 		<div class="col-sm-12">
@@ -49,7 +49,7 @@
 
 										<a href="<?= $v["parseurl"] ?>" class="btn btn-default btn-sm"><?= $tlf["faq_frontend"]["faq1"] ?></a>
 
-										<?php if (ENVO_ASACCESS) { ?>
+										<?php if (ENVO_ACCESS) { ?>
 
 											<a href="<?= BASE_URL ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?= $v["id"] ?>" title="<?= $tl["button"]["btn1"] ?>" class="btn btn-info btn-sm">
 												<span class="visible-xs"><i class="fa fa-edit"></i></span>

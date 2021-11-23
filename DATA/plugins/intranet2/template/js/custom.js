@@ -5,8 +5,8 @@
  * -----------------------------------------------------------------------
  * Css Template: Limitless v2.1
  * Theme : Default
- * Author: BluesatKV
- * Email: bluesatkv@gmail.com
+ * Author: Thomas Zukal
+ * Email: tzukal@email.cz
  * =======================================================================*/
 
 /**
@@ -67,8 +67,8 @@ function copyToClipboard (target, e) {
 
   var Limitless = function () {
     this.VERSION = "2.1";
-    this.AUTHOR = "BluesatKV";
-    this.SUPPORT = "bluesatkv@gmail.com";
+    this.AUTHOR = "Thomas Zukal";
+    this.SUPPORT = "tzukal@email.cz";
     this.$body = $('body');
   };
 

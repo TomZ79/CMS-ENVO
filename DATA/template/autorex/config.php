@@ -12,7 +12,7 @@ $arr1 = array ();
  * EN: Search in array
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -38,7 +38,7 @@ function searchForId ($id, $array)
  * EN: Build menu
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -79,7 +79,7 @@ function build_menu_autorex ($parent, $menu, $maincategory, $active, $mainclass,
 				$html .= '
         <li' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active"' : '') . '>
         
-          <a href="' . $menu["items"][$itemId]["varname"] . '" ' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="dropdown-item active"' : 'class="dropdown-item"') . '>' .
+          <a href="' . $menu["items"][$itemId]["varname"] . '" ' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class=" active"' : 'class=""') . '>' .
 
 					(($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
@@ -99,7 +99,7 @@ function build_menu_autorex ($parent, $menu, $maincategory, $active, $mainclass,
 					$html .= '
           <li class="' . $dropdown . (($active == $menu["items"][$itemId]["pagename"]) ? ' active' : $classcat) . '">
             
-            <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="dropdown-item active ' . $dropdownclass . $classcat . '"' : ' class="dropdown-item ' . $dropdownclass . $classcat . '"') . '>' .
+            <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class=" active ' . $dropdownclass . $classcat . '"' : ' class=" ' . $dropdownclass . $classcat . '"') . '>' .
 
 						(($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
@@ -123,7 +123,7 @@ function build_menu_autorex ($parent, $menu, $maincategory, $active, $mainclass,
 					$html .= '
           <li class="' . $dropdown . (($active == $menu["items"][$itemId]["pagename"]) ? ' active' : $classcat) . '">
           
-            <a href="' . $menu["items"][$itemId]["varname"] . '" ' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="dropdown-item active"' : 'class="dropdown-item"') . '>' .
+            <a href="' . $menu["items"][$itemId]["varname"] . '" ' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class=" active"' : 'class=""') . '>' .
 
 						(($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 
@@ -146,57 +146,6 @@ function build_menu_autorex ($parent, $menu, $maincategory, $active, $mainclass,
 
 	// Return value from function
 	return $html;
-}
-
-/**
- * EN: Get FontAwesome icon by file extensions
- * CZ: Získání FontAwesome ikon podle typu souboru
- *
- * @author  BluesatKV
- * @version 1.0.1
- * @date    12/2017
- *
- * @param $filename       string    | name of file
- * @return bool|string
- */
-function envo_extension_icon ($filename)
-{
-	$extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-	switch ($extension) {
-		case ('doc'):
-			return '<i class="fas fa-file-word mr-3" style="color:#2B5796;font-size: 1.3em;"></i>';
-			break;
-		case ('docx'):
-			return '<i class="fas fa-file-word mr-3" style="color:#2B5796;font-size: 1.3em;"></i>';
-			break;
-		case ('docm'):
-			return '<i class="fas fa-file-word mr-3" style="color:#2B5796;font-size: 1.3em;"></i>';
-			break;
-		case ('xls'):
-			return '<i class="fas fa-file-excel mr-3" style="color:#1E7145;font-size: 1.3em;"></i>';
-			break;
-		case ('xlsx'):
-			return '<i class="fas fa-file-excel mr-3" style="color:#1E7145;font-size: 1.3em;"></i>';
-			break;
-		case ('xlsm'):
-			return '<i class="fas fa-file-excel mr-3" style="color:#1E7145;font-size: 1.3em;"></i>';
-			break;
-		case 'pdf':
-			return '<i class="fas fa-file-pdf mr-3" style="color:#EE3226;font-size: 1.3em;"></i>';
-			break;
-		case ('jpg'):
-			return '<i class="fas fa-file-image mr-3" style="color:#000;font-size: 1.3em;"></i>';
-			break;
-		case ('zip'):
-			return '<i class="fas fa-file-archive mr-3" style="color:#FF3514;font-size: 1.3em;"></i>';
-			break;
-		case ('rar'):
-			return '<i class="fas fa-file-archive mr-3" style="color:#FF3514;font-size: 1.3em;"></i>';
-			break;
-		default:
-			return FALSE;
-	}
 }
 
 ?>

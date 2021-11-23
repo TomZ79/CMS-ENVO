@@ -747,7 +747,7 @@ class HTML_Element
 		foreach ($attr_ar as $key => $val) {
 			if (in_array($key, $min_atts)) {
 				if (!empty($val)) {
-					$html .= $this -> xhtml ? " $key=\"$key\"" : " $key";
+					$html .= $this ? " $key=\"$key\"" : " $key";
 				}
 			} else {
 				$html .= " $key=\"$val\"";

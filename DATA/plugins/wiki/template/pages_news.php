@@ -33,7 +33,7 @@ if (is_array($showwikiarray) && in_array("ASC", $showwikiarray) || in_array("DES
 							<div class="answer"><?= $tlw["wiki"]["d3"] ?></div>
 							<p><?= $w["contentshort"] ?></p>
 							<div class="pull-right">
-								<?php if (ENVO_ASACCESS) { ?>
+								<?php if (ENVO_ACCESS) { ?>
 
 									<a href="<?= BASE_URL ?>admin/index.php?p=wiki&amp;sp=edit&amp;id=<?= $w["id"] ?>" title="<?= $tl["button"]["btn1"] ?>" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
 

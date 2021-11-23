@@ -52,7 +52,7 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
 
 					<?php
 					// SYSTEM ICONS - Edit and Quick Edit
-					if (ENVO_ASACCESS) { ?>
+					if (ENVO_ACCESS) { ?>
 						<div class="system-icons clearfix">
 							<div class="pull-right hidden-xs">
 								<a class="btn btn-filled btn-warning rounded-0 btn-xs" href="<?= BASE_URL ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?= $bl["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">

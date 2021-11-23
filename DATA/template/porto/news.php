@@ -2,7 +2,7 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting';
+if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting';
 
 if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEWS as $n) {
 	include_once APP_PATH . $n['phpcode'];
@@ -84,7 +84,7 @@ setlocale(LC_TIME, $setting["locale"] . '.utf8');
 							<?php
 
 							// SYSTEM ICONS - Edit and Quick Edit
-							if (ENVO_ASACCESS) {
+							if (ENVO_ACCESS) {
 								echo '<div class="system-icons d-none d-sm-block">';
 								echo '<div class="row"><div class="col"><hr class="dashed tall my-3"></div></div>';
 								echo '<div class="row">';

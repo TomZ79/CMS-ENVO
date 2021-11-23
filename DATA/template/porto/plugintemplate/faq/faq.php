@@ -27,7 +27,7 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting';
+if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting';
 
 ?>
 
@@ -86,7 +86,7 @@ if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting';
                     <?php
 
                     // SYSTEM ICONS - Edit and Quick Edit
-                    if (ENVO_ASACCESS) {
+                    if (ENVO_ACCESS) {
                       echo '<div class="system-icons d-none d-sm-block">';
                       echo '<div class="row">';
                       echo '<div class="col-sm-2">';

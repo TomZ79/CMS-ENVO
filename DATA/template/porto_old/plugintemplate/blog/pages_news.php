@@ -43,7 +43,7 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
           <a href="<?=$bl["parseurl"]?>" class="btn btn-color btn-sm">
             <?=$tl["general"]["g3"]?>
           </a>
-          <?php if (ENVO_ASACCESS) { ?>
+          <?php if (ENVO_ACCESS) { ?>
 
             <a href="<?=BASE_URL?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?=$bl["id"]?>" title="<?=$tl["general"]["g"]?>" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i></a>
 

@@ -4,7 +4,7 @@
  * EN: Getting the data about the Houses without limit by usergroupid
  * CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -70,7 +70,7 @@ function envo_get_house_info ($table1, $table2, $ext_seo, $usergroupid, $filter1
  * EN: Getting the data about the Houses without limit by usergroupid
  * CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    10/2018
  *
@@ -84,7 +84,7 @@ function envo_get_house_info ($table1, $table2, $ext_seo, $usergroupid, $filter1
  * EN: Getting the data about active Tasks without limit by usergroupid
  * CZ: Získání dat o aktivních Úkolech bez limitu podle 'id' uživatelské skupiny
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.8
  * @date    10/2017
  *
@@ -215,7 +215,7 @@ function envo_get_task_info ($usergroupid, $ext_seo, $tabs, $dateformat)
  * EN: Getting the data about the delayed Tasks without limit by usergroupid
  * CZ: Získání dat o zpožděných Úkolech bez limitu podle 'id' uživatelské skupiny
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    10/2017
  *
@@ -345,7 +345,7 @@ function envo_get_task_delayed_info ($usergroupid, $ext_seo, $tabs, $dateformat)
  * EN: Getting the data about the Notifications without limit by usergroupid
  * CZ: Získání dat o Notifikacích bez limitu podle 'id' uživatelské skupiny
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.3
  * @date    09/2017
  *
@@ -449,7 +449,7 @@ function envo_get_notification_unread ($usergroupid, $ext_seo, $dateformat, $tim
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -522,7 +522,7 @@ function envo_get_notification_all ($usergroupid, $ext_seo, $dateformat, $timefo
  * EN: Get FontAwesome icon by file extensions
  * CZ: Získání FontAwesome ikon podle typu souboru
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    12/2017
  *
@@ -611,7 +611,7 @@ function simpleslug ($string)
  * EN: Check if row exist and user has permission to see it!
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

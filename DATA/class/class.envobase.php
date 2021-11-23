@@ -16,7 +16,7 @@ class ENVO_base
 	 * EN: ENVO_base constructor. This constructor can be used for all classes
 	 * CZ: ENVO_base constructor.
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -37,7 +37,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -157,7 +157,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -182,7 +182,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -237,7 +237,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -256,7 +256,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -314,7 +314,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -362,7 +362,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -389,7 +389,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -417,7 +417,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -437,7 +437,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *
@@ -481,7 +481,7 @@ class ENVO_base
 	 * EN:
 	 * CZ:
 	 *
-	 * @author  BluesatKV
+	 * @author  Thomas Zukal
 	 * @version 1.0.0
 	 * @date    09/2017
 	 *

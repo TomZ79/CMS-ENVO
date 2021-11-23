@@ -66,7 +66,7 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
 								<?= $tld["downl_frontend"]["downl7"] ?>
 							</a>
 							<br>
-							<?php if (ENVO_ASACCESS) { ?>
+							<?php if (ENVO_ACCESS) { ?>
 
 								<a href="<?= BASE_URL ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?= $d["id"] ?>" title="<?= $tl["button"]["btn1"] ?>" class="btn btn-info btn-xs">
 									<span class="visible-xs"><i class="fa fa-edit"></i></span>

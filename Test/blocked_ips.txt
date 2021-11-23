@@ -1,0 +1,6 @@
+# The format of this file is simply a list of IP addresses, with one address on each line.
+
+127.0.0.1
+192.168.1.1
+83.76.27.9
+192.168.1.163

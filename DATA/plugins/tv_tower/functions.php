@@ -4,7 +4,7 @@
  * EN: Getting all the data about the TV Channel
  * CZ: Získání všech dat o televizním kanálu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -30,7 +30,7 @@ function envo_get_tvchannel_info ($table)
  * EN: Getting the data about the TV Tower
  * CZ: Získání dat o televizním vysílači
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -55,7 +55,7 @@ function envo_get_tvtower_info ($table)
 /**
  * EN: Getting the data about the TV Program
  * CZ: Získání všech dat o televizních programech
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

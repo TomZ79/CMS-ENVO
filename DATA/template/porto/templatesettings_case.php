@@ -127,7 +127,7 @@ if ($result1) {
 	envo_redirect(BASE_URL . 'index.php?p=template&sp=settings&status=s');
 }
 
-// EN: Reset the database settings so we have it unique
+// EN: Get data from databases table 'setting'
 // CZ:
 // ---------------------------------------------------------------------
 $result = $envodb -> query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');

@@ -4,7 +4,7 @@
  * EN: Get the data per array for faqs
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    01/2018
  *
@@ -36,7 +36,7 @@ function envo_get_faqs ($limit, $envovar1, $table)
  * EN: Menu builder function, parentId 0 is the root
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

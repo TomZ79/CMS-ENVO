@@ -2,7 +2,7 @@
  * CMS ENVO
  * CSS Template - Admin Pages with custom modification
  * Override Pages default styles or create your own styles here
- * Copyright (c) 2016 - 2018 Bluesat.cz
+ * Copyright (c) 2016 - 2022 Bluesat.cz
  * -----------------------------------------------------------------------
  * Plugin: bootstrap-datetimejs
  * Version: v4.17.47 custom modification

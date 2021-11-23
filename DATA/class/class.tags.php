@@ -50,7 +50,7 @@ class ENVO_tags
 				shuffle($my_colours);
 				$size         = $minsize + ($count - $minimum_count)
 					* ($maxsize - $minsize) / $spread;
-				$cloud_tags[] = '<li class="tag-cloud-item tag-' . $my_colours[0] . '"><a style="font-size:' . floor($size) . 'px" href="' . ENVO_rewrite ::envoParseurl($varname, ENVO_base ::envoCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
+				$cloud_tags[] = '<li class="tag-' . $my_colours[0] . '"><a class="tags-list-item" style="font-size:' . floor($size) . 'px" href="' . ENVO_rewrite ::envoParseurl($varname, ENVO_base ::envoCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
 			}
 			$cloud_html = join("\n", $cloud_tags) . "\n";
 

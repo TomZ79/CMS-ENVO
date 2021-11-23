@@ -218,7 +218,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                         ?>
                       </a>
                     </li>
-                    <?php if (ENVO_ASACCESS) { ?>
+                    <?php if (ENVO_ACCESS) { ?>
                       <li><a href="<?=BASE_URL?>admin/"><?=$tlporto["header_text"]["ht3"]?></a></li>
                     <?php }
                   }
@@ -326,7 +326,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
       }
 
-      if (($page && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) || ($page && ENVO_ASACCESS)) {
+      if (($page && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) || ($page && ENVO_ACCESS)) {
         // Code for all page without home page
         ?>
 
@@ -415,7 +415,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           // STRÁNKA MÁ HESLO
 
           // Přihlášení administrátora
-          if (ENVO_ASACCESS) {
+          if (ENVO_ACCESS) {
             // ADMINISTRÁTOR JE PŘIHLÁŠEN
 
             // Stránka má Grid systém
@@ -449,7 +449,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           // STRÁNKA MÁ HESLO A HESLO BYLO SPRÁVNĚ ZADANÉ VE STRÁNCE
 
           // Přihlášení administrátora
-          if (ENVO_ASACCESS) {
+          if (ENVO_ACCESS) {
             // ADMINISTRÁTOR JE PŘIHLÁŠEN
 
             // Stránka má Grid systém
@@ -483,7 +483,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           // STRÁNKA NEMÁ HESLO
 
           // Přihlášení administrátora
-          if (ENVO_ASACCESS) {
+          if (ENVO_ACCESS) {
             // ADMINISTRÁTOR JE PŘIHLÁŠEN
 
             // Stránka má Grid systém

@@ -4,7 +4,7 @@
  * EN: Getting all the data about the TV Channel with limit
  * CZ: Získání všech dat o televizním kanálu s limitem
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -32,7 +32,7 @@ function envo_get_tvchannel ($limit, $table)
  * EN: Getting all the data about the TV Channel without limit
  * CZ: Získání všech dat o televizním kanálu bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -58,7 +58,7 @@ function envo_get_tvchannel_info ($table)
  * EN: Getting all the data about the TV Tower with limit
  * CZ: Získání všech dat o televizním vysílači s limitem
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -85,7 +85,7 @@ function envo_get_tvtower ($limit, $table)
 /**
  * EN: Getting the data about the TV Tower without limit
  * CZ: Získání dat o televizním vysílači bez limitu
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -111,7 +111,7 @@ function envo_get_tvtower_info ($table)
  * EN: Getting all the data about the TV Program with limit
  * CZ: Získání všech dat o televizních programech s limitem
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -139,7 +139,7 @@ function envo_get_tvprogram ($limit, $table)
  * EN: Check if channel exist
  * CZ: Kontrola jestli kanál existuje
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

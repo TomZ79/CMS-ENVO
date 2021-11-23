@@ -4,7 +4,7 @@
  * EN: PRINT ARRAY - Print a nicely formatted array representation
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    09/2018
  *
@@ -21,7 +21,7 @@ function print_array ($Array)
  * EN: Redirect function
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -39,7 +39,7 @@ function envo_redirect ($url, $code = 302)
  * EN: Secure the site and display videos
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -104,7 +104,7 @@ function envo_secure_site ($input)
  * EN: Filter inputs
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -123,7 +123,7 @@ function envo_input_filter ($value)
  * EN: Filter url inputs
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -144,7 +144,7 @@ function envo_url_input_filter ($value)
  * EN: Get a secure mysql input
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.1.0
  * @date    11/2021
  *
@@ -171,7 +171,7 @@ function smartsql ($value)
  * EN: Search for lang files in the admin folder, only choose .ini files.
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -204,7 +204,7 @@ function envo_get_lang_files ()
  * EN: Check if folder is empty
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -229,7 +229,7 @@ function is_dir_empty ($dir)
  * EN: Get random image from folder
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  * @link    http://www.dyn-web.com/code/random-image-php/
@@ -258,7 +258,7 @@ function envo_get_random_image ($path)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -277,7 +277,7 @@ function envo_get_random_from_array ($ar)
  * EN: Get random line from text file
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -318,7 +318,7 @@ function envo_get_random__line ($fileName, $maxLineLength = 4096)
  * EN: Detect Mobile Browser in a simple way to display videos in html5 or video/template not available message
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -345,7 +345,7 @@ function envo_find_browser ($useragent, $wap)
  * EN: Check if userid can have access to the forum, blog, gallery etc.
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -368,7 +368,7 @@ function envo_get_access ($envovar, $envovar1)
  * EN: Get the setting variable as well the default variable as array
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -392,7 +392,7 @@ function envo_get_setting ($group)
  * EN: Get the setting variable as well the default variable as array
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -423,7 +423,7 @@ function envo_get_setting_val ($group)
  * EN: Get total from a table
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -456,7 +456,7 @@ function envo_get_total ($envovar, $envovar1, $envovar2, $envovar3)
  * EN: Get the data only per ID (e.g. edit single user, edit category)
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -484,7 +484,7 @@ function envo_get_data ($id, $table)
  * EN: Get the data per array for galleries
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -513,7 +513,7 @@ function envo_get_galleryfacebook ($limit, $table, $order)
  * EN: Check if row exist with custom field
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -545,7 +545,7 @@ function envo_field_not_exist ($check1, $table, $field1, $check2 = '', $field2 =
  * EN: Check if row exist
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -570,7 +570,7 @@ function envo_row_exist ($id, $table)
  * EN: Check if row exist
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    01/2019
  *
@@ -605,7 +605,7 @@ function envo_rowExists ($table, $where, $value )
  * EN: Check if row exist and user has permission to see it!
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -633,7 +633,7 @@ function envo_row_permission ($envovar, $envovar1, $envovar2)
  * EN: Check if catid exist
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -661,7 +661,7 @@ function envo_get_id_name ($envovar, $envovar1, $envovar2)
  * EN: Get News out the database
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    03/2018
  *
@@ -730,7 +730,7 @@ function envo_get_news ($envovar, $where, $plname, $order, $datef, $timef, $time
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -775,7 +775,7 @@ function envo_next_page ($page, $title, $table, $id, $where, $where2, $approve)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -821,7 +821,7 @@ function envo_previous_page ($page, $title, $table, $id, $where, $where2, $appro
  * EN: Menu builder function, parentId 0 is the root
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -874,7 +874,7 @@ function envo_build_menu ($parent, $menu, $active, $mainclass, $dropdown, $dropc
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.1.0
  * @date    07/2019
  *
@@ -949,7 +949,7 @@ function envo_cut_text ($text, $limit, $ellipsis = '', $stripHtml = FALSE)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1024,7 +1024,7 @@ function envo_cut_text_html_tag ($string, $length = 500, $append = "&hellip;")
  * EN: Render strings from content
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1050,7 +1050,7 @@ function envo_render_string ($str, $parms)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1083,7 +1083,7 @@ function envo_write_vote_hits_cookie ($table, $id, $cookie)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1115,7 +1115,7 @@ function envo_cookie_voted_hits ($table, $id, $cookie)
  * EN: Get a clean and secure post from user
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1161,7 +1161,7 @@ function envo_clean_safe_userpost ($input)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1185,7 +1185,7 @@ function envo_edit_safe_userpost ($input)
  * EN: Get the real IP Address
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1211,7 +1211,7 @@ function get_ip_address ()
  * EN: Password generator
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1249,7 +1249,7 @@ function envo_encode_email ($email)
  * EN: Get the referrer
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1270,7 +1270,7 @@ function selfURL ()
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1287,7 +1287,7 @@ function envo_precode ($matches)
  * EN:
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1304,7 +1304,7 @@ function envo_editcode ($matches)
  * EN: Convert size units
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1389,7 +1389,7 @@ function hex2rgba ($color, $opacity = FALSE)
  * EN: Function to check if the request is an AJAX request
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -1474,7 +1474,7 @@ function sort_array_mutlidim (array $array, $order_by)
  * EN: Getting the version of plugin without limit
  * CZ: Získání verze pluginu bez limitu
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

@@ -34,7 +34,7 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&amp;id=' . $PAGE_ID;
+if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&amp;id=' . $PAGE_ID;
 if ($setting["printme"]) $printme = 1;
 $qapedit = BASE_URL . 'admin/index.php?p=download&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 
@@ -42,7 +42,7 @@ $qapedit = BASE_URL . 'admin/index.php?p=download&amp;sp=quickedit&amp;id=' . $P
 
 <?php
 
-if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) {
+if ($DL_PASSWORD && !ENVO_ACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) {
 	// PROTECTED PAGE
 
 	?>

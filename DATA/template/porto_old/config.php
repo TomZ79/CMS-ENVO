@@ -20,7 +20,7 @@ $arr1 = array();
  * EN: Search in array
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -46,7 +46,7 @@ function searchForId($id, $array)
  * EN: Build menu
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

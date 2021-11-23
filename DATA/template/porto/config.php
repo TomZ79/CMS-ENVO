@@ -75,7 +75,7 @@ $arr1 = array ();
  * EN: Search in array
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -101,7 +101,7 @@ function searchForId ($id, $array)
  * EN: Build menu
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -215,7 +215,7 @@ function build_menu_porto ($parent, $menu, $maincategory, $active, $mainclass, $
  * EN: Get FontAwesome icon by file extensions
  * CZ: Získání FontAwesome ikon podle typu souboru
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.1
  * @date    12/2017
  *

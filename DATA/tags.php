@@ -52,15 +52,15 @@ if (empty($page1)) {
 
 			} elseif ($row['pluginid'] == 0) {
 
-				$result2 = $envodb -> query('SELECT t1.varname, t2.title' . ', t2.content' . ' FROM ' . $envotable2 . ' AS t1 LEFT JOIN ' . $envotable1 . ' AS t2 ON t1.id = t2.catid WHERE t2.id = "' . smartsql($row['itemid']) . '" AND t2.active = 1 LIMIT 1');
+				$result2 = $envodb -> query('SELECT t1.varname, t2.title' . ', t1.metadesc' . ' FROM ' . $envotable2 . ' AS t1 LEFT JOIN ' . $envotable1 . ' AS t2 ON t1.id = t2.catid WHERE t2.id = "' . smartsql($row['itemid']) . '" AND t2.active = 1 LIMIT 1');
 				$row2    = $result2 -> fetch_assoc();
 
 				if ($envodb -> affected_rows > 0) {
-					$getStriped = envo_cut_text($row2['content'], $setting["shortmsg"], '...');
+					$getStriped = envo_cut_text($row2['metadesc'], $setting["shortmsg"], '...');
 
 					$parseurl = ENVO_rewrite ::envoParseurl($row2['varname'], '', '', '', '');
 
-					$pageData[]         = array ('parseurl' => $parseurl, 'title' => $row2['title'], 'content' => $getStriped);
+					$pageData[]         = array ('parseurl' => $parseurl, 'title' => $row2['title'], 'metadesc' => $getStriped);
 					$ENVO_TAG_PAGE_DATA = $pageData;
 				}
 				// Get the news data

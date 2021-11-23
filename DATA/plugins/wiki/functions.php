@@ -4,7 +4,7 @@
  * EN: Getting the data about the city in region - House list
  * CZ: Získání dat o městech v regionu - Seznam domů
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    11/2018
  *
@@ -38,7 +38,7 @@ function envo_get_anchor ($limit, $colname = NULL, $table, $where, $orderby)
  * EN: Get wiki(s) out the database
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    11/2018
  *
@@ -106,7 +106,7 @@ function envo_get_wiki ($limit, $order, $where, $table_row, $ext_seo, $timeago)
  * EN: Get total from a table limited to permission
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    11/2018
  *

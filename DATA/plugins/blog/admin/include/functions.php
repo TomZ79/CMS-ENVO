@@ -4,7 +4,7 @@
  * EN: Get the data per array for blogs
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *
@@ -36,7 +36,7 @@ function envo_get_blogs ($limit, $cid, $table)
  * EN: Menu builder function, parentId 0 is the root
  * CZ:
  *
- * @author  BluesatKV
+ * @author  Thomas Zukal
  * @version 1.0.0
  * @date    09/2017
  *

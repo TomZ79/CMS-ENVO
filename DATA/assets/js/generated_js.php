@@ -36,7 +36,6 @@ if (ENVO_USERID && $envouser -> envoSuperAdminAccess(ENVO_USERID)) {
 // Set content type header
 header('Content-Type: application/x-javascript;charset=utf-8');
 
-echo $page2;
 echo <<<EOT
 
 /*
@@ -56,18 +55,13 @@ echo <<<EOT
 envoWeb.envo_url = '{$BASE_URL}';
 envoWeb.envo_url_orig = '{$BASE_URL_ORIG}';
 envoWeb.envo_lang = '{$site_language}';
-envoWeb.envo_jslang = '{$jslangdata_output}';
+envoWeb.envo_jslang = '{}';
 envoWeb.envo_template = '{$ENVO_TEMPLATE}';
-envoWeb.envo_search_link = '{$ENVO_SEARCH_LINK}';
+envoWeb.envo_search_link = '{}';
 envoWeb.envo_quickedit = '{$tl["global_text"]["gtxt6"]}';
 envoWeb.envo_forgotlogin = '';
 envoWeb.request_uri = '{$REQUEST_URI}';
 envoWeb.envo_disablemouse = '{$ENVO_DISABLEMOUSE}';
-
-// Name of options - Example
-var Name = {
-  Subname: '{$VAR}',
-};
 
 EOT;
 

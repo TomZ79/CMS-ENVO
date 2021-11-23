@@ -2,7 +2,7 @@
 
 include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php';
 
-if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting';
+if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting';
 
 if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEWS as $n) {
   include_once APP_PATH . $n['phpcode'];
@@ -65,7 +65,7 @@ if (isset($ENVO_HOOK_NEWS) && is_array($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEW
 
                   <?php
                   // SYSTEM ICONS - Edit and Quick Edit
-                  if (ENVO_ASACCESS) { ?>
+                  if (ENVO_ACCESS) { ?>
                     <div class="system-icons clearfix">
                       <div class="pull-right hidden-xs">
                         <a class="btn btn-filled btn-primary btn-xs" href="<?= BASE_URL ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?= $v["id"] ?>" title="<?= $tl["button"]["btn1"] ?>">

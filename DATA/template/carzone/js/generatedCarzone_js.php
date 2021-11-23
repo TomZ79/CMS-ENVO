@@ -18,8 +18,8 @@ echo <<<EOT
  * PHP Generated javascript file with variable for external js files  - FRONTEND
  * Copyright (c) 2018 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: BluesatKV
- * Email: bluesatkv@gmail.com
+ * Author: Thomas Zukal
+ * Email: tzukal@email.cz
  * =======================================================================
  */
  

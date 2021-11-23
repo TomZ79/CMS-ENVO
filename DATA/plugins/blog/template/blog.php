@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
+<?php if (ENVO_ACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
 
 	<div class="col-md-12" style="margin: 10px 0 50px 0;">
 		<?php if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) foreach ($ENVO_BLOG_ALL as $v) { ?>
@@ -52,7 +52,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<!-- Post Edit - Admin -->
-						<?php if (ENVO_ASACCESS) { ?>
+						<?php if (ENVO_ACCESS) { ?>
 
 						<span class="pull-right hidden-xs">
               <a href="<?= BASE_URL ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?= $v["id"] ?>" title="<?= $tl["button"]["btn1"] ?>" class="btn btn-info btn-sm">

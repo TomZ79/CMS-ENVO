@@ -12,7 +12,7 @@ $envotable = DB_PREFIX . 'pages';
 $row = $envodb -> queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
 
 // Check if the page is not active and we are not an admin then we redirect
-if ($row['active'] != 1 && !ENVO_ASACCESS) envo_redirect(ENVO_rewrite ::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
+if ($row['active'] != 1 && !ENVO_ACCESS) envo_redirect(ENVO_rewrite ::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
 
 // Now let's check the hits cookie
 if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
@@ -47,9 +47,9 @@ $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 //
 if (ENVO_USERID) {
-	if (ENVO_ASACCESS) {
+	if (ENVO_ACCESS) {
 		// Show page content only for admin
-		$PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array ('admin' => ENVO_ASACCESS, 'members' => ENVO_USERID, 'notmembers' => 0));
+		$PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array ('admin' => ENVO_ACCESS, 'members' => ENVO_USERID, 'notmembers' => 0));
 	} else {
 		// Show page content only for members
 		$PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array ('members' => ENVO_USERID, 'notmembers' => 0));
@@ -94,6 +94,15 @@ if ($hookpages) foreach ($hookpages as $hpag) {
 
 // EN: Getting data from DB for the grid of page
 // CZ: Získání dat z DB pro mřížku stránky
+
+$showgrid = $envodb -> queryRow('SELECT sidebarshow FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
+
+if ($showgrid['sidebarshow'] == 0) {
+	$ENVO_SHOW_GRID = FALSE;
+} else {
+	$ENVO_SHOW_GRID = TRUE;
+}
+
 $ENVO_PAGE_GRID = $ENVO_HOOK_SIDE_GRID = array ();
 $grid           = $envodb -> query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE pageid = "' . $row['id'] . '" ORDER BY orderid ASC');
 while ($grow = $grid -> fetch_assoc()) {
@@ -104,7 +113,9 @@ while ($grow = $grid -> fetch_assoc()) {
 }
 
 // Get the tags for this page
-$ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($row['id'], 0, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
+if (defined('ENVO_PLUGIN_VAR_TAGS')) {
+	$ENVO_TAGLIST = ENVO_tags ::envoGetTagList_class($row['id'], 0, ENVO_PLUGIN_VAR_TAGS, 'tags-list-item', $tl["title_element"]["tel"]);
+}
 
 // EN: Get all the php Hook by name of Hook from page and news grid
 // CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)

@@ -31,7 +31,7 @@ $(function () {
 					var inputval = '';
 				}
 
-				var sitemap = 'Sitemap: ' + baseurl.slice(0, -1) + '/' + inputval + 'sitemap.xml';
+				var sitemap = 'Sitemap: ' + baseurl + '/' + inputval + 'sitemap.xml';
 				$('#sitemapcode').text(sitemap);
 
 				// Change date in file
