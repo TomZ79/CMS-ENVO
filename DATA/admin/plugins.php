@@ -31,6 +31,9 @@ $ENVO_SETTING_VAL = envo_get_setting_val('module');
 // Get all the hooks out the class file
 $ENVO_HOOK_LOCATIONS = ENVO_hooks::EnvoAllhooks();
 
+// Clear Session
+$_SESSION['acemode'] = '';
+
 // -------- DATA FOR SELECTED ADMIN PAGES --------
 // -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
@@ -100,6 +103,10 @@ switch ($page1) {
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["hook_sec_title"]["hookt3"];
         $SECTION_DESC  = $tl["hook_sec_desc"]["hookd4"];
+
+        // EN: Set ACE Editor mode
+        // CZ: Nastavení módu ACE Editoru
+        $_SESSION['acemode'] = 'php';
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
@@ -174,6 +181,10 @@ switch ($page1) {
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["hook_sec_title"]["hookt"];
           $SECTION_DESC  = $tl["hook_sec_desc"]["hookd"];
+
+          // EN: Set ACE Editor mode
+          // CZ: Nastavení módu ACE Editoru
+          $_SESSION['acemode'] = 'php';
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)

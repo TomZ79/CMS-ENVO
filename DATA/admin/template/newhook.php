@@ -79,7 +79,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_name', $_REQUEST["envo_name"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', isset($_REQUEST["envo_name"]) ? $_REQUEST["envo_name"] : '', '', 'form-control');
                       ?>
 
                     </div>
@@ -211,7 +211,7 @@ if ($errors) { ?>
             // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
             echo $Html->addDiv('', 'htmleditor');
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('envo_phpcode', $_REQUEST["envo_phpcode"], '', '', array('id' => 'envo_phpcode', 'class' => 'form-control d-none'));
+            echo $Html->addTextarea('envo_phpcode', isset($_REQUEST["envo_phpcode"]) ? $_REQUEST["envo_phpcode"] : '', '', '', array('id' => 'envo_phpcode', 'class' => 'form-control d-none'));
             ?>
 
           </div>

@@ -47,7 +47,7 @@ if ($page == 'plugins') {
 		echo $Html -> addScript('assets/js/global_js/hookorder.min.js');
 	}
 	// Plugin Javascript
-	echo $Html -> addScript('assets/js/script.plugins.min.js');
+	echo $Html -> addScript('assets/js/script.plugins.js');
 
 	echo PHP_EOL . '<!-- End JS AKP Plugins -->' . PHP_EOL;
 

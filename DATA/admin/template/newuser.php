@@ -78,7 +78,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_name', $_REQUEST["envo_name"], 'envo_name', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', isset($_REQUEST["envo_name"]) ? $_REQUEST["envo_name"] : '', 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -99,7 +99,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_email', $_REQUEST["envo_email"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_email', isset($_REQUEST["envo_email"]) ? $_REQUEST["envo_email"] : '', '', 'form-control');
                       ?>
 
                     </div>
@@ -120,7 +120,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_username', $_REQUEST["envo_username"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_username', isset($_REQUEST["envo_username"]) ? $_REQUEST["envo_username"] : '', '', 'form-control');
                       ?>
 
                     </div>
@@ -220,7 +220,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_password', $_REQUEST["envo_password"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_password', isset($_REQUEST["envo_password"]) ? $_REQUEST["envo_password"] : '', '', 'form-control');
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('span', '', 'label password-indicator-label-absolute');
                         ?>
@@ -245,7 +245,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_confirm_password', $_REQUEST["envo_confirm_password"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_confirm_password', isset($_REQUEST["envo_confirm_password"]) ? $_REQUEST["envo_confirm_password"] : '', '', 'form-control');
                         ?>
 
                       </div>
