@@ -42,7 +42,7 @@
 
     <!-- Header -->
     <header class="site-header">
-      <h1 class="site-title"><img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/Logo_Orbyt_2.png" width="400" height="169" alt="ORBYT s.r.o." /></h1>
+      <h1 class="site-title"><img src="/template/<?= ENVO_TEMPLATE ?>/assets/images/Logo_Orbyt_3.png" width="400" height="169" alt="ORBYT s.r.o." /></h1>
     </header>
 
     <!-- Intro -->
